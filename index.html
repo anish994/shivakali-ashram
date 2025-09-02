@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, shrink-to-fit=no">
     <title>SHIVAKALI ASHRAM - 500+ Years of Authentic Vedic Wisdom</title>
     <meta name="description" content="Experience authentic spiritual guidance from Acharya Anish at Tegharia Nishikanan SHIVAKALI ASHRAM, Kolkata. Get personalized birth chart analysis, numerology readings, and spiritual consultations.">
     <meta name="keywords" content="SHIVAKALI ASHRAM, Vedic astrology, birth chart analysis, numerology, spiritual consultation, Acharya Anish, Kolkata ashram, spiritual guidance">
@@ -33,18 +33,24 @@
         }
 
         body {
-            font-family: 'Georgia', 'Times New Roman', serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Georgia', 'Times New Roman', serif;
             line-height: 1.6;
             color: #333;
             background: linear-gradient(135deg, var(--sacred-dark) 0%, var(--sacred-blue) 50%, #0f3460 100%);
             min-height: 100vh;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
         }
 
         /* Header Section */
         .header {
             background: linear-gradient(135deg, var(--sacred-red) 0%, var(--sacred-gold) 100%);
-            padding: 2rem 0;
+            padding: 1.5rem 0;
             text-align: center;
             position: relative;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
@@ -67,12 +73,11 @@
         }
 
         .om-symbol {
-            font-size: 4rem;
+            font-size: 3rem;
             color: white;
             text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             display: block;
-            animation: sacredGlow 3s ease-in-out infinite alternate;
         }
 
         @keyframes sacredGlow {
@@ -81,28 +86,28 @@
         }
 
         .ashram-title {
-            font-size: 3.5rem;
+            font-size: 2.2rem;
             font-weight: bold;
             color: white;
             text-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
             margin-bottom: 0.5rem;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
 
         .ashram-subtitle {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             color: var(--sacred-cream);
             font-style: italic;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
         .ashram-location {
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             color: rgba(255, 255, 255, 0.9);
-            margin-top: 1rem;
-            padding: 1rem 2rem;
+            margin-top: 0.8rem;
+            padding: 0.8rem 1.5rem;
             background: rgba(0, 0, 0, 0.2);
-            border-radius: 25px;
+            border-radius: 20px;
             display: inline-block;
         }
 
@@ -132,20 +137,20 @@
         }
 
         .hero-description {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #555;
-            margin-bottom: 2rem;
-            line-height: 1.8;
-            max-width: 800px;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
         }
 
         .sanskrit-blessing {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: var(--sacred-deep-red);
             font-weight: bold;
-            margin: 2rem 0;
+            margin: 1.5rem 0;
             padding: 1rem;
             border: 2px solid var(--sacred-gold);
             border-radius: 15px;
@@ -158,10 +163,10 @@
         }
 
         .section-title {
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: white;
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
 
@@ -430,61 +435,28 @@
         /* Exclusive Services Card Styling */
         .exclusive-services-card {
             background: linear-gradient(135deg, var(--sacred-red) 0%, var(--sacred-gold) 100%);
-            border-radius: 25px;
-            padding: 4px;
+            border-radius: 20px;
+            padding: 3px;
             cursor: pointer;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            max-width: 600px;
-            margin: 0 auto 3rem;
-            box-shadow: 
-                0 15px 35px rgba(220, 20, 60, 0.3),
-                0 0 60px rgba(255, 215, 0, 0.2);
-            animation: exclusiveGlow 4s ease-in-out infinite alternate;
+            max-width: 550px;
+            margin: 0 auto 2rem;
+            box-shadow: 0 10px 25px rgba(220, 20, 60, 0.3);
         }
 
-        @keyframes exclusiveGlow {
-            0% { 
-                box-shadow: 
-                    0 15px 35px rgba(220, 20, 60, 0.3),
-                    0 0 60px rgba(255, 215, 0, 0.2);
-            }
-            100% { 
-                box-shadow: 
-                    0 20px 45px rgba(220, 20, 60, 0.4),
-                    0 0 80px rgba(255, 215, 0, 0.3);
-            }
-        }
 
         .exclusive-services-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 
-                0 25px 50px rgba(220, 20, 60, 0.4),
-                0 0 100px rgba(255, 215, 0, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(220, 20, 60, 0.4);
         }
 
-        .exclusive-services-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.1) 50%, transparent 60%);
-            transform: translateX(-100%);
-            animation: shimmer 3s infinite;
-        }
-
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
 
         .exclusive-services-card > div {
             background: var(--sacred-cream);
-            border-radius: 21px;
-            padding: 3rem 2rem;
+            border-radius: 17px;
+            padding: 2rem 1.5rem;
             text-align: center;
             position: relative;
             z-index: 2;
@@ -527,21 +499,6 @@
             font-size: 1.1rem;
             font-weight: bold;
             color: var(--sacred-deep-red);
-            animation: ctaPulse 2s ease-in-out infinite;
-        }
-
-        @keyframes ctaPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .cta-icon {
-            animation: sparkle 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes sparkle {
-            0% { opacity: 0.7; }
-            100% { opacity: 1; }
         }
 
         /* Services Modal Styling */
@@ -1105,10 +1062,8 @@
         <section class="hero-section fade-in">
             <h2 class="hero-title">Welcome to Authentic Spiritual Guidance</h2>
             <p class="hero-description">
-                Experience the ancient wisdom of our 500+ year spiritual lineage through personalized consultations 
-                with <strong>Acharya Anish</strong>, creator of both the Everything Gateway and SHIVAKALI ASHRAM platforms. 
-                Unlike automated spiritual tools, receive genuine guidance from a qualified spiritual practitioner who 
-                bridges traditional Vedic knowledge with modern understanding.
+                Experience authentic Vedic wisdom through personalized consultations with <strong>Acharya Anish</strong>. 
+                Get genuine spiritual guidance from a qualified practitioner who bridges ancient traditions with modern understanding.
             </p>
             <div class="sanskrit-blessing">
                 🙏 सर्वे भवन्तु सुखिनः सर्वे सन्तु निरामयाः 🙏<br>
@@ -1145,8 +1100,7 @@
                     <div class="consultation-badge">Premium Spiritual Consultation</div>
                     <h2 class="consultation-title">Ready for Your Spiritual Journey?</h2>
                     <p class="consultation-subtitle">
-                        Get authentic guidance from Acharya Anish, the visionary behind both 
-                        Everything Gateway and SHIVAKALI ASHRAM platforms.
+                        Get authentic spiritual guidance from Acharya Anish.
                     </p>
 
                     <div style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(220, 20, 60, 0.1) 100%); border: 2px solid var(--sacred-gold); border-radius: 15px; padding: 2rem; margin: 2rem 0;">
