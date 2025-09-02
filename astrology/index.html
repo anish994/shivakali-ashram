@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔮 Ancient Astrology - SHIVAKALI ASHRAM</title>
+    <meta name="description" content="Vedic astrology wisdom: birth charts, planetary influences, cosmic predictions from 500+ years of ancestral knowledge">
+    
+    <style>
+        /* Sacred Design System - Inherited from main site */
+        :root {
+            --saffron: #FF9933;
+            --sacred-gold: #FFD700;
+            --divine-purple: #6B46C1;
+            --sacred-white: #FFF8DC;
+            --warm-cream: #FAF0E6;
+            --dark-charcoal: #2D2D2D;
+            --soft-shadow: rgba(255, 153, 51, 0.3);
+            --font-sacred: 'Georgia', 'Times New Roman', serif;
+            --font-modern: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --sacred-lg: 24px;
+            --sacred-xl: 32px;
+            --sacred-2xl: 48px;
+            --sacred-glow: 0 0 20px var(--soft-shadow);
+            --divine-shadow: 0 8px 25px rgba(107, 70, 193, 0.2);
+            --sacred-border: 2px solid var(--sacred-gold);
+            --transition-sacred: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-modern);
+            background: linear-gradient(135deg, 
+                var(--dark-charcoal) 0%, 
+                var(--divine-purple) 50%, 
+                var(--saffron) 100%);
+            min-height: 100vh;
+            color: var(--sacred-white);
+        }
+        
+        .sacred-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--sacred-lg);
+        }
+        
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: var(--sacred-xl);
+            font-size: 0.9rem;
+            color: var(--warm-cream);
+        }
+        
+        .breadcrumb a {
+            color: var(--sacred-gold);
+            text-decoration: none;
+            transition: var(--transition-sacred);
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--saffron);
+            text-shadow: var(--sacred-glow);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--sacred-2xl);
+        }
+        
+        .section-icon {
+            font-size: 4rem;
+            color: var(--sacred-gold);
+            text-shadow: var(--sacred-glow);
+            display: block;
+            margin-bottom: var(--sacred-lg);
+        }
+        
+        .section-title {
+            font-family: var(--font-sacred);
+            font-size: 3rem;
+            color: var(--sacred-gold);
+            text-shadow: 3px 3px 6px var(--soft-shadow);
+            margin-bottom: var(--sacred-lg);
+        }
+        
+        .section-description {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--sacred-white);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .wisdom-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--sacred-xl);
+            margin: var(--sacred-2xl) 0;
+        }
+        
+        .wisdom-card {
+            background: linear-gradient(135deg, 
+                rgba(255, 215, 0, 0.1) 0%, 
+                rgba(107, 70, 193, 0.2) 100%);
+            border: var(--sacred-border);
+            border-radius: 16px;
+            padding: var(--sacred-xl);
+            text-align: center;
+            text-decoration: none;
+            color: var(--sacred-white);
+            transition: var(--transition-sacred);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            box-shadow: var(--divine-shadow);
+        }
+        
+        .wisdom-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--sacred-glow), var(--divine-shadow);
+            border-color: var(--saffron);
+        }
+        
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--sacred-lg);
+            display: block;
+            filter: drop-shadow(0 0 10px var(--soft-shadow));
+        }
+        
+        .card-title {
+            font-family: var(--font-sacred);
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--sacred-gold);
+            margin-bottom: var(--sacred-lg);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .card-description {
+            line-height: 1.6;
+            color: var(--warm-cream);
+            opacity: 0.95;
+            margin-bottom: var(--sacred-lg);
+        }
+        
+        .card-meta {
+            font-size: 0.9rem;
+            color: var(--sacred-gold);
+            font-weight: 600;
+            opacity: 0.8;
+        }
+        
+        /* Return Navigation */
+        .return-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--sacred-xl);
+        }
+        
+        .return-btn {
+            background: rgba(255, 215, 0, 0.2);
+            color: var(--sacred-gold);
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid var(--sacred-gold);
+            backdrop-filter: blur(10px);
+            transition: var(--transition-sacred);
+        }
+        
+        .return-btn:hover {
+            background: var(--sacred-gold);
+            color: var(--dark-charcoal);
+            box-shadow: var(--sacred-glow);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .wisdom-grid {
+                grid-template-columns: 1fr;
+                gap: var(--sacred-lg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sacred-container">
+        <!-- Navigation -->
+        <div class="return-navigation">
+            <a href="../index.html" class="return-btn">← Back to Ashram</a>
+            <a href="https://cheery-flan-dc1088.netlify.app" class="return-btn">🌐 Gateway</a>
+        </div>
+        
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <a href="../index.html">🕉️ SHIVAKALI ASHRAM</a>
+            <span>→</span>
+            <span>🔮 Ancient Astrology</span>
+        </nav>
+        
+        <!-- Section Header -->
+        <header class="section-header">
+            <div class="section-icon">🔮</div>
+            <h1 class="section-title">Ancient Astrology</h1>
+            <p class="section-description">
+                Dive deep into the cosmic wisdom of Vedic astrology. Through 500+ years of ancestral knowledge, 
+                explore birth charts, planetary influences, and the sacred timing that governs our lives. 
+                Each card below opens a gateway to specific astrological wisdom and guidance.
+            </p>
+        </header>
+        
+        <!-- Astrology Categories -->
+        <section class="wisdom-grid">
+            <a href="birth-charts.html" class="wisdom-card">
+                <span class="card-icon">🪐</span>
+                <h3 class="card-title">Birth Chart Analysis</h3>
+                <p class="card-description">
+                    Complete Vedic birth chart reading, planetary positions, house analysis, 
+                    and personalized cosmic blueprint interpretation.
+                </p>
+                <div class="card-meta">Deep Personal Analysis</div>
+            </a>
+            
+            <a href="planetary-influences.html" class="wisdom-card">
+                <span class="card-icon">🌟</span>
+                <h3 class="card-title">Planetary Influences</h3>
+                <p class="card-description">
+                    Understanding how each planet affects your life, personality, relationships, 
+                    and spiritual journey through traditional Vedic knowledge.
+                </p>
+                <div class="card-meta">9 Planetary Powers</div>
+            </a>
+            
+            <a href="cosmic-predictions.html" class="wisdom-card">
+                <span class="card-icon">🔮</span>
+                <h3 class="card-title">Cosmic Predictions</h3>
+                <p class="card-description">
+                    Future predictions based on planetary transits, dasha periods, 
+                    and cosmic cycles that influence life events and opportunities.
+                </p>
+                <div class="card-meta">Timeline Guidance</div>
+            </a>
+            
+            <a href="sacred-timing.html" class="wisdom-card">
+                <span class="card-icon">⏰</span>
+                <h3 class="card-title">Sacred Timing</h3>
+                <p class="card-description">
+                    Muhurta - auspicious timing for important life events, ceremonies, 
+                    business ventures, and spiritual practices.
+                </p>
+                <div class="card-meta">Perfect Moments</div>
+            </a>
+            
+            <a href="compatibility.html" class="wisdom-card">
+                <span class="card-icon">💕</span>
+                <h3 class="card-title">Relationship Compatibility</h3>
+                <p class="card-description">
+                    Marriage compatibility analysis, relationship dynamics, 
+                    and guidance for harmonious partnerships through Vedic matching.
+                </p>
+                <div class="card-meta">Sacred Unions</div>
+            </a>
+            
+            <a href="career-guidance.html" class="wisdom-card">
+                <span class="card-icon">🎯</span>
+                <h3 class="card-title">Career & Purpose</h3>
+                <p class="card-description">
+                    Dharmic path analysis, career guidance based on planetary strengths, 
+                    and discovering your life's true calling through cosmic wisdom.
+                </p>
+                <div class="card-meta">Life Mission</div>
+            </a>
+            
+            <a href="remedial-measures.html" class="wisdom-card">
+                <span class="card-icon">💎</span>
+                <h3 class="card-title">Remedial Measures</h3>
+                <p class="card-description">
+                    Traditional remedies for planetary afflictions: gemstones, mantras, 
+                    rituals, and spiritual practices for cosmic harmony.
+                </p>
+                <div class="card-meta">Healing Solutions</div>
+            </a>
+            
+            <a href="advanced-techniques.html" class="wisdom-card">
+                <span class="card-icon">🧙‍♂️</span>
+                <h3 class="card-title">Advanced Techniques</h3>
+                <p class="card-description">
+                    Specialized astrological techniques: Nadi astrology, KP system, 
+                    divisional charts, and esoteric methods from our lineage.
+                </p>
+                <div class="card-meta">Master Level</div>
+            </a>
+            
+            <a href="cosmic-gallery.html" class="wisdom-card">
+                <span class="card-icon">📸</span>
+                <h3 class="card-title">Sacred Images & Charts</h3>
+                <p class="card-description">
+                    Visual gallery of astrological charts, cosmic imagery, traditional diagrams, 
+                    and sacred geometric patterns used in Vedic astrology.
+                </p>
+                <div class="card-meta">Visual Wisdom</div>
+            </a>
+        </section>
+    </div>
+</body>
+</html>

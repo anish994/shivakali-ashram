@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🕉️ SHIVAKALI ASHRAM - Ancient Vedic Wisdom & Astrology</title>
+    <meta name="description" content="500+ years of authentic Vedic astrology and spiritual wisdom from the lineage of Anish Acharya. Sacred guidance for modern seekers.">
+    <meta name="keywords" content="Vedic astrology, spiritual wisdom, ancient knowledge, SHIVAKALI ASHRAM, Anish Acharya, birth charts, cosmic guidance">
+    <meta name="author" content="Anish Acharya - SHIVAKALI ASHRAM">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="SHIVAKALI ASHRAM - 500+ Years of Sacred Wisdom">
+    <meta property="og:description" content="Authentic Vedic astrology and spiritual guidance from ancient lineage">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://shivakali-ashram.netlify.app">
+    
+    <style>
+        /* ============================= SACRED DESIGN SYSTEM ============================= */
+        :root {
+            /* Sacred Color Palette */
+            --saffron: #FF9933;
+            --saffron-light: #FFB366;
+            --saffron-dark: #CC7A29;
+            --sacred-gold: #FFD700;
+            --deep-orange: #FF6600;
+            --spiritual-red: #DC143C;
+            --divine-purple: #6B46C1;
+            --sacred-white: #FFF8DC;
+            --warm-cream: #FAF0E6;
+            --dark-charcoal: #2D2D2D;
+            --soft-shadow: rgba(255, 153, 51, 0.3);
+            
+            /* Sacred Typography */
+            --font-sacred: 'Georgia', 'Times New Roman', serif;
+            --font-modern: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
+            /* Sacred Spacing */
+            --sacred-xs: 4px;
+            --sacred-sm: 8px;
+            --sacred-md: 16px;
+            --sacred-lg: 24px;
+            --sacred-xl: 32px;
+            --sacred-2xl: 48px;
+            --sacred-3xl: 64px;
+            
+            /* Sacred Effects */
+            --sacred-glow: 0 0 20px var(--soft-shadow);
+            --divine-shadow: 0 8px 25px rgba(107, 70, 193, 0.2);
+            --sacred-border: 2px solid var(--sacred-gold);
+            --transition-sacred: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-modern);
+            background: linear-gradient(135deg, 
+                var(--dark-charcoal) 0%, 
+                var(--divine-purple) 50%, 
+                var(--saffron-dark) 100%);
+            min-height: 100vh;
+            color: var(--sacred-white);
+            overflow-x: hidden;
+        }
+        
+        /* Sacred Background Pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(220, 20, 60, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(107, 70, 193, 0.05) 0%, transparent 70%);
+            z-index: -2;
+            animation: sacredPulse 8s ease-in-out infinite alternate;
+        }
+        
+        @keyframes sacredPulse {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.7; }
+        }
+        
+        /* Sacred Container */
+        .sacred-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--sacred-lg);
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Sacred Header */
+        .sacred-header {
+            text-align: center;
+            padding: var(--sacred-3xl) 0;
+            position: relative;
+        }
+        
+        .om-symbol {
+            font-size: 4rem;
+            color: var(--sacred-gold);
+            text-shadow: var(--sacred-glow);
+            animation: divineRotate 10s linear infinite;
+            display: block;
+            margin-bottom: var(--sacred-lg);
+        }
+        
+        @keyframes divineRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .ashram-title {
+            font-family: var(--font-sacred);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: bold;
+            color: var(--sacred-gold);
+            text-shadow: 3px 3px 6px var(--soft-shadow);
+            margin-bottom: var(--sacred-md);
+            letter-spacing: 2px;
+        }
+        
+        .lineage-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: var(--warm-cream);
+            font-style: italic;
+            margin-bottom: var(--sacred-xl);
+            opacity: 0.9;
+        }
+        
+        .sacred-description {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--sacred-white);
+            max-width: 800px;
+            margin: 0 auto var(--sacred-2xl);
+            text-align: center;
+        }
+        
+        /* Sacred Card Grid */
+        .wisdom-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--sacred-xl);
+            margin: var(--sacred-3xl) 0;
+        }
+        
+        .wisdom-card {
+            background: linear-gradient(135deg, 
+                rgba(255, 215, 0, 0.1) 0%, 
+                rgba(107, 70, 193, 0.2) 100%);
+            border: var(--sacred-border);
+            border-radius: 16px;
+            padding: var(--sacred-xl);
+            text-align: center;
+            text-decoration: none;
+            color: var(--sacred-white);
+            transition: var(--transition-sacred);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            box-shadow: var(--divine-shadow);
+        }
+        
+        .wisdom-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, 
+                rgba(255, 215, 0, 0.1) 0%, 
+                transparent 70%);
+            opacity: 0;
+            transition: var(--transition-sacred);
+        }
+        
+        .wisdom-card:hover::before {
+            opacity: 1;
+            animation: sacredRipple 2s ease-out;
+        }
+        
+        @keyframes sacredRipple {
+            0% { transform: scale(0) rotate(0deg); }
+            100% { transform: scale(1) rotate(180deg); }
+        }
+        
+        .wisdom-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--sacred-glow), var(--divine-shadow);
+            border-color: var(--saffron);
+        }
+        
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: var(--sacred-lg);
+            display: block;
+            filter: drop-shadow(0 0 10px var(--soft-shadow));
+        }
+        
+        .card-title {
+            font-family: var(--font-sacred);
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--sacred-gold);
+            margin-bottom: var(--sacred-md);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .card-description {
+            line-height: 1.6;
+            color: var(--warm-cream);
+            opacity: 0.95;
+        }
+        
+        /* Sacred Navigation */
+        .return-gateway {
+            position: fixed;
+            top: var(--sacred-lg);
+            left: var(--sacred-lg);
+            background: rgba(255, 215, 0, 0.2);
+            color: var(--sacred-gold);
+            padding: var(--sacred-sm) var(--sacred-md);
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid var(--sacred-gold);
+            backdrop-filter: blur(10px);
+            transition: var(--transition-sacred);
+            z-index: 1000;
+        }
+        
+        .return-gateway:hover {
+            background: var(--sacred-gold);
+            color: var(--dark-charcoal);
+            box-shadow: var(--sacred-glow);
+        }
+        
+        /* Sacred Footer */
+        .sacred-footer {
+            text-align: center;
+            padding: var(--sacred-3xl) 0;
+            border-top: 1px solid rgba(255, 215, 0, 0.3);
+            margin-top: var(--sacred-3xl);
+        }
+        
+        .footer-om {
+            font-size: 2rem;
+            color: var(--sacred-gold);
+            margin-bottom: var(--sacred-md);
+        }
+        
+        .footer-text {
+            color: var(--warm-cream);
+            opacity: 0.8;
+            font-style: italic;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sacred-container {
+                padding: var(--sacred-md);
+            }
+            
+            .wisdom-grid {
+                grid-template-columns: 1fr;
+                gap: var(--sacred-lg);
+            }
+            
+            .return-gateway {
+                position: static;
+                display: inline-block;
+                margin-bottom: var(--sacred-lg);
+            }
+        }
+        
+        /* Sacred Animations */
+        .fade-in {
+            animation: sacredFadeIn 1s ease-out forwards;
+            opacity: 0;
+        }
+        
+        @keyframes sacredFadeIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0);
+            }
+        }
+        
+        .wisdom-card:nth-child(1) { animation-delay: 0.1s; }
+        .wisdom-card:nth-child(2) { animation-delay: 0.2s; }
+        .wisdom-card:nth-child(3) { animation-delay: 0.3s; }
+        .wisdom-card:nth-child(4) { animation-delay: 0.4s; }
+        .wisdom-card:nth-child(5) { animation-delay: 0.5s; }
+        .wisdom-card:nth-child(6) { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <!-- Return to Gateway Navigation -->
+    <a href="https://cheery-flan-dc1088.netlify.app" class="return-gateway">
+        ← Return to Gateway
+    </a>
+    
+    <div class="sacred-container">
+        <!-- Sacred Header -->
+        <header class="sacred-header">
+            <div class="om-symbol">🕉️</div>
+            <h1 class="ashram-title">SHIVAKALI ASHRAM</h1>
+            <p class="lineage-subtitle">500+ Years of Ancient Vedic Wisdom</p>
+            <div class="sacred-description">
+                Welcome to the sacred digital space of our ancestral lineage. For over five centuries, 
+                the wisdom of Vedic astrology and spiritual guidance has been passed down through generations. 
+                Here, ancient knowledge meets modern seekers on their path to cosmic understanding.
+            </div>
+        </header>
+        
+        <!-- Sacred Wisdom Categories -->
+        <section class="wisdom-grid">
+            <a href="astrology/index.html" class="wisdom-card fade-in">
+                <span class="card-icon">🔮</span>
+                <h3 class="card-title">Ancient Astrology</h3>
+                <p class="card-description">
+                    Vedic birth charts, planetary influences, cosmic predictions, and sacred timing. 
+                    Unlock the secrets written in the stars through traditional astrological wisdom.
+                </p>
+            </a>
+            
+            <a href="lineage/index.html" class="wisdom-card fade-in">
+                <span class="card-icon">📿</span>
+                <h3 class="card-title">Sacred Lineage</h3>
+                <p class="card-description">
+                    The 500-year journey of our ancestral knowledge, family traditions, sacred practices, 
+                    and the continuous flow of divine wisdom through generations.
+                </p>
+            </a>
+            
+            <a href="wisdom/index.html" class="wisdom-card fade-in">
+                <span class="card-icon">📜</span>
+                <h3 class="card-title">Spiritual Wisdom</h3>
+                <p class="card-description">
+                    Ancient texts, sacred mantras, meditation practices, and timeless teachings 
+                    that illuminate the path to spiritual awakening and self-realization.
+                </p>
+            </a>
+            
+            <a href="cosmic-calendar/index.html" class="wisdom-card fade-in">
+                <span class="card-icon">🌙</span>
+                <h3 class="card-title">Cosmic Calendar</h3>
+                <p class="card-description">
+                    Sacred timing, auspicious moments, planetary transits, and celestial events 
+                    that guide spiritual practices and life decisions according to cosmic rhythms.
+                </p>
+            </a>
+            
+            <a href="guidance/index.html" class="wisdom-card fade-in">
+                <span class="card-icon">🙏</span>
+                <h3 class="card-title">Personal Guidance</h3>
+                <p class="card-description">
+                    Individual consultations, birth chart analysis, spiritual counseling, 
+                    and personalized guidance for your unique dharmic path and life purpose.
+                </p>
+            </a>
+            
+            <a href="remedies/index.html" class="wisdom-card fade-in">
+                <span class="card-icon">💎</span>
+                <h3 class="card-title">Sacred Remedies</h3>
+                <p class="card-description">
+                    Traditional remedial measures, gemstone guidance, ritual practices, 
+                    and spiritual solutions for planetary imbalances and life challenges.
+                </p>
+            </a>
+        </section>
+        
+        <!-- Sacred Footer -->
+        <footer class="sacred-footer">
+            <div class="footer-om">🕉️</div>
+            <p class="footer-text">
+                "The light of knowledge dispels the darkness of ignorance"<br>
+                - Ancient Vedic Wisdom
+            </p>
+        </footer>
+    </div>
+    
+    <script>
+        // Sacred Page Animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Trigger fade-in animations
+            const cards = document.querySelectorAll('.fade-in');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.animationPlayState = 'running';
+                }, index * 100);
+            });
+            
+            // Sacred hover sound effects (optional)
+            const wisdomCards = document.querySelectorAll('.wisdom-card');
+            wisdomCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    // Add subtle haptic feedback for mobile
+                    if (navigator.vibrate) {
+                        navigator.vibrate(50);
+                    }
+                });
+            });
+            
+            console.log('🕉️ SHIVAKALI ASHRAM - Sacred wisdom platform initialized');
+        });
+    </script>
+</body>
+</html>
