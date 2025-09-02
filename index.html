@@ -1013,6 +1013,71 @@
                 border: 2px solid var(--sacred-gold);
             }
         }
+
+        /* Disguised Gateway Navigation */
+        .gateway-nav-disguise {
+            background: rgba(255, 248, 220, 0.95);
+            padding: 1rem 0;
+            border-bottom: 2px solid var(--sacred-gold);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .back-to-gateway-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.8rem 2rem;
+            background: linear-gradient(135deg, var(--sacred-red) 0%, var(--sacred-gold) 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(220, 20, 60, 0.2);
+        }
+        
+        .back-to-gateway-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(220, 20, 60, 0.3);
+            text-decoration: none;
+            color: white;
+        }
+        
+        .nav-icon {
+            font-size: 1.2rem;
+            animation: rotate 3s ease-in-out infinite;
+        }
+        
+        @keyframes rotate {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(180deg); }
+        }
+        
+        .nav-text {
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Mobile adjustments for navigation */
+        @media (max-width: 768px) {
+            .gateway-nav-disguise {
+                padding: 0.8rem 1rem;
+            }
+            
+            .back-to-gateway-btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.9rem;
+                border-radius: 20px;
+            }
+            
+            .nav-icon {
+                font-size: 1.1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1027,6 +1092,14 @@
         </div>
     </header>
 
+    <!-- Disguised Gateway Navigation -->
+    <div class="gateway-nav-disguise">
+        <a href="https://everything-gateway.netlify.app" class="back-to-gateway-btn" target="_blank">
+            <span class="nav-icon">🌐</span>
+            <span class="nav-text">Explore More Categories</span>
+        </a>
+    </div>
+    
     <div class="main-container">
         <!-- Hero Section -->
         <section class="hero-section fade-in">
