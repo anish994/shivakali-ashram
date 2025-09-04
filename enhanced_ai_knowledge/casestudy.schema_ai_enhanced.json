@@ -1,0 +1,583 @@
+{
+  "$id": "https://shivakali-ashram.local/astro-knowledge/schema/casestudy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CaseStudy",
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "category",
+    "subject_profile",
+    "analysis",
+    "outcome"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "study_type": {
+      "type": "string",
+      "enum": [
+        "jyotisha",
+        "palmistry",
+        "graphology",
+        "physiognomy",
+        "vastu",
+        "integrated",
+        "comparative"
+      ]
+    },
+    "complexity": {
+      "type": "string",
+      "enum": [
+        "simple",
+        "moderate",
+        "complex",
+        "advanced"
+      ]
+    },
+    "privacy_level": {
+      "type": "string",
+      "enum": [
+        "anonymous",
+        "pseudonymous",
+        "public",
+        "educational"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "learning_objectives": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "subject_profile": {
+      "type": "object",
+      "required": [
+        "demographics",
+        "background"
+      ],
+      "properties": {
+        "demographics": {
+          "type": "object",
+          "properties": {
+            "age_range": {
+              "type": "string"
+            },
+            "gender": {
+              "type": "string"
+            },
+            "occupation": {
+              "type": "string"
+            },
+            "location": {
+              "type": "string"
+            },
+            "cultural_background": {
+              "type": "string"
+            }
+          }
+        },
+        "background": {
+          "type": "string"
+        },
+        "presenting_question": {
+          "type": "string"
+        },
+        "goals": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "challenges": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "data_collection": {
+      "type": "object",
+      "properties": {
+        "methods_used": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "birth_data": {
+          "type": "object",
+          "properties": {
+            "date": {
+              "type": "string"
+            },
+            "time": {
+              "type": "string"
+            },
+            "location": {
+              "type": "string"
+            },
+            "accuracy": {
+              "type": "string"
+            }
+          }
+        },
+        "physical_samples": {
+          "type": "object",
+          "properties": {
+            "handwriting_sample": {
+              "type": "boolean"
+            },
+            "palm_prints": {
+              "type": "boolean"
+            },
+            "photographs": {
+              "type": "boolean"
+            },
+            "quality_notes": {
+              "type": "string"
+            }
+          }
+        },
+        "interview_data": {
+          "type": "object",
+          "properties": {
+            "duration": {
+              "type": "string"
+            },
+            "format": {
+              "type": "string"
+            },
+            "key_insights": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "analysis": {
+      "type": "object",
+      "required": [
+        "methods",
+        "findings"
+      ],
+      "properties": {
+        "methods": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "primary_analysis": {
+          "type": "string"
+        },
+        "secondary_analysis": {
+          "type": "string"
+        },
+        "findings": {
+          "type": "object",
+          "properties": {
+            "personality_traits": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "strengths": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "challenges": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "patterns": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "correlations": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "synthesis": {
+          "type": "string"
+        },
+        "confidence_level": {
+          "type": "string",
+          "enum": [
+            "low",
+            "moderate",
+            "high",
+            "very_high"
+          ]
+        }
+      }
+    },
+    "predictions_guidance": {
+      "type": "object",
+      "properties": {
+        "predictions_made": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "prediction": {
+                "type": "string"
+              },
+              "timeframe": {
+                "type": "string"
+              },
+              "confidence": {
+                "type": "string"
+              },
+              "basis": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "guidance_given": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "recommendations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "remedial_measures": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "outcome": {
+      "type": "object",
+      "required": [
+        "immediate_response"
+      ],
+      "properties": {
+        "immediate_response": {
+          "type": "string"
+        },
+        "client_feedback": {
+          "type": "string"
+        },
+        "follow_up_results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "timeframe": {
+                "type": "string"
+              },
+              "development": {
+                "type": "string"
+              },
+              "accuracy_assessment": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "long_term_outcome": {
+          "type": "string"
+        },
+        "accuracy_rating": {
+          "type": "string",
+          "enum": [
+            "poor",
+            "fair",
+            "good",
+            "excellent",
+            "outstanding"
+          ]
+        }
+      }
+    },
+    "lessons_learned": {
+      "type": "object",
+      "properties": {
+        "successful_techniques": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "challenges_encountered": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "improvements_needed": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "theoretical_insights": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "practical_insights": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "educational_value": {
+      "type": "object",
+      "properties": {
+        "key_teaching_points": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "common_mistakes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "best_practices": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "discussion_questions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "methodology_notes": {
+      "type": "string"
+    },
+    "ethical_considerations": {
+      "type": "string"
+    },
+    "limitations": {
+      "type": "string"
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "relevance": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "practitioner_info": {
+      "type": "object",
+      "properties": {
+        "experience_level": {
+          "type": "string"
+        },
+        "specializations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "credentials": {
+          "type": "string"
+        }
+      }
+    },
+    "peer_review": {
+      "type": "object",
+      "properties": {
+        "reviewed": {
+          "type": "boolean"
+        },
+        "reviewers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "review_comments": {
+          "type": "string"
+        },
+        "approved": {
+          "type": "boolean"
+        }
+      }
+    },
+    "publication_info": {
+      "type": "object",
+      "properties": {
+        "anonymous": {
+          "type": "boolean"
+        },
+        "consent_obtained": {
+          "type": "boolean"
+        },
+        "educational_use_only": {
+          "type": "boolean"
+        },
+        "commercial_restrictions": {
+          "type": "boolean"
+        }
+      }
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "updated_at": {
+      "type": "string"
+    }
+  },
+  "ai_enhancement": {
+    "ai_metadata": {
+      "system_id": "casestudy.schema",
+      "ai_category": "vedic_wisdom",
+      "complexity_level": "foundational",
+      "concept_hierarchy": [],
+      "key_triggers": [
+        "spiritual guidance",
+        "ancient wisdom",
+        "vedic knowledge",
+        "sacred teachings",
+        "divine guidance"
+      ],
+      "response_patterns": [],
+      "integration_points": [],
+      "emotional_resonance": [],
+      "practical_applications": [],
+      "synthesis_rules": [],
+      "conversation_starters": [],
+      "depth_indicators": [],
+      "user_journey_mapping": []
+    },
+    "chatbot_context": {
+      "primary_use_cases": [
+        "general_spiritual_guidance",
+        "wisdom_transmission",
+        "practical_spirituality"
+      ],
+      "question_patterns": [
+        "I need spiritual guidance about...",
+        "Can you help me understand..."
+      ],
+      "response_templates": [
+        "Beloved seeker, the wisdom of {system} reveals {insight}.",
+        "In the ancient teachings, {situation} is understood as {meaning}."
+      ],
+      "personality_traits": [
+        "wise",
+        "compassionate",
+        "ancient",
+        "sacred",
+        "guiding"
+      ],
+      "wisdom_quotes": [
+        "The ancient wisdom flows through you when you are ready",
+        "Seek and you shall find, knock and doors shall open"
+      ],
+      "analogies": [
+        "Like a river flowing to the ocean, your spiritual journey leads to union with the Divine"
+      ],
+      "practical_advice": [
+        "Study sacred texts daily for wisdom transmission",
+        "Practice gratitude to align with divine flow"
+      ],
+      "integration_with_other_systems": [
+        "Integrate with all systems based on user needs"
+      ]
+    },
+    "ai_processing_hints": {
+      "priority_concepts": [
+        "wisdom",
+        "guidance",
+        "spiritual_development"
+      ],
+      "context_clues": [
+        "emotional_state",
+        "spiritual_development_level",
+        "previous_experience",
+        "specific_situation",
+        "urgency_level"
+      ],
+      "emotional_markers": [
+        "confusion",
+        "excitement",
+        "fear",
+        "wonder",
+        "gratitude",
+        "overwhelm",
+        "curiosity"
+      ],
+      "complexity_levels": [
+        "beginner",
+        "intermediate",
+        "advanced",
+        "master"
+      ],
+      "prerequisite_knowledge": [
+        "spiritual_openness",
+        "sincere_seeking"
+      ],
+      "advanced_applications": [
+        "spiritual_teaching",
+        "wisdom_transmission",
+        "advanced_practice"
+      ]
+    }
+  },
+  "enhanced_version": "1.0",
+  "ai_optimized": true
+}

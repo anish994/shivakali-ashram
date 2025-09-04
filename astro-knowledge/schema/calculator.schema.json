@@ -1,0 +1,103 @@
+{
+  "$id": "https://shivakali-ashram.local/astro-knowledge/schema/calculator.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Calculator",
+  "type": "object",
+  "required": ["id", "title", "category", "calculation_type", "inputs", "outputs"],
+  "properties": {
+    "id": { "type": "string" },
+    "title": { "type": "string" },
+    "subtitle": { "type": "string" },
+    "category": { "type": "string" },
+    "calculation_type": { 
+      "type": "string", 
+      "enum": ["jyotisha", "numerology", "vastu", "ayurveda", "general"] 
+    },
+    "level": { 
+      "type": "string", 
+      "enum": ["basic", "intermediate", "advanced", "expert"] 
+    },
+    "tags": { 
+      "type": "array", 
+      "items": { "type": "string" } 
+    },
+    "description": { "type": "string" },
+    "instructions": { "type": "string" },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "type", "label"],
+        "properties": {
+          "name": { "type": "string" },
+          "type": { 
+            "type": "string", 
+            "enum": ["text", "number", "date", "time", "select", "radio", "checkbox", "coordinates"] 
+          },
+          "label": { "type": "string" },
+          "placeholder": { "type": "string" },
+          "required": { "type": "boolean" },
+          "validation": { "type": "string" },
+          "options": { 
+            "type": "array", 
+            "items": { 
+              "type": "object",
+              "properties": {
+                "value": { "type": "string" },
+                "label": { "type": "string" }
+              }
+            }
+          },
+          "min": { "type": "number" },
+          "max": { "type": "number" },
+          "default": { "type": "string" }
+        }
+      }
+    },
+    "outputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "type", "label"],
+        "properties": {
+          "name": { "type": "string" },
+          "type": { 
+            "type": "string", 
+            "enum": ["text", "number", "chart", "table", "image", "report"] 
+          },
+          "label": { "type": "string" },
+          "format": { "type": "string" },
+          "interpretation": { "type": "string" }
+        }
+      }
+    },
+    "formula": { "type": "string" },
+    "algorithm": { "type": "string" },
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": { "type": "string" },
+          "source": { "type": "string" },
+          "note": { "type": "string" }
+        }
+      }
+    },
+    "examples": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "inputs": { "type": "object" },
+          "expected_output": { "type": "object" },
+          "explanation": { "type": "string" }
+        }
+      }
+    },
+    "accuracy_notes": { "type": "string" },
+    "limitations": { "type": "string" },
+    "updated_at": { "type": "string" }
+  }
+}

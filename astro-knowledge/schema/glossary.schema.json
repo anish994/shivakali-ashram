@@ -1,0 +1,26 @@
+{
+  "$id": "https://shivakali-ashram.local/astro-knowledge/schema/glossary.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Glossary",
+  "type": "object",
+  "required": ["id", "title", "entries"],
+  "properties": {
+    "id": { "type": "string" },
+    "title": { "type": "string" },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["term", "meaning"],
+        "properties": {
+          "term": { "type": "string" },
+          "sanskrit": { "type": "string" },
+          "transliteration": { "type": "string" },
+          "meaning": { "type": "string" },
+          "notes": { "type": "string" }
+        }
+      }
+    }
+  }
+}
+

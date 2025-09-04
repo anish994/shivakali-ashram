@@ -1,0 +1,19 @@
+{
+  "integration_guide": {
+    "purpose": "Guide for AI systems to utilize enhanced knowledge effectively",
+    "usage_patterns": {
+      "context_detection": "Use ai_metadata.key_triggers to identify relevant systems",
+      "response_generation": "Use chatbot_context.response_templates for natural responses",
+      "depth_assessment": "Use ai_processing_hints.complexity_levels to match user level",
+      "system_integration": "Use ai_metadata.integration_points for multi-system responses",
+      "emotional_alignment": "Use ai_metadata.emotional_resonance for tone matching"
+    },
+    "best_practices": [
+      "Always check concept_hierarchy for proper knowledge ordering",
+      "Use practical_applications for actionable guidance",
+      "Integrate wisdom_quotes and analogies for deeper connection",
+      "Follow synthesis_rules when combining multiple systems",
+      "Use user_journey_mapping for progressive guidance"
+    ]
+  }
+}

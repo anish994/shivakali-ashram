@@ -1,0 +1,11 @@
+{
+  "$schema": "../../schema/glossary.schema.json",
+  "id": "glossary-index",
+  "title": "Glossary of Core Terms",
+  "entries": [
+    { "term": "Veda", "sanskrit": "वेद", "transliteration": "Veda", "meaning": "Knowledge; canonical scriptures organized into four corpora." },
+    { "term": "Vedanga", "sanskrit": "वेदाङ्ग", "transliteration": "Vedāṅga", "meaning": "Auxiliary disciplines (six) for proper understanding of Veda." },
+    { "term": "Jyotisha", "sanskrit": "ज्योतिष", "transliteration": "Jyotiṣa", "meaning": "Astral sciences including calendrics and observational doctrines." }
+  ]
+}
+

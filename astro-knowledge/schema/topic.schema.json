@@ -1,0 +1,29 @@
+{
+  "$id": "https://shivakali-ashram.local/astro-knowledge/schema/topic.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TopicCatalog",
+  "type": "object",
+  "required": ["id", "title", "domains"],
+  "properties": {
+    "id": { "type": "string" },
+    "title": { "type": "string" },
+    "version": { "type": "string" },
+    "domains": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "items"],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "description": { "type": "string" },
+          "items": {
+            "type": "array",
+            "items": { "type": "object", "properties": { "ref": { "type": "string" } }, "required": ["ref"] }
+          }
+        }
+      }
+    }
+  }
+}
+

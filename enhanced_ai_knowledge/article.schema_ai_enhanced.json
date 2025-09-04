@@ -1,0 +1,232 @@
+{
+  "$id": "https://shivakali-ashram.local/astro-knowledge/schema/article.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Article",
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "category",
+    "level",
+    "body"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "level": {
+      "type": "string",
+      "enum": [
+        "intro",
+        "intermediate",
+        "advanced"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "related": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "updated_at": {
+      "type": "string"
+    },
+    "lineage": {
+      "type": "string"
+    },
+    "citations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "textual",
+              "book",
+              "site",
+              "doi",
+              "oral"
+            ]
+          },
+          "ref": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "ref"
+        ]
+      }
+    },
+    "evidence_trails": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "observational",
+              "experimental",
+              "textual"
+            ]
+          },
+          "summary": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "summary"
+        ]
+      }
+    },
+    "body": {
+      "type": "object",
+      "required": [
+        "summary"
+      ],
+      "properties": {
+        "summary": {
+          "type": "string"
+        },
+        "sections": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "content": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "title",
+              "content"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "ai_enhancement": {
+    "ai_metadata": {
+      "system_id": "article.schema",
+      "ai_category": "vedic_wisdom",
+      "complexity_level": "foundational",
+      "concept_hierarchy": [],
+      "key_triggers": [
+        "spiritual guidance",
+        "ancient wisdom",
+        "vedic knowledge",
+        "sacred teachings",
+        "divine guidance"
+      ],
+      "response_patterns": [],
+      "integration_points": [],
+      "emotional_resonance": [],
+      "practical_applications": [],
+      "synthesis_rules": [],
+      "conversation_starters": [],
+      "depth_indicators": [],
+      "user_journey_mapping": []
+    },
+    "chatbot_context": {
+      "primary_use_cases": [
+        "general_spiritual_guidance",
+        "wisdom_transmission",
+        "practical_spirituality"
+      ],
+      "question_patterns": [
+        "I need spiritual guidance about...",
+        "Can you help me understand..."
+      ],
+      "response_templates": [
+        "Beloved seeker, the wisdom of {system} reveals {insight}.",
+        "In the ancient teachings, {situation} is understood as {meaning}."
+      ],
+      "personality_traits": [
+        "wise",
+        "compassionate",
+        "ancient",
+        "sacred",
+        "guiding"
+      ],
+      "wisdom_quotes": [
+        "The ancient wisdom flows through you when you are ready",
+        "Seek and you shall find, knock and doors shall open"
+      ],
+      "analogies": [
+        "Like a river flowing to the ocean, your spiritual journey leads to union with the Divine"
+      ],
+      "practical_advice": [
+        "Study sacred texts daily for wisdom transmission",
+        "Practice gratitude to align with divine flow"
+      ],
+      "integration_with_other_systems": [
+        "Integrate with all systems based on user needs"
+      ]
+    },
+    "ai_processing_hints": {
+      "priority_concepts": [
+        "wisdom",
+        "guidance",
+        "spiritual_development"
+      ],
+      "context_clues": [
+        "emotional_state",
+        "spiritual_development_level",
+        "previous_experience",
+        "specific_situation",
+        "urgency_level"
+      ],
+      "emotional_markers": [
+        "confusion",
+        "excitement",
+        "fear",
+        "wonder",
+        "gratitude",
+        "overwhelm",
+        "curiosity"
+      ],
+      "complexity_levels": [
+        "beginner",
+        "intermediate",
+        "advanced",
+        "master"
+      ],
+      "prerequisite_knowledge": [
+        "spiritual_openness",
+        "sincere_seeking"
+      ],
+      "advanced_applications": [
+        "spiritual_teaching",
+        "wisdom_transmission",
+        "advanced_practice"
+      ]
+    }
+  },
+  "enhanced_version": "1.0",
+  "ai_optimized": true
+}

@@ -1,0 +1,95 @@
+{
+  "$id": "https://shivakali-ashram.local/astro-knowledge/schema/qa.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "QuestionAnswer",
+  "type": "object",
+  "required": ["id", "question", "answer", "category"],
+  "properties": {
+    "id": { "type": "string" },
+    "question": { "type": "string" },
+    "question_variations": { 
+      "type": "array", 
+      "items": { "type": "string" } 
+    },
+    "answer": { "type": "string" },
+    "detailed_answer": { "type": "string" },
+    "category": { "type": "string" },
+    "subcategory": { "type": "string" },
+    "difficulty": { 
+      "type": "string", 
+      "enum": ["beginner", "intermediate", "advanced", "expert"] 
+    },
+    "question_type": { 
+      "type": "string", 
+      "enum": ["factual", "interpretive", "practical", "philosophical", "comparative", "analytical"] 
+    },
+    "tags": { 
+      "type": "array", 
+      "items": { "type": "string" } 
+    },
+    "related_topics": { 
+      "type": "array", 
+      "items": { "type": "string" } 
+    },
+    "follow_up_questions": { 
+      "type": "array", 
+      "items": { "type": "string" } 
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": { "type": "string", "enum": ["textual", "book", "site", "doi", "oral", "traditional"] },
+          "reference": { "type": "string" },
+          "page": { "type": "string" },
+          "note": { "type": "string" }
+        },
+        "required": ["type", "reference"]
+      }
+    },
+    "examples": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "scenario": { "type": "string" },
+          "explanation": { "type": "string" },
+          "outcome": { "type": "string" }
+        }
+      }
+    },
+    "misconceptions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "myth": { "type": "string" },
+          "reality": { "type": "string" },
+          "explanation": { "type": "string" }
+        }
+      }
+    },
+    "practical_applications": { 
+      "type": "array", 
+      "items": { "type": "string" } 
+    },
+    "warnings": { 
+      "type": "array", 
+      "items": { "type": "string" } 
+    },
+    "cultural_context": { "type": "string" },
+    "historical_context": { "type": "string" },
+    "modern_relevance": { "type": "string" },
+    "controversy_level": { 
+      "type": "string", 
+      "enum": ["none", "low", "moderate", "high"] 
+    },
+    "evidence_quality": { 
+      "type": "string", 
+      "enum": ["traditional", "anecdotal", "observational", "empirical", "scientific"] 
+    },
+    "last_reviewed": { "type": "string" },
+    "updated_at": { "type": "string" }
+  }
+}

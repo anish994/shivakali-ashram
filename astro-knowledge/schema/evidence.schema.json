@@ -1,0 +1,13 @@
+{
+  "$id": "https://shivakali-ashram.local/astro-knowledge/schema/evidence.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EvidenceTrail",
+  "type": "object",
+  "required": ["kind", "summary"],
+  "properties": {
+    "kind": { "type": "string", "enum": ["observational", "experimental", "textual"] },
+    "summary": { "type": "string" },
+    "data": { "type": "string" }
+  }
+}
+

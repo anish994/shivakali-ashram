@@ -1,0 +1,60 @@
+{
+  "$id": "https://shivakali-ashram.local/astro-knowledge/schema/article.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Article",
+  "type": "object",
+  "required": ["id", "title", "category", "level", "body"],
+  "properties": {
+    "id": { "type": "string" },
+    "title": { "type": "string" },
+    "subtitle": { "type": "string" },
+    "category": { "type": "string" },
+    "level": { "type": "string", "enum": ["intro", "intermediate", "advanced"] },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "related": { "type": "array", "items": { "type": "string" } },
+    "updated_at": { "type": "string" },
+    "lineage": { "type": "string" },
+    "citations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": { "type": "string", "enum": ["textual", "book", "site", "doi", "oral"] },
+          "ref": { "type": "string" },
+          "note": { "type": "string" }
+        },
+        "required": ["type", "ref"]
+      }
+    },
+    "evidence_trails": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "kind": { "type": "string", "enum": ["observational", "experimental", "textual"] },
+          "summary": { "type": "string" }
+        },
+        "required": ["kind", "summary"]
+      }
+    },
+    "body": {
+      "type": "object",
+      "required": ["summary"],
+      "properties": {
+        "summary": { "type": "string" },
+        "sections": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "title": { "type": "string" },
+              "content": { "type": "string" }
+            },
+            "required": ["title", "content"]
+          }
+        }
+      }
+    }
+  }
+}
+

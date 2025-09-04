@@ -1,0 +1,64 @@
+{
+  "$schema": "./schema/topic.schema.json",
+  "id": "catalog",
+  "title": "Astro Knowledge Catalog",
+  "version": "1.0.0",
+  "domains": [
+    {
+      "id": "foundations",
+      "title": "Vedic Foundations & Sacred Sciences",
+      "description": "The 4 Vedas, 6 Vedangas, and comprehensive Tantric knowledge with consciousness transformation.",
+      "items": [
+        { "ref": "content/foundations/vedas.json" },
+        { "ref": "content/foundations/vedangas.json" },
+        { "ref": "content/foundations/tantra-complete.json" }
+      ]
+    },
+    {
+      "id": "jyotisha",
+      "title": "Jyotisha (Complete Astral Sciences)",
+      "description": "Comprehensive astrology: planets, houses, nakshatras, timing, and spiritual applications.",
+      "items": [
+        { "ref": "content/jyotisha/overview.json" },
+        { "ref": "content/jyotisha/planets-complete.json" },
+        { "ref": "content/jyotisha/houses-complete.json" },
+        { "ref": "content/jyotisha/nakshatras.manifest.json" }
+      ]
+    },
+    {
+      "id": "vastu",
+      "title": "Vastu Shastra (Sacred Architecture)",
+      "description": "Ancient science of space, direction, energy flow, and architectural harmony.",
+      "items": [
+        { "ref": "content/vastu/comprehensive-guide.json" }
+      ]
+    },
+    {
+      "id": "divination",
+      "title": "Divination Sciences",
+      "description": "Traditional and contemporary methods of guidance and insight including Tarot mastery.",
+      "items": [
+        { "ref": "content/divination/tarot-complete.json" }
+      ]
+    },
+    {
+      "id": "character-analysis",
+      "title": "Character Analysis Arts",
+      "description": "Complete study of personality through handwriting, palmistry, and face reading.",
+      "items": [
+        { "ref": "content/character-analysis/graphology-complete.json" },
+        { "ref": "content/character-analysis/palmistry-complete.json" },
+        { "ref": "content/character-analysis/physiognomy-complete.json" }
+      ]
+    },
+    {
+      "id": "glossary",
+      "title": "Glossary & Reference",
+      "description": "Key Sanskrit and technical terms for quick reference across all domains.",
+      "items": [
+        { "ref": "content/glossary/index.json" }
+      ]
+    }
+  ]
+}
+
