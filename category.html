@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title id="pageTitle">🕉️ SHIVAKALI ASHRAM - Sacred Knowledge Systems</title>
+    <style>
+        :root {
+            --sacred-red: #DC143C;
+            --sacred-gold: #FFD700;
+            --sacred-deep-red: #8B0000;
+            --sacred-white: #FFFFFF;
+            --sacred-cream: #FFF8DC;
+            --sacred-dark: #1a1a2e;
+            --sacred-blue: #16213e;
+            --sacred-purple: #4A148C;
+            --sacred-orange: #FF6D00;
+            --sacred-teal: #00695C;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Georgia', 'Times New Roman', serif;
+            background: linear-gradient(135deg, var(--sacred-dark) 0%, var(--sacred-blue) 30%, #0f3460 70%, var(--sacred-purple) 100%);
+            min-height: 100vh;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--sacred-red) 0%, var(--sacred-gold) 50%, var(--sacred-orange) 100%);
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .category-icon-large {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .category-title-main {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: white;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+
+        .category-subtitle-main {
+            font-size: 1.2rem;
+            color: var(--sacred-cream);
+            font-style: italic;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .category-stats-main {
+            font-size: 1rem;
+            color: var(--sacred-cream);
+            opacity: 0.9;
+        }
+
+        /* Navigation Bar */
+        .nav-bar {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding: 0 2rem;
+        }
+
+        .nav-item {
+            color: var(--sacred-gold);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .nav-item:hover {
+            background: var(--sacred-gold);
+            color: var(--sacred-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Introduction Section */
+        .intro-section {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(255, 248, 220, 0.1);
+            border-radius: 20px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--sacred-cream);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Subcategory Grid */
+        .subcategories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .subcategory-card {
+            background: linear-gradient(145deg, rgba(255, 248, 220, 0.15) 0%, rgba(255, 255, 255, 0.1) 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 2px solid rgba(255, 215, 0, 0.4);
+            backdrop-filter: blur(15px);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .subcategory-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--sacred-gold);
+            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.3);
+        }
+
+        .subcategory-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .subcategory-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--sacred-gold);
+            margin-bottom: 0.8rem;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .subcategory-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: rgba(255, 248, 220, 0.9);
+            margin-bottom: 1.2rem;
+        }
+
+        .subcategory-features {
+            margin-bottom: 1rem;
+        }
+
+        .feature-tag {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.2);
+            color: var(--sacred-gold);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin: 0.2rem 0.3rem 0.2rem 0;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .subcategory-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 215, 0, 0.3);
+            font-size: 0.85rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .stat-number {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--sacred-gold);
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--sacred-cream);
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 215, 0, 0.3);
+            margin-top: 4rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .subcategories-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .subcategory-card {
+                padding: 1.5rem;
+            }
+
+            .category-title-main {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+                gap: 1rem;
+            }
+
+            .nav-item {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="category-icon-large" id="categoryIconLarge">🕉️</div>
+        <h1 class="category-title-main" id="categoryTitleMain">Sacred Knowledge Systems</h1>
+        <p class="category-subtitle-main" id="categorySubtitleMain">Ancient Wisdom for Modern Seekers</p>
+        <p class="category-stats-main" id="categoryStatsMain">Explore the depths of spiritual knowledge</p>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-item">🏠 Home</a>
+            <a href="https://cheery-flan-dc1088.netlify.app" class="nav-item">🌐 Back to Gateway</a>
+            <a href="chat.html" class="nav-item">🤖 AI Guide</a>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Introduction Section -->
+        <section class="intro-section">
+            <p class="intro-text" id="categoryIntroText">
+                Welcome to our comprehensive collection of spiritual knowledge systems. 
+                Each system contains master-level content that bridges ancient wisdom with modern applications.
+            </p>
+        </section>
+
+        <!-- Subcategories Grid -->
+        <div class="subcategories-grid" id="subcategoriesGrid">
+            <!-- Subcategory cards will be dynamically loaded here -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 SHIVAKALI ASHRAM. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; opacity: 0.8;">Authentic spiritual guidance for modern seekers.</p>
+    </footer>
+
+    <script>
+        // Category data with subcategories
+        const categories = {
+            consciousness: {
+                icon: '🧠',
+                title: 'Consciousness Sciences',
+                subtitle: 'Advanced Human Enhancement Arsenal',
+                stats: '12 Systems • $750B+ Research Value • Legendary Level',
+                intro: 'Master the ultimate consciousness hacking technologies. From meditation warfare to biohacking matrices, unlock your mind\'s infinite potential using scientifically-validated protocols that surpass all conventional methods.',
+                subcategories: [
+                    {
+                        icon: '🧘‍♂️',
+                        title: 'Meditation Science',
+                        description: 'Ultimate consciousness hacking weapon with neuroplasticity enhancement and advanced brainwave states.',
+                        features: ['Neuroplasticity', 'Brainwave Control', 'Deep States', 'Focus Enhancement'],
+                        stats: { systems: '15+', level: 'Master', type: 'Core' }
+                    },
+                    {
+                        icon: '🫁',
+                        title: 'Breathwork Science',
+                        description: 'Neural control weapon system using advanced breathing techniques for physiological and mental optimization.',
+                        features: ['Neural Control', 'Stress Mastery', 'Energy Boost', 'Health Optimization'],
+                        stats: { systems: '12+', level: 'Advanced', type: 'Core' }
+                    },
+                    {
+                        icon: '🎵',
+                        title: 'Sound Healing',
+                        description: 'Frequency warfare technology using sound vibrations for healing, consciousness expansion, and energetic alignment.',
+                        features: ['Frequency Healing', 'Vibration Therapy', 'Energy Alignment', 'Consciousness Expansion'],
+                        stats: { systems: '18+', level: 'Expert', type: 'Core' }
+                    },
+                    {
+                        icon: '🌿',
+                        title: 'Ayurveda Medical Science',
+                        description: 'Biological hacking matrix combining ancient Ayurvedic wisdom with modern medical science for optimal health.',
+                        features: ['Body Types', 'Natural Medicine', 'Lifestyle Design', 'Holistic Health'],
+                        stats: { systems: '20+', level: 'Master', type: 'Medical' }
+                    },
+                    {
+                        icon: '⚡',
+                        title: 'Chakra Energy Medicine',
+                        description: 'Biofield control system for energy center optimization and spiritual development through chakra work.',
+                        features: ['Energy Centers', 'Biofield Control', 'Spiritual Development', 'Healing'],
+                        stats: { systems: '7+', level: 'Advanced', type: 'Energy' }
+                    },
+                    {
+                        icon: '💎',
+                        title: 'Crystal Therapy Science',
+                        description: 'Mineral consciousness programming using crystalline structures for healing and energetic enhancement.',
+                        features: ['Crystal Healing', 'Mineral Programming', 'Energy Enhancement', 'Vibrational Medicine'],
+                        stats: { systems: '25+', level: 'Expert', type: 'Therapeutic' }
+                    },
+                    {
+                        icon: '🥋',
+                        title: 'Martial Arts Science',
+                        description: 'Combat enhancement matrix integrating physical, mental, and spiritual warrior traditions.',
+                        features: ['Combat Skills', 'Mental Discipline', 'Physical Mastery', 'Spiritual Warrior'],
+                        stats: { systems: '10+', level: 'Master', type: 'Physical' }
+                    },
+                    {
+                        icon: '😴',
+                        title: 'Lucid Dreaming',
+                        description: 'Dream control warfare for consciousness exploration and subconscious programming during sleep states.',
+                        features: ['Dream Control', 'Consciousness Travel', 'Subconscious Programming', 'Sleep Optimization'],
+                        stats: { systems: '8+', level: 'Advanced', type: 'Consciousness' }
+                    },
+                    {
+                        icon: '🌙',
+                        title: 'Circadian Rhythm Hacking',
+                        description: 'Time biology optimization for peak performance through circadian rhythm and sleep cycle mastery.',
+                        features: ['Sleep Optimization', 'Energy Cycles', 'Peak Performance', 'Biological Timing'],
+                        stats: { systems: '12+', level: 'Expert', type: 'Biological' }
+                    },
+                    {
+                        icon: '🥗',
+                        title: 'Nutrition Consciousness',
+                        description: 'Cognitive enhancement matrix using nutrition science for brain optimization and consciousness expansion.',
+                        features: ['Brain Nutrition', 'Cognitive Enhancement', 'Mental Clarity', 'Consciousness Nutrition'],
+                        stats: { systems: '15+', level: 'Advanced', type: 'Nutritional' }
+                    },
+                    {
+                        icon: '🧬',
+                        title: 'Biohacking Arsenal',
+                        description: 'Human enhancement technologies combining cutting-edge biohacking with consciousness development.',
+                        features: ['Human Enhancement', 'Technology Integration', 'Performance Optimization', 'Longevity'],
+                        stats: { systems: '22+', level: 'Master', type: 'Technology' }
+                    },
+                    {
+                        icon: '🍄',
+                        title: 'Plant Medicine Science',
+                        description: 'Consciousness expansion research using plant allies for healing, insight, and spiritual development.',
+                        features: ['Plant Allies', 'Consciousness Expansion', 'Healing', 'Spiritual Insight'],
+                        stats: { systems: '9+', level: 'Expert', type: 'Medicine' }
+                    }
+                ]
+            },
+            jyotisha: {
+                icon: '⭐',
+                title: 'Jyotisha Mastery',
+                subtitle: 'Cosmic Intelligence Warfare Systems',
+                stats: '8 Systems • 5000+ Years Old • Master Level',
+                intro: 'Command the ultimate destiny-hacking arsenal. From stellar intelligence programming to planetary combination warfare, master the cosmic forces that control fate, timing, and human potential across all dimensions.',
+                subcategories: [
+                    {
+                        icon: '🌟',
+                        title: 'Planets (Navagraha)',
+                        description: 'Cosmic power programming through the nine planetary influences that shape human consciousness and destiny.',
+                        features: ['9 Planets', 'Cosmic Influence', 'Life Timing', 'Karmic Patterns'],
+                        stats: { systems: '9', level: 'Master', type: 'Foundation' }
+                    },
+                    {
+                        icon: '🏠',
+                        title: 'Houses (Bhavas)',
+                        description: 'Life sector domination system dividing existence into 12 key areas for comprehensive life analysis.',
+                        features: ['12 Houses', 'Life Areas', 'Predictive Analysis', 'Life Mapping'],
+                        stats: { systems: '12', level: 'Advanced', type: 'Structure' }
+                    },
+                    {
+                        icon: '🌙',
+                        title: 'Nakshatras',
+                        description: 'Advanced stellar intelligence through 27 lunar mansions providing deep psychological and spiritual insights.',
+                        features: ['27 Stars', 'Lunar Mansions', 'Psychology', 'Spiritual Insights'],
+                        stats: { systems: '27', level: 'Expert', type: 'Lunar' }
+                    },
+                    {
+                        icon: '♈',
+                        title: 'Rashis (Zodiac)',
+                        description: 'Zodiacal consciousness programming through 12 zodiac signs and their archetypal energies.',
+                        features: ['12 Signs', 'Archetypal Energy', 'Personality Types', 'Consciousness Patterns'],
+                        stats: { systems: '12', level: 'Advanced', type: 'Solar' }
+                    },
+                    {
+                        icon: '🔄',
+                        title: 'Dasha Systems',
+                        description: 'Time-based destiny control through planetary periods that reveal life timing and major events.',
+                        features: ['Planetary Periods', 'Life Timing', 'Event Prediction', 'Destiny Mapping'],
+                        stats: { systems: '7+', level: 'Master', type: 'Timing' }
+                    },
+                    {
+                        icon: '🤝',
+                        title: 'Yogas',
+                        description: 'Planetary combination warfare using special planetary configurations for power, success, and spiritual attainment.',
+                        features: ['Planet Combinations', 'Success Patterns', 'Power Configurations', 'Spiritual Attainment'],
+                        stats: { systems: '100+', level: 'Expert', type: 'Combinations' }
+                    },
+                    {
+                        icon: '🩺',
+                        title: 'Medical Astrology',
+                        description: 'Health prediction matrix correlating planetary positions with physical and mental health conditions.',
+                        features: ['Health Prediction', 'Medical Correlation', 'Disease Timing', 'Healing Guidance'],
+                        stats: { systems: '50+', level: 'Advanced', type: 'Medical' }
+                    },
+                    {
+                        icon: '📊',
+                        title: 'Jyotisha Overview',
+                        description: 'Complete system overview integrating all branches of Vedic astrology for comprehensive understanding.',
+                        features: ['System Integration', 'Complete Overview', 'Foundational Knowledge', 'Holistic Approach'],
+                        stats: { systems: 'All', level: 'Foundation', type: 'Overview' }
+                    }
+                ]
+            },
+            therapeutic: {
+                icon: '💎',
+                title: 'Therapeutic Systems',
+                subtitle: 'Crystal & Sacred Energy Weaponization',
+                stats: '2 Systems • 108 Sacred Number • Precious Level',
+                intro: 'Harness the power of mineral consciousness and sacred seed programming. Master gemstone therapy and rudraksha energy systems that amplify healing, manifestation, and spiritual transformation beyond conventional methods.',
+                subcategories: [
+                    {
+                        icon: '💎',
+                        title: 'Gemstone Therapy',
+                        description: 'Crystal energy weaponization using precious stones for healing, protection, and consciousness enhancement.',
+                        features: ['Crystal Healing', 'Energy Programming', 'Chakra Balancing', 'Protection Shields'],
+                        stats: { systems: '50+', level: 'Master', type: 'Crystal' }
+                    },
+                    {
+                        icon: '📿',
+                        title: 'Rudraksha Therapy',
+                        description: 'Sacred seed power programming using divine beads for spiritual advancement and energetic protection.',
+                        features: ['Sacred Seeds', 'Spiritual Power', 'Divine Protection', 'Consciousness Enhancement'],
+                        stats: { systems: '21+', level: 'Expert', type: 'Sacred' }
+                    }
+                ]
+            },
+            character: {
+                icon: '🔍',
+                title: 'Character Analysis',
+                subtitle: 'Secret Intelligence Profiling Technologies',
+                stats: '3 Systems • CIA Level Intel • Classified',
+                intro: 'Deploy FBI-level psychological profiling through handwriting analysis, palm reading, and facial scanning. Master the classified techniques used by intelligence agencies to decode personality and predict behavior.',
+                subcategories: [
+                    {
+                        icon: '✍️',
+                        title: 'Graphology',
+                        description: 'FBI psychological profiling X-ray technology through handwriting analysis for deep personality insights.',
+                        features: ['Handwriting Analysis', 'Personality Profiling', 'Psychological Insights', 'Character Reading'],
+                        stats: { systems: '100+', level: 'Expert', type: 'Psychological' }
+                    },
+                    {
+                        icon: '🤲',
+                        title: 'Palmistry',
+                        description: 'CIA hand intelligence decoding system revealing life patterns, talents, and destiny through palm reading.',
+                        features: ['Palm Reading', 'Life Patterns', 'Talent Recognition', 'Destiny Mapping'],
+                        stats: { systems: '50+', level: 'Master', type: 'Predictive' }
+                    },
+                    {
+                        icon: '👁️',
+                        title: 'Physiognomy',
+                        description: 'Government face scanning mind-reader technology for instant personality assessment through facial features.',
+                        features: ['Face Reading', 'Instant Assessment', 'Character Analysis', 'Behavioral Prediction'],
+                        stats: { systems: '75+', level: 'Advanced', type: 'Intelligence' }
+                    }
+                ]
+            },
+            divination: {
+                icon: '🔮',
+                title: 'Divination Sciences',
+                subtitle: 'Future-Hacking Mind Control Technology',
+                stats: '2 Systems • ∞ Possibilities • Mystical',
+                intro: 'Penetrate the veil of time and probability using advanced tarot systems and sacred geometry. Master the quantum mechanics of divination to access non-linear information streams and probability manipulation.',
+                subcategories: [
+                    {
+                        icon: '🃏',
+                        title: 'Tarot Mastery',
+                        description: 'Future-hacking mind control technology using archetypal symbols for divination and consciousness exploration.',
+                        features: ['78 Cards', 'Archetypal Wisdom', 'Future Insight', 'Consciousness Mapping'],
+                        stats: { systems: '78+', level: 'Master', type: 'Divination' }
+                    },
+                    {
+                        icon: '🔺',
+                        title: 'Sacred Geometry',
+                        description: 'Quantum consciousness programming through geometric patterns and universal mathematical principles.',
+                        features: ['Sacred Patterns', 'Universal Mathematics', 'Consciousness Programming', 'Geometric Power'],
+                        stats: { systems: '∞', level: 'Expert', type: 'Geometric' }
+                    }
+                ]
+            },
+            foundations: {
+                icon: '📚',
+                title: 'Foundational Systems',
+                subtitle: 'Ancient God-Mode Knowledge Archives',
+                stats: '6 Systems • 10,000+ Years • Ancient Power',
+                intro: 'Access the source codes of reality through Vedic foundations, Tantra weaponization, and hidden esoteric secrets. These are the root systems that power all other spiritual technologies and consciousness modifications.',
+                subcategories: [
+                    {
+                        icon: '📜',
+                        title: 'Vedas Foundation',
+                        description: 'Ancient god-mode knowledge containing the fundamental principles of existence and cosmic law.',
+                        features: ['4 Vedas', 'Cosmic Law', 'Universal Principles', 'Divine Knowledge'],
+                        stats: { systems: '4', level: 'Master', type: 'Foundation' }
+                    },
+                    {
+                        icon: '🔥',
+                        title: 'Tantra Systems',
+                        description: 'Ultimate consciousness weaponization system for spiritual power and transcendental realization.',
+                        features: ['Energy Mastery', 'Consciousness Weapons', 'Spiritual Power', 'Transcendental States'],
+                        stats: { systems: '50+', level: 'Legendary', type: 'Advanced' }
+                    },
+                    {
+                        icon: '🏛️',
+                        title: 'Vastu Shastra',
+                        description: 'Environmental mind control matrix using sacred architecture for consciousness and energy optimization.',
+                        features: ['Sacred Architecture', 'Space Optimization', 'Energy Flow', 'Environmental Control'],
+                        stats: { systems: '30+', level: 'Expert', type: 'Environmental' }
+                    },
+                    {
+                        icon: '📖',
+                        title: 'Vedangas',
+                        description: 'Ultimate ancient programming languages - the six limbs of Vedic knowledge for complete understanding.',
+                        features: ['6 Limbs', 'Programming Languages', 'Complete System', 'Ancient Wisdom'],
+                        stats: { systems: '6', level: 'Master', type: 'Programming' }
+                    },
+                    {
+                        icon: '🔐',
+                        title: 'Esoteric Secrets',
+                        description: 'Forbidden knowledge arsenal containing hidden wisdom and classified spiritual technologies.',
+                        features: ['Hidden Wisdom', 'Forbidden Knowledge', 'Secret Technologies', 'Advanced Mysteries'],
+                        stats: { systems: '∞', level: 'Legendary', type: 'Secret' }
+                    },
+                    {
+                        icon: '🔢',
+                        title: 'Sacred Calculators',
+                        description: 'Interactive spiritual tools and calculation systems for practical application of ancient wisdom.',
+                        features: ['Interactive Tools', 'Calculation Systems', 'Practical Applications', 'Digital Wisdom'],
+                        stats: { systems: '20+', level: 'Advanced', type: 'Tools' }
+                    }
+                ]
+            }
+        };
+
+        // Get category from URL parameter
+        function getCategoryFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('cat') || 'consciousness';
+        }
+
+        // Load category content
+        function loadCategory() {
+            const category = getCategoryFromURL();
+            const categoryData = categories[category];
+            
+            if (!categoryData) {
+                // Fallback to consciousness if category not found
+                loadCategoryData(categories.consciousness);
+                return;
+            }
+            
+            loadCategoryData(categoryData);
+        }
+
+        // Load category data into page
+        function loadCategoryData(data) {
+            // Update page title
+            document.getElementById('pageTitle').textContent = `🕉️ ${data.title} - SHIVAKALI ASHRAM`;
+            
+            // Update header
+            document.getElementById('categoryIconLarge').textContent = data.icon;
+            document.getElementById('categoryTitleMain').textContent = data.title;
+            document.getElementById('categorySubtitleMain').textContent = data.subtitle;
+            document.getElementById('categoryStatsMain').textContent = data.stats;
+            
+            // Update intro text
+            document.getElementById('categoryIntroText').textContent = data.intro;
+            
+            // Load subcategory cards
+            const grid = document.getElementById('subcategoriesGrid');
+            grid.innerHTML = '';
+            
+            data.subcategories.forEach(sub => {
+                const card = createSubcategoryCard(sub);
+                grid.appendChild(card);
+            });
+        }
+
+        // Create subcategory card element
+        function createSubcategoryCard(subcategory) {
+            const card = document.createElement('a');
+            card.href = `system.html?system=${encodeURIComponent(subcategory.title.toLowerCase().replace(/\s+/g, '-'))}`;
+            card.className = 'subcategory-card';
+            
+            const featuresHTML = subcategory.features.map(feature => 
+                `<span class="feature-tag">${feature}</span>`
+            ).join('');
+            
+            card.innerHTML = `
+                <div class="subcategory-icon">${subcategory.icon}</div>
+                <h3 class="subcategory-title">${subcategory.title}</h3>
+                <p class="subcategory-description">${subcategory.description}</p>
+                <div class="subcategory-features">
+                    ${featuresHTML}
+                </div>
+                <div class="subcategory-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">${subcategory.stats.systems}</div>
+                        <div class="stat-label">Systems</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">${subcategory.stats.level}</div>
+                        <div class="stat-label">Level</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">${subcategory.stats.type}</div>
+                        <div class="stat-label">Type</div>
+                    </div>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', loadCategory);
+    </script>
+</body>
+</html>
