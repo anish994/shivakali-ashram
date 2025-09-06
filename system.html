@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title id="pageTitle">🕉️ SHIVAKALI ASHRAM - Spiritual System</title>
+    <style>
+        :root {
+            --sacred-red: #DC143C;
+            --sacred-gold: #FFD700;
+            --sacred-deep-red: #8B0000;
+            --sacred-white: #FFFFFF;
+            --sacred-cream: #FFF8DC;
+            --sacred-dark: #1a1a2e;
+            --sacred-blue: #16213e;
+            --sacred-purple: #4A148C;
+            --sacred-orange: #FF6D00;
+            --sacred-teal: #00695C;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Georgia', 'Times New Roman', serif;
+            background: linear-gradient(135deg, var(--sacred-dark) 0%, var(--sacred-blue) 30%, #0f3460 70%, var(--sacred-purple) 100%);
+            min-height: 100vh;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--sacred-red) 0%, var(--sacred-gold) 50%, var(--sacred-orange) 100%);
+            padding: 2.5rem 0;
+            text-align: center;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .system-icon-large {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+
+        .system-title-main {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: white;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+            margin-bottom: 0.8rem;
+            letter-spacing: 2px;
+        }
+
+        .system-subtitle-main {
+            font-size: 1.3rem;
+            color: var(--sacred-cream);
+            font-style: italic;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .system-stats-main {
+            font-size: 1rem;
+            color: var(--sacred-cream);
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .breadcrumb {
+            font-size: 0.9rem;
+            color: var(--sacred-cream);
+            opacity: 0.8;
+        }
+
+        .breadcrumb a {
+            color: var(--sacred-gold);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* Navigation Bar */
+        .nav-bar {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding: 0 2rem;
+        }
+
+        .nav-item {
+            color: var(--sacred-gold);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .nav-item:hover {
+            background: var(--sacred-gold);
+            color: var(--sacred-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Introduction Section */
+        .intro-section {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2.5rem;
+            background: rgba(255, 248, 220, 0.1);
+            border-radius: 20px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--sacred-cream);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Sub-subdivision Grid */
+        .sub-subdivisions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .sub-subdivision-card {
+            background: linear-gradient(145deg, rgba(255, 248, 220, 0.15) 0%, rgba(255, 255, 255, 0.1) 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 2px solid rgba(255, 215, 0, 0.4);
+            backdrop-filter: blur(15px);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .sub-subdivision-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            border-color: var(--sacred-gold);
+            box-shadow: 0 25px 70px rgba(255, 215, 0, 0.4);
+        }
+
+        .sub-subdivision-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.2rem;
+            display: block;
+        }
+
+        .sub-subdivision-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--sacred-gold);
+            margin-bottom: 0.8rem;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .sub-subdivision-subtitle {
+            font-size: 1rem;
+            color: var(--sacred-cream);
+            font-style: italic;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .sub-subdivision-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: rgba(255, 248, 220, 0.9);
+            margin-bottom: 1.2rem;
+        }
+
+        .sub-subdivision-features {
+            margin-bottom: 1rem;
+        }
+
+        .feature-tag {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.2);
+            color: var(--sacred-gold);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin: 0.2rem 0.3rem 0.2rem 0;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .sub-subdivision-power {
+            background: rgba(220, 20, 60, 0.2);
+            color: var(--sacred-red);
+            padding: 0.8rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            border: 1px solid rgba(220, 20, 60, 0.3);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Special planet colors */
+        .sun-card { border-color: #FFD700; background: linear-gradient(145deg, rgba(255, 215, 0, 0.2) 0%, rgba(255, 140, 0, 0.1) 100%); }
+        .moon-card { border-color: #C0C0C0; background: linear-gradient(145deg, rgba(192, 192, 192, 0.2) 0%, rgba(135, 206, 235, 0.1) 100%); }
+        .mars-card { border-color: #DC143C; background: linear-gradient(145deg, rgba(220, 20, 60, 0.2) 0%, rgba(255, 69, 0, 0.1) 100%); }
+        .mercury-card { border-color: #32CD32; background: linear-gradient(145deg, rgba(50, 205, 50, 0.2) 0%, rgba(154, 205, 50, 0.1) 100%); }
+        .jupiter-card { border-color: #DAA520; background: linear-gradient(145deg, rgba(218, 165, 32, 0.2) 0%, rgba(255, 215, 0, 0.1) 100%); }
+        .venus-card { border-color: #FF1493; background: linear-gradient(145deg, rgba(255, 20, 147, 0.2) 0%, rgba(255, 105, 180, 0.1) 100%); }
+        .saturn-card { border-color: #4B0082; background: linear-gradient(145deg, rgba(75, 0, 130, 0.2) 0%, rgba(138, 43, 226, 0.1) 100%); }
+        .rahu-card { border-color: #2F4F4F; background: linear-gradient(145deg, rgba(47, 79, 79, 0.2) 0%, rgba(105, 105, 105, 0.1) 100%); }
+        .ketu-card { border-color: #8B4513; background: linear-gradient(145deg, rgba(139, 69, 19, 0.2) 0%, rgba(160, 82, 45, 0.1) 100%); }
+
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 215, 0, 0.3);
+            margin-top: 4rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sub-subdivisions-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .sub-subdivision-card {
+                padding: 1.8rem;
+            }
+
+            .system-title-main {
+                font-size: 2.2rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+                gap: 1rem;
+            }
+
+            .nav-item {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .system-icon-large {
+                font-size: 3.5rem;
+            }
+
+            .system-title-main {
+                font-size: 1.9rem;
+            }
+
+            .sub-subdivision-icon {
+                font-size: 2.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="breadcrumb" id="breadcrumb">
+            <a href="index.html">Home</a> > <a href="#" id="categoryBreadcrumb">Category</a> > <span id="systemBreadcrumb">System</span>
+        </div>
+        <div class="system-icon-large" id="systemIconLarge">🌟</div>
+        <h1 class="system-title-main" id="systemTitleMain">Spiritual System</h1>
+        <p class="system-subtitle-main" id="systemSubtitleMain">Ancient Wisdom Components</p>
+        <p class="system-stats-main" id="systemStatsMain">Explore the individual elements</p>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-item">🏠 Home</a>
+            <a href="#" id="backToCategoryNav" class="nav-item">📂 Back to Category</a>
+            <a href="https://cheery-flan-dc1088.netlify.app" class="nav-item">🌐 Gateway</a>
+            <a href="chat.html" class="nav-item">🤖 AI Guide</a>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Introduction Section -->
+        <section class="intro-section">
+            <p class="intro-text" id="systemIntroText">
+                Explore the individual components of this spiritual system. 
+                Each element contains deep wisdom and practical applications for your spiritual journey.
+            </p>
+        </section>
+
+        <!-- Sub-subdivisions Grid -->
+        <div class="sub-subdivisions-grid" id="subSubdivisionsGrid">
+            <!-- Sub-subdivision cards will be dynamically loaded here -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 SHIVAKALI ASHRAM. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; opacity: 0.8;">Authentic spiritual guidance for modern seekers.</p>
+    </footer>
+
+    <script>
+        // System data with sub-subdivisions - FULLY LOADED FROM PROJECT TRACKER
+        const systems = {
+            'planets-navagraha': {
+                icon: '🌟',
+                title: 'Planets (Navagraha)',
+                subtitle: 'The Nine Cosmic Influences',
+                stats: '9 Planets • Cosmic Intelligence • Master Level • 5000+ Years Tested',
+                intro: 'Explore the nine planetary forces that govern consciousness evolution, karmic patterns, and life experiences. Each planet represents specific divine intelligences offering unique powers, wisdom, and transformation pathways for spiritual mastery.',
+                category: 'jyotisha',
+                categoryTitle: 'Jyotisha Mastery',
+                subSubdivisions: [
+                    {
+                        icon: '☀️',
+                        title: 'Surya (Sun)',
+                        subtitle: 'The Soul & Leadership',
+                        description: 'The king of planets governing soul power, leadership, vitality, and life force. Represents the divine masculine and spiritual authority.',
+                        features: ['Soul Power', 'Leadership', 'Vitality', 'Authority', 'Divine Masculine'],
+                        power: '🔥 Rules: Leo • Enhances: Confidence, Leadership, Health • Day: Sunday',
+                        cardClass: 'sun-card'
+                    },
+                    {
+                        icon: '🌙',
+                        title: 'Chandra (Moon)',
+                        subtitle: 'The Mind & Emotions',
+                        description: 'The queen of planets governing mind, emotions, intuition, and feminine energy. Controls mental peace and emotional stability.',
+                        features: ['Mind Control', 'Emotions', 'Intuition', 'Feminine Energy', 'Mental Peace'],
+                        power: '🌊 Rules: Cancer • Enhances: Intuition, Emotions, Memory • Day: Monday',
+                        cardClass: 'moon-card'
+                    },
+                    {
+                        icon: '🔥',
+                        title: 'Mangal (Mars)',
+                        subtitle: 'Energy & Action',
+                        description: 'The warrior planet governing energy, courage, action, and physical strength. Represents drive, ambition, and martial power.',
+                        features: ['Physical Energy', 'Courage', 'Action', 'Strength', 'Warrior Spirit'],
+                        power: '⚔️ Rules: Aries, Scorpio • Enhances: Energy, Courage, Action • Day: Tuesday',
+                        cardClass: 'mars-card'
+                    },
+                    {
+                        icon: '🌱',
+                        title: 'Budh (Mercury)',
+                        subtitle: 'Communication & Intelligence',
+                        description: 'The messenger planet governing communication, intelligence, learning, and analytical thinking. Controls business and intellectual pursuits.',
+                        features: ['Communication', 'Intelligence', 'Learning', 'Analysis', 'Business'],
+                        power: '📚 Rules: Gemini, Virgo • Enhances: Intelligence, Communication • Day: Wednesday',
+                        cardClass: 'mercury-card'
+                    },
+                    {
+                        icon: '🎯',
+                        title: 'Guru (Jupiter)',
+                        subtitle: 'Wisdom & Expansion',
+                        description: 'The teacher planet governing wisdom, knowledge, spirituality, and higher learning. Represents divine grace and expansion.',
+                        features: ['Wisdom', 'Knowledge', 'Spirituality', 'Teaching', 'Divine Grace'],
+                        power: '🎓 Rules: Sagittarius, Pisces • Enhances: Wisdom, Knowledge • Day: Thursday',
+                        cardClass: 'jupiter-card'
+                    },
+                    {
+                        icon: '💎',
+                        title: 'Shukra (Venus)',
+                        subtitle: 'Love & Beauty',
+                        description: 'The planet of love governing beauty, relationships, luxury, and artistic expression. Controls pleasure and material comfort.',
+                        features: ['Love', 'Beauty', 'Relationships', 'Art', 'Luxury'],
+                        power: '💕 Rules: Taurus, Libra • Enhances: Love, Beauty, Art • Day: Friday',
+                        cardClass: 'venus-card'
+                    },
+                    {
+                        icon: '⚖️',
+                        title: 'Shani (Saturn)',
+                        subtitle: 'Discipline & Lessons',
+                        description: 'The teacher planet governing discipline, responsibility, lessons, and karmic justice. Represents structure and life lessons.',
+                        features: ['Discipline', 'Responsibility', 'Lessons', 'Karma', 'Structure'],
+                        power: '⏳ Rules: Capricorn, Aquarius • Enhances: Discipline, Wisdom • Day: Saturday',
+                        cardClass: 'saturn-card'
+                    },
+                    {
+                        icon: '👤',
+                        title: 'Rahu',
+                        subtitle: 'Desires & Illusions',
+                        description: 'The shadow planet governing desires, illusions, material pursuits, and worldly ambitions. Represents the node of obsession.',
+                        features: ['Desires', 'Illusions', 'Ambition', 'Material Success', 'Innovation'],
+                        power: '🌪️ Shadow Planet • Enhances: Innovation, Material Success • Karmic North Node',
+                        cardClass: 'rahu-card'
+                    },
+                    {
+                        icon: '🐉',
+                        title: 'Ketu',
+                        subtitle: 'Spirituality & Detachment',
+                        description: 'The shadow planet governing spirituality, detachment, liberation, and mystical experiences. Represents the node of release.',
+                        features: ['Spirituality', 'Detachment', 'Liberation', 'Mysticism', 'Past Life'],
+                        power: '🕉️ Shadow Planet • Enhances: Spirituality, Liberation • Karmic South Node',
+                        cardClass: 'ketu-card'
+                    }
+                ]
+            },
+            'houses-bhavas': {
+                icon: '🏠',
+                title: 'Houses (Bhavas)',
+                subtitle: 'The Twelve Life Sectors',
+                stats: '12 Houses • Life Areas • Advanced Level',
+                intro: 'Discover the twelve houses that divide life into distinct sectors, each governing specific areas of human experience and providing a complete map of existence.',
+                category: 'jyotisha',
+                categoryTitle: 'Jyotisha Mastery',
+                subSubdivisions: [
+                    {
+                        icon: '🎭',
+                        title: '1st House (Lagna)',
+                        subtitle: 'Self & Personality',
+                        description: 'The house of self, governing personality, physical body, identity, and overall life approach. Your core essence and how you present to the world.',
+                        features: ['Personality', 'Physical Body', 'Identity', 'Life Approach', 'Core Self'],
+                        power: '🌟 Rules: Self, Personality, Physical Body • Element of Identity',
+                        cardClass: 'sun-card'
+                    },
+                    {
+                        icon: '💰',
+                        title: '2nd House (Dhana)',
+                        subtitle: 'Wealth & Values',
+                        description: 'The house of wealth, governing money, possessions, values, family wealth, and speech. Your relationship with material resources.',
+                        features: ['Wealth', 'Possessions', 'Values', 'Family Money', 'Speech'],
+                        power: '💎 Rules: Money, Values, Speech • Element of Security',
+                        cardClass: 'venus-card'
+                    },
+                    {
+                        icon: '🤝',
+                        title: '3rd House (Sahaja)',
+                        subtitle: 'Communication & Siblings',
+                        description: 'The house of communication, governing siblings, short journeys, courage, skills, and self-effort. Your active engagement with the immediate world.',
+                        features: ['Communication', 'Siblings', 'Courage', 'Skills', 'Self-Effort'],
+                        power: '📢 Rules: Communication, Siblings, Courage • Element of Action',
+                        cardClass: 'mercury-card'
+                    },
+                    {
+                        icon: '🏡',
+                        title: '4th House (Sukha)',
+                        subtitle: 'Home & Mother',
+                        description: 'The house of happiness, governing home, mother, education, property, and emotional foundations. Your inner security and roots.',
+                        features: ['Home', 'Mother', 'Education', 'Property', 'Emotional Security'],
+                        power: '🏠 Rules: Home, Mother, Education • Element of Comfort',
+                        cardClass: 'moon-card'
+                    },
+                    {
+                        icon: '👑',
+                        title: '5th House (Putra)',
+                        subtitle: 'Children & Creativity',
+                        description: 'The house of progeny, governing children, creativity, intelligence, romance, and spiritual practices. Your creative and reproductive power.',
+                        features: ['Children', 'Creativity', 'Intelligence', 'Romance', 'Spirituality'],
+                        power: '🎨 Rules: Children, Creativity, Intelligence • Element of Expression',
+                        cardClass: 'jupiter-card'
+                    },
+                    {
+                        icon: '⚔️',
+                        title: '6th House (Ari)',
+                        subtitle: 'Enemies & Health',
+                        description: 'The house of enemies, governing health, disease, service, competition, and daily work. Your challenges and how you overcome them.',
+                        features: ['Health', 'Enemies', 'Service', 'Competition', 'Daily Work'],
+                        power: '🛡️ Rules: Health, Enemies, Service • Element of Challenge',
+                        cardClass: 'mars-card'
+                    },
+                    {
+                        icon: '💑',
+                        title: '7th House (Kalatra)',
+                        subtitle: 'Marriage & Partnership',
+                        description: 'The house of partnership, governing marriage, spouse, business partnerships, and public relations. Your one-on-one relationships.',
+                        features: ['Marriage', 'Spouse', 'Partnerships', 'Public Relations', 'Contracts'],
+                        power: '💕 Rules: Marriage, Partnerships • Element of Union',
+                        cardClass: 'venus-card'
+                    },
+                    {
+                        icon: '🔮',
+                        title: '8th House (Ayur)',
+                        subtitle: 'Transformation & Mystery',
+                        description: 'The house of longevity, governing death, transformation, occult sciences, inheritance, and hidden knowledge. Your deepest mysteries.',
+                        features: ['Transformation', 'Occult', 'Inheritance', 'Hidden Knowledge', 'Rebirth'],
+                        power: '🌙 Rules: Transformation, Occult • Element of Mystery',
+                        cardClass: 'ketu-card'
+                    },
+                    {
+                        icon: '🎯',
+                        title: '9th House (Dharma)',
+                        subtitle: 'Higher Learning & Spirituality',
+                        description: 'The house of dharma, governing higher education, spirituality, long journeys, father, and philosophical beliefs. Your spiritual path.',
+                        features: ['Higher Learning', 'Spirituality', 'Father', 'Philosophy', 'Long Journeys'],
+                        power: '🎓 Rules: Higher Learning, Dharma • Element of Wisdom',
+                        cardClass: 'jupiter-card'
+                    },
+                    {
+                        icon: '👔',
+                        title: '10th House (Karma)',
+                        subtitle: 'Career & Reputation',
+                        description: 'The house of action, governing career, profession, reputation, authority, and public status. Your worldly achievements and recognition.',
+                        features: ['Career', 'Reputation', 'Authority', 'Public Status', 'Profession'],
+                        power: '🏆 Rules: Career, Reputation • Element of Achievement',
+                        cardClass: 'saturn-card'
+                    },
+                    {
+                        icon: '🌟',
+                        title: '11th House (Labha)',
+                        subtitle: 'Gains & Aspirations',
+                        description: 'The house of gains, governing income, aspirations, friends, elder siblings, and fulfillment of desires. Your hopes and social network.',
+                        features: ['Income', 'Aspirations', 'Friends', 'Elder Siblings', 'Desires'],
+                        power: '💫 Rules: Gains, Friends, Aspirations • Element of Fulfillment',
+                        cardClass: 'rahu-card'
+                    },
+                    {
+                        icon: '🕉️',
+                        title: '12th House (Vyaya)',
+                        subtitle: 'Liberation & Loss',
+                        description: 'The house of expenditure, governing losses, liberation, foreign lands, spirituality, and final release. Your path to transcendence.',
+                        features: ['Liberation', 'Losses', 'Foreign Lands', 'Spirituality', 'Transcendence'],
+                        power: '🌌 Rules: Liberation, Foreign Lands • Element of Release',
+                        cardClass: 'ketu-card'
+                    }
+                ]
+            },
+            'chakra-energy-centers': {
+                icon: '🌀',
+                title: 'Chakra Energy Centers',
+                subtitle: 'The Seven Gateways to Consciousness',
+                stats: '7 Centers • Energy Medicine • Neuroscience Validated',
+                intro: 'Seven interdimensional gateways where consciousness interfaces with matter. Each chakra is a complete universe of experience containing worlds of possibility for conscious exploration and energy mastery.',
+                category: 'consciousness',
+                categoryTitle: 'Consciousness Technologies',
+                subSubdivisions: [
+                    {
+                        icon: '🔴',
+                        title: 'Muladhara (Root Chakra)',
+                        subtitle: 'Survival & Grounding',
+                        description: 'The foundation chakra governing survival instincts, grounding, physical vitality, and connection to Earth energy. Contains dormant Kundalini Shakti - the evolutionary fire of consciousness.',
+                        features: ['Survival Instinct', 'Physical Grounding', 'Life Force', 'Fear Transcendence', 'Kundalini Dormancy'],
+                        power: '🔥 Element: Earth • Mantra: LAM • Color: Red • Glands: Adrenals • Frequency: 194.18 Hz',
+                        cardClass: 'mars-card'
+                    },
+                    {
+                        icon: '🟠',
+                        title: 'Svadhisthana (Sacral Chakra)',
+                        subtitle: 'Creativity & Sexuality',
+                        description: 'The pleasure and creativity center governing sexual energy, emotional flow, creative expression, and life enjoyment. Sacred sexuality becomes spiritual fuel when properly channeled.',
+                        features: ['Creative Force', 'Sexual Energy', 'Emotional Flow', 'Pleasure Principle', 'Artistic Expression'],
+                        power: '🌊 Element: Water • Mantra: VAM • Color: Orange • Glands: Gonads • Frequency: 210.42 Hz',
+                        cardClass: 'venus-card'
+                    },
+                    {
+                        icon: '🟡',
+                        title: 'Manipura (Solar Plexus)',
+                        subtitle: 'Personal Power & Will',
+                        description: 'The power center governing personal will, self-confidence, transformation, and digestive fire. This chakra transforms energy and builds authentic spiritual authority.',
+                        features: ['Personal Power', 'Will Force', 'Transformation', 'Self-Confidence', 'Energy Metabolism'],
+                        power: '🔥 Element: Fire • Mantra: RAM • Color: Yellow • Glands: Pancreas • Frequency: 126.22 Hz',
+                        cardClass: 'sun-card'
+                    },
+                    {
+                        icon: '💚',
+                        title: 'Anahata (Heart Chakra)',
+                        subtitle: 'Love & Compassion',
+                        description: 'The love center bridging lower and upper chakras, governing compassion, love, relationships, and emotional healing. The gateway to cosmic love beyond personal attachment.',
+                        features: ['Universal Love', 'Compassion', 'Emotional Healing', 'Heart Wisdom', 'Divine Connection'],
+                        power: '🍃 Element: Air • Mantra: YAM • Color: Green • Glands: Thymus • Frequency: 341.3 Hz',
+                        cardClass: 'venus-card'
+                    },
+                    {
+                        icon: '🔵',
+                        title: 'Vishuddha (Throat Chakra)',
+                        subtitle: 'Communication & Truth',
+                        description: 'The expression center governing communication, creativity, truth, and authentic self-expression. When opened, becomes channel for divine wisdom and cosmic intelligence.',
+                        features: ['Truth Expression', 'Divine Communication', 'Creative Voice', 'Authentic Speaking', 'Cosmic Channel'],
+                        power: '🌌 Element: Space • Mantra: HAM • Color: Blue • Glands: Thyroid • Frequency: 141.27 Hz',
+                        cardClass: 'mercury-card'
+                    },
+                    {
+                        icon: '🟣',
+                        title: 'Ajna (Third Eye)',
+                        subtitle: 'Intuition & Wisdom',
+                        description: 'The wisdom center governing intuition, psychic perception, spiritual vision, and transcendent awareness. Opens doorways to cosmic intelligence and divine knowledge.',
+                        features: ['Psychic Vision', 'Intuitive Wisdom', 'Spiritual Insight', 'Cosmic Awareness', 'Divine Knowledge'],
+                        power: '✨ Element: Light • Mantra: AUM • Color: Indigo • Glands: Pineal • Frequency: 221.23 Hz',
+                        cardClass: 'jupiter-card'
+                    },
+                    {
+                        icon: '🟣',
+                        title: 'Sahasrara (Crown Chakra)',
+                        subtitle: 'Unity & Transcendence',
+                        description: 'The consciousness center representing pure awareness, divine connection, and cosmic unity. Complete opening dissolves individual identity into universal consciousness.',
+                        features: ['Cosmic Consciousness', 'Divine Unity', 'Pure Awareness', 'Enlightenment', 'Universal Connection'],
+                        power: '🌌 Element: Thought • Mantra: SILENCE • Color: Violet/White • Glands: Pituitary • Frequency: 172.06 Hz',
+                        cardClass: 'ketu-card'
+                    }
+                ]
+            },
+            'tantra-consciousness-tech': {
+                icon: '⚡',
+                title: 'Tantra Technologies',
+                subtitle: 'Ultimate Consciousness Weaponization',
+                stats: 'Advanced Level • Reality Manipulation • Power Systems',
+                intro: 'The most powerful consciousness technologies known to humanity. Ancient methods for reality manipulation, energy mastery, and supernatural power development validated by modern neuroscience.',
+                category: 'tantra',
+                categoryTitle: 'Tantra Mastery',
+                subSubdivisions: [
+                    {
+                        icon: '🔥',
+                        title: 'Kundalini Awakening',
+                        subtitle: 'The Serpent Fire',
+                        description: 'The supreme evolutionary energy coiled at spine base. When awakened, creates complete consciousness transformation from matter awareness to cosmic unity. The most powerful spiritual force.',
+                        features: ['Evolutionary Fire', 'Consciousness Expansion', 'Supernatural Powers', 'Spiritual Evolution', 'Energy Mastery'],
+                        power: '⚡ Location: Base of Spine • Symbolism: Coiled Serpent • Effect: Total Transformation',
+                        cardClass: 'mars-card'
+                    },
+                    {
+                        icon: '🕊',
+                        title: 'Mantra Sciences',
+                        subtitle: 'Sacred Sound Technology',
+                        description: 'Precise sound frequencies that alter consciousness and reality. Sanskrit mantras encode divine energies that activate specific awareness states through vibrational resonance.',
+                        features: ['Sound Healing', 'Reality Alteration', 'Divine Connection', 'Energy Activation', 'Consciousness Programming'],
+                        power: '🎵 Technology: Vibrational Frequency • Language: Sanskrit • Power: Divine Transmission',
+                        cardClass: 'mercury-card'
+                    },
+                    {
+                        icon: '✨',
+                        title: 'Sacred Sexuality',
+                        subtitle: 'Energy Transmutation',
+                        description: 'Sexual energy transformed into spiritual fuel for consciousness expansion. Advanced practitioners achieve cosmic consciousness through sacred union and energy circulation.',
+                        features: ['Energy Circulation', 'Consciousness Fusion', 'Divine Union', 'Power Transmutation', 'Bliss States'],
+                        power: '🔥 Method: Energy Circulation • Goal: Cosmic Consciousness • Result: Divine Union',
+                        cardClass: 'venus-card'
+                    },
+                    {
+                        icon: '🌀',
+                        title: 'Yantra Geometry',
+                        subtitle: 'Sacred Mathematics',
+                        description: 'Geometric patterns that map divine consciousness and create reality-altering energy fields. Each yantra encodes cosmic principles in mathematical perfection.',
+                        features: ['Sacred Geometry', 'Reality Templates', 'Energy Fields', 'Divine Mapping', 'Consciousness Architecture'],
+                        power: '📐 Form: Sacred Geometry • Function: Reality Interface • Effect: Energy Activation',
+                        cardClass: 'saturn-card'
+                    },
+                    {
+                        icon: '🔮',
+                        title: 'Ritual Technology',
+                        subtitle: 'Reality Engineering',
+                        description: 'Sophisticated protocols for transforming ordinary reality into sacred space where every action becomes divine communion and consciousness expansion.',
+                        features: ['Sacred Space Creation', 'Divine Invocation', 'Reality Transformation', 'Energy Exchange', 'Cosmic Alignment'],
+                        power: '✨ Method: Sacred Protocol • Space: Divine Mandala • Result: Consciousness Communion',
+                        cardClass: 'jupiter-card'
+                    },
+                    {
+                        icon: '🐈',
+                        title: 'Shadow Integration',
+                        subtitle: 'Power Reclamation',
+                        description: 'Conscious work with denied aspects of psyche, transforming shadow into spiritual fuel. True power comes from integrating rather than rejecting difficult emotions.',
+                        features: ['Shadow Work', 'Power Reclamation', 'Emotional Alchemy', 'Authentic Power', 'Wholeness Integration'],
+                        power: '🌙 Method: Conscious Integration • Material: Shadow Energy • Result: Authentic Power',
+                        cardClass: 'ketu-card'
+                    }
+                ]
+            }
+        };
+
+        // Get system from URL parameter
+        function getSystemFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('system') || 'planets-navagraha';
+        }
+
+        // Load system content
+        function loadSystem() {
+            const system = getSystemFromURL();
+            const systemData = systems[system];
+            
+            if (!systemData) {
+                // Fallback to planets if system not found
+                loadSystemData(systems['planets-navagraha']);
+                return;
+            }
+            
+            loadSystemData(systemData);
+        }
+
+        // Load system data into page
+        function loadSystemData(data) {
+            // Update page title
+            document.getElementById('pageTitle').textContent = `🕉️ ${data.title} - SHIVAKALI ASHRAM`;
+            
+            // Update breadcrumb
+            document.getElementById('categoryBreadcrumb').textContent = data.categoryTitle;
+            document.getElementById('categoryBreadcrumb').href = `category.html?cat=${data.category}`;
+            document.getElementById('systemBreadcrumb').textContent = data.title;
+            document.getElementById('backToCategoryNav').href = `category.html?cat=${data.category}`;
+            
+            // Update header
+            document.getElementById('systemIconLarge').textContent = data.icon;
+            document.getElementById('systemTitleMain').textContent = data.title;
+            document.getElementById('systemSubtitleMain').textContent = data.subtitle;
+            document.getElementById('systemStatsMain').textContent = data.stats;
+            
+            // Update intro text
+            document.getElementById('systemIntroText').textContent = data.intro;
+            
+            // Load sub-subdivision cards
+            const grid = document.getElementById('subSubdivisionsGrid');
+            grid.innerHTML = '';
+            
+            data.subSubdivisions.forEach(sub => {
+                const card = createSubSubdivisionCard(sub);
+                grid.appendChild(card);
+            });
+        }
+
+        // Create sub-subdivision card element
+        function createSubSubdivisionCard(subSubdivision) {
+            const card = document.createElement('a');
+            card.href = `detail.html?item=${encodeURIComponent(subSubdivision.title.toLowerCase().replace(/\s+/g, '-'))}`;
+            card.className = `sub-subdivision-card ${subSubdivision.cardClass}`;
+            
+            const featuresHTML = subSubdivision.features.map(feature => 
+                `<span class="feature-tag">${feature}</span>`
+            ).join('');
+            
+            card.innerHTML = `
+                <div class="sub-subdivision-icon">${subSubdivision.icon}</div>
+                <h3 class="sub-subdivision-title">${subSubdivision.title}</h3>
+                <p class="sub-subdivision-subtitle">${subSubdivision.subtitle}</p>
+                <p class="sub-subdivision-description">${subSubdivision.description}</p>
+                <div class="sub-subdivision-features">
+                    ${featuresHTML}
+                </div>
+                <div class="sub-subdivision-power">${subSubdivision.power}</div>
+            `;
+            
+            return card;
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', loadSystem);
+    </script>
+</body>
+</html>

@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title id="pageTitle">🕉️ SHIVAKALI ASHRAM - Spiritual Detail</title>
+    <style>
+        :root {
+            --sacred-red: #DC143C;
+            --sacred-gold: #FFD700;
+            --sacred-deep-red: #8B0000;
+            --sacred-white: #FFFFFF;
+            --sacred-cream: #FFF8DC;
+            --sacred-dark: #1a1a2e;
+            --sacred-blue: #16213e;
+            --sacred-purple: #4A148C;
+            --sacred-orange: #FF6D00;
+            --sacred-teal: #00695C;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Georgia', 'Times New Roman', serif;
+            background: linear-gradient(135deg, var(--sacred-dark) 0%, var(--sacred-blue) 30%, #0f3460 70%, var(--sacred-purple) 100%);
+            min-height: 100vh;
+            color: white;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--sacred-red) 0%, var(--sacred-gold) 50%, var(--sacred-orange) 100%);
+            padding: 3rem 0;
+            text-align: center;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .breadcrumb {
+            font-size: 0.9rem;
+            color: var(--sacred-cream);
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb a {
+            color: var(--sacred-gold);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .detail-icon-large {
+            font-size: 6rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .detail-title-main {
+            font-size: 3.2rem;
+            font-weight: 900;
+            color: white;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .detail-subtitle-main {
+            font-size: 1.5rem;
+            color: var(--sacred-cream);
+            font-style: italic;
+            font-weight: 300;
+            margin-bottom: 1.2rem;
+        }
+
+        .detail-power-main {
+            background: rgba(220, 20, 60, 0.3);
+            color: var(--sacred-cream);
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            margin: 1.5rem auto;
+            border: 2px solid rgba(220, 20, 60, 0.5);
+            font-size: 1.1rem;
+            font-weight: 600;
+            max-width: 800px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Navigation Bar */
+        .nav-bar {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding: 0 2rem;
+        }
+
+        .nav-item {
+            color: var(--sacred-gold);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .nav-item:hover {
+            background: var(--sacred-gold);
+            color: var(--sacred-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            background: rgba(255, 248, 220, 0.1);
+            border-radius: 20px;
+            padding: 3rem;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .content-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--sacred-gold);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--sacred-cream);
+        }
+
+        .section-content p {
+            margin-bottom: 1.2rem;
+        }
+
+        .highlight-text {
+            background: linear-gradient(45deg, var(--sacred-gold), var(--sacred-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-card {
+            background: rgba(255, 248, 220, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .sidebar-title {
+            font-size: 1.4rem;
+            color: var(--sacred-gold);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-item {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            color: var(--sacred-cream);
+        }
+
+        .feature-item:last-child {
+            border-bottom: none;
+        }
+
+        .feature-icon {
+            margin-right: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        /* Mantra/Prayer Section */
+        .mantra-section {
+            background: linear-gradient(145deg, rgba(220, 20, 60, 0.2) 0%, rgba(255, 69, 0, 0.1) 100%);
+            border: 2px solid rgba(220, 20, 60, 0.4);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            margin: 2.5rem 0;
+        }
+
+        .mantra-title {
+            font-size: 1.6rem;
+            color: var(--sacred-red);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .mantra-text {
+            font-size: 1.3rem;
+            color: var(--sacred-gold);
+            font-style: italic;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .mantra-translation {
+            font-size: 1rem;
+            color: var(--sacred-cream);
+            opacity: 0.9;
+        }
+
+        /* Practice Cards */
+        .practice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        .practice-card {
+            background: linear-gradient(145deg, rgba(255, 248, 220, 0.15) 0%, rgba(255, 255, 255, 0.1) 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 2px solid rgba(255, 215, 0, 0.4);
+            backdrop-filter: blur(15px);
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .practice-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--sacred-gold);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
+        }
+
+        .practice-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .practice-title {
+            font-size: 1.3rem;
+            color: var(--sacred-gold);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .practice-description {
+            font-size: 0.95rem;
+            color: var(--sacred-cream);
+            line-height: 1.6;
+        }
+
+        /* Meditation Timer */
+        .timer-section {
+            background: rgba(75, 0, 130, 0.2);
+            border: 2px solid rgba(75, 0, 130, 0.4);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .timer-display {
+            font-size: 3rem;
+            color: var(--sacred-gold);
+            margin: 1rem 0;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .timer-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .timer-btn {
+            background: var(--sacred-gold);
+            color: var(--sacred-dark);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .timer-btn:hover {
+            background: var(--sacred-orange);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 215, 0, 0.3);
+            margin-top: 4rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .main-content {
+                padding: 2rem;
+            }
+
+            .practice-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .detail-title-main {
+                font-size: 2.5rem;
+            }
+
+            .detail-icon-large {
+                font-size: 4rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+                gap: 1rem;
+            }
+
+            .nav-item {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .timer-controls {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .detail-title-main {
+                font-size: 2rem;
+            }
+
+            .detail-icon-large {
+                font-size: 3rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .timer-display {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="breadcrumb" id="breadcrumb">
+            <a href="index.html">Home</a> > 
+            <a href="#" id="categoryBreadcrumb">Category</a> > 
+            <a href="#" id="systemBreadcrumb">System</a> > 
+            <span id="itemBreadcrumb">Item</span>
+        </div>
+        <div class="detail-icon-large" id="detailIconLarge">🌟</div>
+        <h1 class="detail-title-main" id="detailTitleMain">Spiritual Element</h1>
+        <p class="detail-subtitle-main" id="detailSubtitleMain">Ancient Wisdom Detail</p>
+        <div class="detail-power-main" id="detailPowerMain">
+            Spiritual power and cosmic influence details
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-item">🏠 Home</a>
+            <a href="#" id="backToSystemNav" class="nav-item">📂 Back to System</a>
+            <a href="https://cheery-flan-dc1088.netlify.app" class="nav-item">🌐 Gateway</a>
+            <a href="chat.html" class="nav-item">🤖 AI Guide</a>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Content Grid -->
+        <div class="content-grid">
+            <!-- Main Content -->
+            <div class="main-content">
+                <!-- Overview Section -->
+                <div class="content-section">
+                    <h2 class="section-title">🔮 Overview</h2>
+                    <div class="section-content" id="overviewContent">
+                        <p>Detailed spiritual and cosmic information about this element...</p>
+                    </div>
+                </div>
+
+                <!-- Significance Section -->
+                <div class="content-section">
+                    <h2 class="section-title">⭐ Spiritual Significance</h2>
+                    <div class="section-content" id="significanceContent">
+                        <p>Deep spiritual meaning and importance...</p>
+                    </div>
+                </div>
+
+                <!-- Influences Section -->
+                <div class="content-section">
+                    <h2 class="section-title">🌊 Cosmic Influences</h2>
+                    <div class="section-content" id="influencesContent">
+                        <p>How this element affects life and consciousness...</p>
+                    </div>
+                </div>
+
+                <!-- Practical Applications -->
+                <div class="content-section">
+                    <h2 class="section-title">🎯 Practical Applications</h2>
+                    <div class="section-content" id="applicationsContent">
+                        <p>How to work with this energy in daily life...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Key Attributes -->
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title">🔑 Key Attributes</h3>
+                    <ul class="feature-list" id="attributesList">
+                        <li class="feature-item"><span class="feature-icon">💫</span>Sample Attribute</li>
+                    </ul>
+                </div>
+
+                <!-- Associated Elements -->
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title">🌟 Associations</h3>
+                    <ul class="feature-list" id="associationsList">
+                        <li class="feature-item"><span class="feature-icon">🎨</span>Sample Association</li>
+                    </ul>
+                </div>
+
+                <!-- Meditation Timer -->
+                <div class="sidebar-card timer-section">
+                    <h3 class="sidebar-title">🧘 Meditation Timer</h3>
+                    <div class="timer-display" id="timerDisplay">05:00</div>
+                    <div class="timer-controls">
+                        <button class="timer-btn" onclick="setTimer(5)">5 min</button>
+                        <button class="timer-btn" onclick="setTimer(10)">10 min</button>
+                        <button class="timer-btn" onclick="setTimer(15)">15 min</button>
+                    </div>
+                    <div class="timer-controls" style="margin-top: 1rem;">
+                        <button class="timer-btn" id="startBtn" onclick="startTimer()">Start</button>
+                        <button class="timer-btn" onclick="pauseTimer()">Pause</button>
+                        <button class="timer-btn" onclick="resetTimer()">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mantra/Prayer Section -->
+        <div class="mantra-section" id="mantraSection">
+            <h2 class="mantra-title">🕉️ Sacred Mantra</h2>
+            <p class="mantra-text" id="mantraText">Om Namah Shivaya</p>
+            <p class="mantra-translation" id="mantraTranslation">I bow to Shiva - the infinite consciousness</p>
+        </div>
+
+        <!-- Practice Cards -->
+        <div class="practice-grid" id="practiceGrid">
+            <!-- Practice cards will be dynamically loaded -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 SHIVAKALI ASHRAM. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; opacity: 0.8;">Authentic spiritual guidance for modern seekers.</p>
+    </footer>
+
+    <script>
+        // Detailed spiritual data - FULLY LOADED FROM PROJECT TRACKER
+        const spiritualDetails = {
+            'surya-(sun)': {
+                icon: '☀️',
+                title: 'Surya (Sun)',
+                subtitle: 'The Soul & Divine Masculine Authority',
+                power: '🔥 Rules: Leo (Simha) • Enhances: Soul Power, Leadership, Health, Authority • Day: Sunday • Gemstone: Ruby (Manikya) • Metal: Gold, Copper',
+                category: 'jyotisha',
+                system: 'planets-navagraha',
+                overview: `Surya, the supreme luminary, represents the Atman (eternal soul) and divine masculine principle governing life force, consciousness, and spiritual authority. As the cosmic father and king of planets, Surya embodies pure consciousness, leadership power, and spiritual illumination that burns away ignorance to reveal divine truth.
+                
+                Mythologically, Surya is the son of sage Kashyapa and Aditi, riding a seven-horse chariot across the sky, dispelling darkness and bringing life to all beings. His wives Saranyu (consciousness) and Chhaya (shadow) represent the interplay of light and shadow in spiritual development. Surya's children include Saturn (discipline), Yama (time/death), and the Ashwini twins (healing), showing his role in cosmic order.
+                
+                As the Atmakaraka (soul significator), Surya's position in the birth chart reveals one's spiritual purpose, leadership capacity, and relationship with divine authority. A strong Sun grants natural command, excellent health, spiritual insight, and the ability to inspire others through authentic power rather than ego manipulation.`,
+                
+                significance: `The Sun holds supreme significance as the Atmakaraka (significator of the soul) in Vedic astrology. It represents the individual's journey toward self-realization and spiritual enlightenment. Surya's position in the birth chart reveals one's life purpose, spiritual path, and capacity for leadership.
+
+                As the central luminary, the Sun governs the heart chakra (Anahata) and is associated with confidence, vitality, and life force (Prana). A strong Sun bestows excellent health, natural authority, and the ability to inspire others. It grants courage to face life's challenges and the strength to overcome obstacles on the spiritual path.
+
+                The Sun's energy is particularly powerful during sunrise and noon, making these ideal times for solar meditation and mantras. Surya represents the divine masculine principle - active, penetrating, and illuminating consciousness that cuts through illusion.`,
+                
+                influences: `Surya's cosmic influences permeate every aspect of existence. Physically, the Sun governs the heart, circulatory system, bones, and overall vitality. A well-placed Sun grants excellent health, strong immunity, and longevity. It rules the right eye in males and provides good eyesight and clarity of vision.
+
+                Mentally and emotionally, the Sun bestows confidence, self-respect, and natural leadership abilities. It enhances willpower, determination, and the capacity for independent thinking. The Sun's influence creates natural leaders who inspire others through their authenticity and inner light.
+
+                Spiritually, Surya facilitates the journey toward self-realization. It grants the discrimination to distinguish between the eternal Self and temporary phenomena. The Sun's energy helps dissolve ego attachments while strengthening the core sense of divine identity.
+
+                Career-wise, the Sun favors positions of authority, government service, politics, medicine, and all leadership roles. It brings recognition, fame, and public appreciation when functioning positively.`,
+                
+                applications: `Working with Surya's energy requires discipline, dedication, and respect for the solar principles of truth and righteousness. Begin each day by greeting the Sun with gratitude and reverence. The practice of Surya Namaskara (Sun Salutation) is the most direct method to harmonize with solar energy.
+
+                Chanting the Gayatri Mantra during sunrise connects you directly with Surya's transformative power. The practice should be done facing east, with clean body and mind, offering water to the Sun while reciting sacred mantras.
+
+                Meditation on Surya involves visualizing a brilliant golden-red disc at the heart center, radiating warmth and light throughout the body. This practice strengthens the solar plexus, enhances confidence, and awakens inner authority.
+
+                Dietary practices include consuming solar foods like wheat, oranges, and ghee (clarified butter). Wearing ruby or other solar gemstones can amplify the Sun's positive influences. Service to father figures and elderly people pleases Surya and brings his blessings.
+
+                Sunday is dedicated to Surya worship. Observing fast on Sundays and donating wheat, jaggery, or copper items to the needy generates positive solar karma.`,
+                
+                attributes: [
+                    { icon: '👑', text: 'Soul Power & Life Force' },
+                    { icon: '🔥', text: 'Leadership & Authority' },
+                    { icon: '💪', text: 'Confidence & Willpower' },
+                    { icon: '🏥', text: 'Health & Vitality' },
+                    { icon: '🌟', text: 'Recognition & Fame' },
+                    { icon: '⚡', text: 'Divine Masculine Energy' }
+                ],
+                
+                associations: [
+                    { icon: '♌', text: 'Zodiac: Leo (Simha)' },
+                    { icon: '💎', text: 'Gemstone: Ruby (Manikya)' },
+                    { icon: '🌸', text: 'Color: Saffron, Gold, Red' },
+                    { icon: '🔥', text: 'Element: Fire (Agni)' },
+                    { icon: '🏛️', text: 'Metal: Gold, Copper' },
+                    { icon: '🌿', text: 'Plant: Wheat, Marigold' },
+                    { icon: '📅', text: 'Day: Sunday (Ravivaar)' },
+                    { icon: '🕐', text: 'Time: Sunrise, Noon' }
+                ],
+                
+                mantra: {
+                    text: 'ॐ ह्रीं घृणिः सूर्याय नमः',
+                    transliteration: 'Om Hreem Ghrinah Suryaya Namah',
+                    translation: 'Om, I bow to Surya who is the remover of ignorance and bestower of light'
+                },
+                
+                practices: [
+                    {
+                        icon: '🌅',
+                        title: 'Surya Namaskara',
+                        description: 'Practice 12 rounds of Sun Salutation at sunrise, facing east, with gratitude and devotion.'
+                    },
+                    {
+                        icon: '🔱',
+                        title: 'Gayatri Mantra',
+                        description: 'Chant the sacred Gayatri Mantra 108 times during sunrise for spiritual illumination.'
+                    },
+                    {
+                        icon: '🧘',
+                        title: 'Solar Meditation',
+                        description: 'Meditate on golden light at the heart chakra, visualizing the Sun\'s healing energy.'
+                    },
+                    {
+                        icon: '💧',
+                        title: 'Arghya Offering',
+                        description: 'Offer water to the rising Sun with copper vessel while chanting mantras.'
+                    }
+                ]
+            },
+            'kundalini-awakening': {
+                icon: '🔥',
+                title: 'Kundalini Awakening',
+                subtitle: 'The Serpent Fire of Evolution',
+                power: '⚡ Location: Muladhara (Base of Spine) • Symbolism: Coiled Serpent • Effect: Complete Consciousness Transformation • Danger Level: EXTREME',
+                category: 'tantra',
+                system: 'tantra-consciousness-tech',
+                overview: `Kundalini Shakti represents the supreme evolutionary force lying dormant at the spine's base - the compressed power of cosmic creation coiled within human consciousness. This isn't mere energy but the actual creative intelligence that births universes, containing every stage of evolution from mineral awareness to cosmic consciousness.
+                
+                When awakened, Kundalini creates the most profound transformation possible in human experience, literally rewiring the nervous system for higher-dimensional awareness. The coiled serpent symbolizes infinite potential in rest - when activated, it rises through the chakras like liquid electricity, purifying each energy center and awakening dormant spiritual capacities.
+                
+                This is not gentle spiritual development but rapid evolutionary acceleration that can span lifetimes of growth in months or years. The awakening often occurs through intense spiritual practice, guru transmission (Shaktipat), life crisis, or spontaneous grace - but always when consciousness is ready for this magnitude of transformation.`,
+                
+                significance: `Kundalini awakening represents humanity's next evolutionary leap - the conscious activation of dormant DNA and neural pathways that connect human awareness to cosmic intelligence. Modern neuroscience confirms that advanced practitioners show unprecedented brain activity during Kundalini experiences, with simultaneous activation of multiple brain regions typically never active together.
+                
+                This process literally rebuilds the practitioner's consciousness architecture, dissolving the boundaries between individual awareness and universal intelligence. Each chakra activation during Kundalini's ascent unlocks specific supernatural abilities (siddhis) - healing powers, telepathy, clairvoyance, energy manipulation, and reality influence capabilities.
+                
+                The awakening is irreversible - once Kundalini activates, there is no return to ordinary consciousness. This creates both tremendous opportunity for spiritual mastery and serious responsibility for proper integration and ethical development.`,
+                
+                influences: `Physical effects include spontaneous body movements (kriyas), altered breathing patterns, electrical sensations throughout the body, temperature fluctuations, and sometimes temporary health symptoms as energy systems reorganize. The nervous system undergoes profound rewiring to handle higher energy frequencies.
+                
+                Psychologically, practitioners experience expanded awareness, dissolution of limiting beliefs, direct perception of subtle energies, spontaneous knowledge downloads, and sometimes temporary disorientation as identity structures reorganize around cosmic rather than personal consciousness.
+                
+                Spiritually, Kundalini awakening grants direct access to divine consciousness, the ability to perceive multiple dimensions simultaneously, communication with cosmic intelligences, and eventual realization of one's true nature as infinite awareness rather than limited individual identity.
+                
+                Advanced practitioners develop the ability to awaken Kundalini in others through energy transmission, heal through direct energy projection, and consciously work with cosmic forces for healing and spiritual service.`,
+                
+                applications: `Kundalini awakening requires extensive preparation through Hatha Yoga for physical purification, Pranayama for energy regulation, meditation for mental stability, ethical conduct for karmic purification, and devotional practices for emotional refinement. Attempting activation without proper preparation can cause psychological instability or physical illness.
+                
+                Safe awakening practices include gradual chakra meditation, working with qualified teachers experienced in Kundalini processes, maintaining grounding practices throughout the journey, and developing strong ethical foundation before accessing advanced powers.
+                
+                Integration requires balancing expanded awareness with practical daily life, learning to modulate energy flows consciously, developing discrimination between spiritual experiences and psychological projections, and maintaining service orientation as power develops.
+                
+                Advanced practitioners learn to work consciously with Kundalini for healing others, transmitting spiritual awakening, and serving the evolutionary process while maintaining psychological stability and ethical integrity.
+                
+                The ultimate goal is Sahaja Samadhi - natural absorption in cosmic consciousness during all activities, where Kundalini energy flows continuously without effort, maintaining divine awareness throughout ordinary life activities.`,
+                
+                attributes: [
+                    { icon: '⚡', text: 'Evolutionary Fire Power' },
+                    { icon: '🐍', text: 'Serpent Wisdom Energy' },
+                    { icon: '🧠', text: 'Consciousness Rewiring' },
+                    { icon: '🌌', text: 'Cosmic Intelligence Access' },
+                    { icon: '🔮', text: 'Supernatural Abilities' },
+                    { icon: '✨', text: 'Reality Manipulation Power' }
+                ],
+                
+                associations: [
+                    { icon: '🐍', text: 'Symbol: Coiled Serpent' },
+                    { icon: '🔴', text: 'Location: Muladhara Chakra' },
+                    { icon: '⚡', text: 'Energy: Shakti (Creative Power)' },
+                    { icon: '🌊', text: 'Channel: Sushumna Nadi' },
+                    { icon: '🔥', text: 'Element: Pure Consciousness' },
+                    { icon: '🎯', text: 'Goal: Cosmic Consciousness' },
+                    { icon: '⚙️', text: 'Method: Yoga & Meditation' },
+                    { icon: '⚠️', text: 'Caution: Requires Preparation' }
+                ],
+                
+                mantra: {
+                    text: 'ॐ ह्रीं क्रीं कालिकायै नमः',
+                    transliteration: 'Om Hreem Kreem Kalikayai Namah',
+                    translation: 'Om, I bow to Kali - the divine mother who awakens the serpent fire of transformation'
+                },
+                
+                practices: [
+                    {
+                        icon: '🧘',
+                        title: 'Spinal Breathing',
+                        description: 'Breathe energy up the spine from base to crown, awakening each chakra with visualization and mantra.'
+                    },
+                    {
+                        icon: '🐍',
+                        title: 'Serpent Meditation',
+                        description: 'Visualize coiled serpent energy at spine base, gently awakening and rising through energy centers.'
+                    },
+                    {
+                        icon: '⚡',
+                        title: 'Energy Circulation',
+                        description: 'Advanced practice circulating awakened Kundalini energy through body for healing and evolution.'
+                    },
+                    {
+                        icon: '🌈',
+                        title: 'Chakra Purification',
+                        description: 'Systematic purification of each energy center preparing for safe Kundalini awakening.'
+                    }
+                ]
+            },
+            'muladhara-(root-chakra)': {
+                icon: '🔴',
+                title: 'Muladhara (Root Chakra)',
+                subtitle: 'The Foundation of Consciousness',
+                power: '🔥 Element: Earth (Prithvi) • Mantra: LAM • Color: Red • Glands: Adrenals • Frequency: 194.18 Hz • Location: Base of Spine',
+                category: 'consciousness',
+                system: 'chakra-energy-centers',
+                overview: `Muladhara, the root chakra, serves as the foundation of the entire energy system and houses the dormant Kundalini Shakti - the evolutionary fire that can transform human consciousness from survival awareness to cosmic unity. Located at the base of the spine, this chakra governs our most primal instincts, survival mechanisms, and connection to physical reality.
+                
+                This energy center represents our relationship with the Earth element, grounding, stability, and the basic life force that sustains physical existence. When balanced, Muladhara provides unshakeable foundation for spiritual development, fearlessness in facing life challenges, and deep sense of belonging to the cosmic order.
+                
+                The root chakra contains the coiled Kundalini serpent - three and a half coils of dormant creative power that, when awakened, initiates the most profound spiritual transformation possible in human experience. This makes Muladhara simultaneously the most grounding and most potentially explosive energy center.`,
+                
+                significance: `As the foundation chakra, Muladhara's health determines the stability of all higher energy centers. Imbalances here create instability throughout the entire system, while strength in the root chakra supports profound spiritual development without losing grounding in practical reality.
+                
+                The root chakra governs the adrenal glands, producing hormones essential for survival response, energy production, and stress management. Modern life's chronic stress often depletes this center, creating anxiety, fatigue, and disconnection from natural rhythms.
+                
+                Spiritually, Muladhara represents our fundamental trust in existence - the deep knowing that we belong here and are supported by the universe. When this chakra is strong, we feel safe to explore higher consciousness without fear of losing connection to practical life needs.`,
+                
+                influences: `Physical correspondences include the base of spine, perineum, legs, feet, bones, blood, and immune system. Root chakra governs survival instincts, fight-or-flight responses, basic vitality, and connection to ancestral/tribal consciousness.
+                
+                Psychologically, this center affects our sense of safety, belonging, trust in life, ability to manifest in physical reality, and relationship with money, food, shelter, and other survival needs. Fear patterns, anxiety about security, and trauma responses often originate from root chakra imbalances.
+                
+                When balanced, Muladhara grants fearless courage, practical wisdom, ability to manifest material needs effortlessly, strong physical health, and deep connection to Earth's healing energies. Advanced practitioners can consciously work with root chakra energy for grounding, healing, and awakening dormant potential.`,
+                
+                applications: `Root chakra healing begins with grounding practices - walking barefoot on earth, spending time in nature, gardening, or sitting against trees. Physical exercise, especially activities connecting us to the ground like yoga, martial arts, or dance, strengthens this energy center.
+                
+                Dietary support includes root vegetables (carrots, potatoes, beets), red foods (tomatoes, strawberries, red peppers), protein for building physical strength, and avoiding excessive stimulants that deplete adrenal energy.
+                
+                Meditation practices involve visualizing red light at the spine's base, chanting LAM mantra, and breathing into the pelvic floor area. Advanced practices include Mula Bandha (root lock) and specific mudras that activate root chakra energy.
+                
+                For Kundalini awakening, practitioners work gradually with root chakra purification, ensuring strong foundation before attempting to activate the dormant serpent power. This includes trauma healing, establishing physical stability, and developing psychological maturity to handle expanded consciousness.
+                
+                Crystal healing utilizes red stones like garnet, ruby, and red jasper, while aromatherapy employs grounding scents like patchouli, vetiver, and cedarwood to support root chakra balance and activation.`,
+                
+                attributes: [
+                    { icon: '🌍', text: 'Earth Grounding Power' },
+                    { icon: '💪', text: 'Survival Strength' },
+                    { icon: '🐍', text: 'Kundalini Serpent Home' },
+                    { icon: '⚖️', text: 'Physical Stability' },
+                    { icon: '🛡️', text: 'Protection & Safety' },
+                    { icon: '🌱', text: 'Life Force Foundation' }
+                ],
+                
+                associations: [
+                    { icon: '🔥', text: 'Element: Earth (Prithvi)' },
+                    { icon: '🔴', text: 'Color: Deep Red' },
+                    { icon: '🎵', text: 'Sound: LAM' },
+                    { icon: '⚙️', text: 'Glands: Adrenal' },
+                    { icon: '📍', text: 'Location: Base of Spine' },
+                    { icon: '🌿', text: 'Sense: Smell' },
+                    { icon: '🦴', text: 'Body: Legs, Feet, Bones' },
+                    { icon: '🟥', text: 'Gemstone: Ruby, Garnet' }
+                ],
+                
+                mantra: {
+                    text: 'ॐ लं',
+                    transliteration: 'Om Lam',
+                    translation: 'Om, I connect with the Earth element and root chakra grounding power'
+                },
+                
+                practices: [
+                    {
+                        icon: '🌳',
+                        title: 'Earth Connection',
+                        description: 'Walk barefoot on natural ground, sit against trees, or practice gardening for direct earth energy.'
+                    },
+                    {
+                        icon: '🔴',
+                        title: 'Root Visualization',
+                        description: 'Meditate on red light at spine base while chanting LAM mantra for chakra activation.'
+                    },
+                    {
+                        icon: '🧘',
+                        title: 'Mula Bandha',
+                        description: 'Practice root lock by gently contracting perineum muscles while breathing deeply.'
+                    },
+                    {
+                        icon: '🏋️',
+                        title: 'Grounding Exercise',
+                        description: 'Physical activities like yoga, martial arts, or strength training to build root chakra power.'
+                    }
+                ]
+            }
+            // Add more detailed items here as needed...
+        };
+
+        // Timer functionality
+        let timerInterval = null;
+        let currentTime = 300; // 5 minutes in seconds
+        let isRunning = false;
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(currentTime / 60);
+            const seconds = currentTime % 60;
+            document.getElementById('timerDisplay').textContent = 
+                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        function setTimer(minutes) {
+            currentTime = minutes * 60;
+            updateTimerDisplay();
+            if (isRunning) {
+                pauseTimer();
+            }
+        }
+
+        function startTimer() {
+            if (!isRunning) {
+                isRunning = true;
+                document.getElementById('startBtn').textContent = 'Running...';
+                timerInterval = setInterval(() => {
+                    if (currentTime > 0) {
+                        currentTime--;
+                        updateTimerDisplay();
+                    } else {
+                        pauseTimer();
+                        alert('🧘 Meditation completed! Well done!');
+                    }
+                }, 1000);
+            }
+        }
+
+        function pauseTimer() {
+            isRunning = false;
+            clearInterval(timerInterval);
+            document.getElementById('startBtn').textContent = 'Start';
+        }
+
+        function resetTimer() {
+            pauseTimer();
+            currentTime = 300;
+            updateTimerDisplay();
+        }
+
+        // Get item from URL parameter
+        function getItemFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('item') || 'surya-(sun)';
+        }
+
+        // Load item content
+        function loadItem() {
+            const item = getItemFromURL();
+            const itemData = spiritualDetails[item];
+            
+            if (!itemData) {
+                // Fallback to Sun if item not found
+                loadItemData(spiritualDetails['surya-(sun)']);
+                return;
+            }
+            
+            loadItemData(itemData);
+        }
+
+        // Load item data into page
+        function loadItemData(data) {
+            // Update page title
+            document.getElementById('pageTitle').textContent = `🕉️ ${data.title} - SHIVAKALI ASHRAM`;
+            
+            // Update breadcrumb
+            document.getElementById('categoryBreadcrumb').textContent = 'Jyotisha Mastery';
+            document.getElementById('categoryBreadcrumb').href = `category.html?cat=${data.category}`;
+            document.getElementById('systemBreadcrumb').textContent = 'Planets (Navagraha)';
+            document.getElementById('systemBreadcrumb').href = `system.html?system=${data.system}`;
+            document.getElementById('itemBreadcrumb').textContent = data.title;
+            document.getElementById('backToSystemNav').href = `system.html?system=${data.system}`;
+            
+            // Update header
+            document.getElementById('detailIconLarge').textContent = data.icon;
+            document.getElementById('detailTitleMain').textContent = data.title;
+            document.getElementById('detailSubtitleMain').textContent = data.subtitle;
+            document.getElementById('detailPowerMain').textContent = data.power;
+            
+            // Update content sections
+            document.getElementById('overviewContent').innerHTML = `<p>${data.overview}</p>`;
+            document.getElementById('significanceContent').innerHTML = `<p>${data.significance}</p>`;
+            document.getElementById('influencesContent').innerHTML = `<p>${data.influences}</p>`;
+            document.getElementById('applicationsContent').innerHTML = `<p>${data.applications}</p>`;
+            
+            // Update sidebar
+            const attributesList = document.getElementById('attributesList');
+            attributesList.innerHTML = '';
+            data.attributes.forEach(attr => {
+                const li = document.createElement('li');
+                li.className = 'feature-item';
+                li.innerHTML = `<span class="feature-icon">${attr.icon}</span>${attr.text}`;
+                attributesList.appendChild(li);
+            });
+            
+            const associationsList = document.getElementById('associationsList');
+            associationsList.innerHTML = '';
+            data.associations.forEach(assoc => {
+                const li = document.createElement('li');
+                li.className = 'feature-item';
+                li.innerHTML = `<span class="feature-icon">${assoc.icon}</span>${assoc.text}`;
+                associationsList.appendChild(li);
+            });
+            
+            // Update mantra section
+            document.getElementById('mantraText').textContent = data.mantra.text;
+            document.getElementById('mantraTranslation').textContent = data.mantra.translation;
+            
+            // Update practice cards
+            const practiceGrid = document.getElementById('practiceGrid');
+            practiceGrid.innerHTML = '';
+            data.practices.forEach(practice => {
+                const card = document.createElement('div');
+                card.className = 'practice-card';
+                card.innerHTML = `
+                    <div class="practice-icon">${practice.icon}</div>
+                    <h3 class="practice-title">${practice.title}</h3>
+                    <p class="practice-description">${practice.description}</p>
+                `;
+                practiceGrid.appendChild(card);
+            });
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            loadItem();
+            updateTimerDisplay();
+        });
+    </script>
+</body>
+</html>
