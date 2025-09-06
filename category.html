@@ -644,7 +644,22 @@
         // Create subcategory card element
         function createSubcategoryCard(subcategory) {
             const card = document.createElement('a');
-            card.href = `system.html?system=${encodeURIComponent(subcategory.title.toLowerCase().replace(/\s+/g, '-'))}`;
+            
+            // Handle special cases for system mapping
+            let systemParam = subcategory.title.toLowerCase().replace(/\s+/g, '-');
+            
+            // Map specific titles to their system keys
+            if (subcategory.title === 'Houses (Bhavas)') {
+                systemParam = 'houses-bhavas';
+            } else if (subcategory.title === 'Planets (Navagraha)') {
+                systemParam = 'planets-navagraha';
+            } else if (subcategory.title === 'Chakra Energy Centers') {
+                systemParam = 'chakra-energy-centers';
+            } else if (subcategory.title === 'Tantra Technologies') {
+                systemParam = 'tantra-consciousness-tech';
+            }
+            
+            card.href = `system.html?system=${encodeURIComponent(systemParam)}`;
             card.className = 'subcategory-card';
             
             const featuresHTML = subcategory.features.map(feature => 
