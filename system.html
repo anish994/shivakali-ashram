@@ -1221,7 +1221,12 @@
         // Create sub-subdivision card element
         function createSubSubdivisionCard(subSubdivision) {
             const card = document.createElement('a');
-            card.href = `detail.html?item=${encodeURIComponent(subSubdivision.title.toLowerCase().replace(/\s+/g, '-'))}`;
+            // Robust slugify: normalize fancy dashes to ASCII '-' and replace spaces with '-'
+            const slug = subSubdivision.title
+                .toLowerCase()
+                .replace(/[\u2010-\u2015\u2212\uFE58\uFE63\uFF0D]/g, '-') // fancy dashes → hyphen
+                .replace(/\s+/g, '-');
+            card.href = `detail.html?item=${encodeURIComponent(slug)}`;
             card.className = `sub-subdivision-card ${subSubdivision.cardClass}`;
             
             const featuresHTML = subSubdivision.features.map(feature => 
