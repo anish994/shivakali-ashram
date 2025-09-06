@@ -1226,22 +1226,25 @@
                 .toLowerCase()
                 .replace(/[\u2010-\u2015\u2212\uFE58\uFE63\uFF0D]/g, '-') // fancy dashes → hyphen
                 .replace(/\s+/g, '-');
-            card.href = `detail.html?item=${encodeURIComponent(slug)}`;
+            // Propagate cache-busting version param if present; fallback to a fixed version string
+            const urlParams = new URLSearchParams(window.location.search);
+            const v = urlParams.get('v') || '20250906-3';
+            card.href = `detail.html?item=${encodeURIComponent(slug)}&v=${encodeURIComponent(v)}`;
             card.className = `sub-subdivision-card ${subSubdivision.cardClass}`;
             
             const featuresHTML = subSubdivision.features.map(feature => 
-                `<span class="feature-tag">${feature}</span>`
+                `<span class=\"feature-tag\">${feature}</span>`
             ).join('');
             
             card.innerHTML = `
-                <div class="sub-subdivision-icon">${subSubdivision.icon}</div>
-                <h3 class="sub-subdivision-title">${subSubdivision.title}</h3>
-                <p class="sub-subdivision-subtitle">${subSubdivision.subtitle}</p>
-                <p class="sub-subdivision-description">${subSubdivision.description}</p>
-                <div class="sub-subdivision-features">
+                <div class=\"sub-subdivision-icon\">${subSubdivision.icon}</div>
+                <h3 class=\"sub-subdivision-title\">${subSubdivision.title}</h3>
+                <p class=\"sub-subdivision-subtitle\">${subSubdivision.subtitle}</p>
+                <p class=\"sub-subdivision-description\">${subSubdivision.description}</p>
+                <div class=\"sub-subdivision-features\">
                     ${featuresHTML}
                 </div>
-                <div class="sub-subdivision-power">${subSubdivision.power}</div>
+                <div class=\"sub-subdivision-power\">${subSubdivision.power}</div>
             `;
             
             return card;
