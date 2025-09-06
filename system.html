@@ -1171,14 +1171,18 @@
         // Load system content
         function loadSystem() {
             const system = getSystemFromURL();
+            console.log('Loading system:', system);
             const systemData = systems[system];
+            console.log('System data found:', !!systemData);
             
             if (!systemData) {
+                console.log('System not found, falling back to planets');
                 // Fallback to planets if system not found
                 loadSystemData(systems['planets-navagraha']);
                 return;
             }
             
+            console.log('Loading system data for:', system);
             loadSystemData(systemData);
         }
 
