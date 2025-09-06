@@ -5594,7 +5594,7 @@
                         description: 'Physical activities like yoga, martial arts, or strength training to build root chakra power.'
                     }
                 ]
-            }
+            },
             // DASHA SYSTEMS - The Cosmic Time Lords
             'vimshottari-dasha': {
                 icon: '🎯',
@@ -6077,13 +6077,25 @@
             });
         }
 
+        // Test basic JavaScript execution
+        console.log('⚡ JAVASCRIPT IS RUNNING!');
+        console.log('🌐 URL:', window.location.href);
+        
         // Initialize page
         document.addEventListener('DOMContentLoaded', () => {
             console.log('🚀 DETAIL PAGE LOADED!');
             console.log('🌐 Current URL:', window.location.href);
-            console.log('📊 Total spiritualDetails items:', Object.keys(spiritualDetails).length);
-            console.log('🎯 Dasha systems available:', Object.keys(spiritualDetails).filter(key => key.includes('dasha')));
-            loadItem();
+            
+            try {
+                console.log('📊 Total spiritualDetails items:', Object.keys(spiritualDetails).length);
+                console.log('🎯 Dasha systems available:', Object.keys(spiritualDetails).filter(key => key.includes('dasha')));
+                loadItem();
+            } catch (error) {
+                console.error('❌ ERROR in spiritualDetails:', error);
+                console.log('🔍 spiritualDetails type:', typeof spiritualDetails);
+                console.log('🔍 spiritualDetails:', spiritualDetails);
+            }
+            
             updateTimerDisplay();
         });
     </script>
