@@ -6,6 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
+    <!-- Version: 2025-01-09-explosive-content -->
     <title id="pageTitle">🕉️ SHIVAKALI ASHRAM - Spiritual System</title>
     <style>
         :root {
@@ -1242,7 +1243,15 @@
         }
 
         // Initialize page - Updated 2025-01-09 13:10
-        document.addEventListener('DOMContentLoaded', loadSystem);
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Available systems:', Object.keys(systems));
+            console.log('Dasha systems exists:', !!systems['dasha-systems']);
+            if (systems['dasha-systems']) {
+                console.log('Dasha systems title:', systems['dasha-systems'].title);
+                console.log('Dasha systems subcount:', systems['dasha-systems'].subSubdivisions.length);
+            }
+            loadSystem();
+        });
     </script>
 </body>
 </html>
