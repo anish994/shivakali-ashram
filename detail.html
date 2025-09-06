@@ -5995,14 +5995,20 @@
         // Load item content
         function loadItem() {
             const item = getItemFromURL();
+            console.log('🔍 DETAIL DEBUG - Looking for item:', item);
+            console.log('📦 Available items in spiritualDetails:', Object.keys(spiritualDetails));
+            
             const itemData = spiritualDetails[item];
+            console.log('📋 Found item data:', itemData ? 'YES' : 'NO');
             
             if (!itemData) {
+                console.log('❌ Item not found, falling back to Sun');
                 // Fallback to Sun if item not found
                 loadItemData(spiritualDetails['surya-(sun)']);
                 return;
             }
             
+            console.log('✅ Loading item data for:', item);
             loadItemData(itemData);
         }
 
@@ -6073,6 +6079,10 @@
 
         // Initialize page
         document.addEventListener('DOMContentLoaded', () => {
+            console.log('🚀 DETAIL PAGE LOADED!');
+            console.log('🌐 Current URL:', window.location.href);
+            console.log('📊 Total spiritualDetails items:', Object.keys(spiritualDetails).length);
+            console.log('🎯 Dasha systems available:', Object.keys(spiritualDetails).filter(key => key.includes('dasha')));
             loadItem();
             updateTimerDisplay();
         });
