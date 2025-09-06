@@ -1244,14 +1244,41 @@
 
         // Initialize page - Updated 2025-01-09 13:10
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('Available systems:', Object.keys(systems));
-            console.log('Dasha systems exists:', !!systems['dasha-systems']);
-            if (systems['dasha-systems']) {
-                console.log('Dasha systems title:', systems['dasha-systems'].title);
-                console.log('Dasha systems subcount:', systems['dasha-systems'].subSubdivisions.length);
+            try {
+                console.log('Available systems:', Object.keys(systems));
+                console.log('Dasha systems exists:', !!systems['dasha-systems']);
+                if (systems['dasha-systems']) {
+                    console.log('Dasha systems title:', systems['dasha-systems'].title);
+                    console.log('Dasha systems subcount:', systems['dasha-systems'].subSubdivisions.length);
+                }
+                // Visual boot marker so we know JS executed
+                var bootEl = document.getElementById('systemSubtitleMain');
+                if (bootEl) {
+                    bootEl.textContent = 'Initializing… loading system content';
+                }
+                loadSystem();
+            } catch (e) {
+                console.error('Init error:', e);
+                var errEl = document.getElementById('systemSubtitleMain');
+                if (errEl) {
+                    errEl.textContent = 'Error loading system: ' + (e && e.message ? e.message : e);
+                }
             }
-            loadSystem();
         });
+
+        // Also attempt an immediate load as a fallback (script is placed after markup)
+        try {
+            if (document && document.readyState !== 'loading') {
+                // If DOM is already interactive/complete, attempt an immediate load
+                var bootElImmediate = document.getElementById('systemSubtitleMain');
+                if (bootElImmediate) {
+                    bootElImmediate.textContent = 'Bootstrapping…';
+                }
+                loadSystem();
+            }
+        } catch (e) {
+            console.error('Immediate load error:', e);
+        }
     </script>
 </body>
 </html>
