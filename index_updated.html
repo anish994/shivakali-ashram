@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🕉️ SHIVAKALI ASHRAM - 500+ Years of Authentic Vedic Wisdom</title>
+    <style>
+        :root {
+            --sacred-red: #DC143C;
+            --sacred-gold: #FFD700;
+            --sacred-deep-red: #8B0000;
+            --sacred-white: #FFFFFF;
+            --sacred-cream: #FFF8DC;
+            --sacred-dark: #1a1a2e;
+            --sacred-blue: #16213e;
+            --sacred-purple: #4A148C;
+            --sacred-orange: #FF6D00;
+            --sacred-teal: #00695C;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Georgia', 'Times New Roman', serif;
+            background: linear-gradient(135deg, var(--sacred-dark) 0%, var(--sacred-blue) 30%, #0f3460 70%, var(--sacred-purple) 100%);
+            min-height: 100vh;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--sacred-red) 0%, var(--sacred-gold) 50%, var(--sacred-orange) 100%);
+            padding: 3rem 0;
+            text-align: center;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ashram-location {
+            font-size: 1.1rem;
+            color: var(--sacred-cream);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .om-symbol {
+            font-size: 4rem;
+            color: white;
+            text-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .title {
+            font-size: 3rem;
+            font-weight: 900;
+            color: white;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            color: var(--sacred-cream);
+            font-style: italic;
+            font-weight: 300;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Navigation Bar */
+        .nav-bar {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding: 0 2rem;
+        }
+
+        .nav-item {
+            color: var(--sacred-gold);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .nav-item:hover {
+            background: var(--sacred-gold);
+            color: var(--sacred-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Introduction Section */
+        .intro-section {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 3rem;
+            background: rgba(255, 248, 220, 0.1);
+            border-radius: 20px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .intro-title {
+            font-size: 2.5rem;
+            color: var(--sacred-gold);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .sanskrit-blessing {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+            color: var(--sacred-gold);
+        }
+
+        .intro-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--sacred-cream);
+            margin-bottom: 2rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Service Cards Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .service-card {
+            background: linear-gradient(145deg, rgba(255, 248, 220, 0.15) 0%, rgba(255, 255, 255, 0.1) 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 2px solid rgba(255, 215, 0, 0.4);
+            backdrop-filter: blur(15px);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--sacred-gold);
+            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.3);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--sacred-gold);
+            margin-bottom: 1rem;
+        }
+
+        .service-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--sacred-cream);
+            margin-bottom: 1rem;
+        }
+
+        /* Premium Consultation Card */
+        .premium-consultation {
+            background: linear-gradient(145deg, rgba(220, 20, 60, 0.4) 0%, rgba(255, 215, 0, 0.3) 50%, rgba(220, 20, 60, 0.4) 100%);
+            border: 3px solid var(--sacred-gold);
+            box-shadow: 0 12px 40px rgba(255, 215, 0, 0.4);
+            grid-column: 1 / -1;
+        }
+
+        .premium-consultation .service-title {
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .premium-consultation .service-description {
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        /* Knowledge Categories Grid */
+        .categories-section {
+            margin-top: 4rem;
+        }
+
+        .categories-title {
+            font-size: 2.2rem;
+            color: var(--sacred-gold);
+            text-align: center;
+            margin-bottom: 2rem;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .category-card {
+            background: linear-gradient(145deg, rgba(255, 248, 220, 0.15) 0%, rgba(255, 255, 255, 0.1) 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 2px solid rgba(255, 215, 0, 0.4);
+            backdrop-filter: blur(15px);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--sacred-gold);
+            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.3);
+        }
+
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--sacred-gold);
+            margin-bottom: 1rem;
+        }
+
+        .category-subtitle {
+            font-size: 0.9rem;
+            color: var(--sacred-cream);
+            opacity: 0.8;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .category-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: rgba(255, 248, 220, 0.9);
+            margin-bottom: 1rem;
+        }
+
+        .category-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .stat-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .stat-number {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--sacred-gold);
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--sacred-cream);
+            opacity: 0.8;
+        }
+
+        /* Special Gradients for Categories */
+        .consciousness-card { background: linear-gradient(145deg, rgba(74, 20, 140, 0.3) 0%, rgba(156, 39, 176, 0.2) 100%); }
+        .jyotisha-card { background: linear-gradient(145deg, rgba(255, 109, 0, 0.3) 0%, rgba(255, 87, 34, 0.2) 100%); }
+        .therapeutic-card { background: linear-gradient(145deg, rgba(0, 105, 92, 0.3) 0%, rgba(0, 150, 136, 0.2) 100%); }
+        .character-card { background: linear-gradient(145deg, rgba(220, 20, 60, 0.3) 0%, rgba(233, 30, 99, 0.2) 100%); }
+        .divination-card { background: linear-gradient(145deg, rgba(63, 81, 181, 0.3) 0%, rgba(103, 58, 183, 0.2) 100%); }
+        .foundations-card { background: linear-gradient(145deg, rgba(255, 193, 7, 0.3) 0%, rgba(255, 152, 0, 0.2) 100%); }
+
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 215, 0, 0.3);
+            margin-top: 4rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .services-grid, .categories-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .service-card, .category-card {
+                padding: 1.5rem;
+            }
+
+            .title {
+                font-size: 2rem;
+            }
+
+            .intro-title {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+                gap: 1rem;
+            }
+
+            .nav-item {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .om-symbol {
+                font-size: 3rem;
+            }
+
+            .title {
+                font-size: 1.8rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .service-icon, .category-icon {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="ashram-location">
+            🏛️ Tegharia Nishikanan SHIVAKALI ASHRAM<br>
+            Kolkata - 700157, West Bengal, India
+        </div>
+        <div class="om-symbol">🕉️</div>
+        <h1 class="title">SHIVAKALI ASHRAM</h1>
+        <p class="subtitle">500+ Years of Authentic Vedic Wisdom</p>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a href="https://cheery-flan-dc1088.netlify.app" class="nav-item">🌐 Back to Gateway</a>
+            <a href="chat.html" class="nav-item">🤖 AI Guide</a>
+            <a href="#consultation" class="nav-item">📞 Consultation</a>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Welcome Section -->
+        <section class="intro-section">
+            <h2 class="intro-title">Welcome to Authentic Spiritual Guidance</h2>
+            <p class="sanskrit-blessing">🙏 सर्वे भवन्तु सुखिनः सर्वे सन्तु निरामयाः 🙏<br>
+            <em>May all beings be happy and free from suffering</em></p>
+            <p class="intro-text">
+                Experience authentic Vedic wisdom through personalized consultations with <strong>Acharya Anish</strong>. 
+                Get genuine spiritual guidance from a qualified practitioner who bridges ancient traditions with modern understanding.
+            </p>
+        </section>
+
+        <!-- Premium Services -->
+        <div class="services-grid">
+            <!-- Exclusive Services Card -->
+            <a href="#consultation" class="service-card premium-consultation">
+                <div class="service-icon">🕉️</div>
+                <h3 class="service-title">🌟 Exclusive SHIVAKALI ASHRAM Services</h3>
+                <p class="service-description">
+                    🕉️ <strong>EXCLUSIVE EXPERIENCE</strong><br>
+                    Premium Spiritual Consultations<br>
+                    500+ Years of Authentic Vedic Wisdom<br>
+                    Personalized Guidance from Acharya Anish<br><br>
+                    <strong>✨ Click to Explore Our Sacred Services ✨</strong>
+                </p>
+            </a>
+
+            <!-- Premium Consultation Details -->
+            <div class="service-card" id="consultation">
+                <div class="service-icon">📞</div>
+                <h3 class="service-title">Premium Spiritual Consultation</h3>
+                <p class="service-description">
+                    <strong>Ready for Your Spiritual Journey?</strong><br>
+                    Get authentic spiritual guidance from Acharya Anish.<br><br>
+                    
+                    <strong>Why Choose Personal Consultation?</strong><br>
+                    Unlike automated tools, you receive authentic guidance from a real spiritual practitioner with deep understanding 
+                    of both ancient traditions and modern seekers. Get personalized wisdom that no AI can replicate.<br><br>
+                    
+                    <strong>Contact for Consultation</strong><br>
+                    📧 <strong>acharyaanish23@gmail.com</strong><br><br>
+                    
+                    <strong>How to Get Started:</strong><br>
+                    Send an email with your birth details (date, time, location) and specific questions. 
+                    Mention which service you're interested in, and you'll receive a personalized consultation package tailored to your spiritual needs.
+                </p>
+            </div>
+        </div>
+
+        <!-- Knowledge Categories Section -->
+        <section class="categories-section">
+            <h2 class="categories-title">🌟 Explore Our Sacred Knowledge Systems</h2>
+            <p class="intro-text" style="margin-bottom: 2rem;">
+                Discover <strong>555,000+ words</strong> of master-level content across <strong>47 legendary spiritual systems</strong>. 
+                Each category contains scientifically-validated, PhD-level knowledge that bridges ancient wisdom with modern applications.
+            </p>
+            
+            <div class="categories-grid">
+                
+                <!-- Consciousness Sciences -->
+                <a href="category.html?cat=consciousness" class="category-card consciousness-card">
+                    <div class="category-icon">🧠</div>
+                    <h3 class="category-title">Consciousness Sciences</h3>
+                    <p class="category-subtitle">Advanced Human Enhancement Arsenal</p>
+                    <p class="category-description">
+                        Master the ultimate consciousness hacking technologies. From meditation warfare to biohacking matrices, 
+                        unlock your mind's infinite potential using scientifically-validated protocols.
+                    </p>
+                    <div class="category-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">12</div>
+                            <div class="stat-label">Systems</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">🔥🔥🔥</div>
+                            <div class="stat-label">Legendary</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Jyotisha Mastery -->
+                <a href="category.html?cat=jyotisha" class="category-card jyotisha-card">
+                    <div class="category-icon">⭐</div>
+                    <h3 class="category-title">Jyotisha Mastery</h3>
+                    <p class="category-subtitle">Cosmic Intelligence Warfare Systems</p>
+                    <p class="category-description">
+                        Command the ultimate destiny-hacking arsenal. From stellar intelligence programming to planetary combination warfare, 
+                        master the cosmic forces that control fate and timing.
+                    </p>
+                    <div class="category-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">8</div>
+                            <div class="stat-label">Systems</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">5000+</div>
+                            <div class="stat-label">Years</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Therapeutic Systems -->
+                <a href="category.html?cat=therapeutic" class="category-card therapeutic-card">
+                    <div class="category-icon">💎</div>
+                    <h3 class="category-title">Therapeutic Systems</h3>
+                    <p class="category-subtitle">Crystal & Sacred Energy Weaponization</p>
+                    <p class="category-description">
+                        Harness the power of mineral consciousness and sacred seed programming. Master gemstone therapy and rudraksha 
+                        energy systems for healing and transformation.
+                    </p>
+                    <div class="category-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">2</div>
+                            <div class="stat-label">Systems</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">💎💎💎</div>
+                            <div class="stat-label">Precious</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Character Analysis -->
+                <a href="category.html?cat=character" class="category-card character-card">
+                    <div class="category-icon">🔍</div>
+                    <h3 class="category-title">Character Analysis</h3>
+                    <p class="category-subtitle">Secret Intelligence Profiling Technologies</p>
+                    <p class="category-description">
+                        Deploy FBI-level psychological profiling through handwriting analysis, palm reading, and facial scanning. 
+                        Master classified techniques for personality decoding.
+                    </p>
+                    <div class="category-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Systems</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">🕵️‍♂️</div>
+                            <div class="stat-label">Intel</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Divination Sciences -->
+                <a href="category.html?cat=divination" class="category-card divination-card">
+                    <div class="category-icon">🔮</div>
+                    <h3 class="category-title">Divination Sciences</h3>
+                    <p class="category-subtitle">Future-Hacking Mind Control Technology</p>
+                    <p class="category-description">
+                        Penetrate the veil of time and probability using advanced tarot systems and sacred geometry. 
+                        Master quantum mechanics of divination.
+                    </p>
+                    <div class="category-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">2</div>
+                            <div class="stat-label">Systems</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">∞</div>
+                            <div class="stat-label">Possibilities</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Foundational Systems -->
+                <a href="category.html?cat=foundations" class="category-card foundations-card">
+                    <div class="category-icon">📚</div>
+                    <h3 class="category-title">Foundational Systems</h3>
+                    <p class="category-subtitle">Ancient God-Mode Knowledge Archives</p>
+                    <p class="category-description">
+                        Access the source codes of reality through Vedic foundations, Tantra weaponization, and hidden esoteric secrets. 
+                        Root systems powering all spiritual technologies.
+                    </p>
+                    <div class="category-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">6</div>
+                            <div class="stat-label">Systems</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">🔥🔥🔥</div>
+                            <div class="stat-label">Ancient</div>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div style="margin-bottom: 2rem;">
+            <h3 style="color: var(--sacred-gold); margin-bottom: 1rem;">Acharya Anish</h3>
+            <p style="margin-bottom: 0.5rem;">Creator of Everything Gateway & SHIVAKALI ASHRAM</p>
+            <p style="margin-bottom: 1.5rem;">Spiritual Guide & Vedic Astrology Expert</p>
+            
+            <div style="margin-bottom: 1.5rem;">
+                🏛️ Tegharia Nishikanan SHIVAKALI ASHRAM<br>
+                Kolkata - 700157, West Bengal, India<br>
+                📧 acharyaanish23@gmail.com
+            </div>
+            
+            <div style="font-size: 1.2rem; color: var(--sacred-gold); margin: 1.5rem 0;">
+                ॐ शान्ति शान्ति शान्तिः<br>
+                <span style="font-size: 1rem; font-style: italic; color: var(--sacred-cream);">Om Shanti Shanti Shantih - May there be peace, peace, peace</span>
+            </div>
+        </div>
+        
+        <p>&copy; 2025 SHIVAKALI ASHRAM. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; opacity: 0.8;">Authentic spiritual guidance for modern seekers.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.nav-item[href^="#"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
