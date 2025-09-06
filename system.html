@@ -246,6 +246,9 @@
         .saturn-card { border-color: #4B0082; background: linear-gradient(145deg, rgba(75, 0, 130, 0.2) 0%, rgba(138, 43, 226, 0.1) 100%); }
         .rahu-card { border-color: #2F4F4F; background: linear-gradient(145deg, rgba(47, 79, 79, 0.2) 0%, rgba(105, 105, 105, 0.1) 100%); }
         .ketu-card { border-color: #8B4513; background: linear-gradient(145deg, rgba(139, 69, 19, 0.2) 0%, rgba(160, 82, 45, 0.1) 100%); }
+        
+        /* House card styling - distinct from planets */
+        .house-card { border-color: #FF6D00; background: linear-gradient(145deg, rgba(255, 109, 0, 0.2) 0%, rgba(255, 193, 7, 0.1) 100%); }
 
         /* Footer */
         .footer {
@@ -456,7 +459,7 @@
                         description: 'The house of self, governing personality, physical body, identity, and overall life approach. Your core essence and how you present to the world.',
                         features: ['Personality', 'Physical Body', 'Identity', 'Life Approach', 'Core Self'],
                         power: '🌟 Rules: Self, Personality, Physical Body • Element of Identity',
-                        cardClass: 'sun-card'
+                        cardClass: 'house-card'
                     },
                     {
                         icon: '💰',
@@ -465,7 +468,7 @@
                         description: 'The house of wealth, governing money, possessions, values, family wealth, and speech. Your relationship with material resources.',
                         features: ['Wealth', 'Possessions', 'Values', 'Family Money', 'Speech'],
                         power: '💎 Rules: Money, Values, Speech • Element of Security',
-                        cardClass: 'venus-card'
+                        cardClass: 'house-card'
                     },
                     {
                         icon: '🤝',
@@ -474,7 +477,7 @@
                         description: 'The house of communication, governing siblings, short journeys, courage, skills, and self-effort. Your active engagement with the immediate world.',
                         features: ['Communication', 'Siblings', 'Courage', 'Skills', 'Self-Effort'],
                         power: '📢 Rules: Communication, Siblings, Courage • Element of Action',
-                        cardClass: 'mercury-card'
+                        cardClass: 'house-card'
                     },
                     {
                         icon: '🏡',
@@ -483,7 +486,7 @@
                         description: 'The house of happiness, governing home, mother, education, property, and emotional foundations. Your inner security and roots.',
                         features: ['Home', 'Mother', 'Education', 'Property', 'Emotional Security'],
                         power: '🏠 Rules: Home, Mother, Education • Element of Comfort',
-                        cardClass: 'moon-card'
+                        cardClass: 'house-card'
                     },
                     {
                         icon: '👑',
@@ -492,7 +495,7 @@
                         description: 'The house of progeny, governing children, creativity, intelligence, romance, and spiritual practices. Your creative and reproductive power.',
                         features: ['Children', 'Creativity', 'Intelligence', 'Romance', 'Spirituality'],
                         power: '🎨 Rules: Children, Creativity, Intelligence • Element of Expression',
-                        cardClass: 'jupiter-card'
+                        cardClass: 'house-card'
                     },
                     {
                         icon: '⚔️',
@@ -501,7 +504,7 @@
                         description: 'The house of enemies, governing health, disease, service, competition, and daily work. Your challenges and how you overcome them.',
                         features: ['Health', 'Enemies', 'Service', 'Competition', 'Daily Work'],
                         power: '🛡️ Rules: Health, Enemies, Service • Element of Challenge',
-                        cardClass: 'mars-card'
+                        cardClass: 'house-card'
                     },
                     {
                         icon: '💑',
@@ -510,34 +513,34 @@
                         description: 'The house of partnership, governing marriage, spouse, business partnerships, and public relations. Your one-on-one relationships.',
                         features: ['Marriage', 'Spouse', 'Partnerships', 'Public Relations', 'Contracts'],
                         power: '💕 Rules: Marriage, Partnerships • Element of Union',
-                        cardClass: 'venus-card'
+                        cardClass: 'house-card'
                     },
                     {
                         icon: '🔮',
-                        title: '8th House (Ayur)',
+                        title: '8th House (Randhra)',
                         subtitle: 'Transformation & Mystery',
-                        description: 'The house of longevity, governing death, transformation, occult sciences, inheritance, and hidden knowledge. Your deepest mysteries.',
+                        description: 'The house of transformation, governing death, rebirth, occult sciences, inheritance, and hidden knowledge. Your deepest mysteries.',
                         features: ['Transformation', 'Occult', 'Inheritance', 'Hidden Knowledge', 'Rebirth'],
-                        power: '🌙 Rules: Transformation, Occult • Element of Mystery',
-                        cardClass: 'ketu-card'
+                        power: '⚡ Rules: Transformation, Occult • Element of Mystery',
+                        cardClass: 'house-card'
                     },
                     {
-                        icon: '🎯',
-                        title: '9th House (Dharma)',
+                        icon: '🙏',
+                        title: '9th House (Bhagya)',
                         subtitle: 'Higher Learning & Spirituality',
                         description: 'The house of dharma, governing higher education, spirituality, long journeys, father, and philosophical beliefs. Your spiritual path.',
                         features: ['Higher Learning', 'Spirituality', 'Father', 'Philosophy', 'Long Journeys'],
-                        power: '🎓 Rules: Higher Learning, Dharma • Element of Wisdom',
-                        cardClass: 'jupiter-card'
+                        power: '📿 Rules: Higher Learning, Dharma • Element of Wisdom',
+                        cardClass: 'house-card'
                     },
                     {
-                        icon: '👔',
+                        icon: '🏆',
                         title: '10th House (Karma)',
                         subtitle: 'Career & Reputation',
                         description: 'The house of action, governing career, profession, reputation, authority, and public status. Your worldly achievements and recognition.',
                         features: ['Career', 'Reputation', 'Authority', 'Public Status', 'Profession'],
-                        power: '🏆 Rules: Career, Reputation • Element of Achievement',
-                        cardClass: 'saturn-card'
+                        power: '💼 Rules: Career, Reputation • Element of Achievement',
+                        cardClass: 'house-card'
                     },
                     {
                         icon: '🌟',
@@ -545,17 +548,17 @@
                         subtitle: 'Gains & Aspirations',
                         description: 'The house of gains, governing income, aspirations, friends, elder siblings, and fulfillment of desires. Your hopes and social network.',
                         features: ['Income', 'Aspirations', 'Friends', 'Elder Siblings', 'Desires'],
-                        power: '💫 Rules: Gains, Friends, Aspirations • Element of Fulfillment',
-                        cardClass: 'rahu-card'
+                        power: '💰 Rules: Gains, Friends, Aspirations • Element of Fulfillment',
+                        cardClass: 'house-card'
                     },
                     {
-                        icon: '🕉️',
+                        icon: '🙏',
                         title: '12th House (Vyaya)',
                         subtitle: 'Liberation & Loss',
                         description: 'The house of expenditure, governing losses, liberation, foreign lands, spirituality, and final release. Your path to transcendence.',
                         features: ['Liberation', 'Losses', 'Foreign Lands', 'Spirituality', 'Transcendence'],
-                        power: '🌌 Rules: Liberation, Foreign Lands • Element of Release',
-                        cardClass: 'ketu-card'
+                        power: '✨ Rules: Liberation, Foreign Lands • Element of Release',
+                        cardClass: 'house-card'
                     }
                 ]
             },
