@@ -730,6 +730,7 @@
             document.getElementById('categoryBreadcrumb').href = `category.html?cat=${data.category}`;
             document.getElementById('systemBreadcrumb').textContent = data.title;
             document.getElementById('backToCategoryNav').href = `category.html?cat=${data.category}`;
+            document.getElementById('backToCategoryNav').textContent = `📂 Back to ${data.categoryTitle}`;
             
             // Update header
             document.getElementById('systemIconLarge').textContent = data.icon;

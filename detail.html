@@ -252,8 +252,17 @@
             font-size: 1.3rem;
             color: var(--sacred-gold);
             font-style: italic;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+        
+        .mantra-transliteration {
+            font-size: 1.1rem;
+            color: var(--sacred-cream);
+            font-style: normal;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+            font-weight: 500;
         }
 
         .mantra-translation {
@@ -524,6 +533,7 @@
         <div class="mantra-section" id="mantraSection">
             <h2 class="mantra-title">🕉️ Sacred Mantra</h2>
             <p class="mantra-text" id="mantraText">Om Namah Shivaya</p>
+            <p class="mantra-transliteration" id="mantraTransliteration">Om Namah Shivaya</p>
             <p class="mantra-translation" id="mantraTranslation">I bow to Shiva - the infinite consciousness</p>
         </div>
 
@@ -549,6 +559,7 @@
                 power: '🔥 Rules: Leo (Simha) • Enhances: Soul Power, Leadership, Health, Authority • Day: Sunday • Gemstone: Ruby (Manikya) • Metal: Gold, Copper',
                 category: 'jyotisha',
                 system: 'planets-navagraha',
+                systemTitle: 'Planets (Navagraha)',
                 overview: `Surya, the supreme luminary, represents the Atman (eternal soul) and divine masculine principle governing life force, consciousness, and spiritual authority. As the cosmic father and king of planets, Surya embodies pure consciousness, leadership power, and spiritual illumination that burns away ignorance to reveal divine truth.
                 
                 Mythologically, Surya is the son of sage Kashyapa and Aditi, riding a seven-horse chariot across the sky, dispelling darkness and bringing life to all beings. His wives Saranyu (consciousness) and Chhaya (shadow) represent the interplay of light and shadow in spiritual development. Surya's children include Saturn (discipline), Yama (time/death), and the Ashwini twins (healing), showing his role in cosmic order.
@@ -635,6 +646,7 @@
                 power: '⚡ Location: Muladhara (Base of Spine) • Symbolism: Coiled Serpent • Effect: Complete Consciousness Transformation • Danger Level: EXTREME',
                 category: 'tantra',
                 system: 'tantra-consciousness-tech',
+                systemTitle: 'Tantra Technologies',
                 overview: `Kundalini Shakti represents the supreme evolutionary force lying dormant at the spine's base - the compressed power of cosmic creation coiled within human consciousness. This isn't mere energy but the actual creative intelligence that births universes, containing every stage of evolution from mineral awareness to cosmic consciousness.
                 
                 When awakened, Kundalini creates the most profound transformation possible in human experience, literally rewiring the nervous system for higher-dimensional awareness. The coiled serpent symbolizes infinite potential in rest - when activated, it rises through the chakras like liquid electricity, purifying each energy center and awakening dormant spiritual capacities.
@@ -721,6 +733,7 @@
                 power: '🔥 Element: Earth (Prithvi) • Mantra: LAM • Color: Red • Glands: Adrenals • Frequency: 194.18 Hz • Location: Base of Spine',
                 category: 'consciousness',
                 system: 'chakra-energy-centers',
+                systemTitle: 'Chakra Energy Centers',
                 overview: `Muladhara, the root chakra, serves as the foundation of the entire energy system and houses the dormant Kundalini Shakti - the evolutionary fire that can transform human consciousness from survival awareness to cosmic unity. Located at the base of the spine, this chakra governs our most primal instincts, survival mechanisms, and connection to physical reality.
                 
                 This energy center represents our relationship with the Earth element, grounding, stability, and the basic life force that sustains physical existence. When balanced, Muladhara provides unshakeable foundation for spiritual development, fearlessness in facing life challenges, and deep sense of belonging to the cosmic order.
@@ -849,6 +862,19 @@
             updateTimerDisplay();
         }
 
+        // Helper function to get category title
+        function getCategoryTitle(category) {
+            const categoryTitles = {
+                'jyotisha': 'Jyotisha Mastery',
+                'tantra': 'Tantra Mastery', 
+                'consciousness': 'Consciousness Technologies',
+                'ayurveda': 'Ayurveda Sciences',
+                'yoga': 'Yoga Systems',
+                'vedanta': 'Vedanta Philosophy'
+            };
+            return categoryTitles[category] || 'Spiritual Category';
+        }
+        
         // Get item from URL parameter
         function getItemFromURL() {
             const urlParams = new URLSearchParams(window.location.search);
@@ -875,12 +901,13 @@
             document.getElementById('pageTitle').textContent = `🕉️ ${data.title} - SHIVAKALI ASHRAM`;
             
             // Update breadcrumb
-            document.getElementById('categoryBreadcrumb').textContent = 'Jyotisha Mastery';
+            document.getElementById('categoryBreadcrumb').textContent = getCategoryTitle(data.category);
             document.getElementById('categoryBreadcrumb').href = `category.html?cat=${data.category}`;
-            document.getElementById('systemBreadcrumb').textContent = 'Planets (Navagraha)';
+            document.getElementById('systemBreadcrumb').textContent = data.systemTitle;
             document.getElementById('systemBreadcrumb').href = `system.html?system=${data.system}`;
             document.getElementById('itemBreadcrumb').textContent = data.title;
             document.getElementById('backToSystemNav').href = `system.html?system=${data.system}`;
+            document.getElementById('backToSystemNav').textContent = `📋 Back to ${data.systemTitle}`;
             
             // Update header
             document.getElementById('detailIconLarge').textContent = data.icon;
@@ -915,6 +942,7 @@
             
             // Update mantra section
             document.getElementById('mantraText').textContent = data.mantra.text;
+            document.getElementById('mantraTransliteration').textContent = data.mantra.transliteration;
             document.getElementById('mantraTranslation').textContent = data.mantra.translation;
             
             // Update practice cards
