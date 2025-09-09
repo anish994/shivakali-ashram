@@ -219,14 +219,55 @@ const Utils = {
 /**
  * Initialize application when DOM is loaded
  */
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     // Create global app instance
     window.ShivakaliApp = new ShivakaliApp();
     
     // Make utilities globally available
     window.Utils = Utils;
+    
+    // Initialize content system
+    try {
+        console.log('🕉️ Initializing content system...');
+        
+        // Create content loader
+        window.contentLoader = new ContentLoader();
+        await window.contentLoader.init();
+        
+        // Create knowledge renderer
+        window.knowledgeRenderer = new KnowledgeRenderer(window.contentLoader);
+        
+        // Load dynamic content into categories grid
+        await window.knowledgeRenderer.renderSubjectsGrid('categories-grid');
+        
+        // Handle hash navigation
+        window.addEventListener('hashchange', () => {
+            window.knowledgeRenderer.handleHashChange();
+        });
+        
+        // Handle initial hash if present
+        if (window.location.hash) {
+            window.knowledgeRenderer.handleHashChange();
+        }
+        
+        console.log('✅ Content system initialized successfully');
+        
+    } catch (error) {
+        console.error('❌ Failed to initialize content system:', error);
+        // Fallback: show error in categories grid
+        const categoriesGrid = document.getElementById('categories-grid');
+        if (categoriesGrid) {
+            categoriesGrid.innerHTML = `
+                <div class="category-card error-state">
+                    <div class="category-icon">❌</div>
+                    <h3 class="category-title">Content System Error</h3>
+                    <p class="category-description">Failed to load knowledge system. Please refresh the page.</p>
+                    <button onclick="window.location.reload()" class="retry-button">🔄 Retry</button>
+                </div>
+            `;
+        }
+    }
 
-    // Add any additional initialization code here
     console.log('🏛️ Shivakali Ashram is ready to serve seekers of wisdom');
 });
 
