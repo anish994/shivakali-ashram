@@ -37,12 +37,8 @@
     "serve": "python -m http.server 8000",
     "docs": "echo 'Documentation available in docs/ folder'"
   },
-  "devDependencies": {
-    "comment": "No dependencies initially - keeping it simple and fast"
-  },
-  "dependencies": {
-    "comment": "Pure HTML/CSS/JS - no runtime dependencies"
-  },
+  "devDependencies": {},
+  "dependencies": {},
   "engines": {
     "node": ">=16.0.0",
     "python": ">=3.8.0"
