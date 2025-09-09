@@ -1,0 +1,80 @@
+{
+  "id": "jyotisha",
+  "title": "Jyotisha - Vedic Astrology",
+  "description": "The divine science of cosmic timing and celestial influences in human life",
+  "icon": "star",
+  "color": "#FFD700",
+  "enabled": true,
+  "priority": 1,
+  "author": "Acharya Anish",
+  "version": "1.0.0",
+  "lastUpdated": "2025-01-09",
+  
+  "meta": {
+    "totalArticles": 4,
+    "difficulty": "beginner",
+    "prerequisites": [],
+    "learningPath": [
+      "introduction-to-jyotisha",
+      "nine-planets-navagrahas", 
+      "twelve-houses-bhavas",
+      "nakshatras-lunar-mansions"
+    ],
+    "estimatedTime": "45 minutes"
+  },
+  
+  "articles": {
+    "path": "articles/",
+    "index": "auto-generated",
+    "articles": [
+      "introduction-to-jyotisha",
+      "nine-planets-navagrahas",
+      "twelve-houses-bhavas", 
+      "nakshatras-lunar-mansions"
+    ]
+  },
+  
+  "features": {
+    "search": true,
+    "chat": true,
+    "calculations": true,
+    "interactive": true
+  },
+  
+  "ui": {
+    "layout": "default",
+    "showToc": true,
+    "allowComments": false
+  },
+  
+  "seo": {
+    "keywords": [
+      "jyotisha",
+      "vedic astrology", 
+      "indian astrology",
+      "navagrahas",
+      "nine planets",
+      "bhavas",
+      "houses",
+      "nakshatras",
+      "lunar mansions",
+      "cosmic timing",
+      "spiritual astrology"
+    ],
+    "category": "spiritual-knowledge",
+    "language": "en"
+  },
+  
+  "spiritual": {
+    "tradition": "Vedic",
+    "antiquity": "5000+ years",
+    "scripturalBasis": [
+      "Brihat Parasara Hora Shastra",
+      "Jataka Parijata", 
+      "Phaladeepika",
+      "Saravali"
+    ],
+    "purpose": "Understanding cosmic influences for spiritual growth and life guidance",
+    "practiceLevel": "foundational-to-advanced"
+  }
+}
