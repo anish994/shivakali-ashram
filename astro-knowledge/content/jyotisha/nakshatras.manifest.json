@@ -1,8 +1,0 @@
-{
-  "id": "nakshatras-manifest",
-  "title": "Nakshatras — Manifest",
-  "count": 27,
-  "notes": "Placeholder manifest; per-nakshatra files will be added under content/jyotisha/nakshatras/*.json",
-  "items": []
-}
-
