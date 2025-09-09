@@ -1,0 +1,504 @@
+/* ====================================
+   QUANTUM INTERFACE - Futuristic Retro Design
+   Elegant, premium, military-grade spiritual tech
+   ==================================== */
+
+/* QUANTUM HEADER */
+.quantum-header {
+    background: linear-gradient(
+        135deg, 
+        rgba(0, 20, 40, 0.95) 0%,
+        rgba(20, 0, 40, 0.95) 50%,
+        rgba(0, 0, 20, 0.95) 100%
+    );
+    backdrop-filter: blur(20px);
+    border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    padding: 2rem 0;
+}
+
+.quantum-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(90deg, transparent 0%, rgba(255, 215, 0, 0.05) 50%, transparent 100%),
+        radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 107, 107, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.header-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* LOCATION MATRIX */
+.location-matrix {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-family: 'Courier New', monospace;
+}
+
+.location-icon {
+    font-size: 1.5rem;
+    opacity: 0.8;
+}
+
+.location-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.location-name {
+    color: var(--sacred-gold);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.location-coords {
+    color: var(--sacred-cream);
+    font-size: 0.75rem;
+    opacity: 0.7;
+    letter-spacing: 0.5px;
+}
+
+/* CENTRAL NEXUS */
+.central-nexus {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+}
+
+.om-reactor {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.om-core {
+    font-size: 2.5rem;
+    z-index: 3;
+    position: relative;
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+}
+
+.energy-rings {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.ring {
+    position: absolute;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ring-1 {
+    width: 60px;
+    height: 60px;
+    border-width: 2px;
+    opacity: 0.8;
+}
+
+.ring-2 {
+    width: 70px;
+    height: 70px;
+    border-width: 1px;
+    opacity: 0.6;
+}
+
+.ring-3 {
+    width: 80px;
+    height: 80px;
+    border-width: 1px;
+    opacity: 0.4;
+}
+
+.quantum-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    margin: 0;
+}
+
+.title-main {
+    font-size: 2.5rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    background: linear-gradient(135deg, var(--sacred-gold) 0%, #FFA500 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.title-sub {
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 8px;
+    color: var(--sacred-cream);
+    opacity: 0.8;
+}
+
+.heritage-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 215, 0, 0.1);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    font-family: 'Courier New', monospace;
+}
+
+.heritage-number {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--sacred-gold);
+    line-height: 1;
+}
+
+.heritage-text {
+    font-size: 0.7rem;
+    color: var(--sacred-cream);
+    opacity: 0.8;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+/* STATUS PANEL */
+.status-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-family: 'Courier New', monospace;
+}
+
+.status-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.status-item.active {
+    border-color: rgba(0, 255, 0, 0.5);
+    background: rgba(0, 255, 0, 0.1);
+}
+
+.status-label {
+    font-size: 0.75rem;
+    color: var(--sacred-cream);
+    opacity: 0.7;
+    letter-spacing: 1px;
+}
+
+.status-value {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--sacred-gold);
+}
+
+.status-item.active .status-value {
+    color: #00ff00;
+}
+
+/* COMMAND NAVIGATION */
+.command-nav {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+    padding: 1rem 0;
+}
+
+.nav-matrix {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.nav-command {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--sacred-cream);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    font-family: 'Courier New', monospace;
+}
+
+.nav-command:hover,
+.nav-command.active {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+.command-icon {
+    font-size: 1.5rem;
+}
+
+.command-text {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--sacred-gold);
+}
+
+.command-desc {
+    font-size: 0.7rem;
+    opacity: 0.8;
+    letter-spacing: 0.5px;
+}
+
+.nav-command.active .command-text {
+    color: #00ff00;
+}
+
+/* MISSION BRIEFING */
+.mission-briefing {
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.9) 0%,
+        rgba(20, 20, 20, 0.9) 100%
+    );
+    border: 2px solid rgba(255, 215, 0, 0.2);
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.mission-briefing::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, var(--sacred-gold) 50%, transparent 100%);
+}
+
+.briefing-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.mission-title {
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, var(--sacred-gold) 0%, #FFA500 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+    font-family: 'Courier New', monospace;
+}
+
+.mission-code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+}
+
+.code-prefix {
+    color: var(--sacred-gold);
+    font-weight: 700;
+}
+
+.code-main {
+    color: var(--sacred-cream);
+    opacity: 0.8;
+    letter-spacing: 1px;
+}
+
+/* SANSKRIT MATRIX */
+.sanskrit-matrix {
+    background: rgba(255, 215, 0, 0.05);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+.sanskrit-code {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.sanskrit-text {
+    font-size: 1.2rem;
+    color: var(--sacred-gold);
+    font-weight: 600;
+}
+
+.sanskrit-decode {
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    color: var(--sacred-cream);
+    opacity: 0.7;
+    letter-spacing: 1px;
+}
+
+/* MISSION INTEL */
+.mission-intel {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-family: 'Courier New', monospace;
+}
+
+.intel-block {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-left: 3px solid var(--sacred-gold);
+    border-radius: 5px;
+}
+
+.intel-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--sacred-gold);
+    letter-spacing: 1px;
+    min-width: 100px;
+}
+
+.intel-data {
+    font-size: 0.9rem;
+    color: var(--sacred-cream);
+    opacity: 0.9;
+    line-height: 1.4;
+    flex: 1;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+    .header-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+    }
+    
+    .nav-matrix {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    
+    .location-matrix {
+        justify-content: center;
+    }
+    
+    .status-panel {
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .quantum-header {
+        padding: 1.5rem 0;
+    }
+    
+    .header-grid {
+        padding: 0 1rem;
+    }
+    
+    .title-main {
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
+    
+    .title-sub {
+        font-size: 1rem;
+        letter-spacing: 6px;
+    }
+    
+    .mission-title {
+        font-size: 1.4rem;
+        letter-spacing: 1px;
+    }
+    
+    .mission-briefing {
+        padding: 1.5rem;
+        margin: 1rem 0;
+    }
+    
+    .intel-block {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .intel-label {
+        min-width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .heritage-badge {
+        padding: 0.5rem 1rem;
+    }
+    
+    .heritage-number {
+        font-size: 1.2rem;
+    }
+    
+    .heritage-text {
+        font-size: 0.6rem;
+    }
+    
+    .om-reactor,
+    .om-core {
+        transform: scale(0.8);
+    }
+    
+    .sanskrit-text {
+        font-size: 1rem;
+    }
+    
+    .sanskrit-decode {
+        font-size: 0.8rem;
+    }
+}

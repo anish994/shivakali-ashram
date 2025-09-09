@@ -1,0 +1,339 @@
+/* ====================================
+   CARD GRID EXTRAS - Loading, Headers, Fallbacks
+   ==================================== */
+
+/* MAIN CONTENT SECTION */
+.main-content-section {
+    min-height: 60vh;
+    padding: 2rem 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(20, 20, 40, 0.9));
+}
+
+/* CARDS WRAPPER AND HEADER */
+.category-cards-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.cards-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem 0;
+}
+
+.cards-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--sacred-gold), var(--secondary-color));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.cards-subtitle {
+    font-size: 1.2rem;
+    color: var(--sacred-cream);
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* INITIAL LOADING STATE */
+.initial-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    padding: 3rem;
+}
+
+.loading-content {
+    text-align: center;
+    color: var(--sacred-cream);
+}
+
+.loading-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    animation: loadingPulse 2s ease-in-out infinite;
+}
+
+.loading-content h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--sacred-gold);
+}
+
+.loading-content p {
+    font-size: 1rem;
+    opacity: 0.8;
+    margin: 0;
+}
+
+/* GRID LOADING STATE */
+.loading-state {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    padding: 2rem;
+}
+
+.loading-spinner {
+    text-align: center;
+    color: var(--sacred-cream);
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 215, 0, 0.3);
+    border-top: 3px solid var(--sacred-gold);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+.loading-spinner p {
+    font-size: 1.1rem;
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* ERROR STATE */
+.error-state {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    padding: 2rem;
+}
+
+.error-content {
+    text-align: center;
+    color: var(--sacred-cream);
+    max-width: 500px;
+}
+
+.error-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.error-content h2 {
+    font-size: 1.5rem;
+    color: #ff6b6b;
+    margin-bottom: 1rem;
+}
+
+.error-content p {
+    margin-bottom: 2rem;
+    opacity: 0.8;
+}
+
+.retry-button {
+    background: linear-gradient(135deg, var(--sacred-gold), var(--secondary-color));
+    color: var(--bg-primary);
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.retry-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+}
+
+/* FALLBACK CONTENT */
+.fallback-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    text-align: center;
+    color: var(--sacred-cream);
+}
+
+.fallback-inner h1 {
+    font-size: 2.5rem;
+    color: var(--sacred-gold);
+    margin-bottom: 0.5rem;
+}
+
+.fallback-inner > p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+}
+
+.fallback-message {
+    background: rgba(255, 107, 107, 0.1);
+    border: 1px solid rgba(255, 107, 107, 0.3);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.fallback-message p {
+    color: #ff9999;
+    margin-bottom: 1rem;
+}
+
+.fallback-categories {
+    background: rgba(255, 215, 0, 0.1);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: left;
+}
+
+.fallback-categories h3 {
+    color: var(--sacred-gold);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.fallback-categories ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.fallback-categories li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+    font-weight: 500;
+}
+
+.fallback-categories li:last-child {
+    border-bottom: none;
+}
+
+/* KEYBOARD FOCUSED CARDS */
+.category-card.keyboard-focused {
+    outline: 2px solid var(--sacred-gold);
+    outline-offset: 2px;
+}
+
+/* IN VIEWPORT ANIMATION */
+.category-card.in-viewport {
+    animation: viewportReveal 0.6s ease-out;
+}
+
+/* RESIZING ANIMATION */
+.category-card.resizing {
+    transition: all 0.3s ease;
+    transform: scale(0.98);
+}
+
+/* RESPONSIVE ADJUSTMENTS */
+@media (max-width: 768px) {
+    .cards-title {
+        font-size: 2rem;
+    }
+    
+    .cards-subtitle {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .loading-icon {
+        font-size: 3rem;
+    }
+    
+    .loading-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .fallback-inner h1 {
+        font-size: 2rem;
+    }
+    
+    .fallback-content {
+        padding: 2rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cards-header {
+        margin-bottom: 2rem;
+        padding: 1rem 0;
+    }
+    
+    .cards-title {
+        font-size: 1.8rem;
+    }
+    
+    .initial-loading {
+        padding: 2rem 1rem;
+    }
+    
+    .loading-content h2 {
+        font-size: 1.3rem;
+    }
+}
+
+/* ANIMATIONS */
+@keyframes loadingPulse {
+    0%, 100% { 
+        opacity: 0.6;
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 1;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes viewportReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* HIGH CONTRAST MODE SUPPORT */
+@media (prefers-contrast: high) {
+    .category-card {
+        border: 2px solid var(--sacred-gold);
+    }
+    
+    .explore-button {
+        border: 2px solid white;
+    }
+}
+
+/* REDUCED MOTION SUPPORT */
+@media (prefers-reduced-motion: reduce) {
+    .category-card,
+    .loading-icon,
+    .spinner,
+    .sparkle {
+        animation: none;
+    }
+    
+    .category-card {
+        transition: none;
+    }
+    
+    .explore-button:hover .button-icon {
+        transform: none;
+    }
+}

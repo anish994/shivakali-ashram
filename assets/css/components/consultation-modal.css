@@ -1,0 +1,196 @@
+/* ====================================
+   CONSULTATION MODAL - Full-screen beautiful modal
+   ==================================== */
+
+/* MODAL OVERLAY */
+.consultation-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+}
+
+/* MODAL CONTENT */
+.modal-content {
+    position: relative;
+    width: 95%;
+    max-width: 1200px;
+    max-height: 90vh;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.95) 0%,
+        rgba(20, 10, 30, 0.95) 100%
+    );
+    border: 2px solid var(--sacred-gold);
+    border-radius: 20px;
+    overflow-y: auto;
+    z-index: 10000;
+    animation: modalSlideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* MODAL CLOSE BUTTON */
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 0, 0, 0.8);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10001;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.modal-close:hover {
+    background: rgba(255, 0, 0, 1);
+    transform: rotate(90deg) scale(1.1);
+    box-shadow: 0 5px 20px rgba(255, 0, 0, 0.4);
+}
+
+/* PREMIUM EXPERIENCE IN MODAL */
+.modal-content .premium-experience {
+    margin: 0;
+    padding: 2rem;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    position: relative;
+}
+
+.modal-content .premium-experience::before {
+    opacity: 0.3;
+}
+
+/* SCROLLBAR STYLING */
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--sacred-gold), #FFA500);
+    border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #FFA500, var(--sacred-gold));
+}
+
+/* RESPONSIVE MODAL */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 100%;
+        height: 100%;
+        max-height: 100vh;
+        border-radius: 0;
+        border: none;
+        border-top: 2px solid var(--sacred-gold);
+    }
+    
+    .modal-content .premium-experience {
+        padding: 1rem;
+    }
+    
+    .modal-close {
+        top: 0.5rem;
+        right: 0.5rem;
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content .premium-experience {
+        padding: 0.5rem;
+    }
+    
+    .modal-content .consultation-hero {
+        padding: 1rem;
+    }
+    
+    .modal-content .exclusive-features,
+    .modal-content .comparison-matrix,
+    .modal-content .testimonial-fragments,
+    .modal-content .access-protocol {
+        margin: 2rem 0;
+    }
+}
+
+/* MODAL ANIMATIONS */
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        backdrop-filter: blur(0px);
+    }
+    to {
+        opacity: 1;
+        backdrop-filter: blur(10px);
+    }
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* ENHANCED MODAL FOCUS */
+.modal-content:focus {
+    outline: none;
+}
+
+/* PREVENT BODY SCROLL WHEN MODAL IS OPEN */
+body.modal-open {
+    overflow: hidden;
+}
+
+/* MODAL BACKDROP BLUR EFFECT */
+.consultation-modal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 30% 30%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 70% 70%, rgba(255, 107, 107, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+}

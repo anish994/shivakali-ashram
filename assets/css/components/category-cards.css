@@ -1,0 +1,356 @@
+/* ====================================
+   BEAUTIFUL CATEGORY CARDS STYLING
+   Rich, animated cards for spiritual knowledge categories
+   ==================================== */
+
+/* CATEGORY CARDS GRID CONTAINER */
+.category-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* BASE CATEGORY CARD */
+.category-card {
+    position: relative;
+    height: 400px;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transform: scale(1);
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.3),
+        0 4px 15px rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* STATIC PRESENCE */
+.category-card {
+    /* No entrance animation needed */
+}
+
+/* SUBTLE HOVER EFFECTS */
+.category-card:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 
+        0 15px 40px rgba(0, 0, 0, 0.4),
+        0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.category-card.hovered .card-pattern {
+    opacity: 0.3;
+}
+
+/* CLICK ANIMATIONS */
+.category-card.clicked {
+    transform: scale(0.98);
+    transition: transform 0.2s ease;
+}
+
+.category-card.card-clicked {
+    transform: scale(0.95);
+}
+
+/* CARD INNER STRUCTURE */
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* BACKGROUND AND GRADIENT */
+.card-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.category-card:hover .gradient-overlay {
+    opacity: 1;
+}
+
+/* CARD PATTERN OVERLAY */
+.card-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 2px, transparent 2px),
+        radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px, 15px 15px;
+    opacity: 0.2;
+    transition: opacity 0.3s ease;
+}
+
+/* MAIN CARD CONTENT */
+.card-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* CARD HEADER */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.card-icon {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.main-icon {
+    font-size: 2.5rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.emoji-accent {
+    font-size: 1.5rem;
+    opacity: 0.8;
+    transform: rotate(15deg);
+}
+
+.category-card:hover .emoji-accent {
+    opacity: 1;
+}
+
+/* CARD BADGE */
+.card-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 0.5rem 0.75rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.sub-count {
+    font-size: 1.25rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.badge-text {
+    font-size: 0.75rem;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* CARD BODY */
+.card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.card-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.8));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.2;
+}
+
+.card-subtitle {
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0;
+    opacity: 0.9;
+    font-style: italic;
+}
+
+.card-description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    opacity: 0.85;
+    margin: 0;
+    flex: 1;
+}
+
+/* CARD STATS */
+.card-stats {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    padding-top: 1rem;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.stat-icon {
+    font-size: 1rem;
+}
+
+/* CARD FOOTER */
+.card-footer {
+    position: relative;
+    margin-top: 1rem;
+}
+
+.explore-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 25px;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.5px;
+}
+
+.explore-button:hover {
+    background: rgba(255, 255, 255, 0.35);
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.explore-button:active {
+    transform: translateY(0);
+}
+
+.button-icon {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.explore-button:hover .button-icon {
+    opacity: 1;
+}
+
+/* SUBTLE CARD GLOW (STATIC) */
+.card-glow {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+    border-radius: 20px;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+/* REMOVED SPARKLE EFFECTS FOR STATIC DESIGN */
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .category-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+    
+    .category-card {
+        height: 350px;
+    }
+    
+    .card-content {
+        padding: 1.25rem;
+    }
+    
+    .card-title {
+        font-size: 1.5rem;
+    }
+    
+    .main-icon {
+        font-size: 2rem;
+    }
+}
+
+/* SPECIFIC CARD THEME STYLES */
+.cosmic-gold .gradient-overlay {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
+}
+
+.fire-energy .gradient-overlay {
+    background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 50%, #FF4757 100%);
+}
+
+.aqua-mind .gradient-overlay {
+    background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 50%, #2E8B57 100%);
+}
+
+.healing-green .gradient-overlay {
+    background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 50%, #7fcdcd 100%);
+}
+
+.purple-mystery .gradient-overlay {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #5f27cd 100%);
+}
+
+.mystic-oracle .gradient-overlay {
+    background: linear-gradient(135deg, #8360c3 0%, #2ebf91 50%, #00d2d3 100%);
+}
+
+.sacred-foundation .gradient-overlay {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #e056fd 100%);
+}
+
+.transcendent-energy .gradient-overlay {
+    background: linear-gradient(135deg, #00c9ff 0%, #92fe9d 50%, #00f2fe 100%);
+}
+
+.warm-lifestyle .gradient-overlay {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 50%, #ff9a9e 100%);
+}
+
+/* STATIC DESIGN - NO ANIMATIONS NEEDED */
