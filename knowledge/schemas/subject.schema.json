@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Shivakali Ashram Subject Schema",
+  "description": "Template for creating new spiritual knowledge subjects",
+  "type": "object",
+  "required": ["id", "title", "description", "articles"],
+  
+  "template": {
+    "id": "your-subject-id",
+    "title": "Your Subject Title",
+    "description": "Brief description of this subject",
+    "icon": "choose-icon-name",
+    "color": "#hex-color-code",
+    "enabled": true,
+    "priority": 10,
+    "author": "Acharya Anish",
+    "version": "1.0.0",
+    "lastUpdated": "2025-01-09",
+    
+    "meta": {
+      "totalArticles": 0,
+      "difficulty": "beginner|intermediate|advanced",
+      "prerequisites": [],
+      "learningPath": [],
+      "estimatedTime": "30 minutes"
+    },
+    
+    "articles": {
+      "path": "articles/",
+      "index": "auto-generated",
+      "articles": []
+    },
+    
+    "features": {
+      "search": true,
+      "chat": true,
+      "calculations": false,
+      "interactive": false
+    },
+    
+    "ui": {
+      "layout": "default",
+      "showToc": true,
+      "allowComments": false
+    },
+    
+    "seo": {
+      "keywords": [],
+      "category": "spiritual-knowledge",
+      "language": "en"
+    }
+  },
+  
+  "instructions": {
+    "howToUse": [
+      "1. Copy the 'template' object above",
+      "2. Create folder: knowledge/subjects/your-subject-id/",
+      "3. Save as: knowledge/subjects/your-subject-id/meta.json",
+      "4. Fill in your specific details",
+      "5. Create articles/ subfolder",
+      "6. Add to main config.json",
+      "7. Done! Subject will appear automatically"
+    ],
+    "tips": [
+      "Use kebab-case for IDs (e.g., vedic-astrology)",
+      "Choose unique, descriptive colors",
+      "Keep descriptions concise but informative",
+      "Set realistic priority numbers",
+      "Enable only features you'll use"
+    ]
+  }
+}

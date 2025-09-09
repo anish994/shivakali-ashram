@@ -1,0 +1,121 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "lastUpdated": "2025-01-09",
+    "totalSubjects": 0,
+    "totalArticles": 0
+  },
+  
+  "subjects": [
+    {
+      "id": "jyotisha",
+      "title": "Jyotisha",
+      "description": "Vedic Astrology and Cosmic Sciences",
+      "icon": "star",
+      "color": "#FFD700",
+      "enabled": true,
+      "folder": "jyotisha",
+      "priority": 1,
+      "features": {
+        "search": true,
+        "chat": true,
+        "calculations": true
+      }
+    },
+    {
+      "id": "tantra",
+      "title": "Tantra",
+      "description": "Esoteric Practices and Energy Work",
+      "icon": "energy",
+      "color": "#FF6B6B",
+      "enabled": true,
+      "folder": "tantra",
+      "priority": 2,
+      "features": {
+        "search": true,
+        "chat": true,
+        "calculations": false
+      }
+    },
+    {
+      "id": "consciousness",
+      "title": "Consciousness",
+      "description": "Meditation, Awareness, and Self-Realization",
+      "icon": "brain",
+      "color": "#4ECDC4",
+      "enabled": true,
+      "folder": "consciousness",
+      "priority": 3,
+      "features": {
+        "search": true,
+        "chat": true,
+        "calculations": false
+      }
+    }
+  ],
+  
+  "features": [
+    {
+      "id": "search",
+      "name": "Knowledge Search",
+      "component": "search/index.js",
+      "enabled": true,
+      "config": {
+        "minLength": 3,
+        "maxResults": 20,
+        "fuzzySearch": true
+      }
+    },
+    {
+      "id": "navigation",
+      "name": "Site Navigation",
+      "component": "navigation/index.js",
+      "enabled": true,
+      "config": {
+        "style": "horizontal",
+        "showIcons": true
+      }
+    },
+    {
+      "id": "chat",
+      "name": "AI Guidance",
+      "component": "chat/index.js",
+      "enabled": false,
+      "config": {
+        "provider": "local",
+        "model": "spiritual-guidance"
+      }
+    },
+    {
+      "id": "knowledge",
+      "name": "Knowledge Display",
+      "component": "knowledge/index.js",
+      "enabled": true,
+      "config": {
+        "layout": "card",
+        "animations": true
+      }
+    }
+  ],
+  
+  "ui": {
+    "theme": "spiritual",
+    "layout": "responsive",
+    "animations": true,
+    "darkMode": true,
+    "colors": {
+      "primary": "#8B4513",
+      "secondary": "#FFD700",
+      "accent": "#FF6B6B",
+      "background": "#1A1A1A",
+      "text": "#F5F5F5"
+    }
+  },
+  
+  "settings": {
+    "autoIndex": true,
+    "validateContent": true,
+    "gracefulDegradation": true,
+    "debugMode": false
+  }
+}

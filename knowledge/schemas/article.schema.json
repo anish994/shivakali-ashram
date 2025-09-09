@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Shivakali Ashram Article Schema",
+  "description": "Template for creating new spiritual knowledge articles",
+  "type": "object",
+  "required": ["id", "title", "content"],
+  
+  "template": {
+    "id": "unique-article-id",
+    "title": "Your Article Title",
+    "subtitle": "Optional subtitle for additional context",
+    "summary": "Brief 1-2 sentence summary of the article",
+    
+    "meta": {
+      "author": "Acharya Anish",
+      "created": "2025-01-09",
+      "updated": "2025-01-09",
+      "version": "1.0.0",
+      "status": "published",
+      "difficulty": "beginner",
+      "readTime": "5 minutes",
+      "wordCount": 0
+    },
+    
+    "classification": {
+      "subject": "subject-id",
+      "category": "main-category",
+      "subcategory": "sub-category",
+      "tags": ["tag1", "tag2", "tag3"],
+      "keywords": ["keyword1", "keyword2"],
+      "relatedArticles": []
+    },
+    
+    "content": {
+      "introduction": "Opening paragraph that hooks the reader and introduces the topic...",
+      "sections": [
+        {
+          "heading": "Main Section Title",
+          "content": "Content for this section...",
+          "subsections": [
+            {
+              "heading": "Subsection Title",
+              "content": "Subsection content..."
+            }
+          ]
+        }
+      ],
+      "conclusion": "Summarizing paragraph that reinforces key points..."
+    },
+    
+    "resources": {
+      "references": [
+        {
+          "title": "Reference Title",
+          "author": "Author Name",
+          "url": "optional-url",
+          "type": "book|website|paper"
+        }
+      ],
+      "furtherReading": [],
+      "practicalExercises": [],
+      "mediaLinks": []
+    },
+    
+    "interactive": {
+      "hasCalculator": false,
+      "hasQuiz": false,
+      "hasMediation": false,
+      "hasExercises": false
+    },
+    
+    "seo": {
+      "metaDescription": "SEO-friendly description under 160 characters",
+      "focusKeyword": "main-keyword",
+      "slug": "url-friendly-slug",
+      "canonical": "",
+      "schema": "Article"
+    }
+  },
+  
+  "instructions": {
+    "howToUse": [
+      "1. Copy the 'template' object above",
+      "2. Navigate to: knowledge/subjects/your-subject/articles/",
+      "3. Save as: your-article-id.json",
+      "4. Fill in your specific content",
+      "5. Ensure 'subject' matches your subject ID",
+      "6. Add to subject's articles array if needed",
+      "7. Done! Article will be auto-indexed"
+    ],
+    "contentTips": [
+      "Write in clear, accessible language",
+      "Use proper spiritual terminology",
+      "Include practical applications",
+      "Provide authentic sources",
+      "Keep paragraphs reasonably short",
+      "Use headings for organization"
+    ],
+    "seoTips": [
+      "Choose descriptive, keyword-rich titles",
+      "Write compelling meta descriptions",
+      "Use semantic heading structure",
+      "Include relevant internal links",
+      "Add meaningful tags and keywords"
+    ]
+  }
+}
