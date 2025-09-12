@@ -129,15 +129,19 @@ class CategoryCard {
     }
 
     /**
-     * Navigate to category (placeholder for router integration)
+     * Navigate to category - Load sub-categories
      */
     navigateToCategory() {
-        console.log(`Navigating to category: ${this.data.id}`);
-        // Will be implemented with router system
-        // Router.navigate(`#/${this.data.id}`);
+        console.log(`Loading sub-categories for: ${this.data.id}`);
         
-        // Placeholder navigation action (non-blocking)
-        // Future: Router.navigate(`#/${this.data.id}`);
+        // Trigger sub-category display
+        if (window.SubCategoryDisplay && typeof window.SubCategoryDisplay.handleCategoryClick === 'function') {
+            window.SubCategoryDisplay.handleCategoryClick(this.data.id, this.data);
+        } else {
+            console.error('SubCategoryDisplay not available');
+            // Fallback: show alert for now
+            alert(`🚀 Loading ${this.data.title} sub-categories...\n\nThis will show epic sub-category cards with detailed content!`);
+        }
     }
 
     /**

@@ -1,0 +1,223 @@
+{
+  "parentCategory": {
+    "id": "jyotisha",
+    "title": "Jyotish Mastery",
+    "subtitle": "Quantum Cosmic Intelligence"
+  },
+  
+  "subCategories": [
+    {
+      "id": "planetary-intelligence",
+      "title": "Planetary Intelligence",
+      "subtitle": "Cosmic CPU Architecture",
+      "description": "🪐 DECODE THE UNIVERSE'S OPERATING SYSTEM: Each planet functions as a specialized consciousness processor in the cosmic computer. Master the data streams, frequency signatures, and algorithmic patterns of celestial intelligence networks. Harness Mars as your willpower CPU, Venus as your attraction algorithm, and Jupiter as your wisdom database.",
+      "icon": "🪐",
+      "emoji": "⚡",
+      "gradient": "linear-gradient(135deg, #FF6B35 0%, #F7931E 50%, #FFD23F 100%)",
+      "primaryColor": "#FF6B35",
+      "secondaryColor": "#FFD23F",
+      "cardStyle": "mars-fire",
+      "contentCount": "12 deep-dive modules",
+      "difficulty": "Intermediate → Advanced",
+      "timeToMaster": "3-6 months intensive study",
+      "practicalApplications": [
+        "Personal power optimization",
+        "Decision-making enhancement", 
+        "Energy field calibration",
+        "Cosmic timing mastery"
+      ],
+      "keyTopics": [
+        "Sun: Core Identity Programming",
+        "Moon: Emotional Operating System",
+        "Mars: Action & Willpower Engine",
+        "Mercury: Communication Protocols",
+        "Jupiter: Expansion & Wisdom Database",
+        "Venus: Harmony & Attraction Algorithms",
+        "Saturn: Structure & Discipline Framework",
+        "Rahu/Ketu: Karmic Data Processing",
+        "Planetary Combinations & Synergies"
+      ],
+      "unlocks": ["Advanced timing techniques", "Personalized planetary remedies", "Cosmic energy channeling"]
+    },
+    
+    {
+      "id": "house-systems",
+      "title": "House Systems Architecture", 
+      "subtitle": "Life Domain Command Centers",
+      "description": "🏛️ ARCHITECT YOUR REALITY BLUEPRINT: The 12 houses form your life's control panel - each governing specific reality sectors. Master the command protocols for wealth (2nd house), relationships (7th house), career (10th house), and spiritual evolution (12th house). Deploy strategic house activation for total life optimization.",
+      "icon": "🏛️",
+      "emoji": "🎯",
+      "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)",
+      "primaryColor": "#667eea",
+      "secondaryColor": "#f093fb", 
+      "cardStyle": "royal-palace",
+      "contentCount": "15 comprehensive modules",
+      "difficulty": "Beginner → Expert",
+      "timeToMaster": "4-8 months deep immersion",
+      "practicalApplications": [
+        "Life area optimization",
+        "Strategic planning frameworks",
+        "Personal development roadmaps",
+        "Relationship dynamics mastery"
+      ],
+      "keyTopics": [
+        "1st House: Identity & Self-Image Programming",
+        "2nd House: Wealth Generation Algorithms", 
+        "3rd House: Communication & Skill Networks",
+        "4th House: Foundation & Security Systems",
+        "5th House: Creativity & Intelligence Hubs",
+        "6th House: Health & Service Protocols",
+        "7th House: Partnership & Relationship APIs",
+        "8th House: Transformation & Hidden Resources",
+        "9th House: Higher Learning & Spiritual Expansion",
+        "10th House: Career & Public Recognition Systems",
+        "11th House: Network Effects & Goal Achievement",
+        "12th House: Subconscious & Spiritual Liberation"
+      ],
+      "unlocks": ["Life optimization strategies", "Sector-specific remedies", "Reality architecture mastery"]
+    },
+
+    {
+      "id": "nakshatra-codes",
+      "title": "Nakshatra Codes",
+      "subtitle": "Stellar DNA Programming", 
+      "description": "⭐ CRACK YOUR COSMIC GENETIC CODE: 27 Nakshatras contain your soul's source code - the stellar DNA that programs your deepest motivations, talents, and karmic missions. Each Nakshatra operates like a specialized app in consciousness, with unique features, bugs, and upgrade paths.",
+      "icon": "⭐",
+      "emoji": "🧬",
+      "gradient": "linear-gradient(135deg, #4ECDC4 0%, #44A08D 50%, #2E8B57 100%)",
+      "primaryColor": "#4ECDC4", 
+      "secondaryColor": "#2E8B57",
+      "cardStyle": "stellar-code",
+      "contentCount": "27 nakshatra deep-dives + integration modules",
+      "difficulty": "Advanced → Master Level",
+      "timeToMaster": "6-12 months intensive research",
+      "practicalApplications": [
+        "Soul purpose discovery",
+        "Natural talent activation", 
+        "Karmic pattern recognition",
+        "Compatibility analysis"
+      ],
+      "keyTopics": [
+        "Ashwini: The Cosmic Healers - Lightning-fast manifestation codes",
+        "Bharani: The Life-Death Operators - Transformation algorithms",
+        "Krittika: The Cosmic Cutters - Precision & discernment protocols",
+        "Rohini: The Magnetic Attractors - Beauty & abundance programs", 
+        "Mrigashira: The Eternal Seekers - Quest & exploration drives",
+        "Ardra: The Storm Processors - Chaos-to-order algorithms",
+        "Punarvasu: The Renewal Engines - Restoration & comeback codes",
+        "Pushya: The Nourishment Networks - Care & support systems",
+        "Complete 27-Nakshatra decoding system"
+      ],
+      "unlocks": ["Soul-level understanding", "Karmic mission clarity", "Natural talent optimization"]
+    },
+
+    {
+      "id": "timing-mastery",
+      "title": "Timing Mastery",
+      "subtitle": "Temporal Advantage Protocols",
+      "description": "⏰ HACK TIME ITSELF: Master the universe's scheduling algorithm through Dasha systems, transits, and muhurat selection. Deploy perfect timing strategies for maximum success probability. Understand when the cosmic servers are optimized for your specific requests.",
+      "icon": "⏰", 
+      "emoji": "🎯",
+      "gradient": "linear-gradient(135deg, #FF9A8B 0%, #A8E6CF 50%, #66D9EF 100%)",
+      "primaryColor": "#FF9A8B",
+      "secondaryColor": "#A8E6CF",
+      "cardStyle": "time-master",
+      "contentCount": "10 timing system modules", 
+      "difficulty": "Intermediate → Expert",
+      "timeToMaster": "3-5 months focused practice",
+      "practicalApplications": [
+        "Launch timing optimization",
+        "Decision timing strategies", 
+        "Relationship timing mastery",
+        "Career move synchronization"
+      ],
+      "keyTopics": [
+        "Vimshottari Dasha: The 120-Year Life Algorithm",
+        "Transit Analysis: Real-time cosmic weather tracking",
+        "Muhurat Selection: Auspicious timing protocols",
+        "Gochara Effects: Daily planetary influence patterns",
+        "Ashtakavarga: Strength scoring systems",
+        "Panchanga: 5-factor time quality analysis"
+      ],
+      "unlocks": ["Perfect timing abilities", "Strategic advantage", "Cosmic synchronization"]
+    },
+
+    {
+      "id": "predictive-algorithms",
+      "title": "Predictive Algorithms",
+      "subtitle": "Future Probability Engineering",
+      "description": "🔮 CALCULATE TOMORROW TODAY: Deploy advanced prediction engines using Yogas, planetary combinations, and pattern recognition systems. Generate probability matrices for life events, relationship outcomes, and career trajectories with scientific precision.",
+      "icon": "🔮",
+      "emoji": "📊",
+      "gradient": "linear-gradient(135deg, #8360c3 0%, #2ebf91 50%, #ffeaa7 100%)",
+      "primaryColor": "#8360c3",
+      "secondaryColor": "#ffeaa7",
+      "cardStyle": "future-sight",
+      "contentCount": "8 prediction methodology modules",
+      "difficulty": "Advanced → Master Level", 
+      "timeToMaster": "4-7 months intensive training",
+      "practicalApplications": [
+        "Life event forecasting",
+        "Risk assessment protocols",
+        "Opportunity identification",
+        "Strategic planning support"
+      ],
+      "keyTopics": [
+        "Yoga Formations: Planetary combination effects",
+        "Dasha Progression: Life phase prediction models",
+        "Transit Triggering: Event timing calculations", 
+        "Divisional Charts: Specialized life area analysis",
+        "Prashna Techniques: Question-specific algorithms",
+        "Pattern Recognition: Historical trend analysis"
+      ],
+      "unlocks": ["Predictive mastery", "Future planning abilities", "Strategic advantage"]
+    },
+
+    {
+      "id": "remedial-technologies",
+      "title": "Remedial Technologies",
+      "subtitle": "Cosmic Debugging & Optimization",
+      "description": "🛠️ DEBUG YOUR DESTINY: Advanced troubleshooting protocols for planetary malfunctions and karmic bugs. Deploy gemstone frequency modulators, mantra programming languages, and ritual debugging scripts to optimize your cosmic operating system for peak performance.",
+      "icon": "🛠️",
+      "emoji": "💎", 
+      "gradient": "linear-gradient(135deg, #56ab2f 0%, #a8e6cf 50%, #00d2ff 100%)",
+      "primaryColor": "#56ab2f",
+      "secondaryColor": "#00d2ff",
+      "cardStyle": "cosmic-repair",
+      "contentCount": "12 remedial system modules",
+      "difficulty": "Intermediate → Advanced",
+      "timeToMaster": "2-4 months implementation focus", 
+      "practicalApplications": [
+        "Planetary imbalance correction",
+        "Karmic debt resolution",
+        "Energy field optimization", 
+        "Life obstacle removal"
+      ],
+      "keyTopics": [
+        "Gemstone Therapy: Crystal frequency programming",
+        "Mantra Technologies: Sound-based system updates",
+        "Yantra Geometries: Sacred circuit designs",
+        "Ritual Protocols: Reality modification ceremonies",
+        "Charity Algorithms: Karmic balance restoration",
+        "Lifestyle Adjustments: Daily optimization practices"
+      ],
+      "unlocks": ["Planetary harmonization", "Karmic debugging", "Life optimization mastery"]
+    }
+  ],
+  
+  "advancedFeatures": {
+    "progressiveUnlocking": true,
+    "masteryTracking": true,
+    "practiceExercises": true,
+    "realWorldApplications": true,
+    "communityDiscussions": true,
+    "expertMentorship": true
+  },
+  
+  "learningPath": {
+    "beginner": ["house-systems"],
+    "intermediate": ["planetary-intelligence", "timing-mastery", "remedial-technologies"], 
+    "advanced": ["nakshatra-codes", "predictive-algorithms"],
+    "masterLevel": ["All systems integration", "Personal consultation mastery"]
+  }
+}
