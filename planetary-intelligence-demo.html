@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🪐 Planetary Intelligence Card Demo - ShivaKali Ashram</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/components/planetary-intelligence-card.css">
+    
+    <style>
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 50%, #2a1a1a 100%);
+            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+            color: white;
+            padding: 2rem 1rem;
+            overflow-x: hidden;
+        }
+        
+        .demo-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .demo-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .demo-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 0 0 1rem 0;
+            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 50%, #FFD23F 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .demo-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin: 0;
+        }
+        
+        .back-link {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            padding: 1rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .demo-note {
+            background: rgba(255, 107, 53, 0.1);
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+        
+        .demo-note h3 {
+            color: #FF6B35;
+            margin: 0 0 1rem 0;
+        }
+        
+        .demo-note p {
+            margin: 0;
+            opacity: 0.9;
+        }
+        
+        @media (max-width: 768px) {
+            .demo-title {
+                font-size: 2rem;
+            }
+            
+            .back-link {
+                position: static;
+                display: block;
+                margin: 0 auto 2rem auto;
+                text-align: center;
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">
+        <i class="fas fa-arrow-left"></i> Back to Main
+    </a>
+    
+    <div class="demo-container">
+        <div class="demo-header">
+            <h1 class="demo-title">🪐 Planetary Intelligence</h1>
+            <p class="demo-subtitle">Cosmic CPU Architecture Mastery System</p>
+        </div>
+        
+        <!-- Planetary Intelligence Card Will Be Inserted Here -->
+        <div id="planetary-card-container"></div>
+        
+        <div class="demo-note">
+            <h3>🚀 Isolated Component Demo</h3>
+            <p>This is a dedicated, isolated component for the Planetary Intelligence mastery path. 
+            Each sub-category will have its own specialized card component following this beautiful, 
+            clean architecture without any bloat!</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/components/PlanetaryIntelligenceCard.js"></script>
+    <script>
+        // Initialize and render the Planetary Intelligence card
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('planetary-card-container');
+            
+            // Create the Planetary Intelligence card
+            const planetaryCard = new PlanetaryIntelligenceCard();
+            const cardElement = planetaryCard.createElement();
+            
+            // Insert into container
+            container.appendChild(cardElement);
+            
+            console.log('🪐 Planetary Intelligence Card Demo Loaded!');
+        });
+        
+        // Mock consultation modal function for demo
+        function openConsultationModal() {
+            alert('🌟 Consultation system coming soon! This would open a booking interface for 1-on-1 planetary intelligence sessions.');
+        }
+    </script>
+</body>
+</html>
