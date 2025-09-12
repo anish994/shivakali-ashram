@@ -1,0 +1,599 @@
+/* ====================================
+   MOBILE-FIRST OPTIMIZATION FOR SHIVAKALI ASHRAM
+   Comprehensive mobile UX improvements
+   ==================================== */
+
+/* ENHANCED VIEWPORT AND BASE MOBILE STYLES */
+* {
+    -webkit-tap-highlight-color: rgba(255, 215, 0, 0.2);
+    touch-action: manipulation;
+}
+
+/* IMPROVED SCROLL BEHAVIOR */
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    /* Prevent horizontal scroll on all devices */
+    overflow-x: hidden;
+    /* Improve text rendering on mobile */
+    text-rendering: optimizeSpeed;
+    /* Better tap interactions */
+    -webkit-touch-callout: none;
+}
+
+/* ENHANCED MOBILE CONTAINER */
+.container {
+    /* Fluid padding that adapts to screen size */
+    padding: clamp(1rem, 4vw, 2rem);
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* ====================================
+   QUANTUM HEADER MOBILE OPTIMIZATION
+   ==================================== */
+
+/* Mobile-first header grid */
+.quantum-header {
+    padding: clamp(1rem, 3vw, 2rem) 0;
+    /* Prevent layout shift */
+    min-height: auto;
+}
+
+.header-grid {
+    /* Stack on mobile, expand on tablet+ */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(1rem, 3vw, 2rem);
+    padding: 0 clamp(1rem, 4vw, 2rem);
+}
+
+/* Location matrix mobile optimization */
+.location-matrix {
+    /* Center on mobile */
+    justify-content: center;
+    text-align: center;
+    max-width: 100%;
+}
+
+.location-name {
+    /* Responsive font size */
+    font-size: clamp(0.75rem, 2.5vw, 0.9rem);
+    /* Prevent text overflow */
+    word-break: break-word;
+    line-height: 1.3;
+}
+
+.location-coords {
+    font-size: clamp(0.65rem, 2vw, 0.75rem);
+}
+
+/* Central nexus mobile optimization */
+.central-nexus {
+    gap: clamp(0.75rem, 2vw, 1rem);
+}
+
+.om-reactor {
+    /* Responsive size */
+    width: clamp(60px, 15vw, 80px);
+    height: clamp(60px, 15vw, 80px);
+}
+
+.om-core {
+    font-size: clamp(2rem, 8vw, 2.5rem);
+}
+
+/* Responsive title */
+.title-main {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+    letter-spacing: clamp(1px, 0.5vw, 3px);
+    text-align: center;
+}
+
+.title-sub {
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
+    letter-spacing: clamp(3px, 1vw, 8px);
+}
+
+/* Heritage badge mobile */
+.heritage-badge {
+    padding: clamp(0.5rem, 2vw, 0.75rem) clamp(1rem, 3vw, 1.5rem);
+    max-width: 90%;
+}
+
+.heritage-number {
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+}
+
+.heritage-text {
+    font-size: clamp(0.6rem, 2vw, 0.7rem);
+    text-align: center;
+    line-height: 1.2;
+}
+
+/* Status panel mobile */
+.status-panel {
+    flex-direction: row;
+    justify-content: center;
+    gap: clamp(0.5rem, 2vw, 1rem);
+    flex-wrap: wrap;
+}
+
+.status-item {
+    padding: clamp(0.4rem, 1.5vw, 0.5rem) clamp(0.75rem, 2vw, 1rem);
+    min-width: auto;
+}
+
+.status-label {
+    font-size: clamp(0.65rem, 2vw, 0.75rem);
+}
+
+.status-value {
+    font-size: clamp(0.85rem, 2.5vw, 1rem);
+}
+
+/* ====================================
+   COMMAND NAVIGATION MOBILE
+   ==================================== */
+
+.command-nav {
+    padding: clamp(0.75rem, 2vw, 1rem) 0;
+}
+
+.nav-matrix {
+    flex-direction: column;
+    gap: clamp(1rem, 3vw, 1.5rem);
+    padding: 0 clamp(1rem, 4vw, 2rem);
+}
+
+.nav-command {
+    /* Better touch targets */
+    padding: clamp(0.75rem, 2vw, 1rem);
+    min-height: 44px; /* iOS minimum touch target */
+    justify-content: center;
+}
+
+.command-icon {
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+}
+
+.command-text {
+    font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+    letter-spacing: clamp(0.5px, 0.2vw, 1px);
+}
+
+.command-desc {
+    font-size: clamp(0.6rem, 2vw, 0.7rem);
+}
+
+/* ====================================
+   MISSION BRIEFING MOBILE
+   ==================================== */
+
+.mission-briefing {
+    padding: clamp(1.5rem, 4vw, 2rem);
+    margin: clamp(1rem, 3vw, 2rem) 0;
+    /* Prevent layout breaks */
+    overflow-wrap: break-word;
+}
+
+.mission-title {
+    font-size: clamp(1.2rem, 5vw, 1.8rem);
+    letter-spacing: clamp(1px, 0.3vw, 2px);
+    line-height: 1.2;
+    text-align: center;
+}
+
+.mission-code {
+    /* Stack code elements on small screens */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    text-align: center;
+}
+
+.code-prefix {
+    font-size: clamp(0.7rem, 2vw, 0.8rem);
+}
+
+.code-main {
+    font-size: clamp(0.65rem, 2vw, 0.9rem);
+    /* Prevent overflow */
+    word-break: break-word;
+}
+
+/* Sanskrit matrix mobile */
+.sanskrit-matrix {
+    padding: clamp(1rem, 3vw, 1.5rem);
+    margin: clamp(1rem, 2vw, 1.5rem) 0;
+}
+
+.sanskrit-text {
+    font-size: clamp(1rem, 3.5vw, 1.2rem);
+    line-height: 1.4;
+}
+
+.sanskrit-decode {
+    font-size: clamp(0.7rem, 2vw, 0.9rem);
+    /* Improve readability */
+    letter-spacing: clamp(0.5px, 0.2vw, 1px);
+}
+
+/* Mission intel mobile */
+.intel-block {
+    flex-direction: column;
+    gap: clamp(0.5rem, 1.5vw, 1rem);
+    padding: clamp(1rem, 3vw, 1rem);
+    /* Better text wrapping */
+    overflow-wrap: break-word;
+}
+
+.intel-label {
+    font-size: clamp(0.7rem, 2vw, 0.8rem);
+    min-width: auto;
+}
+
+.intel-data {
+    font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+    line-height: 1.5;
+}
+
+/* ====================================
+   PREMIUM CONSULTATION CARD MOBILE
+   ==================================== */
+
+.premium-consultation-card-section {
+    padding: clamp(1rem, 3vw, 2rem) 0;
+}
+
+.consultation-card-wrapper {
+    padding: 0 clamp(1rem, 4vw, 2rem);
+}
+
+.premium-consultation-card {
+    /* Better mobile proportions */
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.premium-card-content {
+    padding: clamp(1.5rem, 4vw, 2rem);
+}
+
+.premium-card-header {
+    margin-bottom: clamp(1rem, 3vw, 1.5rem);
+    /* Stack on mobile */
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.premium-badge {
+    padding: clamp(0.5rem, 2vw, 0.75rem) clamp(1rem, 3vw, 1.5rem);
+}
+
+.premium-text {
+    font-size: clamp(0.7rem, 2vw, 0.8rem);
+}
+
+.premium-title {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    text-align: center;
+    line-height: 1.2;
+}
+
+.premium-subtitle {
+    font-size: clamp(1rem, 4vw, 1.3rem);
+    text-align: center;
+    margin-bottom: clamp(1rem, 3vw, 1.5rem);
+}
+
+.premium-description {
+    font-size: clamp(0.9rem, 3vw, 1rem);
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: clamp(1.5rem, 4vw, 2rem);
+}
+
+/* Premium features mobile */
+.premium-features-preview {
+    gap: clamp(1rem, 3vw, 1.5rem);
+    margin-bottom: clamp(1.5rem, 4vw, 2rem);
+}
+
+.feature-preview {
+    padding: clamp(1rem, 3vw, 1.5rem);
+    /* Improve readability */
+    text-align: center;
+}
+
+.feature-text {
+    font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+}
+
+.feature-class {
+    font-size: clamp(0.6rem, 2vw, 0.7rem);
+}
+
+/* Premium button mobile */
+.premium-access-button {
+    /* Better touch target */
+    padding: clamp(1rem, 3vw, 1.2rem) clamp(2rem, 5vw, 3rem);
+    font-size: clamp(0.9rem, 3vw, 1rem);
+    min-height: 44px;
+    width: 100%;
+}
+
+/* ====================================
+   CATEGORY CARDS MOBILE OPTIMIZATION
+   ==================================== */
+
+.category-cards-grid {
+    /* Single column on mobile, maintain 350px minimum */
+    grid-template-columns: 1fr;
+    gap: clamp(1.5rem, 4vw, 2rem);
+    padding: clamp(1rem, 3vw, 2rem);
+}
+
+.category-card {
+    /* Better mobile proportions */
+    height: clamp(350px, 50vh, 400px);
+    /* Prevent layout shift */
+    max-width: 100%;
+}
+
+.card-content {
+    padding: clamp(1.25rem, 3vw, 1.5rem);
+}
+
+.card-title {
+    font-size: clamp(1.4rem, 5vw, 1.75rem);
+    line-height: 1.3;
+}
+
+.card-subtitle {
+    font-size: clamp(0.85rem, 3vw, 1rem);
+}
+
+.card-description {
+    font-size: clamp(0.8rem, 2.5vw, 0.95rem);
+    line-height: 1.6;
+}
+
+.main-icon {
+    font-size: clamp(2rem, 6vw, 2.5rem);
+}
+
+.emoji-accent {
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+}
+
+/* Card badge mobile */
+.card-badge {
+    padding: clamp(0.4rem, 1.5vw, 0.5rem) clamp(0.6rem, 2vw, 0.75rem);
+}
+
+.sub-count {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+}
+
+.badge-text {
+    font-size: clamp(0.6rem, 2vw, 0.75rem);
+}
+
+/* Explore button mobile */
+.explore-button {
+    padding: clamp(0.8rem, 2.5vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+    font-size: clamp(0.95rem, 3vw, 1.1rem);
+    /* Better touch target */
+    min-height: 44px;
+}
+
+/* ====================================
+   CONSULTATION MODAL MOBILE
+   ==================================== */
+
+.consultation-modal .modal-content {
+    /* Full screen on mobile */
+    width: calc(100vw - 2rem);
+    max-width: none;
+    margin: 1rem;
+    max-height: calc(100vh - 2rem);
+    /* Ensure scrollability */
+    overflow-y: auto;
+}
+
+.modal-close {
+    /* Better touch target */
+    width: 44px;
+    height: 44px;
+    font-size: 1.5rem;
+    /* Position adjustments */
+    top: 1rem;
+    right: 1rem;
+}
+
+/* ====================================
+   RESPONSIVE BREAKPOINTS
+   ==================================== */
+
+/* Small mobile devices (320px - 479px) */
+@media (max-width: 479px) {
+    .header-grid {
+        padding: 0 1rem;
+    }
+    
+    .nav-matrix {
+        padding: 0 1rem;
+    }
+    
+    .category-cards-grid {
+        padding: 1rem;
+        gap: 1.5rem;
+    }
+    
+    .category-card {
+        height: 320px;
+    }
+    
+    /* Optimize text sizes for small screens */
+    .title-main {
+        font-size: 1.6rem;
+    }
+    
+    .mission-title {
+        font-size: 1.1rem;
+    }
+    
+    .premium-title {
+        font-size: 1.4rem;
+    }
+}
+
+/* Medium mobile devices (480px - 767px) */
+@media (min-width: 480px) and (max-width: 767px) {
+    .header-grid {
+        gap: 1.5rem;
+    }
+    
+    .category-cards-grid {
+        /* Two columns if screen is wide enough */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .nav-matrix {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+/* Tablet and up (768px+) */
+@media (min-width: 768px) {
+    .header-grid {
+        /* Restore three-column layout */
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        gap: 2rem;
+    }
+    
+    .nav-matrix {
+        flex-direction: row;
+        gap: 3rem;
+    }
+    
+    .mission-briefing {
+        padding: 2rem;
+    }
+    
+    .category-cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        padding: 2rem;
+    }
+    
+    .category-card {
+        height: 400px;
+    }
+}
+
+/* Large screens (1024px+) */
+@media (min-width: 1024px) {
+    .category-cards-grid {
+        /* Three columns on large screens */
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+}
+
+/* ====================================
+   TOUCH IMPROVEMENTS
+   ==================================== */
+
+/* Better touch states */
+.nav-command:active,
+.premium-access-button:active,
+.explore-button:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+}
+
+/* Remove focus outline on touch, keep for keyboard */
+.nav-command:focus:not(:focus-visible),
+.premium-access-button:focus:not(:focus-visible),
+.explore-button:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Better focus states for keyboard navigation */
+.nav-command:focus-visible,
+.premium-access-button:focus-visible,
+.explore-button:focus-visible {
+    outline: 2px solid var(--sacred-gold);
+    outline-offset: 2px;
+}
+
+/* ====================================
+   PERFORMANCE OPTIMIZATIONS
+   ==================================== */
+
+/* Optimize animations for mobile */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* GPU acceleration for smooth animations */
+.category-card,
+.premium-consultation-card,
+.explore-button,
+.premium-access-button {
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+/* ====================================
+   ACCESSIBILITY IMPROVEMENTS
+   ==================================== */
+
+/* Better contrast on mobile */
+@media (max-width: 767px) {
+    .location-coords,
+    .command-desc,
+    .sanskrit-decode,
+    .intel-data {
+        opacity: 0.9; /* Slightly higher than desktop for better mobile readability */
+    }
+}
+
+/* Ensure readable text on small screens */
+.card-description,
+.premium-description,
+.intel-data {
+    /* Prevent text from being too small */
+    font-size: max(0.8rem, 16px); /* Prevents zoom on iOS */
+}
+
+/* Better spacing for touch */
+.nav-command,
+.explore-button,
+.premium-access-button {
+    /* Ensure minimum touch target size */
+    min-width: 44px;
+    min-height: 44px;
+    /* Add padding instead of margin for larger touch area */
+    padding: max(0.75rem, calc((44px - 1em) / 2));
+}
