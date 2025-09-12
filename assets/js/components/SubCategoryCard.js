@@ -186,7 +186,7 @@ class SubCategoryCard {
     }
 
     /**
-     * Static method to toggle card details with smooth visual feedback
+     * Static method to toggle card details with mobile-optimized behavior
      */
     static toggleDetails(button) {
         const card = button.closest('.sub-category-card');
@@ -194,30 +194,54 @@ class SubCategoryCard {
         const expandText = button.querySelector('.expand-text');
         const expandIcon = button.querySelector('.expand-icon');
         
-        // Add immediate visual feedback
-        button.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-            button.style.transform = 'scale(1)';
-        }, 100);
+        // Check if we're on mobile (simple viewport check)
+        const isMobile = window.innerWidth <= 768;
         
-        const isExpanded = details.classList.contains('expanded');
-        
-        if (isExpanded) {
-            // Collapse with slight delay for better UX
-            setTimeout(() => {
+        if (isMobile) {
+            // Mobile: Instant, smooth toggle without delays
+            const isExpanded = details.classList.contains('expanded');
+            
+            if (isExpanded) {
+                // Collapse instantly
                 details.classList.remove('expanded');
                 details.style.display = 'none';
                 expandText.textContent = 'Show More Details';
                 expandIcon.textContent = '▼';
-            }, 50);
-        } else {
-            // Expand with slight delay for better UX
-            setTimeout(() => {
+                button.style.opacity = '0.8';
+                setTimeout(() => { button.style.opacity = '1'; }, 100);
+            } else {
+                // Expand instantly
                 details.classList.add('expanded');
                 details.style.display = 'block';
                 expandText.textContent = 'Show Less Details';
                 expandIcon.textContent = '▲';
-            }, 50);
+                button.style.opacity = '0.8';
+                setTimeout(() => { button.style.opacity = '1'; }, 100);
+            }
+        } else {
+            // Desktop: Keep the nice animations
+            button.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                button.style.transform = 'scale(1)';
+            }, 100);
+            
+            const isExpanded = details.classList.contains('expanded');
+            
+            if (isExpanded) {
+                setTimeout(() => {
+                    details.classList.remove('expanded');
+                    details.style.display = 'none';
+                    expandText.textContent = 'Show More Details';
+                    expandIcon.textContent = '▼';
+                }, 50);
+            } else {
+                setTimeout(() => {
+                    details.classList.add('expanded');
+                    details.style.display = 'block';
+                    expandText.textContent = 'Show Less Details';
+                    expandIcon.textContent = '▲';
+                }, 50);
+            }
         }
     }
     

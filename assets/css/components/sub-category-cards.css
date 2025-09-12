@@ -838,6 +838,24 @@
         flex: 1;
         min-width: auto;
     }
+    
+    /* Force single column for applications on tablets */
+    .applications-list {
+        grid-template-columns: 1fr !important;
+        gap: 1rem;
+    }
+    
+    .application-item {
+        padding: 1rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .app-text {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        overflow-wrap: anywhere;
+    }
 }
 
 @media (max-width: 480px) {
@@ -872,26 +890,36 @@
     
     .applications-list,
     .unlocks-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
+        gap: 0.8rem;
     }
     
     .application-item {
-        padding: 0.8rem;
-        font-size: 0.9rem;
+        padding: 1rem;
+        min-height: auto;
+        width: 100%;
     }
     
     .app-text {
-        font-size: 0.9rem;
-        line-height: 1.5;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        hyphens: auto;
     }
     
     .unlock-item {
-        padding: 0.8rem;
+        padding: 1rem;
+        min-height: auto;
+        width: 100%;
     }
     
     .unlock-text {
-        font-size: 0.9rem;
-        line-height: 1.5;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        hyphens: auto;
     }
     
     .deep-dive-modal {
@@ -932,5 +960,18 @@
     .dive-deeper-button {
         font-size: 0.9rem;
         padding: 0.8rem 1.3rem;
+    }
+    
+    /* Mobile-specific button optimizations */
+    .expand-button {
+        transition: opacity 0.1s ease !important;
+        transform: none !important;
+        font-size: 0.9rem;
+        padding: 1rem 1.5rem;
+    }
+    
+    .expand-button:hover {
+        transform: none !important;
+        background: rgba(255, 255, 255, 0.15);
     }
 }
