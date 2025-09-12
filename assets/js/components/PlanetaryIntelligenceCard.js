@@ -143,7 +143,7 @@ class PlanetaryIntelligenceCard {
                             <span class="expand-text">Show More Details</span>
                             <span class="expand-icon">▼</span>
                         </button>
-                        <button class="dive-deeper-button" onclick="PlanetaryIntelligenceCard.openPlanetaryPortal()">
+                        <button class="dive-deeper-button" onclick="window.location.href='planetary-intelligence.html'">
                             <span class="button-icon">🚀</span>
                             <span class="button-text">ENTER PLANETARY PORTAL</span>
                             <span class="button-arrow">»</span>
@@ -218,79 +218,8 @@ class PlanetaryIntelligenceCard {
         });
     }
 
-    /**
-     * Static method to open the dedicated Planetary Intelligence page
-     */
-    static openPlanetaryPortal() {
-        console.log('🚀 Opening Planetary Intelligence Portal...');
-        
-        // For now, create a modal. Later we'll create a dedicated page.
-        const modal = document.createElement('div');
-        modal.className = 'planetary-portal-modal';
-        modal.innerHTML = `
-            <div class="modal-overlay" onclick="this.parentElement.remove()"></div>
-            <div class="modal-content">
-                <button class="modal-close" onclick="this.closest('.planetary-portal-modal').remove()">×</button>
-                <div class="modal-header">
-                    <div class="header-icon">🪐</div>
-                    <h2>Planetary Intelligence Portal</h2>
-                    <p>Cosmic CPU Architecture Mastery System</p>
-                </div>
-                
-                <div class="portal-message">
-                    <h3>🚧 Epic Portal Under Construction</h3>
-                    <p>We're building the most advanced planetary intelligence training system ever created! This dedicated portal will feature:</p>
-                    
-                    <div class="feature-grid">
-                        <div class="feature-item">
-                            <span class="feature-icon">🖥️</span>
-                            <span class="feature-text">Interactive Planetary CPU Simulator</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-icon">⚡</span>
-                            <span class="feature-text">Real-time Cosmic Data Streams</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-icon">🧠</span>
-                            <span class="feature-text">Personalized Planet-Processor Mapping</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-icon">🎯</span>
-                            <span class="feature-text">Advanced Timing Algorithm Tools</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="portal-actions">
-                    <a href="https://discord.gg/QKaBQV24" target="_blank" class="action-button community">
-                        <span class="btn-icon">💬</span>
-                        <span class="btn-text">Join Our Community</span>
-                    </a>
-                    <button class="action-button notify" onclick="PlanetaryIntelligenceCard.notifyOnLaunch()">
-                        <span class="btn-icon">🔔</span>
-                        <span class="btn-text">Notify Me When Ready</span>
-                    </button>
-                </div>
-            </div>
-        `;
-        
-        document.body.appendChild(modal);
-    }
-    
-    /**
-     * Handle notification signup
-     */
-    static notifyOnLaunch() {
-        // Simple notification system
-        const email = prompt('Enter your email to get notified when the Planetary Intelligence Portal launches:');
-        if (email && email.includes('@')) {
-            alert('🚀 Awesome! You\'ll be the first to know when the Planetary Intelligence Portal goes live!');
-            console.log('Notification signup:', email);
-            // In a real app, this would send to a backend service
-        } else if (email) {
-            alert('Please enter a valid email address.');
-        }
-    }
+    // Navigation is now handled directly by the button's onclick
+    // No need for modal methods since we redirect to dedicated page
 
     /**
      * Get the card element

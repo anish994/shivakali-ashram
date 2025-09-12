@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="description" content="Master the Cosmic CPU Architecture - Planetary Intelligence training system with 9 planetary processors">
+    <meta name="keywords" content="planetary intelligence, cosmic CPU, vedic astrology, jyotisha, planets, consciousness">
+    <meta name="author" content="Acharya Anish">
+    
+    <title>🪐 Planetary Intelligence Portal - Cosmic CPU Architecture</title>
+    
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components/cosmic-background.css">
+    <link rel="stylesheet" href="assets/css/components/mobile-optimization.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪐</text></svg>">
+    
+    <style>
+        /* 🪐 PLANETARY INTELLIGENCE PORTAL STYLES */
+        
+        body {
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a0f0a 50%, #2d1b0e 100%);
+            overflow-x: hidden;
+        }
+        
+        /* PORTAL HEADER */
+        .portal-header {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(247, 147, 30, 0.05) 100%);
+            border-bottom: 1px solid rgba(255, 107, 53, 0.3);
+            padding: 2rem 0;
+            position: relative;
+        }
+        
+        .portal-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 215, 63, 0.1) 0%, transparent 50%);
+        }
+        
+        .portal-nav {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .back-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 107, 53, 0.1);
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            border-radius: 25px;
+            color: #FF6B35;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background: rgba(255, 107, 53, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+        }
+        
+        .portal-title-section {
+            text-align: center;
+            color: white;
+        }
+        
+        .portal-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+            animation: planetaryPulse 3s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 20px rgba(255, 107, 53, 0.5));
+        }
+        
+        .portal-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 0 0 0.5rem 0;
+            background: linear-gradient(135deg, #FF6B35 0%, #FFD23F 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(255, 107, 53, 0.3);
+        }
+        
+        .portal-subtitle {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+            font-weight: 600;
+        }
+        
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: rgba(255, 215, 63, 0.1);
+            border: 1px solid rgba(255, 215, 63, 0.3);
+            border-radius: 20px;
+            color: #FFD23F;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #FFD23F;
+            animation: statusPulse 2s ease-in-out infinite;
+        }
+        
+        /* MAIN CONTENT */
+        .portal-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        /* MISSION BRIEFING */
+        .mission-briefing {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.05) 0%, rgba(0, 0, 0, 0.3) 100%);
+            border-radius: 25px;
+            border: 1px solid rgba(255, 107, 53, 0.2);
+        }
+        
+        .mission-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #FF6B35;
+            margin: 0 0 1rem 0;
+            text-shadow: 0 2px 10px rgba(255, 107, 53, 0.3);
+        }
+        
+        .mission-description {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+        }
+        
+        .mission-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 107, 53, 0.2);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #FFD23F;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 0.5rem;
+        }
+        
+        /* PLANETARY PROCESSORS GRID */
+        .processors-section {
+            margin-bottom: 4rem;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            margin: 0 0 3rem 0;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .processors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .processor-card {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(0, 0, 0, 0.3) 100%);
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .processor-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.05) 50%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .processor-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 107, 53, 0.5);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.2);
+        }
+        
+        .processor-card:hover::before {
+            opacity: 1;
+        }
+        
+        .processor-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+        }
+        
+        .processor-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #FF6B35;
+            margin: 0 0 0.5rem 0;
+        }
+        
+        .processor-role {
+            font-size: 1rem;
+            color: #FFD23F;
+            font-weight: 600;
+            margin: 0 0 1rem 0;
+        }
+        
+        .processor-description {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 0 0 1.5rem 0;
+        }
+        
+        .processor-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.8rem;
+            background: rgba(255, 215, 63, 0.1);
+            border: 1px solid rgba(255, 215, 63, 0.3);
+            border-radius: 12px;
+            color: #FFD23F;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        /* COMING SOON SECTION */
+        .coming-soon {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(255, 215, 63, 0.05) 0%, rgba(0, 0, 0, 0.3) 100%);
+            border-radius: 25px;
+            border: 1px solid rgba(255, 215, 63, 0.2);
+        }
+        
+        .coming-soon h3 {
+            font-size: 2rem;
+            color: #FFD23F;
+            margin: 0 0 1rem 0;
+        }
+        
+        .coming-soon p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin: 0 0 2rem 0;
+        }
+        
+        .notify-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .action-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .community-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .community-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .notify-button {
+            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+            color: white;
+        }
+        
+        .notify-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+        }
+        
+        /* ANIMATIONS */
+        @keyframes planetaryPulse {
+            from { 
+                transform: scale(1);
+                filter: drop-shadow(0 0 20px rgba(255, 107, 53, 0.5));
+            }
+            to { 
+                transform: scale(1.1);
+                filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.8));
+            }
+        }
+        
+        @keyframes statusPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+            .portal-nav {
+                flex-direction: column;
+                gap: 2rem;
+                padding: 0 1rem;
+            }
+            
+            .portal-title {
+                font-size: 2.5rem;
+            }
+            
+            .portal-content {
+                padding: 2rem 1rem;
+            }
+            
+            .mission-briefing {
+                padding: 2rem;
+            }
+            
+            .processors-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .notify-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .portal-title {
+                font-size: 2rem;
+            }
+            
+            .portal-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .mission-title {
+                font-size: 2rem;
+            }
+            
+            .processor-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Portal Header -->
+    <header class="portal-header">
+        <nav class="portal-nav">
+            <a href="index.html" class="back-button">
+                <span>←</span>
+                <span>Back to Ashram</span>
+            </a>
+            
+            <div class="portal-title-section">
+                <div class="portal-icon">🪐</div>
+                <h1 class="portal-title">Planetary Intelligence</h1>
+                <h2 class="portal-subtitle">Cosmic CPU Architecture</h2>
+            </div>
+            
+            <div class="status-indicator">
+                <div class="status-dot"></div>
+                <span>PORTAL ACTIVE</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Portal Content -->
+    <main class="portal-content">
+        <!-- Mission Briefing -->
+        <section class="mission-briefing">
+            <h2 class="mission-title">🖥️ Decode the Universe's Operating System</h2>
+            <p class="mission-description">
+                Each planet functions as a specialized consciousness processor in the cosmic computer. 
+                Master the data streams, frequency signatures, and algorithmic patterns of celestial intelligence networks. 
+                Harness Mars as your willpower CPU, Venus as your attraction algorithm, and Jupiter as your wisdom database.
+            </p>
+            
+            <div class="mission-stats">
+                <div class="stat-item">
+                    <span class="stat-number">9</span>
+                    <span class="stat-label">Planetary Processors</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">27</span>
+                    <span class="stat-label">Advanced Algorithms</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">108</span>
+                    <span class="stat-label">Consciousness Protocols</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">∞</span>
+                    <span class="stat-label">Potential Combinations</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Planetary Processors Grid -->
+        <section class="processors-section">
+            <h2 class="section-title">🌌 Planetary Processor Network</h2>
+            <div class="processors-grid">
+                <!-- Sun Processor -->
+                <div class="processor-card" onclick="openPlanetDetails('sun')">
+                    <div class="processor-icon">☉</div>
+                    <h3 class="processor-name">SUN</h3>
+                    <div class="processor-role">Core Identity CPU</div>
+                    <p class="processor-description">
+                        Central processing unit for self-awareness, ego functions, and life purpose calculations. 
+                        Governs leadership algorithms and authority protocols.
+                    </p>
+                    <div class="processor-status">
+                        <span>⚡</span>
+                        <span>HIGH FREQUENCY</span>
+                    </div>
+                </div>
+
+                <!-- Moon Processor -->
+                <div class="processor-card" onclick="openPlanetDetails('moon')">
+                    <div class="processor-icon">☽</div>
+                    <h3 class="processor-name">MOON</h3>
+                    <div class="processor-role">Emotional RAM</div>
+                    <p class="processor-description">
+                        Memory storage and intuitive processing center. Handles emotional data, 
+                        subconscious patterns, and nurturing protocols.
+                    </p>
+                    <div class="processor-status">
+                        <span>🌊</span>
+                        <span>FLUID FREQUENCY</span>
+                    </div>
+                </div>
+
+                <!-- Mars Processor -->
+                <div class="processor-card" onclick="openPlanetDetails('mars')">
+                    <div class="processor-icon">♂</div>
+                    <h3 class="processor-name">MARS</h3>
+                    <div class="processor-role">Action Engine</div>
+                    <p class="processor-description">
+                        Willpower execution unit and drive processor. Manages combat algorithms, 
+                        energy distribution, and goal achievement protocols.
+                    </p>
+                    <div class="processor-status">
+                        <span>🔥</span>
+                        <span>INTENSE FREQUENCY</span>
+                    </div>
+                </div>
+
+                <!-- Mercury Processor -->
+                <div class="processor-card" onclick="openPlanetDetails('mercury')">
+                    <div class="processor-icon">☿</div>
+                    <h3 class="processor-name">MERCURY</h3>
+                    <div class="processor-role">Communication Bus</div>
+                    <p class="processor-description">
+                        Data transfer protocols and intellectual processing. Handles learning algorithms, 
+                        communication systems, and analytical functions.
+                    </p>
+                    <div class="processor-status">
+                        <span>💨</span>
+                        <span>RAPID FREQUENCY</span>
+                    </div>
+                </div>
+
+                <!-- Jupiter Processor -->
+                <div class="processor-card" onclick="openPlanetDetails('jupiter')">
+                    <div class="processor-icon">♃</div>
+                    <h3 class="processor-name">JUPITER</h3>
+                    <div class="processor-role">Wisdom Database</div>
+                    <p class="processor-description">
+                        Knowledge expansion and growth processor. Manages wisdom algorithms, 
+                        teaching protocols, and philosophical frameworks.
+                    </p>
+                    <div class="processor-status">
+                        <span>🌟</span>
+                        <span>EXPANSIVE FREQUENCY</span>
+                    </div>
+                </div>
+
+                <!-- Venus Processor -->
+                <div class="processor-card" onclick="openPlanetDetails('venus')">
+                    <div class="processor-icon">♀</div>
+                    <h3 class="processor-name">VENUS</h3>
+                    <div class="processor-role">Harmony Algorithm</div>
+                    <p class="processor-description">
+                        Attraction and beauty processing center. Handles love algorithms, 
+                        aesthetic protocols, and relationship management systems.
+                    </p>
+                    <div class="processor-status">
+                        <span>💖</span>
+                        <span>MAGNETIC FREQUENCY</span>
+                    </div>
+                </div>
+
+                <!-- Saturn Processor -->
+                <div class="processor-card" onclick="openPlanetDetails('saturn')">
+                    <div class="processor-icon">♄</div>
+                    <h3 class="processor-name">SATURN</h3>
+                    <div class="processor-role">Structure Framework</div>
+                    <p class="processor-description">
+                        Discipline and limitation management system. Governs time algorithms, 
+                        karma protocols, and structural integrity functions.
+                    </p>
+                    <div class="processor-status">
+                        <span>⏳</span>
+                        <span>STEADY FREQUENCY</span>
+                    </div>
+                </div>
+
+                <!-- Rahu Processor -->
+                <div class="processor-card" onclick="openPlanetDetails('rahu')">
+                    <div class="processor-icon">☊</div>
+                    <h3 class="processor-name">RAHU</h3>
+                    <div class="processor-role">Amplification Node</div>
+                    <p class="processor-description">
+                        Desire amplification and materialization processor. Handles ambition algorithms, 
+                        illusion protocols, and expansion beyond limits.
+                    </p>
+                    <div class="processor-status">
+                        <span>🌀</span>
+                        <span>CHAOTIC FREQUENCY</span>
+                    </div>
+                </div>
+
+                <!-- Ketu Processor -->
+                <div class="processor-card" onclick="openPlanetDetails('ketu')">
+                    <div class="processor-icon">☋</div>
+                    <h3 class="processor-name">KETU</h3>
+                    <div class="processor-role">Liberation Engine</div>
+                    <p class="processor-description">
+                        Detachment and spiritual processing unit. Manages liberation algorithms, 
+                        past-life data, and transcendence protocols.
+                    </p>
+                    <div class="processor-status">
+                        <span>🕳️</span>
+                        <span>VOID FREQUENCY</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Coming Soon -->
+        <section class="coming-soon">
+            <h3>🚧 Advanced Training Modules Under Construction</h3>
+            <p>
+                We're building the most comprehensive planetary intelligence training system ever created. 
+                Each planetary processor will have dedicated deep-dive courses, interactive simulations, 
+                and personalized optimization protocols.
+            </p>
+            
+            <div class="notify-actions">
+                <a href="https://discord.gg/QKaBQV24" target="_blank" class="action-button community-button">
+                    <span>💬</span>
+                    <span>Join Planetary Community</span>
+                </a>
+                <button class="action-button notify-button" onclick="notifyWhenReady()">
+                    <span>🔔</span>
+                    <span>Notify Me When Ready</span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Planet Details Function
+        function openPlanetDetails(planet) {
+            // For now, show coming soon alert. Later, this will redirect to individual planet pages
+            alert(`🪐 ${planet.toUpperCase()} PROCESSOR DEEP-DIVE\n\nComing Soon! Each planetary processor will have its own dedicated training module with:\n\n• Interactive simulations\n• Personalized algorithms\n• Advanced optimization techniques\n• Real-time cosmic data integration\n\nWe'll notify you when this becomes available!`);
+        }
+
+        // Notification Signup
+        function notifyWhenReady() {
+            const email = prompt('🪐 Enter your email to get notified when the full Planetary Intelligence training system launches:');
+            if (email && email.includes('@')) {
+                alert('🚀 Cosmic! You\'ll be the first to know when the Planetary Intelligence training system goes live!\n\nWe\'ll send you exclusive early access to all 9 planetary processor modules.');
+                console.log('Planetary Intelligence notification signup:', email);
+                // In production, this would integrate with your email service
+            } else if (email) {
+                alert('Please enter a valid email address to join the cosmic notification list.');
+            }
+        }
+
+        // Add some cosmic particle effects (optional)
+        function createCosmicParticles() {
+            const particles = 20;
+            for (let i = 0; i < particles; i++) {
+                const particle = document.createElement('div');
+                particle.style.cssText = `
+                    position: fixed;
+                    width: 2px;
+                    height: 2px;
+                    background: rgba(255, 107, 53, 0.6);
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 1;
+                    left: ${Math.random() * 100}vw;
+                    top: ${Math.random() * 100}vh;
+                    animation: float ${Math.random() * 10 + 10}s linear infinite;
+                `;
+                document.body.appendChild(particle);
+            }
+        }
+
+        // Add particle CSS animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes float {
+                0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+                10% { opacity: 1; }
+                90% { opacity: 1; }
+                100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize cosmic effects
+        document.addEventListener('DOMContentLoaded', function() {
+            createCosmicParticles();
+            
+            // Add processor card hover sound effects (optional)
+            const cards = document.querySelectorAll('.processor-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    // Add subtle hover feedback
+                    this.style.boxShadow = '0 20px 50px rgba(255, 107, 53, 0.3)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.boxShadow = '';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
