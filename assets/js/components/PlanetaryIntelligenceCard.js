@@ -1,22 +1,23 @@
 /**
- * 🪐 Planetary Intelligence Card - Cosmic CPU Architecture
+ * 🪐 Planetary Intelligence Card - Clean Simple Version
  * 
- * A specialized component for the Planetary Intelligence mastery path.
- * Features Mars-fire gradient theming and planetary processor concepts.
+ * A clean card component that matches other sub-category cards.
+ * Opens dedicated planetary intelligence page when clicked.
  */
 
 class PlanetaryIntelligenceCard {
     constructor() {
-        this.data = {
+        this.subCategory = {
             id: "planetary-intelligence",
             title: "Planetary Intelligence",
             subtitle: "Cosmic CPU Architecture",
-            description: "🪐 DECODE THE UNIVERSE'S OPERATING SYSTEM: Each planet functions as a specialized consciousness processor in the cosmic computer. Master the data streams, frequency signatures, and algorithmic patterns of celestial intelligence networks. Harness Mars as your willpower CPU, Venus as your attraction algorithm, and Jupiter as your wisdom database.",
+            description: "🪐 DECODE THE UNIVERSE'S OPERATING SYSTEM: Each planet functions as a specialized consciousness processor in the cosmic computer. Master the data streams, frequency signatures, and algorithmic patterns of celestial intelligence networks.",
             icon: "🪐",
             emoji: "⚡",
             gradient: "linear-gradient(135deg, #FF6B35 0%, #F7931E 50%, #FFD23F 100%)",
             primaryColor: "#FF6B35",
             secondaryColor: "#FFD23F",
+            cardStyle: "mars-fire",
             contentCount: "12 deep-dive modules",
             difficulty: "Intermediate → Advanced",
             timeToMaster: "3-6 months intensive study",
@@ -32,132 +33,126 @@ class PlanetaryIntelligenceCard {
                 "Mars: Action & Willpower Engine",
                 "Mercury: Communication Protocols",
                 "Jupiter: Expansion & Wisdom Database",
-                "Venus: Harmony & Attraction Algorithms",
-                "Saturn: Structure & Discipline Framework",
-                "Rahu/Ketu: Karmic Data Processing",
-                "Planetary Combinations & Synergies"
+                "Venus: Harmony & Attraction Algorithms"
             ],
             unlocks: [
                 "Advanced timing techniques", 
                 "Personalized planetary remedies", 
                 "Cosmic energy channeling"
-            ],
-            planetaryProcessors: [
-                { name: "Sun", role: "Core Identity CPU", function: "Self-awareness processing", frequency: "⚡ High" },
-                { name: "Moon", role: "Emotional RAM", function: "Memory & intuition storage", frequency: "🌊 Fluid" },
-                { name: "Mars", role: "Action Engine", function: "Willpower & drive execution", frequency: "🔥 Intense" },
-                { name: "Mercury", role: "Communication Bus", function: "Data transfer protocols", frequency: "💨 Rapid" },
-                { name: "Venus", role: "Harmony Algorithm", function: "Attraction & beauty processing", frequency: "💖 Magnetic" },
-                { name: "Jupiter", role: "Wisdom Database", function: "Knowledge expansion & growth", frequency: "🌟 Expansive" },
-                { name: "Saturn", role: "Structure Framework", function: "Discipline & limitation systems", frequency: "⏳ Steady" }
             ]
         };
+        this.parentCategory = { id: "jyotisha", title: "Jyotish Mastery" };
     }
 
     /**
-     * Create the complete Planetary Intelligence card element
+     * Create a clean card that matches other sub-category cards
      */
     createElement() {
         const card = document.createElement('div');
-        card.className = 'planetary-card';
+        card.className = `sub-category-card ${this.subCategory.cardStyle || 'default-style'}`;
+        card.setAttribute('data-subcategory-id', this.subCategory.id);
+        
+        // Apply gradient background
+        card.style.background = this.subCategory.gradient;
+        
         card.innerHTML = `
-            <div class="planetary-card-inner">
-                <!-- Background Layers -->
-                <div class="planetary-gradient" style="background: ${this.data.gradient}"></div>
-                <div class="cosmic-pattern"></div>
-                <div class="planetary-glow"></div>
+            <div class="sub-card-inner">
+                <!-- Card Background Effects -->
+                <div class="sub-card-background">
+                    <div class="gradient-overlay"></div>
+                    <div class="pattern-overlay"></div>
+                    <div class="glow-effect"></div>
+                </div>
                 
-                <!-- Header Section -->
-                <div class="planetary-header">
-                    <div class="header-content">
-                        <div class="planetary-icon-section">
-                            <div class="main-planetary-icon">${this.data.icon}</div>
-                            <div class="energy-pulse ${this.data.emoji}"></div>
+                <!-- Main Card Content -->
+                <div class="sub-card-content">
+                    <!-- Header Section -->
+                    <div class="sub-card-header">
+                        <div class="sub-icon-group">
+                            <span class="sub-main-icon">${this.subCategory.icon}</span>
+                            <span class="sub-emoji-accent">${this.subCategory.emoji}</span>
                         </div>
-                        <div class="planetary-badge">
-                            <div class="difficulty-level">${this.data.difficulty}</div>
-                            <div class="module-count">${this.data.contentCount}</div>
+                        <div class="sub-card-badge">
+                            <div class="difficulty-badge">${this.subCategory.difficulty}</div>
+                            <div class="content-count">${this.subCategory.contentCount}</div>
                         </div>
                     </div>
                     
-                    <div class="planetary-titles">
-                        <h3 class="planetary-title">${this.data.title}</h3>
-                        <h4 class="planetary-subtitle">${this.data.subtitle}</h4>
-                        <p class="planetary-description">${this.data.description}</p>
-                    </div>
-                    
-                    <!-- Quick System Overview -->
-                    <div class="system-overview">
-                        <div class="overview-item">
-                            <span class="overview-icon">⏱️</span>
-                            <span class="overview-text">${this.data.timeToMaster}</span>
+                    <!-- Body Section -->
+                    <div class="sub-card-body">
+                        <h3 class="sub-card-title">${this.subCategory.title}</h3>
+                        <h4 class="sub-card-subtitle">${this.subCategory.subtitle}</h4>
+                        <div class="sub-card-description">
+                            <p class="description-text">${this.subCategory.description}</p>
                         </div>
-                        <div class="overview-item">
-                            <span class="overview-icon">🎯</span>
-                            <span class="overview-text">${this.data.practicalApplications.length} power applications</span>
+                        
+                        <!-- Quick Stats -->
+                        <div class="sub-card-stats">
+                            <div class="stat-item">
+                                <span class="stat-icon">⏱️</span>
+                                <span class="stat-text">${this.subCategory.timeToMaster}</span>
+                            </div>
+                            <div class="stat-divider">•</div>
+                            <div class="stat-item">
+                                <span class="stat-icon">🎯</span>
+                                <span class="stat-text">${this.subCategory.practicalApplications.length} applications</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Planetary Processors Section -->
-                <div class="processors-section">
-                    <h5 class="section-title">🖥️ Planetary Processors</h5>
-                    <div class="processors-grid">
-                        ${this.renderPlanetaryProcessors()}
-                    </div>
-                </div>
-                
-                <!-- Expandable Deep System Analysis -->
-                <div class="deep-system-analysis">
-                    <h5 class="section-title">⚡ Power Applications</h5>
-                    <div class="applications-matrix">
-                        ${this.data.practicalApplications.map(app => `
-                            <div class="application-chip">
-                                <span class="app-icon">▸</span>
-                                <span class="app-name">${app}</span>
+                    
+                    <!-- Expandable Details Section -->
+                    <div class="sub-card-details">
+                        <!-- Key Topics Preview -->
+                        <div class="key-topics-section">
+                            <h5 class="section-title">🧠 Key Mastery Areas</h5>
+                            <div class="topics-grid">
+                                ${this.renderKeyTopics()}
                             </div>
-                        `).join('')}
+                        </div>
+                        
+                        <!-- Practical Applications -->
+                        <div class="applications-section">
+                            <h5 class="section-title">⚡ Practical Applications</h5>
+                            <div class="applications-list">
+                                ${this.subCategory.practicalApplications.map(app => `
+                                    <div class="application-item">
+                                        <span class="app-bullet">▸</span>
+                                        <span class="app-text">${app}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                        
+                        <!-- Unlocks Section -->
+                        <div class="unlocks-section">
+                            <h5 class="section-title">🔓 What You'll Unlock</h5>
+                            <div class="unlocks-grid">
+                                ${this.subCategory.unlocks.map(unlock => `
+                                    <div class="unlock-item">
+                                        <span class="unlock-icon">✨</span>
+                                        <span class="unlock-text">${unlock}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
                     </div>
                     
-                    <h5 class="section-title">🧠 Advanced Topics</h5>
-                    <div class="topics-matrix">
-                        ${this.data.keyTopics.slice(0, 6).map(topic => `
-                            <div class="topic-chip">
-                                <span class="topic-bullet">🔸</span>
-                                <span class="topic-name">${topic}</span>
-                            </div>
-                        `).join('')}
-                        ${this.data.keyTopics.length > 6 ? `
-                            <div class="topic-chip more-topics">
-                                <span class="topic-bullet">⋯</span>
-                                <span class="topic-name">+${this.data.keyTopics.length - 6} more planetary systems</span>
-                            </div>
-                        ` : ''}
-                    </div>
-                    
-                    <h5 class="section-title">🔓 System Unlocks</h5>
-                    <div class="unlocks-matrix">
-                        ${this.data.unlocks.map(unlock => `
-                            <div class="unlock-chip">
-                                <span class="unlock-icon">✨</span>
-                                <span class="unlock-name">${unlock}</span>
-                            </div>
-                        `).join('')}
+                    <!-- Footer Actions -->
+                    <div class="sub-card-footer">
+                        <button class="expand-button" onclick="SubCategoryCard.toggleDetails(this)">
+                            <span class="expand-text">Show More Details</span>
+                            <span class="expand-icon">▼</span>
+                        </button>
+                        <button class="dive-deeper-button" onclick="PlanetaryIntelligenceCard.openPlanetaryPortal()">
+                            <span class="button-icon">🚀</span>
+                            <span class="button-text">ENTER PLANETARY PORTAL</span>
+                            <span class="button-arrow">»</span>
+                        </button>
                     </div>
                 </div>
                 
-                <!-- Action Controls -->
-                <div class="planetary-controls">
-                    <button class="show-details-btn" onclick="PlanetaryIntelligenceCard.toggleDetails(this)">
-                        <span class="btn-text">Show Detailed Analysis</span>
-                        <span class="btn-icon">▼</span>
-                    </button>
-                    <button class="access-portal-btn" onclick="PlanetaryIntelligenceCard.openPortal()">
-                        <span class="portal-icon">🚀</span>
-                        <span class="portal-text">ACCESS PLANETARY PORTAL</span>
-                        <span class="portal-arrow">»</span>
-                    </button>
-                </div>
+                <!-- Animated Border -->
+                <div class="sub-card-border"></div>
             </div>
         `;
         
@@ -167,28 +162,32 @@ class PlanetaryIntelligenceCard {
     }
 
     /**
-     * Render the planetary processors grid
+     * Render key topics in an organized grid (same as SubCategoryCard)
      */
-    renderPlanetaryProcessors() {
-        return this.data.planetaryProcessors.map(processor => `
-            <div class="processor-unit">
-                <div class="processor-header">
-                    <span class="processor-planet">${processor.name}</span>
-                    <span class="processor-frequency">${processor.frequency}</span>
-                </div>
-                <div class="processor-role">${processor.role}</div>
-                <div class="processor-function">${processor.function}</div>
+    renderKeyTopics() {
+        const maxPreview = 6; // Show first 6 topics
+        const topics = this.subCategory.keyTopics.slice(0, maxPreview);
+        
+        return topics.map(topic => `
+            <div class="topic-item">
+                <span class="topic-bullet">🔸</span>
+                <span class="topic-text">${topic}</span>
             </div>
-        `).join('');
+        `).join('') + (this.subCategory.keyTopics.length > maxPreview ? `
+            <div class="topic-item more-topics">
+                <span class="topic-bullet">⋯</span>
+                <span class="topic-text">+${this.subCategory.keyTopics.length - maxPreview} more advanced topics</span>
+            </div>
+        ` : '');
     }
 
     /**
-     * Attach interactive event listeners
+     * Attach event listeners for interactions (same as SubCategoryCard)
      */
     attachEventListeners() {
         if (!this.element) return;
 
-        // Hover effects for card
+        // Hover effects
         this.element.addEventListener('mouseenter', () => {
             this.element.classList.add('hovered');
         });
@@ -197,7 +196,17 @@ class PlanetaryIntelligenceCard {
             this.element.classList.remove('hovered');
         });
 
-        // Touch support for mobile
+        // Click effects
+        this.element.addEventListener('click', (e) => {
+            if (!e.target.closest('.sub-card-footer')) {
+                this.element.classList.add('clicked');
+                setTimeout(() => {
+                    this.element.classList.remove('clicked');
+                }, 200);
+            }
+        });
+
+        // Touch support
         this.element.addEventListener('touchstart', () => {
             this.element.classList.add('touched');
         });
@@ -210,96 +219,77 @@ class PlanetaryIntelligenceCard {
     }
 
     /**
-     * Static method to toggle detailed analysis
+     * Static method to open the dedicated Planetary Intelligence page
      */
-    static toggleDetails(button) {
-        const card = button.closest('.planetary-card');
-        const analysis = card.querySelector('.deep-system-analysis');
-        const btnText = button.querySelector('.btn-text');
-        const btnIcon = button.querySelector('.btn-icon');
-        
-        const isMobile = window.innerWidth <= 768;
-        
-        if (analysis.style.display === 'block') {
-            // Hide details
-            analysis.style.display = 'none';
-            btnText.textContent = 'Show Detailed Analysis';
-            btnIcon.textContent = '▼';
-            
-            if (!isMobile) {
-                button.style.transform = 'scale(0.95)';
-                setTimeout(() => { button.style.transform = 'scale(1)'; }, 100);
-            } else {
-                button.style.opacity = '0.8';
-                setTimeout(() => { button.style.opacity = '1'; }, 100);
-            }
-        } else {
-            // Show details
-            analysis.style.display = 'block';
-            btnText.textContent = 'Hide Detailed Analysis';
-            btnIcon.textContent = '▲';
-            
-            if (!isMobile) {
-                button.style.transform = 'scale(0.95)';
-                setTimeout(() => { button.style.transform = 'scale(1)'; }, 100);
-            } else {
-                button.style.opacity = '0.8';
-                setTimeout(() => { button.style.opacity = '1'; }, 100);
-            }
-        }
-    }
-
-    /**
-     * Static method to open the planetary portal
-     */
-    static openPortal() {
+    static openPlanetaryPortal() {
         console.log('🚀 Opening Planetary Intelligence Portal...');
         
-        // Create portal modal
+        // For now, create a modal. Later we'll create a dedicated page.
         const modal = document.createElement('div');
         modal.className = 'planetary-portal-modal';
         modal.innerHTML = `
-            <div class="portal-overlay" onclick="this.parentElement.remove()"></div>
-            <div class="portal-content">
-                <button class="portal-close" onclick="this.closest('.planetary-portal-modal').remove()">×</button>
-                <div class="portal-header">
-                    <h2>🪐 Planetary Intelligence Portal</h2>
-                    <p>Access the cosmic CPU architecture mastery system</p>
+            <div class="modal-overlay" onclick="this.parentElement.remove()"></div>
+            <div class="modal-content">
+                <button class="modal-close" onclick="this.closest('.planetary-portal-modal').remove()">×</button>
+                <div class="modal-header">
+                    <div class="header-icon">🪐</div>
+                    <h2>Planetary Intelligence Portal</h2>
+                    <p>Cosmic CPU Architecture Mastery System</p>
+                </div>
+                
+                <div class="portal-message">
+                    <h3>🚧 Epic Portal Under Construction</h3>
+                    <p>We're building the most advanced planetary intelligence training system ever created! This dedicated portal will feature:</p>
+                    
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <span class="feature-icon">🖥️</span>
+                            <span class="feature-text">Interactive Planetary CPU Simulator</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">⚡</span>
+                            <span class="feature-text">Real-time Cosmic Data Streams</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🧠</span>
+                            <span class="feature-text">Personalized Planet-Processor Mapping</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🎯</span>
+                            <span class="feature-text">Advanced Timing Algorithm Tools</span>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="portal-actions">
-                    <a href="https://discord.gg/QKaBQV24" target="_blank" class="portal-community">
-                        <span class="action-icon">💬</span>
-                        <div class="action-content">
-                            <span class="action-title">Join Planetary Community</span>
-                            <span class="action-desc">Connect with fellow cosmic programmers</span>
-                        </div>
+                    <a href="https://discord.gg/QKaBQV24" target="_blank" class="action-button community">
+                        <span class="btn-icon">💬</span>
+                        <span class="btn-text">Join Our Community</span>
                     </a>
-                    
-                    <a href="#consultation" onclick="this.closest('.planetary-portal-modal').remove(); openConsultationModal();" class="portal-guidance">
-                        <span class="action-icon">👨‍🚀</span>
-                        <div class="action-content">
-                            <span class="action-title">Expert Planetary Guidance</span>
-                            <span class="action-desc">1-on-1 planetary intelligence sessions</span>
-                        </div>
-                    </a>
-                </div>
-                
-                <div class="portal-preview">
-                    <h3>🌟 Coming Soon to the Portal:</h3>
-                    <ul class="preview-list">
-                        <li>🖥️ Interactive Planetary CPU Simulator</li>
-                        <li>⚡ Real-time Cosmic Data Streams</li>
-                        <li>🧠 Personalized Planet-Processor Mapping</li>
-                        <li>🎯 Advanced Timing Algorithm Tools</li>
-                        <li>🔄 Live Planetary Transit Analysis</li>
-                    </ul>
+                    <button class="action-button notify" onclick="PlanetaryIntelligenceCard.notifyOnLaunch()">
+                        <span class="btn-icon">🔔</span>
+                        <span class="btn-text">Notify Me When Ready</span>
+                    </button>
                 </div>
             </div>
         `;
         
         document.body.appendChild(modal);
-        modal.style.display = 'flex';
+    }
+    
+    /**
+     * Handle notification signup
+     */
+    static notifyOnLaunch() {
+        // Simple notification system
+        const email = prompt('Enter your email to get notified when the Planetary Intelligence Portal launches:');
+        if (email && email.includes('@')) {
+            alert('🚀 Awesome! You\'ll be the first to know when the Planetary Intelligence Portal goes live!');
+            console.log('Notification signup:', email);
+            // In a real app, this would send to a backend service
+        } else if (email) {
+            alert('Please enter a valid email address.');
+        }
     }
 
     /**

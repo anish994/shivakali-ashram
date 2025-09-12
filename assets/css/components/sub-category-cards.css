@@ -15,10 +15,7 @@
     animation: gridFadeIn 0.8s ease-out 0.3s forwards;
 }
 
-/* Allow any custom specialized cards to flow correctly */
-.sub-category-grid > .planetary-card {
-    grid-column: auto;
-}
+/* All sub-category cards flow correctly in grid */
 
 @keyframes gridFadeIn {
     from {
