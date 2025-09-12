@@ -246,6 +246,15 @@ class SubCategoryDisplay {
      * Render the sub-category view
      */
     renderSubCategoryView(data) {
+        // DEBUG: Show what data we're getting
+        console.log('🔍 SUB-CATEGORY DATA:', data);
+        console.log('🔍 NUMBER OF SUB-CATEGORIES:', data.subCategories ? data.subCategories.length : 'NONE');
+        if (data.subCategories) {
+            data.subCategories.forEach((sub, index) => {
+                console.log(`🔍 Sub-category ${index + 1}: ${sub.id} - ${sub.title}`);
+            });
+        }
+        
         const viewContainer = document.createElement('div');
         viewContainer.className = 'sub-category-view';
         
