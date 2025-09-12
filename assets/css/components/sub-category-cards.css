@@ -321,22 +321,30 @@
 
 .application-item {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 0.5rem;
     padding: 0.6rem;
     background: rgba(0, 255, 127, 0.1);
     border-radius: 10px;
     border: 1px solid rgba(0, 255, 127, 0.2);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .app-bullet {
     color: #00ff7f;
     font-weight: bold;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
 }
 
 .app-text {
     font-size: 0.85rem;
     font-weight: 500;
+    line-height: 1.4;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    flex: 1;
 }
 
 /* UNLOCKS SECTION */
@@ -352,16 +360,20 @@
 
 .unlock-item {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 0.5rem;
     padding: 0.6rem;
     background: rgba(255, 215, 0, 0.1);
     border-radius: 10px;
     border: 1px solid rgba(255, 215, 0, 0.3);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .unlock-icon {
     font-size: 1rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
     /* Removed animation for stable display */
 }
 
@@ -369,6 +381,10 @@
     font-size: 0.85rem;
     font-weight: 500;
     color: rgba(255, 215, 0, 0.9);
+    line-height: 1.4;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    flex: 1;
 }
 
 /* FOOTER ACTIONS */
@@ -391,8 +407,13 @@
     font-weight: 600;
     font-size: 0.85rem;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.15s ease;
     backdrop-filter: blur(10px);
+    transform-origin: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
 .expand-button:hover {
@@ -852,6 +873,25 @@
     .applications-list,
     .unlocks-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .application-item {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .app-text {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    .unlock-item {
+        padding: 0.8rem;
+    }
+    
+    .unlock-text {
+        font-size: 0.9rem;
+        line-height: 1.5;
     }
     
     .deep-dive-modal {

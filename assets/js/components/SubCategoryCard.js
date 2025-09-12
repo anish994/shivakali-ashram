@@ -186,7 +186,7 @@ class SubCategoryCard {
     }
 
     /**
-     * Static method to toggle card details without animations
+     * Static method to toggle card details with smooth visual feedback
      */
     static toggleDetails(button) {
         const card = button.closest('.sub-category-card');
@@ -194,20 +194,30 @@ class SubCategoryCard {
         const expandText = button.querySelector('.expand-text');
         const expandIcon = button.querySelector('.expand-icon');
         
+        // Add immediate visual feedback
+        button.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            button.style.transform = 'scale(1)';
+        }, 100);
+        
         const isExpanded = details.classList.contains('expanded');
         
         if (isExpanded) {
-            // Collapse
-            details.classList.remove('expanded');
-            details.style.display = 'none';
-            expandText.textContent = 'Show More Details';
-            expandIcon.textContent = '▼';
+            // Collapse with slight delay for better UX
+            setTimeout(() => {
+                details.classList.remove('expanded');
+                details.style.display = 'none';
+                expandText.textContent = 'Show More Details';
+                expandIcon.textContent = '▼';
+            }, 50);
         } else {
-            // Expand
-            details.classList.add('expanded');
-            details.style.display = 'block';
-            expandText.textContent = 'Show Less Details';
-            expandIcon.textContent = '▲';
+            // Expand with slight delay for better UX
+            setTimeout(() => {
+                details.classList.add('expanded');
+                details.style.display = 'block';
+                expandText.textContent = 'Show Less Details';
+                expandIcon.textContent = '▲';
+            }, 50);
         }
     }
     
