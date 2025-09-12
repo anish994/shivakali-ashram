@@ -7,6 +7,7 @@
 /* MAIN CARD CONTAINER */
 .planetary-card {
     position: relative;
+    display: block;
     width: 100%;
     max-width: 600px;
     margin: 0 auto 2rem auto;
@@ -14,6 +15,12 @@
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
+}
+
+/* Ensure planetary card fits inside the generic sub-category grid nicely */
+.sub-category-grid .planetary-card {
+    max-width: unset;
+    margin: 0;
 }
 
 .planetary-card-inner {

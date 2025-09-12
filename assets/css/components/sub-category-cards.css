@@ -6,13 +6,18 @@
 /* SUB-CATEGORY GRID CONTAINER */
 .sub-category-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
     gap: 2rem;
     padding: 2rem;
     max-width: 1600px;
     margin: 0 auto;
     opacity: 0;
     animation: gridFadeIn 0.8s ease-out 0.3s forwards;
+}
+
+/* Allow any custom specialized cards to flow correctly */
+.sub-category-grid > .planetary-card {
+    grid-column: auto;
 }
 
 @keyframes gridFadeIn {

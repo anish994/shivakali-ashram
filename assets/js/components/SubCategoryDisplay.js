@@ -310,6 +310,17 @@ class SubCategoryDisplay {
 
         viewContainer.appendChild(grid);
         this.container.appendChild(viewContainer);
+        
+        // If specialized Planetary card exists, append it first in the grid
+        try {
+            const firstCard = grid.firstChild;
+            const planetary = grid.querySelector('.planetary-card');
+            if (planetary && firstCard && planetary !== firstCard) {
+                grid.insertBefore(planetary, firstCard);
+            }
+        } catch (e) {
+            console.warn('Optional: could not reposition planetary card', e);
+        }
     }
 
     /**
@@ -341,7 +352,8 @@ class SubCategoryDisplay {
      * Animate in sub-categories
      */
     async animateInSubCategories() {
-        const cards = document.querySelectorAll('.sub-category-card');
+        // Include both generic and specialized subcategory cards
+        const cards = document.querySelectorAll('.sub-category-card, .planetary-card');
         
         // Animate cards in sequence
         for (let i = 0; i < cards.length; i++) {
