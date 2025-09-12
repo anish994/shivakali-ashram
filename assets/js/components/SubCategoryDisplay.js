@@ -260,8 +260,24 @@ class SubCategoryDisplay {
 
         // Create sub-category cards
         data.subCategories.forEach((subCategory, index) => {
-            const card = new SubCategoryCard(subCategory, data.parentCategory);
-            const cardElement = card.createElement();
+            let cardElement;
+            
+            // Use specialized card for Planetary Intelligence
+            if (subCategory.id === 'planetary-intelligence') {
+                // Check if PlanetaryIntelligenceCard is available
+                if (typeof PlanetaryIntelligenceCard !== 'undefined') {
+                    const planetaryCard = new PlanetaryIntelligenceCard();
+                    cardElement = planetaryCard.createElement();
+                } else {
+                    // Fallback to generic card if specialized card isn't loaded
+                    const card = new SubCategoryCard(subCategory, data.parentCategory);
+                    cardElement = card.createElement();
+                }
+            } else {
+                // Use generic card for other sub-categories
+                const card = new SubCategoryCard(subCategory, data.parentCategory);
+                cardElement = card.createElement();
+            }
             
             // Set initial animation state
             cardElement.style.opacity = '0';
