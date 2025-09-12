@@ -68,7 +68,7 @@ class SubCategoryCard {
                     </div>
                     
                     <!-- Expandable Details Section -->
-                    <div class="sub-card-details ${this.isExpanded ? 'expanded' : 'collapsed'}">
+                    <div class="sub-card-details">
                         <!-- Key Topics Preview -->
                         <div class="key-topics-section">
                             <h5 class="section-title">🧠 Key Mastery Areas</h5>
@@ -106,8 +106,9 @@ class SubCategoryCard {
                     
                     <!-- Footer Actions -->
                     <div class="sub-card-footer">
-                        <button class="expand-button" onclick="this.closest('.sub-category-card').querySelector('.sub-card-details').classList.toggle('expanded'); this.textContent = this.textContent.includes('More') ? 'Show Less Details ▲' : 'Show More Details ▼'">
-                            Show More Details ▼
+                        <button class="expand-button" onclick="SubCategoryCard.toggleDetails(this)">
+                            <span class="expand-text">Show More Details</span>
+                            <span class="expand-icon">▼</span>
                         </button>
                         <button class="dive-deeper-button" onclick="SubCategoryCard.openDeepDive('${this.subCategory.id}', '${this.parentCategory.id}')">
                             <span class="button-icon">🚀</span>
@@ -185,6 +186,32 @@ class SubCategoryCard {
     }
 
     /**
+     * Static method to toggle card details without animations
+     */
+    static toggleDetails(button) {
+        const card = button.closest('.sub-category-card');
+        const details = card.querySelector('.sub-card-details');
+        const expandText = button.querySelector('.expand-text');
+        const expandIcon = button.querySelector('.expand-icon');
+        
+        const isExpanded = details.classList.contains('expanded');
+        
+        if (isExpanded) {
+            // Collapse
+            details.classList.remove('expanded');
+            details.style.display = 'none';
+            expandText.textContent = 'Show More Details';
+            expandIcon.textContent = '▼';
+        } else {
+            // Expand
+            details.classList.add('expanded');
+            details.style.display = 'block';
+            expandText.textContent = 'Show Less Details';
+            expandIcon.textContent = '▲';
+        }
+    }
+    
+    /**
      * Static method to open deep dive view
      */
     static openDeepDive(subCategoryId, parentCategoryId) {
@@ -200,14 +227,29 @@ class SubCategoryCard {
                 <div class="deep-dive-content">
                     <h2>🚀 Deep Dive: ${subCategoryId}</h2>
                     <p>🔥 COMING SOON: Comprehensive deep-dive content system!</p>
-                    <p>This will include:</p>
-                    <ul>
-                        <li>📚 Detailed study modules</li>
-                        <li>🎯 Interactive exercises</li>
-                        <li>📊 Progress tracking</li>
-                        <li>💬 Community discussions</li>
-                        <li>👨‍🏫 Expert guidance sessions</li>
-                    </ul>
+                    <p>While we build the full system, connect with our community:</p>
+                    
+                    <div class="action-buttons">
+                        <a href="https://discord.gg/QKaBQV24" target="_blank" class="community-button">
+                            <span class="button-icon">💬</span>
+                            <span class="button-text">Join Discord Community</span>
+                        </a>
+                        
+                        <a href="#consultation" onclick="this.closest('.deep-dive-modal').remove(); openConsultationModal();" class="expert-button">
+                            <span class="button-icon">👨‍🏫</span>
+                            <span class="button-text">Expert Guidance Sessions</span>
+                        </a>
+                    </div>
+                    
+                    <div class="coming-features">
+                        <h3>🌟 Coming Soon:</h3>
+                        <ul>
+                            <li>📚 Detailed study modules</li>
+                            <li>🎯 Interactive exercises</li>
+                            <li>📊 Progress tracking</li>
+                            <li>🧠 Advanced mastery content</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         `;
