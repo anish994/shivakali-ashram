@@ -16,7 +16,7 @@
   ],
   "author": "Acharya Anish <acharyaanish23@gmail.com>",
   "license": "MIT",
-  "homepage": "https://anish994.github.io/shivakali-ashram",
+  "homepage": "https://shivakali-ashram.netlify.app",
   "repository": {
     "type": "git",
     "url": "https://github.com/anish994/shivakali-ashram.git"
@@ -32,7 +32,7 @@
     "test": "echo 'Testing framework will be added in Phase 3'",
     "validate": "echo 'Content validation will be added in Phase 2'",
     "lint": "echo 'Linting will be added with development tools'",
-    "deploy": "echo 'Deployment handled by GitHub Pages'",
+    "deploy": "echo 'Deployment handled by Netlify from GitHub repository'",
     "validate-content": "node tools/validate-content.js",
     "serve": "python -m http.server 8000",
     "docs": "echo 'Documentation available in docs/ folder'"
@@ -71,7 +71,7 @@
     "framework": "vanilla-js",
     "architecture": "modular",
     "contentManagement": "json-based",
-    "deployment": "github-pages"
+    "deployment": "netlify"
   },
   "phases": {
     "current": "phase-1-foundation",
