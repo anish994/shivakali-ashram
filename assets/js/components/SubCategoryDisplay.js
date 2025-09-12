@@ -261,20 +261,33 @@ class SubCategoryDisplay {
         // Create sub-category cards
         data.subCategories.forEach((subCategory, index) => {
             let cardElement;
+            console.log(`Creating card for: ${subCategory.id}`);
             
             // Use specialized card for Planetary Intelligence
             if (subCategory.id === 'planetary-intelligence') {
+                console.log('Attempting to create Planetary Intelligence card...');
                 // Check if PlanetaryIntelligenceCard is available
                 if (typeof PlanetaryIntelligenceCard !== 'undefined') {
-                    const planetaryCard = new PlanetaryIntelligenceCard();
-                    cardElement = planetaryCard.createElement();
+                    console.log('PlanetaryIntelligenceCard class found, creating specialized card');
+                    try {
+                        const planetaryCard = new PlanetaryIntelligenceCard();
+                        cardElement = planetaryCard.createElement();
+                        console.log('Planetary Intelligence card created successfully');
+                    } catch (error) {
+                        console.error('Error creating Planetary Intelligence card:', error);
+                        // Fallback to generic card
+                        const card = new SubCategoryCard(subCategory, data.parentCategory);
+                        cardElement = card.createElement();
+                    }
                 } else {
+                    console.log('PlanetaryIntelligenceCard class not found, using fallback');
                     // Fallback to generic card if specialized card isn't loaded
                     const card = new SubCategoryCard(subCategory, data.parentCategory);
                     cardElement = card.createElement();
                 }
             } else {
                 // Use generic card for other sub-categories
+                console.log(`Creating generic card for: ${subCategory.id}`);
                 const card = new SubCategoryCard(subCategory, data.parentCategory);
                 cardElement = card.createElement();
             }
