@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="description" content="Master Life Domain Command Centers - 12 Houses system for comprehensive life optimization">
+    <meta name="keywords" content="houses, life domains, vedic astrology, jyotisha, bhava, command centers">
+    <meta name="author" content="Acharya Anish">
+    
+    <title>🏠 House Systems - Life Domain Command Centers</title>
+    
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components/cosmic-background.css">
+    <link rel="stylesheet" href="assets/css/components/mobile-optimization.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏠</text></svg>">
+    
+    <style>
+        /* 🏠 HOUSE SYSTEMS PORTAL STYLES */
+        
+        body {
+            background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #21262d 100%);
+            overflow-x: hidden;
+        }
+        
+        /* PORTAL HEADER */
+        .portal-header {
+            background: linear-gradient(135deg, rgba(79, 172, 254, 0.1) 0%, rgba(168, 85, 247, 0.05) 100%);
+            border-bottom: 1px solid rgba(79, 172, 254, 0.3);
+            padding: 2rem 0;
+            position: relative;
+        }
+        
+        .portal-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(79, 172, 254, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
+        }
+        
+        .portal-nav {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .back-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(79, 172, 254, 0.1);
+            border: 1px solid rgba(79, 172, 254, 0.3);
+            border-radius: 25px;
+            color: #4FACFE;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background: rgba(79, 172, 254, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(79, 172, 254, 0.3);
+        }
+        
+        .portal-title-section {
+            text-align: center;
+            color: white;
+        }
+        
+        .portal-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+            animation: housePulse 3s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 20px rgba(79, 172, 254, 0.5));
+        }
+        
+        .portal-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 0 0 0.5rem 0;
+            background: linear-gradient(135deg, #4FACFE 0%, #A855F7 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(79, 172, 254, 0.3);
+        }
+        
+        .portal-subtitle {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+            font-weight: 600;
+        }
+        
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: rgba(168, 85, 247, 0.1);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 20px;
+            color: #A855F7;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #A855F7;
+            animation: statusPulse 2s ease-in-out infinite;
+        }
+        
+        /* MAIN CONTENT */
+        .portal-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        /* MISSION BRIEFING */
+        .mission-briefing {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(79, 172, 254, 0.05) 0%, rgba(0, 0, 0, 0.3) 100%);
+            border-radius: 25px;
+            border: 1px solid rgba(79, 172, 254, 0.2);
+        }
+        
+        .mission-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #4FACFE;
+            margin: 0 0 1rem 0;
+            text-shadow: 0 2px 10px rgba(79, 172, 254, 0.3);
+        }
+        
+        .mission-description {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+        }
+        
+        .mission-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            border: 1px solid rgba(79, 172, 254, 0.2);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #A855F7;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 0.5rem;
+        }
+        
+        /* HOUSES GRID */
+        .houses-section {
+            margin-bottom: 4rem;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            margin: 0 0 3rem 0;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .houses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .house-card {
+            background: linear-gradient(135deg, rgba(79, 172, 254, 0.1) 0%, rgba(0, 0, 0, 0.3) 100%);
+            border: 1px solid rgba(79, 172, 254, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .house-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.05) 50%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .house-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(79, 172, 254, 0.5);
+            box-shadow: 0 15px 40px rgba(79, 172, 254, 0.2);
+        }
+        
+        .house-card:hover::before {
+            opacity: 1;
+        }
+        
+        /* House-specific colors */
+        .house-1 { border-color: rgba(239, 68, 68, 0.3); }
+        .house-1:hover { border-color: rgba(239, 68, 68, 0.5); box-shadow: 0 15px 40px rgba(239, 68, 68, 0.2); }
+        
+        .house-2 { border-color: rgba(245, 101, 101, 0.3); }
+        .house-2:hover { border-color: rgba(245, 101, 101, 0.5); box-shadow: 0 15px 40px rgba(245, 101, 101, 0.2); }
+        
+        .house-3 { border-color: rgba(251, 146, 60, 0.3); }
+        .house-3:hover { border-color: rgba(251, 146, 60, 0.5); box-shadow: 0 15px 40px rgba(251, 146, 60, 0.2); }
+        
+        .house-4 { border-color: rgba(34, 197, 94, 0.3); }
+        .house-4:hover { border-color: rgba(34, 197, 94, 0.5); box-shadow: 0 15px 40px rgba(34, 197, 94, 0.2); }
+        
+        .house-5 { border-color: rgba(250, 204, 21, 0.3); }
+        .house-5:hover { border-color: rgba(250, 204, 21, 0.5); box-shadow: 0 15px 40px rgba(250, 204, 21, 0.2); }
+        
+        .house-6 { border-color: rgba(139, 69, 19, 0.3); }
+        .house-6:hover { border-color: rgba(139, 69, 19, 0.5); box-shadow: 0 15px 40px rgba(139, 69, 19, 0.2); }
+        
+        .house-7 { border-color: rgba(236, 72, 153, 0.3); }
+        .house-7:hover { border-color: rgba(236, 72, 153, 0.5); box-shadow: 0 15px 40px rgba(236, 72, 153, 0.2); }
+        
+        .house-8 { border-color: rgba(75, 0, 130, 0.3); }
+        .house-8:hover { border-color: rgba(75, 0, 130, 0.5); box-shadow: 0 15px 40px rgba(75, 0, 130, 0.2); }
+        
+        .house-9 { border-color: rgba(59, 130, 246, 0.3); }
+        .house-9:hover { border-color: rgba(59, 130, 246, 0.5); box-shadow: 0 15px 40px rgba(59, 130, 246, 0.2); }
+        
+        .house-10 { border-color: rgba(168, 85, 247, 0.3); }
+        .house-10:hover { border-color: rgba(168, 85, 247, 0.5); box-shadow: 0 15px 40px rgba(168, 85, 247, 0.2); }
+        
+        .house-11 { border-color: rgba(6, 182, 212, 0.3); }
+        .house-11:hover { border-color: rgba(6, 182, 212, 0.5); box-shadow: 0 15px 40px rgba(6, 182, 212, 0.2); }
+        
+        .house-12 { border-color: rgba(99, 102, 241, 0.3); }
+        .house-12:hover { border-color: rgba(99, 102, 241, 0.5); box-shadow: 0 15px 40px rgba(99, 102, 241, 0.2); }
+        
+        .house-number {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: rgba(255, 255, 255, 0.3);
+            background: rgba(0, 0, 0, 0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 12px;
+        }
+        
+        .house-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+        }
+        
+        .house-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #4FACFE;
+            margin: 0 0 0.5rem 0;
+        }
+        
+        .house-domain {
+            font-size: 1rem;
+            color: #A855F7;
+            font-weight: 600;
+            margin: 0 0 1rem 0;
+        }
+        
+        .house-description {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 0 0 1.5rem 0;
+        }
+        
+        .house-keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .keyword {
+            padding: 0.3rem 0.6rem;
+            background: rgba(79, 172, 254, 0.1);
+            border: 1px solid rgba(79, 172, 254, 0.2);
+            border-radius: 8px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .house-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.8rem;
+            background: rgba(168, 85, 247, 0.1);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 12px;
+            color: #A855F7;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        /* COMING SOON SECTION */
+        .coming-soon {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.05) 0%, rgba(0, 0, 0, 0.3) 100%);
+            border-radius: 25px;
+            border: 1px solid rgba(168, 85, 247, 0.2);
+        }
+        
+        .coming-soon h3 {
+            font-size: 2rem;
+            color: #A855F7;
+            margin: 0 0 1rem 0;
+        }
+        
+        .coming-soon p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin: 0 0 2rem 0;
+        }
+        
+        .notify-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .action-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .community-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .community-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .notify-button {
+            background: linear-gradient(135deg, #4FACFE 0%, #A855F7 100%);
+            color: white;
+        }
+        
+        .notify-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(79, 172, 254, 0.4);
+        }
+        
+        /* ANIMATIONS */
+        @keyframes housePulse {
+            from { 
+                transform: scale(1);
+                filter: drop-shadow(0 0 20px rgba(79, 172, 254, 0.5));
+            }
+            to { 
+                transform: scale(1.1);
+                filter: drop-shadow(0 0 30px rgba(79, 172, 254, 0.8));
+            }
+        }
+        
+        @keyframes statusPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+            .portal-nav {
+                flex-direction: column;
+                gap: 2rem;
+                padding: 0 1rem;
+            }
+            
+            .portal-title {
+                font-size: 2.5rem;
+            }
+            
+            .portal-content {
+                padding: 2rem 1rem;
+            }
+            
+            .mission-briefing {
+                padding: 2rem;
+            }
+            
+            .houses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .notify-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .portal-title {
+                font-size: 2rem;
+            }
+            
+            .portal-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .mission-title {
+                font-size: 2rem;
+            }
+            
+            .house-card {
+                padding: 1.5rem;
+            }
+            
+            .houses-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Portal Header -->
+    <header class="portal-header">
+        <nav class="portal-nav">
+            <a href="index.html" class="back-button">
+                <span>←</span>
+                <span>Back to Ashram</span>
+            </a>
+            
+            <div class="portal-title-section">
+                <div class="portal-icon">🏠</div>
+                <h1 class="portal-title">House Systems</h1>
+                <h2 class="portal-subtitle">Life Domain Command Centers</h2>
+            </div>
+            
+            <div class="status-indicator">
+                <div class="status-dot"></div>
+                <span>CENTERS ACTIVE</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Portal Content -->
+    <main class="portal-content">
+        <!-- Mission Briefing -->
+        <section class="mission-briefing">
+            <h2 class="mission-title">🎯 Master Your Life Domains</h2>
+            <p class="mission-description">
+                Each house functions as a specialized command center governing different aspects of your existence. 
+                Master the 12 life domains through ancient Vedic house wisdom combined with modern optimization protocols. 
+                From identity to spirituality, career to relationships - command every sphere of your reality.
+            </p>
+            
+            <div class="mission-stats">
+                <div class="stat-item">
+                    <span class="stat-number">12</span>
+                    <span class="stat-label">Life Domain Centers</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">144</span>
+                    <span class="stat-label">House-Planet Combinations</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">360</span>
+                    <span class="stat-label">Life Optimization Protocols</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">∞</span>
+                    <span class="stat-label">Personal Configurations</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Houses Grid -->
+        <section class="houses-section">
+            <h2 class="section-title">🏛️ Life Domain Command Centers</h2>
+            <div class="houses-grid">
+                <!-- House 1 -->
+                <div class="house-card house-1" onclick="openHouseDetails(1)">
+                    <div class="house-number">1st</div>
+                    <div class="house-icon">🦁</div>
+                    <h3 class="house-name">IDENTITY HUB</h3>
+                    <div class="house-domain">Self & Personality Central</div>
+                    <p class="house-description">
+                        Core identity processor governing self-image, physical appearance, first impressions, and personal brand. 
+                        Controls how you present yourself to the world and your fundamental life approach.
+                    </p>
+                    <div class="house-keywords">
+                        <span class="keyword">Self-Image</span>
+                        <span class="keyword">Personality</span>
+                        <span class="keyword">Physical Body</span>
+                        <span class="keyword">First Impressions</span>
+                        <span class="keyword">Life Approach</span>
+                    </div>
+                    <div class="house-status">
+                        <span>⚡</span>
+                        <span>IDENTITY ACTIVE</span>
+                    </div>
+                </div>
+
+                <!-- House 2 -->
+                <div class="house-card house-2" onclick="openHouseDetails(2)">
+                    <div class="house-number">2nd</div>
+                    <div class="house-icon">💰</div>
+                    <h3 class="house-name">WEALTH ENGINE</h3>
+                    <div class="house-domain">Resources & Values Central</div>
+                    <p class="house-description">
+                        Financial command center controlling money flow, material possessions, personal values, and resource management. 
+                        Governs earning capacity and relationship with material security.
+                    </p>
+                    <div class="house-keywords">
+                        <span class="keyword">Money & Wealth</span>
+                        <span class="keyword">Possessions</span>
+                        <span class="keyword">Values</span>
+                        <span class="keyword">Self-Worth</span>
+                        <span class="keyword">Resources</span>
+                    </div>
+                    <div class="house-status">
+                        <span>💎</span>
+                        <span>WEALTH FLOWING</span>
+                    </div>
+                </div>
+
+                <!-- House 3 -->
+                <div class="house-card house-3" onclick="openHouseDetails(3)">
+                    <div class="house-number">3rd</div>
+                    <div class="house-icon">📡</div>
+                    <h3 class="house-name">COMMUNICATION HUB</h3>
+                    <div class="house-domain">Expression & Connection Central</div>
+                    <p class="house-description">
+                        Communication processing center managing speech, writing, short travels, siblings, and immediate environment. 
+                        Controls information exchange and local network connections.
+                    </p>
+                    <div class="house-keywords">
+                        <span class="keyword">Communication</span>
+                        <span class="keyword">Writing & Media</span>
+                        <span class="keyword">Siblings</span>
+                        <span class="keyword">Short Travel</span>
+                        <span class="keyword">Neighbors</span>
+                    </div>
+                    <div class="house-status">
+                        <span>📶</span>
+                        <span>SIGNALS STRONG</span>
+                    </div>
+                </div>
+
+                <!-- House 4 -->
+                <div class="house-card house-4" onclick="openHouseDetails(4)">
+                    <div class="house-number">4th</div>
+                    <div class="house-icon">🏡</div>
+                    <h3 class="house-name">HOME BASE</h3>
+                    <div class="house-domain">Foundation & Security Central</div>
+                    <p class="house-description">
+                        Emotional and physical foundation center governing home, family, mother, real estate, and inner security. 
+                        Controls domestic life and psychological roots.
+                    </p>
+                    <div class="house-keywords">
+                        <span class="keyword">Home & Family</span>
+                        <span class="keyword">Mother</span>
+                        <span class="keyword">Real Estate</span>
+                        <span class="keyword">Emotions</span>
+                        <span class="keyword">Security</span>
+                    </div>
+                    <div class="house-status">
+                        <span>🛡️</span>
+                        <span>FOUNDATION SOLID</span>
+                    </div>
+                </div>
+
+                <!-- House 5 -->
+                <div class="house-card house-5" onclick="openHouseDetails(5)">
+                    <div class="house-number">5th</div>
+                    <div class="house-icon">🎭</div>
+                    <h3 class="house-name">CREATIVITY CORE</h3>
+                    <div class="house-domain">Expression & Joy Central</div>
+                    <p class="house-description">
+                        Creative intelligence center managing children, romance, entertainment, speculation, and self-expression. 
+                        Controls artistic talents and joyful activities.
+                    </p>
+                    <div class="house-keywords">
+                        <span class="keyword">Children</span>
+                        <span class="keyword">Romance</span>
+                        <span class="keyword">Creativity</span>
+                        <span class="keyword">Entertainment</span>
+                        <span class="keyword">Speculation</span>
+                    </div>
+                    <div class="house-status">
+                        <span>✨</span>
+                        <span>CREATIVITY FLOWING</span>
+                    </div>
+                </div>
+
+                <!-- House 6 -->
+                <div class="house-card house-6" onclick="openHouseDetails(6)">
+                    <div class="house-number">6th</div>
+                    <div class="house-icon">⚔️</div>
+                    <h3 class="house-name">SERVICE & HEALTH</h3>
+                    <div class="house-domain">Optimization & Challenge Central</div>
+                    <p class="house-description">
+                        Health and service optimization center managing daily routines, work, health, enemies, and obstacles. 
+                        Controls problem-solving and service to others.
+                    </p>
+                    <div class="house-keywords">
+                        <span class="keyword">Health</span>
+                        <span class="keyword">Daily Routine</span>
+                        <span class="keyword">Service</span>
+                        <span class="keyword">Work</span>
+                        <span class="keyword">Challenges</span>
+                    </div>
+                    <div class="house-status">
+                        <span>💪</span>
+                        <span>OPTIMIZED ACTIVE</span>
+                    </div>
+                </div>
+
+                <!-- House 7 -->
+                <div class="house-card house-7" onclick="openHouseDetails(7)">
+                    <div class="house-number">7th</div>
+                    <div class="house-icon">💕</div>
+                    <h3 class="house-name">PARTNERSHIP PORTAL</h3>
+                    <div class="house-domain">Relationships & Alliance Central</div>
+                    <p class="house-description">
+                        Partnership command center governing marriage, business partnerships, contracts, and public relations. 
+                        Controls one-on-one relationships and collaborative ventures.
+                    </p>
+                    <div class="house-keywords">
+                        <span class="keyword">Marriage</span>
+                        <span class="keyword">Partnerships</span>
+                        <span class="keyword">Contracts</span>
+                        <span class="keyword">Public</span>
+                        <span class="keyword">Alliances</span>
+                    </div>
+                    <div class="house-status">
+                        <span>💝</span>
+                        <span>PARTNERSHIPS ALIGNED</span>
+                    </div>
+                </div>
+
+                <!-- House 8 -->
+                <div class="house-card house-8" onclick="openHouseDetails(8)">
+                    <div class="house-number">8th</div>
+                    <div class="house-icon">🔮</div>
+                    <h3 class="house-name">TRANSFORMATION VAULT</h3>
+                    <div class="house-domain">Mysteries & Regeneration Central</div>
+                    <p class="house-description">
+                        Deep transformation center managing shared resources, inheritance, occult knowledge, death/rebirth cycles, and psychological depths. 
+                        Controls profound life changes and hidden resources.
+                    </p>
+                    <div class="house-keywords">
+                        <span class="keyword">Transformation</span>
+                        <span class="keyword">Shared Resources</span>
+                        <span class="keyword">Occult</span>
+                        <span class="keyword">Regeneration</span>
+                        <span class="keyword">Mysteries</span>
+                    </div>
+                    <div class="house-status">
+                        <span>🌀</span>
+                        <span>TRANSFORMATION ACTIVE</span>
+                    </div>
+                </div>
+
+                <!-- House 9 -->
+                <div class="house-card house-9" onclick="openHouseDetails(9)">
+                    <div class="house-number">9th</div>
+                    <div class="house-icon">🎓</div>
+                    <h3 class="house-name">WISDOM ACADEMY</h3>
+                    <div class="house-domain">Higher Learning & Philosophy Central</div>
+                    <p class="house-description">
+                        Higher wisdom center managing philosophy, higher education, long-distance travel, father, gurus, and spiritual beliefs. 
+                        Controls expansion of consciousness and worldview.
+                    </p>
+                    <div class="house-keywords">
+                        <span class="keyword">Higher Education</span>
+                        <span class="keyword">Philosophy</span>
+                        <span class="keyword">Father/Guru</span>
+                        <span class="keyword">Long Travel</span>
+                        <span class="keyword">Beliefs</span>
+                    </div>
+                    <div class="house-status">
+                        <span>📚</span>
+                        <span>WISDOM EXPANDING</span>
+                    </div>
+                </div>
+
+                <!-- House 10 -->
+                <div class="house-card house-10" onclick="openHouseDetails(10)">
+                    <div class="house-number">10th</div>
+                    <div class="house-icon">👑</div>
+                    <h3 class="house-name">CAREER COMMAND</h3>
+                    <div class="house-domain">Status & Achievement Central</div>
+                    <p class="house-description">
+                        Career and reputation command center managing profession, public status, authority, government connections, and social recognition. 
+                        Controls professional achievement and public image.
+                    </p>
+                    <div class="house-keywords">
+                        <span class="keyword">Career</span>
+                        <span class="keyword">Reputation</span>
+                        <span class="keyword">Authority</span>
+                        <span class="keyword">Government</span>
+                        <span class="keyword">Status</span>
+                    </div>
+                    <div class="house-status">
+                        <span>⚡</span>
+                        <span>CAREER ASCENDING</span>
+                    </div>
+                </div>
+
+                <!-- House 11 -->
+                <div class="house-card house-11" onclick="openHouseDetails(11)">
+                    <div class="house-number">11th</div>
+                    <div class="house-icon">🌐</div>
+                    <h3 class="house-name">NETWORK NEXUS</h3>
+                    <div class="house-domain">Goals & Social Networks Central</div>
+                    <p class="house-description">
+                        Achievement and networking center managing goals, friends, social groups, elder siblings, and income gains. 
+                        Controls social connections and goal manifestation.
+                    </p>
+                    <div class="house-keywords">
+                        <span class="keyword">Goals & Dreams</span>
+                        <span class="keyword">Friends</span>
+                        <span class="keyword">Groups</span>
+                        <span class="keyword">Income Gains</span>
+                        <span class="keyword">Networks</span>
+                    </div>
+                    <div class="house-status">
+                        <span>🎯</span>
+                        <span>GOALS MATERIALIZING</span>
+                    </div>
+                </div>
+
+                <!-- House 12 -->
+                <div class="house-card house-12" onclick="openHouseDetails(12)">
+                    <div class="house-number">12th</div>
+                    <div class="house-icon">🧘</div>
+                    <h3 class="house-name">LIBERATION CHAMBER</h3>
+                    <div class="house-domain">Spirituality & Release Central</div>
+                    <p class="house-description">
+                        Spiritual liberation center managing subconscious mind, meditation, foreign connections, hospitals, isolation, and final moksha. 
+                        Controls spiritual transcendence and letting go.
+                    </p>
+                    <div class="house-keywords">
+                        <span class="keyword">Spirituality</span>
+                        <span class="keyword">Subconscious</span>
+                        <span class="keyword">Foreign Lands</span>
+                        <span class="keyword">Liberation</span>
+                        <span class="keyword">Transcendence</span>
+                    </div>
+                    <div class="house-status">
+                        <span>🕉️</span>
+                        <span>LIBERATION ACTIVE</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Status Section -->
+        <section class="coming-soon">
+            <h3>🏠 Life Domain Command Centers ACTIVE</h3>
+            <p>
+                🎯 <strong>All 12 Life Domain Centers are now accessible!</strong> Click any house above to access comprehensive mastery modules with:
+                <br><br>
+                • 🏛️ Detailed domain analysis & optimization strategies<br>
+                • 🪐 Planetary ruler influences & power combinations<br>
+                • 💫 House-to-house relationship mapping<br>
+                • 🎯 Practical life optimization protocols<br>
+                • 📊 Personal domain strength assessments<br>
+                • 🔮 Advanced house activation techniques
+            </p>
+            
+            <div class="notify-actions">
+                <a href="https://discord.gg/QKaBQV24" target="_blank" class="action-button community-button">
+                    <span>💬</span>
+                    <span>Join House Masters Community</span>
+                </a>
+                <button class="action-button notify-button" onclick="showHouseStats()">
+                    <span>📊</span>
+                    <span>View Domain Statistics</span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // House Details Function - Redirect to Demo Pages  
+        function openHouseDetails(houseNumber) {
+            // Redirect to the specific house demo page
+            const housePages = {
+                1: 'houses/house-1-demo.html',
+                2: 'houses/house-2-demo.html', 
+                3: 'houses/house-3-demo.html',
+                4: 'houses/house-4-demo.html',
+                5: 'houses/house-5-demo.html',
+                6: 'houses/house-6-demo.html',
+                7: 'houses/house-7-demo.html',
+                8: 'houses/house-8-demo.html',
+                9: 'houses/house-9-demo.html',
+                10: 'houses/house-10-demo.html',
+                11: 'houses/house-11-demo.html',
+                12: 'houses/house-12-demo.html'
+            };
+            
+            if (housePages[houseNumber]) {
+                // Open the house demo page
+                window.location.href = housePages[houseNumber];
+            } else {
+                // Fallback in case of unknown house
+                console.error('Unknown house:', houseNumber);
+                alert(`🏠 HOUSE ${houseNumber} COMMAND CENTER\n\nSomething went wrong! Please try again.`);
+            }
+        }
+
+        // Show House Statistics
+        function showHouseStats() {
+            alert('🏠 HOUSE SYSTEMS DOMAIN STATS\n\n🎯 STATUS: ALL CENTERS OPERATIONAL\n\n📊 ACTIVE MODULES:\n• 12 Life Domain Command Centers Online\n• 144 House-Planet Combinations\n• 360 Life Optimization Protocols\n• ∞ Personal Configuration Possibilities\n\n⚡ PERFORMANCE:\n• Domain-Specific Color Coding\n• Interactive Life Area Analysis\n• Real-time Hover Feedback\n• Mobile-Optimized Interface\n\n🌟 READY FOR LIFE MASTERY!');
+        }
+
+        // Add cosmic particles with house theme colors
+        function createHouseParticles() {
+            const particles = 25;
+            const colors = [
+                'rgba(79, 172, 254, 0.6)',   // Blue
+                'rgba(168, 85, 247, 0.6)',   // Purple  
+                'rgba(239, 68, 68, 0.6)',    // Red
+                'rgba(34, 197, 94, 0.6)',    // Green
+                'rgba(250, 204, 21, 0.6)'    // Yellow
+            ];
+            
+            for (let i = 0; i < particles; i++) {
+                const particle = document.createElement('div');
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.cssText = `
+                    position: fixed;
+                    width: 3px;
+                    height: 3px;
+                    background: ${color};
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 1;
+                    left: ${Math.random() * 100}vw;
+                    top: ${Math.random() * 100}vh;
+                    animation: float ${Math.random() * 15 + 15}s linear infinite;
+                `;
+                document.body.appendChild(particle);
+            }
+        }
+
+        // Add particle CSS animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes float {
+                0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+                10% { opacity: 1; }
+                90% { opacity: 1; }
+                100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize effects
+        document.addEventListener('DOMContentLoaded', function() {
+            createHouseParticles();
+            
+            // Add house card hover effects
+            const cards = document.querySelectorAll('.house-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    // Add subtle hover sound effect (optional)
+                    this.style.transform = 'translateY(-8px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
