@@ -294,6 +294,24 @@ class SubCategoryDisplay {
                     const card = new SubCategoryCard(subCategory, data.parentCategory);
                     cardElement = card.createElement();
                 }
+            } else if (subCategory.id === 'house-systems') {
+                // Use specialized card for House Systems (direct link to house-systems.html)
+                console.log('Attempting to create House Systems card...');
+                if (typeof HouseSystemsCard !== 'undefined') {
+                    try {
+                        const housesCard = new HouseSystemsCard();
+                        cardElement = housesCard.createElement();
+                        console.log('House Systems card created successfully');
+                    } catch (error) {
+                        console.error('Error creating House Systems card:', error);
+                        const card = new SubCategoryCard(subCategory, data.parentCategory);
+                        cardElement = card.createElement();
+                    }
+                } else {
+                    console.log('HouseSystemsCard class not found, using fallback');
+                    const card = new SubCategoryCard(subCategory, data.parentCategory);
+                    cardElement = card.createElement();
+                }
             } else {
                 // Use generic card for other sub-categories
                 console.log(`Creating generic card for: ${subCategory.id}`);
