@@ -251,7 +251,21 @@ class SubCategoryCard {
     static openDeepDive(subCategoryId, parentCategoryId) {
         console.log(`Opening deep dive for: ${subCategoryId} in ${parentCategoryId}`);
         
-        // Create deep dive modal or navigate to detailed view
+        // Check if we have a dedicated page for this subcategory
+        const dedicatedPages = {
+            'planetary-intelligence': 'planetary-intelligence.html',
+            'house-systems': 'house-systems.html',
+            'nakshatra-codes': null // Coming soon
+        };
+        
+        // If we have a dedicated page, navigate to it
+        if (dedicatedPages[subCategoryId]) {
+            console.log(`Navigating to dedicated page: ${dedicatedPages[subCategoryId]}`);
+            window.location.href = dedicatedPages[subCategoryId];
+            return;
+        }
+        
+        // Otherwise, show the coming soon modal
         const modal = document.createElement('div');
         modal.className = 'deep-dive-modal';
         modal.innerHTML = `

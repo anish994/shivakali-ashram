@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="description" content="Master your Identity Hub - 1st House comprehensive self-mastery and personal branding system">
+    <meta name="keywords" content="1st house, identity, personality, self-image, vedic astrology, lagna, ascendant">
+    <meta name="author" content="Acharya Anish">
+    
+    <title>🦁 1st House Identity Hub - Self Mastery Command Center</title>
+    
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/components/cosmic-background.css">
+    <link rel="stylesheet" href="../assets/css/components/mobile-optimization.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦁</text></svg>">
+    
+    <style>
+        /* 🦁 1ST HOUSE IDENTITY HUB STYLES */
+        
+        body {
+            background: linear-gradient(135deg, #2D0A0A 0%, #4A1515 50%, #651F1F 100%);
+            overflow-x: hidden;
+        }
+        
+        /* HERO HEADER */
+        .hero-header {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(185, 28, 28, 0.05) 100%);
+            border-bottom: 2px solid rgba(239, 68, 68, 0.3);
+            padding: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 40%, rgba(239, 68, 68, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(185, 28, 28, 0.1) 0%, transparent 50%);
+        }
+        
+        .hero-nav {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .back-button {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            background: rgba(239, 68, 68, 0.1);
+            border: 2px solid rgba(239, 68, 68, 0.3);
+            border-radius: 30px;
+            color: #EF4444;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .back-button:hover {
+            background: rgba(239, 68, 68, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(239, 68, 68, 0.4);
+        }
+        
+        .hero-title-section {
+            text-align: center;
+            color: white;
+        }
+        
+        .house-number {
+            font-size: 1.2rem;
+            color: rgba(239, 68, 68, 0.8);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .hero-icon {
+            font-size: 5rem;
+            margin: 1rem 0;
+            display: block;
+            animation: identityPulse 4s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 25px rgba(239, 68, 68, 0.6));
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin: 0 0 0.5rem 0;
+            background: linear-gradient(135deg, #EF4444 0%, #DC2626 50%, #B91C1C 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 3px 15px rgba(239, 68, 68, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.8rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .power-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem 1.8rem;
+            background: rgba(239, 68, 68, 0.15);
+            border: 2px solid rgba(239, 68, 68, 0.4);
+            border-radius: 25px;
+            color: #EF4444;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .power-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #EF4444;
+            animation: powerPulse 2s ease-in-out infinite;
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.8);
+        }
+        
+        /* MAIN CONTENT */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+        
+        /* IDENTITY CORE SECTION */
+        .identity-core {
+            text-align: center;
+            margin-bottom: 5rem;
+            padding: 4rem;
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(0, 0, 0, 0.4) 100%);
+            border-radius: 30px;
+            border: 2px solid rgba(239, 68, 68, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .identity-core::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(239, 68, 68, 0.05) 0%, transparent 70%);
+        }
+        
+        .core-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .core-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #EF4444;
+            margin: 0 0 1.5rem 0;
+            text-shadow: 0 2px 15px rgba(239, 68, 68, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .core-description {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.7;
+            max-width: 900px;
+            margin: 0 auto 3rem auto;
+        }
+        
+        .identity-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 2.5rem;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            border: 2px solid rgba(239, 68, 68, 0.25);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(239, 68, 68, 0.5);
+            box-shadow: 0 15px 40px rgba(239, 68, 68, 0.2);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #EF4444;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-weight: 600;
+        }
+        
+        /* MASTERY MODULES GRID */
+        .mastery-section {
+            margin-bottom: 5rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            text-align: center;
+            margin: 0 0 4rem 0;
+            text-shadow: 0 3px 15px rgba(0, 0, 0, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .mastery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+        }
+        
+        .mastery-card {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%);
+            border: 2px solid rgba(239, 68, 68, 0.3);
+            border-radius: 25px;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .mastery-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.03) 50%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .mastery-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(239, 68, 68, 0.6);
+            box-shadow: 0 20px 50px rgba(239, 68, 68, 0.3);
+        }
+        
+        .mastery-card:hover::before {
+            opacity: 1;
+        }
+        
+        .mastery-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.4));
+        }
+        
+        .mastery-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #EF4444;
+            margin: 0 0 1rem 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .mastery-description {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0 0 2rem 0;
+        }
+        
+        .mastery-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 2rem 0;
+        }
+        
+        .mastery-features li {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .mastery-features li::before {
+            content: '⚡';
+            position: absolute;
+            left: 0;
+            color: #EF4444;
+        }
+        
+        .mastery-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.6rem 1.2rem;
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            border-radius: 15px;
+            color: #EF4444;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* PLANETARY RULERS SECTION */
+        .rulers-section {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.05) 0%, rgba(0, 0, 0, 0.3) 100%);
+            border-radius: 30px;
+            border: 2px solid rgba(239, 68, 68, 0.2);
+            padding: 4rem 3rem;
+            margin-bottom: 5rem;
+            text-align: center;
+        }
+        
+        .rulers-title {
+            font-size: 2.5rem;
+            color: #EF4444;
+            margin: 0 0 2rem 0;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .rulers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .ruler-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .ruler-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(239, 68, 68, 0.5);
+            box-shadow: 0 15px 35px rgba(239, 68, 68, 0.2);
+        }
+        
+        .ruler-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .ruler-name {
+            font-size: 1.5rem;
+            color: #EF4444;
+            font-weight: 700;
+            margin: 0 0 0.5rem 0;
+            text-transform: uppercase;
+        }
+        
+        .ruler-influence {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        /* ACTION SECTION */
+        .action-section {
+            text-align: center;
+            padding: 5rem 3rem;
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(0, 0, 0, 0.4) 100%);
+            border-radius: 30px;
+            border: 2px solid rgba(239, 68, 68, 0.25);
+        }
+        
+        .action-title {
+            font-size: 2.5rem;
+            color: #EF4444;
+            margin: 0 0 1.5rem 0;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .action-description {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            margin: 0 0 3rem 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .action-button {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.2rem 2.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .primary-button {
+            background: linear-gradient(135deg, #EF4444 0%, #DC2626 50%, #B91C1C 100%);
+            color: white;
+            border: 2px solid rgba(239, 68, 68, 0.3);
+        }
+        
+        .primary-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(239, 68, 68, 0.4);
+        }
+        
+        .secondary-button {
+            background: transparent;
+            color: #EF4444;
+            border: 2px solid rgba(239, 68, 68, 0.5);
+        }
+        
+        .secondary-button:hover {
+            background: rgba(239, 68, 68, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(239, 68, 68, 0.2);
+        }
+        
+        /* ANIMATIONS */
+        @keyframes identityPulse {
+            from { 
+                transform: scale(1) rotate(0deg);
+                filter: drop-shadow(0 0 25px rgba(239, 68, 68, 0.6));
+            }
+            to { 
+                transform: scale(1.15) rotate(5deg);
+                filter: drop-shadow(0 0 40px rgba(239, 68, 68, 0.9));
+            }
+        }
+        
+        @keyframes powerPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.2); }
+        }
+        
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero-nav {
+                flex-direction: column;
+                gap: 2.5rem;
+                padding: 0 1rem;
+            }
+            
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .main-content {
+                padding: 3rem 1rem;
+            }
+            
+            .identity-core {
+                padding: 2.5rem;
+            }
+            
+            .mastery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .mastery-card {
+                padding: 2rem;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .core-title {
+                font-size: 2.2rem;
+            }
+            
+            .mastery-card {
+                padding: 1.5rem;
+            }
+            
+            .mastery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Header -->
+    <header class="hero-header">
+        <nav class="hero-nav">
+            <a href="../house-systems.html" class="back-button">
+                <span>←</span>
+                <span>Back to Command Centers</span>
+            </a>
+            
+            <div class="hero-title-section">
+                <div class="house-number">1st House</div>
+                <div class="hero-icon">🦁</div>
+                <h1 class="hero-title">Identity Hub</h1>
+                <h2 class="hero-subtitle">Self Mastery Command Center</h2>
+            </div>
+            
+            <div class="power-indicator">
+                <div class="power-dot"></div>
+                <span>IDENTITY ACTIVE</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Identity Core Section -->
+        <section class="identity-core">
+            <div class="core-content">
+                <h2 class="core-title">🎯 Core Identity Processor</h2>
+                <p class="core-description">
+                    The 1st House Identity Hub is your personal brand command center - the cosmic CPU that processes your 
+                    self-image, physical presence, and life approach. Master this domain to control how you present yourself 
+                    to the world, develop unshakeable self-confidence, and align your outer personality with your inner purpose.
+                </p>
+                
+                <div class="identity-stats">
+                    <div class="stat-card">
+                        <span class="stat-number">1°</span>
+                        <span class="stat-label">Rising Degree Power</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Self-Expression Control</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label">Identity Configurations</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Personality Broadcasting</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mastery Modules -->
+        <section class="mastery-section">
+            <h2 class="section-title">🔥 Identity Mastery Modules</h2>
+            <div class="mastery-grid">
+                <!-- Self-Image Engineering -->
+                <div class="mastery-card" onclick="openMasteryModule('self-image')">
+                    <div class="mastery-icon">🪞</div>
+                    <h3 class="mastery-title">Self-Image Engineering</h3>
+                    <p class="mastery-description">
+                        Master the art of conscious self-perception and personal brand development. 
+                        Learn to reshape your self-image from the inside out and create a powerful first impression.
+                    </p>
+                    <ul class="mastery-features">
+                        <li>Personal Brand Architecture</li>
+                        <li>Confidence Programming Protocols</li>
+                        <li>First Impression Optimization</li>
+                        <li>Self-Worth Amplification Systems</li>
+                        <li>Authentic Personality Expression</li>
+                    </ul>
+                    <div class="mastery-status">
+                        <span>🔥</span>
+                        <span>CORE MODULE</span>
+                    </div>
+                </div>
+
+                <!-- Physical Presence Mastery -->
+                <div class="mastery-card" onclick="openMasteryModule('physical')">
+                    <div class="mastery-icon">💪</div>
+                    <h3 class="mastery-title">Physical Presence Mastery</h3>
+                    <p class="mastery-description">
+                        Optimize your physical vessel and body language to radiate power, health, and magnetism. 
+                        Your body is your first tool of self-expression.
+                    </p>
+                    <ul class="mastery-features">
+                        <li>Body Language Power Protocols</li>
+                        <li>Physical Health Optimization</li>
+                        <li>Presence & Posture Mastery</li>
+                        <li>Energy Field Enhancement</li>
+                        <li>Magnetic Aura Development</li>
+                    </ul>
+                    <div class="mastery-status">
+                        <span>⚡</span>
+                        <span>POWER MODULE</span>
+                    </div>
+                </div>
+
+                <!-- Life Approach Strategy -->
+                <div class="mastery-card" onclick="openMasteryModule('approach')">
+                    <div class="mastery-icon">🎯</div>
+                    <h3 class="mastery-title">Life Approach Strategy</h3>
+                    <p class="mastery-description">
+                        Design your fundamental approach to life's challenges and opportunities. 
+                        Develop a winning mindset that attracts success and overcomes obstacles.
+                    </p>
+                    <ul class="mastery-features">
+                        <li>Strategic Mindset Development</li>
+                        <li>Challenge Response Protocols</li>
+                        <li>Opportunity Recognition Systems</li>
+                        <li>Resilience & Adaptability Training</li>
+                        <li>Success Magnetism Activation</li>
+                    </ul>
+                    <div class="mastery-status">
+                        <span>🎯</span>
+                        <span>STRATEGY MODULE</span>
+                    </div>
+                </div>
+
+                <!-- Leadership Presence -->
+                <div class="mastery-card" onclick="openMasteryModule('leadership')">
+                    <div class="mastery-icon">👑</div>
+                    <h3 class="mastery-title">Leadership Presence</h3>
+                    <p class="mastery-description">
+                        Cultivate natural authority and leadership magnetism that inspires others to follow. 
+                        Develop the presence of someone destined for greatness.
+                    </p>
+                    <ul class="mastery-features">
+                        <li>Natural Authority Development</li>
+                        <li>Charismatic Communication Skills</li>
+                        <li>Influence & Persuasion Mastery</li>
+                        <li>Executive Presence Protocols</li>
+                        <li>Visionary Leadership Training</li>
+                    </ul>
+                    <div class="mastery-status">
+                        <span>👑</span>
+                        <span>LEADERSHIP MODULE</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Planetary Rulers -->
+        <section class="rulers-section">
+            <h2 class="rulers-title">🪐 Planetary Rulers & Influences</h2>
+            <p style="color: rgba(255, 255, 255, 0.8); font-size: 1.1rem; margin-bottom: 2rem;">
+                The planetary rulers of your 1st house shape your core identity and self-expression patterns. 
+                Master these cosmic influences to unlock your full identity potential.
+            </p>
+            
+            <div class="rulers-grid">
+                <!-- Mars Influence -->
+                <div class="ruler-card">
+                    <div class="ruler-icon">♂</div>
+                    <h3 class="ruler-name">Mars</h3>
+                    <p class="ruler-influence">
+                        <strong>Warrior Identity:</strong> Courage, initiative, pioneering spirit, physical strength, 
+                        competitive drive, and leadership through action.
+                    </p>
+                </div>
+
+                <!-- Sun Influence -->
+                <div class="ruler-card">
+                    <div class="ruler-icon">☉</div>
+                    <h3 class="ruler-name">Sun</h3>
+                    <p class="ruler-influence">
+                        <strong>Royal Identity:</strong> Natural authority, confidence, creativity, self-expression, 
+                        leadership charisma, and radiant personality.
+                    </p>
+                </div>
+
+                <!-- Mercury Influence -->
+                <div class="ruler-card">
+                    <div class="ruler-icon">☿</div>
+                    <h3 class="ruler-name">Mercury</h3>
+                    <p class="ruler-influence">
+                        <strong>Intellectual Identity:</strong> Quick thinking, communication skills, adaptability, 
+                        learning agility, and analytical approach.
+                    </p>
+                </div>
+
+                <!-- Venus Influence -->
+                <div class="ruler-card">
+                    <div class="ruler-icon">♀</div>
+                    <h3 class="ruler-name">Venus</h3>
+                    <p class="ruler-influence">
+                        <strong>Magnetic Identity:</strong> Natural charm, artistic expression, beauty appreciation, 
+                        harmonious presence, and diplomatic skills.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Action Section -->
+        <section class="action-section">
+            <h2 class="action-title">🚀 Master Your Identity Now</h2>
+            <p class="action-description">
+                Your identity shapes every aspect of your life experience. Take command of your self-image, 
+                physical presence, and personal brand to create the life you desire. The Identity Hub awaits your mastery.
+            </p>
+            
+            <div class="action-buttons">
+                <button class="action-button primary-button" onclick="startIdentityAnalysis()">
+                    <span>🔥</span>
+                    <span>Start Identity Analysis</span>
+                </button>
+                <a href="https://discord.gg/QKaBQV24" target="_blank" class="action-button secondary-button">
+                    <span>💬</span>
+                    <span>Join Identity Masters</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Mastery Module Function
+        function openMasteryModule(moduleType) {
+            const modules = {
+                'self-image': '🪞 SELF-IMAGE ENGINEERING\n\nMaster your self-perception and personal brand:\n\n• Personal Brand Architecture\n• Confidence Programming Protocols\n• First Impression Optimization\n• Self-Worth Amplification Systems\n• Authentic Personality Expression\n\n🔥 Ready to reshape your identity from within?',
+                
+                'physical': '💪 PHYSICAL PRESENCE MASTERY\n\nOptimize your physical vessel and presence:\n\n• Body Language Power Protocols\n• Physical Health Optimization\n• Presence & Posture Mastery\n• Energy Field Enhancement\n• Magnetic Aura Development\n\n⚡ Ready to radiate power and magnetism?',
+                
+                'approach': '🎯 LIFE APPROACH STRATEGY\n\nDesign your fundamental approach to life:\n\n• Strategic Mindset Development\n• Challenge Response Protocols\n• Opportunity Recognition Systems\n• Resilience & Adaptability Training\n• Success Magnetism Activation\n\n🎯 Ready to develop a winning mindset?',
+                
+                'leadership': '👑 LEADERSHIP PRESENCE\n\nCultivate natural authority and leadership:\n\n• Natural Authority Development\n• Charismatic Communication Skills\n• Influence & Persuasion Mastery\n• Executive Presence Protocols\n• Visionary Leadership Training\n\n👑 Ready to inspire and lead others?'
+            };
+            
+            if (modules[moduleType]) {
+                alert(modules[moduleType]);
+            } else {
+                alert('🦁 IDENTITY HUB MODULE\n\nThis advanced identity mastery module is being prepared for you!\n\nStay tuned for comprehensive self-mastery training.');
+            }
+        }
+
+        // Identity Analysis Function
+        function startIdentityAnalysis() {
+            alert('🦁 IDENTITY HUB ANALYSIS\n\n🎯 COMPREHENSIVE IDENTITY ASSESSMENT:\n\n• Self-Image Strength Analysis\n• Physical Presence Evaluation\n• Leadership Potential Assessment\n• Personal Brand Review\n• Life Approach Strategy Audit\n\n🔥 IDENTITY OPTIMIZATION PROTOCOLS:\n\n• Custom Identity Enhancement Plan\n• Confidence Programming Sequences\n• Presence Amplification Techniques\n• Personal Magnetism Development\n• Success Mindset Activation\n\n⚡ Ready to unlock your full identity potential!\n\nClick "Join Identity Masters" to access the complete system!');
+        }
+
+        // Add identity particles with red theme
+        function createIdentityParticles() {
+            const particles = 30;
+            const colors = [
+                'rgba(239, 68, 68, 0.7)',   // Red
+                'rgba(220, 38, 38, 0.6)',   // Dark Red
+                'rgba(185, 28, 28, 0.5)',   // Darker Red
+                'rgba(255, 255, 255, 0.3)'  // White accent
+            ];
+            
+            for (let i = 0; i < particles; i++) {
+                const particle = document.createElement('div');
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.cssText = `
+                    position: fixed;
+                    width: 4px;
+                    height: 4px;
+                    background: ${color};
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 1;
+                    left: ${Math.random() * 100}vw;
+                    top: ${Math.random() * 100}vh;
+                    animation: identityFloat ${Math.random() * 20 + 20}s linear infinite;
+                `;
+                document.body.appendChild(particle);
+            }
+        }
+
+        // Add particle CSS animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes identityFloat {
+                0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+                10% { opacity: 1; }
+                90% { opacity: 1; }
+                100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize effects
+        document.addEventListener('DOMContentLoaded', function() {
+            createIdentityParticles();
+            
+            // Add enhanced hover effects for mastery cards
+            const cards = document.querySelectorAll('.mastery-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-12px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Add ruler card hover effects
+            const rulerCards = document.querySelectorAll('.ruler-card');
+            rulerCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
