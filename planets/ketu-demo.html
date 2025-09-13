@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="description" content="Ketu Detachment Processor - Spirituality, liberation, wisdom, and transcendent letting go">
+    <meta name="keywords" content="ketu, dragon tail, detachment, liberation, spirituality, moksha, vedic astrology">
+    <meta name="author" content="Acharya Anish">
+    
+    <title>☋ Ketu Detachment Processor - Planetary Intelligence Portal</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☋</text></svg>">
+    
+    <style>
+        /* ☋ KETU DETACHMENT PROCESSOR - EARTHY BROWN/ORANGE SPIRITUAL THEME */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: 
+                radial-gradient(circle at 15% 15%, rgba(139, 69, 19, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 85% 85%, rgba(218, 165, 32, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 50% 30%, rgba(160, 82, 45, 0.12) 0%, transparent 70%),
+                linear-gradient(135deg, #2c1810 0%, #3e2723 20%, #5d3a1a 50%, #3e2723 80%, #1a0f0a 100%);
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        /* Ketu liberation particles */
+        .ketu-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .ketu-light {
+            position: absolute;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.8) 0%, rgba(218, 165, 32, 0.6) 30%, rgba(139, 69, 19, 0.4) 70%, transparent 100%);
+            border-radius: 50%;
+            filter: blur(1px);
+            animation: ketuAscend linear infinite;
+            opacity: 0.9;
+        }
+        
+        @keyframes ketuAscend {
+            0% { 
+                transform: translateY(120vh) scale(1);
+                opacity: 0.9;
+            }
+            20% { opacity: 1; }
+            80% { opacity: 0.8; }
+            100% { 
+                transform: translateY(-20vh) scale(0.3);
+                opacity: 0;
+            }
+        }
+        
+        /* Header Navigation */
+        .ketu-header {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.18) 0%, rgba(160, 82, 45, 0.15) 100%);
+            border-bottom: 2px solid rgba(218, 165, 32, 0.4);
+            padding: 1.5rem 0;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .ketu-nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .back-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(139, 69, 19, 0.3);
+            border: 2px solid rgba(218, 165, 32, 0.5);
+            border-radius: 25px;
+            color: #DAA520;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .back-button:hover {
+            background: rgba(139, 69, 19, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(218, 165, 32, 0.4);
+        }
+        
+        .ketu-title-section {
+            text-align: center;
+        }
+        
+        .ketu-icon {
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+            display: block;
+            animation: ketuPulse 3s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 25px rgba(218, 165, 32, 0.7));
+        }
+        
+        .ketu-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin: 0 0 0.3rem 0;
+            background: linear-gradient(135deg, #DAA520 0%, #CD853F 30%, #A0522D 60%, #8B4513 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 15px rgba(218, 165, 32, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .ketu-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        .ketu-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.2rem;
+            background: rgba(160, 82, 45, 0.25);
+            border: 2px solid rgba(160, 82, 45, 0.5);
+            border-radius: 20px;
+            color: #D2B48C;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        .ketu-status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #D2B48C;
+            animation: ketuStatusPulse 2.2s ease-in-out infinite;
+        }
+        
+        /* Main Content */
+        .ketu-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            position: relative;
+            z-index: 5;
+        }
+        
+        /* Liberation Prayer Section */
+        .liberation-prayer-section {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.15) 0%, rgba(160, 82, 45, 0.12) 50%, rgba(0, 0, 0, 0.4) 100%);
+            border-radius: 25px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 2px solid rgba(218, 165, 32, 0.3);
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #DAA520;
+            margin: 0 0 1.5rem 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .section-icon {
+            font-size: 2.5rem;
+            filter: drop-shadow(0 4px 8px rgba(218, 165, 32, 0.4));
+        }
+        
+        .prayer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .sanskrit-prayer {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(139, 69, 19, 0.4);
+        }
+        
+        .prayer-sanskrit {
+            font-family: 'Times New Roman', serif;
+            font-size: 1.8rem;
+            color: #DAA520;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            text-shadow: 0 2px 10px rgba(218, 165, 32, 0.4);
+        }
+        
+        .prayer-pronunciation {
+            font-family: 'Times New Roman', serif;
+            font-size: 1.3rem;
+            color: #D2B48C;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .prayer-english {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .prayer-meaning {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            text-align: left;
+            background: rgba(139, 69, 19, 0.2);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid #DAA520;
+        }
+        
+        /* Liberation Overview */
+        .liberation-overview {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%);
+            border: 2px solid rgba(139, 69, 19, 0.3);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .liberation-overview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(218, 165, 32, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 70% 70%, rgba(160, 82, 45, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .overview-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .overview-description {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+        
+        .ketu-specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .spec-card {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(139, 69, 19, 0.4);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .spec-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(218, 165, 32, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+        
+        .spec-card:hover::before {
+            opacity: 1;
+            animation: liberationGlow 1.5s ease-in-out;
+        }
+        
+        @keyframes liberationGlow {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+        
+        .spec-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(218, 165, 32, 0.6);
+            box-shadow: 0 15px 40px rgba(139, 69, 19, 0.3);
+        }
+        
+        .spec-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #D2B48C;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .spec-value {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Operational Parameters */
+        .operational-section {
+            margin-bottom: 3rem;
+        }
+        
+        .parameters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+        
+        .parameter-card {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.08) 0%, rgba(0, 0, 0, 0.4) 100%);
+            border: 1px solid rgba(139, 69, 19, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .parameter-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .parameter-icon {
+            font-size: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(139, 69, 19, 0.3);
+            border: 2px solid rgba(218, 165, 32, 0.5);
+        }
+        
+        .parameter-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #DAA520;
+            text-transform: uppercase;
+        }
+        
+        .parameter-list {
+            list-style: none;
+        }
+        
+        .parameter-list li {
+            padding: 0.5rem 0;
+            color: rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(139, 69, 19, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .parameter-list li::before {
+            content: '🕉️';
+            color: #D2B48C;
+            font-size: 0.8rem;
+        }
+        
+        /* Expandable items */
+        .expandable-param {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            border-radius: 8px;
+            padding: 0.8rem;
+            margin: 0.3rem 0;
+        }
+        
+        .expandable-param:hover {
+            background: rgba(139, 69, 19, 0.15);
+        }
+        
+        .param-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            font-weight: 600;
+        }
+        
+        .expand-icon {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+            color: #D2B48C;
+        }
+        
+        .expandable-param.expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+        
+        .param-detail {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            margin-top: 0;
+            padding: 0;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.7);
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 8px;
+        }
+        
+        .expandable-param.expanded .param-detail {
+            max-height: 250px;
+            margin-top: 1rem;
+            padding: 1rem;
+        }
+        
+        /* System Integrations */
+        .integrations-section {
+            background: linear-gradient(135deg, rgba(160, 82, 45, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(160, 82, 45, 0.3);
+        }
+        
+        .integration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .integration-card {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(139, 69, 19, 0.4);
+            border-radius: 15px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .integration-card:hover {
+            transform: translateY(-3px);
+            background: rgba(139, 69, 19, 0.1);
+            box-shadow: 0 10px 30px rgba(160, 82, 45, 0.2);
+        }
+        
+        .integration-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .planet-combo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .combo-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #D2B48C;
+        }
+        
+        .combo-effect {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .combo-expand {
+            font-size: 0.8rem;
+            color: #D2B48C;
+            transition: transform 0.3s ease;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+        
+        .integration-card.expanded .combo-expand {
+            transform: rotate(180deg);
+        }
+        
+        .combo-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            margin-top: 0;
+        }
+        
+        .integration-card.expanded .combo-details {
+            max-height: 500px;
+            margin-top: 1.5rem;
+        }
+        
+        .combo-section {
+            margin-bottom: 1.5rem;
+        }
+        
+        .combo-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .combo-section-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #DAA520;
+        }
+        
+        .combo-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .combo-section li {
+            padding: 0.4rem 0;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            border-bottom: 1px solid rgba(139, 69, 19, 0.1);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        
+        .combo-section li::before {
+            content: '⬢';
+            color: #D2B48C;
+            font-size: 0.8rem;
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+        }
+        
+        /* Practical Applications */
+        .applications-section {
+            margin-bottom: 3rem;
+        }
+        
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .application-card {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%);
+            border-left: 4px solid #DAA520;
+            border-radius: 15px;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .app-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .app-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #D2B48C;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        
+        .app-description {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .app-tips {
+            background: rgba(139, 69, 19, 0.2);
+            border-radius: 10px;
+            padding: 1rem;
+            border-left: 3px solid #DAA520;
+        }
+        
+        .app-tips-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #DAA520;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+        
+        .app-tips-text {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.4;
+        }
+        
+        /* Personalization Tools */
+        .personalization-section {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.12) 0%, rgba(0, 0, 0, 0.4) 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 2px solid rgba(139, 69, 19, 0.3);
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .tool-card {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(139, 69, 19, 0.4);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            background: rgba(139, 69, 19, 0.15);
+            box-shadow: 0 15px 40px rgba(160, 82, 45, 0.3);
+        }
+        
+        .tool-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+            animation: liberationPulse 3.2s ease-in-out infinite alternate;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .tool-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #DAA520;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .tool-description {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .tool-button {
+            background: linear-gradient(135deg, #DAA520 0%, #CD853F 50%, #A0522D 100%);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .tool-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(218, 165, 32, 0.4);
+        }
+        
+        /* Animations */
+        @keyframes ketuPulse {
+            from { 
+                transform: scale(1);
+                filter: drop-shadow(0 0 25px rgba(218, 165, 32, 0.7));
+            }
+            to { 
+                transform: scale(1.08);
+                filter: drop-shadow(0 0 40px rgba(218, 165, 32, 0.9));
+            }
+        }
+        
+        @keyframes ketuStatusPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(0.95); }
+        }
+        
+        @keyframes liberationPulse {
+            from { opacity: 0.8; transform: scale(1) rotate(-1deg); }
+            to { opacity: 1; transform: scale(1.03) rotate(1deg); }
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .ketu-nav {
+                flex-direction: column;
+                gap: 2rem;
+                padding: 0 1rem;
+            }
+            
+            .ketu-title {
+                font-size: 2.5rem;
+            }
+            
+            .ketu-content {
+                padding: 2rem 1rem;
+            }
+            
+            .liberation-overview,
+            .integrations-section,
+            .personalization-section {
+                padding: 2rem;
+            }
+            
+            .ketu-specs-grid,
+            .parameters-grid,
+            .integration-grid,
+            .applications-grid,
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .ketu-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .ketu-icon {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Ketu Liberation Particles -->
+    <div class="ketu-particles" id="ketuParticles"></div>
+
+    <!-- Header Navigation -->
+    <header class="ketu-header">
+        <nav class="ketu-nav">
+            <a href="../planetary-intelligence.html" class="back-button">
+                <span>←</span>
+                <span>Back to Portal</span>
+            </a>
+            
+            <div class="ketu-title-section">
+                <div class="ketu-icon">☋</div>
+                <h1 class="ketu-title">Ketu</h1>
+                <h2 class="ketu-subtitle">Detachment Processor</h2>
+            </div>
+            
+            <div class="ketu-status">
+                <div class="ketu-status-dot"></div>
+                <span>Liberating</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="ketu-content">
+        <!-- Ketu Prayer Section -->
+        <section class="liberation-prayer-section">
+            <div class="prayer-container">
+                <h2 class="section-title">
+                    <span class="section-icon">🙏</span>
+                    Ketu Invocation Prayer
+                </h2>
+                
+                <div class="prayer-content">
+                    <div class="sanskrit-prayer">
+                        <div class="prayer-sanskrit">पलाशपुष्पसङ्काशं तारकाग्रहमस्तकम् ।<br>रौद्रं रौद्रात्मकं घोरं तं केतुं प्रणमाम्यहम् ॥</div>
+                        <div class="prayer-pronunciation">Palāśapuṣpasaṅkāśaṃ tārakāgrahamastkam |<br>Raudraṃ raudrātmakaṃ ghoraṃ taṃ ketuṃ praṇamāmyaham ||</div>
+                        <div class="prayer-english">I bow to Ketu, who appears like the flower of Palash tree, who is the head of stars and planets,<br>who has a fierce form and fierce nature, to that Ketu I prostrate.</div>
+                        <div class="prayer-meaning">
+                            <strong>Meaning:</strong> This prayer honors Ketu as the divine force of spiritual detachment, liberation, and transcendent wisdom. 
+                            We invoke his power for releasing attachments, gaining mystical insights, achieving moksha (liberation), 
+                            connecting with ancient wisdom, and transforming through spiritual practices while maintaining clarity of purpose.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Liberation Overview -->
+        <section class="liberation-overview">
+            <div class="overview-content">
+                <h2 class="section-title">
+                    <span class="section-icon">🕉️</span>
+                    Processor Overview
+                </h2>
+                <p class="overview-description">
+                    Ketu operates as the <strong>Detachment Processor</strong> in your planetary consciousness network. 
+                    This liberation processor manages spiritual evolution, karmic release, and transcendent wisdom pathways. 
+                    When properly integrated, Ketu transforms attachments into freedom, experiences into wisdom, and desires into liberation.
+                </p>
+                
+                <div class="ketu-specs-grid">
+                    <div class="spec-card">
+                        <div class="spec-title">Core Function</div>
+                        <div class="spec-value">Spiritual Detachment & Liberation</div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-title">Operating Frequency</div>
+                        <div class="spec-value">Transcendent & Mystical</div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-title">Primary Element</div>
+                        <div class="spec-value">Fire (Agni) - Liberation Energy</div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-title">Processing Style</div>
+                        <div class="spec-value">Intuitive, Spiritual, Releasing</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Operational Parameters -->
+        <section class="operational-section">
+            <h2 class="section-title">
+                <span class="section-icon">⚙️</span>
+                Operational Parameters
+            </h2>
+            
+            <div class="parameters-grid">
+                <div class="parameter-card">
+                    <div class="parameter-header">
+                        <div class="parameter-icon">✨</div>
+                        <div class="parameter-title">Strengths</div>
+                    </div>
+                    <ul class="parameter-list">
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Spiritual insights and mystical understanding</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Ketu provides profound spiritual insights, mystical experiences, and intuitive understanding of deeper truths. 
+                                Strong Ketu energy manifests as natural wisdom, psychic abilities, and connection to spiritual dimensions 
+                                that transcend material reality and provide guidance for soul evolution.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Detachment and emotional liberation</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Ketu enables healthy detachment from material desires, emotional drama, and ego attachments. This creates 
+                                inner peace, emotional stability, and freedom from reactive patterns that cause suffering. Ketu individuals 
+                                often achieve remarkable equanimity and spiritual maturity.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Past-life wisdom and karmic understanding</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Strong Ketu creates access to past-life memories, karmic patterns, and soul-level understanding. This 
+                                manifests as innate wisdom, natural talents that seem unexplained, and ability to understand life 
+                                patterns and relationships from a karmic perspective for healing and evolution.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Moksha orientation and liberation seeking</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Ketu creates natural orientation toward moksha (liberation), spiritual practices, and transcendence of 
+                                material limitations. This includes strong pull toward meditation, yoga, spiritual study, and practices 
+                                that support consciousness evolution and freedom from worldly entanglement.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Intuitive healing and energy work</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Strong Ketu enables natural healing abilities, energy work, and therapeutic practices. This manifests as 
+                                intuitive understanding of healing, ability to work with subtle energies, and capacity to help others 
+                                through spiritual counseling, energy healing, or transformative practices.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Research and investigative depth</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Ketu provides exceptional research abilities, investigative depth, and capacity for detailed analysis. 
+                                This creates success in research fields, occult studies, psychology, archaeology, and areas requiring 
+                                deep investigation and understanding of hidden or complex subjects.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="parameter-card">
+                    <div class="parameter-header">
+                        <div class="parameter-icon">⚠️</div>
+                        <div class="parameter-title">Limitations</div>
+                    </div>
+                    <ul class="parameter-list">
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Isolation tendencies and social withdrawal</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Excessive Ketu energy can create tendency toward isolation, social withdrawal, and disconnection from 
+                                worldly relationships. This can manifest as loneliness, difficulty maintaining social connections, or 
+                                avoidance of social responsibilities that need attention for balanced living.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Confusion and lack of clarity</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Strong Ketu can create mental confusion, lack of clear direction, and difficulty making practical decisions. 
+                                This can lead to indecisiveness, scattered energy, or inability to focus on material goals and practical 
+                                achievements that support life balance and worldly responsibilities.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Neglect of material responsibilities</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Excessive focus on spiritual pursuits can create neglect of material responsibilities, practical needs, 
+                                and worldly obligations. This can manifest as poor financial management, career neglect, or avoidance of 
+                                practical tasks that support health, relationships, and stability.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Melancholy and depressive tendencies</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Strong Ketu can create melancholic moods, depressive episodes, and tendency toward pessimism or 
+                                existential sadness. This needs balancing with Rahu energy and positive engagement to maintain 
+                                emotional health and constructive life engagement.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Difficulty with practical goals</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Ketu's detachment can create difficulty setting and achieving practical material goals, building wealth, 
+                                or creating tangible success. This can lead to underachievement in worldly terms or inability to manifest 
+                                spiritual insights into practical benefit and sustainable life patterns.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Escapism and avoidance patterns</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Excessive Ketu can create escapism through substances, fantasy, or spiritual bypassing of real-world 
+                                challenges. This needs integration with practical action and balanced engagement with both spiritual 
+                                and material dimensions of life for healthy functioning.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- System Integrations -->
+        <section class="integrations-section">
+            <h2 class="section-title">
+                <span class="section-icon">🔗</span>
+                System Integrations
+            </h2>
+            
+            <div class="integration-grid">
+                <!-- Two Planet Combinations -->
+                <div class="integration-card" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">☋ + ☀</div>
+                        <div class="combo-name">Ketu + Sun</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        The spiritual leader. Detachment combined with authority creates wise, humble leadership guided by higher purpose.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Humble, service-oriented leadership without ego attachment</li>
+                                <li>Natural wisdom and spiritual authority that inspires others</li>
+                                <li>Ability to lead through example rather than force</li>
+                                <li>Integration of spiritual values with practical authority</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>May struggle with self-confidence and personal recognition</li>
+                                <li>Can become overly detached from leadership responsibilities</li>
+                                <li>Potential for spiritual bypassing of practical leadership needs</li>
+                                <li>May avoid necessary authority and decision-making</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="integration-card" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">☋ + ☽</div>
+                        <div class="combo-name">Ketu + Moon</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        The intuitive mystic. Detachment combined with emotion creates deep psychic abilities and emotional wisdom.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Exceptional psychic abilities and intuitive insights</li>
+                                <li>Deep emotional healing capabilities and therapeutic wisdom</li>
+                                <li>Natural understanding of subconscious and karmic patterns</li>
+                                <li>Ability to help others with emotional and spiritual healing</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>Risk of emotional detachment and difficulty forming bonds</li>
+                                <li>May experience confusion between intuition and imagination</li>
+                                <li>Potential for mood instability and melancholic tendencies</li>
+                                <li>Can struggle with practical emotional needs and nurturing</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="integration-card" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">☋ + ☿</div>
+                        <div class="combo-name">Ketu + Mercury</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        The research scholar. Detachment combined with intelligence creates profound research abilities and occult knowledge.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Exceptional research and investigative capabilities</li>
+                                <li>Natural understanding of occult, mystical, and hidden subjects</li>
+                                <li>Ability to communicate spiritual and complex concepts clearly</li>
+                                <li>Success in psychology, archaeology, and research fields</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>May struggle with practical communication and social skills</li>
+                                <li>Can become overly analytical and lose intuitive insight</li>
+                                <li>Potential for scattered thinking and difficulty focusing</li>
+                                <li>May have trouble with business and practical applications</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="integration-card" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">☋ + ♃</div>
+                        <div class="combo-name">Ketu + Jupiter</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        The enlightened teacher. Detachment combined with wisdom creates profound spiritual teaching and guiding abilities.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Exceptional spiritual wisdom and teaching abilities</li>
+                                <li>Natural understanding of philosophy, religion, and higher truths</li>
+                                <li>Ability to guide others on spiritual path without ego attachment</li>
+                                <li>Integration of traditional wisdom with mystical insights</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>May become overly idealistic and impractical</li>
+                                <li>Can struggle with material success and worldly achievement</li>
+                                <li>Potential for spiritual pride or superiority complexes</li>
+                                <li>May avoid necessary practical wisdom and planning</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Three Planet Combinations -->
+                <div class="integration-card" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">☋ + ☽ + ☿</div>
+                        <div class="combo-name">Ketu + Moon + Mercury</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        The "Psychic Researcher" combination. Detachment, intuition, and intelligence create profound investigative mysticism.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Exceptional psychic research and investigative abilities</li>
+                                <li>Natural understanding of psychology, occult, and hidden subjects</li>
+                                <li>Ability to communicate mystical insights with clarity and precision</li>
+                                <li>Success in therapeutic, research, and spiritual counseling fields</li>
+                                <li>Integration of intuition with analytical thinking</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>Risk of becoming overly absorbed in research and losing practical focus</li>
+                                <li>May struggle with emotional expression and social communication</li>
+                                <li>Potential for mental confusion between intuition and logic</li>
+                                <li>Can become isolated through excessive intellectual pursuits</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="integration-card" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">☋ + ♃ + ♄</div>
+                        <div class="combo-name">Ketu + Jupiter + Saturn</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        The "Wisdom Master" combination. Detachment, wisdom, and discipline create masterful spiritual authority.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Exceptional spiritual mastery with practical grounding</li>
+                                <li>Natural ability to teach and guide others with patience and wisdom</li>
+                                <li>Integration of traditional knowledge with mystical understanding</li>
+                                <li>Success in long-term spiritual projects and institutional work</li>
+                                <li>Balanced approach to material and spiritual responsibilities</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>May become overly rigid in spiritual beliefs and practices</li>
+                                <li>Can struggle with innovation and adaptation to changing times</li>
+                                <li>Potential for slow progress and delayed spiritual breakthroughs</li>
+                                <li>May impose spiritual discipline too strictly on others</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practical Applications -->
+        <section class="applications-section">
+            <h2 class="section-title">
+                <span class="section-icon">🛠️</span>
+                Practical Applications
+            </h2>
+            
+            <div class="applications-grid">
+                <div class="application-card">
+                    <div class="app-icon">🕉️</div>
+                    <div class="app-title">Spiritual Liberation</div>
+                    <div class="app-description">
+                        Channel Ketu energy for spiritual practices, meditation, and liberation from limiting 
+                        patterns that create suffering and prevent authentic self-expression.
+                    </div>
+                    <div class="app-tips">
+                        <div class="app-tips-title">Practice Tip:</div>
+                        <div class="app-tips-text">Ketu periods are ideal for intensive spiritual practices, retreats, and deep inner work.</div>
+                    </div>
+                </div>
+                
+                <div class="application-card">
+                    <div class="app-icon">🔍</div>
+                    <div class="app-title">Research & Investigation</div>
+                    <div class="app-description">
+                        Use Ketu for deep research, investigative work, and understanding hidden or 
+                        complex subjects that require patience and detailed analysis.
+                    </div>
+                    <div class="app-tips">
+                        <div class="app-tips-title">Enhancement:</div>
+                        <div class="app-tips-text">Cat's eye chrysoberyl and smoky quartz enhance Ketu's research and insight capabilities.</div>
+                    </div>
+                </div>
+                
+                <div class="application-card">
+                    <div class="app-icon">🌟</div>
+                    <div class="app-title">Healing & Therapy</div>
+                    <div class="app-description">
+                        Activate Ketu for healing work, therapeutic practices, and helping others through 
+                        spiritual counseling and energy healing modalities.
+                    </div>
+                    <div class="app-tips">
+                        <div class="app-tips-title">Method:</div>
+                        <div class="app-tips-text">Combine Ketu energy with compassionate service for maximum healing effectiveness.</div>
+                    </div>
+                </div>
+                
+                <div class="application-card">
+                    <div class="app-icon">🧘</div>
+                    <div class="app-title">Detachment & Peace</div>
+                    <div class="app-description">
+                        Strong Ketu enables healthy detachment from outcomes, emotional drama, and 
+                        ego patterns while maintaining compassionate engagement with life.
+                    </div>
+                    <div class="app-tips">
+                        <div class="app-tips-title">Balance Factor:</div>
+                        <div class="app-tips-text">Balance Ketu's detachment with practical engagement and material responsibilities.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personalization Tools -->
+        <section class="personalization-section">
+            <h2 class="section-title">
+                <span class="section-icon">🎛️</span>
+                Personalization Tools
+            </h2>
+            
+            <div class="tools-grid">
+                <div class="tool-card" onclick="launchKetuTool('strength')">
+                    <div class="tool-icon">🔮</div>
+                    <div class="tool-title">Ketu Strength Analyzer</div>
+                    <div class="tool-description">
+                        Calculate your personal Ketu liberation level based on sign placement, 
+                        house position, and planetary aspects affecting spiritual evolution and detachment.
+                    </div>
+                    <button class="tool-button">Analyze Now</button>
+                </div>
+                
+                <div class="tool-card" onclick="launchKetuTool('timing')">
+                    <div class="tool-icon">📅</div>
+                    <div class="tool-title">Liberation Timing</div>
+                    <div class="tool-description">
+                        Discover optimal timing for spiritual practices, major life transitions, and 
+                        detachment processes based on Ketu transits and liberation cycles.
+                    </div>
+                    <button class="tool-button">Check Timing</button>
+                </div>
+                
+                <div class="tool-card" onclick="launchKetuTool('optimization')">
+                    <div class="tool-icon">✨</div>
+                    <div class="tool-title">Ketu Optimization</div>
+                    <div class="tool-description">
+                        Get personalized recommendations for enhancing Ketu energy through 
+                        spiritual practices, detachment methods, and liberation techniques.
+                    </div>
+                    <button class="tool-button">Optimize Ketu</button>
+                </div>
+                
+                <div class="tool-card" onclick="launchKetuTool('integration')">
+                    <div class="tool-icon">⚖️</div>
+                    <div class="tool-title">Material Integration</div>
+                    <div class="tool-description">
+                        Understand how to balance Ketu's spiritual detachment with material 
+                        responsibilities, practical goals, and worldly engagement for holistic living.
+                    </div>
+                    <button class="tool-button">Integrate Energy</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Ketu Liberation Particles Animation
+        function createKetuParticles() {
+            const container = document.getElementById('ketuParticles');
+            const particleCount = 20; // Gentle liberation particles for Ketu's transcendent energy
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'ketu-light';
+                
+                // Varied sizes for liberation lights
+                const size = Math.random() * 12 + 6; // 6-18px circular particles
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.animationDelay = Math.random() * 12 + 's';
+                particle.style.animationDuration = (Math.random() * 8 + 12) + 's'; // Slower, more meditative
+                container.appendChild(particle);
+            }
+        }
+        
+        // Ketu Tool Launcher
+        function launchKetuTool(toolType) {
+            const toolMessages = {
+                'strength': '🔮 Ketu Strength Analysis\n\nThis tool would analyze your birth chart to determine:\n• Ketu sign strength and house placement power\n• Nodal axis balance and spiritual evolution patterns\n• Aspect influences and liberation capabilities\n• Overall Ketu detachment rating (1-100)\n\nComing soon with comprehensive astrological calculations!',
+                'timing': '📅 Liberation Timing Guide\n\nThis tool would provide:\n• Best dates for spiritual practices and inner work\n• Ketu transit predictions and detachment periods\n• Optimal timing for meditation retreats and liberation practices\n• Karmic release and healing timing\n\nAdvanced Ketu algorithms in development!',
+                'optimization': '✨ Ketu Optimization Suite\n\nPersonalized recommendations including:\n• Gemstone suggestions (Cat\'s Eye, Smoky Quartz)\n• Liberation mantras and detachment practices\n• Spiritual disciplines and meditation techniques\n• Research methods and investigative approaches\n• Healing practices and therapeutic modalities\n\nComprehensive optimization system coming soon!',
+                'integration': '⚖️ Material Integration Analysis\n\nThis tool would analyze:\n• Balancing spiritual detachment with practical responsibilities\n• Methods for maintaining worldly engagement while cultivating liberation\n• Integration techniques for material and spiritual goals\n• Approaches for avoiding escapism while pursuing transcendence\n\nAdvanced integration algorithms in development!'
+            };
+            
+            alert(toolMessages[toolType]);
+        }
+        
+        // Toggle Parameter Detail
+        function toggleParameterDetail(element) {
+            const isExpanded = element.classList.contains('expanded');
+            
+            // Close all other expanded parameters in the same section
+            const allParams = element.parentElement.querySelectorAll('.expandable-param');
+            allParams.forEach(param => {
+                param.classList.remove('expanded');
+            });
+            
+            // Toggle current parameter
+            if (!isExpanded) {
+                element.classList.add('expanded');
+            }
+        }
+        
+        // Toggle Combination Detail
+        function toggleComboDetail(element) {
+            const isExpanded = element.classList.contains('expanded');
+            
+            // Close all other expanded combinations
+            const allCombos = document.querySelectorAll('.integration-card');
+            allCombos.forEach(combo => {
+                combo.classList.remove('expanded');
+            });
+            
+            // Toggle current combination
+            if (!isExpanded) {
+                element.classList.add('expanded');
+            }
+        }
+        
+        // Smooth Scrolling for Internal Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Initialize Ketu Effects
+        document.addEventListener('DOMContentLoaded', function() {
+            createKetuParticles();
+            
+            // Add hover effects to cards
+            const cards = document.querySelectorAll('.spec-card, .parameter-card, .integration-card, .application-card, .tool-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="description" content="Saturn Structure Architect - Discipline, time management, systematic building, and structured growth">
+    <meta name="keywords" content="saturn, shani, discipline, structure, time, patience, perseverance, vedic astrology">
+    <meta name="author" content="Acharya Anish">
+    
+    <title>♄ Saturn Structure Architect - Planetary Intelligence Portal</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>♄</text></svg>">
+    
+    <style>
+        /* ♄ SATURN STRUCTURE ARCHITECT - DARK BLUE/BLACK SYSTEMATIC THEME */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: 
+                radial-gradient(circle at 25% 15%, rgba(30, 30, 60, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 75% 85%, rgba(15, 15, 40, 0.2) 0%, transparent 60%),
+                linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 20%, #16213e 50%, #0f1419 100%);
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        /* Saturn geometric structures/building blocks */
+        .saturn-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .saturn-block {
+            position: absolute;
+            background: linear-gradient(135deg, rgba(70, 130, 180, 0.4) 0%, rgba(25, 25, 112, 0.3) 100%);
+            border: 1px solid rgba(70, 130, 180, 0.2);
+            animation: saturnBuild linear infinite;
+            opacity: 0.6;
+        }
+        
+        @keyframes saturnBuild {
+            0% { 
+                transform: translateY(110vh) rotate(0deg); 
+                opacity: 0; 
+            }
+            15% { opacity: 0.6; }
+            85% { opacity: 0.6; }
+            100% { 
+                transform: translateY(-20vh) rotate(90deg); 
+                opacity: 0; 
+            }
+        }
+        
+        /* Header Navigation */
+        .saturn-header {
+            background: linear-gradient(135deg, rgba(70, 130, 180, 0.12) 0%, rgba(25, 25, 112, 0.15) 100%);
+            border-bottom: 2px solid rgba(70, 130, 180, 0.3);
+            padding: 1.5rem 0;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .saturn-nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .back-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(70, 130, 180, 0.15);
+            border: 2px solid rgba(70, 130, 180, 0.4);
+            border-radius: 25px;
+            color: #4682B4;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .back-button:hover {
+            background: rgba(70, 130, 180, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(70, 130, 180, 0.3);
+        }
+        
+        .saturn-title-section {
+            text-align: center;
+        }
+        
+        .saturn-icon {
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+            display: block;
+            animation: saturnPulse 3s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 20px rgba(70, 130, 180, 0.5));
+        }
+        
+        .saturn-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin: 0 0 0.3rem 0;
+            background: linear-gradient(135deg, #4682B4 0%, #191970 40%, #2F4F4F 70%, #708090 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(70, 130, 180, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .saturn-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        .saturn-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.2rem;
+            background: rgba(25, 25, 112, 0.2);
+            border: 2px solid rgba(25, 25, 112, 0.4);
+            border-radius: 20px;
+            color: #708090;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        .saturn-status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #708090;
+            animation: saturnStatusPulse 2s ease-in-out infinite;
+        }
+        
+        /* Main Content */
+        .saturn-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            position: relative;
+            z-index: 5;
+        }
+        
+        /* Structure Prayer Section */
+        .structure-prayer-section {
+            background: linear-gradient(135deg, rgba(70, 130, 180, 0.08) 0%, rgba(25, 25, 112, 0.12) 50%, rgba(0, 0, 0, 0.4) 100%);
+            border-radius: 25px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 2px solid rgba(70, 130, 180, 0.25);
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #4682B4;
+            margin: 0 0 1.5rem 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .section-icon {
+            font-size: 2.5rem;
+            filter: drop-shadow(0 4px 8px rgba(70, 130, 180, 0.3));
+        }
+        
+        .prayer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .sanskrit-prayer {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(70, 130, 180, 0.2);
+        }
+        
+        .prayer-sanskrit {
+            font-family: 'Times New Roman', serif;
+            font-size: 1.8rem;
+            color: #4682B4;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            text-shadow: 0 2px 10px rgba(70, 130, 180, 0.3);
+        }
+        
+        .prayer-pronunciation {
+            font-family: 'Times New Roman', serif;
+            font-size: 1.3rem;
+            color: #708090;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .prayer-english {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .prayer-meaning {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            text-align: left;
+            background: rgba(70, 130, 180, 0.08);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid #708090;
+        }
+        
+        /* Structure Overview */
+        .structure-overview {
+            background: linear-gradient(135deg, rgba(70, 130, 180, 0.06) 0%, rgba(0, 0, 0, 0.4) 100%);
+            border: 2px solid rgba(70, 130, 180, 0.25);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .structure-overview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(70, 130, 180, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(25, 25, 112, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .overview-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .overview-description {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+        
+        .saturn-specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .spec-card {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(70, 130, 180, 0.25);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .spec-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(70, 130, 180, 0.04), transparent);
+            transform: rotate(45deg);
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+        
+        .spec-card:hover::before {
+            opacity: 1;
+            animation: structureShine 1.5s ease-in-out;
+        }
+        
+        @keyframes structureShine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+        
+        .spec-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(70, 130, 180, 0.4);
+            box-shadow: 0 15px 40px rgba(70, 130, 180, 0.15);
+        }
+        
+        .spec-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #708090;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .spec-value {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Operational Parameters */
+        .operational-section {
+            margin-bottom: 3rem;
+        }
+        
+        .parameters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+        
+        .parameter-card {
+            background: linear-gradient(135deg, rgba(70, 130, 180, 0.05) 0%, rgba(0, 0, 0, 0.4) 100%);
+            border: 1px solid rgba(70, 130, 180, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .parameter-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .parameter-icon {
+            font-size: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(70, 130, 180, 0.15);
+            border: 2px solid rgba(70, 130, 180, 0.3);
+        }
+        
+        .parameter-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #4682B4;
+            text-transform: uppercase;
+        }
+        
+        .parameter-list {
+            list-style: none;
+        }
+        
+        .parameter-list li {
+            padding: 0.5rem 0;
+            color: rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(70, 130, 180, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .parameter-list li::before {
+            content: '⬛';
+            color: #708090;
+            font-size: 0.7rem;
+        }
+        
+        /* Expandable items */
+        .expandable-param {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            border-radius: 8px;
+            padding: 0.8rem;
+            margin: 0.3rem 0;
+        }
+        
+        .expandable-param:hover {
+            background: rgba(70, 130, 180, 0.08);
+        }
+        
+        .param-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            font-weight: 600;
+        }
+        
+        .expand-icon {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+            color: #708090;
+        }
+        
+        .expandable-param.expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+        
+        .param-detail {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            margin-top: 0;
+            padding: 0;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.7);
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 8px;
+        }
+        
+        .expandable-param.expanded .param-detail {
+            max-height: 250px;
+            margin-top: 1rem;
+            padding: 1rem;
+        }
+        
+        /* System Integrations */
+        .integrations-section {
+            background: linear-gradient(135deg, rgba(25, 25, 112, 0.05) 0%, rgba(0, 0, 0, 0.4) 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(25, 25, 112, 0.2);
+        }
+        
+        .integration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .integration-card {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(25, 25, 112, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .integration-card:hover {
+            transform: translateY(-3px);
+            background: rgba(25, 25, 112, 0.08);
+            box-shadow: 0 10px 30px rgba(25, 25, 112, 0.15);
+        }
+        
+        .integration-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .planet-combo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .combo-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #708090;
+        }
+        
+        .combo-effect {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .combo-expand {
+            font-size: 0.8rem;
+            color: #708090;
+            transition: transform 0.3s ease;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+        
+        .integration-card.expanded .combo-expand {
+            transform: rotate(180deg);
+        }
+        
+        .combo-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            margin-top: 0;
+        }
+        
+        .integration-card.expanded .combo-details {
+            max-height: 500px;
+            margin-top: 1.5rem;
+        }
+        
+        .combo-section {
+            margin-bottom: 1.5rem;
+        }
+        
+        .combo-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .combo-section-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #4682B4;
+        }
+        
+        .combo-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .combo-section li {
+            padding: 0.4rem 0;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            border-bottom: 1px solid rgba(25, 25, 112, 0.1);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        
+        .combo-section li::before {
+            content: '▪';
+            color: #708090;
+            font-size: 0.8rem;
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+        }
+        
+        /* Practical Applications */
+        .applications-section {
+            margin-bottom: 3rem;
+        }
+        
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .application-card {
+            background: linear-gradient(135deg, rgba(70, 130, 180, 0.05) 0%, rgba(0, 0, 0, 0.4) 100%);
+            border-left: 4px solid #4682B4;
+            border-radius: 15px;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .app-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .app-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #708090;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        
+        .app-description {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .app-tips {
+            background: rgba(70, 130, 180, 0.08);
+            border-radius: 10px;
+            padding: 1rem;
+            border-left: 3px solid #4682B4;
+        }
+        
+        .app-tips-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #4682B4;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+        
+        .app-tips-text {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.4;
+        }
+        
+        /* Personalization Tools */
+        .personalization-section {
+            background: linear-gradient(135deg, rgba(47, 79, 79, 0.08) 0%, rgba(0, 0, 0, 0.4) 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 2px solid rgba(47, 79, 79, 0.25);
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .tool-card {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(70, 130, 180, 0.25);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            background: rgba(70, 130, 180, 0.08);
+            box-shadow: 0 15px 40px rgba(70, 130, 180, 0.2);
+        }
+        
+        .tool-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+            animation: structurePulse 3.5s ease-in-out infinite alternate;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .tool-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #4682B4;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .tool-description {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .tool-button {
+            background: linear-gradient(135deg, #4682B4 0%, #708090 100%);
+            color: #0a0a0a;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .tool-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(70, 130, 180, 0.3);
+        }
+        
+        /* Animations */
+        @keyframes saturnPulse {
+            from { 
+                transform: scale(1);
+                filter: drop-shadow(0 0 20px rgba(70, 130, 180, 0.5));
+            }
+            to { 
+                transform: scale(1.06);
+                filter: drop-shadow(0 0 30px rgba(70, 130, 180, 0.7));
+            }
+        }
+        
+        @keyframes saturnStatusPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(0.95); }
+        }
+        
+        @keyframes structurePulse {
+            from { opacity: 0.7; transform: scale(1); }
+            to { opacity: 1; transform: scale(1.03); }
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .saturn-nav {
+                flex-direction: column;
+                gap: 2rem;
+                padding: 0 1rem;
+            }
+            
+            .saturn-title {
+                font-size: 2.5rem;
+            }
+            
+            .saturn-content {
+                padding: 2rem 1rem;
+            }
+            
+            .structure-overview,
+            .integrations-section,
+            .personalization-section {
+                padding: 2rem;
+            }
+            
+            .saturn-specs-grid,
+            .parameters-grid,
+            .integration-grid,
+            .applications-grid,
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .saturn-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .saturn-icon {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Saturn Building Blocks -->
+    <div class="saturn-particles" id="saturnParticles"></div>
+
+    <!-- Header Navigation -->
+    <header class="saturn-header">
+        <nav class="saturn-nav">
+            <a href="../planetary-intelligence.html" class="back-button">
+                <span>←</span>
+                <span>Back to Portal</span>
+            </a>
+            
+            <div class="saturn-title-section">
+                <div class="saturn-icon">♄</div>
+                <h1 class="saturn-title">Saturn</h1>
+                <h2 class="saturn-subtitle">Structure Architect</h2>
+            </div>
+            
+            <div class="saturn-status">
+                <div class="saturn-status-dot"></div>
+                <span>Building</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="saturn-content">
+        <!-- Saturn Prayer Section -->
+        <section class="structure-prayer-section">
+            <div class="prayer-container">
+                <h2 class="section-title">
+                    <span class="section-icon">🙏</span>
+                    Saturn Invocation Prayer
+                </h2>
+                
+                <div class="prayer-content">
+                    <div class="sanskrit-prayer">
+                        <div class="prayer-sanskrit">नीलाञ्जनसमाभासं रविपुत्रं यमाग्रजम् ।<br>छायामार्तण्डसम्भूतं तं नमामि शनैश्चरम् ॥</div>
+                        <div class="prayer-pronunciation">Nīlāñjanāsamābhāsaṃ raviputraṃ yamāgrajam |<br>Chāyāmārtaṇḍasambhūtaṃ taṃ namāmi śanaiścaram ||</div>
+                        <div class="prayer-english">I bow to Saturn, dark as blue collyrium, son of the Sun, elder brother of Yama,<br>born from Chaya and the Sun, to that slow-moving one I prostrate.</div>
+                        <div class="prayer-meaning">
+                            <strong>Meaning:</strong> This prayer honors Saturn (Shani) as the divine teacher of discipline, patience, and structured growth. 
+                            We invoke his power for building lasting foundations, developing patience and persistence, mastering time management, 
+                            creating sustainable systems, and learning through dedicated effort and methodical progress over time.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Structure Overview -->
+        <section class="structure-overview">
+            <div class="overview-content">
+                <h2 class="section-title">
+                    <span class="section-icon">🏗️</span>
+                    Processor Overview
+                </h2>
+                <p class="overview-description">
+                    Saturn operates as the <strong>Structure Architect</strong> in your planetary computing matrix. 
+                    This foundational processor manages systematic building, time optimization, and sustainable framework development. 
+                    When properly configured, Saturn transforms chaos into order, effort into expertise, and time into lasting achievements.
+                </p>
+                
+                <div class="saturn-specs-grid">
+                    <div class="spec-card">
+                        <div class="spec-title">Core Function</div>
+                        <div class="spec-value">Systematic Building & Time Management</div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-title">Operating Frequency</div>
+                        <div class="spec-value">Steady & Methodical</div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-title">Primary Element</div>
+                        <div class="spec-value">Air (Vāyu) + Earth (Prithvi)</div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-title">Processing Style</div>
+                        <div class="spec-value">Disciplined, Patient, Systematic</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Operational Parameters -->
+        <section class="operational-section">
+            <h2 class="section-title">
+                <span class="section-icon">⚙️</span>
+                Operational Parameters
+            </h2>
+            
+            <div class="parameters-grid">
+                <div class="parameter-card">
+                    <div class="parameter-header">
+                        <div class="parameter-icon">🔧</div>
+                        <div class="parameter-title">Strengths</div>
+                    </div>
+                    <ul class="parameter-list">
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Systematic building and long-term planning</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Saturn excels at creating lasting structures, methodical progress, and step-by-step achievement of ambitious goals. 
+                                Strong Saturn energy manifests as ability to build sustainable systems, maintain long-term focus, and create 
+                                foundations that support continuous growth and development over time.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Discipline, patience, and persistent effort</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Saturn provides exceptional discipline, patience for delayed gratification, and ability to maintain consistent effort 
+                                over extended periods. This creates mastery through practice, expertise through repetition, and achievement through 
+                                dedication to continuous improvement and methodical skill development.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Time management and organizational mastery</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Strong Saturn creates natural time management skills, organizational systems, and ability to optimize productivity 
+                                through structured approaches. This includes efficient scheduling, systematic workflows, and strategic allocation 
+                                of time and resources for maximum long-term impact.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Responsibility and reliable leadership</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Saturn individuals are naturally responsible, dependable, and trusted with important duties. They excel at leadership 
+                                roles that require steady guidance, consistent standards, and ability to maintain systems and processes that others 
+                                can rely upon for stability and continuity.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Quality focus and attention to detail</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Strong Saturn emphasizes quality over quantity, thoroughness over speed, and attention to important details that 
+                                ensure lasting value. This creates work that stands the test of time, products with excellent craftsmanship, 
+                                and systems designed for durability and long-term effectiveness.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Wisdom through experience and hardship</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Saturn provides deep wisdom gained through real experience, including challenges and obstacles that build character. 
+                                This creates practical wisdom, resilience through difficulties, and ability to guide others through similar challenges 
+                                based on lived experience and earned understanding.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="parameter-card">
+                    <div class="parameter-header">
+                        <div class="parameter-icon">⚠️</div>
+                        <div class="parameter-title">Limitations</div>
+                    </div>
+                    <ul class="parameter-list">
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Excessive rigidity and resistance to change</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Strong Saturn can create over-attachment to existing structures, resistance to necessary changes, and inflexibility 
+                                when adaptation is required. This can manifest as stubbornness, inability to pivot when circumstances change, or 
+                                maintaining systems beyond their useful life due to attachment to familiar patterns.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Pessimism and fear-based decision making</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Excessive Saturn energy can create negative thinking patterns, excessive caution, and decision-making based on fear 
+                                of failure rather than vision of success. This can limit opportunities, reduce innovation, and create conservative 
+                                approaches that miss beneficial risks and growth opportunities.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Slowness and missed opportunities</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Saturn's methodical nature can sometimes result in moving too slowly for dynamic environments, over-analysis that 
+                                delays action, and missing time-sensitive opportunities that require quick decision-making and rapid implementation. 
+                                Balance with Mercury and Mars energy may be needed for optimal timing.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Over-control and micromanagement tendencies</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Strong Saturn can create excessive need for control, micromanagement of others, and difficulty delegating effectively. 
+                                This can limit team growth, reduce innovation, and create bottlenecks when everything must be approved or controlled 
+                                by the Saturn-dominant individual rather than empowering others to contribute.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Harsh self-criticism and perfectionism</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Saturn can create overly harsh self-judgment, perfectionism that prevents completion, and standards so high that 
+                                they become counterproductive. This can manifest as chronic dissatisfaction, inability to celebrate achievements, 
+                                or procrastination due to fear of not meeting impossibly high standards.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Isolation and difficulty with enjoyment</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Excessive Saturn can create social isolation, difficulty enjoying life's pleasures, and over-emphasis on work at 
+                                the expense of relationships and recreation. This needs balancing with Venus and Jupiter energy to maintain healthy 
+                                life balance and social connections that support overall well-being.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- System Integrations -->
+        <section class="integrations-section">
+            <h2 class="section-title">
+                <span class="section-icon">🔗</span>
+                System Integrations
+            </h2>
+            
+            <div class="integration-grid">
+                <!-- Two Planet Combinations -->
+                <div class="integration-card" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">♄ + ☀</div>
+                        <div class="combo-name">Saturn + Sun</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        The disciplined leader. Structure combined with authority creates systematic and sustainable leadership.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Natural executive leadership with systematic approach</li>
+                                <li>Ability to build lasting organizational structures</li>
+                                <li>Patient development of long-term vision and strategy</li>
+                                <li>Respected authority based on consistent performance</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>May become overly serious or authoritarian</li>
+                                <li>Risk of being slow to adapt or change direction</li>
+                                <li>Can be harsh in standards for self and others</li>
+                                <li>May prioritize structure over innovation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="integration-card" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">♄ + ♂</div>
+                        <div class="combo-name">Saturn + Mars</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        The persistent achiever. Structure combined with drive creates methodical but determined progress.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Excellent balance of patience and drive</li>
+                                <li>Ability to persist through obstacles and setbacks</li>
+                                <li>Strategic action combined with methodical execution</li>
+                                <li>Strong work ethic with sustainable intensity</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>Internal tension between speed and caution</li>
+                                <li>May experience frustration with slow progress</li>
+                                <li>Risk of anger when systems or timelines fail</li>
+                                <li>Can be overly harsh when pushing through obstacles</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="integration-card" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">♄ + ☿</div>
+                        <div class="combo-name">Saturn + Mercury</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        The systematic thinker. Structure combined with intelligence creates methodical analysis and planning.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Excellent strategic planning and analytical abilities</li>
+                                <li>Systematic approach to learning and skill development</li>
+                                <li>Clear, organized communication and documentation</li>
+                                <li>Strong attention to detail with big-picture awareness</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>May over-analyze decisions and delay action</li>
+                                <li>Risk of becoming too rigid in thinking patterns</li>
+                                <li>Can be overly critical or pessimistic in analysis</li>
+                                <li>May miss creative solutions due to systematic focus</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="integration-card" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">♄ + ♃</div>
+                        <div class="combo-name">Saturn + Jupiter</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        The wise builder. Structure combined with wisdom creates sustainable growth and ethical systems.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Perfect balance of expansion and sustainability</li>
+                                <li>Ethical leadership with long-term vision</li>
+                                <li>Systematic approach to education and teaching</li>
+                                <li>Wisdom combined with practical implementation</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>May be slow to take advantage of opportunities</li>
+                                <li>Risk of being overly conservative in growth</li>
+                                <li>Can become rigid about principles and methods</li>
+                                <li>May struggle with rapid changes or innovation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Three Planet Combinations -->
+                <div class="integration-card" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">♄ + ☀ + ♂</div>
+                        <div class="combo-name">Saturn + Sun + Mars</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        The "Executive Builder" combination. Structure, authority, and drive create powerful organizational leadership.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Exceptional organizational leadership capabilities</li>
+                                <li>Ability to build and manage large-scale systems</li>
+                                <li>Perfect balance of patience, authority, and drive</li>
+                                <li>Natural ability to turn vision into systematic reality</li>
+                                <li>Strong capacity for managing complex projects</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>Risk of becoming overly controlling or authoritarian</li>
+                                <li>May be inflexible when adaptation is needed</li>
+                                <li>Can be harsh or demanding with team members</li>
+                                <li>May prioritize systems over people and relationships</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="integration-card" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">♄ + ☿ + ♃</div>
+                        <div class="combo-name">Saturn + Mercury + Jupiter</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        The "Master Strategist" combination. Structure, intelligence, and wisdom create comprehensive planning systems.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Exceptional strategic planning and analysis capabilities</li>
+                                <li>Systematic approach to education and knowledge building</li>
+                                <li>Ability to create comprehensive, sustainable systems</li>
+                                <li>Perfect balance of detail focus and big-picture vision</li>
+                                <li>Natural talent for research, writing, and documentation</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>May become overly theoretical without practical action</li>
+                                <li>Risk of analysis paralysis from too much planning</li>
+                                <li>Can be slow to implement due to perfectionism</li>
+                                <li>May miss opportunities requiring quick decisions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practical Applications -->
+        <section class="applications-section">
+            <h2 class="section-title">
+                <span class="section-icon">🛠️</span>
+                Practical Applications
+            </h2>
+            
+            <div class="applications-grid">
+                <div class="application-card">
+                    <div class="app-icon">⏰</div>
+                    <div class="app-title">Time & Project Management</div>
+                    <div class="app-description">
+                        Channel Saturn energy for systematic time management, project planning, and building 
+                        sustainable workflows that support consistent long-term progress.
+                    </div>
+                    <div class="app-tips">
+                        <div class="app-tips-title">Structure Tip:</div>
+                        <div class="app-tips-text">Saturday is Saturn's day - ideal for planning, organizing, and tackling challenging systematic work.</div>
+                    </div>
+                </div>
+                
+                <div class="application-card">
+                    <div class="app-icon">🏗️</div>
+                    <div class="app-title">Systems & Infrastructure</div>
+                    <div class="app-description">
+                        Use Saturn for building lasting organizational systems, creating efficient processes, 
+                        and establishing infrastructure that supports sustainable growth.
+                    </div>
+                    <div class="app-tips">
+                        <div class="app-tips-title">Enhancement:</div>
+                        <div class="app-tips-text">Blue sapphire and black stones enhance Saturn's structural and organizational capabilities.</div>
+                    </div>
+                </div>
+                
+                <div class="application-card">
+                    <div class="app-icon">📊</div>
+                    <div class="app-title">Quality & Standards</div>
+                    <div class="app-description">
+                        Activate Saturn for maintaining high quality standards, systematic improvement, 
+                        and creating processes that ensure consistent, reliable results.
+                    </div>
+                    <div class="app-tips">
+                        <div class="app-tips-title">Method:</div>
+                        <div class="app-tips-text">Regular review and refinement of systems strengthens Saturn's organizational foundation.</div>
+                    </div>
+                </div>
+                
+                <div class="application-card">
+                    <div class="app-icon">🎯</div>
+                    <div class="app-title">Discipline & Mastery</div>
+                    <div class="app-description">
+                        Strong Saturn enables skill mastery through consistent practice, discipline for 
+                        long-term goals, and patience for gradual but lasting achievement.
+                    </div>
+                    <div class="app-tips">
+                        <div class="app-tips-title">Success Factor:</div>
+                        <div class="app-tips-text">Saturn thrives with consistent daily practice and gradual skill building over extended periods.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personalization Tools -->
+        <section class="personalization-section">
+            <h2 class="section-title">
+                <span class="section-icon">🎛️</span>
+                Personalization Tools
+            </h2>
+            
+            <div class="tools-grid">
+                <div class="tool-card" onclick="launchSaturnTool('strength')">
+                    <div class="tool-icon">⚖️</div>
+                    <div class="tool-title">Saturn Strength Analyzer</div>
+                    <div class="tool-description">
+                        Calculate your personal Saturn discipline level based on sign placement, 
+                        house position, and planetary aspects affecting structural capabilities.
+                    </div>
+                    <button class="tool-button">Analyze Now</button>
+                </div>
+                
+                <div class="tool-card" onclick="launchSaturnTool('timing')">
+                    <div class="tool-icon">📅</div>
+                    <div class="tool-title">Structure Timing</div>
+                    <div class="tool-description">
+                        Discover optimal timing for system building, major projects, and structural 
+                        changes based on Saturn transits and disciplinary cycles.
+                    </div>
+                    <button class="tool-button">Check Timing</button>
+                </div>
+                
+                <div class="tool-card" onclick="launchSaturnTool('optimization')">
+                    <div class="tool-icon">🔧</div>
+                    <div class="tool-title">Saturn Optimization</div>
+                    <div class="tool-description">
+                        Get personalized recommendations for enhancing Saturn energy through 
+                        discipline practices, time management, and systematic building methods.
+                    </div>
+                    <button class="tool-button">Optimize Saturn</button>
+                </div>
+                
+                <div class="tool-card" onclick="launchSaturnTool('systems')">
+                    <div class="tool-icon">📋</div>
+                    <div class="tool-title">System Architecture</div>
+                    <div class="tool-description">
+                        Understand your natural organizational style, optimal workflow structures, 
+                        and systematic approaches for maximum productivity and sustainability.
+                    </div>
+                    <button class="tool-button">Design Systems</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Saturn Building Blocks Animation
+        function createSaturnParticles() {
+            const container = document.getElementById('saturnParticles');
+            const particleCount = 15; // Fewer, more structured blocks for Saturn's systematic nature
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'saturn-block';
+                
+                // Geometric sizes for building blocks
+                const width = Math.random() * 12 + 6; // 6-18px
+                const height = Math.random() * 12 + 6; // 6-18px
+                particle.style.width = width + 'px';
+                particle.style.height = height + 'px';
+                
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 15) + 's'; // Slower, more methodical
+                container.appendChild(particle);
+            }
+        }
+        
+        // Saturn Tool Launcher
+        function launchSaturnTool(toolType) {
+            const toolMessages = {
+                'strength': '⚖️ Saturn Strength Analysis\n\nThis tool would analyze your birth chart to determine:\n• Saturn sign strength (exaltation, debilitation)\n• House placement and structural domains\n• Aspect influences and disciplinary capabilities\n• Overall Saturn structure rating (1-100)\n\nComing soon with comprehensive astrological calculations!',
+                'timing': '📅 Structure Timing Guide\n\nThis tool would provide:\n• Best dates for system building and organization\n• Saturn transit predictions\n• Optimal timing for major projects and structural changes\n• Discipline and long-term planning periods\n\nAdvanced Saturn algorithms in development!',
+                'optimization': '🔧 Saturn Optimization Suite\n\nPersonalized recommendations including:\n• Gemstone suggestions (Blue Sapphire, Black stones)\n• Discipline mantras and structural practices\n• Time management and organizational methods\n• System building and process improvement techniques\n• Patience and persistence development exercises\n\nComprehensive optimization system coming soon!',
+                'systems': '📋 System Architecture Analysis\n\nThis tool would analyze:\n• Your natural organizational and workflow preferences\n• Optimal system structures for your personality\n• Time management and productivity patterns\n• Long-term planning and project management approaches\n\nAdvanced system design algorithms in development!'
+            };
+            
+            alert(toolMessages[toolType]);
+        }
+        
+        // Toggle Parameter Detail
+        function toggleParameterDetail(element) {
+            const isExpanded = element.classList.contains('expanded');
+            
+            // Close all other expanded parameters in the same section
+            const allParams = element.parentElement.querySelectorAll('.expandable-param');
+            allParams.forEach(param => {
+                param.classList.remove('expanded');
+            });
+            
+            // Toggle current parameter
+            if (!isExpanded) {
+                element.classList.add('expanded');
+            }
+        }
+        
+        // Toggle Combination Detail
+        function toggleComboDetail(element) {
+            const isExpanded = element.classList.contains('expanded');
+            
+            // Close all other expanded combinations
+            const allCombos = document.querySelectorAll('.integration-card');
+            allCombos.forEach(combo => {
+                combo.classList.remove('expanded');
+            });
+            
+            // Toggle current combination
+            if (!isExpanded) {
+                element.classList.add('expanded');
+            }
+        }
+        
+        // Smooth Scrolling for Internal Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Initialize Saturn Effects
+        document.addEventListener('DOMContentLoaded', function() {
+            createSaturnParticles();
+            
+            // Add hover effects to cards
+            const cards = document.querySelectorAll('.spec-card, .parameter-card, .integration-card, .application-card, .tool-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

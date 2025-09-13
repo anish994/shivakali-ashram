@@ -610,13 +610,17 @@
             </div>
         </section>
 
-        <!-- Coming Soon -->
+        <!-- Portal Status -->
         <section class="coming-soon">
-            <h3>🚧 Advanced Training Modules Under Construction</h3>
+            <h3>✨ Planetary Intelligence Portal LIVE</h3>
             <p>
-                We're building the most comprehensive planetary intelligence training system ever created. 
-                Each planetary processor will have dedicated deep-dive courses, interactive simulations, 
-                and personalized optimization protocols.
+                🎆 <strong>All 9 Planetary Processors are now active!</strong> Click any planet above to access comprehensive training modules with:
+                <br><br>
+                • 📜 Sanskrit prayers with pronunciation & meaning<br>
+                • 📊 Detailed operational parameters & strengths/limitations<br>
+                • 🔗 System integration combinations with other planets<br>
+                • 🛠️ Practical applications for daily life optimization<br>
+                • 🎯 Personalization tools for your unique planetary configuration
             </p>
             
             <div class="notify-actions">
@@ -624,31 +628,43 @@
                     <span>💬</span>
                     <span>Join Planetary Community</span>
                 </a>
-                <button class="action-button notify-button" onclick="notifyWhenReady()">
-                    <span>🔔</span>
-                    <span>Notify Me When Ready</span>
+                <button class="action-button notify-button" onclick="showPortalStats()">
+                    <span>📊</span>
+                    <span>View Portal Statistics</span>
                 </button>
             </div>
         </section>
     </main>
 
     <script>
-        // Planet Details Function
+        // Planet Details Function - Redirect to Demo Pages
         function openPlanetDetails(planet) {
-            // For now, show coming soon alert. Later, this will redirect to individual planet pages
-            alert(`🪐 ${planet.toUpperCase()} PROCESSOR DEEP-DIVE\n\nComing Soon! Each planetary processor will have its own dedicated training module with:\n\n• Interactive simulations\n• Personalized algorithms\n• Advanced optimization techniques\n• Real-time cosmic data integration\n\nWe'll notify you when this becomes available!`);
+            // Redirect to the specific planet demo page
+            const planetPages = {
+                'sun': 'planets/sun-demo.html',
+                'moon': 'planets/moon-demo.html',
+                'mars': 'planets/mars-demo.html',
+                'mercury': 'planets/mercury-demo.html',
+                'venus': 'planets/venus-demo.html',
+                'jupiter': 'planets/jupiter-demo.html',
+                'saturn': 'planets/saturn-demo.html',
+                'rahu': 'planets/rahu-demo.html',
+                'ketu': 'planets/ketu-demo.html'
+            };
+            
+            if (planetPages[planet]) {
+                // Open the planet demo page
+                window.location.href = planetPages[planet];
+            } else {
+                // Fallback in case of unknown planet
+                console.error('Unknown planet:', planet);
+                alert(`🪐 ${planet.toUpperCase()} PROCESSOR\n\nSomething went wrong! Please try again.`);
+            }
         }
 
-        // Notification Signup
-        function notifyWhenReady() {
-            const email = prompt('🪐 Enter your email to get notified when the full Planetary Intelligence training system launches:');
-            if (email && email.includes('@')) {
-                alert('🚀 Cosmic! You\'ll be the first to know when the Planetary Intelligence training system goes live!\n\nWe\'ll send you exclusive early access to all 9 planetary processor modules.');
-                console.log('Planetary Intelligence notification signup:', email);
-                // In production, this would integrate with your email service
-            } else if (email) {
-                alert('Please enter a valid email address to join the cosmic notification list.');
-            }
+        // Show Portal Statistics
+        function showPortalStats() {
+            alert('🪐 PLANETARY INTELLIGENCE PORTAL STATS\n\n🎆 STATUS: FULLY OPERATIONAL\n\n📊 ACTIVE MODULES:\n• 9 Planetary Processors Online\n• 45+ Planet Combination Systems\n• 36 Practical Application Guides\n• 9 Sanskrit Prayer Invocations\n• 27 Personalization Tools\n\n⚡ PERFORMANCE:\n• Mobile-First Responsive Design\n• Smooth 60fps Animations\n• Interactive System Integrations\n• Real-time Hover Feedback\n\n🌟 READY FOR COSMIC EXPLORATION!');
         }
 
         // Add some cosmic particle effects (optional)

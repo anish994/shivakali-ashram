@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="cache-version" content="v2.0">
+    <meta name="description" content="Mercury Communication Bus - Master your information processor and quick-thinking protocols">
+    <meta name="keywords" content="mercury, communication, intelligence, learning, speed, vedic astrology, planetary intelligence">
+    <meta name="author" content="Acharya Anish">
+    
+    <title>☿ Mercury Communication Bus - Planetary Intelligence Portal</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☿</text></svg>">
+    
+    <style>
+        /* ☿ MERCURY COMMUNICATION BUS - DYNAMIC GREEN/BLUE THEME */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a1a0a 0%, #0e2e1a 50%, #1a3428 100%);
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        /* MERCURY COSMIC BACKGROUND PARTICLES */
+        .mercury-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .mercury-particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: radial-gradient(circle, #00FF7F 0%, #20B2AA 100%);
+            border-radius: 50%;
+            animation: mercuryFloat 8s linear infinite;
+        }
+        
+        @keyframes mercuryFloat {
+            0% { 
+                transform: translateY(100vh) rotate(0deg); 
+                opacity: 0; 
+            }
+            5% { opacity: 1; }
+            95% { opacity: 1; }
+            100% { 
+                transform: translateY(-10vh) rotate(360deg); 
+                opacity: 0; 
+            }
+        }
+        
+        /* HEADER NAVIGATION */
+        .mercury-header {
+            background: linear-gradient(135deg, rgba(0, 255, 127, 0.15) 0%, rgba(32, 178, 170, 0.1) 100%);
+            border-bottom: 2px solid rgba(0, 255, 127, 0.3);
+            padding: 1.5rem 0;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .mercury-nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .back-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(0, 255, 127, 0.2);
+            border: 2px solid rgba(0, 255, 127, 0.4);
+            border-radius: 25px;
+            color: #00FF7F;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .back-button:hover {
+            background: rgba(0, 255, 127, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 255, 127, 0.4);
+        }
+        
+        .mercury-title-section {
+            text-align: center;
+        }
+        
+        .mercury-icon {
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+            display: block;
+            animation: mercuryPulse 1.5s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 20px rgba(0, 255, 127, 0.6));
+        }
+        
+        .mercury-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin: 0 0 0.3rem 0;
+            background: linear-gradient(135deg, #00FF7F 0%, #20B2AA 50%, #00CED1 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(0, 255, 127, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .mercury-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        .mercury-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.2rem;
+            background: rgba(32, 178, 170, 0.2);
+            border: 2px solid rgba(32, 178, 170, 0.4);
+            border-radius: 20px;
+            color: #20B2AA;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        .mercury-status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #20B2AA;
+            animation: mercuryStatusPulse 1s ease-in-out infinite;
+        }
+        
+        /* MAIN CONTENT */
+        .mercury-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            position: relative;
+            z-index: 5;
+        }
+        
+        /* PROCESSOR OVERVIEW */
+        .processor-overview {
+            background: linear-gradient(135deg, rgba(0, 255, 127, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%);
+            border: 2px solid rgba(0, 255, 127, 0.3);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .processor-overview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(0, 255, 127, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(32, 178, 170, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .overview-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #00FF7F;
+            margin: 0 0 1.5rem 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .section-icon {
+            font-size: 2.5rem;
+            filter: drop-shadow(0 4px 8px rgba(0, 255, 127, 0.3));
+        }
+        
+        .overview-description {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+        
+        .mercury-specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .spec-card {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(0, 255, 127, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .spec-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 127, 0.05), transparent);
+            transform: rotate(45deg);
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+        
+        .spec-card:hover::before {
+            opacity: 1;
+            animation: quickShine 1s ease-in-out;
+        }
+        
+        @keyframes quickShine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+        
+        .spec-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 255, 127, 0.5);
+            box-shadow: 0 15px 40px rgba(0, 255, 127, 0.2);
+        }
+        
+        .spec-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #20B2AA;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .spec-value {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* OPERATIONAL PARAMETERS */
+        .operational-section {
+            margin-bottom: 3rem;
+        }
+        
+        .parameters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+        
+        .parameter-card {
+            background: linear-gradient(135deg, rgba(0, 255, 127, 0.05) 0%, rgba(0, 0, 0, 0.3) 100%);
+            border: 1px solid rgba(0, 255, 127, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .parameter-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .parameter-icon {
+            font-size: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 255, 127, 0.2);
+            border: 2px solid rgba(0, 255, 127, 0.4);
+        }
+        
+        .parameter-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #00FF7F;
+            text-transform: uppercase;
+        }
+        
+        .parameter-list {
+            list-style: none;
+        }
+        
+        .parameter-list li {
+            padding: 0.5rem 0;
+            color: rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(0, 255, 127, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .parameter-list li::before {
+            content: '▸';
+            color: #20B2AA;
+            font-weight: bold;
+        }
+        
+        /* SYSTEM INTEGRATIONS */
+        .integrations-section {
+            background: linear-gradient(135deg, rgba(32, 178, 170, 0.05) 0%, rgba(0, 0, 0, 0.3) 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(32, 178, 170, 0.2);
+        }
+        
+        .integration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .integration-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(32, 178, 170, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        /* Removed problematic ::before animation that caused flutter */
+        
+        .integration-card:hover {
+            transform: translateY(-3px);
+            background: rgba(32, 178, 170, 0.1);
+            box-shadow: 0 10px 30px rgba(32, 178, 170, 0.2);
+        }
+        
+        .integration-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .planet-combo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .combo-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #20B2AA;
+        }
+        
+        .combo-effect {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* PRACTICAL APPLICATIONS */
+        .applications-section {
+            margin-bottom: 3rem;
+        }
+        
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .application-card {
+            background: linear-gradient(135deg, rgba(0, 255, 127, 0.08) 0%, rgba(0, 0, 0, 0.4) 100%);
+            border-left: 4px solid #00FF7F;
+            border-radius: 15px;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .app-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .app-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #20B2AA;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        
+        .app-description {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .app-tips {
+            background: rgba(0, 255, 127, 0.1);
+            border-radius: 10px;
+            padding: 1rem;
+            border-left: 3px solid #00FF7F;
+        }
+        
+        .app-tips-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #00FF7F;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+        
+        .app-tips-text {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.4;
+        }
+        
+        /* MERCURY PRAYER SECTION */
+        .mercury-prayer-section {
+            background: linear-gradient(135deg, rgba(0, 255, 127, 0.08) 0%, rgba(32, 178, 170, 0.1) 50%, rgba(0, 0, 0, 0.3) 100%);
+            border-radius: 25px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 2px solid rgba(0, 255, 127, 0.3);
+            text-align: center;
+        }
+        
+        .prayer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .sanskrit-prayer {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(0, 255, 127, 0.2);
+        }
+        
+        .prayer-sanskrit {
+            font-family: 'Times New Roman', serif;
+            font-size: 1.8rem;
+            color: #00FF7F;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            text-shadow: 0 2px 10px rgba(0, 255, 127, 0.3);
+        }
+        
+        .prayer-pronunciation {
+            font-family: 'Times New Roman', serif;
+            font-size: 1.3rem;
+            color: #20B2AA;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .prayer-english {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .prayer-meaning {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            text-align: left;
+            background: rgba(0, 255, 127, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid #20B2AA;
+        }
+        
+        /* EXPANDABLE PARAMETERS */
+        .expandable-param {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            border-radius: 8px;
+            padding: 0.8rem;
+            margin: 0.3rem 0;
+        }
+        
+        .expandable-param:hover {
+            background: rgba(0, 255, 127, 0.1);
+        }
+        
+        .param-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            font-weight: 600;
+        }
+        
+        .expand-icon {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+            color: #20B2AA;
+        }
+        
+        .expandable-param.expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+        
+        .param-detail {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            margin-top: 0;
+            padding: 0;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.7);
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+        }
+        
+        .expandable-param.expanded .param-detail {
+            max-height: 200px;
+            margin-top: 1rem;
+            padding: 1rem;
+        }
+        
+        /* COMBINATION CARDS */
+        .triple-combo {
+            border-color: rgba(0, 255, 127, 0.4);
+        }
+        
+        .triple-combo:hover {
+            background: rgba(0, 255, 127, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 255, 127, 0.2);
+        }
+        
+        .quad-combo {
+            border-color: rgba(138, 43, 226, 0.4);
+        }
+        
+        .quad-combo:hover {
+            background: rgba(138, 43, 226, 0.1);
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.2);
+        }
+        
+        .combo-expand {
+            font-size: 0.8rem;
+            color: #20B2AA;
+            transition: transform 0.3s ease;
+        }
+        
+        .integration-card.expanded .combo-expand {
+            transform: rotate(180deg);
+        }
+        
+        .combo-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            margin-top: 0;
+        }
+        
+        .integration-card.expanded .combo-details {
+            max-height: 500px;
+            margin-top: 1.5rem;
+        }
+        
+        .combo-section {
+            margin-bottom: 1.5rem;
+        }
+        
+        .combo-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .combo-section-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .combo-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .combo-section li {
+            padding: 0.4rem 0;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            border-bottom: 1px solid rgba(32, 178, 170, 0.1);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        
+        .combo-section li::before {
+            content: '▸';
+            color: #20B2AA;
+            font-weight: bold;
+            margin-top: 0.1rem;
+            flex-shrink: 0;
+        }
+        
+        /* PERSONALIZATION TOOLS */
+        .personalization-section {
+            background: linear-gradient(135deg, rgba(0, 206, 209, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 2px solid rgba(0, 206, 209, 0.3);
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .tool-card {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 255, 127, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(0, 255, 127, 0.1) 0%, transparent 70%);
+            transition: all 0.3s ease;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .tool-card:hover::before {
+            width: 200%;
+            height: 200%;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            background: rgba(0, 255, 127, 0.1);
+            box-shadow: 0 15px 40px rgba(0, 255, 127, 0.3);
+        }
+        
+        .tool-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+            animation: toolPulse 2s ease-in-out infinite alternate;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .tool-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #00FF7F;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .tool-description {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .tool-button {
+            background: linear-gradient(135deg, #00FF7F 0%, #20B2AA 100%);
+            color: #1a3428;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .tool-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 255, 127, 0.4);
+        }
+        
+        /* ANIMATIONS */
+        @keyframes mercuryPulse {
+            from { 
+                transform: scale(1);
+                filter: drop-shadow(0 0 20px rgba(0, 255, 127, 0.6));
+            }
+            to { 
+                transform: scale(1.05);
+                filter: drop-shadow(0 0 30px rgba(0, 255, 127, 0.8));
+            }
+        }
+        
+        @keyframes mercuryStatusPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(0.9); }
+        }
+        
+        @keyframes toolPulse {
+            from { opacity: 0.8; transform: scale(1); }
+            to { opacity: 1; transform: scale(1.02); }
+        }
+        
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+            .mercury-nav {
+                flex-direction: column;
+                gap: 2rem;
+                padding: 0 1rem;
+            }
+            
+            .mercury-title {
+                font-size: 2.5rem;
+            }
+            
+            .mercury-content {
+                padding: 2rem 1rem;
+            }
+            
+            .processor-overview,
+            .integrations-section,
+            .personalization-section {
+                padding: 2rem;
+            }
+            
+            .mercury-specs-grid,
+            .parameters-grid,
+            .integration-grid,
+            .applications-grid,
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .mercury-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .mercury-icon {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Mercury Cosmic Particles -->
+    <div class="mercury-particles" id="mercuryParticles"></div>
+
+    <!-- Header Navigation -->
+    <header class="mercury-header">
+        <nav class="mercury-nav">
+            <a href="../planetary-intelligence.html" class="back-button">
+                <span>←</span>
+                <span>Back to Portal</span>
+            </a>
+            
+            <div class="mercury-title-section">
+                <div class="mercury-icon">☿</div>
+                <h1 class="mercury-title">Mercury</h1>
+                <h2 class="mercury-subtitle">Communication Bus</h2>
+            </div>
+            
+            <div class="mercury-status">
+                <div class="mercury-status-dot"></div>
+                <span>Quick Processing</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="mercury-content">
+        <!-- Mercury Prayer Section -->
+        <section class="mercury-prayer-section">
+            <div class="prayer-container">
+                <h2 class="section-title">
+                    <span class="section-icon">🙏</span>
+                    Mercury Invocation Prayer
+                </h2>
+                
+                <div class="prayer-content">
+                    <div class="sanskrit-prayer">
+                        <div class="prayer-sanskrit">प्रियंगुकलिकाश्यामं रूपेणाप्रतिमं बुधम् ।<br>सौम्यं सौम्यगुणोपेतं तं बुधं प्रणमाम्यहम् ॥</div>
+                        <div class="prayer-pronunciation">Priyaṅgukalikāśyāmaṃ rūpeṇāpratimaṃ budham |<br>Saumyaṃ saumyaguṇopetaṃ taṃ budhaṃ praṇamāmyaham ||</div>
+                        <div class="prayer-english">I bow to Mercury, dark as priyangu flower, incomparable in form,<br>Gentle and endowed with gentle qualities, to that Mercury I prostrate.</div>
+                        <div class="prayer-meaning">
+                            <strong>Meaning:</strong> This prayer honors Mercury (Budha) as the divine source of intelligence, communication, and learning. 
+                            We invoke his power for sharp intellect, clear communication, quick learning, adaptability, and the ability to process 
+                            and share information with wisdom and efficiency.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Processor Overview -->
+        <section class="processor-overview">
+            <div class="overview-content">
+                <h2 class="section-title">
+                    <span class="section-icon">🔄</span>
+                    Processor Overview
+                </h2>
+                <p class="overview-description">
+                    Mercury operates as the <strong>Communication Bus</strong> in your cosmic architecture. 
+                    This high-speed processor manages data transfer, information processing, and neural network connectivity. 
+                    When optimally configured, Mercury transforms raw data into knowledge, thoughts into words, and connections into understanding.
+                </p>
+                
+                <div class="mercury-specs-grid">
+                    <div class="spec-card">
+                        <div class="spec-title">Core Function</div>
+                        <div class="spec-value">Information Processing & Communication</div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-title">Operating Frequency</div>
+                        <div class="spec-value">Quick & Adaptive</div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-title">Primary Element</div>
+                        <div class="spec-value">Earth (Prithvi)</div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-title">Processing Style</div>
+                        <div class="spec-value">Logical, Flexible, Multi-threaded</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Operational Parameters -->
+        <section class="operational-section">
+            <h2 class="section-title">
+                <span class="section-icon">⚙️</span>
+                Operational Parameters
+            </h2>
+            
+            <div class="parameters-grid">
+                <div class="parameter-card">
+                    <div class="parameter-header">
+                        <div class="parameter-icon">⚡</div>
+                        <div class="parameter-title">Strengths</div>
+                    </div>
+                    <ul class="parameter-list">
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Lightning-fast information processing</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Mercury excels at rapid data processing, pattern recognition, and quick analysis. Strong Mercury energy 
+                                manifests as ability to quickly grasp concepts, make connections between ideas, and process large amounts 
+                                of information efficiently. This is essential for learning, research, and complex problem-solving.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Excellent communication abilities</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Mercury governs all forms of communication - speaking, writing, listening, and digital interaction. 
+                                Strong Mercury individuals are natural storytellers, teachers, writers, and speakers who can convey 
+                                complex ideas clearly and persuasively to diverse audiences.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Adaptability and flexibility</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Mercury energy thrives on change and variety. This creates remarkable mental flexibility, ability to 
+                                see multiple perspectives, and skill at adapting to new situations quickly. Mercury individuals excel 
+                                in dynamic environments that require constant learning and adjustment.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Analytical and logical thinking</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Mercury provides strong analytical capabilities, logical reasoning, and systematic thinking. This manifests 
+                                as ability to break down complex problems, identify patterns, create systems, and approach challenges 
+                                with methodical precision.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Learning and teaching capabilities</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Strong Mercury creates natural students and teachers. This includes rapid learning ability, excellent 
+                                memory for details, skill at organizing information, and talent for explaining concepts to others in 
+                                ways they can understand and remember.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Multi-tasking and networking</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Mercury excels at juggling multiple projects, maintaining numerous relationships, and connecting people 
+                                and ideas. This makes Mercury individuals excellent networkers, coordinators, and facilitators who can 
+                                manage complex webs of information and relationships simultaneously.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="parameter-card">
+                    <div class="parameter-header">
+                        <div class="parameter-icon">⚠️</div>
+                        <div class="parameter-title">Limitations</div>
+                    </div>
+                    <ul class="parameter-list">
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Information overload tendency</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Excessive Mercury energy can lead to mental overwhelm, difficulty focusing, and tendency to gather 
+                                too much information without processing it effectively. This can manifest as scattered attention, 
+                                analysis paralysis, or inability to make decisions due to too many options.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Superficial understanding patterns</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Mercury's quick processing can sometimes lead to surface-level understanding without deep insight. 
+                                This can manifest as knowing many things but not understanding them deeply, or moving to new topics 
+                                before fully mastering current ones.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Overthinking and mental loops</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Strong Mercury can create excessive mental activity, worry loops, and tendency to overthink simple 
+                                situations. This can lead to anxiety, decision paralysis, or inability to be present in the moment 
+                                due to constant mental chatter.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Difficulty with emotional processing</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Mercury's logical nature can create challenges with emotional situations that don't respond to rational 
+                                analysis. This can manifest as intellectualizing feelings, difficulty with intuitive decisions, or 
+                                struggles in relationships that require emotional rather than logical intelligence.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Restlessness and impatience</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Mercury's quick nature can create restlessness, boredom with routine, and impatience with slower 
+                                processes. This can make it difficult to stick with long-term projects, develop deep expertise, or 
+                                appreciate activities that require sustained attention and patience.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Communication without depth</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                While Mercury excels at communication, it can sometimes lack emotional depth or meaningful connection. 
+                                This can manifest as talking without really connecting, sharing information without wisdom, or 
+                                maintaining many shallow relationships rather than developing deep bonds.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- System Integrations -->
+        <section class="integrations-section">
+            <h2 class="section-title">
+                <span class="section-icon">🔗</span>
+                System Integrations
+            </h2>
+            
+            <div class="integration-grid">
+                <!-- Two Planet Combinations -->
+                <div class="integration-card" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">☿ + ☀</div>
+                        <div class="combo-name">Mercury + Sun</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        The brilliant communicator. Intelligence combined with confidence creates natural thought leadership.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Natural intellectual leadership abilities</li>
+                                <li>Confident and authoritative communication</li>
+                                <li>Ability to inspire through ideas and vision</li>
+                                <li>Strong decision-making with clear reasoning</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>May become overly intellectual or prideful</li>
+                                <li>Risk of talking down to others</li>
+                                <li>Can be impatient with slower thinkers</li>
+                                <li>May prioritize being right over being effective</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="integration-card" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">☿ + ☽</div>
+                        <div class="combo-name">Mercury + Moon</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        The intuitive communicator. Logic blended with emotion creates empathetic and persuasive communication.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Emotionally intelligent communication</li>
+                                <li>Excellent memory and learning ability</li>
+                                <li>Natural counseling and teaching skills</li>
+                                <li>Ability to adapt communication to audience</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>May overthink emotional situations</li>
+                                <li>Tendency to worry and analyze relationships</li>
+                                <li>Can be moody in communication style</li>
+                                <li>Risk of emotional overwhelm affecting clarity</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="integration-card" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">☿ + ♃</div>
+                        <div class="combo-name">Mercury + Jupiter</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        The wise teacher. Intelligence expanded by wisdom creates natural educators and philosophers.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Natural teaching and publishing abilities</li>
+                                <li>Broad knowledge with philosophical depth</li>
+                                <li>Ethical and wise communication</li>
+                                <li>Ability to see the bigger picture</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>May become overly theoretical or abstract</li>
+                                <li>Tendency toward preachiness</li>
+                                <li>Can lose focus on practical details</li>
+                                <li>Risk of over-promising in communication</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="integration-card" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">☿ + ♂</div>
+                        <div class="combo-name">Mercury + Mars</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        The sharp debater. Quick thinking combined with drive creates powerful argumentative abilities.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Sharp wit and quick comebacks</li>
+                                <li>Excellent debating and negotiating skills</li>
+                                <li>Direct and decisive communication</li>
+                                <li>Ability to think quickly under pressure</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>Can be overly aggressive in arguments</li>
+                                <li>May speak without thinking</li>
+                                <li>Tendency to be sarcastic or cutting</li>
+                                <li>Risk of creating unnecessary conflicts</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Three Planet Combinations -->
+                <div class="integration-card" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">☿ + ☀ + ♃</div>
+                        <div class="combo-name">Mercury + Sun + Jupiter</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        The "Master Teacher" combination. Brilliant intellect, confidence, and wisdom create natural educators.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Natural authority in educational settings</li>
+                                <li>Ability to explain complex concepts simply</li>
+                                <li>Inspiring and confident public speaking</li>
+                                <li>Perfect blend of intelligence and wisdom</li>
+                                <li>Natural writing and publishing abilities</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>May become dogmatic or overly certain</li>
+                                <li>Risk of intellectual arrogance</li>
+                                <li>Can be impatient with slower learners</li>
+                                <li>May talk more than listen</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="integration-card" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">☿ + ☽ + ♀</div>
+                        <div class="combo-name">Mercury + Moon + Venus</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        The "Diplomatic Artist" combination. Intelligence, emotion, and beauty create persuasive charm.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Exceptional persuasive abilities and charm</li>
+                                <li>Natural talent for creative writing and artistic expression</li>
+                                <li>Ability to communicate with emotional intelligence</li>
+                                <li>Perfect for marketing, design, and creative fields</li>
+                                <li>Diplomatic skills in relationships and negotiations</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>May prioritize style over substance</li>
+                                <li>Can be overly focused on pleasing others</li>
+                                <li>Risk of emotional manipulation in communication</li>
+                                <li>May avoid difficult but necessary conversations</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practical Applications -->
+        <section class="applications-section">
+            <h2 class="section-title">
+                <span class="section-icon">🛠️</span>
+                Practical Applications
+            </h2>
+            
+            <div class="applications-grid">
+                <div class="application-card">
+                    <div class="app-icon">📚</div>
+                    <div class="app-title">Learning & Education</div>
+                    <div class="app-description">
+                        Channel Mercury energy for rapid learning, skill development, and knowledge acquisition. 
+                        Excellent for studying, research, exam preparation, and mastering new subjects.
+                    </div>
+                    <div class="app-tips">
+                        <div class="app-tips-title">Speed Tip:</div>
+                        <div class="app-tips-text">Wednesday is Mercury's day - ideal for intensive learning sessions and mental challenges.</div>
+                    </div>
+                </div>
+                
+                <div class="application-card">
+                    <div class="app-icon">💬</div>
+                    <div class="app-title">Communication & Writing</div>
+                    <div class="app-description">
+                        Use Mercury for all forms of communication - writing, speaking, negotiating, and teaching. 
+                        Perfect for presentations, content creation, and building professional relationships.
+                    </div>
+                    <div class="app-tips">
+                        <div class="app-tips-title">Enhancement:</div>
+                        <div class="app-tips-text">Green gemstones like Emerald boost Mercury's communication powers significantly.</div>
+                    </div>
+                </div>
+                
+                <div class="application-card">
+                    <div class="app-icon">🧠</div>
+                    <div class="app-title">Problem Solving</div>
+                    <div class="app-description">
+                        Activate Mercury for analytical thinking, logical reasoning, and complex problem-solving. 
+                        Essential for strategy, planning, and finding creative solutions to challenges.
+                    </div>
+                    <div class="app-tips">
+                        <div class="app-tips-title">Method:</div>
+                        <div class="app-tips-text">Break complex problems into smaller parts - Mercury excels at systematic analysis.</div>
+                    </div>
+                </div>
+                
+                <div class="application-card">
+                    <div class="app-icon">🌐</div>
+                    <div class="app-title">Networking & Business</div>
+                    <div class="app-description">
+                        Strong Mercury enhances business acumen, networking abilities, and commercial success. 
+                        Perfect for entrepreneurship, sales, marketing, and building professional connections.
+                    </div>
+                    <div class="app-tips">
+                        <div class="app-tips-title">Success Factor:</div>
+                        <div class="app-tips-text">Mercury thrives in dynamic, information-rich environments with constant learning opportunities.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personalization Tools -->
+        <section class="personalization-section">
+            <h2 class="section-title">
+                <span class="section-icon">🎛️</span>
+                Personalization Tools
+            </h2>
+            
+            <div class="tools-grid">
+                <div class="tool-card" onclick="launchMercuryTool('strength')">
+                    <div class="tool-icon">🧮</div>
+                    <div class="tool-title">Mercury Strength Analyzer</div>
+                    <div class="tool-description">
+                        Calculate your personal Mercury power level based on sign placement, 
+                        house position, and planetary aspects in your birth chart.
+                    </div>
+                    <button class="tool-button">Analyze Now</button>
+                </div>
+                
+                <div class="tool-card" onclick="launchMercuryTool('timing')">
+                    <div class="tool-icon">📅</div>
+                    <div class="tool-title">Communication Timing</div>
+                    <div class="tool-description">
+                        Discover optimal timing for important communications, learning, 
+                        and intellectual pursuits based on Mercury transits and cycles.
+                    </div>
+                    <button class="tool-button">Check Timing</button>
+                </div>
+                
+                <div class="tool-card" onclick="launchMercuryTool('optimization')">
+                    <div class="tool-icon">💎</div>
+                    <div class="tool-title">Mercury Optimization</div>
+                    <div class="tool-description">
+                        Get personalized recommendations for enhancing Mercury energy through 
+                        gemstones, mantras, study techniques, and mental exercises.
+                    </div>
+                    <button class="tool-button">Optimize Mercury</button>
+                </div>
+                
+                <div class="tool-card" onclick="launchMercuryTool('compatibility')">
+                    <div class="tool-icon">🤝</div>
+                    <div class="tool-title">Intellectual Compatibility</div>
+                    <div class="tool-description">
+                        Understand how your Mercury interacts with others in learning, 
+                        communication, and intellectual collaboration scenarios.
+                    </div>
+                    <button class="tool-button">Check Compatibility</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Mercury Particles Animation (faster and more dynamic)
+        function createMercuryParticles() {
+            const container = document.getElementById('mercuryParticles');
+            const particleCount = 40; // More particles for Mercury's quick nature
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'mercury-particle';
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (Math.random() * 4 + 4) + 's'; // Faster than other planets
+                container.appendChild(particle);
+            }
+        }
+        
+        // Mercury Tool Launcher
+        function launchMercuryTool(toolType) {
+            const toolMessages = {
+                'strength': '🧮 Mercury Strength Analysis\n\nThis tool would analyze your birth chart to determine:\n• Mercury sign strength (exaltation, debilitation)\n• House placement power\n• Aspect influences\n• Overall Mercury rating (1-100)\n\nComing soon with full astrological calculations!',
+                'timing': '📅 Communication Timing Guide\n\nThis tool would provide:\n• Best dates for important communications\n• Mercury transit predictions\n• Optimal timing for learning and study\n• Business communication timing\n\nAdvanced Mercury algorithms in development!',
+                'optimization': '💎 Mercury Optimization Suite\n\nPersonalized recommendations including:\n• Gemstone suggestions (Emerald, Peridot)\n• Mantras and prayers\n• Study and learning techniques\n• Mental exercises and brain training\n• Communication skill development\n\nComprehensive optimization system coming soon!',
+                'compatibility': '🤝 Intellectual Compatibility Analysis\n\nThis tool would analyze:\n• Communication style compatibility\n• Learning collaboration patterns\n• Intellectual partnership dynamics\n• Business communication synergy\n\nAdvanced compatibility algorithms in development!'
+            };
+            
+            alert(toolMessages[toolType]);
+        }
+        
+        // Toggle Parameter Detail
+        function toggleParameterDetail(element) {
+            const isExpanded = element.classList.contains('expanded');
+            
+            // Close all other expanded parameters in the same section
+            const allParams = element.parentElement.querySelectorAll('.expandable-param');
+            allParams.forEach(param => {
+                param.classList.remove('expanded');
+            });
+            
+            // Toggle current parameter
+            if (!isExpanded) {
+                element.classList.add('expanded');
+            }
+        }
+        
+        // Toggle Combination Detail (Fixed for proper toggle behavior)
+        function toggleComboDetail(element) {
+            const isExpanded = element.classList.contains('expanded');
+            
+            if (isExpanded) {
+                // If already expanded, just close this one
+                element.classList.remove('expanded');
+            } else {
+                // Close all other expanded combinations first
+                const allCombos = document.querySelectorAll('.integration-card');
+                allCombos.forEach(combo => {
+                    combo.classList.remove('expanded');
+                });
+                
+                // Then open current combination
+                element.classList.add('expanded');
+            }
+        }
+        
+        // Initialize Mercury Effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Small delay to ensure everything is loaded
+            setTimeout(() => {
+                createMercuryParticles();
+            
+            // Smooth Scrolling for Internal Links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Add hover effects to cards
+            const cards = document.querySelectorAll('.spec-card, .parameter-card, .integration-card, .application-card, .tool-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+            }, 100); // 100ms delay
+        });
+    </script>
+</body>
+</html>

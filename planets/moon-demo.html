@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="description" content="Moon Emotional RAM - Master your intuitive processor and emotional intelligence protocols">
+    <meta name="keywords" content="moon, emotions, intuition, memory, feelings, vedic astrology, planetary intelligence">
+    <meta name="author" content="Acharya Anish">
+    
+    <title>🌙 Moon Emotional RAM - Planetary Intelligence Portal</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌙</text></svg>">
+    
+    <style>
+        /* 🌙 MOON EMOTIONAL RAM - FLOWING SILVER/BLUE THEME */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a0a1a 0%, #0f1a2e 50%, #1a2634 100%);
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        /* MOON COSMIC BACKGROUND PARTICLES */
+        .moon-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .moon-particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: radial-gradient(circle, #C0C0C0 0%, #87CEEB 100%);
+            border-radius: 50%;
+            animation: moonFloat 18s linear infinite;
+        }
+        
+        @keyframes moonFloat {
+            0% { 
+                transform: translateY(100vh) rotate(0deg); 
+                opacity: 0; 
+            }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% { 
+                transform: translateY(-10vh) rotate(360deg); 
+                opacity: 0; 
+            }
+        }
+        
+        /* HEADER NAVIGATION */
+        .moon-header {
+            background: linear-gradient(135deg, rgba(192, 192, 192, 0.15) 0%, rgba(135, 206, 235, 0.1) 100%);
+            border-bottom: 2px solid rgba(192, 192, 192, 0.3);
+            padding: 1.5rem 0;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .moon-nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .back-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(192, 192, 192, 0.2);
+            border: 2px solid rgba(192, 192, 192, 0.4);
+            border-radius: 25px;
+            color: #C0C0C0;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .back-button:hover {
+            background: rgba(192, 192, 192, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(192, 192, 192, 0.4);
+        }
+        
+        .moon-title-section {
+            text-align: center;
+        }
+        
+        .moon-icon {
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+            display: block;
+            animation: moonPulse 3s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 20px rgba(192, 192, 192, 0.6));
+        }
+        
+        .moon-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin: 0 0 0.3rem 0;
+            background: linear-gradient(135deg, #C0C0C0 0%, #87CEEB 50%, #4682B4 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(192, 192, 192, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .moon-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        .moon-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.2rem;
+            background: rgba(135, 206, 235, 0.2);
+            border: 2px solid rgba(135, 206, 235, 0.4);
+            border-radius: 20px;
+            color: #87CEEB;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        .moon-status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #87CEEB;
+            animation: moonStatusPulse 2s ease-in-out infinite;
+        }
+        
+        /* MAIN CONTENT */
+        .moon-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            position: relative;
+            z-index: 5;
+        }
+        
+        /* PROCESSOR OVERVIEW */
+        .processor-overview {
+            background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%);
+            border: 2px solid rgba(192, 192, 192, 0.3);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .processor-overview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(192, 192, 192, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(135, 206, 235, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .overview-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #C0C0C0;
+            margin: 0 0 1.5rem 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .section-icon {
+            font-size: 2.5rem;
+            filter: drop-shadow(0 4px 8px rgba(192, 192, 192, 0.3));
+        }
+        
+        .overview-description {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+        
+        .moon-specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .spec-card {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(192, 192, 192, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .spec-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(192, 192, 192, 0.5);
+            box-shadow: 0 15px 40px rgba(192, 192, 192, 0.2);
+        }
+        
+        .spec-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #87CEEB;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        
+        .spec-value {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+        
+        /* OPERATIONAL PARAMETERS */
+        .operational-section {
+            margin-bottom: 3rem;
+        }
+        
+        .parameters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+        
+        .parameter-card {
+            background: linear-gradient(135deg, rgba(192, 192, 192, 0.05) 0%, rgba(0, 0, 0, 0.3) 100%);
+            border: 1px solid rgba(192, 192, 192, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .parameter-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .parameter-icon {
+            font-size: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(192, 192, 192, 0.2);
+            border: 2px solid rgba(192, 192, 192, 0.4);
+        }
+        
+        .parameter-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #C0C0C0;
+            text-transform: uppercase;
+        }
+        
+        .parameter-list {
+            list-style: none;
+        }
+        
+        .parameter-list li {
+            padding: 0.5rem 0;
+            color: rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(192, 192, 192, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .parameter-list li::before {
+            content: '▸';
+            color: #87CEEB;
+            font-weight: bold;
+        }
+        
+        /* SYSTEM INTEGRATIONS */
+        .integrations-section {
+            background: linear-gradient(135deg, rgba(135, 206, 235, 0.05) 0%, rgba(0, 0, 0, 0.3) 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(135, 206, 235, 0.2);
+        }
+        
+        .integration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .integration-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(135, 206, 235, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .integration-card:hover {
+            transform: translateY(-3px);
+            background: rgba(135, 206, 235, 0.1);
+            box-shadow: 0 10px 30px rgba(135, 206, 235, 0.2);
+        }
+        
+        .integration-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .planet-combo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .combo-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #87CEEB;
+        }
+        
+        .combo-effect {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        /* PRACTICAL APPLICATIONS */
+        .applications-section {
+            margin-bottom: 3rem;
+        }
+        
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .application-card {
+            background: linear-gradient(135deg, rgba(192, 192, 192, 0.08) 0%, rgba(0, 0, 0, 0.4) 100%);
+            border-left: 4px solid #C0C0C0;
+            border-radius: 15px;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .app-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .app-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #87CEEB;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        
+        .app-description {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .app-tips {
+            background: rgba(192, 192, 192, 0.1);
+            border-radius: 10px;
+            padding: 1rem;
+            border-left: 3px solid #C0C0C0;
+        }
+        
+        .app-tips-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #C0C0C0;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+        
+        .app-tips-text {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.4;
+        }
+        
+        /* MOON PRAYER SECTION */
+        .moon-prayer-section {
+            background: linear-gradient(135deg, rgba(192, 192, 192, 0.08) 0%, rgba(135, 206, 235, 0.1) 50%, rgba(0, 0, 0, 0.3) 100%);
+            border-radius: 25px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 2px solid rgba(192, 192, 192, 0.3);
+            text-align: center;
+        }
+        
+        .prayer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .sanskrit-prayer {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(192, 192, 192, 0.2);
+        }
+        
+        .prayer-sanskrit {
+            font-family: 'Times New Roman', serif;
+            font-size: 1.8rem;
+            color: #C0C0C0;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            text-shadow: 0 2px 10px rgba(192, 192, 192, 0.3);
+        }
+        
+        .prayer-pronunciation {
+            font-family: 'Times New Roman', serif;
+            font-size: 1.3rem;
+            color: #87CEEB;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .prayer-english {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .prayer-meaning {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            text-align: left;
+            background: rgba(192, 192, 192, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid #87CEEB;
+        }
+        
+        /* EXPANDABLE PARAMETERS */
+        .expandable-param {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            border-radius: 8px;
+            padding: 0.8rem;
+            margin: 0.3rem 0;
+        }
+        
+        .expandable-param:hover {
+            background: rgba(192, 192, 192, 0.1);
+        }
+        
+        .param-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            font-weight: 600;
+        }
+        
+        .expand-icon {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+            color: #87CEEB;
+        }
+        
+        .expandable-param.expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+        
+        .param-detail {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            margin-top: 0;
+            padding: 0;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.7);
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+        }
+        
+        .expandable-param.expanded .param-detail {
+            max-height: 200px;
+            margin-top: 1rem;
+            padding: 1rem;
+        }
+        
+        /* COMBINATION CARDS */
+        .triple-combo {
+            border-color: rgba(192, 192, 192, 0.4);
+        }
+        
+        .triple-combo:hover {
+            background: rgba(192, 192, 192, 0.1);
+            box-shadow: 0 10px 30px rgba(192, 192, 192, 0.2);
+        }
+        
+        .quad-combo {
+            border-color: rgba(138, 43, 226, 0.4);
+        }
+        
+        .quad-combo:hover {
+            background: rgba(138, 43, 226, 0.1);
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.2);
+        }
+        
+        .combo-expand {
+            font-size: 0.8rem;
+            color: #87CEEB;
+            transition: transform 0.3s ease;
+        }
+        
+        .integration-card.expanded .combo-expand {
+            transform: rotate(180deg);
+        }
+        
+        .combo-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            margin-top: 0;
+        }
+        
+        .integration-card.expanded .combo-details {
+            max-height: 500px;
+            margin-top: 1.5rem;
+        }
+        
+        .combo-section {
+            margin-bottom: 1.5rem;
+        }
+        
+        .combo-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .combo-section-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .combo-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .combo-section li {
+            padding: 0.4rem 0;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            border-bottom: 1px solid rgba(135, 206, 235, 0.1);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        
+        .combo-section li::before {
+            content: '▸';
+            color: #87CEEB;
+            font-weight: bold;
+            margin-top: 0.1rem;
+            flex-shrink: 0;
+        }
+        
+        /* PERSONALIZATION TOOLS */
+        .personalization-section {
+            background: linear-gradient(135deg, rgba(70, 130, 180, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 2px solid rgba(70, 130, 180, 0.3);
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .tool-card {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(192, 192, 192, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            background: rgba(192, 192, 192, 0.1);
+            box-shadow: 0 15px 40px rgba(192, 192, 192, 0.3);
+        }
+        
+        .tool-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+            animation: toolPulse 3s ease-in-out infinite alternate;
+        }
+        
+        .tool-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #C0C0C0;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        
+        .tool-description {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tool-button {
+            background: linear-gradient(135deg, #C0C0C0 0%, #87CEEB 100%);
+            color: #1a2634;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .tool-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(192, 192, 192, 0.4);
+        }
+        
+        /* ANIMATIONS */
+        @keyframes moonPulse {
+            from { 
+                transform: scale(1);
+                filter: drop-shadow(0 0 20px rgba(192, 192, 192, 0.6));
+            }
+            to { 
+                transform: scale(1.05);
+                filter: drop-shadow(0 0 30px rgba(192, 192, 192, 0.8));
+            }
+        }
+        
+        @keyframes moonStatusPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(0.9); }
+        }
+        
+        @keyframes toolPulse {
+            from { opacity: 0.8; }
+            to { opacity: 1; }
+        }
+        
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+            .moon-nav {
+                flex-direction: column;
+                gap: 2rem;
+                padding: 0 1rem;
+            }
+            
+            .moon-title {
+                font-size: 2.5rem;
+            }
+            
+            .moon-content {
+                padding: 2rem 1rem;
+            }
+            
+            .processor-overview,
+            .integrations-section,
+            .personalization-section {
+                padding: 2rem;
+            }
+            
+            .moon-specs-grid,
+            .parameters-grid,
+            .integration-grid,
+            .applications-grid,
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .moon-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .moon-icon {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Moon Cosmic Particles -->
+    <div class="moon-particles" id="moonParticles"></div>
+
+    <!-- Header Navigation -->
+    <header class="moon-header">
+        <nav class="moon-nav">
+            <a href="../planetary-intelligence.html" class="back-button">
+                <span>←</span>
+                <span>Back to Portal</span>
+            </a>
+            
+            <div class="moon-title-section">
+                <div class="moon-icon">🌙</div>
+                <h1 class="moon-title">Moon</h1>
+                <h2 class="moon-subtitle">Emotional RAM</h2>
+            </div>
+            
+            <div class="moon-status">
+                <div class="moon-status-dot"></div>
+                <span>Intuitive Flow</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="moon-content">
+        <!-- Moon Prayer Section -->
+        <section class="moon-prayer-section">
+            <div class="prayer-container">
+                <h2 class="section-title">
+                    <span class="section-icon">🙏</span>
+                    Moon Invocation Prayer
+                </h2>
+                
+                <div class="prayer-content">
+                    <div class="sanskrit-prayer">
+                        <div class="prayer-sanskrit">दधिशंखतुषाराभं क्षीरोदार्णवसंभवम् ।<br>नमामि शशिनं सोमं शम्भोर्मुकुटभूषणम् ॥</div>
+                        <div class="prayer-pronunciation">Dadhiśaṅkhatuṣārābhaṃ kṣīrodārṇavasambhavam |<br>Namāmi śaśinaṃ somaṃ śambhormukuṭabhūṣaṇam ||</div>
+                        <div class="prayer-english">I bow to the Moon, who shines like curds, conch, and frost,<br>Born from the ocean of milk, the ornament of Shiva's crown.</div>
+                        <div class="prayer-meaning">
+                            <strong>Meaning:</strong> This prayer honors the Moon (Chandra/Soma) as the divine source of emotional intelligence, intuition, and nurturing energy. 
+                            We invoke his power for emotional balance, mental clarity, intuitive wisdom, and the ability to flow gracefully through life's changes 
+                            while maintaining inner peace and compassion.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Processor Overview -->
+        <section class="processor-overview">
+            <div class="overview-content">
+                <h2 class="section-title">
+                    <span class="section-icon">🧠</span>
+                    Processor Overview
+                </h2>
+                <p class="overview-description">
+                    The Moon operates as the <strong>Emotional RAM</strong> in your cosmic architecture. 
+                    This intuitive processor manages memory storage, emotional processing, and subconscious data flow. 
+                    When properly calibrated, the Moon transforms raw feelings into wisdom, chaos into compassion, and reactions into responses.
+                </p>
+                
+                <div class="moon-specs-grid">
+                    <div class="spec-card">
+                        <div class="spec-title">Core Function</div>
+                        <div class="spec-value">Emotional Memory & Intuitive Processing</div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-title">Operating Frequency</div>
+                        <div class="spec-value">Flowing & Receptive</div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-title">Primary Element</div>
+                        <div class="spec-value">Water (Jal)</div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-title">Processing Style</div>
+                        <div class="spec-value">Intuitive, Nurturing, Cyclical</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Operational Parameters -->
+        <section class="operational-section">
+            <h2 class="section-title">
+                <span class="section-icon">⚙️</span>
+                Operational Parameters
+            </h2>
+            
+            <div class="parameters-grid">
+                <div class="parameter-card">
+                    <div class="parameter-header">
+                        <div class="parameter-icon">💙</div>
+                        <div class="parameter-title">Strengths</div>
+                    </div>
+                    <ul class="parameter-list">
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Emotional intelligence and empathy</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                The Moon grants deep emotional intelligence and natural empathy. Strong lunar energy manifests 
+                                as ability to read emotional undercurrents, understand unspoken feelings, and respond with 
+                                genuine compassion. This is the energy of counselors, healers, and natural nurturers.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Intuitive memory processing</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                The Moon operates as your emotional memory bank, storing not just facts but feelings, atmospheres, 
+                                and subtle impressions. This creates powerful pattern recognition for relationships, environments, 
+                                and situations that goes beyond logical analysis.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Nurturing and protective instincts</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Strong Moon energy activates natural caregiving abilities and protective instincts. This manifests 
+                                as ability to create safe spaces, provide comfort to others, and intuitively know what someone 
+                                needs for healing and growth.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Adaptability and flow</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Like water, lunar energy flows around obstacles rather than confronting them. This creates 
+                                remarkable adaptability, ability to change with circumstances, and skill at finding the path 
+                                of least resistance while still reaching your destination.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Psychic receptivity</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                The Moon opens channels of psychic and intuitive perception. Strong lunar individuals often 
+                                have prophetic dreams, psychic impressions, and ability to sense things before they manifest 
+                                in the physical world.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Healing and regeneration</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Moon energy facilitates deep emotional and physical healing. This includes ability to help 
+                                others process trauma, create healing environments, and support regenerative processes 
+                                through nurturing presence and emotional support.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="parameter-card">
+                    <div class="parameter-header">
+                        <div class="parameter-icon">⚠️</div>
+                        <div class="parameter-title">Limitations</div>
+                    </div>
+                    <ul class="parameter-list">
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Emotional volatility and mood swings</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Imbalanced Moon energy can create extreme emotional fluctuations, unpredictable moods, and 
+                                difficulty maintaining emotional stability. This can strain relationships and make consistent 
+                                progress challenging.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Over-attachment and dependency</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Excessive lunar energy can create unhealthy attachment patterns, codependency, and difficulty 
+                                letting go. This can manifest as clinging to relationships, situations, or memories that no 
+                                longer serve growth.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Oversensitivity to criticism</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                High Moon sensitivity can make criticism feel like personal attacks, even when offered constructively. 
+                                This can lead to withdrawal, defensive reactions, or inability to receive feedback necessary for growth.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Difficulty with boundaries</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Lunar empathy can make it difficult to distinguish between your emotions and others'. This can 
+                                lead to emotional overwhelm, taking on others' problems, and difficulty maintaining healthy 
+                                personal boundaries.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Tendency toward worry and anxiety</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                The Moon's protective instincts can manifest as excessive worry, anxiety about loved ones, and 
+                                tendency to imagine worst-case scenarios. This mental pattern can create stress and prevent 
+                                present-moment enjoyment.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Procrastination and indecision</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Lunar energy prefers to flow rather than force, which can manifest as procrastination, 
+                                difficulty making decisions, or waiting for the "right feeling" rather than taking decisive action 
+                                when needed.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- System Integrations -->
+        <section class="integrations-section">
+            <h2 class="section-title">
+                <span class="section-icon">🔗</span>
+                System Integrations
+            </h2>
+            
+            <div class="integration-grid">
+                <!-- Two Planet Combinations -->
+                <div class="integration-card" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">🌙 + ☀</div>
+                        <div class="combo-name">Moon + Sun</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        Perfect balance of emotional intelligence and confident leadership. The complete personality.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Balanced emotional and rational decision making</li>
+                                <li>Natural charisma with genuine warmth</li>
+                                <li>Strong family and community leadership</li>
+                                <li>Ability to inspire and nurture simultaneously</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>Internal conflicts between heart and ego</li>
+                                <li>Mood fluctuations affecting leadership consistency</li>
+                                <li>Difficulty separating personal and professional emotions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="integration-card" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">🌙 + ♀</div>
+                        <div class="combo-name">Moon + Venus</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        The divine feminine combination. Natural beauty, artistic sensitivity, and emotional harmony.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Natural artistic and creative abilities</li>
+                                <li>Harmonious relationships and social charm</li>
+                                <li>Intuitive understanding of beauty and aesthetics</li>
+                                <li>Strong capacity for love and emotional connection</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>May prioritize harmony over necessary conflicts</li>
+                                <li>Tendency toward emotional indulgence</li>
+                                <li>Difficulty with harsh realities or criticism</li>
+                                <li>Can be overly dependent on others' approval</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="integration-card" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">🌙 + ☿</div>
+                        <div class="combo-name">Moon + Mercury</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        The emotional communicator. Intuitive intelligence with excellent expression abilities.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Excellent emotional communication skills</li>
+                                <li>Intuitive understanding of others' thoughts</li>
+                                <li>Natural counseling and teaching abilities</li>
+                                <li>Quick emotional processing and adaptation</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>Overthinking emotional situations</li>
+                                <li>May intellectualize feelings too much</li>
+                                <li>Scattered emotional focus</li>
+                                <li>Tendency to worry and analyze relationships</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="integration-card" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">🌙 + ♄</div>
+                        <div class="combo-name">Moon + Saturn</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        The disciplined nurturer. Emotional maturity with strong commitment and responsibility.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Emotional maturity and stability</li>
+                                <li>Strong sense of duty to family and community</li>
+                                <li>Ability to provide long-term emotional support</li>
+                                <li>Patient and methodical approach to nurturing</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>May suppress emotions or appear cold</li>
+                                <li>Difficulty expressing vulnerability</li>
+                                <li>Tendency toward pessimism or depression</li>
+                                <li>Can be overly serious or rigid in relationships</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Three Planet Combinations -->
+                <div class="integration-card triple-combo" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">🌙 + ♀ + ♃</div>
+                        <div class="combo-name">Moon + Venus + Jupiter</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        The "Divine Mother" combination. Compassionate wisdom with nurturing abundance.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Natural healer and spiritual counselor</li>
+                                <li>Abundant love and generosity</li>
+                                <li>Wisdom combined with emotional intelligence</li>
+                                <li>Creates harmonious, abundant environments</li>
+                                <li>Strong moral compass with compassionate action</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>May give too much without boundaries</li>
+                                <li>Can be overly optimistic about others</li>
+                                <li>Difficulty saying no to requests for help</li>
+                                <li>May neglect own needs while serving others</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="integration-card triple-combo" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">🌙 + ☿ + ☽</div>
+                        <div class="combo-name">Moon + Mercury + Neptune</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        The "Psychic Communicator" combination. Intuitive intelligence with mystical perception.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Highly developed psychic and intuitive abilities</li>
+                                <li>Excellent at reading between the lines</li>
+                                <li>Natural counselor and empathetic listener</li>
+                                <li>Creative expression through writing or speaking</li>
+                                <li>Ability to translate emotional experiences into words</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>May become lost in emotional or psychic impressions</li>
+                                <li>Difficulty distinguishing reality from imagination</li>
+                                <li>Tendency toward escapism or fantasy</li>
+                                <li>Can be overwhelmed by others' emotions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practical Applications -->
+        <section class="applications-section">
+            <h2 class="section-title">
+                <span class="section-icon">🛠️</span>
+                Practical Applications
+            </h2>
+            
+            <div class="applications-grid">
+                <div class="application-card">
+                    <div class="app-icon">❤️</div>
+                    <div class="app-title">Emotional Healing</div>
+                    <div class="app-description">
+                        Channel Moon energy for processing trauma, healing emotional wounds, and creating safe spaces 
+                        for yourself and others to feel and release stored emotions.
+                    </div>
+                    <div class="app-tips">
+                        <div class="app-tips-title">Practice Tip:</div>
+                        <div class="app-tips-text">Full moon nights are powerful for emotional release work and healing rituals.</div>
+                    </div>
+                </div>
+                
+                <div class="application-card">
+                    <div class="app-icon">🔮</div>
+                    <div class="app-title">Intuitive Decision Making</div>
+                    <div class="app-description">
+                        Use lunar energy to tap into your intuitive wisdom when logical analysis isn't enough. 
+                        Trust your gut feelings and emotional intelligence for complex decisions.
+                    </div>
+                    <div class="app-tips">
+                        <div class="app-tips-title">Enhancement:</div>
+                        <div class="app-tips-text">Meditate during Moon hours (night time) for clearest intuitive guidance and dreams.</div>
+                    </div>
+                </div>
+                
+                <div class="application-card">
+                    <div class="app-icon">🤱</div>
+                    <div class="app-title">Nurturing & Caregiving</div>
+                    <div class="app-description">
+                        Activate Moon energy for parenting, caregiving, teaching, or any role that requires 
+                        nurturing others and creating supportive environments.
+                    </div>
+                    <div class="app-tips">
+                        <div class="app-tips-title">Balance:</div>
+                        <div class="app-tips-text">Remember to nurture yourself too - Moon energy can become depleted through over-giving.</div>
+                    </div>
+                </div>
+                
+                <div class="application-card">
+                    <div class="app-icon">🏠</div>
+                    <div class="app-title">Home & Family</div>
+                    <div class="app-description">
+                        Strong Moon energy creates beautiful, harmonious homes and maintains family bonds. 
+                        Use for domestic harmony, family healing, and creating sacred spaces.
+                    </div>
+                    <div class="app-tips">
+                        <div class="app-tips-title">Sacred Timing:</div>
+                        <div class="app-tips-text">New moon is perfect for setting family intentions and home blessing rituals.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personalization Tools -->
+        <section class="personalization-section">
+            <h2 class="section-title">
+                <span class="section-icon">🎛️</span>
+                Personalization Tools
+            </h2>
+            
+            <div class="tools-grid">
+                <div class="tool-card" onclick="launchMoonTool('strength')">
+                    <div class="tool-icon">🌕</div>
+                    <div class="tool-title">Moon Strength Analyzer</div>
+                    <div class="tool-description">
+                        Calculate your personal Moon power level based on sign placement, 
+                        house position, and planetary aspects in your birth chart.
+                    </div>
+                    <button class="tool-button">Analyze Now</button>
+                </div>
+                
+                <div class="tool-card" onclick="launchMoonTool('timing')">
+                    <div class="tool-icon">🌙</div>
+                    <div class="tool-title">Lunar Cycle Guide</div>
+                    <div class="tool-description">
+                        Discover optimal timing for emotional work, family matters, 
+                        and intuitive practices based on Moon phases and cycles.
+                    </div>
+                    <button class="tool-button">Check Cycles</button>
+                </div>
+                
+                <div class="tool-card" onclick="launchMoonTool('optimization')">
+                    <div class="tool-icon">💎</div>
+                    <div class="tool-title">Moon Optimization</div>
+                    <div class="tool-description">
+                        Get personalized recommendations for enhancing Moon energy through 
+                        gemstones, mantras, rituals, and emotional healing practices.
+                    </div>
+                    <button class="tool-button">Optimize Moon</button>
+                </div>
+                
+                <div class="tool-card" onclick="launchMoonTool('compatibility')">
+                    <div class="tool-icon">💞</div>
+                    <div class="tool-title">Emotional Compatibility</div>
+                    <div class="tool-description">
+                        Understand how your Moon interacts with others in relationships, 
+                        family dynamics, and emotional partnerships.
+                    </div>
+                    <button class="tool-button">Check Compatibility</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Moon Particles Animation
+        function createMoonParticles() {
+            const container = document.getElementById('moonParticles');
+            const particleCount = 25;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'moon-particle';
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.animationDelay = Math.random() * 18 + 's';
+                particle.style.animationDuration = (Math.random() * 12 + 12) + 's';
+                container.appendChild(particle);
+            }
+        }
+        
+        // Moon Tool Launcher
+        function launchMoonTool(toolType) {
+            const toolMessages = {
+                'strength': '🌕 Moon Strength Analysis\n\nThis tool would analyze your birth chart to determine:\n• Moon sign strength (exaltation, debilitation)\n• House placement power\n• Aspect influences\n• Overall Moon rating (1-100)\n\nComing soon with full astrological calculations!',
+                'timing': '🌙 Lunar Cycle Guide\n\nThis tool would provide:\n• Best timing for emotional work\n• Moon phase recommendations\n• Optimal dates for family matters\n• Intuitive practice timing\n\nAdvanced lunar algorithms in development!',
+                'optimization': '💎 Moon Optimization Suite\n\nPersonalized recommendations including:\n• Gemstone suggestions (Pearl, Moonstone)\n• Mantras and prayers\n• Emotional healing practices\n• Dietary recommendations\n• Home environment tips\n\nComprehensive optimization system coming soon!',
+                'compatibility': '💞 Emotional Compatibility Analysis\n\nThis tool would analyze:\n• Romantic emotional compatibility\n• Family dynamics patterns\n• Friendship emotional bonds\n• Emotional communication styles\n\nAdvanced compatibility algorithms in development!'
+            };
+            
+            alert(toolMessages[toolType]);
+        }
+        
+        // Toggle Parameter Detail
+        function toggleParameterDetail(element) {
+            const isExpanded = element.classList.contains('expanded');
+            
+            // Close all other expanded parameters in the same section
+            const allParams = element.parentElement.querySelectorAll('.expandable-param');
+            allParams.forEach(param => {
+                param.classList.remove('expanded');
+            });
+            
+            // Toggle current parameter
+            if (!isExpanded) {
+                element.classList.add('expanded');
+            }
+        }
+        
+        // Toggle Combination Detail
+        function toggleComboDetail(element) {
+            const isExpanded = element.classList.contains('expanded');
+            
+            // Close all other expanded combinations
+            const allCombos = document.querySelectorAll('.integration-card');
+            allCombos.forEach(combo => {
+                combo.classList.remove('expanded');
+            });
+            
+            // Toggle current combination
+            if (!isExpanded) {
+                element.classList.add('expanded');
+            }
+        }
+        
+        // Smooth Scrolling for Internal Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Initialize Moon Effects
+        document.addEventListener('DOMContentLoaded', function() {
+            createMoonParticles();
+            
+            // Add hover effects to cards
+            const cards = document.querySelectorAll('.spec-card, .parameter-card, .integration-card, .application-card, .tool-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

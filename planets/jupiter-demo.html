@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="description" content="Jupiter Wisdom Expander - Knowledge, teaching, expansion, philosophy, and higher learning">
+    <meta name="keywords" content="jupiter, guru, brihaspati, wisdom, knowledge, teaching, expansion, vedic astrology">
+    <meta name="author" content="Acharya Anish">
+    
+    <title>♃ Jupiter Wisdom Expander - Planetary Intelligence Portal</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>♃</text></svg>">
+    
+    <style>
+        /* ♃ JUPITER WISDOM EXPANDER - GOLDEN/PURPLE MAJESTIC THEME */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: 
+                radial-gradient(circle at 15% 20%, rgba(255, 215, 0, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 85% 80%, rgba(138, 43, 226, 0.15) 0%, transparent 60%),
+                linear-gradient(135deg, #1a1a2e 0%, #16213e 30%, #0f3460 70%, #533483 100%);
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        /* Jupiter cosmic orbs/wisdom particles */
+        .jupiter-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .jupiter-orb {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 215, 0, 0.8) 0%, rgba(138, 43, 226, 0.6) 70%, transparent 100%);
+            animation: jupiterWisdom linear infinite;
+            opacity: 0.7;
+            filter: blur(0.5px);
+        }
+        
+        @keyframes jupiterWisdom {
+            0% { 
+                transform: translateY(110vh) scale(0.5) rotate(0deg); 
+                opacity: 0; 
+            }
+            10% { opacity: 0.7; }
+            90% { opacity: 0.7; }
+            100% { 
+                transform: translateY(-15vh) scale(1.2) rotate(180deg); 
+                opacity: 0; 
+            }
+        }
+        
+        /* Header Navigation */
+        .jupiter-header {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.18) 0%, rgba(138, 43, 226, 0.15) 100%);
+            border-bottom: 2px solid rgba(255, 215, 0, 0.4);
+            padding: 1.5rem 0;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .jupiter-nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .back-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 215, 0, 0.2);
+            border: 2px solid rgba(255, 215, 0, 0.4);
+            border-radius: 25px;
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .back-button:hover {
+            background: rgba(255, 215, 0, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+        }
+        
+        .jupiter-title-section {
+            text-align: center;
+        }
+        
+        .jupiter-icon {
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+            display: block;
+            animation: jupiterPulse 2s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+        }
+        
+        .jupiter-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin: 0 0 0.3rem 0;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 30%, #DA70D6 70%, #8A2BE2 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .jupiter-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        .jupiter-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.2rem;
+            background: rgba(138, 43, 226, 0.2);
+            border: 2px solid rgba(138, 43, 226, 0.4);
+            border-radius: 20px;
+            color: #DA70D6;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        .jupiter-status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #DA70D6;
+            animation: jupiterStatusPulse 1.5s ease-in-out infinite;
+        }
+        
+        /* Main Content */
+        .jupiter-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            position: relative;
+            z-index: 5;
+        }
+        
+        /* Wisdom Prayer Section */
+        .wisdom-prayer-section {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.12) 0%, rgba(138, 43, 226, 0.10) 50%, rgba(0, 0, 0, 0.3) 100%);
+            border-radius: 25px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #FFD700;
+            margin: 0 0 1.5rem 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .section-icon {
+            font-size: 2.5rem;
+            filter: drop-shadow(0 4px 8px rgba(255, 215, 0, 0.3));
+        }
+        
+        .prayer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .sanskrit-prayer {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        
+        .prayer-sanskrit {
+            font-family: 'Times New Roman', serif;
+            font-size: 1.8rem;
+            color: #FFD700;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            text-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
+        }
+        
+        .prayer-pronunciation {
+            font-family: 'Times New Roman', serif;
+            font-size: 1.3rem;
+            color: #DA70D6;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .prayer-english {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .prayer-meaning {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            text-align: left;
+            background: rgba(255, 215, 0, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid #DA70D6;
+        }
+        
+        /* Wisdom Overview */
+        .wisdom-overview {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .wisdom-overview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .overview-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .overview-description {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+        
+        .jupiter-specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .spec-card {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .spec-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.05), transparent);
+            transform: rotate(45deg);
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+        
+        .spec-card:hover::before {
+            opacity: 1;
+            animation: wisdomShine 1.2s ease-in-out;
+        }
+        
+        @keyframes wisdomShine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+        
+        .spec-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 215, 0, 0.5);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2);
+        }
+        
+        .spec-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #DA70D6;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .spec-value {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Operational Parameters */
+        .operational-section {
+            margin-bottom: 3rem;
+        }
+        
+        .parameters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+        
+        .parameter-card {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.08) 0%, rgba(0, 0, 0, 0.3) 100%);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .parameter-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .parameter-icon {
+            font-size: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 215, 0, 0.2);
+            border: 2px solid rgba(255, 215, 0, 0.4);
+        }
+        
+        .parameter-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #FFD700;
+            text-transform: uppercase;
+        }
+        
+        .parameter-list {
+            list-style: none;
+        }
+        
+        .parameter-list li {
+            padding: 0.5rem 0;
+            color: rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .parameter-list li::before {
+            content: '🔸';
+            color: #DA70D6;
+            font-size: 0.8rem;
+        }
+        
+        /* Expandable items */
+        .expandable-param {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            border-radius: 8px;
+            padding: 0.8rem;
+            margin: 0.3rem 0;
+        }
+        
+        .expandable-param:hover {
+            background: rgba(255, 215, 0, 0.1);
+        }
+        
+        .param-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            font-weight: 600;
+        }
+        
+        .expand-icon {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+            color: #DA70D6;
+        }
+        
+        .expandable-param.expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+        
+        .param-detail {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            margin-top: 0;
+            padding: 0;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.7);
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+        }
+        
+        .expandable-param.expanded .param-detail {
+            max-height: 220px;
+            margin-top: 1rem;
+            padding: 1rem;
+        }
+        
+        /* System Integrations */
+        .integrations-section {
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.08) 0%, rgba(0, 0, 0, 0.3) 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(138, 43, 226, 0.2);
+        }
+        
+        .integration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .integration-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(138, 43, 226, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .integration-card:hover {
+            transform: translateY(-3px);
+            background: rgba(138, 43, 226, 0.1);
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.2);
+        }
+        
+        .integration-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .planet-combo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .combo-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #DA70D6;
+        }
+        
+        .combo-effect {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .combo-expand {
+            font-size: 0.8rem;
+            color: #DA70D6;
+            transition: transform 0.3s ease;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+        
+        .integration-card.expanded .combo-expand {
+            transform: rotate(180deg);
+        }
+        
+        .combo-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            margin-top: 0;
+        }
+        
+        .integration-card.expanded .combo-details {
+            max-height: 500px;
+            margin-top: 1.5rem;
+        }
+        
+        .combo-section {
+            margin-bottom: 1.5rem;
+        }
+        
+        .combo-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .combo-section-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #FFD700;
+        }
+        
+        .combo-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .combo-section li {
+            padding: 0.4rem 0;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            border-bottom: 1px solid rgba(138, 43, 226, 0.1);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        
+        .combo-section li::before {
+            content: '🔹';
+            color: #DA70D6;
+            font-size: 0.8rem;
+            margin-top: 0.1rem;
+            flex-shrink: 0;
+        }
+        
+        /* Practical Applications */
+        .applications-section {
+            margin-bottom: 3rem;
+        }
+        
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .application-card {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.08) 0%, rgba(0, 0, 0, 0.4) 100%);
+            border-left: 4px solid #FFD700;
+            border-radius: 15px;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .app-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .app-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #DA70D6;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        
+        .app-description {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .app-tips {
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 10px;
+            padding: 1rem;
+            border-left: 3px solid #FFD700;
+        }
+        
+        .app-tips-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #FFD700;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+        
+        .app-tips-text {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.4;
+        }
+        
+        /* Personalization Tools */
+        .personalization-section {
+            background: linear-gradient(135deg, rgba(255, 165, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 2px solid rgba(255, 165, 0, 0.3);
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .tool-card {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 215, 0, 0.1);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.3);
+        }
+        
+        .tool-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+            animation: wisdomPulse 2.5s ease-in-out infinite alternate;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .tool-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #FFD700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .tool-description {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .tool-button {
+            background: linear-gradient(135deg, #FFD700 0%, #DA70D6 100%);
+            color: #1a1a2e;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .tool-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+        }
+        
+        /* Animations */
+        @keyframes jupiterPulse {
+            from { 
+                transform: scale(1);
+                filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+            }
+            to { 
+                transform: scale(1.08);
+                filter: drop-shadow(0 0 35px rgba(255, 215, 0, 0.8));
+            }
+        }
+        
+        @keyframes jupiterStatusPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(0.9); }
+        }
+        
+        @keyframes wisdomPulse {
+            from { opacity: 0.8; transform: scale(1) rotate(0deg); }
+            to { opacity: 1; transform: scale(1.05) rotate(5deg); }
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .jupiter-nav {
+                flex-direction: column;
+                gap: 2rem;
+                padding: 0 1rem;
+            }
+            
+            .jupiter-title {
+                font-size: 2.5rem;
+            }
+            
+            .jupiter-content {
+                padding: 2rem 1rem;
+            }
+            
+            .wisdom-overview,
+            .integrations-section,
+            .personalization-section {
+                padding: 2rem;
+            }
+            
+            .jupiter-specs-grid,
+            .parameters-grid,
+            .integration-grid,
+            .applications-grid,
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .jupiter-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .jupiter-icon {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Jupiter Cosmic Orbs -->
+    <div class="jupiter-particles" id="jupiterParticles"></div>
+
+    <!-- Header Navigation -->
+    <header class="jupiter-header">
+        <nav class="jupiter-nav">
+            <a href="../planetary-intelligence.html" class="back-button">
+                <span>←</span>
+                <span>Back to Portal</span>
+            </a>
+            
+            <div class="jupiter-title-section">
+                <div class="jupiter-icon">♃</div>
+                <h1 class="jupiter-title">Jupiter</h1>
+                <h2 class="jupiter-subtitle">Wisdom Expander</h2>
+            </div>
+            
+            <div class="jupiter-status">
+                <div class="jupiter-status-dot"></div>
+                <span>Expanding</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="jupiter-content">
+        <!-- Jupiter Prayer Section -->
+        <section class="wisdom-prayer-section">
+            <div class="prayer-container">
+                <h2 class="section-title">
+                    <span class="section-icon">🙏</span>
+                    Jupiter Invocation Prayer
+                </h2>
+                
+                <div class="prayer-content">
+                    <div class="sanskrit-prayer">
+                        <div class="prayer-sanskrit">देवानां ऋषीणां च गुरुं कांचनसन्निभम् ।<br>बुद्धिभूतं त्रिलोकेशं तं नमामि बृहस्पतिम् ॥</div>
+                        <div class="prayer-pronunciation">Devānāṃ ṛṣīṇāṃ ca guruṃ kāñcanasannibham |<br>Buddhibhūtaṃ trilokeśaṃ taṃ namāmi bṛhaspatim ||</div>
+                        <div class="prayer-english">I bow to Brihaspati, the teacher of gods and sages, golden in appearance,<br>the embodiment of wisdom, the lord of the three worlds.</div>
+                        <div class="prayer-meaning">
+                            <strong>Meaning:</strong> This prayer honors Jupiter (Brihaspati/Guru) as the divine source of wisdom, knowledge, and spiritual guidance. 
+                            We invoke his power for expanded consciousness, profound learning, ethical guidance, spiritual growth, and the ability to teach and inspire others 
+                            with higher wisdom and universal principles.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wisdom Overview -->
+        <section class="wisdom-overview">
+            <div class="overview-content">
+                <h2 class="section-title">
+                    <span class="section-icon">🧠</span>
+                    Processor Overview
+                </h2>
+                <p class="overview-description">
+                    Jupiter operates as the <strong>Wisdom Expander</strong> in your cosmic computing system. 
+                    This high-capacity processor manages knowledge integration, philosophical reasoning, and consciousness expansion. 
+                    When optimally tuned, Jupiter transforms information into wisdom, experience into understanding, and learning into teaching capability.
+                </p>
+                
+                <div class="jupiter-specs-grid">
+                    <div class="spec-card">
+                        <div class="spec-title">Core Function</div>
+                        <div class="spec-value">Knowledge Expansion & Wisdom Integration</div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-title">Operating Frequency</div>
+                        <div class="spec-value">Deep & Expansive</div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-title">Primary Element</div>
+                        <div class="spec-value">Ether (Akasha)</div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-title">Processing Style</div>
+                        <div class="spec-value">Holistic, Philosophical, Teaching-Oriented</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Operational Parameters -->
+        <section class="operational-section">
+            <h2 class="section-title">
+                <span class="section-icon">⚙️</span>
+                Operational Parameters
+            </h2>
+            
+            <div class="parameters-grid">
+                <div class="parameter-card">
+                    <div class="parameter-header">
+                        <div class="parameter-icon">🌟</div>
+                        <div class="parameter-title">Strengths</div>
+                    </div>
+                    <ul class="parameter-list">
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Vast knowledge integration and wisdom synthesis</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Jupiter excels at connecting diverse knowledge domains, seeing big-picture patterns, and synthesizing wisdom from multiple sources. 
+                                Strong Jupiter energy manifests as natural teaching ability, philosophical depth, and capacity to understand universal principles 
+                                that govern success and meaning.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Natural teaching and mentoring abilities</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Jupiter individuals are natural gurus, coaches, and wisdom sharers who can explain complex concepts with clarity and inspiration. 
+                                They excel at guiding others toward growth, understanding, and higher potential through patient instruction and ethical guidance.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Optimism and expansive vision</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Strong Jupiter creates natural optimism, faith in possibilities, and ability to envision grand futures. This expansive mindset 
+                                enables breakthrough thinking, ambitious goal-setting, and resilience through challenges by maintaining perspective on larger purposes.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Ethical leadership and moral compass</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Jupiter provides strong ethical foundation, moral reasoning, and principled decision-making. This creates natural authority based on 
+                                wisdom rather than power, inspiring others through integrity, fairness, and commitment to higher values and universal good.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Spiritual growth and higher purpose connection</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Strong Jupiter enables connection to spiritual dimensions, understanding of life's deeper meanings, and alignment with higher purposes. 
+                                This manifests as wisdom-seeking, spiritual practices, and ability to find meaning and growth opportunities in all experiences.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Abundance mindset and generous prosperity</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Jupiter creates natural abundance consciousness, generous sharing, and prosperity that benefits others. This includes both material wealth 
+                                generated through wisdom and value creation, and spiritual abundance through teaching, mentoring, and uplifting communities.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="parameter-card">
+                    <div class="parameter-header">
+                        <div class="parameter-icon">⚠️</div>
+                        <div class="parameter-title">Limitations</div>
+                    </div>
+                    <ul class="parameter-list">
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Over-expansion and lack of focus</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Excessive Jupiter energy can lead to scattered attention, taking on too many projects, or pursuing too many interests without mastery. 
+                                This can manifest as perpetual student syndrome, inability to specialize, or expansion beyond sustainable capacity.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Dogmatic thinking and righteousness</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Strong Jupiter can sometimes create excessive certainty, preachiness, or inability to question one's own beliefs. This may manifest 
+                                as moral superiority, inflexibility with different viewpoints, or tendency to lecture rather than truly listen and learn.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Excessive optimism and unrealistic expectations</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Jupiter's expansive nature can create over-optimism that ignores practical limitations, realistic timelines, or necessary preparations. 
+                                This can lead to over-promising, under-delivering, or failure to account for obstacles and challenges that require practical solutions.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Theoretical knowledge without practical application</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Strong Jupiter can emphasize abstract understanding over concrete implementation, leading to knowledge accumulation without practical results. 
+                                This can manifest as academic approach to life problems that need hands-on solutions, or teaching without real-world experience.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Indulgence and excess tendency</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Jupiter's abundance energy can sometimes manifest as over-indulgence, excess consumption, or difficulty with moderation and discipline. 
+                                This can affect health, finances, or productivity when expansion lacks the balancing influence of Saturn's structure and limits.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Impatience with details and routine tasks</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Jupiter's big-picture focus can create impatience with necessary details, routine maintenance, or incremental progress. This can lead to 
+                                neglecting important foundations, delegation without oversight, or rushing through processes that require careful attention and patience.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- System Integrations -->
+        <section class="integrations-section">
+            <h2 class="section-title">
+                <span class="section-icon">🔗</span>
+                System Integrations
+            </h2>
+            
+            <div class="integration-grid">
+                <!-- Two Planet Combinations -->
+                <div class="integration-card" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">♃ + ☀</div>
+                        <div class="combo-name">Jupiter + Sun</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        The enlightened leader. Wisdom combined with authority creates natural spiritual and intellectual leadership.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Natural authority in teaching and guidance roles</li>
+                                <li>Ethical leadership with wisdom-based decisions</li>
+                                <li>Ability to inspire others toward higher purposes</li>
+                                <li>Strong moral compass with executive capability</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>Risk of becoming overly authoritative or preachy</li>
+                                <li>May struggle with criticism or alternative viewpoints</li>
+                                <li>Tendency toward grandiosity or inflated ego</li>
+                                <li>Can become impatient with slower learners</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="integration-card" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">♃ + 🌙</div>
+                        <div class="combo-name">Jupiter + Moon</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        The compassionate teacher. Wisdom blended with emotional intelligence creates nurturing guidance.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Emotionally intelligent teaching and mentoring</li>
+                                <li>Natural counseling and healing abilities</li>
+                                <li>Intuitive wisdom that resonates with others</li>
+                                <li>Ability to create safe learning environments</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>May become overly protective or codependent</li>
+                                <li>Emotional fluctuations can affect teaching consistency</li>
+                                <li>Risk of enabling rather than empowering</li>
+                                <li>Can be too gentle when firm guidance is needed</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="integration-card" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">♃ + ☿</div>
+                        <div class="combo-name">Jupiter + Mercury</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        The brilliant educator. Wisdom combined with communication creates exceptional teaching abilities.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Exceptional ability to explain complex concepts clearly</li>
+                                <li>Natural writing and publishing talents</li>
+                                <li>Quick learning and broad knowledge base</li>
+                                <li>Excellent at curriculum development and education</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>May over-intellectualize spiritual or emotional matters</li>
+                                <li>Risk of becoming overly verbose or academic</li>
+                                <li>Can lose practical focus in theoretical discussions</li>
+                                <li>May prioritize clever communication over depth</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="integration-card" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">♃ + ♀</div>
+                        <div class="combo-name">Jupiter + Venus</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        The graceful guide. Wisdom combined with beauty creates harmonious and attractive teaching.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Naturally attractive and magnetic teaching presence</li>
+                                <li>Ability to make wisdom beautiful and appealing</li>
+                                <li>Excellent at creating harmonious learning environments</li>
+                                <li>Strong diplomatic and counseling abilities</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>May prioritize popularity over truth</li>
+                                <li>Risk of avoiding difficult but necessary lessons</li>
+                                <li>Can become overly concerned with appearance</li>
+                                <li>May compromise standards to maintain harmony</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Three Planet Combinations -->
+                <div class="integration-card" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">♃ + ☀ + ☿</div>
+                        <div class="combo-name">Jupiter + Sun + Mercury</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        The "Divine Teacher" combination. Wisdom, authority, and communication create masterful educators.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>World-class teaching and educational leadership</li>
+                                <li>Natural authority in intellectual and spiritual domains</li>
+                                <li>Exceptional writing and speaking abilities</li>
+                                <li>Perfect balance of wisdom, clarity, and confidence</li>
+                                <li>Natural curriculum development and educational innovation</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>Risk of intellectual arrogance or superiority</li>
+                                <li>May become overly theoretical without practical application</li>
+                                <li>Can be intolerant of different learning styles</li>
+                                <li>May lecture rather than engage in dialogue</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="integration-card" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">♃ + 🌙 + ♀</div>
+                        <div class="combo-name">Jupiter + Moon + Venus</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        The "Compassionate Sage" combination. Wisdom, emotion, and beauty create healing guidance.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Exceptional healing and therapeutic abilities</li>
+                                <li>Natural wisdom in relationships and emotional matters</li>
+                                <li>Ability to create beautiful, nurturing learning spaces</li>
+                                <li>Perfect for counseling, coaching, and spiritual guidance</li>
+                                <li>Magnetic teaching presence with deep empathy</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>May become overly permissive or indulgent</li>
+                                <li>Risk of enabling unhealthy patterns in others</li>
+                                <li>Can avoid necessary confrontation or difficult truths</li>
+                                <li>May prioritize comfort over growth</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practical Applications -->
+        <section class="applications-section">
+            <h2 class="section-title">
+                <span class="section-icon">🛠️</span>
+                Practical Applications
+            </h2>
+            
+            <div class="applications-grid">
+                <div class="application-card">
+                    <div class="app-icon">📚</div>
+                    <div class="app-title">Teaching & Education</div>
+                    <div class="app-description">
+                        Channel Jupiter energy for creating comprehensive learning systems, developing curriculum, 
+                        and mentoring others in their growth and development journeys.
+                    </div>
+                    <div class="app-tips">
+                        <div class="app-tips-title">Wisdom Tip:</div>
+                        <div class="app-tips-text">Thursday is Jupiter's day - perfect for philosophical study, teaching, and expanding knowledge horizons.</div>
+                    </div>
+                </div>
+                
+                <div class="application-card">
+                    <div class="app-icon">🎯</div>
+                    <div class="app-title">Vision & Strategy</div>
+                    <div class="app-description">
+                        Use Jupiter for long-term vision development, strategic planning, and seeing the bigger picture 
+                        that connects all elements into coherent, purposeful direction.
+                    </div>
+                    <div class="app-tips">
+                        <div class="app-tips-title">Enhancement:</div>
+                        <div class="app-tips-text">Yellow sapphire and topaz enhance Jupiter's wisdom and visionary capabilities significantly.</div>
+                    </div>
+                </div>
+                
+                <div class="application-card">
+                    <div class="app-icon">⚖️</div>
+                    <div class="app-title">Ethics & Leadership</div>
+                    <div class="app-description">
+                        Activate Jupiter for ethical decision-making, principled leadership, and creating systems 
+                        that serve higher purposes while maintaining moral integrity.
+                    </div>
+                    <div class="app-tips">
+                        <div class="app-tips-title">Method:</div>
+                        <div class="app-tips-text">Regular philosophical study and ethical reflection strengthen Jupiter's guidance system.</div>
+                    </div>
+                </div>
+                
+                <div class="application-card">
+                    <div class="app-icon">🌱</div>
+                    <div class="app-title">Growth & Expansion</div>
+                    <div class="app-description">
+                        Strong Jupiter enables sustainable expansion, wise risk-taking, and growth strategies 
+                        that create abundance while serving the greater good.
+                    </div>
+                    <div class="app-tips">
+                        <div class="app-tips-title">Success Factor:</div>
+                        <div class="app-tips-text">Jupiter thrives when expansion serves others - teaching, sharing knowledge, and uplifting communities.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personalization Tools -->
+        <section class="personalization-section">
+            <h2 class="section-title">
+                <span class="section-icon">🎛️</span>
+                Personalization Tools
+            </h2>
+            
+            <div class="tools-grid">
+                <div class="tool-card" onclick="launchJupiterTool('strength')">
+                    <div class="tool-icon">🔮</div>
+                    <div class="tool-title">Jupiter Strength Analyzer</div>
+                    <div class="tool-description">
+                        Calculate your personal Jupiter wisdom level based on sign placement, 
+                        house position, and planetary aspects affecting knowledge expansion.
+                    </div>
+                    <button class="tool-button">Analyze Now</button>
+                </div>
+                
+                <div class="tool-card" onclick="launchJupiterTool('timing')">
+                    <div class="tool-icon">📅</div>
+                    <div class="tool-title">Wisdom Timing</div>
+                    <div class="tool-description">
+                        Discover optimal timing for learning, teaching, expansion, and major 
+                        decisions based on Jupiter transits and wisdom cycles.
+                    </div>
+                    <button class="tool-button">Check Timing</button>
+                </div>
+                
+                <div class="tool-card" onclick="launchJupiterTool('optimization')">
+                    <div class="tool-icon">⭐</div>
+                    <div class="tool-title">Jupiter Optimization</div>
+                    <div class="tool-description">
+                        Get personalized recommendations for enhancing Jupiter energy through 
+                        study methods, teaching practices, and wisdom-building exercises.
+                    </div>
+                    <button class="tool-button">Optimize Jupiter</button>
+                </div>
+                
+                <div class="tool-card" onclick="launchJupiterTool('mentorship')">
+                    <div class="tool-icon">👨‍🏫</div>
+                    <div class="tool-title">Mentorship Matching</div>
+                    <div class="tool-description">
+                        Understand your teaching style, learning preferences, and optimal 
+                        mentor-student relationships for knowledge sharing and growth.
+                    </div>
+                    <button class="tool-button">Find Matches</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Jupiter Wisdom Orbs Animation
+        function createJupiterParticles() {
+            const container = document.getElementById('jupiterParticles');
+            const particleCount = 20; // Fewer, larger orbs for Jupiter's majestic nature
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'jupiter-orb';
+                
+                // Varied sizes for wisdom orbs
+                const size = Math.random() * 8 + 4; // 4-12px
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.animationDelay = Math.random() * 10 + 's';
+                particle.style.animationDuration = (Math.random() * 8 + 12) + 's'; // Slower, more majestic
+                container.appendChild(particle);
+            }
+        }
+        
+        // Jupiter Tool Launcher
+        function launchJupiterTool(toolType) {
+            const toolMessages = {
+                'strength': '🔮 Jupiter Strength Analysis\n\nThis tool would analyze your birth chart to determine:\n• Jupiter sign strength (exaltation, debilitation)\n• House placement power and wisdom domains\n• Aspect influences and teaching abilities\n• Overall Jupiter wisdom rating (1-100)\n\nComing soon with comprehensive astrological calculations!',
+                'timing': '📅 Wisdom Timing Guide\n\nThis tool would provide:\n• Best dates for learning and teaching\n• Jupiter transit predictions\n• Optimal timing for expansion and major decisions\n• Educational and spiritual growth periods\n\nAdvanced Jupiter algorithms in development!',
+                'optimization': '⭐ Jupiter Optimization Suite\n\nPersonalized recommendations including:\n• Gemstone suggestions (Yellow Sapphire, Topaz)\n• Wisdom mantras and philosophical studies\n• Teaching methods and learning techniques\n• Expansion strategies and growth planning\n• Spiritual practices for consciousness development\n\nComprehensive optimization system coming soon!',
+                'mentorship': '👨‍🏫 Mentorship Matching Analysis\n\nThis tool would analyze:\n• Your teaching style and preferences\n• Optimal learning environments and methods\n• Mentor-student compatibility patterns\n• Knowledge sharing and wisdom exchange dynamics\n\nAdvanced mentorship algorithms in development!'
+            };
+            
+            alert(toolMessages[toolType]);
+        }
+        
+        // Toggle Parameter Detail
+        function toggleParameterDetail(element) {
+            const isExpanded = element.classList.contains('expanded');
+            
+            // Close all other expanded parameters in the same section
+            const allParams = element.parentElement.querySelectorAll('.expandable-param');
+            allParams.forEach(param => {
+                param.classList.remove('expanded');
+            });
+            
+            // Toggle current parameter
+            if (!isExpanded) {
+                element.classList.add('expanded');
+            }
+        }
+        
+        // Toggle Combination Detail
+        function toggleComboDetail(element) {
+            const isExpanded = element.classList.contains('expanded');
+            
+            // Close all other expanded combinations
+            const allCombos = document.querySelectorAll('.integration-card');
+            allCombos.forEach(combo => {
+                combo.classList.remove('expanded');
+            });
+            
+            // Toggle current combination
+            if (!isExpanded) {
+                element.classList.add('expanded');
+            }
+        }
+        
+        // Smooth Scrolling for Internal Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Initialize Jupiter Effects
+        document.addEventListener('DOMContentLoaded', function() {
+            createJupiterParticles();
+            
+            // Add hover effects to cards
+            const cards = document.querySelectorAll('.spec-card, .parameter-card, .integration-card, .application-card, .tool-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

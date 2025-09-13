@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="description" content="Venus Beauty Harmonizer - Aesthetics, relationships, art, and graceful abundance">
+  <meta name="keywords" content="venus, shukra, beauty, harmony, relationships, art, diplomacy, vedic astrology">
+  <meta name="author" content="Acharya Anish">
+  <title>♀ Venus Beauty Harmonizer - Planetary Intelligence Portal</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>♀</text></svg>
+  ">
+  <style>
+    /* ♀ VENUS BEAUTY HARMONIZER — PINK/ROSE AESTHETIC */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: radial-gradient(1200px 800px at 20% 10%, rgba(255, 105, 180, 0.08), transparent 60%),
+                  radial-gradient(1000px 700px at 80% 90%, rgba(255, 183, 197, 0.08), transparent 60%),
+                  linear-gradient(135deg, #1c0f16 0%, #2a0f1f 50%, #2a1030 100%);
+      color: #fff;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Floating petals/particles */
+    .venus-particles { position: fixed; inset: 0; pointer-events: none; z-index: 1; }
+    .venus-petal {
+      position: absolute; width: 6px; height: 10px; border-radius: 50% 50% 40% 40%;
+      background: radial-gradient(circle at 30% 30%, #ffd1e8 0%, #ff99cc 40%, #ff4da6 80%);
+      opacity: 0.9; filter: blur(0.2px);
+      animation: floatPetal linear infinite;
+    }
+    @keyframes floatPetal {
+      0% { transform: translateY(105vh) rotate(0deg) translateX(0); opacity: 0; }
+      5% { opacity: 1; }
+      100% { transform: translateY(-10vh) rotate(360deg) translateX(20px); opacity: 0; }
+    }
+
+    /* Header */
+    .header { background: linear-gradient(135deg, rgba(255, 157, 202, 0.15), rgba(180, 140, 255, 0.12));
+      border-bottom: 2px solid rgba(255, 157, 202, 0.35); position: relative; z-index: 2; }
+    .nav { max-width: 1400px; margin: 0 auto; padding: 1.2rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .back { display: inline-flex; align-items: center; gap: .6rem; padding: .7rem 1.2rem; border-radius: 24px;
+      color: #ffd1e8; text-decoration: none; font-weight: 800; letter-spacing: .5px; text-transform: uppercase;
+      border: 2px solid rgba(255, 157, 202, 0.45); background: rgba(255, 157, 202, 0.18); transition: .25s ease; }
+    .back:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255, 157, 202, .35); }
+    .title-sec { text-align: center; }
+    .planet-icon { font-size: 3.8rem; filter: drop-shadow(0 0 18px rgba(255, 157, 202, .6)); margin-bottom: .3rem; animation: venusPulse 1.6s ease-in-out infinite alternate; }
+    .title { font-size: 3rem; font-weight: 900; background: linear-gradient(135deg, #ff9dca, #ff79c6 50%, #ffa6ff);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 1px; text-transform: uppercase; }
+    .subtitle { font-size: 1.15rem; opacity: .9; font-weight: 600; }
+    .status { display: inline-flex; align-items: center; gap: .5rem; padding: .55rem .9rem; border-radius: 18px;
+      border: 2px solid rgba(233, 30, 99, 0.45); background: rgba(233, 30, 99, 0.16); color: #ff9dca; font-weight: 800;
+      text-transform: uppercase; letter-spacing: .4px; }
+    .status-dot { width: 10px; height: 10px; border-radius: 50%; background: #ff79c6; animation: statusPulse 1.1s ease-in-out infinite; }
+
+    /* Content wrapper */
+    .content { max-width: 1400px; margin: 0 auto; padding: 2rem; position: relative; z-index: 2; }
+
+    /* Prayer Section */
+    .prayer { background: linear-gradient(135deg, rgba(255, 157, 202, .12), rgba(180, 140, 255, .10) 50%, rgba(0,0,0,.25));
+      border: 2px solid rgba(255, 157, 202, .35); border-radius: 26px; padding: 2.2rem; margin: 2rem 0; text-align: center; }
+    .section-title { display: flex; align-items: center; gap: .8rem; font-size: 2rem; font-weight: 900; letter-spacing: .7px; margin: 0 0 1.2rem 0;
+      color: #ff9dca; text-transform: uppercase; filter: drop-shadow(0 0 10px rgba(255, 157, 202, .35)); }
+    .section-icon { font-size: 2.2rem; }
+    .prayer-box { background: rgba(0,0,0,.35); border: 1px solid rgba(255, 157, 202, .25); border-radius: 18px; padding: 1.6rem; max-width: 900px; margin: 0 auto; }
+    .sanskrit { font-family: 'Times New Roman', serif; font-size: 1.6rem; line-height: 1.8; color: #ffd1e8; text-shadow: 0 2px 10px rgba(255, 157, 202, .35); margin-bottom: 1rem; }
+    .pronounce { font-family: 'Times New Roman', serif; font-size: 1.2rem; color: #ffb7d1; font-style: italic; margin-bottom: 1rem; }
+    .english { font-size: 1.05rem; opacity: .95; margin-bottom: 1rem; }
+    .meaning { text-align: left; background: rgba(255, 157, 202, .10); border-left: 4px solid #ff79c6; padding: 1rem 1.2rem; border-radius: 12px; color: #ffe6f3; }
+
+    /* Overview */
+    .overview { background: linear-gradient(135deg, rgba(255, 121, 198, .12), rgba(0,0,0,.35)); border: 2px solid rgba(255,121,198,.35);
+      border-radius: 22px; padding: 2.2rem; margin: 2rem 0; position: relative; overflow: hidden; }
+    .overview p { font-size: 1.15rem; line-height: 1.75; color: rgba(255,255,255,.92); }
+    .specs { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; margin-top: 1.4rem; }
+    .spec { background: rgba(0,0,0,.4); border: 1px solid rgba(255, 157, 202, .28); border-radius: 16px; padding: 1.2rem; transition: .25s ease; }
+    .spec:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(255, 157, 202, .22); border-color: rgba(255,157,202,.45); }
+    .spec-title { color: #ffb7d1; font-weight: 800; margin-bottom: .4rem; letter-spacing: .4px; text-transform: uppercase; font-size: .95rem; }
+    .spec-val { color: rgba(255,255,255,.85); }
+
+    /* Parameters */
+    .params { margin: 2rem 0; }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 1.4rem; }
+    .card { background: linear-gradient(135deg, rgba(255, 183, 197, .10), rgba(0,0,0,.35)); border: 1px solid rgba(255, 157, 202, .28);
+      border-radius: 20px; padding: 1.6rem; }
+    .card-head { display: flex; align-items: center; gap: .9rem; margin-bottom: 1rem; }
+    .card-icon { width: 48px; height: 48px; display: grid; place-items: center; border-radius: 50%;
+      border: 2px solid rgba(255, 157, 202, .45); background: rgba(255, 157, 202, .18); font-size: 1.35rem; }
+    .card-title { font-size: 1.35rem; font-weight: 900; color: #ff9dca; text-transform: uppercase; letter-spacing: .6px; }
+
+    .list { list-style: none; }
+    .item { padding: .55rem 0; border-bottom: 1px solid rgba(255, 157, 202, .14); display: flex; align-items: center; gap: .6rem; cursor: pointer; border-radius: 8px; }
+    .item::before { content: '▸'; color: #ff79c6; font-weight: 900; }
+    .item:hover { background: rgba(255, 157, 202, .10); }
+    .item .label { display: flex; align-items: center; justify-content: space-between; gap: .8rem; width: 100%; font-weight: 600; }
+    .expand { font-size: .8rem; color: #ff79c6; transition: transform .25s ease; }
+    .detail { max-height: 0; overflow: hidden; transition: all .35s ease; font-size: .95rem; color: rgba(255,255,255,.78);
+      background: rgba(0,0,0,.35); border-radius: 8px; margin-top: 0; padding: 0; }
+    .item.expanded .detail { max-height: 220px; margin-top: .7rem; padding: .8rem; }
+    .item.expanded .expand { transform: rotate(180deg); }
+
+    /* Integrations */
+    .integrations { background: linear-gradient(135deg, rgba(180, 140, 255, .10), rgba(0,0,0,.35)); border: 1px solid rgba(180, 140, 255, .28);
+      border-radius: 22px; padding: 2rem; margin: 2rem 0; }
+    .igrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.2rem; margin-top: 1.2rem; }
+    .icard { background: rgba(0,0,0,.35); border: 1px solid rgba(180, 140, 255, .30); border-radius: 16px; padding: 1.2rem; cursor: pointer; position: relative; transition: .25s ease; }
+    .icard:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(180,140,255,.22); background: rgba(180, 140, 255, .08); }
+    .ihead { display: flex; align-items: center; gap: .8rem; margin-bottom: .6rem; }
+    .pcombo { font-size: 1.4rem; }
+    .cname { font-weight: 800; color: #cdb3ff; }
+    .ceffect { color: rgba(255,255,255,.85); font-size: .95rem; }
+    .icard .cexpand { position: absolute; top: 14px; right: 14px; font-size: .8rem; color: #cdb3ff; transition: transform .25s ease; }
+    .cdetails { max-height: 0; overflow: hidden; transition: all .35s ease; }
+    .icard.expanded .cdetails { max-height: 520px; margin-top: .8rem; }
+    .icard.expanded .cexpand { transform: rotate(180deg); }
+    .csec { margin-bottom: .8rem; }
+    .csec h4 { margin: 0 0 .5rem 0; font-size: .95rem; font-weight: 900; color: #ffb7d1; }
+    .csec ul { list-style: none; padding: 0; margin: 0; }
+    .csec li { padding: .35rem 0; border-bottom: 1px solid rgba(180,140,255,.14); color: rgba(255,255,255,.85); display: flex; gap: .5rem; align-items: flex-start; }
+    .csec li::before { content: '▸'; color: #cdb3ff; font-weight: 900; flex-shrink: 0; margin-top: .1rem; }
+
+    /* Applications */
+    .apps { margin: 2rem 0; }
+    .agrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.2rem; }
+    .app { background: linear-gradient(135deg, rgba(255, 121, 198, .10), rgba(0,0,0,.4)); border-left: 4px solid #ff79c6;
+      border-radius: 16px; padding: 1.4rem; }
+    .app .icon { font-size: 2.2rem; margin-bottom: .5rem; display: block; }
+    .app .title { font-size: 1.15rem; font-weight: 900; color: #ffb7d1; letter-spacing: .4px; text-transform: uppercase; margin-bottom: .5rem; }
+    .app .desc { color: rgba(255,255,255,.88); margin-bottom: .9rem; line-height: 1.55; }
+    .tips { background: rgba(255, 157, 202, .10); border-left: 3px solid #ff79c6; border-radius: 10px; padding: .8rem; }
+    .tips .t { font-size: .86rem; color: rgba(255,255,255,.82); }
+
+    /* Tools */
+    .tools { background: linear-gradient(135deg, rgba(255, 183, 197, .10), rgba(0,0,0,.38)); border: 2px solid rgba(255,183,197,.30);
+      border-radius: 22px; padding: 2rem; margin: 2rem 0; }
+    .tgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.2rem; margin-top: 1rem; }
+    .tool { background: rgba(0,0,0,.45); border: 1px solid rgba(255,157,202,.30); border-radius: 16px; padding: 1.4rem; text-align: center; transition: .25s ease; position: relative; overflow: hidden; cursor: pointer; }
+    .tool:hover { transform: translateY(-5px); background: rgba(255,157,202,.12); box-shadow: 0 16px 38px rgba(255,157,202,.28); }
+    .tool .ticon { font-size: 2.6rem; margin-bottom: .5rem; display: block; animation: venusPulse 2s ease-in-out infinite alternate; }
+    .tool .ttitle { font-weight: 900; color: #ff9dca; text-transform: uppercase; letter-spacing: .5px; margin-bottom: .4rem; }
+    .tool .tdesc { color: rgba(255,255,255,.86); font-size: .95rem; line-height: 1.5; margin-bottom: .9rem; }
+    .tool .btn { background: linear-gradient(135deg, #ff9dca, #cdb3ff); color: #2a0f1f; font-weight: 900; border: 0; padding: .7rem 1.2rem; border-radius: 22px; cursor: pointer; letter-spacing: .4px; }
+
+    /* Animations */
+    @keyframes venusPulse { from { transform: scale(1); filter: drop-shadow(0 0 16px rgba(255, 157, 202, .55)); } to { transform: scale(1.04); filter: drop-shadow(0 0 26px rgba(255, 157, 202, .85)); } }
+    @keyframes statusPulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: .75; transform: scale(.92); } }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav { 
+        flex-direction: column; 
+        gap: 1.5rem; 
+        padding: 0 1rem;
+      }
+      .content { 
+        padding: 2rem 1rem; 
+      }
+      .grid-2, .specs, .igrid, .agrid, .tgrid { 
+        grid-template-columns: 1fr; 
+        gap: 1rem;
+      }
+      .title { 
+        font-size: 2.5rem; 
+      }
+      .section-title { 
+        font-size: 1.8rem; 
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+      }
+      .section-icon {
+        font-size: 2rem;
+      }
+      .overview, .integrations, .tools {
+        padding: 2rem;
+        margin: 1.5rem 0;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .title {
+        font-size: 2rem;
+      }
+      .section-title {
+        font-size: 1.5rem;
+      }
+      .planet-icon {
+        font-size: 3rem;
+      }
+      .content {
+        padding: 1.5rem 0.8rem;
+      }
+      .overview, .integrations, .tools {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="venus-particles" id="venusParticles"></div>
+
+  <header class="header">
+    <nav class="nav">
+      <a class="back" href="../planetary-intelligence.html">← Back to Portal</a>
+      <div class="title-sec">
+        <div class="planet-icon">♀</div>
+        <h1 class="title">Venus</h1>
+        <div class="subtitle">Beauty Harmonizer</div>
+      </div>
+      <div class="status"><span class="status-dot"></span> Harmony Online</div>
+    </nav>
+  </header>
+
+  <main class="content">
+    <!-- Prayer -->
+    <section class="prayer">
+      <h2 class="section-title"><span class="section-icon">🙏</span> Venus Invocation Prayer</h2>
+      <div class="prayer-box">
+        <div class="sanskrit">हिमकुण्डमृणालाभं दैत्यानां परमं गुरुम् ।<br>सर्वशास्त्रप्रवक्तारं भार्गवं प्रणमाम्यहम् ॥</div>
+        <div class="pronounce">Himakuṇḍa-mṛṇālābhaṃ daityānāṃ paramaṃ gurum |<br>Sarva-śāstra-pravaktāraṃ Bhārgavaṃ praṇamāmyaham ||</div>
+        <div class="english">I bow to Shukra (Venus), radiant like snow and lotus fiber, the supreme teacher of the asuras,<br>the expounder of all knowledge, the venerable Bhargava.</div>
+        <div class="meaning"><strong>Meaning:</strong> We invoke Venus as the power of beauty, harmony, art, relationships, refinement and gracious abundance. May Shukra grant refined taste, loving connection, creative inspiration, and elegant prosperity aligned with dharma.</div>
+      </div>
+    </section>
+
+    <!-- Overview -->
+    <section class="overview">
+      <h2 class="section-title"><span class="section-icon">💗</span> Processor Overview</h2>
+      <p>Venus operates as the <strong>Beauty Harmonizer</strong> in your planetary system. It tunes aesthetics, relationships, and values so systems feel coherent and welcoming. When Venus is balanced, design becomes elegant, communication becomes kind, wealth flows with grace, and daily life feels artistically arranged.</p>
+      <div class="specs">
+        <div class="spec"><div class="spec-title">Core Function</div><div class="spec-val">Aesthetics, Relationships, Values</div></div>
+        <div class="spec"><div class="spec-title">Operating Frequency</div><div class="spec-val">Graceful • Pleasing • Magnetic</div></div>
+        <div class="spec"><div class="spec-title">Primary Element</div><div class="spec-val">Water (Jala) + Air (Vāyu)</div></div>
+        <div class="spec"><div class="spec-title">Processing Style</div><div class="spec-val">Harmonic, Diplomatic, Pleasure-Oriented</div></div>
+      </div>
+    </section>
+
+    <!-- Parameters -->
+    <section class="params">
+      <h2 class="section-title"><span class="section-icon">⚙️</span> Operational Parameters</h2>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-head"><div class="card-icon">✨</div><div class="card-title">Strengths</div></div>
+          <ul class="list">
+            <li class="item" onclick="toggleItem(this)"><div class="label">Aesthetic intelligence & refined taste<span class="expand">▼</span></div><div class="detail">Natural sense of color, proportion, layout, and sensory balance. Elevates design, branding, and any environment to feel inviting and premium.</div></li>
+            <li class="item" onclick="toggleItem(this)"><div class="label">Relationship building & diplomacy<span class="expand">▼</span></div><div class="detail">Creates harmony between people, resolves conflicts with grace, and nurtures bonds through kindness, tact, and emotional presence.</div></li>
+            <li class="item" onclick="toggleItem(this)"><div class="label">Charisma, charm & attraction<span class="expand">▼</span></div><div class="detail">Magnetic presence that draws opportunities, collaborations, and goodwill. Excellent for community growth and audience connection.</div></li>
+            <li class="item" onclick="toggleItem(this)"><div class="label">Artistic creativity & taste-making<span class="expand">▼</span></div><div class="detail">Supports music, dance, visual arts, writing, fashion, interior spaces — bringing beauty to matter and meaning to form.</div></li>
+            <li class="item" onclick="toggleItem(this)"><div class="label">Pleasure-guided productivity<span class="expand">▼</span></div><div class="detail">Aligns work with enjoyment so consistency becomes natural. Makes routines feel luxurious and sustainable.</div></li>
+            <li class="item" onclick="toggleItem(this)"><div class="label">Value alignment & graceful wealth<span class="expand">▼</span></div><div class="detail">Attracts resources through kindness and quality. Focuses on long-term value, brand equity, and mutually beneficial exchanges.</div></li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-head"><div class="card-icon">⚠️</div><div class="card-title">Limitations</div></div>
+          <ul class="list">
+            <li class="item" onclick="toggleItem(this)"><div class="label">Indulgence & comfort-seeking<span class="expand">▼</span></div><div class="detail">Can over-index on ease and pleasure, delaying difficult tasks or discipline when aesthetics feel off.</div></li>
+            <li class="item" onclick="toggleItem(this)"><div class="label">People-pleasing & avoidance<span class="expand">▼</span></div><div class="detail">Avoids hard conversations to keep peace, risking unclear boundaries or unvoiced needs.</div></li>
+            <li class="item" onclick="toggleItem(this)"><div class="label">Vanity & external validation<span class="expand">▼</span></div><div class="detail">Focus on appearances over substance; may overspend for luxury signals rather than real value.</div></li>
+            <li class="item" onclick="toggleItem(this)"><div class="label">Over-romanticizing & projection<span class="expand">▼</span></div><div class="detail">Idealizes partners, projects fantasies, or misses red flags to preserve beauty and harmony.</div></li>
+            <li class="item" onclick="toggleItem(this)"><div class="label">Procrastination via curation<span class="expand">▼</span></div><div class="detail">Endless tweaking of style, palette, or vibe becomes a delay tactic that blocks shipping.</div></li>
+            <li class="item" onclick="toggleItem(this)"><div class="label">Conflict with Spartan minimalism<span class="expand">▼</span></div><div class="detail">When Venus is unbalanced, function may be sacrificed for form. Needs a Sun/Mars counterweight.</div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Integrations -->
+    <section class="integrations">
+      <h2 class="section-title"><span class="section-icon">🔗</span> System Integrations</h2>
+      <div class="igrid">
+        <div class="icard" onclick="toggleCombo(this)">
+          <div class="ihead"><div class="pcombo">♀ + 🌙</div><div class="cname">Venus + Moon</div><div class="cexpand">▼</div></div>
+          <div class="ceffect">The nurturing artist — beauty infused with emotion and care; soothing spaces and intimate bonds.</div>
+          <div class="cdetails">
+            <div class="csec"><h4>✅ Advantages</h4><ul>
+              <li>Deep emotional aesthetics; cozy, healing environments</li>
+              <li>Strong care energy in relationships and audience communities</li>
+              <li>Excellent for hospitality, wellness, and intimate design</li>
+            </ul></div>
+            <div class="csec"><h4>⚠️ Challenges</h4><ul>
+              <li>Over-attachment to comfort; resistance to change</li>
+              <li>Sentimental bias in decisions</li>
+              <li>Difficulty with direct boundaries</li>
+            </ul></div>
+          </div>
+        </div>
+
+        <div class="icard" onclick="toggleCombo(this)">
+          <div class="ihead"><div class="pcombo">♀ + ☿</div><div class="cname">Venus + Mercury</div><div class="cexpand">▼</div></div>
+          <div class="ceffect">The diplomatic communicator — persuasive, elegant, audience-friendly messaging.</div>
+          <div class="cdetails">
+            <div class="csec"><h4>✅ Advantages</h4><ul>
+              <li>Brand voice with charm and clarity</li>
+              <li>Excellent copywriting, UX writing, and social presence</li>
+              <li>Conflict resolution through tactful language</li>
+            </ul></div>
+            <div class="csec"><h4>⚠️ Challenges</h4><ul>
+              <li>Style over candor; may avoid hard truths</li>
+              <li>Risk of superficial messaging</li>
+            </ul></div>
+          </div>
+        </div>
+
+        <div class="icard" onclick="toggleCombo(this)">
+          <div class="ihead"><div class="pcombo">♀ + ♂</div><div class="cname">Venus + Mars</div><div class="cexpand">▼</div></div>
+          <div class="ceffect">The passionate creator — beauty powered by drive; seductive branding and decisive collaboration.</div>
+          <div class="cdetails">
+            <div class="csec"><h4>✅ Advantages</h4><ul>
+              <li>Magnetic launches; attractive action</li>
+              <li>High chemistry partnerships and teams</li>
+              <li>Excellent for design sprints and campaigns</li>
+            </ul></div>
+            <div class="csec"><h4>⚠️ Challenges</h4><ul>
+              <li>Tempered by ego or possessiveness</li>
+              <li>Can prioritize passion over longevity</li>
+            </ul></div>
+          </div>
+        </div>
+
+        <div class="icard" onclick="toggleCombo(this)">
+          <div class="ihead"><div class="pcombo">♀ + ☀</div><div class="cname">Venus + Sun</div><div class="cexpand">▼</div></div>
+          <div class="ceffect">The radiant leader — elegance with authority; prestige branding and noble conduct.</div>
+          <div class="cdetails">
+            <div class="csec"><h4>✅ Advantages</h4><ul>
+              <li>Premium brand presence with heart</li>
+              <li>Graceful leadership and public image</li>
+              <li>Strong patronage and loyal supporters</li>
+            </ul></div>
+            <div class="csec"><h4>⚠️ Challenges</h4><ul>
+              <li>Can drift into vanity metrics</li>
+              <li>Over-focus on image versus substance</li>
+            </ul></div>
+          </div>
+        </div>
+
+        <div class="icard" onclick="toggleCombo(this)">
+          <div class="ihead"><div class="pcombo">♀ + ☿ + 🌙</div><div class="cname">Venus + Mercury + Moon</div><div class="cexpand">▼</div></div>
+          <div class="ceffect">The empathic storyteller — emotionally resonant narratives with beautiful form and clarity.</div>
+          <div class="cdetails">
+            <div class="csec"><h4>✅ Advantages</h4><ul>
+              <li>Brand stories that truly connect</li>
+              <li>Thoughtful UX with emotional pacing</li>
+              <li>Ideal for community-led products</li>
+            </ul></div>
+            <div class="csec"><h4>⚠️ Challenges</h4><ul>
+              <li>Can over-index on sentiment; needs Sun/Saturn for structure</li>
+            </ul></div>
+          </div>
+        </div>
+
+        <div class="icard" onclick="toggleCombo(this)">
+          <div class="ihead"><div class="pcombo">♀ + ☀ + ☿</div><div class="cname">Venus + Sun + Mercury</div><div class="cexpand">▼</div></div>
+          <div class="ceffect">The charismatic leader — prestige, clarity, and charm aligned for inspiring communication.</div>
+          <div class="cdetails">
+            <div class="csec"><h4>✅ Advantages</h4><ul>
+              <li>World-class public speaking and brand presence</li>
+              <li>Influence with integrity and warmth</li>
+              <li>Excellent for thought leadership platforms</li>
+            </ul></div>
+            <div class="csec"><h4>⚠️ Challenges</h4><ul>
+              <li>Watch for over-curation; substance must lead</li>
+            </ul></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Applications -->
+    <section class="apps">
+      <h2 class="section-title"><span class="section-icon">🛠️</span> Practical Applications</h2>
+      <div class="agrid">
+        <div class="app">
+          <div class="icon">🎨</div>
+          <div class="title">Design & Branding</div>
+          <div class="desc">Use Venus to craft cohesive palettes, type systems, and layouts that feel premium, friendly, and memorable.</div>
+          <div class="tips"><div class="t">Friday (Shukravar) is Venus day — perfect for brand polish, photoshoots, and aesthetic reviews.</div></div>
+        </div>
+        <div class="app">
+          <div class="icon">🤝</div>
+          <div class="title">Relationships & Community</div>
+          <div class="desc">Cultivate harmony in teams, partnerships, and audiences. Plan rituals that honor connection and reciprocity.</div>
+          <div class="tips"><div class="t">Choose welcoming colors, music, and microcopy — hospitality is a growth strategy.</div></div>
+        </div>
+        <div class="app">
+          <div class="icon">🎶</div>
+          <div class="title">Art & Content</div>
+          <div class="desc">Compose visuals, music, and copy that soothe and inspire. Turn content into an artful experience.</div>
+          <div class="tips"><div class="t">Pair Venus days with Moon hours for emotionally rich creative sessions.</div></div>
+        </div>
+        <div class="app">
+          <div class="icon">💼</div>
+          <div class="title">Business & Offer Design</div>
+          <div class="desc">Shape offers that feel luxurious yet accessible. Emphasize quality, care, and lifetime value.</div>
+          <div class="tips"><div class="t">Elegant onboarding and delightful support are Venus-powered conversion multipliers.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tools -->
+    <section class="tools">
+      <h2 class="section-title"><span class="section-icon">🎛️</span> Personalization Tools</h2>
+      <div class="tgrid">
+        <div class="tool" onclick="launchVenusTool('strength')">
+          <div class="ticon">💎</div>
+          <div class="ttitle">Venus Strength Analyzer</div>
+          <div class="tdesc">Rate Venus power from chart factors (sign/house/aspects) and get a clear harmony score.</div>
+          <button class="btn">Analyze</button>
+        </div>
+        <div class="tool" onclick="launchVenusTool('timing')">
+          <div class="ticon">📅</div>
+          <div class="ttitle">Harmony Timing</div>
+          <div class="tdesc">Discover ideal days/hours for aesthetics, romance, collaboration, and luxury launches.</div>
+          <button class="btn">Check Timing</button>
+        </div>
+        <div class="tool" onclick="launchVenusTool('optimization')">
+          <div class="ticon">🌹</div>
+          <div class="ttitle">Aesthetic Optimization</div>
+          <div class="tdesc">Curate colors, scents, sounds, and materials that elevate your daily environment.</div>
+          <button class="btn">Optimize</button>
+        </div>
+        <div class="tool" onclick="launchVenusTool('compatibility')">
+          <div class="ticon">❤️</div>
+          <div class="ttitle">Relationship Compatibility</div>
+          <div class="tdesc">Understand relational flow, love languages, and collaboration harmony signatures.</div>
+          <button class="btn">Check</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Petal particles
+    function initVenusParticles() {
+      const c = document.getElementById('venusParticles');
+      const count = 28;
+      for (let i = 0; i < count; i++) {
+        const p = document.createElement('div');
+        p.className = 'venus-petal';
+        p.style.left = Math.random() * 100 + 'vw';
+        p.style.animationDuration = (8 + Math.random() * 6) + 's';
+        p.style.animationDelay = (Math.random() * 4) + 's';
+        p.style.opacity = String(0.6 + Math.random() * 0.4);
+        c.appendChild(p);
+      }
+    }
+
+    // Expandables
+    function toggleItem(el) {
+      const openSiblings = el.parentElement.querySelectorAll('.item.expanded');
+      openSiblings.forEach(s => { if (s !== el) s.classList.remove('expanded'); });
+      el.classList.toggle('expanded');
+    }
+    function toggleCombo(el) {
+      const isExpanded = el.classList.contains('expanded');
+      
+      if (isExpanded) {
+        // If already expanded, just close this one
+        el.classList.remove('expanded');
+      } else {
+        // Close all other expanded combinations first
+        document.querySelectorAll('.icard.expanded').forEach(e => e.classList.remove('expanded'));
+        // Then open current combination
+        el.classList.add('expanded');
+      }
+    }
+
+    // Tools
+    function launchVenusTool(kind) {
+      const msg = {
+        strength: '💎 Venus Strength\n\nThis will consider: sign dignity, house strength, lordship, aspects, and Shukra bala to compute a Harmony Score (1–100).\n\nDetailed chart engine coming soon.',
+        timing: '📅 Harmony Timing\n\nRecommends: Venus days/hours, benefic yogas, and auspicious windows for design, romance, art, and launches.\n\nTransit module in development.',
+        optimization: '🌹 Aesthetic Optimization\n\nCurated suggestions for colors, scents (rose/sandal), music modes, materials, and spatial tweaks to elevate daily life.\n\nPersonalized profiles coming soon.',
+        compatibility: '❤️ Relationship Compatibility\n\nMaps Venus-to-Venus flow, love languages, and collaboration resonance for personal and professional pairs.\n\nSynastry engine in progress.'
+      };
+      alert(msg[kind]);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initVenusParticles();
+    });
+  </script>
+</body>
+</html>

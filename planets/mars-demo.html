@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="description" content="Mars Action Engine - Master your willpower CPU and drive execution protocols">
+    <meta name="keywords" content="mars, action, willpower, drive, energy, vedic astrology, planetary intelligence">
+    <meta name="author" content="Acharya Anish">
+    
+    <title>♂ Mars Action Engine - Planetary Intelligence Portal</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>♂</text></svg>">
+    
+    <style>
+        /* 🔥 MARS ACTION ENGINE - HYBRID COSMIC/PLANETARY THEME */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a0a0a 50%, #2d0e0e 100%);
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        /* MARS COSMIC BACKGROUND PARTICLES */
+        .mars-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .mars-particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: radial-gradient(circle, #DC143C 0%, #FF4500 100%);
+            border-radius: 50%;
+            animation: marsFloat 15s linear infinite;
+        }
+        
+        @keyframes marsFloat {
+            0% { 
+                transform: translateY(100vh) rotate(0deg); 
+                opacity: 0; 
+            }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% { 
+                transform: translateY(-10vh) rotate(360deg); 
+                opacity: 0; 
+            }
+        }
+        
+        /* HEADER NAVIGATION */
+        .mars-header {
+            background: linear-gradient(135deg, rgba(220, 20, 60, 0.15) 0%, rgba(139, 0, 0, 0.1) 100%);
+            border-bottom: 2px solid rgba(220, 20, 60, 0.3);
+            padding: 1.5rem 0;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .mars-nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .back-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(220, 20, 60, 0.2);
+            border: 2px solid rgba(220, 20, 60, 0.4);
+            border-radius: 25px;
+            color: #DC143C;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .back-button:hover {
+            background: rgba(220, 20, 60, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(220, 20, 60, 0.4);
+        }
+        
+        .mars-title-section {
+            text-align: center;
+        }
+        
+        .mars-icon {
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+            display: block;
+            animation: marsPulse 2s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 20px rgba(220, 20, 60, 0.6));
+        }
+        
+        .mars-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin: 0 0 0.3rem 0;
+            background: linear-gradient(135deg, #DC143C 0%, #FF4500 50%, #FFD700 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(220, 20, 60, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .mars-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        .mars-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.2rem;
+            background: rgba(255, 69, 0, 0.2);
+            border: 2px solid rgba(255, 69, 0, 0.4);
+            border-radius: 20px;
+            color: #FF4500;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        .mars-status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #FF4500;
+            animation: marsStatusPulse 1.5s ease-in-out infinite;
+        }
+        
+        /* MAIN CONTENT */
+        .mars-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            position: relative;
+            z-index: 5;
+        }
+        
+        /* PROCESSOR OVERVIEW */
+        .processor-overview {
+            background: linear-gradient(135deg, rgba(220, 20, 60, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%);
+            border: 2px solid rgba(220, 20, 60, 0.3);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .processor-overview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(220, 20, 60, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 69, 0, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .overview-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #DC143C;
+            margin: 0 0 1.5rem 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .section-icon {
+            font-size: 2.5rem;
+            filter: drop-shadow(0 4px 8px rgba(220, 20, 60, 0.3));
+        }
+        
+        .overview-description {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+        
+        .mars-specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .spec-card {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(220, 20, 60, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .spec-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(220, 20, 60, 0.5);
+            box-shadow: 0 15px 40px rgba(220, 20, 60, 0.2);
+        }
+        
+        .spec-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #FF4500;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        
+        .spec-value {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+        
+        /* OPERATIONAL PARAMETERS */
+        .operational-section {
+            margin-bottom: 3rem;
+        }
+        
+        .parameters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+        
+        .parameter-card {
+            background: linear-gradient(135deg, rgba(220, 20, 60, 0.05) 0%, rgba(0, 0, 0, 0.3) 100%);
+            border: 1px solid rgba(220, 20, 60, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .parameter-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .parameter-icon {
+            font-size: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(220, 20, 60, 0.2);
+            border: 2px solid rgba(220, 20, 60, 0.4);
+        }
+        
+        .parameter-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #DC143C;
+            text-transform: uppercase;
+        }
+        
+        .parameter-list {
+            list-style: none;
+        }
+        
+        .parameter-list li {
+            padding: 0.5rem 0;
+            color: rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(220, 20, 60, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .parameter-list li::before {
+            content: '▸';
+            color: #FF4500;
+            font-weight: bold;
+        }
+        
+        /* SYSTEM INTEGRATIONS */
+        .integrations-section {
+            background: linear-gradient(135deg, rgba(255, 69, 0, 0.05) 0%, rgba(0, 0, 0, 0.3) 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255, 69, 0, 0.2);
+        }
+        
+        .integration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .integration-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 69, 0, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .integration-card:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 69, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(255, 69, 0, 0.2);
+        }
+        
+        .integration-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .planet-combo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .combo-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #FF4500;
+        }
+        
+        .combo-effect {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        /* PRACTICAL APPLICATIONS */
+        .applications-section {
+            margin-bottom: 3rem;
+        }
+        
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .application-card {
+            background: linear-gradient(135deg, rgba(220, 20, 60, 0.08) 0%, rgba(0, 0, 0, 0.4) 100%);
+            border-left: 4px solid #DC143C;
+            border-radius: 15px;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .app-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .app-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #FF4500;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        
+        .app-description {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .app-tips {
+            background: rgba(220, 20, 60, 0.1);
+            border-radius: 10px;
+            padding: 1rem;
+            border-left: 3px solid #DC143C;
+        }
+        
+        .app-tips-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #DC143C;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+        
+        .app-tips-text {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.4;
+        }
+        
+        /* MARS PRAYER SECTION */
+        .mars-prayer-section {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(220, 20, 60, 0.1) 50%, rgba(0, 0, 0, 0.3) 100%);
+            border-radius: 25px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            text-align: center;
+        }
+        
+        .prayer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .sanskrit-prayer {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        
+        .prayer-sanskrit {
+            font-family: 'Times New Roman', serif;
+            font-size: 1.8rem;
+            color: #FFD700;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            text-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
+        }
+        
+        .prayer-pronunciation {
+            font-family: 'Times New Roman', serif;
+            font-size: 1.3rem;
+            color: #FF6B35;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .prayer-english {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .prayer-meaning {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            text-align: left;
+            background: rgba(220, 20, 60, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid #FF6B35;
+        }
+        
+        /* EXPANDABLE PARAMETERS */
+        .expandable-param {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            border-radius: 8px;
+            padding: 0.8rem;
+            margin: 0.3rem 0;
+        }
+        
+        .expandable-param:hover {
+            background: rgba(220, 20, 60, 0.1);
+        }
+        
+        .param-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            font-weight: 600;
+        }
+        
+        .expand-icon {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+            color: #FF4500;
+        }
+        
+        .expandable-param.expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+        
+        .param-detail {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            margin-top: 0;
+            padding: 0;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.7);
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+        }
+        
+        .expandable-param.expanded .param-detail {
+            max-height: 200px;
+            margin-top: 1rem;
+            padding: 1rem;
+        }
+        
+        /* COMBINATION CARDS */
+        .integration-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 69, 0, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .integration-card:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 69, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(255, 69, 0, 0.2);
+        }
+        
+        .triple-combo {
+            border-color: rgba(255, 215, 0, 0.4);
+        }
+        
+        .triple-combo:hover {
+            background: rgba(255, 215, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+        }
+        
+        .quad-combo {
+            border-color: rgba(138, 43, 226, 0.4);
+        }
+        
+        .quad-combo:hover {
+            background: rgba(138, 43, 226, 0.1);
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.2);
+        }
+        
+        .combo-expand {
+            font-size: 0.8rem;
+            color: #FF4500;
+            transition: transform 0.3s ease;
+        }
+        
+        .integration-card.expanded .combo-expand {
+            transform: rotate(180deg);
+        }
+        
+        .combo-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            margin-top: 0;
+        }
+        
+        .integration-card.expanded .combo-details {
+            max-height: 500px;
+            margin-top: 1.5rem;
+        }
+        
+        .combo-section {
+            margin-bottom: 1.5rem;
+        }
+        
+        .combo-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .combo-section-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .combo-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .combo-section li {
+            padding: 0.4rem 0;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            border-bottom: 1px solid rgba(255, 69, 0, 0.1);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        
+        .combo-section li::before {
+            content: '▸';
+            color: #FF4500;
+            font-weight: bold;
+            margin-top: 0.1rem;
+            flex-shrink: 0;
+        }
+        
+        /* PERSONALIZATION TOOLS */
+        .personalization-section {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 2px solid rgba(139, 0, 0, 0.3);
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .tool-card {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(220, 20, 60, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            background: rgba(220, 20, 60, 0.1);
+            box-shadow: 0 15px 40px rgba(220, 20, 60, 0.3);
+        }
+        
+        .tool-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+            animation: toolPulse 3s ease-in-out infinite alternate;
+        }
+        
+        .tool-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #DC143C;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        
+        .tool-description {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tool-button {
+            background: linear-gradient(135deg, #DC143C 0%, #FF4500 100%);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .tool-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(220, 20, 60, 0.4);
+        }
+        
+        /* ANIMATIONS */
+        @keyframes marsPulse {
+            from { 
+                transform: scale(1);
+                filter: drop-shadow(0 0 20px rgba(220, 20, 60, 0.6));
+            }
+            to { 
+                transform: scale(1.05);
+                filter: drop-shadow(0 0 30px rgba(220, 20, 60, 0.8));
+            }
+        }
+        
+        @keyframes marsStatusPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(0.9); }
+        }
+        
+        @keyframes toolPulse {
+            from { opacity: 0.8; }
+            to { opacity: 1; }
+        }
+        
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+            .mars-nav {
+                flex-direction: column;
+                gap: 2rem;
+                padding: 0 1rem;
+            }
+            
+            .mars-title {
+                font-size: 2.5rem;
+            }
+            
+            .mars-content {
+                padding: 2rem 1rem;
+            }
+            
+            .processor-overview,
+            .integrations-section,
+            .personalization-section {
+                padding: 2rem;
+            }
+            
+            .mars-specs-grid,
+            .parameters-grid,
+            .integration-grid,
+            .applications-grid,
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .mars-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .mars-icon {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Mars Cosmic Particles -->
+    <div class="mars-particles" id="marsParticles"></div>
+
+    <!-- Header Navigation -->
+    <header class="mars-header">
+        <nav class="mars-nav">
+            <a href="../planetary-intelligence.html" class="back-button">
+                <span>←</span>
+                <span>Back to Portal</span>
+            </a>
+            
+            <div class="mars-title-section">
+                <div class="mars-icon">♂</div>
+                <h1 class="mars-title">Mars</h1>
+                <h2 class="mars-subtitle">Action Engine</h2>
+            </div>
+            
+            <div class="mars-status">
+                <div class="mars-status-dot"></div>
+                <span>Intense Frequency</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="mars-content">
+        <!-- Mars Prayer Section -->
+        <section class="mars-prayer-section">
+            <div class="prayer-container">
+                <h2 class="section-title">
+                    <span class="section-icon">🙏</span>
+                    Mars Invocation Prayer
+                </h2>
+                
+                <div class="prayer-content">
+                    <div class="sanskrit-prayer">
+                        <div class="prayer-sanskrit">धरणीगर्भसम्भूतं विद्युत्कान्तिसमप्रभम् ।<br>कुमारं शक्तिहस्तं च मंगलं प्रणमाम्यहम् ॥</div>
+                        <div class="prayer-pronunciation">Dharanīgarbhasambhūtaṃ vidyutkāntisama-prabham |<br>Kumāraṃ śaktihastañca maṅgalaṃ praṇamāmyaham ||</div>
+                        <div class="prayer-english">Born from the womb of Earth, with brilliance like lightning,<br>The youthful one who holds power in his hands, I bow to Mars.</div>
+                        <div class="prayer-meaning">
+                            <strong>Meaning:</strong> This prayer honors Mars (Mangal) as the divine force of action and energy, 
+                            born from Mother Earth herself. We invoke his power for righteous action, courage, and the strength 
+                            to overcome obstacles while maintaining dharmic principles.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Processor Overview -->
+        <section class="processor-overview">
+            <div class="overview-content">
+                <h2 class="section-title">
+                    <span class="section-icon">🔥</span>
+                    Processor Overview
+                </h2>
+                <p class="overview-description">
+                    Mars operates as the <strong>Action Engine</strong> in your cosmic CPU architecture. 
+                    This high-intensity processor manages willpower execution, drive distribution, and goal achievement protocols. 
+                    When properly optimized, Mars transforms raw desire into focused action, converting plans into reality through sheer determination.
+                </p>
+                
+                <div class="mars-specs-grid">
+                    <div class="spec-card">
+                        <div class="spec-title">Core Function</div>
+                        <div class="spec-value">Willpower & Drive Execution</div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-title">Operating Frequency</div>
+                        <div class="spec-value">Intense & Direct</div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-title">Primary Element</div>
+                        <div class="spec-value">Fire (Agni)</div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-title">Processing Style</div>
+                        <div class="spec-value">Fast, Decisive, Action-Oriented</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Operational Parameters -->
+        <section class="operational-section">
+            <h2 class="section-title">
+                <span class="section-icon">⚙️</span>
+                Operational Parameters
+            </h2>
+            
+            <div class="parameters-grid">
+                <div class="parameter-card">
+                    <div class="parameter-header">
+                        <div class="parameter-icon">💪</div>
+                        <div class="parameter-title">Strengths</div>
+                    </div>
+                    <ul class="parameter-list">
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">High-speed decision processing</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Mars cuts through analysis paralysis like a laser through fog. When others hesitate, 
+                                Mars processes the essential data instantly and triggers immediate action. This is your 
+                                cosmic emergency response system - invaluable in crisis situations, competitions, and 
+                                time-sensitive opportunities.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Unlimited drive capacity</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Mars operates like a nuclear reactor of motivation. Unlike other planetary energies that 
+                                fluctuate, Mars can sustain incredible drive levels when properly directed. This makes 
+                                it perfect for breakthrough projects, fitness goals, and any situation requiring sustained 
+                                intensity over time.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Obstacle elimination protocols</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Mars doesn't go around obstacles - it goes through them. This planetary processor 
+                                specializes in converting problems into stepping stones. Physical barriers, mental 
+                                blocks, social resistance - Mars views all of these as targets to be conquered 
+                                rather than avoided.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Leadership command functions</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Mars activates your inner general, naturally inspiring others to follow your lead. 
+                                This isn't manipulation - it's authentic authority born from courage and decisive action. 
+                                People instinctively trust Mars energy because it demonstrates strength through deeds, 
+                                not words.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Competitive advantage algorithms</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Mars thrives in competitive environments, automatically optimizing your performance 
+                                against opposition. It reads the competitive landscape, identifies weaknesses in rivals, 
+                                and amplifies your natural advantages. Essential for business, sports, and any arena 
+                                where winning matters.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Crisis response systems</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                When everything hits the fan, Mars is your emergency backup generator. It activates 
+                                superhuman focus, courage, and resourcefulness exactly when you need them most. 
+                                Mars-strong individuals often become heroes in emergency situations because this 
+                                energy thrives under pressure.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="parameter-card">
+                    <div class="parameter-header">
+                        <div class="parameter-icon">⚠️</div>
+                        <div class="parameter-title">Limitations</div>
+                    </div>
+                    <ul class="parameter-list">
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Tendency toward overheating</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Mars operates at such high intensity that it can literally burn out your nervous system 
+                                if not properly managed. Signs of overheating include irritability, insomnia, impulsive 
+                                decisions, and physical tension. Regular cooling periods through meditation, nature, 
+                                or gentle activities are essential.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Impatience with slow processes</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Mars wants results NOW. This creates friction with naturally slow processes like 
+                                relationship building, skill development, or bureaucratic procedures. The challenge 
+                                is learning when to apply Mars energy and when to switch to other planetary processors 
+                                for optimal outcomes.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Conflict generation potential</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Mars energy can escalate minor disagreements into full-blown battles. It's like having 
+                                a hair trigger on a powerful weapon - incredible when aimed correctly, dangerous when 
+                                misfiring. Learning to distinguish between necessary conflicts and unnecessary drama 
+                                is crucial for Mars mastery.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Burn-out risk under sustained load</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Mars is designed for sprints, not marathons. Continuous high-intensity operation 
+                                leads to complete system shutdown - physical exhaustion, emotional numbness, and 
+                                motivational collapse. The key is learning to cycle Mars energy: intense bursts 
+                                followed by recovery periods.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Diplomatic protocol conflicts</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Mars speaks the language of action, not diplomacy. In situations requiring tact, 
+                                patience, or political sensitivity, Mars energy can be counterproductive. It's 
+                                too direct, too honest, and too impatient for complex social maneuvering. 
+                                Balance with Venus or Mercury for optimal social outcomes.
+                            </div>
+                        </li>
+                        <li class="expandable-param" onclick="toggleParameterDetail(this)">
+                            <span class="param-title">Requires cooling periods</span>
+                            <span class="expand-icon">▼</span>
+                            <div class="param-detail">
+                                Like any high-performance engine, Mars needs regular maintenance downtime. Without 
+                                adequate rest, the system becomes increasingly unstable and eventually fails. 
+                                Smart Mars users build cooling rituals into their routine: cold showers, swimming, 
+                                meditation, or simply doing nothing intensely.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- System Integrations -->
+        <section class="integrations-section">
+            <h2 class="section-title">
+                <span class="section-icon">🔗</span>
+                System Integrations
+            </h2>
+            
+            <div class="integration-grid">
+                <!-- Two Planet Combinations -->
+                <div class="integration-card" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">♂ + ☉</div>
+                        <div class="combo-name">Mars + Sun</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        Ultimate leadership combination. Amplifies authority and command presence.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Unstoppable drive toward success and recognition</li>
+                                <li>Natural command presence and authority</li>
+                                <li>Ability to inspire others through example</li>
+                                <li>Courage to take on leadership roles</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>Risk of ego conflicts and power struggles</li>
+                                <li>May become overly domineering</li>
+                                <li>Impatience with less driven individuals</li>
+                                <li>Tendency toward authoritarian behavior</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="integration-card" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">♂ + ☽</div>
+                        <div class="combo-name">Mars + Moon</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        Emotional intensity amplifier. Creates passionate responses and protective instincts.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Strong protective instincts for family and loved ones</li>
+                                <li>Passionate and emotionally honest expression</li>
+                                <li>Intuitive action timing based on emotional intelligence</li>
+                                <li>Fierce loyalty and dedication</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>Mood-driven impulsive decisions</li>
+                                <li>Emotional volatility and anger outbursts</li>
+                                <li>Difficulty separating feelings from facts</li>
+                                <li>Can become overly reactive to criticism</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="integration-card" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">♂ + ♃</div>
+                        <div class="combo-name">Mars + Jupiter</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        Righteous action processor. Combines drive with wisdom for ethical victories.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Actions guided by wisdom and higher principles</li>
+                                <li>Natural teaching and mentoring abilities</li>
+                                <li>Courage to fight for justice and truth</li>
+                                <li>Expansive vision combined with execution power</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>Can become preachy or morally superior</li>
+                                <li>Tendency to over-promise and over-commit</li>
+                                <li>May ignore practical limitations</li>
+                                <li>Risk of becoming overly idealistic</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="integration-card" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">♂ + ♄</div>
+                        <div class="combo-name">Mars + Saturn</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        Disciplined action engine. Creates sustained effort and methodical progress.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Incredible persistence and endurance</li>
+                                <li>Strategic planning combined with execution</li>
+                                <li>Ability to delay gratification for long-term success</li>
+                                <li>Methodical approach to overcoming obstacles</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>Internal frustration from competing energies</li>
+                                <li>May become overly cautious or pessimistic</li>
+                                <li>Tendency toward self-criticism and harsh judgment</li>
+                                <li>Risk of burnout from excessive self-discipline</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Three Planet Combinations -->
+                <div class="integration-card triple-combo" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">♂ + ☉ + ♃</div>
+                        <div class="combo-name">Mars + Sun + Jupiter</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        The "Divine Warrior" combination. Righteous leadership with unstoppable drive.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Natural born leader with ethical foundations</li>
+                                <li>Ability to inspire others toward noble causes</li>
+                                <li>Courage to stand up for justice and truth</li>
+                                <li>Expansive vision with practical execution power</li>
+                                <li>Natural teacher and guide for others</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>Risk of becoming a "holy warrior" - overly righteous</li>
+                                <li>May ignore others' perspectives in pursuit of ideals</li>
+                                <li>Tendency to take on too many causes simultaneously</li>
+                                <li>Can become impatient with slower progress</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="integration-card triple-combo" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">♂ + ☽ + ♀</div>
+                        <div class="combo-name">Mars + Moon + Venus</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        The "Passionate Artist" combination. Creative fire with emotional depth.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Intense creative expression and artistic drive</li>
+                                <li>Passionate romantic relationships with deep emotional connection</li>
+                                <li>Ability to channel emotions into beautiful creations</li>
+                                <li>Strong aesthetic sense combined with action</li>
+                                <li>Magnetic personality that attracts others</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>Emotional turbulence in relationships</li>
+                                <li>May become possessive or jealous</li>
+                                <li>Tendency toward dramatic emotional expression</li>
+                                <li>Can confuse passion with love</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Four Planet Combinations -->
+                <div class="integration-card quad-combo" onclick="toggleComboDetail(this)">
+                    <div class="integration-header">
+                        <div class="planet-combo">♂ + ☉ + ☿ + ♃</div>
+                        <div class="combo-name">Mars + Sun + Mercury + Jupiter</div>
+                        <span class="combo-expand">▼</span>
+                    </div>
+                    <div class="combo-effect">
+                        The "Strategic Commander" - Ultimate leadership with intelligence and wisdom.
+                    </div>
+                    <div class="combo-details">
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">✅ Advantages:</h4>
+                            <ul>
+                                <li>Perfect blend of vision, strategy, communication, and execution</li>
+                                <li>Natural ability to lead complex organizations</li>
+                                <li>Inspiring speaker who can motivate large groups</li>
+                                <li>Strategic thinking combined with decisive action</li>
+                                <li>Ethical leadership that considers long-term consequences</li>
+                                <li>Ability to communicate complex ideas simply and powerfully</li>
+                            </ul>
+                        </div>
+                        <div class="combo-section">
+                            <h4 class="combo-section-title">⚠️ Challenges:</h4>
+                            <ul>
+                                <li>May become overwhelmed by too many responsibilities</li>
+                                <li>Risk of becoming a "know-it-all" leader</li>
+                                <li>Can be impatient with those who don't share the vision</li>
+                                <li>May neglect personal relationships for larger causes</li>
+                                <li>Tendency to over-analyze before taking action</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practical Applications -->
+        <section class="applications-section">
+            <h2 class="section-title">
+                <span class="section-icon">🛠️</span>
+                Practical Applications
+            </h2>
+            
+            <div class="applications-grid">
+                <div class="application-card">
+                    <div class="app-icon">🎯</div>
+                    <div class="app-title">Goal Achievement</div>
+                    <div class="app-description">
+                        Mars drives you toward your targets with laser focus. Use its energy for breakthrough moments, 
+                        overcoming obstacles, and pushing through resistance points.
+                    </div>
+                    <div class="app-tips">
+                        <div class="app-tips-title">Optimization Tip:</div>
+                        <div class="app-tips-text">Channel Mars energy in short, intense bursts rather than sustained marathons to prevent burnout.</div>
+                    </div>
+                </div>
+                
+                <div class="application-card">
+                    <div class="app-icon">⚔️</div>
+                    <div class="app-title">Competitive Edge</div>
+                    <div class="app-description">
+                        Activate Mars for competitions, negotiations, and challenging situations where you need to assert dominance 
+                        or protect your interests.
+                    </div>
+                    <div class="app-tips">
+                        <div class="app-tips-title">Warning:</div>
+                        <div class="app-tips-text">Monitor for excessive aggression. Mars energy can escalate conflicts if not properly directed.</div>
+                    </div>
+                </div>
+                
+                <div class="application-card">
+                    <div class="app-icon">🏃‍♂️</div>
+                    <div class="app-title">Physical Energy</div>
+                    <div class="app-description">
+                        Mars governs your physical stamina, exercise capacity, and athletic performance. 
+                        Strong Mars enhances sports ability and physical courage.
+                    </div>
+                    <div class="app-tips">
+                        <div class="app-tips-title">Enhancement:</div>
+                        <div class="app-tips-text">Regular physical exercise keeps Mars energy flowing smoothly and prevents internal tension buildup.</div>
+                    </div>
+                </div>
+                
+                <div class="application-card">
+                    <div class="app-icon">🧠</div>
+                    <div class="app-title">Decision Making</div>
+                    <div class="app-description">
+                        When quick decisions are needed, Mars cuts through analysis paralysis with decisive action. 
+                        Essential for crisis management and time-sensitive situations.
+                    </div>
+                    <div class="app-tips">
+                        <div class="app-tips-title">Balance Tip:</div>
+                        <div class="app-tips-text">Combine with Mercury's analysis or Jupiter's wisdom for optimal decision-making outcomes.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personalization Tools -->
+        <section class="personalization-section">
+            <h2 class="section-title">
+                <span class="section-icon">🎛️</span>
+                Personalization Tools
+            </h2>
+            
+            <div class="tools-grid">
+                <div class="tool-card" onclick="launchMarsTool('strength')">
+                    <div class="tool-icon">💯</div>
+                    <div class="tool-title">Mars Strength Analyzer</div>
+                    <div class="tool-description">
+                        Calculate your personal Mars power level based on sign placement, 
+                        house position, and planetary aspects in your birth chart.
+                    </div>
+                    <button class="tool-button">Analyze Now</button>
+                </div>
+                
+                <div class="tool-card" onclick="launchMarsTool('timing')">
+                    <div class="tool-icon">⏰</div>
+                    <div class="tool-title">Action Timing Guide</div>
+                    <div class="tool-description">
+                        Discover optimal timing for important actions, competitions, 
+                        and goal-setting based on Mars transits and cycles.
+                    </div>
+                    <button class="tool-button">Check Timing</button>
+                </div>
+                
+                <div class="tool-card" onclick="launchMarsTool('optimization')">
+                    <div class="tool-icon">🔧</div>
+                    <div class="tool-title">Mars Optimization</div>
+                    <div class="tool-description">
+                        Get personalized recommendations for enhancing Mars energy through 
+                        gemstones, mantras, exercises, and lifestyle adjustments.
+                    </div>
+                    <button class="tool-button">Optimize Mars</button>
+                </div>
+                
+                <div class="tool-card" onclick="launchMarsTool('compatibility')">
+                    <div class="tool-icon">🤝</div>
+                    <div class="tool-title">Mars Compatibility</div>
+                    <div class="tool-description">
+                        Understand how your Mars interacts with others in relationships, 
+                        business partnerships, and team dynamics.
+                    </div>
+                    <button class="tool-button">Check Compatibility</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Mars Particles Animation
+        function createMarsParticles() {
+            const container = document.getElementById('marsParticles');
+            const particleCount = 25;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'mars-particle';
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                container.appendChild(particle);
+            }
+        }
+        
+        // Mars Tool Launcher
+        function launchMarsTool(toolType) {
+            const toolMessages = {
+                'strength': '🔥 Mars Strength Analysis\n\nThis tool would analyze your birth chart to determine:\n• Mars sign strength (exaltation, debilitation)\n• House placement power\n• Aspect influences\n• Overall Mars rating (1-100)\n\nComing soon with full astrological calculations!',
+                'timing': '⏰ Action Timing Guide\n\nThis tool would provide:\n• Best dates for important actions\n• Mars transit predictions\n• Muhurat selection for competitions\n• Optimal timing for physical activities\n\nAdvanced timing algorithms in development!',
+                'optimization': '🔧 Mars Optimization Suite\n\nPersonalized recommendations including:\n• Gemstone suggestions (Red Coral, Ruby)\n• Mantras and prayers\n• Exercise routines\n• Dietary recommendations\n• Lifestyle modifications\n\nComprehensive optimization system coming soon!',
+                'compatibility': '🤝 Mars Compatibility Analysis\n\nThis tool would analyze:\n• Romantic compatibility\n• Business partnership dynamics\n• Team collaboration patterns\n• Conflict resolution strategies\n\nAdvanced compatibility algorithms in development!'
+            };
+            
+            alert(toolMessages[toolType]);
+        }
+        
+        // Toggle Parameter Detail
+        function toggleParameterDetail(element) {
+            const isExpanded = element.classList.contains('expanded');
+            
+            // Close all other expanded parameters in the same section
+            const allParams = element.parentElement.querySelectorAll('.expandable-param');
+            allParams.forEach(param => {
+                param.classList.remove('expanded');
+            });
+            
+            // Toggle current parameter
+            if (!isExpanded) {
+                element.classList.add('expanded');
+            }
+        }
+        
+        // Toggle Combination Detail
+        function toggleComboDetail(element) {
+            const isExpanded = element.classList.contains('expanded');
+            
+            // Close all other expanded combinations
+            const allCombos = document.querySelectorAll('.integration-card');
+            allCombos.forEach(combo => {
+                combo.classList.remove('expanded');
+            });
+            
+            // Toggle current combination
+            if (!isExpanded) {
+                element.classList.add('expanded');
+            }
+        }
+        
+        // Smooth Scrolling for Internal Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Initialize Mars Effects
+        document.addEventListener('DOMContentLoaded', function() {
+            createMarsParticles();
+            
+            // Add hover effects to cards
+            const cards = document.querySelectorAll('.spec-card, .parameter-card, .integration-card, .application-card, .tool-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
