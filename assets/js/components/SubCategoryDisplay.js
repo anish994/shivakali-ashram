@@ -54,12 +54,18 @@ class SubCategoryDisplay {
         // For now, we'll use the jyotisha data we created
         if (categoryId === 'jyotisha') {
             try {
-                const response = await fetch('./knowledge/categories/jyotisha-subcategories.json');
+                // Add cache-busting parameter to ensure latest data
+                const cacheBuster = Date.now();
+                const response = await fetch(`./knowledge/categories/jyotisha-subcategories.json?v=${cacheBuster}`);
                 if (response.ok) {
-                    return await response.json();
+                    const data = await response.json();
+                    console.log('✅ JSON DATA LOADED SUCCESSFULLY:', data.subCategories?.length, 'systems found');
+                    return data;
+                } else {
+                    console.log('❌ JSON FETCH FAILED - Response not OK, using fallback data');
                 }
             } catch (error) {
-                console.log('Fetch failed, using fallback data');
+                console.log('❌ JSON FETCH FAILED - Error:', error, 'using fallback data');
             }
             
             // Fallback data for jyotisha (our created content)
@@ -489,11 +495,20 @@ class SubCategoryDisplay {
         // DEBUG: Show what data we're getting
         console.log('🔍 SUB-CATEGORY DATA:', data);
         console.log('🔍 NUMBER OF SUB-CATEGORIES:', data.subCategories ? data.subCategories.length : 'NONE');
-        console.log('🚀 INTEGRATION TEST: NEW SYSTEMS CHECK!');
+        console.log('🚀 INTEGRATION TEST: ALL SYSTEMS CHECK!');
         if (data.subCategories) {
+            console.log('📚 ORIGINAL SYSTEMS:');
+            const originalSystems = data.subCategories.filter(sub => ['planetary-intelligence', 'house-systems', 'nakshatra-codes', 'timing-mastery', 'predictive-algorithms', 'remedial-technologies'].includes(sub.id));
+            originalSystems.forEach((sys, i) => console.log(`  ${i+1}. ${sys.id}: ${sys.title}`));
+            
+            console.log('🔥 NEW SYSTEMS:');
             const newSystems = data.subCategories.filter(sub => ['dasha-systems', 'yuga-cycles', 'sade-sati', 'kala-sarpa', 'dhaiya'].includes(sub.id));
-            console.log('✅ NEW SYSTEMS FOUND:', newSystems.length, '/ 5 expected');
-            newSystems.forEach(sys => console.log(`  - ${sys.id}: ${sys.title}`));
+            newSystems.forEach((sys, i) => console.log(`  ${i+7}. ${sys.id}: ${sys.title}`));
+            
+            console.log(`✅ TOTAL SYSTEMS FOUND: ${data.subCategories.length} (Expected: 11)`);
+            if (data.subCategories.length !== 11) {
+                console.warn('⚠️ SYSTEM COUNT MISMATCH!');
+            }
         }
         if (data.subCategories) {
             data.subCategories.forEach((sub, index) => {
