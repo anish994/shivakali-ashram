@@ -19,7 +19,7 @@ class JyotishCategoryCard {
             primaryColor: "#667eea",
             secondaryColor: "#f093fb",
             cardStyle: "cosmic-mastery",
-            totalContent: "100+ deep-dive modules across 8 mastery systems",
+            totalContent: "130+ deep-dive modules across 11 mastery systems",
             difficulty: "Beginner → Grandmaster",
             timeToMaster: "12-24 months complete immersion",
             practicalApplications: [
@@ -59,6 +59,33 @@ class JyotishCategoryCard {
                     icon: "⭐",
                     contentCount: "27 modules",
                     gradient: "linear-gradient(135deg, #4ECDC4 0%, #44A08D 50%, #2E8B57 100%)"
+                },
+                {
+                    id: "timing-mastery",
+                    title: "Timing Mastery",
+                    subtitle: "Temporal Advantage Protocols",
+                    description: "⏰ Master the universe's scheduling algorithm",
+                    icon: "⏰",
+                    contentCount: "10 modules",
+                    gradient: "linear-gradient(135deg, #FF9A8B 0%, #A8E6CF 50%, #66D9EF 100%)"
+                },
+                {
+                    id: "predictive-algorithms",
+                    title: "Predictive Algorithms",
+                    subtitle: "Future Probability Engineering",
+                    description: "🔮 Deploy advanced prediction engines with scientific precision",
+                    icon: "🔮",
+                    contentCount: "8 modules",
+                    gradient: "linear-gradient(135deg, #8360c3 0%, #2ebf91 50%, #ffeaa7 100%)"
+                },
+                {
+                    id: "remedial-technologies",
+                    title: "Remedial Technologies",
+                    subtitle: "Cosmic Debugging & Optimization",
+                    description: "🛠️ Debug your destiny with advanced troubleshooting protocols",
+                    icon: "🛠️",
+                    contentCount: "12 modules",
+                    gradient: "linear-gradient(135deg, #56ab2f 0%, #a8e6cf 50%, #00d2ff 100%)"
                 },
                 {
                     id: "dasha-systems",

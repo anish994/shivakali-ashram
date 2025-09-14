@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="description" content="Master Future Probability Engineering - Predictive Algorithms system with 8 advanced prediction methodologies">
+    <meta name="keywords" content="predictive algorithms, future probability, vedic astrology, jyotisha, yoga formations, prediction">
+    <meta name="author" content="Acharya Anish">
+    
+    <title>🔮 Predictive Algorithms Portal - Future Probability Engineering</title>
+    
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components/cosmic-background.css">
+    <link rel="stylesheet" href="assets/css/components/mobile-optimization.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔮</text></svg>">
+    
+    <style>
+        /* 🔮 PREDICTIVE ALGORITHMS PORTAL STYLES */
+        
+        body {
+            background: linear-gradient(135deg, #2e1065 0%, #1e3a8a 50%, #155e75 100%);
+            overflow-x: hidden;
+        }
+        
+        /* PORTAL HEADER */
+        .portal-header {
+            background: linear-gradient(135deg, rgba(131, 96, 195, 0.1) 0%, rgba(255, 234, 167, 0.05) 100%);
+            border-bottom: 1px solid rgba(131, 96, 195, 0.3);
+            padding: 2rem 0;
+            position: relative;
+        }
+        
+        .portal-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(131, 96, 195, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 234, 167, 0.1) 0%, transparent 50%);
+        }
+        
+        .portal-nav {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .back-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(131, 96, 195, 0.1);
+            border: 1px solid rgba(131, 96, 195, 0.3);
+            border-radius: 25px;
+            color: #8360c3;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background: rgba(131, 96, 195, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(131, 96, 195, 0.3);
+        }
+        
+        .portal-title-section {
+            text-align: center;
+            color: white;
+        }
+        
+        .portal-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+            animation: futurePulse 3s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 20px rgba(131, 96, 195, 0.5));
+        }
+        
+        .portal-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 0 0 0.5rem 0;
+            background: linear-gradient(135deg, #8360c3 0%, #ffeaa7 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(131, 96, 195, 0.3);
+        }
+        
+        .portal-subtitle {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+            font-weight: 600;
+        }
+        
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: rgba(255, 234, 167, 0.1);
+            border: 1px solid rgba(255, 234, 167, 0.3);
+            border-radius: 20px;
+            color: #ffeaa7;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ffeaa7;
+            animation: statusPulse 2s ease-in-out infinite;
+        }
+        
+        /* MAIN CONTENT */
+        .portal-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        /* MISSION BRIEFING */
+        .mission-briefing {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(131, 96, 195, 0.05) 0%, rgba(0, 0, 0, 0.3) 100%);
+            border-radius: 25px;
+            border: 1px solid rgba(131, 96, 195, 0.2);
+        }
+        
+        .mission-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #8360c3;
+            margin: 0 0 1rem 0;
+            text-shadow: 0 2px 10px rgba(131, 96, 195, 0.3);
+        }
+        
+        .mission-description {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+        }
+        
+        .mission-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            border: 1px solid rgba(131, 96, 195, 0.2);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #ffeaa7;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 0.5rem;
+        }
+        
+        /* PREDICTION SYSTEMS GRID */
+        .prediction-systems-section {
+            margin-bottom: 4rem;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #8360c3;
+            margin: 0 0 1rem 0;
+        }
+        
+        .section-description {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .systems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .prediction-system-card {
+            background: linear-gradient(135deg, rgba(131, 96, 195, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%);
+            border: 1px solid rgba(131, 96, 195, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .prediction-system-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(131, 96, 195, 0.2);
+            border-color: rgba(131, 96, 195, 0.5);
+        }
+        
+        .prediction-system-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 234, 167, 0.05) 0%, transparent 70%);
+            z-index: 0;
+        }
+        
+        .card-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .card-icon {
+            font-size: 2.5rem;
+            filter: drop-shadow(0 0 10px rgba(131, 96, 195, 0.5));
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #8360c3;
+            margin: 0;
+        }
+        
+        .card-description {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+        
+        .card-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .card-features li {
+            padding: 0.5rem 0;
+            color: rgba(255, 255, 255, 0.7);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .card-features li::before {
+            content: '🔮';
+            color: #ffeaa7;
+        }
+        
+        /* ANIMATIONS */
+        @keyframes futurePulse {
+            0% { 
+                transform: scale(1); 
+                filter: drop-shadow(0 0 20px rgba(131, 96, 195, 0.5));
+            }
+            100% { 
+                transform: scale(1.05); 
+                filter: drop-shadow(0 0 30px rgba(131, 96, 195, 0.8));
+            }
+        }
+        
+        @keyframes statusPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+            .portal-title { font-size: 2rem; }
+            .portal-subtitle { font-size: 1.2rem; }
+            .mission-title { font-size: 2rem; }
+            .section-title { font-size: 2rem; }
+            .systems-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .portal-nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- PORTAL HEADER -->
+    <header class="portal-header">
+        <nav class="portal-nav">
+            <a href="index.html" class="back-button">
+                <span>←</span>
+                <span>Back to Ashram</span>
+            </a>
+            
+            <div class="portal-title-section">
+                <span class="portal-icon">🔮</span>
+                <h1 class="portal-title">Predictive Algorithms Portal</h1>
+                <p class="portal-subtitle">Future Probability Engineering</p>
+            </div>
+            
+            <div class="status-indicator">
+                <div class="status-dot"></div>
+                <span>System Active</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="portal-content">
+        <!-- MISSION BRIEFING -->
+        <section class="mission-briefing">
+            <h2 class="mission-title">📊 Calculate Tomorrow Today</h2>
+            <p class="mission-description">
+                Deploy advanced prediction engines using Yogas, planetary combinations, and pattern recognition systems. 
+                Generate probability matrices for life events, relationship outcomes, and career trajectories with 
+                scientific precision.
+            </p>
+            
+            <div class="mission-stats">
+                <div class="stat-item">
+                    <span class="stat-number">8</span>
+                    <span class="stat-label">Prediction Methods</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">27</span>
+                    <span class="stat-label">Divisional Charts</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">324</span>
+                    <span class="stat-label">Yoga Combinations</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">4-7</span>
+                    <span class="stat-label">Months to Master</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- PREDICTION SYSTEMS GRID -->
+        <section class="prediction-systems-section">
+            <div class="section-header">
+                <h2 class="section-title">🔮 Advanced Prediction Systems</h2>
+                <p class="section-description">
+                    Master these 8 sophisticated prediction methodologies to forecast future events with scientific precision.
+                </p>
+            </div>
+            
+            <div class="systems-grid">
+                <div class="prediction-system-card">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <span class="card-icon">🌟</span>
+                            <h3 class="card-title">Yoga Formations</h3>
+                        </div>
+                        <p class="card-description">
+                            Master planetary combination effects that create specific life outcomes and destiny patterns.
+                        </p>
+                        <ul class="card-features">
+                            <li>Raja Yoga formations</li>
+                            <li>Dhana Yoga wealth patterns</li>
+                            <li>Karmic combination analysis</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="prediction-system-card">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <span class="card-icon">⏳</span>
+                            <h3 class="card-title">Dasha Progression</h3>
+                        </div>
+                        <p class="card-description">
+                            Life phase prediction models that reveal when specific events and opportunities will manifest.
+                        </p>
+                        <ul class="card-features">
+                            <li>Event timing calculation</li>
+                            <li>Period-based predictions</li>
+                            <li>Life phase mapping</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="prediction-system-card">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <span class="card-icon">🌙</span>
+                            <h3 class="card-title">Transit Triggering</h3>
+                        </div>
+                        <p class="card-description">
+                            Event timing calculations based on planetary movements and their activation of natal potentials.
+                        </p>
+                        <ul class="card-features">
+                            <li>Transit activation points</li>
+                            <li>Trigger event identification</li>
+                            <li>Timing precision methods</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="prediction-system-card">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <span class="card-icon">📊</span>
+                            <h3 class="card-title">Divisional Charts</h3>
+                        </div>
+                        <p class="card-description">
+                            Specialized life area analysis through 16 key divisional charts for precise predictions.
+                        </p>
+                        <ul class="card-features">
+                            <li>Navamsa marriage analysis</li>
+                            <li>Dasamsa career patterns</li>
+                            <li>Specialized chart synthesis</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="prediction-system-card">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <span class="card-icon">❓</span>
+                            <h3 class="card-title">Prashna Techniques</h3>
+                        </div>
+                        <p class="card-description">
+                            Question-specific algorithms for immediate answers to pressing life questions.
+                        </p>
+                        <ul class="card-features">
+                            <li>Horary chart casting</li>
+                            <li>Question timing analysis</li>
+                            <li>Immediate answer protocols</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="prediction-system-card">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <span class="card-icon">📈</span>
+                            <h3 class="card-title">Pattern Recognition</h3>
+                        </div>
+                        <p class="card-description">
+                            Historical trend analysis and cycle identification for long-term prediction accuracy.
+                        </p>
+                        <ul class="card-features">
+                            <li>Cycle pattern identification</li>
+                            <li>Historical correlation</li>
+                            <li>Trend projection methods</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="prediction-system-card">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <span class="card-icon">🎯</span>
+                            <h3 class="card-title">Probability Matrices</h3>
+                        </div>
+                        <p class="card-description">
+                            Event likelihood calculations using multiple astrological factors for probability assessment.
+                        </p>
+                        <ul class="card-features">
+                            <li>Multi-factor analysis</li>
+                            <li>Probability scoring</li>
+                            <li>Risk assessment models</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="prediction-system-card">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <span class="card-icon">🔗</span>
+                            <h3 class="card-title">Correlation Analysis</h3>
+                        </div>
+                        <p class="card-description">
+                            Multi-factor predictions combining various astrological techniques for comprehensive forecasting.
+                        </p>
+                        <ul class="card-features">
+                            <li>Multi-technique synthesis</li>
+                            <li>Cross-validation methods</li>
+                            <li>Comprehensive forecasting</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- COSMIC BACKGROUND -->
+    <div class="cosmic-background"></div>
+    
+    <!-- CORE SCRIPTS -->
+    <script src="assets/js/cosmic-background.js"></script>
+    <script src="assets/js/mobile-enhancements.js"></script>
+</body>
+</html>

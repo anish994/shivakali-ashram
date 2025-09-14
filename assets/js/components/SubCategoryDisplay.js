@@ -172,6 +172,96 @@ class SubCategoryDisplay {
                     unlocks: ["Soul-level understanding", "Karmic mission clarity", "Natural talent optimization"]
                 },
                 {
+                    id: "timing-mastery",
+                    title: "Timing Mastery",
+                    subtitle: "Temporal Advantage Protocols",
+                    description: "⏰ HACK TIME ITSELF: Master the universe's scheduling algorithm through Dasha systems, transits, and muhurat selection. Deploy perfect timing strategies for maximum success probability. Understand when the cosmic servers are optimized for your specific requests.",
+                    icon: "⏰", 
+                    emoji: "🎯",
+                    gradient: "linear-gradient(135deg, #FF9A8B 0%, #A8E6CF 50%, #66D9EF 100%)",
+                    primaryColor: "#FF9A8B",
+                    secondaryColor: "#A8E6CF",
+                    cardStyle: "time-master",
+                    contentCount: "10 timing system modules", 
+                    difficulty: "Intermediate → Expert",
+                    timeToMaster: "3-5 months focused practice",
+                    practicalApplications: [
+                        "Launch timing optimization",
+                        "Decision timing strategies", 
+                        "Relationship timing mastery",
+                        "Career move synchronization"
+                    ],
+                    keyTopics: [
+                        "Vimshottari Dasha: The 120-Year Life Algorithm",
+                        "Transit Analysis: Real-time cosmic weather tracking",
+                        "Muhurat Selection: Auspicious timing protocols",
+                        "Gochara Effects: Daily planetary influence patterns",
+                        "Ashtakavarga: Strength scoring systems",
+                        "Panchanga: 5-factor time quality analysis"
+                    ],
+                    unlocks: ["Perfect timing abilities", "Strategic advantage", "Cosmic synchronization"]
+                },
+                {
+                    id: "predictive-algorithms",
+                    title: "Predictive Algorithms",
+                    subtitle: "Future Probability Engineering",
+                    description: "🔮 CALCULATE TOMORROW TODAY: Deploy advanced prediction engines using Yogas, planetary combinations, and pattern recognition systems. Generate probability matrices for life events, relationship outcomes, and career trajectories with scientific precision.",
+                    icon: "🔮",
+                    emoji: "📊",
+                    gradient: "linear-gradient(135deg, #8360c3 0%, #2ebf91 50%, #ffeaa7 100%)",
+                    primaryColor: "#8360c3",
+                    secondaryColor: "#ffeaa7",
+                    cardStyle: "future-sight",
+                    contentCount: "8 prediction methodology modules",
+                    difficulty: "Advanced → Master Level", 
+                    timeToMaster: "4-7 months intensive training",
+                    practicalApplications: [
+                        "Life event forecasting",
+                        "Risk assessment protocols",
+                        "Opportunity identification",
+                        "Strategic planning support"
+                    ],
+                    keyTopics: [
+                        "Yoga Formations: Planetary combination effects",
+                        "Dasha Progression: Life phase prediction models",
+                        "Transit Triggering: Event timing calculations", 
+                        "Divisional Charts: Specialized life area analysis",
+                        "Prashna Techniques: Question-specific algorithms",
+                        "Pattern Recognition: Historical trend analysis"
+                    ],
+                    unlocks: ["Predictive mastery", "Future planning abilities", "Strategic advantage"]
+                },
+                {
+                    id: "remedial-technologies",
+                    title: "Remedial Technologies",
+                    subtitle: "Cosmic Debugging & Optimization",
+                    description: "🛠️ DEBUG YOUR DESTINY: Advanced troubleshooting protocols for planetary malfunctions and karmic bugs. Deploy gemstone frequency modulators, mantra programming languages, and ritual debugging scripts to optimize your cosmic operating system for peak performance.",
+                    icon: "🛠️",
+                    emoji: "💎", 
+                    gradient: "linear-gradient(135deg, #56ab2f 0%, #a8e6cf 50%, #00d2ff 100%)",
+                    primaryColor: "#56ab2f",
+                    secondaryColor: "#00d2ff",
+                    cardStyle: "cosmic-repair",
+                    contentCount: "12 remedial system modules",
+                    difficulty: "Intermediate → Advanced",
+                    timeToMaster: "2-4 months implementation focus", 
+                    practicalApplications: [
+                        "Planetary imbalance correction",
+                        "Karmic debt resolution",
+                        "Energy field optimization", 
+                        "Life obstacle removal"
+                    ],
+                    keyTopics: [
+                        "Gemstone Therapy: Crystal frequency programming",
+                        "Mantra Technologies: Sound-based system updates",
+                        "Yantra Geometries: Sacred circuit designs",
+                        "Ritual Protocols: Reality modification ceremonies",
+                        "Charity Algorithms: Karmic balance restoration",
+                        "Lifestyle Adjustments: Daily optimization practices"
+                    ],
+                    unlocks: ["Planetary harmonization", "Karmic debugging", "Life optimization mastery"]
+                },
+                {
                     id: "dasha-systems",
                     title: "Dasha Systems",
                     subtitle: "Planetary Time Mastery",
@@ -555,6 +645,78 @@ class SubCategoryDisplay {
                     }
                 } else {
                     console.log('DhaiyaCard class not found, using fallback');
+                    const card = new SubCategoryCard(subCategory, data.parentCategory);
+                    cardElement = card.createElement();
+                }
+            } else if (subCategory.id === 'timing-mastery') {
+                // Use specialized card for Timing Mastery
+                console.log('Attempting to create Timing Mastery card...');
+                if (typeof TimingMasteryCard !== 'undefined') {
+                    try {
+                        const timingCard = new TimingMasteryCard();
+                        cardElement = timingCard.createElement();
+                        console.log('Timing Mastery card created successfully');
+                    } catch (error) {
+                        console.error('Error creating Timing Mastery card:', error);
+                        const card = new SubCategoryCard(subCategory, data.parentCategory);
+                        cardElement = card.createElement();
+                    }
+                } else {
+                    console.log('TimingMasteryCard class not found, using fallback');
+                    const card = new SubCategoryCard(subCategory, data.parentCategory);
+                    cardElement = card.createElement();
+                }
+            } else if (subCategory.id === 'predictive-algorithms') {
+                // Use specialized card for Predictive Algorithms
+                console.log('Attempting to create Predictive Algorithms card...');
+                if (typeof PredictiveAlgorithmsCard !== 'undefined') {
+                    try {
+                        const predictiveCard = new PredictiveAlgorithmsCard();
+                        cardElement = predictiveCard.createElement();
+                        console.log('Predictive Algorithms card created successfully');
+                    } catch (error) {
+                        console.error('Error creating Predictive Algorithms card:', error);
+                        const card = new SubCategoryCard(subCategory, data.parentCategory);
+                        cardElement = card.createElement();
+                    }
+                } else {
+                    console.log('PredictiveAlgorithmsCard class not found, using fallback');
+                    const card = new SubCategoryCard(subCategory, data.parentCategory);
+                    cardElement = card.createElement();
+                }
+            } else if (subCategory.id === 'remedial-technologies') {
+                // Use specialized card for Remedial Technologies
+                console.log('Attempting to create Remedial Technologies card...');
+                if (typeof RemedialTechnologiesCard !== 'undefined') {
+                    try {
+                        const remedialCard = new RemedialTechnologiesCard();
+                        cardElement = remedialCard.createElement();
+                        console.log('Remedial Technologies card created successfully');
+                    } catch (error) {
+                        console.error('Error creating Remedial Technologies card:', error);
+                        const card = new SubCategoryCard(subCategory, data.parentCategory);
+                        cardElement = card.createElement();
+                    }
+                } else {
+                    console.log('RemedialTechnologiesCard class not found, using fallback');
+                    const card = new SubCategoryCard(subCategory, data.parentCategory);
+                    cardElement = card.createElement();
+                }
+            } else if (subCategory.id === 'nakshatra-codes') {
+                // Use specialized card for Nakshatra Codes if it exists
+                console.log('Attempting to create Nakshatra Codes card...');
+                if (typeof NakshatraCodesCard !== 'undefined') {
+                    try {
+                        const nakshatraCard = new NakshatraCodesCard();
+                        cardElement = nakshatraCard.createElement();
+                        console.log('Nakshatra Codes card created successfully');
+                    } catch (error) {
+                        console.error('Error creating Nakshatra Codes card:', error);
+                        const card = new SubCategoryCard(subCategory, data.parentCategory);
+                        cardElement = card.createElement();
+                    }
+                } else {
+                    console.log('NakshatraCodesCard class not found, using fallback');
                     const card = new SubCategoryCard(subCategory, data.parentCategory);
                     cardElement = card.createElement();
                 }
