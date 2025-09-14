@@ -58,15 +58,91 @@
 - **Rahu Ambition Analysis** - Desire patterns and materialization drives
 - **Ketu Liberation Index** - Detachment and spiritual inclinations
 
-#### **2. 🏠 Life Domain Tools**
-- **Career House Analysis** - Professional path optimization
-- **Relationship Compatibility** - Partnership dynamics assessment
-- **Wealth Mindset Evaluation** - Money and abundance patterns
-- **Health & Vitality Tracker** - Physical and energetic wellness
-- **Family Dynamics Assessment** - Home and roots analysis
-- **Communication Skills Meter** - Expression and learning evaluation
-- **Creative Potential Finder** - Artistic and innovative talents
-- **Spiritual Path Indicator** - Higher learning and wisdom assessment
+#### **2. 🏠 Life Domain Tools (Houses Interactive Concept)**
+
+##### **🦁 1st House - Identity & Self-Image Tools:**
+- **Identity Strength Assessment** - Rate your current self-confidence and personal brand
+- **First Impression Simulator** - What people see when they meet you
+- **Confidence Booster Toolkit** - Instant techniques for presence enhancement
+- **Personal Brand Calculator** - Discover your authentic identity archetype
+- **Leadership Potential Meter** - Natural authority and charisma evaluation
+
+##### **💰 2nd House - Wealth & Resources Tools:**
+- **Money Mindset Analyzer** - Deep dive into abundance blocks and beliefs
+- **Wealth Building Strategy Generator** - Personalized financial growth plans
+- **Value System Assessment** - What you truly value vs what you chase
+- **Resource Optimization Calculator** - Maximize what you already have
+- **Financial Confidence Tracker** - Monitor your money relationship improvements
+
+##### **📡 3rd House - Communication & Learning Tools:**
+- **Communication Style Profiler** - Discover your natural expression patterns
+- **Learning Preference Assessor** - Optimize how you absorb information
+- **Relationship Network Mapper** - Analyze your social connections quality
+- **Skill Development Planner** - Strategic talent building roadmap
+- **Local Environment Optimizer** - Improve your immediate surroundings impact
+
+##### **🏡 4th House - Home & Foundation Tools:**
+- **Emotional Security Assessment** - Foundation strength evaluation
+- **Home Environment Analyzer** - Living space energy optimization
+- **Family Dynamics Mapper** - Understand your roots and relationships
+- **Inner Child Healing Tracker** - Psychological foundation work
+- **Comfort Zone Expander** - Strategic growth beyond safety patterns
+
+##### **🎭 5th House - Creativity & Joy Tools:**
+- **Creative Potential Unleashing Kit** - Discover your artistic superpowers
+- **Joy & Pleasure Audit** - What truly makes you happy assessment
+- **Romance & Dating Strategy** - Heart-centered relationship approach
+- **Inner Child Reconnection Guide** - Rediscover your playful essence
+- **Self-Expression Amplifier** - Authentic creative voice development
+
+##### **⚔️ 6th House - Health & Service Tools:**
+- **Daily Routine Optimizer** - Design your perfect productive schedule
+- **Health & Vitality Tracker** - Holistic wellness monitoring system
+- **Service Purpose Finder** - Discover how you're meant to help others
+- **Challenge Transformation Kit** - Turn obstacles into growth opportunities
+- **Work-Life Integration Planner** - Sustainable productivity strategies
+
+##### **💕 7th House - Relationships & Partnership Tools:**
+- **Relationship Compatibility Calculator** - Deep partnership dynamics analysis
+- **Communication Harmony Assessor** - Improve connection quality
+- **Marriage Readiness Evaluation** - Are you prepared for lifelong partnership?
+- **Business Partnership Analyzer** - Professional relationship optimization
+- **Conflict Resolution Toolkit** - Transform disagreements into growth
+
+##### **🔮 8th House - Transformation & Mysteries Tools:**
+- **Shadow Work Integration Guide** - Face and heal hidden aspects
+- **Transformation Readiness Assessment** - Are you prepared for deep change?
+- **Shared Resources Calculator** - Optimize joint finances and assets
+- **Crisis Navigation Toolkit** - Turn life challenges into breakthroughs
+- **Occult Knowledge Readiness** - Spiritual advancement preparation
+
+##### **🎓 9th House - Wisdom & Higher Learning Tools:**
+- **Life Philosophy Designer** - Clarify your fundamental beliefs
+- **Higher Education Path Finder** - Optimize your learning journey
+- **Spiritual Teacher Readiness** - Are you ready to guide others?
+- **Travel & Adventure Planner** - Consciousness-expanding journey design
+- **Meaning & Purpose Calculator** - Connect with your higher calling
+
+##### **👑 10th House - Career & Status Tools:**
+- **Career Destiny Analyzer** - Find your true professional calling
+- **Public Reputation Audit** - How the world sees your work
+- **Authority & Leadership Assessor** - Natural command presence evaluation
+- **Professional Brand Builder** - Craft your expert positioning
+- **Legacy Impact Calculator** - What mark will you leave on the world?
+
+##### **🌐 11th House - Goals & Networks Tools:**
+- **Dream Manifestation Planner** - Turn visions into achievable goals
+- **Social Network Quality Analyzer** - Assess your friendship circles
+- **Community Impact Assessor** - How you contribute to group success
+- **Goal Achievement Tracker** - Monitor progress toward major objectives
+- **Networking Strategy Optimizer** - Build meaningful professional connections
+
+##### **🧘 12th House - Spirituality & Liberation Tools:**
+- **Spiritual Development Tracker** - Monitor your consciousness evolution
+- **Meditation & Prayer Optimizer** - Personalize your spiritual practice
+- **Subconscious Pattern Analyzer** - Identify hidden mental programming
+- **Letting Go Assessment** - What needs to be released for growth?
+- **Liberation Readiness Calculator** - Are you prepared for spiritual freedom?
 
 #### **3. ⭐ Nakshatra Discovery**
 - **Soul DNA Decoder** - Core personality archetype identification
