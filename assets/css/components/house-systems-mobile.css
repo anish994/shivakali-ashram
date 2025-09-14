@@ -1,0 +1,571 @@
+/* ====================================
+   HOUSE SYSTEMS MOBILE ENHANCEMENT
+   Preserves all desktop functionality while optimizing for mobile
+   ==================================== */
+
+/* BASE MOBILE OPTIMIZATIONS */
+@media (max-width: 768px) {
+    
+    /* ====================================
+       HOUSE CARDS MOBILE ENHANCEMENT
+       ==================================== */
+    
+    .houses-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+    
+    .house-card {
+        /* Maintain full content height - don't compress */
+        height: auto;
+        min-height: 450px; /* Ensure enough space for all content */
+        padding: 2rem 1.5rem;
+        /* Enhanced mobile spacing */
+        margin-bottom: 1rem;
+    }
+    
+    /* House header optimization */
+    .house-number {
+        font-size: 1rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .house-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .house-name {
+        font-size: 1.3rem;
+        line-height: 1.2;
+        margin-bottom: 0.5rem;
+    }
+    
+    .house-domain {
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+    }
+    
+    /* Enhanced description - preserve all content */
+    .house-description {
+        font-size: 0.85rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        /* Ensure full text is readable */
+        text-align: left;
+        hyphens: auto;
+        word-break: break-word;
+    }
+    
+    /* Keywords optimization - maintain visibility */
+    .house-keywords {
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-bottom: 1.5rem;
+        justify-content: flex-start;
+    }
+    
+    .keyword {
+        font-size: 0.7rem;
+        padding: 0.4rem 0.6rem;
+        /* Prevent keywords from being too small */
+        min-width: auto;
+        text-align: center;
+        white-space: nowrap;
+    }
+    
+    /* Status enhancement */
+    .house-status {
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+        justify-content: center;
+    }
+    
+    /* ====================================
+       HOUSE DETAIL PAGES MOBILE
+       ==================================== */
+    
+    /* Hero header mobile */
+    .hero-header,
+    .portal-header {
+        padding: 2rem 0;
+    }
+    
+    .hero-nav,
+    .portal-nav {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 0 1rem;
+        align-items: center;
+    }
+    
+    .back-button {
+        order: 1;
+        align-self: flex-start;
+        margin-bottom: 1rem;
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .hero-title-section,
+    .portal-title-section {
+        order: 2;
+        text-align: center;
+    }
+    
+    .power-indicator,
+    .status-indicator {
+        order: 3;
+        margin-top: 1rem;
+    }
+    
+    /* Hero content mobile */
+    .house-number {
+        font-size: 1rem;
+    }
+    
+    .hero-icon,
+    .portal-icon {
+        font-size: 3.5rem;
+        margin: 0.8rem 0;
+    }
+    
+    .hero-title,
+    .portal-title {
+        font-size: 2.2rem;
+        line-height: 1.2;
+        margin-bottom: 0.5rem;
+    }
+    
+    .hero-subtitle,
+    .portal-subtitle {
+        font-size: 1.2rem;
+        line-height: 1.3;
+    }
+    
+    /* ====================================
+       IDENTITY MASTERY MODULES MOBILE
+       ==================================== */
+    
+    .main-content,
+    .portal-content {
+        padding: 2rem 1rem;
+    }
+    
+    /* Core identity section */
+    .identity-core,
+    .mission-briefing {
+        padding: 2rem 1.5rem;
+        margin-bottom: 3rem;
+        border-radius: 20px;
+    }
+    
+    .core-title,
+    .mission-title {
+        font-size: 2rem;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    
+    .core-description,
+    .mission-description {
+        font-size: 1rem;
+        line-height: 1.6;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    
+    /* Statistics grid mobile */
+    .mission-stats,
+    .identity-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+    
+    .stat-item {
+        padding: 1rem;
+        text-align: center;
+        border-radius: 12px;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+    
+    .stat-label {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    /* ====================================
+       MASTERY MODULES MOBILE
+       ==================================== */
+    
+    /* Module cards */
+    .mastery-modules,
+    .personality-modules {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+    }
+    
+    .module-card {
+        padding: 1.5rem;
+        height: auto;
+        min-height: 200px;
+    }
+    
+    .module-header {
+        margin-bottom: 1rem;
+    }
+    
+    .module-icon {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .module-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .module-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+    
+    .module-description {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+    }
+    
+    /* Module features */
+    .module-features {
+        gap: 0.3rem;
+    }
+    
+    .feature-item {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.6rem;
+    }
+    
+    /* Module buttons */
+    .module-button,
+    .explore-module {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+        min-height: 44px; /* Touch target */
+        width: 100%;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+    
+    /* ====================================
+       INTERACTIVE ELEMENTS MOBILE
+       ==================================== */
+    
+    /* Assessment tools */
+    .personality-assessment,
+    .identity-analyzer {
+        padding: 1.5rem;
+        margin: 2rem 0;
+    }
+    
+    .assessment-title {
+        font-size: 1.5rem;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    
+    .assessment-questions {
+        gap: 1rem;
+    }
+    
+    .question-item {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Results display */
+    .assessment-results {
+        padding: 1.5rem;
+        margin-top: 1.5rem;
+    }
+    
+    .result-category {
+        margin-bottom: 1rem;
+        padding: 1rem;
+    }
+    
+    .result-title {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .result-description {
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+    
+    .result-score {
+        font-size: 1.2rem;
+        margin: 0.5rem 0;
+    }
+    
+    /* ====================================
+       PLANETARY INFLUENCE MOBILE
+       ==================================== */
+    
+    .planetary-influences {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin: 2rem 0;
+    }
+    
+    .planet-card {
+        padding: 1.5rem;
+        text-align: center;
+    }
+    
+    .planet-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .planet-name {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .planet-influence {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+    }
+    
+    .influence-strength {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+        border-radius: 15px;
+    }
+    
+    /* ====================================
+       OPTIMIZATION PROTOCOLS MOBILE
+       ==================================== */
+    
+    .optimization-protocols {
+        margin: 2rem 0;
+    }
+    
+    .protocol-list {
+        gap: 1rem;
+    }
+    
+    .protocol-item {
+        padding: 1.5rem;
+        border-radius: 15px;
+    }
+    
+    .protocol-icon {
+        font-size: 1.5rem;
+        margin-right: 1rem;
+        min-width: 2rem;
+    }
+    
+    .protocol-content {
+        flex: 1;
+    }
+    
+    .protocol-title {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .protocol-description {
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+    
+    /* ====================================
+       ACTION SECTIONS MOBILE
+       ==================================== */
+    
+    .coming-soon,
+    .action-center {
+        padding: 2rem 1.5rem;
+        text-align: center;
+        margin: 2rem 0;
+    }
+    
+    .coming-soon h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .coming-soon p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+    }
+    
+    /* Action buttons */
+    .notify-actions,
+    .action-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .action-button,
+    .community-button,
+    .notify-button {
+        width: 100%;
+        max-width: 300px;
+        padding: 1rem 2rem;
+        font-size: 0.95rem;
+        min-height: 48px; /* Better touch target */
+        justify-content: center;
+        border-radius: 25px;
+    }
+}
+
+/* ====================================
+   SMALL MOBILE DEVICES (< 480px)
+   ==================================== */
+
+@media (max-width: 479px) {
+    
+    .house-card {
+        padding: 1.5rem 1rem;
+        min-height: 400px;
+    }
+    
+    .hero-title,
+    .portal-title {
+        font-size: 1.8rem;
+    }
+    
+    .core-title,
+    .mission-title {
+        font-size: 1.7rem;
+    }
+    
+    .mission-stats,
+    .identity-stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .house-keywords {
+        justify-content: center;
+    }
+    
+    .keyword {
+        font-size: 0.65rem;
+        padding: 0.3rem 0.5rem;
+    }
+    
+    /* Tighter spacing for small screens */
+    .main-content,
+    .portal-content {
+        padding: 1.5rem 0.75rem;
+    }
+    
+    .identity-core,
+    .mission-briefing {
+        padding: 1.5rem 1rem;
+    }
+}
+
+/* ====================================
+   PERFORMANCE OPTIMIZATIONS
+   ==================================== */
+
+/* Optimize images and animations for mobile */
+@media (max-width: 768px) {
+    /* Reduce animation intensity on mobile */
+    .house-card {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    .house-card:hover {
+        transform: translateY(-3px); /* Reduced from desktop */
+    }
+    
+    /* Optimize text rendering */
+    .house-description,
+    .core-description,
+    .module-description {
+        text-rendering: optimizeSpeed;
+        -webkit-font-smoothing: antialiased;
+    }
+    
+    /* Better scroll performance */
+    .main-content,
+    .portal-content {
+        -webkit-overflow-scrolling: touch;
+        overflow-scrolling: touch;
+    }
+}
+
+/* ====================================
+   ACCESSIBILITY ENHANCEMENTS
+   ==================================== */
+
+@media (max-width: 768px) {
+    /* Ensure minimum touch targets */
+    .house-card,
+    .module-card,
+    .planet-card {
+        min-height: 44px;
+        cursor: pointer;
+    }
+    
+    /* Better focus states for mobile */
+    .house-card:focus,
+    .module-card:focus,
+    .action-button:focus {
+        outline: 2px solid rgba(79, 172, 254, 0.8);
+        outline-offset: 2px;
+    }
+    
+    /* Improve readability */
+    .house-description,
+    .module-description,
+    .protocol-description {
+        font-size: max(0.85rem, 16px); /* Prevent zoom on iOS */
+    }
+}
+
+/* ====================================
+   LANDSCAPE MOBILE OPTIMIZATION
+   ==================================== */
+
+@media (max-width: 768px) and (orientation: landscape) {
+    .mission-stats,
+    .identity-stats {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.5rem;
+    }
+    
+    .stat-item {
+        padding: 0.8rem;
+    }
+    
+    .houses-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .house-card {
+        min-height: 350px;
+        padding: 1.5rem 1rem;
+    }
+}

@@ -170,6 +170,156 @@ class SubCategoryDisplay {
                         "Ardra: The Storm Processors - Chaos-to-order algorithms"
                     ],
                     unlocks: ["Soul-level understanding", "Karmic mission clarity", "Natural talent optimization"]
+                },
+                {
+                    id: "dasha-systems",
+                    title: "Dasha Systems",
+                    subtitle: "Planetary Time Mastery",
+                    description: "⏰ MASTER THE COSMIC TIMING MATRIX: Dasha systems reveal the precise timing of your life's chapters. Each planetary period (Dasha) activates different aspects of your consciousness. Navigate Mahadasha, Antardasha, and Pratyantar cycles to optimize every phase of your evolution.",
+                    icon: "⏰",
+                    emoji: "🎯",
+                    gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                    primaryColor: "#667eea",
+                    secondaryColor: "#764ba2",
+                    cardStyle: "time-master",
+                    contentCount: "9 planetary period deep-dives",
+                    difficulty: "Intermediate → Expert",
+                    timeToMaster: "4-8 months systematic study",
+                    practicalApplications: [
+                        "Life phase optimization",
+                        "Perfect timing for decisions",
+                        "Career transition planning",
+                        "Relationship timing mastery"
+                    ],
+                    keyTopics: [
+                        "Sun Dasha: Leadership & Authority Periods",
+                        "Moon Dasha: Emotional & Intuitive Cycles",
+                        "Mars Dasha: Action & Conquest Phases",
+                        "Mercury Dasha: Communication & Learning Cycles",
+                        "Jupiter Dasha: Wisdom & Expansion Periods",
+                        "Venus Dasha: Creativity & Relationship Phases"
+                    ],
+                    unlocks: ["Perfect timing mastery", "Life phase optimization", "Planetary period navigation"]
+                },
+                {
+                    id: "yuga-cycles",
+                    title: "Yuga Cycles",
+                    subtitle: "Cosmic Time Architecture",
+                    description: "🌌 DECODE THE UNIVERSE'S GRAND DESIGN: The 4 Yugas represent massive cosmic consciousness cycles that shape reality itself. Understand how Satya, Treta, Dvapara, and Kali Yugas influence human potential and spiritual evolution across millennia.",
+                    icon: "🌌",
+                    emoji: "♾️",
+                    gradient: "linear-gradient(135deg, #a8e6cf 0%, #dcedc1 50%, #ffd3a5 100%)",
+                    primaryColor: "#a8e6cf",
+                    secondaryColor: "#ffd3a5",
+                    cardStyle: "cosmic-cycles",
+                    contentCount: "4 cosmic age explorations + integration",
+                    difficulty: "Advanced → Cosmic Level",
+                    timeToMaster: "6-12 months deep contemplation",
+                    practicalApplications: [
+                        "Evolutionary consciousness tracking",
+                        "Spiritual development optimization",
+                        "Collective consciousness understanding",
+                        "Reality framework navigation"
+                    ],
+                    keyTopics: [
+                        "Satya Yuga: The Golden Age - Perfect consciousness",
+                        "Treta Yuga: Silver Age - Ritualistic awakening",
+                        "Dvapara Yuga: Bronze Age - Energy & knowledge focus",
+                        "Kali Yuga: Iron Age - Material challenges & spiritual opportunities",
+                        "Yuga Sandhi: Transition periods and consciousness shifts",
+                        "Personal Yuga Cycles: Individual consciousness evolution"
+                    ],
+                    unlocks: ["Cosmic consciousness perspective", "Evolutionary timeline mastery", "Universal cycle navigation"]
+                },
+                {
+                    id: "sade-sati",
+                    title: "Sade Sati Mastery",
+                    subtitle: "Saturn's 7.5 Year Transformation",
+                    description: "🪐 TRANSFORM SATURN'S CHALLENGE INTO POWER: Sade Sati isn't punishment - it's your cosmic graduation exam. Master the 7.5-year Saturn transit cycle, decode its hidden gifts, and emerge as a disciplined, wise, and unstoppable force of nature.",
+                    icon: "🪐",
+                    emoji: "💎",
+                    gradient: "linear-gradient(135deg, #434343 0%, #000000 100%)",
+                    primaryColor: "#434343",
+                    secondaryColor: "#000000",
+                    cardStyle: "saturn-power",
+                    contentCount: "3 phase breakdown + remedy systems",
+                    difficulty: "Advanced → Master Level",
+                    timeToMaster: "3-6 months intensive preparation",
+                    practicalApplications: [
+                        "Saturn transit navigation",
+                        "Discipline system building",
+                        "Challenge transformation techniques",
+                        "Spiritual maturation acceleration"
+                    ],
+                    keyTopics: [
+                        "First Phase: Foundation Testing - Saturn enters 12th house",
+                        "Second Phase: Peak Challenge - Saturn transits natal Moon",
+                        "Third Phase: Results Harvesting - Saturn exits 2nd house",
+                        "Saturn Return Integration: 29.5-year mastery cycles",
+                        "Remedial Measures: Practical Saturn appeasement",
+                        "Hidden Gifts: Extracting wisdom from restrictions"
+                    ],
+                    unlocks: ["Saturn mastery", "Discipline architecture", "Challenge transformation"]
+                },
+                {
+                    id: "kala-sarpa",
+                    title: "Kala Sarpa Yoga",
+                    subtitle: "Serpent Power Mastery",
+                    description: "🐍 MASTER THE SERPENT'S COSMIC DANCE: When all planets align between Rahu and Ketu, the Serpent awakens. This isn't a curse - it's concentrated karmic evolution. Learn to ride the serpent's power for accelerated spiritual transformation.",
+                    icon: "🐍",
+                    emoji: "⚡",
+                    gradient: "linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%)",
+                    primaryColor: "#ff416c",
+                    secondaryColor: "#ff4b2b",
+                    cardStyle: "serpent-power",
+                    contentCount: "12 Kala Sarpa types + activation methods",
+                    difficulty: "Expert → Transcendent Level",
+                    timeToMaster: "6-18 months deep practice",
+                    practicalApplications: [
+                        "Karmic acceleration techniques",
+                        "Serpent energy channeling",
+                        "Shadow integration mastery",
+                        "Rapid spiritual evolution"
+                    ],
+                    keyTopics: [
+                        "Anant Kala Sarpa: First house serpent - Identity transformation",
+                        "Kulik Kala Sarpa: Second house - Wealth & values restructuring",
+                        "Vasuki Kala Sarpa: Third house - Communication power enhancement",
+                        "Shankpal Kala Sarpa: Fourth house - Foundation rebuilding",
+                        "Padma Kala Sarpa: Fifth house - Creative & intelligence awakening",
+                        "Mahapadma Kala Sarpa: Sixth house - Service & healing mastery"
+                    ],
+                    unlocks: ["Serpent power mastery", "Karmic acceleration", "Shadow integration"]
+                },
+                {
+                    id: "dhaiya",
+                    title: "Dhaiya Mastery",
+                    subtitle: "Saturn's 2.5 Year Precision Strike",
+                    description: "⚔️ MASTER SATURN'S SURGICAL INTERVENTION: Dhaiya is Saturn's focused 2.5-year training program - more precise than Sade Sati, but equally transformative. Learn to decode Saturn's targeted lessons and emerge with laser-focused discipline and wisdom.",
+                    icon: "⚔️",
+                    emoji: "🎯",
+                    gradient: "linear-gradient(135deg, #8B4513 0%, #2F4F4F 100%)",
+                    primaryColor: "#8B4513",
+                    secondaryColor: "#2F4F4F",
+                    cardStyle: "precision-strike",
+                    contentCount: "2 phase analysis + targeted remedies",
+                    difficulty: "Intermediate → Advanced",
+                    timeToMaster: "2-4 months focused study",
+                    practicalApplications: [
+                        "Focused challenge navigation",
+                        "Targeted discipline building",
+                        "Precision timing mastery",
+                        "Surgical life adjustments"
+                    ],
+                    keyTopics: [
+                        "4th House Dhaiya: Foundation & Security Testing",
+                        "8th House Dhaiya: Transformation & Hidden Resources",
+                        "Saturn's Teaching Methods: Discipline through limitation",
+                        "Dhaiya vs Sade Sati: Intensity comparison and navigation",
+                        "Targeted Remedies: Specific solutions for each Dhaiya type",
+                        "Graduation Indicators: Signs of successful Dhaiya completion"
+                    ],
+                    unlocks: ["Precision challenge mastery", "Targeted discipline", "Surgical timing"]
                 }
             ]
         };
@@ -309,6 +459,96 @@ class SubCategoryDisplay {
                     }
                 } else {
                     console.log('HouseSystemsCard class not found, using fallback');
+                    const card = new SubCategoryCard(subCategory, data.parentCategory);
+                    cardElement = card.createElement();
+                }
+            } else if (subCategory.id === 'dasha-systems') {
+                // Use specialized card for Dasha Systems
+                console.log('Attempting to create Dasha Systems card...');
+                if (typeof DashaSystemsCard !== 'undefined') {
+                    try {
+                        const dashaCard = new DashaSystemsCard();
+                        cardElement = dashaCard.createElement();
+                        console.log('Dasha Systems card created successfully');
+                    } catch (error) {
+                        console.error('Error creating Dasha Systems card:', error);
+                        const card = new SubCategoryCard(subCategory, data.parentCategory);
+                        cardElement = card.createElement();
+                    }
+                } else {
+                    console.log('DashaSystemsCard class not found, using fallback');
+                    const card = new SubCategoryCard(subCategory, data.parentCategory);
+                    cardElement = card.createElement();
+                }
+            } else if (subCategory.id === 'yuga-cycles') {
+                // Use specialized card for Yuga Cycles
+                console.log('Attempting to create Yuga Cycles card...');
+                if (typeof YugaCyclesCard !== 'undefined') {
+                    try {
+                        const yugaCard = new YugaCyclesCard();
+                        cardElement = yugaCard.createElement();
+                        console.log('Yuga Cycles card created successfully');
+                    } catch (error) {
+                        console.error('Error creating Yuga Cycles card:', error);
+                        const card = new SubCategoryCard(subCategory, data.parentCategory);
+                        cardElement = card.createElement();
+                    }
+                } else {
+                    console.log('YugaCyclesCard class not found, using fallback');
+                    const card = new SubCategoryCard(subCategory, data.parentCategory);
+                    cardElement = card.createElement();
+                }
+            } else if (subCategory.id === 'sade-sati') {
+                // Use specialized card for Sade Sati
+                console.log('Attempting to create Sade Sati card...');
+                if (typeof SadeSatiCard !== 'undefined') {
+                    try {
+                        const sadeSatiCard = new SadeSatiCard();
+                        cardElement = sadeSatiCard.createElement();
+                        console.log('Sade Sati card created successfully');
+                    } catch (error) {
+                        console.error('Error creating Sade Sati card:', error);
+                        const card = new SubCategoryCard(subCategory, data.parentCategory);
+                        cardElement = card.createElement();
+                    }
+                } else {
+                    console.log('SadeSatiCard class not found, using fallback');
+                    const card = new SubCategoryCard(subCategory, data.parentCategory);
+                    cardElement = card.createElement();
+                }
+            } else if (subCategory.id === 'kala-sarpa') {
+                // Use specialized card for Kala Sarpa
+                console.log('Attempting to create Kala Sarpa card...');
+                if (typeof KalaSarpaCard !== 'undefined') {
+                    try {
+                        const kalaSarpaCard = new KalaSarpaCard();
+                        cardElement = kalaSarpaCard.createElement();
+                        console.log('Kala Sarpa card created successfully');
+                    } catch (error) {
+                        console.error('Error creating Kala Sarpa card:', error);
+                        const card = new SubCategoryCard(subCategory, data.parentCategory);
+                        cardElement = card.createElement();
+                    }
+                } else {
+                    console.log('KalaSarpaCard class not found, using fallback');
+                    const card = new SubCategoryCard(subCategory, data.parentCategory);
+                    cardElement = card.createElement();
+                }
+            } else if (subCategory.id === 'dhaiya') {
+                // Use specialized card for Dhaiya
+                console.log('Attempting to create Dhaiya card...');
+                if (typeof DhaiyaCard !== 'undefined') {
+                    try {
+                        const dhaiyaCard = new DhaiyaCard();
+                        cardElement = dhaiyaCard.createElement();
+                        console.log('Dhaiya card created successfully');
+                    } catch (error) {
+                        console.error('Error creating Dhaiya card:', error);
+                        const card = new SubCategoryCard(subCategory, data.parentCategory);
+                        cardElement = card.createElement();
+                    }
+                } else {
+                    console.log('DhaiyaCard class not found, using fallback');
                     const card = new SubCategoryCard(subCategory, data.parentCategory);
                     cardElement = card.createElement();
                 }
