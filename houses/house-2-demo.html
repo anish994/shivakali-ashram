@@ -2277,7 +2277,8 @@
             };
             
             if (planets[planetType]) {
-                alert(planets[planetType]);
+                // Redirect directly to the planet page
+                window.location.href = `../planets/${planetType}-demo.html`;
             } else {
                 alert('🪐 PLANETARY COMMANDER\\n\\nThis planetary money mastery profile is being prepared for you!\\n\\nStay tuned for complete planetary wealth training.');
             }

@@ -2485,9 +2485,8 @@
 
             const planet = planetInfo[planetName];
             if (planet) {
-                alert(planet.message);
-                // In the future, this will navigate to individual planet pages:
-                // window.location.href = `../planets/${planetName}.html`;
+                // Redirect directly to the planet page
+                window.location.href = `../planets/${planetName}-demo.html`;
             } else {
                 alert('🪐 PLANETARY COMMANDER\n\nThis planetary mastery system is being prepared for you!\n\nStay tuned for complete planetary influence training.');
             }
