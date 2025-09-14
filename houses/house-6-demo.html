@@ -1445,34 +1445,7 @@
             margin-right: 0.5rem;
         }
 
-        /* Mobile Optimization */
-        .collapsible-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-
-        .collapsible-content.expanded {
-            max-height: 2000px;
-        }
-
-        .expand-toggle {
-            display: none;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 25px;
-            cursor: pointer;
-            margin: 1rem auto;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-
-        .expand-toggle:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
+        /* Mobile Optimization - Collapsible removed for expansive mobile experience */
 
         @media (max-width: 768px) {
             /* Section spacing optimization */
@@ -1534,14 +1507,7 @@
                 font-size: 1.3rem;
             }
             
-            /* Collapsible sections for mobile */
-            .expand-toggle {
-                display: block;
-            }
-            
-            .collapsible-content {
-                max-height: 0;
-            }
+            /* Collapsible sections removed - mastery content stays fully visible */
             
             /* Typography optimization */
             .commanders-title, .light-shadow-title, .pathway-title, .warning-title {
@@ -2626,59 +2592,9 @@
             }
         }
 
-        // Add collapsible sections for mobile
+        // Mobile collapsible functionality disabled
         function addMobileCollapsible() {
-            if (window.innerWidth <= 768) {
-                // Add collapsible to mastery cards
-                const masteryCards = document.querySelectorAll('.mastery-card');
-                masteryCards.forEach(card => {
-                    const prosConsGrid = card.querySelector('.pros-cons-grid');
-                    const masteryTechniques = card.querySelector('.mastery-techniques');
-                    const progressionLevels = card.querySelector('.progression-levels');
-                    
-                    if (prosConsGrid && !prosConsGrid.previousElementSibling.classList.contains('expand-toggle')) {
-                        const toggleButton = document.createElement('button');
-                        toggleButton.className = 'expand-toggle';
-                        toggleButton.innerHTML = 'Show More Details ▼';
-                        toggleButton.onclick = function() { toggleCollapse(this); };
-                        
-                        const collapsibleContent = document.createElement('div');
-                        collapsibleContent.className = 'collapsible-content';
-                        
-                        collapsibleContent.appendChild(prosConsGrid);
-                        collapsibleContent.appendChild(masteryTechniques);
-                        collapsibleContent.appendChild(progressionLevels);
-                        
-                        const celebrityExample = card.querySelector('.celebrity-example');
-                        celebrityExample.after(toggleButton);
-                        toggleButton.after(collapsibleContent);
-                    }
-                });
-                
-                // Add collapsible to planet cards
-                const planetCards = document.querySelectorAll('.planet-card');
-                planetCards.forEach(card => {
-                    const powersGrid = card.querySelector('.planet-powers-grid');
-                    const activationTechnique = card.querySelector('.activation-technique');
-                    
-                    if (powersGrid && !powersGrid.previousElementSibling.classList.contains('expand-toggle')) {
-                        const toggleButton = document.createElement('button');
-                        toggleButton.className = 'expand-toggle';
-                        toggleButton.innerHTML = 'Show Powers & Shadows ▼';
-                        toggleButton.onclick = function() { toggleCollapse(this); };
-                        
-                        const collapsibleContent = document.createElement('div');
-                        collapsibleContent.className = 'collapsible-content';
-                        
-                        collapsibleContent.appendChild(powersGrid);
-                        collapsibleContent.appendChild(activationTechnique);
-                        
-                        const planetExample = card.querySelector('.planet-examples');
-                        planetExample.after(toggleButton);
-                        toggleButton.after(collapsibleContent);
-                    }
-                });
-            }
+            // Collapsible functionality disabled - all mastery content stays visible on mobile
         }
 
         // Smooth scrolling optimization
@@ -2699,8 +2615,8 @@
             createIdentityParticles();
             optimizeMobilePerformance();
             
-            // Add mobile collapsible after DOM is loaded
-            setTimeout(addMobileCollapsible, 100);
+            // Mobile collapsible disabled - mastery modules stay fully expanded
+            // setTimeout(addMobileCollapsible, 100);
             
             // Add enhanced hover effects for mastery cards (desktop only)
             if (window.innerWidth > 768) {
@@ -2731,10 +2647,10 @@
         
         // Handle resize events
         window.addEventListener('resize', function() {
-            // Re-initialize mobile features if window is resized to mobile
-            if (window.innerWidth <= 768) {
-                setTimeout(addMobileCollapsible, 100);
-            }
+            // Mobile collapsible disabled - mastery modules stay fully expanded
+            // if (window.innerWidth <= 768) {
+            //     setTimeout(addMobileCollapsible, 100);
+            // }
         });
     </script>
 </body>
