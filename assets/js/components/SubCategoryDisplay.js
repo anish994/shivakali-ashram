@@ -399,6 +399,12 @@ class SubCategoryDisplay {
         // DEBUG: Show what data we're getting
         console.log('🔍 SUB-CATEGORY DATA:', data);
         console.log('🔍 NUMBER OF SUB-CATEGORIES:', data.subCategories ? data.subCategories.length : 'NONE');
+        console.log('🚀 INTEGRATION TEST: NEW SYSTEMS CHECK!');
+        if (data.subCategories) {
+            const newSystems = data.subCategories.filter(sub => ['dasha-systems', 'yuga-cycles', 'sade-sati', 'kala-sarpa', 'dhaiya'].includes(sub.id));
+            console.log('✅ NEW SYSTEMS FOUND:', newSystems.length, '/ 5 expected');
+            newSystems.forEach(sys => console.log(`  - ${sys.id}: ${sys.title}`));
+        }
         if (data.subCategories) {
             data.subCategories.forEach((sub, index) => {
                 console.log(`🔍 Sub-category ${index + 1}: ${sub.id} - ${sub.title}`);
