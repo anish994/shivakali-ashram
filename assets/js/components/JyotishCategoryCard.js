@@ -19,7 +19,7 @@ class JyotishCategoryCard {
             primaryColor: "#667eea",
             secondaryColor: "#f093fb",
             cardStyle: "cosmic-mastery",
-            totalContent: "72+ deep-dive modules across 6 mastery systems",
+            totalContent: "100+ deep-dive modules across 8 mastery systems",
             difficulty: "Beginner → Grandmaster",
             timeToMaster: "12-24 months complete immersion",
             practicalApplications: [
@@ -44,12 +44,12 @@ class JyotishCategoryCard {
                 },
                 {
                     id: "house-systems",
-                    title: "House Systems",
+                    title: "House Systems Architecture",
                     subtitle: "Life Domain Command Centers",
-                    description: "🏠 Architect your reality through 12 life domains",
-                    icon: "🏠", 
+                    description: "🏛️ Architect your reality through 12 life domains",
+                    icon: "🏛️", 
                     contentCount: "15 modules",
-                    gradient: "linear-gradient(135deg, #4FACFE 0%, #A855F7 50%, #6366F1 100%)"
+                    gradient: "linear-gradient(135deg, #FF9A8B 0%, #A8E6CF 50%, #66D9EF 100%)"
                 },
                 {
                     id: "nakshatra-codes",
@@ -61,31 +61,49 @@ class JyotishCategoryCard {
                     gradient: "linear-gradient(135deg, #4ECDC4 0%, #44A08D 50%, #2E8B57 100%)"
                 },
                 {
-                    id: "timing-mastery", 
-                    title: "Timing Mastery",
-                    subtitle: "Temporal Advantage Protocols",
-                    description: "⏰ Hack time itself for maximum success probability",
+                    id: "dasha-systems",
+                    title: "Dasha Systems",
+                    subtitle: "Planetary Time Mastery",
+                    description: "⏰ Master cosmic timing matrix and planetary periods",
                     icon: "⏰",
-                    contentCount: "10 modules",
-                    gradient: "linear-gradient(135deg, #FF9A8B 0%, #A8E6CF 50%, #66D9EF 100%)"
+                    contentCount: "9 modules",
+                    gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
                 },
                 {
-                    id: "predictive-algorithms",
-                    title: "Predictive Algorithms", 
-                    subtitle: "Future Probability Engineering",
-                    description: "🔮 Calculate tomorrow with scientific precision",
-                    icon: "🔮",
-                    contentCount: "8 modules",
-                    gradient: "linear-gradient(135deg, #8360c3 0%, #2ebf91 50%, #ffeaa7 100%)"
+                    id: "yuga-cycles",
+                    title: "Yuga Cycles",
+                    subtitle: "Cosmic Time Architecture",
+                    description: "🌌 Decode the universe's grand design across cosmic ages",
+                    icon: "🌌",
+                    contentCount: "4 modules",
+                    gradient: "linear-gradient(135deg, #a8e6cf 0%, #dcedc1 50%, #ffd3a5 100%)"
                 },
                 {
-                    id: "remedial-technologies",
-                    title: "Remedial Technologies",
-                    subtitle: "Cosmic Debugging & Optimization", 
-                    description: "🛠️ Debug your destiny with advanced protocols",
-                    icon: "🛠️",
-                    contentCount: "12 modules",
-                    gradient: "linear-gradient(135deg, #56ab2f 0%, #a8e6cf 50%, #00d2ff 100%)"
+                    id: "sade-sati",
+                    title: "Sade Sati Mastery",
+                    subtitle: "Saturn's 7.5 Year Transformation",
+                    description: "🪐 Transform Saturn's challenge into power",
+                    icon: "🪐",
+                    contentCount: "3 phases",
+                    gradient: "linear-gradient(135deg, #434343 0%, #000000 100%)"
+                },
+                {
+                    id: "kala-sarpa",
+                    title: "Kala Sarpa Yoga",
+                    subtitle: "Serpent Power Mastery",
+                    description: "🐍 Master the serpent's cosmic dance",
+                    icon: "🐍",
+                    contentCount: "12 types",
+                    gradient: "linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%)"
+                },
+                {
+                    id: "dhaiya",
+                    title: "Dhaiya Mastery",
+                    subtitle: "Saturn's 2.5 Year Precision Strike",
+                    description: "⚔️ Master Saturn's surgical intervention",
+                    icon: "⚔️",
+                    contentCount: "2 phases",
+                    gradient: "linear-gradient(135deg, #8B4513 0%, #2F4F4F 100%)"
                 }
             ],
             unlocks: [
