@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="description" content="Master Cosmic Time Architecture - Yuga Cycles for universal evolution understanding">
+    <meta name="keywords" content="yuga, cosmic cycles, time architecture, vedic cosmology, satya treta dvapara kali">
+    <meta name="author" content="Acharya Anish">
+    
+    <title>🌌 Yuga Cycles - Cosmic Time Architecture</title>
+    
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components/cosmic-background.css">
+    <link rel="stylesheet" href="assets/css/components/mobile-optimization.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌌</text></svg>">
+    
+    <style>
+        /* 🌌 YUGA CYCLES PORTAL STYLES */
+        
+        body {
+            background: linear-gradient(135deg, #a8e6cf 0%, #dcedc1 50%, #ffd3a5 100%);
+            overflow-x: hidden;
+        }
+        
+        /* PORTAL HEADER */
+        .portal-header {
+            background: linear-gradient(135deg, rgba(168, 230, 207, 0.1) 0%, rgba(220, 237, 193, 0.05) 100%);
+            border-bottom: 1px solid rgba(168, 230, 207, 0.3);
+            padding: 2rem 0;
+            position: relative;
+        }
+        
+        .portal-nav {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .back-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(168, 230, 207, 0.2);
+            border: 1px solid rgba(168, 230, 207, 0.4);
+            border-radius: 25px;
+            color: #2E8B57;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background: rgba(168, 230, 207, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(168, 230, 207, 0.3);
+        }
+        
+        .portal-title-section {
+            text-align: center;
+            color: #0d1117;
+        }
+        
+        .portal-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+            animation: yugaPulse 4s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 20px rgba(168, 230, 207, 0.7));
+        }
+        
+        .portal-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 0 0 0.5rem 0;
+            background: linear-gradient(135deg, #2E8B57 0%, #228B22 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(46, 139, 87, 0.3);
+        }
+        
+        .portal-subtitle {
+            font-size: 1.5rem;
+            color: rgba(13, 17, 23, 0.8);
+            margin: 0;
+            font-weight: 600;
+        }
+        
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: rgba(255, 211, 165, 0.2);
+            border: 1px solid rgba(255, 211, 165, 0.4);
+            border-radius: 20px;
+            color: #8B4513;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        /* YUGA GRID */
+        .yuga-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .yuga-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.1) 100%);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 2px solid rgba(46, 139, 87, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .yuga-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            border-radius: 20px 20px 0 0;
+        }
+        
+        .yuga-card.satya::before { background: linear-gradient(90deg, #FFD700 0%, #FFA500 100%); }
+        .yuga-card.treta::before { background: linear-gradient(90deg, #C0C0C0 0%, #A8A8A8 100%); }
+        .yuga-card.dvapara::before { background: linear-gradient(90deg, #CD7F32 0%, #B8860B 100%); }
+        .yuga-card.kali::before { background: linear-gradient(90deg, #2F4F4F 0%, #000000 100%); }
+        
+        .yuga-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(46, 139, 87, 0.5);
+            box-shadow: 0 15px 40px rgba(46, 139, 87, 0.2);
+        }
+        
+        .yuga-age {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .yuga-name {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #2E8B57;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        
+        .yuga-duration {
+            color: rgba(13, 17, 23, 0.7);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .yuga-description {
+            color: rgba(13, 17, 23, 0.8);
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+        
+        @keyframes yugaPulse {
+            0% { transform: scale(1) rotate(0deg); }
+            100% { transform: scale(1.08) rotate(5deg); }
+        }
+        
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            .yuga-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="portal-header">
+        <nav class="portal-nav">
+            <a href="index.html" class="back-button">
+                <span>←</span>
+                <span>Back to Gateway</span>
+            </a>
+            
+            <div class="portal-title-section">
+                <span class="portal-icon">🌌</span>
+                <h1 class="portal-title">Yuga Cycles</h1>
+                <p class="portal-subtitle">Cosmic Time Architecture</p>
+            </div>
+            
+            <div class="status-indicator">
+                <span>COSMIC PORTAL ACTIVE</span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="portal-content">
+        <section class="mission-briefing" style="text-align: center; margin-bottom: 4rem; padding: 3rem; background: linear-gradient(135deg, rgba(168, 230, 207, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%); border-radius: 25px;">
+            <h2 style="font-size: 2.5rem; color: #2E8B57; margin-bottom: 1rem;">Decode the Universe's Grand Design</h2>
+            <p style="font-size: 1.2rem; color: rgba(13, 17, 23, 0.8); line-height: 1.6; max-width: 800px; margin: 0 auto;">
+                The 4 Yugas represent massive cosmic consciousness cycles that shape reality itself. 
+                Understand how Satya, Treta, Dvapara, and Kali Yugas influence human potential and 
+                spiritual evolution across millennia.
+            </p>
+        </section>
+
+        <section class="yuga-grid">
+            <div class="yuga-card satya">
+                <div class="yuga-age">🏛️</div>
+                <h3 class="yuga-name">Satya Yuga</h3>
+                <p class="yuga-duration">1,728,000 Years - The Golden Age</p>
+                <p class="yuga-description">Perfect consciousness - Humanity lives in harmony with divine truth. Knowledge is intuitive, lifespan is long, and spiritual awareness is natural. No need for temples or scriptures as truth is self-evident.</p>
+            </div>
+
+            <div class="yuga-card treta">
+                <div class="yuga-age">🔥</div>
+                <h3 class="yuga-name">Treta Yuga</h3>
+                <p class="yuga-duration">1,296,000 Years - The Silver Age</p>
+                <p class="yuga-description">Ritualistic awakening - Truth must be maintained through ceremonies and practices. The emergence of sacred rituals and spiritual disciplines. Knowledge requires effort but remains accessible to sincere seekers.</p>
+            </div>
+
+            <div class="yuga-card dvapara">
+                <div class="yuga-age">⚡</div>
+                <h3 class="yuga-name">Dvapara Yuga</h3>
+                <p class="yuga-duration">864,000 Years - The Bronze Age</p>
+                <p class="yuga-description">Energy & knowledge focus - The age of advanced technology and mental development. Great civilizations emerge with sophisticated understanding of energy and consciousness manipulation.</p>
+            </div>
+
+            <div class="yuga-card kali">
+                <div class="yuga-age">🌑</div>
+                <h3 class="yuga-name">Kali Yuga</h3>
+                <p class="yuga-duration">432,000 Years - The Iron Age</p>
+                <p class="yuga-description">Material challenges & spiritual opportunities - Our current age. Despite darkness, this period offers the fastest spiritual growth. Small efforts yield great results. The age of hidden masters and spiritual breakthroughs.</p>
+            </div>
+        </section>
+
+        <div style="text-align: center; margin-top: 4rem;">
+            <a href="index.html" class="back-button">
+                <span>Return to Sacred Knowledge Gateway</span>
+            </a>
+        </div>
+    </main>
+</body>
+</html>

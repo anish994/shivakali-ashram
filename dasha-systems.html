@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="description" content="Master Planetary Time Mastery - Dasha Systems for precise cosmic timing">
+    <meta name="keywords" content="dasha, planetary periods, timing, vedic astrology, jyotisha, vimshottari">
+    <meta name="author" content="Acharya Anish">
+    
+    <title>⏰ Dasha Systems - Planetary Time Mastery</title>
+    
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components/cosmic-background.css">
+    <link rel="stylesheet" href="assets/css/components/mobile-optimization.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⏰</text></svg>">
+    
+    <style>
+        /* ⏰ DASHA SYSTEMS PORTAL STYLES */
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #0d1117 100%);
+            overflow-x: hidden;
+        }
+        
+        /* PORTAL HEADER */
+        .portal-header {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.05) 100%);
+            border-bottom: 1px solid rgba(102, 126, 234, 0.3);
+            padding: 2rem 0;
+            position: relative;
+        }
+        
+        .portal-nav {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .back-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(102, 126, 234, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 25px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .portal-title-section {
+            text-align: center;
+            color: white;
+        }
+        
+        .portal-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+            animation: dashaPulse 3s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.5));
+        }
+        
+        .portal-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 0 0 0.5rem 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
+        }
+        
+        .portal-subtitle {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+            font-weight: 600;
+        }
+        
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: rgba(118, 75, 162, 0.1);
+            border: 1px solid rgba(118, 75, 162, 0.3);
+            border-radius: 20px;
+            color: #764ba2;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #764ba2;
+            animation: statusPulse 2s ease-in-out infinite;
+        }
+        
+        /* MAIN CONTENT */
+        .portal-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        /* MISSION BRIEFING */
+        .mission-briefing {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(0, 0, 0, 0.3) 100%);
+            border-radius: 25px;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+        
+        .mission-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #667eea;
+            margin: 0 0 1rem 0;
+            text-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
+        }
+        
+        .mission-description {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+        }
+        
+        /* DASHA GRID */
+        .dasha-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .dasha-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .dasha-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(102, 126, 234, 0.4);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+        
+        .dasha-planet {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .dasha-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+        
+        .dasha-duration {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
+        }
+        
+        .dasha-description {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.5;
+        }
+        
+        @keyframes dashaPulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+        
+        @keyframes statusPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            .portal-title { font-size: 2rem; }
+            .portal-subtitle { font-size: 1.2rem; }
+            .portal-content { padding: 2rem 1rem; }
+            .dasha-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Portal Header -->
+    <header class="portal-header">
+        <nav class="portal-nav">
+            <a href="index.html" class="back-button">
+                <span>←</span>
+                <span>Back to Gateway</span>
+            </a>
+            
+            <div class="portal-title-section">
+                <span class="portal-icon">⏰</span>
+                <h1 class="portal-title">Dasha Systems</h1>
+                <p class="portal-subtitle">Planetary Time Mastery</p>
+            </div>
+            
+            <div class="status-indicator">
+                <span class="status-dot"></span>
+                <span>TEMPORAL PORTAL ACTIVE</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="portal-content">
+        <!-- Mission Briefing -->
+        <section class="mission-briefing">
+            <h2 class="mission-title">Master the Cosmic Timing Matrix</h2>
+            <p class="mission-description">
+                Dasha systems reveal the precise timing of your life's chapters. Each planetary period (Dasha) 
+                activates different aspects of your consciousness. Navigate Mahadasha, Antardasha, and 
+                Pratyantar cycles to optimize every phase of your evolution.
+            </p>
+        </section>
+
+        <!-- Dasha Systems Grid -->
+        <section class="dasha-grid">
+            <div class="dasha-card">
+                <div class="dasha-planet">☀️</div>
+                <h3 class="dasha-name">Sun Dasha</h3>
+                <p class="dasha-duration">6 Years</p>
+                <p class="dasha-description">Leadership & Authority Periods - Command presence and recognition</p>
+            </div>
+
+            <div class="dasha-card">
+                <div class="dasha-planet">🌙</div>
+                <h3 class="dasha-name">Moon Dasha</h3>
+                <p class="dasha-duration">10 Years</p>
+                <p class="dasha-description">Emotional & Intuitive Cycles - Deep feeling and receptivity phases</p>
+            </div>
+
+            <div class="dasha-card">
+                <div class="dasha-planet">🔴</div>
+                <h3 class="dasha-name">Mars Dasha</h3>
+                <p class="dasha-duration">7 Years</p>
+                <p class="dasha-description">Action & Conquest Phases - Energy, drive, and achievement focus</p>
+            </div>
+
+            <div class="dasha-card">
+                <div class="dasha-planet">🌿</div>
+                <h3 class="dasha-name">Mercury Dasha</h3>
+                <p class="dasha-duration">17 Years</p>
+                <p class="dasha-description">Communication & Learning Cycles - Intelligence and skill development</p>
+            </div>
+
+            <div class="dasha-card">
+                <div class="dasha-planet">🟡</div>
+                <h3 class="dasha-name">Jupiter Dasha</h3>
+                <p class="dasha-duration">16 Years</p>
+                <p class="dasha-description">Wisdom & Expansion Periods - Growth, knowledge, and spiritual development</p>
+            </div>
+
+            <div class="dasha-card">
+                <div class="dasha-planet">💎</div>
+                <h3 class="dasha-name">Venus Dasha</h3>
+                <p class="dasha-duration">20 Years</p>
+                <p class="dasha-description">Creativity & Relationship Phases - Beauty, harmony, and connection focus</p>
+            </div>
+
+            <div class="dasha-card">
+                <div class="dasha-planet">🪐</div>
+                <h3 class="dasha-name">Saturn Dasha</h3>
+                <p class="dasha-duration">19 Years</p>
+                <p class="dasha-description">Discipline & Structure Periods - Responsibility and mastery through limitation</p>
+            </div>
+
+            <div class="dasha-card">
+                <div class="dasha-planet">🌊</div>
+                <h3 class="dasha-name">Rahu Dasha</h3>
+                <p class="dasha-duration">18 Years</p>
+                <p class="dasha-description">Amplification & Desire Cycles - Intense growth and material achievement</p>
+            </div>
+
+            <div class="dasha-card">
+                <div class="dasha-planet">🔮</div>
+                <h3 class="dasha-name">Ketu Dasha</h3>
+                <p class="dasha-duration">7 Years</p>
+                <p class="dasha-description">Spiritual & Detachment Phases - Liberation and transcendence focus</p>
+            </div>
+        </section>
+
+        <!-- Footer Navigation -->
+        <div style="text-align: center; margin-top: 4rem;">
+            <a href="index.html" class="back-button">
+                <span>Return to Sacred Knowledge Gateway</span>
+            </a>
+        </div>
+    </main>
+</body>
+</html>
