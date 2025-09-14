@@ -357,6 +357,43 @@
         "Graduation Indicators: Signs of successful Dhaiya completion"
       ],
       "unlocks": ["Precision challenge mastery", "Targeted discipline", "Surgical timing"]
+    },
+
+    {
+      "id": "zodiac-signs",
+      "title": "Zodiac Signs Mastery",
+      "subtitle": "Cosmic Personality Architecture",
+      "description": "♈ DECODE THE 12 COSMIC ARCHETYPES: Each zodiac sign represents a unique consciousness operating system with distinct strengths, challenges, and evolutionary paths. Master the psychological patterns, elemental energies, and transformational potentials of all 12 signs to unlock complete personality mastery.",
+      "icon": "♈",
+      "emoji": "🔮",
+      "gradient": "linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 25%, #45B7D1 50%, #96CEB4 75%, #FFEAA7 100%)",
+      "primaryColor": "#FF6B6B",
+      "secondaryColor": "#4ECDC4",
+      "cardStyle": "zodiac-spectrum",
+      "contentCount": "12 zodiac sign deep-dives + elemental mastery",
+      "difficulty": "Beginner → Advanced",
+      "timeToMaster": "3-6 months comprehensive study",
+      "practicalApplications": [
+        "Personality type optimization",
+        "Relationship compatibility analysis",
+        "Personal strength activation",
+        "Shadow work integration",
+        "Elemental balance techniques",
+        "Evolutionary growth planning"
+      ],
+      "keyTopics": [
+        "Fire Signs: Aries, Leo, Sagittarius - Action & Inspiration Engines",
+        "Earth Signs: Taurus, Virgo, Capricorn - Stability & Manifestation Masters",
+        "Air Signs: Gemini, Libra, Aquarius - Communication & Intellectual Networks",
+        "Water Signs: Cancer, Scorpio, Pisces - Emotional & Intuitive Processors",
+        "Cardinal Signs: Leadership & Initiation Patterns",
+        "Fixed Signs: Stability & Persistence Mechanisms",
+        "Mutable Signs: Adaptability & Transformation Systems",
+        "Sign Polarities: Complementary Energy Dynamics",
+        "Elemental Interactions: How signs work together",
+        "Evolutionary Astrology: Soul growth through sign expressions"
+      ],
+      "unlocks": ["Complete personality mastery", "Relationship optimization", "Elemental balance mastery", "Evolutionary consciousness"]
     }
   ],
   

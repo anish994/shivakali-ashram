@@ -19,7 +19,7 @@ class JyotishCategoryCard {
             primaryColor: "#667eea",
             secondaryColor: "#f093fb",
             cardStyle: "cosmic-mastery",
-            totalContent: "130+ deep-dive modules across 11 mastery systems",
+            totalContent: "142+ deep-dive modules across 12 mastery systems",
             difficulty: "Beginner → Grandmaster",
             timeToMaster: "12-24 months complete immersion",
             practicalApplications: [
@@ -131,6 +131,15 @@ class JyotishCategoryCard {
                     icon: "⚔️",
                     contentCount: "2 phases",
                     gradient: "linear-gradient(135deg, #8B4513 0%, #2F4F4F 100%)"
+                },
+                {
+                    id: "zodiac-signs",
+                    title: "Zodiac Signs Mastery",
+                    subtitle: "Cosmic Personality Architecture",
+                    description: "♈ Decode the 12 cosmic archetypes and energies",
+                    icon: "♈",
+                    contentCount: "12 signs + elements",
+                    gradient: "linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 25%, #45B7D1 50%, #96CEB4 75%, #FFEAA7 100%)"
                 }
             ],
             unlocks: [

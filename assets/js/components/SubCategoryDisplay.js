@@ -416,6 +416,40 @@ class SubCategoryDisplay {
                         "Graduation Indicators: Signs of successful Dhaiya completion"
                     ],
                     unlocks: ["Precision challenge mastery", "Targeted discipline", "Surgical timing"]
+                },
+                {
+                    id: "zodiac-signs",
+                    title: "Zodiac Signs Mastery",
+                    subtitle: "Cosmic Personality Architecture",
+                    description: "♈ DECODE THE 12 COSMIC ARCHETYPES: Each zodiac sign represents a unique consciousness operating system with distinct strengths, challenges, and evolutionary paths. Master the psychological patterns, elemental energies, and transformational potentials of all 12 signs to unlock complete personality mastery.",
+                    icon: "♈",
+                    emoji: "🔮",
+                    gradient: "linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 25%, #45B7D1 50%, #96CEB4 75%, #FFEAA7 100%)",
+                    primaryColor: "#FF6B6B",
+                    secondaryColor: "#4ECDC4",
+                    cardStyle: "zodiac-spectrum",
+                    contentCount: "12 zodiac sign deep-dives + elemental mastery",
+                    difficulty: "Beginner → Advanced",
+                    timeToMaster: "3-6 months comprehensive study",
+                    practicalApplications: [
+                        "Personality type optimization",
+                        "Relationship compatibility analysis",
+                        "Personal strength activation",
+                        "Shadow work integration",
+                        "Elemental balance techniques",
+                        "Evolutionary growth planning"
+                    ],
+                    keyTopics: [
+                        "Fire Signs: Aries, Leo, Sagittarius - Action & Inspiration Engines",
+                        "Earth Signs: Taurus, Virgo, Capricorn - Stability & Manifestation Masters",
+                        "Air Signs: Gemini, Libra, Aquarius - Communication & Intellectual Networks",
+                        "Water Signs: Cancer, Scorpio, Pisces - Emotional & Intuitive Processors",
+                        "Cardinal Signs: Leadership & Initiation Patterns",
+                        "Fixed Signs: Stability & Persistence Mechanisms",
+                        "Mutable Signs: Adaptability & Transformation Systems",
+                        "Sign Polarities: Complementary Energy Dynamics"
+                    ],
+                    unlocks: ["Complete personality mastery", "Relationship optimization", "Elemental balance mastery", "Evolutionary consciousness"]
                 }
             ]
         };
@@ -502,11 +536,11 @@ class SubCategoryDisplay {
             originalSystems.forEach((sys, i) => console.log(`  ${i+1}. ${sys.id}: ${sys.title}`));
             
             console.log('🔥 NEW SYSTEMS:');
-            const newSystems = data.subCategories.filter(sub => ['dasha-systems', 'yuga-cycles', 'sade-sati', 'kala-sarpa', 'dhaiya'].includes(sub.id));
+            const newSystems = data.subCategories.filter(sub => ['dasha-systems', 'yuga-cycles', 'sade-sati', 'kala-sarpa', 'dhaiya', 'zodiac-signs'].includes(sub.id));
             newSystems.forEach((sys, i) => console.log(`  ${i+7}. ${sys.id}: ${sys.title}`));
             
-            console.log(`✅ TOTAL SYSTEMS FOUND: ${data.subCategories.length} (Expected: 11)`);
-            if (data.subCategories.length !== 11) {
+            console.log(`✅ TOTAL SYSTEMS FOUND: ${data.subCategories.length} (Expected: 12)`);
+            if (data.subCategories.length !== 12) {
                 console.warn('⚠️ SYSTEM COUNT MISMATCH!');
             }
         }
@@ -732,6 +766,24 @@ class SubCategoryDisplay {
                     }
                 } else {
                     console.log('NakshatraCodesCard class not found, using fallback');
+                    const card = new SubCategoryCard(subCategory, data.parentCategory);
+                    cardElement = card.createElement();
+                }
+            } else if (subCategory.id === 'zodiac-signs') {
+                // Use specialized card for Zodiac Signs
+                console.log('Attempting to create Zodiac Signs card...');
+                if (typeof ZodiacSignsCard !== 'undefined') {
+                    try {
+                        const zodiacCard = new ZodiacSignsCard();
+                        cardElement = zodiacCard.createElement();
+                        console.log('Zodiac Signs card created successfully');
+                    } catch (error) {
+                        console.error('Error creating Zodiac Signs card:', error);
+                        const card = new SubCategoryCard(subCategory, data.parentCategory);
+                        cardElement = card.createElement();
+                    }
+                } else {
+                    console.log('ZodiacSignsCard class not found, using fallback');
                     const card = new SubCategoryCard(subCategory, data.parentCategory);
                     cardElement = card.createElement();
                 }
