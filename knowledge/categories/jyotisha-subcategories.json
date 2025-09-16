@@ -2,398 +2,467 @@
   "parentCategory": {
     "id": "jyotisha",
     "title": "Jyotish Mastery",
-    "subtitle": "Quantum Cosmic Intelligence"
+    "subtitle": "Sacred Cosmic Intelligence"
   },
   
   "subCategories": [
     {
       "id": "planetary-intelligence",
       "title": "Planetary Intelligence",
-      "subtitle": "Cosmic CPU Architecture",
-      "description": "🪐 DECODE THE UNIVERSE'S OPERATING SYSTEM: Each planet functions as a specialized consciousness processor in the cosmic computer. Master the data streams, frequency signatures, and algorithmic patterns of celestial intelligence networks. Harness Mars as your willpower CPU, Venus as your attraction algorithm, and Jupiter as your wisdom database.",
+      "subtitle": "Graha Vidya - Cosmic Consciousness Processors",
+      "description": "🪐 DECODE THE UNIVERSE'S OPERATING SYSTEM: Each planet functions as a specialized consciousness processor in the cosmic computer. Understand the fundamental nature, energy signatures, and consciousness patterns of the nine planetary intelligences. Master how Sun governs identity, Moon controls emotions, Mars drives action, Mercury facilitates communication, Jupiter expands wisdom, Venus creates harmony, Saturn builds structure, while Rahu and Ketu process karmic evolution.",
       "icon": "🪐",
       "emoji": "⚡",
       "gradient": "linear-gradient(135deg, #FF6B35 0%, #F7931E 50%, #FFD23F 100%)",
       "primaryColor": "#FF6B35",
       "secondaryColor": "#FFD23F",
       "cardStyle": "mars-fire",
-      "contentCount": "12 deep-dive modules",
+      "contentCount": "9 planetary consciousness modules",
       "difficulty": "Intermediate → Advanced",
       "timeToMaster": "3-6 months intensive study",
       "practicalApplications": [
-        "Personal power optimization",
-        "Decision-making enhancement", 
-        "Energy field calibration",
-        "Cosmic timing mastery"
+        "Planetary consciousness understanding",
+        "Energy pattern recognition", 
+        "Planetary strength assessment",
+        "Cosmic intelligence integration"
       ],
       "keyTopics": [
-        "Sun: Core Identity Programming",
-        "Moon: Emotional Operating System",
-        "Mars: Action & Willpower Engine",
-        "Mercury: Communication Protocols",
-        "Jupiter: Expansion & Wisdom Database",
-        "Venus: Harmony & Attraction Algorithms",
-        "Saturn: Structure & Discipline Framework",
-        "Rahu/Ketu: Karmic Data Processing",
-        "Planetary Combinations & Synergies"
+        "Sun: Core Identity & Authority Consciousness",
+        "Moon: Emotional Intelligence & Intuitive Mind",
+        "Mars: Willpower, Action & Warrior Energy",
+        "Mercury: Communication, Learning & Analytical Mind",
+        "Jupiter: Wisdom, Expansion & Higher Knowledge",
+        "Venus: Harmony, Beauty & Relationship Intelligence",
+        "Saturn: Discipline, Structure & Time Mastery",
+        "Rahu: Material Desires & Karmic Acceleration",
+        "Ketu: Spiritual Liberation & Detachment Wisdom"
       ],
-      "unlocks": ["Advanced timing techniques", "Personalized planetary remedies", "Cosmic energy channeling"]
+      "unlocks": ["Planetary nature mastery", "Energy signature recognition", "Cosmic intelligence integration"]
     },
     
     {
-      "id": "house-systems",
-      "title": "House Systems Architecture", 
-      "subtitle": "Life Domain Command Centers",
-      "description": "🏛️ ARCHITECT YOUR REALITY BLUEPRINT: The 12 houses form your life's control panel - each governing specific reality sectors. Master the command protocols for wealth (2nd house), relationships (7th house), career (10th house), and spiritual evolution (12th house). Deploy strategic house activation for total life optimization.",
-      "icon": "🏛️",
-      "emoji": "🎯",
-      "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)",
-      "primaryColor": "#667eea",
-      "secondaryColor": "#f093fb", 
-      "cardStyle": "royal-palace",
-      "contentCount": "15 comprehensive modules",
-      "difficulty": "Beginner → Expert",
-      "timeToMaster": "4-8 months deep immersion",
-      "practicalApplications": [
-        "Life area optimization",
-        "Strategic planning frameworks",
-        "Personal development roadmaps",
-        "Relationship dynamics mastery"
-      ],
-      "keyTopics": [
-        "1st House: Identity & Self-Image Programming",
-        "2nd House: Wealth Generation Algorithms", 
-        "3rd House: Communication & Skill Networks",
-        "4th House: Foundation & Security Systems",
-        "5th House: Creativity & Intelligence Hubs",
-        "6th House: Health & Service Protocols",
-        "7th House: Partnership & Relationship APIs",
-        "8th House: Transformation & Hidden Resources",
-        "9th House: Higher Learning & Spiritual Expansion",
-        "10th House: Career & Public Recognition Systems",
-        "11th House: Network Effects & Goal Achievement",
-        "12th House: Subconscious & Spiritual Liberation"
-      ],
-      "unlocks": ["Life optimization strategies", "Sector-specific remedies", "Reality architecture mastery"]
-    },
-
-    {
-      "id": "nakshatra-codes",
-      "title": "Nakshatra Codes",
-      "subtitle": "Stellar DNA Programming", 
-      "description": "⭐ CRACK YOUR COSMIC GENETIC CODE: 27 Nakshatras contain your soul's source code - the stellar DNA that programs your deepest motivations, talents, and karmic missions. Each Nakshatra operates like a specialized app in consciousness, with unique features, bugs, and upgrade paths.",
-      "icon": "⭐",
-      "emoji": "🧬",
-      "gradient": "linear-gradient(135deg, #4ECDC4 0%, #44A08D 50%, #2E8B57 100%)",
-      "primaryColor": "#4ECDC4", 
-      "secondaryColor": "#2E8B57",
-      "cardStyle": "stellar-code",
-      "contentCount": "27 nakshatra deep-dives + integration modules",
-      "difficulty": "Advanced → Master Level",
-      "timeToMaster": "6-12 months intensive research",
-      "practicalApplications": [
-        "Soul purpose discovery",
-        "Natural talent activation", 
-        "Karmic pattern recognition",
-        "Compatibility analysis"
-      ],
-      "keyTopics": [
-        "Ashwini: The Cosmic Healers - Lightning-fast manifestation codes",
-        "Bharani: The Life-Death Operators - Transformation algorithms",
-        "Krittika: The Cosmic Cutters - Precision & discernment protocols",
-        "Rohini: The Magnetic Attractors - Beauty & abundance programs", 
-        "Mrigashira: The Eternal Seekers - Quest & exploration drives",
-        "Ardra: The Storm Processors - Chaos-to-order algorithms",
-        "Punarvasu: The Renewal Engines - Restoration & comeback codes",
-        "Pushya: The Nourishment Networks - Care & support systems",
-        "Complete 27-Nakshatra decoding system"
-      ],
-      "unlocks": ["Soul-level understanding", "Karmic mission clarity", "Natural talent optimization"]
-    },
-
-    {
-      "id": "timing-mastery",
-      "title": "Timing Mastery",
-      "subtitle": "Temporal Advantage Protocols",
-      "description": "⏰ HACK TIME ITSELF: Master the universe's scheduling algorithm through Dasha systems, transits, and muhurat selection. Deploy perfect timing strategies for maximum success probability. Understand when the cosmic servers are optimized for your specific requests.",
-      "icon": "⏰", 
-      "emoji": "🎯",
-      "gradient": "linear-gradient(135deg, #FF9A8B 0%, #A8E6CF 50%, #66D9EF 100%)",
-      "primaryColor": "#FF9A8B",
-      "secondaryColor": "#A8E6CF",
-      "cardStyle": "time-master",
-      "contentCount": "10 timing system modules", 
-      "difficulty": "Intermediate → Expert",
-      "timeToMaster": "3-5 months focused practice",
-      "practicalApplications": [
-        "Launch timing optimization",
-        "Decision timing strategies", 
-        "Relationship timing mastery",
-        "Career move synchronization"
-      ],
-      "keyTopics": [
-        "Vimshottari Dasha: The 120-Year Life Algorithm",
-        "Transit Analysis: Real-time cosmic weather tracking",
-        "Muhurat Selection: Auspicious timing protocols",
-        "Gochara Effects: Daily planetary influence patterns",
-        "Ashtakavarga: Strength scoring systems",
-        "Panchanga: 5-factor time quality analysis"
-      ],
-      "unlocks": ["Perfect timing abilities", "Strategic advantage", "Cosmic synchronization"]
-    },
-
-    {
-      "id": "predictive-algorithms",
-      "title": "Predictive Algorithms",
-      "subtitle": "Future Probability Engineering",
-      "description": "🔮 CALCULATE TOMORROW TODAY: Deploy advanced prediction engines using Yogas, planetary combinations, and pattern recognition systems. Generate probability matrices for life events, relationship outcomes, and career trajectories with scientific precision.",
-      "icon": "🔮",
-      "emoji": "📊",
-      "gradient": "linear-gradient(135deg, #8360c3 0%, #2ebf91 50%, #ffeaa7 100%)",
-      "primaryColor": "#8360c3",
-      "secondaryColor": "#ffeaa7",
-      "cardStyle": "future-sight",
-      "contentCount": "8 prediction methodology modules",
-      "difficulty": "Advanced → Master Level", 
-      "timeToMaster": "4-7 months intensive training",
-      "practicalApplications": [
-        "Life event forecasting",
-        "Risk assessment protocols",
-        "Opportunity identification",
-        "Strategic planning support"
-      ],
-      "keyTopics": [
-        "Yoga Formations: Planetary combination effects",
-        "Dasha Progression: Life phase prediction models",
-        "Transit Triggering: Event timing calculations", 
-        "Divisional Charts: Specialized life area analysis",
-        "Prashna Techniques: Question-specific algorithms",
-        "Pattern Recognition: Historical trend analysis"
-      ],
-      "unlocks": ["Predictive mastery", "Future planning abilities", "Strategic advantage"]
-    },
-
-    {
-      "id": "remedial-technologies",
-      "title": "Remedial Technologies",
-      "subtitle": "Cosmic Debugging & Optimization",
-      "description": "🛠️ DEBUG YOUR DESTINY: Advanced troubleshooting protocols for planetary malfunctions and karmic bugs. Deploy gemstone frequency modulators, mantra programming languages, and ritual debugging scripts to optimize your cosmic operating system for peak performance.",
-      "icon": "🛠️",
-      "emoji": "💎", 
-      "gradient": "linear-gradient(135deg, #56ab2f 0%, #a8e6cf 50%, #00d2ff 100%)",
-      "primaryColor": "#56ab2f",
-      "secondaryColor": "#00d2ff",
-      "cardStyle": "cosmic-repair",
-      "contentCount": "12 remedial system modules",
-      "difficulty": "Intermediate → Advanced",
-      "timeToMaster": "2-4 months implementation focus", 
-      "practicalApplications": [
-        "Planetary imbalance correction",
-        "Karmic debt resolution",
-        "Energy field optimization", 
-        "Life obstacle removal"
-      ],
-      "keyTopics": [
-        "Gemstone Therapy: Crystal frequency programming",
-        "Mantra Technologies: Sound-based system updates",
-        "Yantra Geometries: Sacred circuit designs",
-        "Ritual Protocols: Reality modification ceremonies",
-        "Charity Algorithms: Karmic balance restoration",
-        "Lifestyle Adjustments: Daily optimization practices"
-      ],
-      "unlocks": ["Planetary harmonization", "Karmic debugging", "Life optimization mastery"]
-    },
-
-    {
-      "id": "dasha-systems",
-      "title": "Dasha Systems",
-      "subtitle": "Planetary Time Mastery",
-      "description": "⏰ MASTER THE COSMIC TIMING MATRIX: Dasha systems reveal the precise timing of your life's chapters. Each planetary period (Dasha) activates different aspects of your consciousness. Navigate Mahadasha, Antardasha, and Pratyantar cycles to optimize every phase of your evolution.",
-      "icon": "⏰",
-      "emoji": "🎯",
-      "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-      "primaryColor": "#667eea",
-      "secondaryColor": "#764ba2",
-      "cardStyle": "time-master",
-      "contentCount": "9 planetary period deep-dives",
-      "difficulty": "Intermediate → Expert",
-      "timeToMaster": "4-8 months systematic study",
-      "practicalApplications": [
-        "Life phase optimization",
-        "Perfect timing for decisions",
-        "Career transition planning",
-        "Relationship timing mastery"
-      ],
-      "keyTopics": [
-        "Sun Dasha: Leadership & Authority Periods",
-        "Moon Dasha: Emotional & Intuitive Cycles",
-        "Mars Dasha: Action & Conquest Phases",
-        "Mercury Dasha: Communication & Learning Cycles",
-        "Jupiter Dasha: Wisdom & Expansion Periods",
-        "Venus Dasha: Creativity & Relationship Phases"
-      ],
-      "unlocks": ["Perfect timing mastery", "Life phase optimization", "Planetary period navigation"]
-    },
-
-    {
-      "id": "yuga-cycles",
-      "title": "Yuga Cycles",
-      "subtitle": "Cosmic Time Architecture",
-      "description": "🌌 DECODE THE UNIVERSE'S GRAND DESIGN: The 4 Yugas represent massive cosmic consciousness cycles that shape reality itself. Understand how Satya, Treta, Dvapara, and Kali Yugas influence human potential and spiritual evolution across millennia.",
-      "icon": "🌌",
-      "emoji": "♾️",
-      "gradient": "linear-gradient(135deg, #a8e6cf 0%, #dcedc1 50%, #ffd3a5 100%)",
-      "primaryColor": "#a8e6cf",
-      "secondaryColor": "#ffd3a5",
-      "cardStyle": "cosmic-cycles",
-      "contentCount": "4 cosmic age explorations + integration",
-      "difficulty": "Advanced → Cosmic Level",
-      "timeToMaster": "6-12 months deep contemplation",
-      "practicalApplications": [
-        "Evolutionary consciousness tracking",
-        "Spiritual development optimization",
-        "Collective consciousness understanding",
-        "Reality framework navigation"
-      ],
-      "keyTopics": [
-        "Satya Yuga: The Golden Age - Perfect consciousness",
-        "Treta Yuga: Silver Age - Ritualistic awakening",
-        "Dvapara Yuga: Bronze Age - Energy & knowledge focus",
-        "Kali Yuga: Iron Age - Material challenges & spiritual opportunities",
-        "Yuga Sandhi: Transition periods and consciousness shifts",
-        "Personal Yuga Cycles: Individual consciousness evolution"
-      ],
-      "unlocks": ["Cosmic consciousness perspective", "Evolutionary timeline mastery", "Universal cycle navigation"]
-    },
-
-    {
-      "id": "sade-sati",
-      "title": "Sade Sati Mastery",
-      "subtitle": "Saturn's 7.5 Year Transformation",
-      "description": "🪐 TRANSFORM SATURN'S CHALLENGE INTO POWER: Sade Sati isn't punishment - it's your cosmic graduation exam. Master the 7.5-year Saturn transit cycle, decode its hidden gifts, and emerge as a disciplined, wise, and unstoppable force of nature.",
-      "icon": "🪐",
-      "emoji": "💎",
-      "gradient": "linear-gradient(135deg, #434343 0%, #000000 100%)",
-      "primaryColor": "#434343",
-      "secondaryColor": "#000000",
-      "cardStyle": "saturn-power",
-      "contentCount": "3 phase breakdown + remedy systems",
-      "difficulty": "Advanced → Master Level",
-      "timeToMaster": "3-6 months intensive preparation",
-      "practicalApplications": [
-        "Saturn transit navigation",
-        "Discipline system building",
-        "Challenge transformation techniques",
-        "Spiritual maturation acceleration"
-      ],
-      "keyTopics": [
-        "First Phase: Foundation Testing - Saturn enters 12th house",
-        "Second Phase: Peak Challenge - Saturn transits natal Moon",
-        "Third Phase: Results Harvesting - Saturn exits 2nd house",
-        "Saturn Return Integration: 29.5-year mastery cycles",
-        "Remedial Measures: Practical Saturn appeasement",
-        "Hidden Gifts: Extracting wisdom from restrictions"
-      ],
-      "unlocks": ["Saturn mastery", "Discipline architecture", "Challenge transformation"]
-    },
-
-    {
-      "id": "kala-sarpa",
-      "title": "Kala Sarpa Yoga",
-      "subtitle": "Serpent Power Mastery",
-      "description": "🐍 MASTER THE SERPENT'S COSMIC DANCE: When all planets align between Rahu and Ketu, the Serpent awakens. This isn't a curse - it's concentrated karmic evolution. Learn to ride the serpent's power for accelerated spiritual transformation.",
-      "icon": "🐍",
-      "emoji": "⚡",
-      "gradient": "linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%)",
-      "primaryColor": "#ff416c",
-      "secondaryColor": "#ff4b2b",
-      "cardStyle": "serpent-power",
-      "contentCount": "12 Kala Sarpa types + activation methods",
-      "difficulty": "Expert → Transcendent Level",
-      "timeToMaster": "6-18 months deep practice",
-      "practicalApplications": [
-        "Karmic acceleration techniques",
-        "Serpent energy channeling",
-        "Shadow integration mastery",
-        "Rapid spiritual evolution"
-      ],
-      "keyTopics": [
-        "Anant Kala Sarpa: First house serpent - Identity transformation",
-        "Kulik Kala Sarpa: Second house - Wealth & values restructuring",
-        "Vasuki Kala Sarpa: Third house - Communication power enhancement",
-        "Shankpal Kala Sarpa: Fourth house - Foundation rebuilding",
-        "Padma Kala Sarpa: Fifth house - Creative & intelligence awakening",
-        "Mahapadma Kala Sarpa: Sixth house - Service & healing mastery"
-      ],
-      "unlocks": ["Serpent power mastery", "Karmic acceleration", "Shadow integration"]
-    },
-
-    {
-      "id": "dhaiya",
-      "title": "Dhaiya Mastery",
-      "subtitle": "Saturn's 2.5 Year Precision Strike",
-      "description": "⚔️ MASTER SATURN'S SURGICAL INTERVENTION: Dhaiya is Saturn's focused 2.5-year training program - more precise than Sade Sati, but equally transformative. Learn to decode Saturn's targeted lessons and emerge with laser-focused discipline and wisdom.",
-      "icon": "⚔️",
-      "emoji": "🎯",
-      "gradient": "linear-gradient(135deg, #8B4513 0%, #2F4F4F 100%)",
-      "primaryColor": "#8B4513",
-      "secondaryColor": "#2F4F4F",
-      "cardStyle": "precision-strike",
-      "contentCount": "2 phase analysis + targeted remedies",
-      "difficulty": "Intermediate → Advanced",
-      "timeToMaster": "2-4 months focused study",
-      "practicalApplications": [
-        "Focused challenge navigation",
-        "Targeted discipline building",
-        "Precision timing mastery",
-        "Surgical life adjustments"
-      ],
-      "keyTopics": [
-        "4th House Dhaiya: Foundation & Security Testing",
-        "8th House Dhaiya: Transformation & Hidden Resources",
-        "Saturn's Teaching Methods: Discipline through limitation",
-        "Dhaiya vs Sade Sati: Intensity comparison and navigation",
-        "Targeted Remedies: Specific solutions for each Dhaiya type",
-        "Graduation Indicators: Signs of successful Dhaiya completion"
-      ],
-      "unlocks": ["Precision challenge mastery", "Targeted discipline", "Surgical timing"]
-    },
-
-    {
       "id": "zodiac-signs",
       "title": "Zodiac Signs Mastery",
-      "subtitle": "Cosmic Personality Architecture",
-      "description": "♈ DECODE THE 12 COSMIC ARCHETYPES: Each zodiac sign represents a unique consciousness operating system with distinct strengths, challenges, and evolutionary paths. Master the psychological patterns, elemental energies, and transformational potentials of all 12 signs to unlock complete personality mastery.",
+      "subtitle": "Rashi Vidya - Cosmic Personality Architecture",
+      "description": "♈ DECODE THE 12 COSMIC ARCHETYPES: Each zodiac sign represents a unique consciousness operating system with distinct strengths, challenges, and evolutionary paths. Master the psychological patterns, elemental energies, and transformational potentials of all 12 signs to understand the fundamental personality programming of human consciousness.",
       "icon": "♈",
       "emoji": "🔮",
       "gradient": "linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 25%, #45B7D1 50%, #96CEB4 75%, #FFEAA7 100%)",
       "primaryColor": "#FF6B6B",
       "secondaryColor": "#4ECDC4",
       "cardStyle": "zodiac-spectrum",
-      "contentCount": "12 zodiac sign deep-dives + elemental mastery",
+      "contentCount": "12 zodiac consciousness modules",
       "difficulty": "Beginner → Advanced",
       "timeToMaster": "3-6 months comprehensive study",
       "practicalApplications": [
-        "Personality type optimization",
-        "Relationship compatibility analysis",
-        "Personal strength activation",
-        "Shadow work integration",
-        "Elemental balance techniques",
-        "Evolutionary growth planning"
+        "Personality archetype understanding",
+        "Elemental nature recognition",
+        "Character strength identification",
+        "Evolutionary growth patterns"
       ],
       "keyTopics": [
-        "Fire Signs: Aries, Leo, Sagittarius - Action & Inspiration Engines",
-        "Earth Signs: Taurus, Virgo, Capricorn - Stability & Manifestation Masters",
-        "Air Signs: Gemini, Libra, Aquarius - Communication & Intellectual Networks",
-        "Water Signs: Cancer, Scorpio, Pisces - Emotional & Intuitive Processors",
-        "Cardinal Signs: Leadership & Initiation Patterns",
-        "Fixed Signs: Stability & Persistence Mechanisms",
-        "Mutable Signs: Adaptability & Transformation Systems",
-        "Sign Polarities: Complementary Energy Dynamics",
-        "Elemental Interactions: How signs work together",
-        "Evolutionary Astrology: Soul growth through sign expressions"
+        "Fire Signs: Aries, Leo, Sagittarius - Action & Inspiration",
+        "Earth Signs: Taurus, Virgo, Capricorn - Stability & Manifestation",
+        "Air Signs: Gemini, Libra, Aquarius - Communication & Ideas",
+        "Water Signs: Cancer, Scorpio, Pisces - Emotion & Intuition",
+        "Cardinal Signs: Leadership & Initiation Energy",
+        "Fixed Signs: Stability & Persistence Power",
+        "Mutable Signs: Adaptability & Transformation",
+        "Elemental Interactions & Sign Relationships",
+        "Evolutionary Astrology Through Signs"
       ],
-      "unlocks": ["Complete personality mastery", "Relationship optimization", "Elemental balance mastery", "Evolutionary consciousness"]
+      "unlocks": ["Personality mastery", "Elemental balance understanding", "Archetypal consciousness recognition"]
+    },
+
+    {
+      "id": "house-systems",
+      "title": "House Systems Architecture", 
+      "subtitle": "Bhava Architecture - Life Domain Blueprint",
+      "description": "🏛️ ARCHITECT YOUR REALITY BLUEPRINT: The 12 houses form your life's fundamental structure - each governing specific reality sectors and life experiences. Understand how the 1st house shapes identity, 2nd house governs resources, 7th house rules relationships, 10th house commands career, and 12th house opens spiritual liberation. Master the complete life domain architecture.",
+      "icon": "🏛️",
+      "emoji": "🎯",
+      "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)",
+      "primaryColor": "#667eea",
+      "secondaryColor": "#f093fb", 
+      "cardStyle": "royal-palace",
+      "contentCount": "12 life domain modules",
+      "difficulty": "Beginner → Expert",
+      "timeToMaster": "4-8 months deep immersion",
+      "practicalApplications": [
+        "Life domain understanding",
+        "Personal development mapping",
+        "Relationship dynamics insight",
+        "Career and spiritual path clarity"
+      ],
+      "keyTopics": [
+        "1st House: Identity & Self-Presentation",
+        "2nd House: Resources, Values & Self-Worth", 
+        "3rd House: Communication & Immediate Environment",
+        "4th House: Home, Roots & Emotional Foundation",
+        "5th House: Creativity, Children & Self-Expression",
+        "6th House: Health, Service & Daily Routine",
+        "7th House: Partnerships & Open Relationships",
+        "8th House: Transformation & Shared Resources",
+        "9th House: Higher Learning & Spiritual Philosophy",
+        "10th House: Career, Reputation & Public Life",
+        "11th House: Social Networks & Long-term Goals",
+        "12th House: Spirituality & Subconscious Liberation"
+      ],
+      "unlocks": ["Life architecture mastery", "Domain-specific wisdom", "Reality structure understanding"]
+    },
+
+    {
+      "id": "nakshatra-codes",
+      "title": "Nakshatra Codes",
+      "subtitle": "Stellar DNA Programming", 
+      "description": "⭐ CRACK YOUR COSMIC GENETIC CODE: 27 Nakshatras contain your soul's source code - the stellar DNA that programs your deepest motivations, talents, and karmic missions. Each Nakshatra represents a unique consciousness archetype with specific characteristics, ruling deities, and evolutionary purposes. Master the complete stellar mapping system.",
+      "icon": "⭐",
+      "emoji": "🧬",
+      "gradient": "linear-gradient(135deg, #4ECDC4 0%, #44A08D 50%, #2E8B57 100%)",
+      "primaryColor": "#4ECDC4", 
+      "secondaryColor": "#2E8B57",
+      "cardStyle": "stellar-code",
+      "contentCount": "27 stellar consciousness modules",
+      "difficulty": "Advanced → Master Level",
+      "timeToMaster": "6-12 months intensive research",
+      "practicalApplications": [
+        "Soul archetype understanding",
+        "Karmic pattern recognition", 
+        "Natural talent identification",
+        "Evolutionary purpose clarity"
+      ],
+      "keyTopics": [
+        "Ashwini: The Cosmic Healers - Divine Physician Energy",
+        "Bharani: The Life-Death Cycle - Transformation Masters",
+        "Krittika: The Cosmic Fire - Purification & Cutting Through",
+        "Rohini: The Creative Force - Beauty & Abundance", 
+        "Mrigashira: The Eternal Seekers - Quest for Knowledge",
+        "Ardra: The Storm of Transformation - Destruction for Renewal",
+        "Punarvasu: The Return of Light - Restoration & Hope",
+        "Pushya: The Nourisher - Care & Spiritual Growth",
+        "Complete 27-Nakshatra Sacred Knowledge System"
+      ],
+      "unlocks": ["Soul archetype mastery", "Karmic mission clarity", "Stellar consciousness integration"]
+    },
+
+    {
+      "id": "yogas",
+      "title": "Yogas",
+      "subtitle": "Planetary Combination Mastery",
+      "description": "🕉️ MASTER PLANETARY POWER COMBINATIONS: Yogas are specific planetary arrangements that create powerful results - fortune, wisdom, challenges, or transformation. Understand how Raja Yoga creates leadership, Dhana Yoga generates wealth, Gaja Kesari brings wisdom and respect, while Viparita Raja transforms adversity into strength. Master the sacred science of planetary combinations.",
+      "icon": "🕉️",
+      "emoji": "⚡",
+      "gradient": "linear-gradient(135deg, #FF9A8B 0%, #A8E6CF 50%, #66D9EF 100%)",
+      "primaryColor": "#FF9A8B",
+      "secondaryColor": "#A8E6CF",
+      "cardStyle": "yoga-power",
+      "contentCount": "20+ major yoga combinations",
+      "difficulty": "Intermediate → Master",
+      "timeToMaster": "4-7 months intensive training",
+      "practicalApplications": [
+        "Planetary combination recognition",
+        "Fortune and challenge identification",
+        "Life pattern understanding",
+        "Potential activation knowledge"
+      ],
+      "keyTopics": [
+        "Raja Yogas: Combinations for power and authority",
+        "Dhana Yogas: Wealth-generating planetary patterns",
+        "Arishta Yogas: Challenging combinations and their lessons",
+        "Viparita Raja: Transformation through adversity",
+        "Gaja Kesari: Jupiter-Moon wisdom combinations",
+        "Neecha Bhanga: Debilitation cancellation principles",
+        "Parivartana: Planetary exchange dynamics",
+        "Chandra-Mangala: Moon-Mars emotional patterns",
+        "Mahapurusha Yogas: Great soul combinations"
+      ],
+      "unlocks": ["Combination mastery", "Pattern recognition", "Planetary synergy understanding"]
+    },
+
+    {
+      "id": "doshas-afflictions",
+      "title": "Doshas & Afflictions",
+      "subtitle": "Karmic Block Codes",
+      "description": "⚠️ UNDERSTAND KARMIC CHALLENGES: Doshas and afflictions aren't punishments - they're karmic learning programs designed to develop specific qualities. Master how Mangal Dosha teaches relationship maturity, Kemadruma develops self-reliance, Kala Sarpa accelerates spiritual growth, and other patterns create strength through challenge. Transform obstacles into wisdom.",
+      "icon": "⚠️",
+      "emoji": "🔧",
+      "gradient": "linear-gradient(135deg, #434343 0%, #ff416c 50%, #ff4b2b 100%)",
+      "primaryColor": "#434343",
+      "secondaryColor": "#ff416c",
+      "cardStyle": "karmic-challenge",
+      "contentCount": "10+ major dosha systems",
+      "difficulty": "Intermediate → Advanced",
+      "timeToMaster": "3-5 months focused study",
+      "practicalApplications": [
+        "Karmic challenge recognition",
+        "Life pattern understanding",
+        "Strength development insights",
+        "Growth opportunity identification"
+      ],
+      "keyTopics": [
+        "Mangal Dosha: Mars affliction and relationship maturity",
+        "Kemadruma Dosha: Moon isolation and self-reliance",
+        "Shakata Yoga: Jupiter-Moon challenging aspects",
+        "Kala Sarpa Dosha: Rahu-Ketu axis evolutionary acceleration",
+        "Graha Malefic States: Planetary dysfunction patterns",
+        "Pitru Dosha: Ancestral karma implications",
+        "Arishta Yogas: Challenge-based growth patterns",
+        "Affliction Resolution: Understanding karmic completion",
+        "Transformational Lessons: Growth through adversity"
+      ],
+      "unlocks": ["Challenge mastery", "Karmic understanding", "Strength through adversity wisdom"]
+    },
+
+    {
+      "id": "transits-timing",
+      "title": "Transits & Timing",
+      "subtitle": "Gochar Vidya - Planetary Movement Wisdom",
+      "description": "🌀 MASTER COSMIC TIMING CYCLES: Planetary transits create dynamic life experiences as moving planets interact with your birth chart. Understand how Saturn's Sade Sati teaches discipline over 7.5 years, Dhaiya provides focused lessons in 2.5 years, Jupiter's 12-year cycle expands different life areas, while Rahu-Ketu transits accelerate karmic evolution every 18 months.",
+      "icon": "🌀",
+      "emoji": "⏰",
+      "gradient": "linear-gradient(135deg, #8B4513 0%, #2F4F4F 50%, #667eea 100%)",
+      "primaryColor": "#8B4513",
+      "secondaryColor": "#667eea",
+      "cardStyle": "cosmic-timing",
+      "contentCount": "Major transit cycle systems",
+      "difficulty": "Intermediate → Advanced",
+      "timeToMaster": "3-5 months focused practice",
+      "practicalApplications": [
+        "Life cycle understanding",
+        "Timing awareness development",
+        "Challenge preparation insights",
+        "Growth opportunity recognition"
+      ],
+      "keyTopics": [
+        "Sade Sati: Saturn's 7.5-year transformation cycle",
+        "Dhaiya: Saturn's 2.5-year precision teachings", 
+        "Saturn Return: 29.5-year mastery cycles",
+        "Jupiter Transits: 12-year expansion cycles",
+        "Rahu-Ketu Axis Shifts: 18-month evolutionary phases",
+        "Fast Planet Transits: Daily, weekly, monthly influences",
+        "Transit Timing: Understanding movement patterns",
+        "Gochara Effects: How transits activate birth potential",
+        "Remedial Timing: Working with planetary cycles"
+      ],
+      "unlocks": ["Timing mastery", "Cycle understanding", "Planetary rhythm integration"]
+    },
+
+    {
+      "id": "dasha-systems",
+      "title": "Dasha Systems",
+      "subtitle": "Planetary Period Mastery",
+      "description": "⏰ MASTER THE COSMIC TIMING MATRIX: Dasha systems reveal the precise timing of your life's chapters. Each planetary period (Dasha) activates different aspects of your consciousness and life themes. Navigate Vimshottari's 120-year cycle, understand how each planet rules specific life phases, and learn to optimize every period of your evolutionary journey.",
+      "icon": "⏰",
+      "emoji": "🎯",
+      "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      "primaryColor": "#667eea",
+      "secondaryColor": "#764ba2",
+      "cardStyle": "time-master",
+      "contentCount": "Major dasha system modules",
+      "difficulty": "Intermediate → Advanced",
+      "timeToMaster": "4-6 months intensive study",
+      "practicalApplications": [
+        "Life phase understanding",
+        "Planetary period navigation",
+        "Timing optimization insights",
+        "Evolutionary cycle mastery"
+      ],
+      "keyTopics": [
+        "Vimshottari Dasha: The 120-year life cycle system",
+        "Ashtottari Dasha: 108-year alternative system",
+        "Kalachakra Dasha: Time-wheel progression",
+        "Yogini Dasha: Goddess-based timing system",
+        "Char Dasha: Sign-based progression methods",
+        "Mahadasha: Major planetary periods",
+        "Antardasha: Sub-periods within major cycles",
+        "Pratyantar: Micro-cycles and daily timing",
+        "Integrated Dasha Analysis: Multi-system approach"
+      ],
+      "unlocks": ["Time period mastery", "Life phase optimization", "Planetary timing integration"]
+    },
+
+    {
+      "id": "predictive-algorithms",
+      "title": "Predictive Algorithms",
+      "subtitle": "Future Probability Engineering",
+      "description": "🔮 UNDERSTAND PREDICTION METHODOLOGY: Jyotish prediction combines multiple knowledge systems - yogas, dashas, transits, and divisional charts - to understand life patterns and timing. Master the art of pattern recognition, learn to assess planetary strength and weakness, understand how different chart factors combine to create life experiences, and develop the wisdom to guide others through astrological insight.",
+      "icon": "🔮",
+      "emoji": "📊",
+      "gradient": "linear-gradient(135deg, #8360c3 0%, #2ebf91 50%, #ffeaa7 100%)",
+      "primaryColor": "#8360c3",
+      "secondaryColor": "#ffeaa7",
+      "cardStyle": "future-sight",
+      "contentCount": "Integrated prediction methodologies",
+      "difficulty": "Advanced → Master Level", 
+      "timeToMaster": "4-7 months intensive training",
+      "practicalApplications": [
+        "Pattern recognition development",
+        "Life trend understanding",
+        "Consultation methodology",
+        "Guidance wisdom cultivation"
+      ],
+      "keyTopics": [
+        "Yoga Analysis: Combination effect assessment",
+        "Dasha Progression: Time-based pattern analysis",
+        "Transit Integration: Movement pattern synthesis", 
+        "Divisional Charts: Specialized life area analysis",
+        "Prashna Techniques: Question-specific consultation methods",
+        "Pattern Recognition: Historical correlation analysis",
+        "Strength Assessment: Planetary power evaluation",
+        "Prediction Ethics: Responsible guidance principles",
+        "Consultation Mastery: Wisdom transmission skills"
+      ],
+      "unlocks": ["Prediction methodology mastery", "Pattern synthesis skills", "Consultation wisdom"]
+    },
+
+    {
+      "id": "gemstones",
+      "title": "Gemstones",
+      "subtitle": "Ratna Jyotish - Cosmic Resonance Therapy",
+      "description": "💎 MASTER CRYSTAL CONSCIOUSNESS TECHNOLOGY: Gemstones act as planetary frequency modulators, channeling specific cosmic energies to strengthen beneficial planets or pacify challenging ones. Learn the sacred science of the Navaratna system, understand Uparatna substitutes, explore rare mystical stones, and master the art of selection, energization, and therapeutic application of Earth's crystalline treasures.",
+      "icon": "💎",
+      "emoji": "✨",
+      "gradient": "linear-gradient(135deg, #56ab2f 0%, #a8e6cf 50%, #00d2ff 100%)",
+      "primaryColor": "#56ab2f",
+      "secondaryColor": "#00d2ff",
+      "cardStyle": "crystal-power",
+      "contentCount": "Complete gemstone knowledge system",
+      "difficulty": "Beginner → Advanced",
+      "timeToMaster": "2-4 months applied training",
+      "practicalApplications": [
+        "Planetary energy modulation",
+        "Crystal therapy understanding",
+        "Gemstone selection mastery",
+        "Energization and application methods"
+      ],
+      "keyTopics": [
+        "Navaratna System: 9 primary planetary gems",
+        "Ruby (Sun): Authority and vitality enhancement",
+        "Pearl (Moon): Emotional balance and intuition",
+        "Red Coral (Mars): Courage and energy boost",
+        "Emerald (Mercury): Communication and intelligence",
+        "Yellow Sapphire (Jupiter): Wisdom and prosperity",
+        "Diamond (Venus): Love and artistic enhancement",
+        "Blue Sapphire (Saturn): Discipline and focus",
+        "Hessonite (Rahu): Material success and clarity",
+        "Cat's Eye (Ketu): Spiritual insight and protection",
+        "Uparatna: Substitute stone alternatives",
+        "Special Gems: Rare and mystical stone properties",
+        "Energization Protocols: Activation and consecration methods"
+      ],
+      "unlocks": ["Crystal consciousness mastery", "Planetary therapy skills", "Gemstone selection expertise"]
+    },
+
+    {
+      "id": "rudraksha",
+      "title": "Rudraksha",
+      "subtitle": "Sacred Seed Technology",
+      "description": "🔮 HARNESS SACRED CONSCIOUSNESS BEADS: Rudraksha seeds are nature's spiritual technology, each Mukhi (face) resonating with specific planetary and divine frequencies. Master the complete science from 1-Mukhi (Shiva consciousness) to 21-Mukhi (Kubera prosperity), understand special forms like Gauri Shankar and Garbh Gauri, learn proper selection and wearing protocols for consciousness transformation.",
+      "icon": "🔮",
+      "emoji": "🧿",
+      "gradient": "linear-gradient(135deg, #8B4513 0%, #D2691E 50%, #CD853F 100%)",
+      "primaryColor": "#8B4513",
+      "secondaryColor": "#CD853F",
+      "cardStyle": "sacred-seed",
+      "contentCount": "Complete Rudraksha system knowledge",
+      "difficulty": "Beginner → Advanced",
+      "timeToMaster": "3-6 months immersive study",
+      "practicalApplications": [
+        "Consciousness enhancement methods",
+        "Planetary energy balancing",
+        "Spiritual practice optimization",
+        "Divine frequency attunement"
+      ],
+      "keyTopics": [
+        "1-Mukhi: Shiva consciousness and liberation",
+        "2-Mukhi: Unity and relationship harmony", 
+        "3-Mukhi: Fire energy and self-confidence",
+        "4-Mukhi: Brahma wisdom and creativity",
+        "5-Mukhi: Universal peace and health",
+        "6-Mukhi: Kartikeya courage and focus",
+        "7-Mukhi: Lakshmi prosperity and abundance",
+        "8-Mukhi: Ganesha obstacle removal",
+        "9-Mukhi to 21-Mukhi: Advanced consciousness levels",
+        "Special Forms: Gauri Shankar, Garbh Gauri, Trijuti, Sawar",
+        "Nepal vs Java: Origin-based characteristics",
+        "Wearing Protocols: Proper usage and combinations",
+        "Energization Methods: Activation and blessing rituals"
+      ],
+      "unlocks": ["Sacred seed mastery", "Consciousness technology", "Divine frequency alignment"]
+    },
+
+    {
+      "id": "remedial-technologies",
+      "title": "Remedial Technologies",
+      "subtitle": "Parihara & Shanti Kriya",
+      "description": "🛠️ MASTER COSMIC CORRECTION METHODS: Remedial measures aren't superstitions but sophisticated consciousness technologies for planetary harmonization. Learn the science behind mantra vibrations, yantra geometries, homa fire ceremonies, vrata spiritual disciplines, dana charitable giving, and temple protocols. Understand how to restore balance when planetary energies are disrupted.",
+      "icon": "🛠️",
+      "emoji": "🔧", 
+      "gradient": "linear-gradient(135deg, #ff416c 0%, #ff4b2b 50%, #ffa726 100%)",
+      "primaryColor": "#ff416c",
+      "secondaryColor": "#ffa726",
+      "cardStyle": "cosmic-repair",
+      "contentCount": "Complete remedial system knowledge",
+      "difficulty": "Intermediate → Advanced",
+      "timeToMaster": "2-4 months implementation focus", 
+      "practicalApplications": [
+        "Planetary imbalance correction",
+        "Karmic pattern transformation",
+        "Energy field optimization",
+        "Spiritual practice enhancement"
+      ],
+      "keyTopics": [
+        "Mantra Vidya: Sound-based correction principles",
+        "Yantra Science: Sacred geometry applications",
+        "Homa Procedures: Fire ceremony methodology",
+        "Vrata Systems: Vow-based spiritual practices",
+        "Dana Principles: Charitable giving as remedy",
+        "Temple Protocols: Sacred space utilization",
+        "Lifestyle Adjustments: Daily harmony practices",
+        "Timing of Remedies: Optimal correction periods",
+        "Planetary Appeasement: Specific graha pacification",
+        "Integrated Approaches: Multi-method combinations",
+        "Remedy Selection: Choosing appropriate methods",
+        "Implementation Guidelines: Practical application wisdom"
+      ],
+      "unlocks": ["Remedial mastery", "Karmic correction skills", "Planetary harmonization expertise"]
+    },
+
+    {
+      "id": "muhurta-applied",
+      "title": "Muhurta & Applied Astrology",
+      "subtitle": "Action Timing Mastery",
+      "description": "⏳ PERFECT THE ART OF COSMIC TIMING: Muhurta is the science of selecting the most auspicious moments for important activities. Master how to choose optimal timing for marriages, business launches, travel, medical procedures, spiritual practices, and major life decisions. Learn to read the cosmic weather and align human actions with celestial rhythms for maximum success and harmony.",
+      "icon": "⏳",
+      "emoji": "🎯",
+      "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)",
+      "primaryColor": "#667eea",
+      "secondaryColor": "#f093fb",
+      "cardStyle": "perfect-timing",
+      "contentCount": "Complete timing selection systems",
+      "difficulty": "Advanced → Master",
+      "timeToMaster": "2-4 months focused training",
+      "practicalApplications": [
+        "Auspicious timing selection",
+        "Event planning optimization",
+        "Life decision timing",
+        "Spiritual practice timing"
+      ],
+      "keyTopics": [
+        "Marriage Muhurta: Wedding timing principles",
+        "Business Launch Timing: Venture inauguration wisdom",
+        "Travel Muhurta: Journey timing optimization",
+        "Medical Procedure Timing: Health intervention scheduling",
+        "Educational Timing: Learning and examination periods",
+        "Investment Timing: Financial decision moments",
+        "Construction Muhurta: Building and property timing",
+        "Spiritual Practice Timing: Sadhana optimization",
+        "Panchanga Analysis: 5-factor time quality assessment",
+        "Tarabala: Star-based timing calculations",
+        "Chandrabala: Moon-based timing wisdom",
+        "Electional Principles: General timing selection rules"
+      ],
+      "unlocks": ["Perfect timing mastery", "Electional expertise", "Cosmic rhythm alignment"]
     }
   ],
   
@@ -407,9 +476,9 @@
   },
   
   "learningPath": {
-    "beginner": ["house-systems"],
-    "intermediate": ["planetary-intelligence", "timing-mastery", "remedial-technologies"], 
-    "advanced": ["nakshatra-codes", "predictive-algorithms"],
-    "masterLevel": ["All systems integration", "Personal consultation mastery"]
+    "beginner": ["zodiac-signs", "house-systems"],
+    "intermediate": ["planetary-intelligence", "yogas", "transits-timing", "gemstones", "rudraksha"], 
+    "advanced": ["nakshatra-codes", "doshas-afflictions", "dasha-systems", "remedial-technologies"],
+    "masterLevel": ["predictive-algorithms", "muhurta-applied", "All systems integration", "Consultation mastery"]
   }
 }

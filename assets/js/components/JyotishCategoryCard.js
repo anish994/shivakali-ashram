@@ -11,17 +11,17 @@ class JyotishCategoryCard {
         this.category = {
             id: "jyotisha",
             title: "Jyotish Mastery",
-            subtitle: "Quantum Cosmic Intelligence",
-            description: "🔮 DECODE THE UNIVERSE'S HIDDEN ALGORITHMS: Master the ancient Vedic science of cosmic timing and celestial intelligence. Unlock planetary consciousness patterns, house system architectures, nakshatra DNA codes, and temporal advantage protocols. Transform from cosmic amateur to quantum astrologer with systematic mastery of Jyotisha's deepest secrets.",
+            subtitle: "Sacred Cosmic Intelligence",
+            description: "🔮 DECODE THE UNIVERSE'S HIDDEN ALGORITHMS: Master the ancient Vedic science of cosmic timing and celestial intelligence. From planetary consciousness patterns to gemstone technologies, house architectures to sacred timing - transform into a complete Jyotish practitioner with systematic mastery of the cosmic sciences.",
             icon: "🔮",
             emoji: "⚡",
             gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)",
             primaryColor: "#667eea",
             secondaryColor: "#f093fb",
             cardStyle: "cosmic-mastery",
-            totalContent: "142+ deep-dive modules across 12 mastery systems",
-            difficulty: "Beginner → Grandmaster",
-            timeToMaster: "12-24 months complete immersion",
+            totalContent: "180+ deep-dive modules across 13 sacred systems",
+            difficulty: "Beginner → Master Level",
+            timeToMaster: "12-36 months complete immersion",
             practicalApplications: [
                 "Personal life optimization through cosmic timing",
                 "Professional consultation and guidance services",
@@ -36,110 +36,119 @@ class JyotishCategoryCard {
                 {
                     id: "planetary-intelligence",
                     title: "Planetary Intelligence",
-                    subtitle: "Cosmic CPU Architecture", 
-                    description: "🪐 Master the consciousness processors of the universe",
+                    subtitle: "Graha Vidya", 
+                    description: "🪐 Master the 9 cosmic consciousness processors",
                     icon: "🪐",
-                    contentCount: "12 modules",
+                    contentCount: "9 modules",
                     gradient: "linear-gradient(135deg, #FF6B35 0%, #F7931E 50%, #FFD23F 100%)"
+                },
+                {
+                    id: "zodiac-signs",
+                    title: "Zodiac Signs Mastery",
+                    subtitle: "Rashi Vidya",
+                    description: "♈ Decode the 12 cosmic personality archetypes",
+                    icon: "♈",
+                    contentCount: "12 modules",
+                    gradient: "linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 25%, #45B7D1 50%, #96CEB4 75%, #FFEAA7 100%)"
                 },
                 {
                     id: "house-systems",
                     title: "House Systems Architecture",
-                    subtitle: "Life Domain Command Centers",
-                    description: "🏛️ Architect your reality through 12 life domains",
+                    subtitle: "Bhava Architecture",
+                    description: "🏛️ Master the 12 life domain blueprint",
                     icon: "🏛️", 
-                    contentCount: "15 modules",
-                    gradient: "linear-gradient(135deg, #FF9A8B 0%, #A8E6CF 50%, #66D9EF 100%)"
+                    contentCount: "12 modules",
+                    gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)"
                 },
                 {
                     id: "nakshatra-codes",
                     title: "Nakshatra Codes",
                     subtitle: "Stellar DNA Programming",
-                    description: "⭐ Decode your cosmic genetic blueprint",
+                    description: "⭐ Crack your 27-star cosmic genetic code",
                     icon: "⭐",
                     contentCount: "27 modules",
                     gradient: "linear-gradient(135deg, #4ECDC4 0%, #44A08D 50%, #2E8B57 100%)"
                 },
                 {
-                    id: "timing-mastery",
-                    title: "Timing Mastery",
-                    subtitle: "Temporal Advantage Protocols",
-                    description: "⏰ Master the universe's scheduling algorithm",
-                    icon: "⏰",
-                    contentCount: "10 modules",
+                    id: "yogas",
+                    title: "Yogas",
+                    subtitle: "Planetary Combination Mastery",
+                    description: "🕉️ Master fortune-creating planetary combinations",
+                    icon: "🕉️",
+                    contentCount: "20+ yogas",
                     gradient: "linear-gradient(135deg, #FF9A8B 0%, #A8E6CF 50%, #66D9EF 100%)"
+                },
+                {
+                    id: "doshas-afflictions",
+                    title: "Doshas & Afflictions",
+                    subtitle: "Karmic Block Codes",
+                    description: "⚠️ Transform karmic challenges into wisdom",
+                    icon: "⚠️",
+                    contentCount: "10+ doshas",
+                    gradient: "linear-gradient(135deg, #434343 0%, #ff416c 50%, #ff4b2b 100%)"
+                },
+                {
+                    id: "transits-timing",
+                    title: "Transits & Timing",
+                    subtitle: "Gochar Vidya",
+                    description: "🌀 Master planetary movement cycles",
+                    icon: "🌀",
+                    contentCount: "Transit systems",
+                    gradient: "linear-gradient(135deg, #8B4513 0%, #2F4F4F 50%, #667eea 100%)"
+                },
+                {
+                    id: "dasha-systems",
+                    title: "Dasha Systems",
+                    subtitle: "Planetary Period Mastery",
+                    description: "⏰ Navigate the cosmic timing matrix",
+                    icon: "⏰",
+                    contentCount: "Dasha systems",
+                    gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
                 },
                 {
                     id: "predictive-algorithms",
                     title: "Predictive Algorithms",
                     subtitle: "Future Probability Engineering",
-                    description: "🔮 Deploy advanced prediction engines with scientific precision",
+                    description: "🔮 Master prediction methodology",
                     icon: "🔮",
-                    contentCount: "8 modules",
+                    contentCount: "Prediction methods",
                     gradient: "linear-gradient(135deg, #8360c3 0%, #2ebf91 50%, #ffeaa7 100%)"
+                },
+                {
+                    id: "gemstones",
+                    title: "Gemstones",
+                    subtitle: "Ratna Jyotish",
+                    description: "💎 Master crystal consciousness technology",
+                    icon: "💎",
+                    contentCount: "Complete system",
+                    gradient: "linear-gradient(135deg, #56ab2f 0%, #a8e6cf 50%, #00d2ff 100%)"
+                },
+                {
+                    id: "rudraksha",
+                    title: "Rudraksha",
+                    subtitle: "Sacred Seed Technology",
+                    description: "🔮 Harness sacred consciousness beads",
+                    icon: "🔮",
+                    contentCount: "1-21 Mukhi",
+                    gradient: "linear-gradient(135deg, #8B4513 0%, #D2691E 50%, #CD853F 100%)"
                 },
                 {
                     id: "remedial-technologies",
                     title: "Remedial Technologies",
-                    subtitle: "Cosmic Debugging & Optimization",
-                    description: "🛠️ Debug your destiny with advanced troubleshooting protocols",
+                    subtitle: "Parihara & Shanti Kriya",
+                    description: "🛠️ Master cosmic correction methods",
                     icon: "🛠️",
-                    contentCount: "12 modules",
-                    gradient: "linear-gradient(135deg, #56ab2f 0%, #a8e6cf 50%, #00d2ff 100%)"
+                    contentCount: "Complete system",
+                    gradient: "linear-gradient(135deg, #ff416c 0%, #ff4b2b 50%, #ffa726 100%)"
                 },
                 {
-                    id: "dasha-systems",
-                    title: "Dasha Systems",
-                    subtitle: "Planetary Time Mastery",
-                    description: "⏰ Master cosmic timing matrix and planetary periods",
-                    icon: "⏰",
-                    contentCount: "9 modules",
-                    gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
-                },
-                {
-                    id: "yuga-cycles",
-                    title: "Yuga Cycles",
-                    subtitle: "Cosmic Time Architecture",
-                    description: "🌌 Decode the universe's grand design across cosmic ages",
-                    icon: "🌌",
-                    contentCount: "4 modules",
-                    gradient: "linear-gradient(135deg, #a8e6cf 0%, #dcedc1 50%, #ffd3a5 100%)"
-                },
-                {
-                    id: "sade-sati",
-                    title: "Sade Sati Mastery",
-                    subtitle: "Saturn's 7.5 Year Transformation",
-                    description: "🪐 Transform Saturn's challenge into power",
-                    icon: "🪐",
-                    contentCount: "3 phases",
-                    gradient: "linear-gradient(135deg, #434343 0%, #000000 100%)"
-                },
-                {
-                    id: "kala-sarpa",
-                    title: "Kala Sarpa Yoga",
-                    subtitle: "Serpent Power Mastery",
-                    description: "🐍 Master the serpent's cosmic dance",
-                    icon: "🐍",
-                    contentCount: "12 types",
-                    gradient: "linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%)"
-                },
-                {
-                    id: "dhaiya",
-                    title: "Dhaiya Mastery",
-                    subtitle: "Saturn's 2.5 Year Precision Strike",
-                    description: "⚔️ Master Saturn's surgical intervention",
-                    icon: "⚔️",
-                    contentCount: "2 phases",
-                    gradient: "linear-gradient(135deg, #8B4513 0%, #2F4F4F 100%)"
-                },
-                {
-                    id: "zodiac-signs",
-                    title: "Zodiac Signs Mastery",
-                    subtitle: "Cosmic Personality Architecture",
-                    description: "♈ Decode the 12 cosmic archetypes and energies",
-                    icon: "♈",
-                    contentCount: "12 signs + elements",
-                    gradient: "linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 25%, #45B7D1 50%, #96CEB4 75%, #FFEAA7 100%)"
+                    id: "muhurta-applied",
+                    title: "Muhurta & Applied Astrology",
+                    subtitle: "Action Timing Mastery",
+                    description: "⏳ Perfect the art of cosmic timing",
+                    icon: "⏳",
+                    contentCount: "Timing systems",
+                    gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)"
                 }
             ],
             unlocks: [
@@ -204,7 +213,7 @@ class JyotishCategoryCard {
                             <div class="stat-divider">•</div>
                             <div class="stat-item">
                                 <span class="stat-icon">🎯</span>
-                                <span class="stat-text">${this.category.subCategories.length} mastery systems</span>
+                                <span class="stat-text">13 sacred systems</span>
                             </div>
                         </div>
                     </div>
