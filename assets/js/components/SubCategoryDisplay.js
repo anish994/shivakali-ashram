@@ -84,38 +84,38 @@ class SubCategoryDisplay {
             parentCategory: {
                 id: "jyotisha",
                 title: "Jyotish Mastery",
-                subtitle: "Quantum Cosmic Intelligence"
+                subtitle: "Sacred Cosmic Intelligence"
             },
             subCategories: [
                 {
                     id: "planetary-intelligence",
                     title: "Planetary Intelligence",
-                    subtitle: "Cosmic CPU Architecture",
-                    description: "🪐 DECODE THE UNIVERSE'S OPERATING SYSTEM: Each planet functions as a specialized consciousness processor in the cosmic computer. Master the data streams, frequency signatures, and algorithmic patterns of celestial intelligence networks. Harness Mars as your willpower CPU, Venus as your attraction algorithm, and Jupiter as your wisdom database.",
+                    subtitle: "Graha Vidya - Cosmic Consciousness Processors",
+                    description: "🪐 DECODE THE UNIVERSE'S OPERATING SYSTEM: Each planet functions as a specialized consciousness processor in the cosmic computer. Understand the fundamental nature, energy signatures, and consciousness patterns of the nine planetary intelligences.",
                     icon: "🪐",
                     emoji: "⚡",
                     gradient: "linear-gradient(135deg, #FF6B35 0%, #F7931E 50%, #FFD23F 100%)",
                     primaryColor: "#FF6B35",
                     secondaryColor: "#FFD23F",
                     cardStyle: "mars-fire",
-                    contentCount: "12 deep-dive modules",
+                    contentCount: "9 planetary consciousness modules",
                     difficulty: "Intermediate → Advanced",
                     timeToMaster: "3-6 months intensive study",
                     practicalApplications: [
-                        "Personal power optimization",
-                        "Decision-making enhancement", 
-                        "Energy field calibration",
-                        "Cosmic timing mastery"
+                        "Planetary consciousness understanding",
+                        "Energy pattern recognition", 
+                        "Planetary strength assessment",
+                        "Cosmic intelligence integration"
                     ],
                     keyTopics: [
-                        "Sun: Core Identity Programming",
-                        "Moon: Emotional Operating System",
-                        "Mars: Action & Willpower Engine",
-                        "Mercury: Communication Protocols",
-                        "Jupiter: Expansion & Wisdom Database",
-                        "Venus: Harmony & Attraction Algorithms"
+                        "Sun: Core Identity & Authority Consciousness",
+                        "Moon: Emotional Intelligence & Intuitive Mind",
+                        "Mars: Willpower, Action & Warrior Energy",
+                        "Mercury: Communication, Learning & Analytical Mind",
+                        "Jupiter: Wisdom, Expansion & Higher Knowledge",
+                        "Venus: Harmony, Beauty & Relationship Intelligence"
                     ],
-                    unlocks: ["Advanced timing techniques", "Personalized planetary remedies", "Cosmic energy channeling"]
+                    unlocks: ["Planetary nature mastery", "Energy signature recognition", "Cosmic intelligence integration"]
                 },
                 {
                     id: "house-systems",

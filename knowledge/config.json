@@ -159,6 +159,23 @@
       "cardStyle": "warm-lifestyle",
       "subCategoryCount": 7,
       "estimatedContent": "55+ rich cards"
+    },
+    {
+      "id": "interactive-tools",
+      "title": "Consciousness Lab",
+      "subtitle": "Interactive Spiritual Technology",
+      "description": "🔬 ENTER THE DIGITAL ASHRAM: Interactive tools, assessments, and gamified experiences that transform ancient wisdom into modern spiritual technology. Calculate your cosmic blueprint, assess your consciousness evolution, and engage with sacred knowledge through cutting-edge interactive interfaces.",
+      "icon": "🔬",
+      "emoji": "🎮",
+      "gradient": "linear-gradient(135deg, #00c9ff 0%, #92fe9d 50%, #ffa726 100%)",
+      "primaryColor": "#00c9ff",
+      "secondaryColor": "#92fe9d",
+      "enabled": true,
+      "folder": "interactive",
+      "priority": 10,
+      "cardStyle": "digital-lab",
+      "subCategoryCount": 0,
+      "estimatedContent": "Coming Soon - Epic Interactive Experiences"
     }
   ],
   
