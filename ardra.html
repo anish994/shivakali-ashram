@@ -170,6 +170,18 @@
             border-color: #0984e3;
         }
 
+        /* Active state for nav buttons */
+        .nav-btn.active {
+            background: var(--ardra-primary);
+            border-color: #0984e3;
+            box-shadow: 0 10px 30px var(--ardra-glow);
+        }
+
+        /* Ensure anchored sections are not hidden behind fixed nav */
+        section[id] {
+            scroll-margin-top: 100px;
+        }
+
         /* Section Styling */
         .content-section, .mythology-section, .psychology-section, 
         .practical-section, .career-section, .vedic-section {
@@ -275,6 +287,8 @@
 
         /* Mobile Styles */
         @media (max-width: 768px) {
+            /* Adjust anchor offset for smaller screens */
+            section[id] { scroll-margin-top: 80px; }
             .nav-bar { 
                 padding: 1rem; 
             }
@@ -408,28 +422,197 @@
             </p>
             
             <!-- Navigation Buttons -->
-            <div class="nav-buttons">
-                <a href="#mythology" class="nav-btn">
-                    <i class="fas fa-book-open"></i> Mythology
+            <div class="nav-buttons" style="margin-bottom: 2rem;">
+                <a href="nakshatras.html" class="nav-btn">
+                    <i class="fas fa-arrow-left"></i> All Nakshatras
                 </a>
-                <a href="#psychology" class="nav-btn">
-                    <i class="fas fa-brain"></i> Psychology
+                <a href="mrigashira.html" class="nav-btn">
+                    <i class="fas fa-arrow-left"></i> Previous: Mrigashira
                 </a>
-                <a href="#practical" class="nav-btn">
-                    <i class="fas fa-hand-sparkles"></i> Practices
+                <a href="#qualities" class="nav-btn primary">
+                    <i class="fas fa-bolt"></i> Explore Qualities
                 </a>
-                <a href="#vedic" class="nav-btn">
-                    <i class="fas fa-om"></i> Vedic Wisdom
-                </a>
-                <a href="#meditation" class="nav-btn primary">
-                    <i class="fas fa-dharmachakra"></i> Meditate Now
+                <a href="punarvasu.html" class="nav-btn">
+                    Next: Punarvasu <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Content sections will be added next -->
-    <!-- We'll create mythology, psychology, practical applications, and vedic sections -->
+    <!-- Mythology Section -->
+    <section id="mythology" class="mythology-section">
+        <div class="section-header">
+            <h2 class="section-title">STELLAR MYTHOLOGY</h2>
+            <p class="section-subtitle">The Sacred Story of Rudra's Storm Dance</p>
+        </div>
 
+        <div class="two-column-grid">
+            <div class="content-card">
+                <div class="card-icon"><i class="fas fa-bolt"></i></div>
+                <h3 class="card-title">The Storm Bringer</h3>
+                <p>Ardra represents the cosmic storm brought by Rudra (Shiva) that washes away the old and initiates profound transformation. It embodies the raw, intense energy of change that is both destructive and deeply purifying.</p>
+            </div>
+            <div class="content-card">
+                <div class="card-icon"><i class="fas fa-droplet"></i></div>
+                <h3 class="card-title">The Sacred Teardrop</h3>
+                <p>The nakshatra's name "Ardra" means "moist" or "green", symbolizing the life-giving rain that follows the storm. These are the tears of Rudra that bring renewal after destruction, representing the cyclical nature of transformation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Psychology Section -->
+    <section id="psychology" class="psychology-section">
+        <div class="section-header">
+            <h2 class="section-title">PSYCHOLOGICAL DYNAMICS</h2>
+            <p class="section-subtitle">Understanding the Storm Within</p>
+        </div>
+
+        <div class="three-column-grid">
+            <div class="content-card">
+                <div class="card-icon"><i class="fas fa-hurricane"></i></div>
+                <h3 class="card-title">Transformative Force</h3>
+                <p>Ardra natives possess an innate capacity for intense transformation. They naturally understand that true change often requires a period of chaos or disruption before new order can emerge.</p>
+            </div>
+            <div class="content-card">
+                <div class="card-icon"><i class="fas fa-heart-crack"></i></div>
+                <h3 class="card-title">Emotional Intensity</h3>
+                <p>Like a powerful storm, Ardra brings deep emotional experiences that can be both challenging and cleansing. This intensity serves as a catalyst for profound personal growth and evolution.</p>
+            </div>
+            <div class="content-card">
+                <div class="card-icon"><i class="fas fa-arrows-spin"></i></div>
+                <h3 class="card-title">Change Agent</h3>
+                <p>Those born under Ardra often serve as agents of change in their environment. They have the ability to initiate necessary upheaval that leads to positive transformation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practical Section -->
+    <section id="practical" class="practical-section">
+        <div class="section-header">
+            <h2 class="section-title">PRACTICAL APPLICATIONS</h2>
+            <p class="section-subtitle">Working with Storm Energy</p>
+        </div>
+
+        <div class="three-column-grid">
+            <div class="content-card">
+                <div class="card-icon"><i class="fas fa-hand-sparkles"></i></div>
+                <h3 class="card-title">Energy Practices</h3>
+                <p>Harness the transformative power of Ardra through dynamic movement practices, storm meditation, and working with the energy of change. Use intense physical exercise or dance to channel this potent force.</p>
+            </div>
+            <div class="content-card">
+                <div class="card-icon"><i class="fas fa-gem"></i></div>
+                <h3 class="card-title">Crystal Allies</h3>
+                <p>Work with storm-associated crystals like Black Tourmaline for protection, Moldavite for transformation, and Aquamarine for emotional balance. These stones help manage and direct Ardra's intense energy.</p>
+            </div>
+            <div class="content-card">
+                <div class="card-icon"><i class="fas fa-moon"></i></div>
+                <h3 class="card-title">Timing & Rhythms</h3>
+                <p>Align with Ardra's energy during its lunar transit for powerful transformation work. Use the storm energy for clearing, releasing, and initiating major life changes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vedic Section -->
+    <section id="vedic" class="vedic-section">
+        <div class="section-header">
+            <h2 class="section-title">VEDIC WISDOM</h2>
+            <p class="section-subtitle">Ancient Knowledge of the Storm Star</p>
+        </div>
+
+        <div class="two-column-grid">
+            <div class="content-card">
+                <div class="card-icon"><i class="fas fa-om"></i></div>
+                <h3 class="card-title">Sacred Alignments</h3>
+                <p>Ardra is ruled by Rudra, the storm aspect of Shiva, representing the cosmic power of transformation. Its deity connection infuses this nakshatra with divine energy for profound change and spiritual evolution.</p>
+            </div>
+            <div class="content-card">
+                <div class="card-icon"><i class="fas fa-infinity"></i></div>
+                <h3 class="card-title">Evolutionary Purpose</h3>
+                <p>In Vedic astrology, Ardra serves the vital function of breaking down old patterns to make way for new growth. It represents the essential role of destruction in the cosmic cycle of creation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meditation Section -->
+    <section id="meditation" class="vedic-section">
+        <div class="section-header">
+            <h2 class="section-title">STORM MEDITATION</h2>
+            <p class="section-subtitle">Journey into Transformative Consciousness</p>
+        </div>
+
+        <div class="content-card" style="max-width: 800px; margin: 0 auto;">
+            <div class="card-icon"><i class="fas fa-dharmachakra"></i></div>
+            <h3 class="card-title">The Storm Star Meditation</h3>
+            <p style="margin-bottom: 1.5rem;">Enter the sacred space of Ardra consciousness through this guided meditation:</p>
+            
+            <ol style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 1rem;">🌪️ <strong>Connect with Storm Energy:</strong> Visualize yourself at the center of a powerful storm, feeling its raw transformative power.</li>
+                <li style="margin-bottom: 1rem;">💧 <strong>Sacred Teardrops:</strong> Let Rudra's tears wash away all that no longer serves your evolution.</li>
+                <li style="margin-bottom: 1rem;">⚡ <strong>Lightning Awareness:</strong> Allow sudden insights and revelations to illuminate your consciousness.</li>
+                <li style="margin-bottom: 1rem;">🌟 <strong>Post-Storm Clarity:</strong> Experience the profound peace and renewal that follows transformation.</li>
+            </ol>
+            
+            <p style="margin-top: 1.5rem;"><em>Coming soon: Guided audio meditation for the complete Storm Star experience.</em></p>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling and active menu highlighting for Ardra page
+        document.addEventListener('DOMContentLoaded', () => {
+            const navButtons = Array.from(document.querySelectorAll('.nav-buttons .nav-btn'));
+            const sectionIds = ['mythology', 'psychology', 'practical', 'vedic', 'meditation'];
+            const sections = sectionIds
+                .map(id => document.getElementById(id))
+                .filter(Boolean);
+
+            // Click -> smooth scroll
+            navButtons.forEach(btn => {
+                const href = btn.getAttribute('href') || '';
+                if (href.startsWith('#')) {
+                    btn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    });
+                }
+            });
+
+            // Intersection observer to highlight active section
+            const setActive = (id) => {
+                navButtons.forEach(btn => {
+                    const href = btn.getAttribute('href') || '';
+                    if (href === `#${id}`) btn.classList.add('active');
+                    else btn.classList.remove('active');
+                });
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                // Choose the most visible section
+                const visible = entries
+                    .filter(e => e.isIntersecting)
+                    .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+                if (visible && visible.target && visible.target.id) {
+                    setActive(visible.target.id);
+                }
+            }, {
+                root: null,
+                // Top offset to account for fixed header; favor section that's well within viewport
+                rootMargin: '-30% 0px -50% 0px',
+                threshold: [0.1, 0.25, 0.5, 0.75]
+            });
+
+            sections.forEach(sec => observer.observe(sec));
+
+            // If URL has a hash on load, set active and perform aligned scroll
+            if (window.location.hash) {
+                const target = document.querySelector(window.location.hash);
+                if (target) {
+                    setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150);
+                }
+            }
+        });
+    </script>
 </body>
 </html>
