@@ -1643,10 +1643,7 @@
             card.className = 'nakshatra-card';
             card.style.setProperty('--card-gradient', nakshatra.gradient);
             
-                const availableBadge = (nakshatra.id === 1 || nakshatra.id === 2 || nakshatra.id === 3 || nakshatra.id === 4 || nakshatra.id === 5 || nakshatra.id === 10 || nakshatra.id === 11 || nakshatra.id === 12) ? '<div style="position: absolute; top: 10px; right: 10px; background: linear-gradient(45deg, #4ecdc4, #45b7d1); color: white; padding: 4px 8px; border-radius: 12px; font-size: 0.7rem; font-weight: 600;">EXPLORE NOW</div>' : '';
-                
                 card.innerHTML = `
-                    ${availableBadge}
                     <div class="card-header">
                         <div class="nakshatra-symbol">${nakshatra.symbol}</div>
                         <div class="card-title">
@@ -1692,6 +1689,36 @@
                         window.location.href = 'purva-phalguni.html';
                     } else if (nakshatra.id === 12) { // Uttara Phalguni
                         window.location.href = 'uttara-phalguni.html';
+                    } else if (nakshatra.id === 13) { // Hasta
+                        window.location.href = 'hasta.html';
+                    } else if (nakshatra.id === 14) { // Chitra
+                        window.location.href = 'chitra.html';
+                    } else if (nakshatra.id === 15) { // Swati
+                        window.location.href = 'swati.html';
+                    } else if (nakshatra.id === 16) { // Vishakha
+                        window.location.href = 'vishakha.html';
+                    } else if (nakshatra.id === 17) { // Anuradha
+                        window.location.href = 'anuradha.html';
+                    } else if (nakshatra.id === 18) { // Jyeshtha
+                        window.location.href = 'jyeshtha.html';
+                    } else if (nakshatra.id === 19) { // Mula
+                        window.location.href = 'mula.html';
+                    } else if (nakshatra.id === 20) { // Purva Ashadha
+                        window.location.href = 'purva-ashadha.html';
+                    } else if (nakshatra.id === 21) { // Uttara Ashadha
+                        window.location.href = 'uttara-ashadha.html';
+                    } else if (nakshatra.id === 22) { // Shravana
+                        window.location.href = 'shravana.html';
+                    } else if (nakshatra.id === 23) { // Dhanishtha
+                        window.location.href = 'dhanishtha.html';
+                    } else if (nakshatra.id === 24) { // Shatabhisha
+                        window.location.href = 'shatabhisha.html';
+                    } else if (nakshatra.id === 25) { // Purva Bhadrapada
+                        window.location.href = 'purva-bhadrapada.html';
+                    } else if (nakshatra.id === 26) { // Uttara Bhadrapada
+                        window.location.href = 'uttara-bhadrapada.html';
+                    } else if (nakshatra.id === 27) { // Revati
+                        window.location.href = 'revati.html';
                     } else {
                         console.log(`Navigate to ${nakshatra.name} page - Coming soon!`);
                         // Show coming soon message
