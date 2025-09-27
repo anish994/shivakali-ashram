@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g filter="url(#glow)">
+        <circle cx="32" cy="32" r="24" stroke="#fd79a8" stroke-width="2"/>
+        <path d="M32 8L38 14M32 8L26 14M32 8V56M32 56L26 50M32 56L38 50" stroke="#fd79a8" stroke-width="2"/>
+        <path d="M8 32L14 38M8 32L14 26M8 32H56M56 32L50 26M56 32L50 38" stroke="#fd79a8" stroke-width="2"/>
+        <circle cx="32" cy="32" r="4" fill="#fd79a8"/>
+    </g>
+    <defs>
+        <filter id="glow" x="-4" y="-4" width="72" height="72" filterUnits="userSpaceOnUse">
+            <feGaussianBlur stdDeviation="2" result="blur"/>
+            <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+        </filter>
+    </defs>
+</svg>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g filter="url(#glow)">
+        <path d="M32 8C18.745 8 8 18.745 8 32C8 45.255 18.745 56 32 56C45.255 56 56 45.255 56 32C56 18.745 45.255 8 32 8Z" stroke="#fd79a8" stroke-width="2"/>
+        <path d="M32 16V24M32 40V48M16 32H24M40 32H48" stroke="#fd79a8" stroke-width="2"/>
+        <path d="M32 28C33.1046 28 34 28.8954 34 30V34C34 35.1046 33.1046 36 32 36C30.8954 36 30 35.1046 30 34V30C30 28.8954 30.8954 28 32 28Z" fill="#fd79a8"/>
+    </g>
+    <defs>
+        <filter id="glow" x="-4" y="-4" width="72" height="72" filterUnits="userSpaceOnUse">
+            <feGaussianBlur stdDeviation="2" result="blur"/>
+            <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+        </filter>
+    </defs>
+</svg>

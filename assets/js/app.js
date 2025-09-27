@@ -238,7 +238,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         window.knowledgeRenderer = new KnowledgeRenderer(window.contentLoader);
         
         // Load dynamic content into categories grid
-        await window.knowledgeRenderer.renderSubjectsGrid('categories-grid');
+        await window.knowledgeRenderer.renderSubjectsGrid('main-content');
         
         // Handle hash navigation
         window.addEventListener('hashchange', () => {

@@ -3,19 +3,54 @@
    Fixed background that stays in place while scrolling
    ==================================== */
 
+/* Define cosmic theme variables */
+:root {
+    --space-bg-primary: #1e3c72;
+    --space-bg-secondary: #2a5298;
+    --space-bg-deep: #0f0f23;
+    --nebula-purple: rgba(120, 30, 200, 0.3);
+    --nebula-pink: rgba(255, 20, 147, 0.2);
+    --nebula-blue: rgba(0, 100, 200, 0.2);
+    --nebula-red: rgba(200, 50, 100, 0.15);
+    --star-bright: rgba(255, 255, 255, 0.9);
+    --star-medium: rgba(255, 255, 255, 0.6);
+    --star-dim: rgba(255, 255, 255, 0.4);
+    --cosmic-dust: rgba(255, 255, 255, 0.1);
+    --galaxy-glow: rgba(138, 43, 226, 0.1);
+}
+
+/* Enable smooth scrolling and enhanced composition */
+html {
+    scroll-behavior: smooth;
+    background-color: var(--space-bg-deep);
+}
+
+/* Hardware accelerated cosmic effects */
+* {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+}
+
 /* MAIN COSMIC BACKGROUND */
 body {
-    background: 
-        /* Deep space gradient */
-        radial-gradient(ellipse at top, #1e3c72 0%, #2a5298 50%, #0f0f23 100%),
-        /* Nebula clouds */
-        radial-gradient(circle at 20% 80%, rgba(120, 30, 200, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255, 20, 147, 0.2) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(0, 100, 200, 0.2) 0%, transparent 50%),
-        radial-gradient(circle at 60% 70%, rgba(200, 50, 100, 0.15) 0%, transparent 50%),
-        /* Base deep space */
-        linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 30%, #16213e 70%, #0f3460 100%);
+background: 
+        /* Deep space gradient with enhanced depth */
+        radial-gradient(ellipse at top, var(--space-bg-primary) 0%, var(--space-bg-secondary) 50%, var(--space-bg-deep) 100%),
+        /* Nebula clouds with variable opacity and size */
+        radial-gradient(circle at 20% 80%, var(--nebula-purple) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, var(--nebula-pink) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, var(--nebula-blue) 0%, transparent 50%),
+        radial-gradient(circle at 60% 70%, var(--nebula-red) 0%, transparent 50%),
+/* Base deep space with enhanced color depth */
+        linear-gradient(135deg, var(--space-bg-deep) 0%, #1a1a2e 30%, #16213e 70%, #0f3460 100%);
     background-attachment: fixed;
+    transform: translateZ(0);
+    /* Enable hardware acceleration */
+    -webkit-transform: translate3d(0,0,0);
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    transition: background 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     background-size: 
         100% 100%,
         600px 600px,
@@ -248,10 +283,42 @@ body::after {
     box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
 }
 
+/* Advanced cosmic animations */
+@keyframes cosmic-pulse {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+@keyframes star-twinkle {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+}
+
+@keyframes nebula-flow {
+    0%, 100% { transform: translateX(0) translateY(0); }
+    50% { transform: translateX(10px) translateY(-10px); }
+}
+
+/* Apply animations */
+body::before {
+    animation: star-twinkle 4s infinite ease-in-out;
+}
+
+body::after {
+    animation: nebula-flow 15s infinite ease-in-out;
+}
+
 /* COSMIC PERFORMANCE OPTIMIZATION */
 @media (prefers-reduced-motion: reduce) {
     body::before,
     body::after {
         opacity: 0.5;
+        animation: none !important;
+        transform: none !important;
+    }
+    
+    body * {
+        transition: none !important;
+        animation: none !important;
     }
 }

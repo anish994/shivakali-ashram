@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krittika Nakshatra - The Cosmic Purifier | ShivaKali Ashram</title>
+    <meta name="description" content="Explore Krittika Nakshatra - The Cutter that purifies through divine fire. Discover the sharp intellect, cleansing power, and transformative flame of this Sun-ruled stellar frequency.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+/* Krittika-specific gradient theme */
+        :root {
+            --krittika-primary: linear-gradient(135deg, #feca57, #ff6b35);
+            --krittika-secondary: rgba(255, 170, 60, 0.2);
+            --krittika-glow: rgba(255, 170, 60, 0.4);
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0a2e, #16213e, #1a1a2e);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Stellar Background Animation */
+        .stellar-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            background: #ffffff;
+            border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+
+        .star:nth-child(odd) {
+            animation-delay: 1.5s;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Krittika-specific gradient theme */
+        :root {
+            --krittika-primary: linear-gradient(135deg, #feca57, #ff6b35);
+            --krittika-secondary: rgba(255, 170, 60, 0.2);
+            --krittika-glow: rgba(255, 170, 60, 0.4);
+        }
+
+        /* Navigation */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 46, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-back {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 8px 16px;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-back:hover {
+            background: var(--krittika-secondary);
+            transform: translateY(-1px);
+        }
+
+        .nav-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.2rem;
+            color: #feca57;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 4rem 2rem;
+            text-align: center;
+            background: radial-gradient(ellipse at center, var(--krittika-secondary) 0%, transparent 70%);
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .nakshatra-symbol {
+            font-size: 6rem;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 20px #feca57);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            background: var(--krittika-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            font-weight: 900;
+        }
+
+        .hero .translation {
+            font-size: 1.5rem;
+            color: #b19cd9;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .hero .tagline {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stellar-info-hero {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .info-item {
+            text-align: center;
+        }
+
+        .info-label {
+            font-size: 0.9rem;
+            color: #b19cd9;
+            margin-bottom: 0.3rem;
+        }
+
+        .info-value {
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 1.1rem;
+        }
+
+        /* Navigation */
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            background: linear-gradient(45deg, rgba(255, 170, 60, 0.2), rgba(255, 107, 53, 0.2));
+            border: 2px solid rgba(255, 170, 60, 0.3);
+            border-radius: 15px;
+            padding: 12px 24px;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            font-size: 0.95rem;
+        }
+
+        .nav-btn:hover {
+            background: linear-gradient(45deg, #ffaa3c, #ff6b35);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 170, 60, 0.3);
+        }
+
+        .nav-btn.primary {
+            background: linear-gradient(45deg, #feca57, #ff6b35);
+            border-color: #ffaa3c;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(2rem, 5vw, 3rem);
+            background: linear-gradient(45deg, #feca57, #ff6b35);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fireFlow 6s ease-in-out infinite;
+            margin-bottom: 1rem;
+        }
+
+        .section-divider {
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(45deg, #feca57, #ff6b35);
+            margin: 0 auto 2rem auto;
+            border-radius: 2px;
+            box-shadow: 0 0 20px rgba(255, 170, 60, 0.4);
+        }
+
+        /* Introduction Card */
+        .intro-card {
+            background: rgba(255, 170, 60, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 170, 60, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            box-shadow: 0 8px 32px rgba(255, 170, 60, 0.1);
+        }
+
+        .intro-card h3 {
+            font-family: 'Orbitron', monospace;
+            color: #ffaa3c;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .intro-card p {
+            color: #f5f3f0;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Expandable Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .expandable-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 170, 60, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .expandable-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(255, 170, 60, 0.2);
+            border-color: rgba(255, 170, 60, 0.3);
+        }
+
+        .card-header {
+            padding: 1.5rem;
+            background: linear-gradient(45deg, rgba(255, 170, 60, 0.1), rgba(255, 107, 53, 0.1));
+            border-bottom: 1px solid rgba(255, 170, 60, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            font-family: 'Orbitron', monospace;
+            color: #ffaa3c;
+            font-size: 1.2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .expand-icon {
+            color: #ffaa3c;
+            transition: transform 0.3s ease;
+        }
+
+        .expandable-card.active .expand-icon {
+            transform: rotate(180deg);
+        }
+
+        .card-content {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .expandable-card.active .card-content {
+            padding: 1.5rem;
+            max-height: 800px;
+        }
+
+        .card-content p, .card-content ul {
+            color: #e5e5e5;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .card-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card-content li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 170, 60, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-content li:before {
+            content: "🔥";
+            font-size: 1rem;
+        }
+
+        /* Quality Tags */
+        .quality-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 2rem 0;
+        }
+
+        .quality-tag {
+            background: rgba(255, 170, 60, 0.15);
+            border: 2px solid transparent;
+            border-radius: 25px;
+            padding: 8px 16px;
+            color: #ffaa3c;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            font-size: 0.9rem;
+        }
+
+        .quality-tag:hover {
+            background: rgba(255, 170, 60, 0.25);
+            border-color: rgba(255, 170, 60, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 170, 60, 0.2);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 1rem;
+                min-height: 90vh;
+            }
+            
+            .fire-symbol {
+                top: 1rem;
+                right: 1rem;
+                font-size: 3rem;
+            }
+            
+            .content-section {
+                padding: 2rem 1rem;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .nav-buttons {
+                gap: 0.5rem;
+                padding: 0 1rem;
+            }
+            
+            .nav-btn {
+                padding: 10px 20px;
+                font-size: 0.85rem;
+                min-width: 140px;
+                text-align: center;
+            }
+            
+            .intro-card {
+                padding: 2rem;
+                margin-bottom: 3rem;
+            }
+            
+            .quality-tags {
+                justify-content: center;
+            }
+            
+            .quality-tag {
+                min-width: 120px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Stellar Background -->
+    <div class="stellar-bg" id="stellarBg"></div>
+
+    <!-- Fire Symbol -->
+    <div class="fire-symbol">🔥</div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>KRITTIKA</h1>
+            <p class="subtitle">The Cosmic Purifier & Divine Blade</p>
+            <p class="description">
+                Step into the blazing forge of Krittika, where the <strong>Sun's divine fire</strong> burns away illusion and ignorance. 
+                This stellar frequency doesn't just illuminate — it <em>purifies</em> through the sacred flame of sharp intellect and unwavering truth. 
+                Like cosmic smiths hammering raw consciousness into refined wisdom, Krittika natives wield the power to cut through deception 
+                and reveal the gleaming essence beneath.
+            </p>
+            
+            <div class="nav-buttons">
+                <a href="nakshatras.html" class="nav-btn">
+                    <i class="fas fa-arrow-left"></i> All Nakshatras
+                </a>
+                <a href="bharani.html" class="nav-btn">
+                    <i class="fas fa-arrow-left"></i> Previous: Bharani
+                </a>
+                <a href="#qualities" class="nav-btn primary">
+                    <i class="fas fa-fire"></i> Explore Qualities
+                </a>
+                <a href="rohini.html" class="nav-btn">
+                    Next: Rohini <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="content-section">
+        <div class="intro-card">
+            <h3>🌟 The Fire That Shapes Souls</h3>
+            <p>
+                Krittika burns with the intensity of seven sacred flames, each one representing a different aspect of purification. 
+                Ruled by the mighty <strong>Sun</strong>, this nakshatra doesn't just shine light — it generates the transformative heat 
+                that melts away impurities and forges character. Like master craftsmen using fire to shape metals, Krittika natives 
+                possess the rare ability to see through facades, cut through confusion, and illuminate truth with laser-sharp precision. 
+                They are the cosmic editors of reality, wielding discernment like a sacred blade.
+            </p>
+        </div>
+    </section>
+
+    <!-- Qualities Section -->
+    <section class="content-section" id="qualities">
+        <div class="section-header">
+            <h2 class="section-title">Krittika Qualities</h2>
+            <div class="section-divider"></div>
+        </div>
+        
+        <div class="quality-tags">
+            <div class="quality-tag">🔥 Purification Power</div>
+            <div class="quality-tag">🗡️ Sharp Intellect</div>
+            <div class="quality-tag">☀️ Solar Radiance</div>
+            <div class="quality-tag">✂️ Cutting Truth</div>
+            <div class="quality-tag">🏭 Master Craftsman</div>
+            <div class="quality-tag">🎯 Laser Focus</div>
+            <div class="quality-tag">💎 Refinement</div>
+            <div class="quality-tag">🌅 Illumination</div>
+        </div>
+        
+        <div class="cards-grid">
+            <div class="expandable-card" onclick="toggleCard(this)">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-fire"></i>
+                        Purifying Fire
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="card-content">
+                    <p>Krittika natives carry the sacred flame that burns away illusion, fear, and ignorance. This isn't destructive fire — it's the purifying flame that reveals truth.</p>
+                    <ul>
+                        <li>Burns away mental impurities and false beliefs</li>
+                        <li>Illuminates hidden aspects of any situation</li>
+                        <li>Transforms raw potential into refined wisdom</li>
+                        <li>Cleanses environments of negative energy</li>
+                        <li>Purifies relationships through honest communication</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="expandable-card" onclick="toggleCard(this)">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-brain"></i>
+                        Razor-Sharp Intellect
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="card-content">
+                    <p>The cutting intelligence of Krittika slices through confusion and complexity to reach the essential core of any matter.</p>
+                    <ul>
+                        <li>Exceptional analytical and critical thinking abilities</li>
+                        <li>Natural talent for research and investigation</li>
+                        <li>Ability to cut through deception and manipulation</li>
+                        <li>Sharp wit and incisive communication style</li>
+                        <li>Quick to identify flaws and areas for improvement</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="expandable-card" onclick="toggleCard(this)">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-sun"></i>
+                        Solar Leadership
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="card-content">
+                    <p>Ruled by the Sun, Krittika natives possess natural authority and the ability to illuminate paths for others through clarity and wisdom.</p>
+                    <ul>
+                        <li>Natural leadership through moral authority</li>
+                        <li>Ability to inspire others toward higher standards</li>
+                        <li>Radiates confidence and self-assurance</li>
+                        <li>Sets clear boundaries and expectations</li>
+                        <li>Guides others away from harmful choices</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="expandable-card" onclick="toggleCard(this)">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-hammer"></i>
+                        Master Craftsman
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="card-content">
+                    <p>Like divine smiths who shape raw metal with fire and hammer, Krittika natives excel at refining and perfecting whatever they touch.</p>
+                    <ul>
+                        <li>Exceptional attention to detail and quality</li>
+                        <li>Natural ability to improve and refine systems</li>
+                        <li>Patience for long-term projects requiring precision</li>
+                        <li>Skilled at transforming raw ideas into polished results</li>
+                        <li>High standards for themselves and their work</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Psychological Architecture -->
+    <section class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">Psychological Architecture</h2>
+            <div class="section-divider"></div>
+        </div>
+        
+        <div class="cards-grid">
+            <div class="expandable-card" onclick="toggleCard(this)">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-shield-alt"></i>
+                        The Inner Forge
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="card-content">
+                    <p>The Krittika psyche operates like a cosmic forge, constantly refining thoughts, emotions, and experiences through the fire of discernment.</p>
+                    <ul>
+                        <li>Strong internal critic that maintains high standards</li>
+                        <li>Natural tendency to test and verify information</li>
+                        <li>Uncomfortable with superficiality or pretense</li>
+                        <li>Driven to cut through to essential truths</li>
+                        <li>May appear harsh but intentions are purifying</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="expandable-card" onclick="toggleCard(this)">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-balance-scale"></i>
+                        Justice & Fairness
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="card-content">
+                    <p>A deep sense of moral clarity drives Krittika natives to stand up for truth and justice, even when it's uncomfortable.</p>
+                    <ul>
+                        <li>Strong moral compass and ethical principles</li>
+                        <li>Willingness to speak truth to power</li>
+                        <li>Natural protector of the innocent and vulnerable</li>
+                        <li>Intolerant of injustice and corruption</li>
+                        <li>May sacrifice personal comfort for principles</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="expandable-card" onclick="toggleCard(this)">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-thermometer-full"></i>
+                        Intensity Spectrum
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="card-content">
+                    <p>Krittika operates at high intensity levels, bringing passionate focus to everything while needing balance to avoid burnout.</p>
+                    <ul>
+                        <li>All-or-nothing approach to projects and relationships</li>
+                        <li>High energy levels when inspired and focused</li>
+                        <li>Need for periodic cooling-off periods</li>
+                        <li>May overwhelm others with their intensity</li>
+                        <li>Benefits from practices that regulate internal fire</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practical Applications -->
+    <section class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">Practical Applications</h2>
+            <div class="section-divider"></div>
+        </div>
+        
+        <div class="cards-grid">
+            <div class="expandable-card" onclick="toggleCard(this)">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-briefcase"></i>
+                        Career Paths
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="card-content">
+                    <p>Krittika natives excel in careers that require sharp analysis, purification, or transformative leadership.</p>
+                    <ul>
+                        <li>Critics, editors, and quality control specialists</li>
+                        <li>Surgeons, therapists, and healers</li>
+                        <li>Judges, lawyers, and ethical consultants</li>
+                        <li>Metallurgists, chemists, and purification experts</li>
+                        <li>Spiritual teachers and consciousness guides</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="expandable-card" onclick="toggleCard(this)">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-heart"></i>
+                        Relationships
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="card-content">
+                    <p>In relationships, Krittika brings honesty and depth but must balance their purifying nature with acceptance and compassion.</p>
+                    <ul>
+                        <li>Values authenticity and honest communication</li>
+                        <li>Helps partners grow through constructive feedback</li>
+                        <li>Needs partners who can handle direct honesty</li>
+                        <li>May need to soften critical tendencies</li>
+                        <li>Deepest bonds with those who share their values</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="expandable-card" onclick="toggleCard(this)">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-seedling"></i>
+                        Personal Growth
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="card-content">
+                    <p>The path of growth for Krittika involves learning to balance their purifying fire with compassion and patience.</p>
+                    <ul>
+                        <li>Practice tempering criticism with encouragement</li>
+                        <li>Develop patience for others' learning processes</li>
+                        <li>Learn to purify without destroying</li>
+                        <li>Balance high standards with self-compassion</li>
+                        <li>Channel intensity into creative and healing pursuits</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mythological Foundation -->
+    <section class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">Mythological Foundation</h2>
+            <div class="section-divider"></div>
+        </div>
+        
+        <div class="intro-card">
+            <h3>🔥 The Seven Sacred Flames</h3>
+            <p>
+                In Vedic lore, Krittika represents the seven sacred flames that nurse and protect baby Kartikeya (the god of war and wisdom). 
+                These aren't ordinary fires — they are the primordial flames of purification that existed before creation itself. 
+                Each flame carries a different aspect of divine fire: the flame that burns ignorance, the flame that forges character, 
+                the flame that illuminates truth, the flame that protects innocence, the flame that transforms, the flame that judges, 
+                and the flame that creates. Together, they form the cosmic forge where souls are refined from their crude state 
+                into luminous beings of wisdom and power.
+            </p>
+        </div>
+        
+        <div class="cards-grid">
+            <div class="expandable-card" onclick="toggleCard(this)">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-baby"></i>
+                        The Divine Nurses
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="card-content">
+                    <p>The seven stars of Krittika served as celestial nurses to baby Kartikeya, representing the nurturing aspect of purifying fire.</p>
+                    <ul>
+                        <li>Protection through purification and cleansing</li>
+                        <li>Nurturing potential while burning away weakness</li>
+                        <li>Teaching through direct experience and testing</li>
+                        <li>Fierce love that demands growth and excellence</li>
+                        <li>Creating strength through controlled challenges</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="expandable-card" onclick="toggleCard(this)">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-flame"></i>
+                        Agni's Sacred Fire
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="card-content">
+                    <p>Connected to Agni, the fire god, Krittika represents the sacred flame that mediates between earth and heaven, transforming offerings into divine energy.</p>
+                    <ul>
+                        <li>Bridge between material and spiritual realms</li>
+                        <li>Transforms base elements into refined essence</li>
+                        <li>Carries prayers and intentions to higher dimensions</li>
+                        <li>Purifies karma through conscious action</li>
+                        <li>Sacred witness to all transformations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Nakshatras -->
+    <section class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">Connected Stellar Frequencies</h2>
+            <div class="section-divider"></div>
+        </div>
+        
+        <div class="cards-grid">
+            <div class="expandable-card" onclick="toggleCard(this)">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-arrow-left"></i>
+                        Bharani Connection
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="card-content">
+                    <p>Where Bharani creates through transformation, Krittika refines through purification — together they form the complete cycle of conscious creation.</p>
+                    <ul>
+                        <li>Bharani births new realities; Krittika perfects them</li>
+                        <li>Creation followed by refinement and testing</li>
+                        <li>Raw potential shaped into precise manifestation</li>
+                        <li>Emotional depth balanced by intellectual clarity</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="expandable-card" onclick="toggleCard(this)">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-arrow-right"></i>
+                        Rohini Harmony
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="card-content">
+                    <p>Krittika's purifying fire prepares the ground for Rohini's abundant creativity — sharp discernment enables beautiful creation.</p>
+                    <ul>
+                        <li>Purification creates space for abundance</li>
+                        <li>Sharp standards enable lasting beauty</li>
+                        <li>Clear vision guides creative manifestation</li>
+                        <li>Quality control ensures enduring value</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="expandable-card" onclick="toggleCard(this)">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-fire"></i>
+                        Fire Nakshatra Family
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                </div>
+                <div class="card-content">
+                    <p>Part of the fire element family with Ashwini and Magha, each expressing solar energy in unique ways.</p>
+                    <ul>
+                        <li>Ashwini: Fire of initiation and healing</li>
+                        <li>Krittika: Fire of purification and refinement</li>
+                        <li>Magha: Fire of authority and ancestral power</li>
+                        <li>Together they form the complete spectrum of solar consciousness</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation Footer -->
+    <section class="content-section">
+        <div class="nav-buttons">
+            <a href="nakshatras.html" class="nav-btn">
+                <i class="fas fa-home"></i> All Nakshatras
+            </a>
+            <a href="bharani.html" class="nav-btn">
+                <i class="fas fa-arrow-left"></i> Previous: Bharani
+            </a>
+            <a href="ashwini.html" class="nav-btn">
+                <i class="fas fa-star"></i> Ashwini
+            </a>
+            <a href="rohini.html" class="nav-btn primary">
+                Next: Rohini <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <script>
+        // Create stellar background
+        function createStars() {
+            const stellarBg = document.getElementById('stellarBg');
+            const starCount = 80;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.width = Math.random() * 4 + 2 + 'px';
+                star.style.height = star.style.width;
+                star.style.animationDelay = Math.random() * 2 + 's';
+                stellarBg.appendChild(star);
+            }
+        }
+
+        // Toggle expandable cards
+        function toggleCard(card) {
+            card.classList.toggle('active');
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            createStars();
+        });
+    </script>
+</body>
+</html>

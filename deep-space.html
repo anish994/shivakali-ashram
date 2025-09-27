@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Space Background</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Deep Space Colors */
+            --space-black: #000000;
+            --deep-purple: #1a0933;
+            --space-blue: #0d1a40;
+            
+            /* Galaxy Colors */
+            --galaxy-core: rgba(255, 186, 115, 0.7);
+            --galaxy-dust: rgba(255, 123, 0, 0.4);
+            --galaxy-arms: rgba(255, 215, 0, 0.3);
+            --galaxy-blue-core: rgba(63, 137, 255, 0.6);
+            --galaxy-blue-dust: rgba(32, 89, 255, 0.3);
+            
+            /* Nebula Colors */
+            --nebula-pink: rgba(255, 0, 128, 0.2);
+            --nebula-blue: rgba(0, 191, 255, 0.2);
+            --nebula-purple: rgba(147, 0, 255, 0.2);
+        }
+
+        body {
+            min-height: 100vh;
+            background: var(--space-black);
+            overflow: hidden;
+        }
+
+        /* Deep Space Base */
+        .space-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at center,
+                    rgba(31, 15, 45, 0.8) 0%,
+                    rgba(15, 7, 35, 0.7) 30%,
+                    rgba(0, 0, 10, 1) 100%);
+        }
+
+        /* Starfield System */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            animation: rotate 200s linear infinite;
+            transform-origin: center center;
+        }
+
+        .stars::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(1px 1px at 10% 10%, white 1px, transparent 0),
+                radial-gradient(1px 1px at 20% 20%, white 1px, transparent 0),
+                radial-gradient(2px 2px at 30% 30%, white 1px, transparent 0),
+                radial-gradient(1px 1px at 40% 40%, white 1px, transparent 0),
+                radial-gradient(2px 2px at 50% 50%, white 1px, transparent 0),
+                radial-gradient(1px 1px at 60% 60%, white 1px, transparent 0),
+                radial-gradient(1px 1px at 70% 70%, white 1px, transparent 0),
+                radial-gradient(2px 2px at 80% 80%, white 1px, transparent 0),
+                radial-gradient(1px 1px at 90% 90%, white 1px, transparent 0);
+            background-size: 400% 400%;
+            animation: twinkle 3s ease-in-out infinite alternate;
+        }
+
+        /* Spiral Galaxy */
+        .spiral-galaxy {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            opacity: 0.8;
+            filter: blur(3px) brightness(1.5);
+            mix-blend-mode: screen;
+            transform-origin: center;
+            animation: galaxySpin 150s linear infinite;
+        }
+
+        .galaxy-1 {
+            top: -20%;
+            right: -10%;
+            background: 
+                radial-gradient(circle at 50% 50%,
+                    var(--galaxy-core) 0%,
+                    var(--galaxy-dust) 20%,
+                    transparent 60%),
+                conic-gradient(from 0deg at 50% 50%,
+                    transparent 0deg,
+                    var(--galaxy-arms) 30deg,
+                    transparent 60deg,
+                    var(--galaxy-arms) 90deg,
+                    transparent 120deg,
+                    var(--galaxy-arms) 150deg,
+                    transparent 180deg,
+                    var(--galaxy-arms) 210deg,
+                    transparent 240deg,
+                    var(--galaxy-arms) 270deg,
+                    transparent 300deg,
+                    var(--galaxy-arms) 330deg,
+                    transparent 360deg);
+        }
+
+        .galaxy-2 {
+            bottom: -30%;
+            left: -15%;
+            background: 
+                radial-gradient(circle at 50% 50%,
+                    var(--galaxy-blue-core) 0%,
+                    var(--galaxy-blue-dust) 20%,
+                    transparent 60%),
+                conic-gradient(from 45deg at 50% 50%,
+                    transparent 0deg,
+                    var(--galaxy-blue-dust) 30deg,
+                    transparent 60deg,
+                    var(--galaxy-blue-dust) 90deg,
+                    transparent 120deg,
+                    var(--galaxy-blue-dust) 150deg,
+                    transparent 180deg,
+                    var(--galaxy-blue-dust) 210deg,
+                    transparent 240deg,
+                    var(--galaxy-blue-dust) 270deg,
+                    transparent 300deg,
+                    var(--galaxy-blue-dust) 330deg,
+                    transparent 360deg);
+            animation: galaxySpin 180s linear infinite reverse;
+        }
+
+        /* Nebula Clouds */
+        .nebula {
+            position: absolute;
+            width: 1000px;
+            height: 1000px;
+            opacity: 0.6;
+            filter: blur(50px);
+            mix-blend-mode: screen;
+        }
+
+        .nebula-1 {
+            top: 10%;
+            left: 20%;
+            background: 
+                radial-gradient(ellipse at center,
+                    var(--nebula-pink) 0%,
+                    transparent 70%);
+            animation: nebulaPulse 20s ease-in-out infinite;
+        }
+
+        .nebula-2 {
+            bottom: 20%;
+            right: 15%;
+            background: 
+                radial-gradient(ellipse at center,
+                    var(--nebula-blue) 0%,
+                    transparent 70%);
+            animation: nebulaPulse 25s ease-in-out infinite reverse;
+        }
+
+        .nebula-3 {
+            top: 40%;
+            right: 30%;
+            background: 
+                radial-gradient(ellipse at center,
+                    var(--nebula-purple) 0%,
+                    transparent 70%);
+            animation: nebulaPulse 22s ease-in-out infinite alternate;
+        }
+
+        /* Dust Clouds */
+        .dust-clouds {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.15;
+            mix-blend-mode: screen;
+            animation: drift 30s linear infinite;
+        }
+
+        /* Deep Space Effect */
+        .space-depth {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center,
+                transparent 0%,
+                transparent 40%,
+                rgba(0, 0, 0, 0.5) 100%);
+            pointer-events: none;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 0.3; }
+        }
+
+        @keyframes galaxySpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes nebulaPulse {
+            0%, 100% {
+                opacity: 0.6;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.4;
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes drift {
+            from { background-position: 0 0; }
+            to { background-position: 100% 100%; }
+        }
+
+        /* Content Layer */
+        .content {
+            position: relative;
+            z-index: 100;
+            padding: 2rem;
+            color: white;
+            font-family: system-ui, -apple-system, sans-serif;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #ffffff, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Deep Space Background System -->
+    <div class="space-background"></div>
+    <div class="stars"></div>
+    
+    <!-- Galaxies -->
+    <div class="spiral-galaxy galaxy-1"></div>
+    <div class="spiral-galaxy galaxy-2"></div>
+    
+    <!-- Nebula Clouds -->
+    <div class="nebula nebula-1"></div>
+    <div class="nebula nebula-2"></div>
+    <div class="nebula nebula-3"></div>
+    
+    <!-- Dust Clouds -->
+    <div class="dust-clouds"></div>
+    
+    <!-- Deep Space Effect -->
+    <div class="space-depth"></div>
+
+    <!-- Content -->
+    <div class="content">
+        <h1>Deep Space</h1>
+        <p>A journey through the cosmos, featuring realistic spiral galaxies, nebula clouds, and the infinite expanse of space.</p>
+    </div>
+
+</body>
+</html>

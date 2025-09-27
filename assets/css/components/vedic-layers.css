@@ -1,0 +1,450 @@
+/**
+ * 🕉️ VEDIC LAYER SYSTEM - Visual Styles
+ * 
+ * Immersive visual styles for the layer-based exploration system
+ */
+
+/* Layer System Container */
+.vedic-layer-system {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.vedic-layer-system.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Background Overlay */
+.layer-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+}
+
+/* Main Container */
+.layer-container {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    height: 90vh;
+    margin: 5vh auto;
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: 1rem;
+    overflow: hidden;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+}
+
+.vedic-layer-system.active .layer-container {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Header Styles */
+.layer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.veda-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.5rem;
+    color: var(--divine-gold, #FFD700);
+}
+
+.close-layers {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-layers:hover {
+    color: #fff;
+}
+
+/* Layer Navigation */
+.layer-navigation {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.layer-tab {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    border-radius: 0.5rem;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.layer-tab:hover {
+    background: rgba(255, 215, 0, 0.1);
+    border-color: rgba(255, 215, 0, 0.3);
+}
+
+.layer-tab.active {
+    background: rgba(255, 215, 0, 0.15);
+    border-color: rgba(255, 215, 0, 0.5);
+}
+
+.layer-icon {
+    font-size: 1.5rem;
+}
+
+.layer-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.layer-text .sanskrit {
+    font-size: 1.1rem;
+    color: var(--divine-gold, #FFD700);
+}
+
+.layer-text .english {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Layer Content */
+.layer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 2rem;
+    height: calc(90vh - 200px);
+    overflow-y: auto;
+}
+
+/* Layer Info */
+.layer-info {
+    color: #fff;
+}
+
+.layer-info .layer-header {
+    border: none;
+    padding: 0 0 1rem 0;
+}
+
+.layer-info h2 {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.layer-info .sanskrit {
+    font-size: 2rem;
+}
+
+.layer-info .english {
+    font-size: 1.2rem;
+    opacity: 0.7;
+}
+
+.layer-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Layer Visualizations */
+
+/* Mantra Visualization */
+.mantra-circle {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.mantra-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 2px solid var(--divine-gold, #FFD700);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: pulseRing 4s ease-out infinite;
+}
+
+.mantra-ring:nth-child(1) {
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    animation-delay: 0s;
+}
+
+.mantra-ring:nth-child(2) {
+    width: 70%;
+    height: 70%;
+    transform: translate(-50%, -50%);
+    animation-delay: 1s;
+}
+
+.mantra-ring:nth-child(3) {
+    width: 40%;
+    height: 40%;
+    transform: translate(-50%, -50%);
+    animation-delay: 2s;
+}
+
+.mantra-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: var(--divine-gold, #FFD700);
+    animation: pulseOm 4s ease-out infinite;
+}
+
+/* Ritual Visualization */
+.ritual-fire {
+    position: relative;
+    width: 200px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.flame-container {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 150px;
+}
+
+.flame {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle at 60% 60%, #FF4500, transparent);
+    border-radius: 50% 0 50% 50%;
+    animation: flameFlicker 3s ease-out infinite;
+}
+
+.sparks {
+    position: absolute;
+    bottom: 150px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    pointer-events: none;
+}
+
+.spark {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #FFD700;
+    border-radius: 50%;
+    animation: sparkRise 2s ease-out infinite;
+}
+
+/* Forest Visualization */
+.forest-meditation {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(to bottom, #001f3f 0%, #003366 100%);
+    overflow: hidden;
+}
+
+.trees {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+    background: 
+        radial-gradient(circle at 20% 80%, #004d00 0%, transparent 60%),
+        radial-gradient(circle at 50% 70%, #006600 0%, transparent 60%),
+        radial-gradient(circle at 80% 75%, #004d00 0%, transparent 60%);
+}
+
+.meditator {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 60px;
+    background: rgba(255, 215, 0, 0.3);
+    border-radius: 50% 50% 0 0;
+}
+
+.energy-field {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+    animation: pulseEnergy 4s ease-out infinite;
+}
+
+/* Wisdom Visualization */
+.wisdom-cosmos {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(to bottom, #000033 0%, #000066 100%);
+    overflow: hidden;
+}
+
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(white 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: starTwinkle 4s ease-out infinite;
+}
+
+.consciousness {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: pulseConsciousness 4s ease-out infinite;
+}
+
+.enlightenment {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    width: 50px;
+    height: 50px;
+    background: #FFD700;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    animation: spinEnlightenment 20s linear infinite;
+}
+
+/* Animations */
+@keyframes pulseRing {
+    0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.2; }
+    100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
+}
+
+@keyframes pulseOm {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.8; }
+}
+
+@keyframes flameFlicker {
+    0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.8; }
+    50% { transform: translateX(-50%) scale(1.1); opacity: 1; }
+}
+
+@keyframes sparkRise {
+    0% { transform: translate(0, 0) scale(1); opacity: 1; }
+    100% { transform: translate(0, -100px) scale(0); opacity: 0; }
+}
+
+@keyframes pulseEnergy {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.1; }
+}
+
+@keyframes starTwinkle {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+@keyframes pulseConsciousness {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+    50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0.1; }
+}
+
+@keyframes spinEnlightenment {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    .layer-container {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        border-radius: 0;
+    }
+
+    .layer-navigation {
+        flex-wrap: wrap;
+    }
+
+    .layer-tab {
+        flex: 1 1 calc(50% - 0.5rem);
+        min-width: calc(50% - 0.5rem);
+    }
+
+    .layer-content {
+        grid-template-columns: 1fr;
+        height: calc(100vh - 200px);
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .mantra-circle,
+    .ritual-fire,
+    .forest-meditation,
+    .wisdom-cosmos {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
+
+/* High-Performance Mode */
+@media (prefers-reduced-motion: reduce) {
+    .mantra-ring,
+    .mantra-center,
+    .flame,
+    .spark,
+    .energy-field,
+    .consciousness,
+    .enlightenment {
+        animation: none !important;
+    }
+}

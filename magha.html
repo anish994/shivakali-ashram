@@ -1,0 +1,2523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magha Nakshatra - The Royal Star of Power | ShivaKali Ashram</title>
+    <meta name="description" content="Discover Magha Nakshatra - The Royal Star that commands through divine power. Explore the tenth stellar consciousness program in Vedic astrology with modern insights into leadership and ancestral strength.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components/quantum-interface.css">
+    <link rel="stylesheet" href="assets/css/components/cosmic-background.css">
+    <link rel="stylesheet" href="assets/css/components/mobile-optimization.css">
+    <link rel="stylesheet" href="assets/css/components/sub-category-cards.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🕉️</text></svg>">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Touch optimizations for interactive elements */
+        a, button, [role="button"], .nav-btn, .expandable-card,
+        .quality-item, .related-card, [onclick] {
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0a2e, #16213e, #1a1a2e);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Stellar Background Animation */
+        .stellar-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            background: radial-gradient(circle at center, rgba(139, 0, 0, 0.15) 0%, transparent 60%);
+        }
+
+        .star {
+            position: absolute;
+            border-radius: 50%;
+            animation: twinkle var(--twinkle-duration, 3s) infinite ease-in-out;
+            --star-color: var(--magha-gold);
+            background: var(--star-color);
+            box-shadow: 0 0 2px var(--star-color),
+                      0 0 4px var(--star-color);
+        }
+
+        .star:nth-child(3n) {
+            --star-color: #ffffff;
+            --twinkle-duration: 4s;
+        }
+
+        .star:nth-child(3n+1) {
+            --star-color: var(--magha-royal-gold);
+            --twinkle-duration: 3.5s;
+        }
+
+        .star:nth-child(3n+2) {
+            --star-color: var(--magha-deep-gold);
+            --twinkle-duration: 2.5s;
+        }
+
+        /* Magha Constellation */
+        .constellation {
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            opacity: 0.3;
+            animation: constellation-pulse 8s infinite ease-in-out;
+        }
+
+        .constellation-star {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--magha-gold);
+            border-radius: 50%;
+            box-shadow: 0 0 4px var(--magha-gold),
+                      0 0 8px var(--magha-gold);
+        }
+
+        .constellation-line {
+            position: absolute;
+            background: linear-gradient(to right, transparent, var(--magha-gold), transparent);
+            height: 1px;
+            transform-origin: left center;
+            opacity: 0.3;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { 
+                opacity: 0.3; 
+                transform: scale(1); 
+                filter: blur(0px);
+            }
+            50% { 
+                opacity: 1; 
+                transform: scale(1.2); 
+                filter: blur(1px);
+            }
+        }
+
+        @keyframes constellation-pulse {
+            0%, 100% { opacity: 0.2; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.4; transform: translate(-50%, -50%) scale(1.05); }
+        }
+
+        /* Magha-specific gradient theme */
+        :root {
+            /* Core Colors */
+            --magha-red: #8B0000;
+            --magha-deep-red: #800020;
+            --magha-gold: #FFD700;
+            --magha-royal-gold: #DAA520;
+            --magha-deep-gold: #B8860B;
+            
+            /* Gradients */
+            --magha-primary: linear-gradient(135deg, var(--magha-red), var(--magha-deep-red));
+            --magha-secondary: linear-gradient(135deg, var(--magha-gold), var(--magha-royal-gold));
+            --magha-glow: rgba(139, 0, 0, 0.4);
+            --magha-gold-glow: rgba(255, 215, 0, 0.15);
+            
+            /* Transparency Levels */
+            --magha-overlay: rgba(139, 0, 0, 0.1);
+            --magha-surface: rgba(255, 255, 255, 0.05);
+            --magha-border: rgba(255, 215, 0, 0.2);
+            
+            /* Text Colors */
+            --magha-text-primary: #ffffff;
+            --magha-text-secondary: rgba(255, 255, 255, 0.85);
+            --magha-text-accent: var(--magha-gold);
+            
+            /* Spacing */
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-xxl: 3rem;
+        }
+
+        /* Global Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Orbitron', monospace;
+            color: var(--magha-text-primary);
+            letter-spacing: 0.02em;
+            line-height: 1.3;
+        }
+
+        p {
+            color: var(--magha-text-secondary);
+            line-height: 1.7;
+            margin-bottom: var(--space-md);
+        }
+
+        /* Global Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        .section {
+            padding: var(--space-xxl) 0;
+            position: relative;
+        }
+
+        /* Background Styles */
+        body {
+            background: radial-gradient(circle at top right, rgba(139, 0, 0, 0.15), transparent 50%),
+                      radial-gradient(circle at bottom left, rgba(255, 215, 0, 0.1), transparent 50%),
+                      linear-gradient(135deg, #0a0a2e, #16213e, #1a1a2e);
+            color: var(--magha-text-primary);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: var(--space-xxl) var(--space-xl);
+            text-align: center;
+            position: relative;
+            background: radial-gradient(ellipse at center, var(--magha-overlay) 0%, transparent 70%);
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .nakshatra-symbol {
+            font-size: 6rem;
+            margin-bottom: var(--space-md);
+            filter: drop-shadow(0 0 20px var(--magha-gold));
+            animation: float 3s ease-in-out infinite;
+            display: inline-block;
+            background: linear-gradient(to bottom, var(--magha-gold), var(--magha-royal-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            background: var(--magha-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: var(--space-xs);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            position: relative;
+        }
+
+        .hero h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: var(--magha-gold);
+            box-shadow: 0 0 10px var(--magha-gold);
+        }
+
+        .hero .translation {
+            font-size: 1.5rem;
+            color: var(--magha-royal-gold);
+            font-style: italic;
+            margin-bottom: var(--space-md);
+            opacity: 0.9;
+        }
+
+        .hero .tagline {
+            font-size: 1.2rem;
+            color: var(--magha-text-secondary);
+            margin-bottom: var(--space-xl);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: var(--space-xl);
+        }
+
+        .nav-btn {
+            background: linear-gradient(45deg, rgba(139, 0, 0, 0.2), rgba(128, 0, 32, 0.2));
+            border: 2px solid rgba(139, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: var(--space-md) var(--space-xl);
+            color: var(--magha-text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .nav-btn:hover {
+            background: linear-gradient(45deg, var(--magha-red), var(--magha-deep-red));
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px var(--magha-glow);
+            border-color: var(--magha-red);
+        }
+
+        .nav-btn.primary {
+            background: linear-gradient(45deg, var(--magha-red), var(--magha-deep-red));
+            border-color: var(--magha-red);
+        }
+
+        .nav-btn i {
+            color: var(--magha-gold);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-btn:hover i {
+            transform: translateX(2px);
+        }
+
+        .stellar-info-hero {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-xxl);
+            margin-top: var(--space-xl);
+            flex-wrap: wrap;
+            background: rgba(139, 0, 0, 0.1);
+            border-radius: 20px;
+            padding: var(--space-xl);
+            border: 1px solid var(--magha-border);
+        }
+
+        .info-item {
+            text-align: center;
+        }
+
+        .info-item .info-label {
+            color: var(--magha-gold);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--space-xs);
+        }
+
+        .info-item .info-value {
+            color: var(--magha-text-primary);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .hero {
+                padding: var(--space-xl) var(--space-lg);
+            }
+
+            .stellar-info-hero {
+                gap: var(--space-xl);
+                padding: var(--space-lg);
+            }
+
+            .nakshatra-symbol {
+                font-size: 5rem;
+            }
+
+            .hero h1 {
+                font-size: clamp(2rem, 5vw, 3.5rem);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 2rem 1rem;
+                margin-top: 20px;
+                text-align: center;
+            }
+
+            .nakshatra-symbol { font-size: 4rem; }
+            .hero .translation { font-size: 1.2rem; }
+            .hero .tagline { font-size: 1rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+            .nav-buttons { gap: 0.75rem; justify-content: center; }
+            .nav-btn { padding: 10px 14px; font-size: 0.9rem; }
+
+            .stellar-info-hero { gap: 1.5rem; padding: 1rem; flex-direction: column; }
+
+            .info-item {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.75rem 0;
+                border-bottom: 1px solid var(--magha-border);
+            }
+            .info-item:last-child { border-bottom: none; }
+            .info-item .info-label { margin-bottom: 0; }
+
+            /* Mobile section paddings */
+            .content-section,
+            .mythology-section,
+            .psychology-section,
+            .practical-section,
+            .vedic-section {
+                padding: 2rem 1rem;
+                margin: 2rem 0;
+                touch-action: pan-y pinch-zoom;
+            }
+
+            /* Grids collapse to single column */
+            .two-column-grid,
+            .three-column-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .stats-grid { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1.5rem; }
+            .qualities-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+            .psychology-traits { grid-template-columns: 1fr; gap: 1rem; }
+
+            /* Quality items sizing */
+            .quality-item { border-radius: 15px; }
+            .quality-tag { padding: 10px 15px; font-size: 0.9rem; }
+            .quality-arrow { font-size: 0.7rem; }
+            .quality-details { padding: 0 15px; }
+            .quality-details p { font-size: 0.85rem; }
+
+            /* Card internals */
+            .detail-item { padding: 8px 12px; font-size: 0.85rem; }
+            .card-header-expand { margin-bottom: 0.8rem; }
+            .expand-arrow { font-size: 1rem; }
+
+            /* Intro block adjustments */
+            .hero div[style*="max-width: 900px"] { margin: 2rem 1rem 1.5rem 1rem !important; padding: 1.5rem !important; }
+            .hero div[style*="max-width: 900px"] p { font-size: 1rem !important; }
+        }
+
+        /* Navigation */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: transparent;
+            padding: var(--space-md) var(--space-xl);
+            z-index: 1000;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .nav-btn {
+            background: rgba(139, 0, 0, 0.2);
+            border: 1px solid var(--magha-border);
+            border-radius: 15px;
+            padding: 0.8rem 1.2rem;
+            color: var(--magha-text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .nav-btn i {
+            color: var(--magha-gold);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 215, 0, 0.15);
+            border-color: var(--magha-gold);
+            transform: translateY(-1px);
+        }
+
+        .nav-btn.primary {
+            background: rgba(255, 215, 0, 0.15);
+            border-color: var(--magha-gold);
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.2rem;
+            background: var(--magha-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 4px rgba(255, 215, 0, 0.1);
+        }
+
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+            .nav-bar {
+                padding: var(--space-sm) var(--space-md);
+            }
+
+            .nav-back {
+                padding: var(--space-xs) var(--space-md);
+                font-size: 0.9rem;
+            }
+
+            .nav-title {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body id="top">
+    <!-- Stellar Background -->
+    <div class="stellar-bg" id="stellarBg"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Navigation Buttons -->
+        <div style="text-align: center; padding: 2rem 0;">
+            <div class="nav-buttons">
+                <a href="nakshatras.html" class="nav-btn">
+                    <i class="fas fa-arrow-left"></i> All Nakshatras
+                </a>
+                <a href="ashlesha.html" class="nav-btn">
+                    <i class="fas fa-arrow-left"></i> Previous: Ashlesha
+                </a>
+                <a href="#qualities" class="nav-btn primary">
+                    <i class="fas fa-crown"></i> Explore Qualities
+                </a>
+                <a href="purva-phalguni.html" class="nav-btn">
+                    Next: Purva Phalguni <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-content">
+
+            <div class="nakshatra-symbol">🦁</div>
+            <h1>MAGHA</h1>
+            <p class="translation">"The Royal Throne"</p>
+            <p class="tagline">Power Master • Royal Command • Divine Kingship</p>
+            
+            <!-- Engaging Introduction -->
+            <div style="max-width: 900px; margin: 3rem auto 2rem auto; padding: 2rem; background: rgba(139, 0, 0, 0.1); border-radius: 20px; border: 1px solid rgba(255, 215, 0, 0.2);">
+                <p style="font-size: 1.2rem; line-height: 1.8; color: #e0e0e0; text-align: left; margin-bottom: 1.5rem;">
+                    You are the <strong style="color: var(--magha-gold);">divine ruler of consciousness</strong>, the one who understands that <strong style="color: var(--magha-gold);">power is a sacred responsibility</strong>. Where others see chaos, you establish order. You don't just lead—you <strong>create the conditions for collective ascension</strong>.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.7; color: #e0e0e0; text-align: left; margin-bottom: 1.5rem;">
+                    Ancient wisdom confirms your essence: <strong style="color: var(--magha-gold);">true power flows from divine authority</strong>. Magha operates the same way—by aligning with cosmic law, leadership becomes <strong>noble, righteous, and transformative</strong>.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.7; color: #e0e0e0; text-align: left; font-style: italic;">
+                    Welcome to your sovereign destiny, <strong style="color: var(--magha-gold);">Master of Royal Power</strong>. You're not here to dominate—you're here to <strong>elevate</strong>. 👑
+                </p>
+            </div>
+            
+            <div class="stellar-info-hero">
+                <div class="info-item">
+                    <div class="info-label">Ruling Planet</div>
+                    <div class="info-value">Ketu</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Element</div>
+                    <div class="info-value">Fire</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Zodiac Range</div>
+                    <div class="info-value">0° - 13°20' Leo</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Archetype</div>
+                    <div class="info-value">The King</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mythology & Symbolism -->
+    <section class="mythology-section">
+        <div class="section-header">
+            <h2 class="section-title">Mythological Foundation</h2>
+            <p class="section-subtitle">The Ancient Wisdom Behind Royal Power</p>
+        </div>
+
+        <div class="three-column-grid">
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">👑</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Royal Lineage</h3>
+                <div class="basic-content">
+                    Magha, the star of the ancient kings, embodying divine authority and sovereign power
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Sacred Throne:</strong> In Vedic lore, Magha represents the celestial throne room—where cosmic kings receive their divine mandate to rule with righteousness and wisdom.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Sovereign Power:</strong> This nakshatra holds the essence of true leadership—power that flows from alignment with cosmic law and divine order.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Royal Mandate:</strong> The ancestral spirits of great kings dwell here, bestowing the wisdom of righteous rule and noble leadership.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Modern Expression:</strong> Leadership that transforms through vision, nobility, and the courage to establish new orders of consciousness.
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">🦁</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Lion Symbolism</h3>
+                <div class="basic-content">
+                    The royal beast that embodies majesty, courage, and sovereign command
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Royal Presence:</strong> The lion's majesty reflects Magha's innate authority—commanding respect not through force, but through natural sovereignty.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Noble Courage:</strong> Like the lion's fearless heart, Magha grants the courage to establish new orders and lead transformative change.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Sacred Command:</strong> The lion's roar represents Magha's power to command through truth, aligning others with higher purpose.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Modern Leadership:</strong> Embody the lion's blend of strength and nobility—leading through inspiration rather than domination.
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">✨</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Power Current</h3>
+                <div class="basic-content">
+                    The sacred current of authority that transforms leadership into elevation
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Divine Authority:</strong> Magha resides in Leo, the sign of kingship—linking cosmic authority with the power to elevate consciousness.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Truth as Power:</strong> Authentic command flows from alignment with universal law, creating order that serves evolution.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Royal Responsibility:</strong> True power is not possession but stewardship—the sacred duty to guide others toward their highest potential.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Modern Impact:</strong> Building systems and structures where power serves the collective awakening of consciousness.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Essence Section -->
+    <section class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">The Essence of Magha</h2>
+            <p class="section-subtitle">Understanding the royal commander in the cosmic sequence</p>
+        </div>
+
+        <div class="two-column-grid">
+            <div class="content-card">
+                <div class="card-icon">👑</div>
+                <h3 class="card-title">Divine Sovereignty</h3>
+                <div class="card-content">
+                    Ruled by Ketu and anchored in Leo, Magha embodies the sacred principle of royal power. Like a true king, this energy commands through divine authority—establishing order, elevating consciousness, and guiding evolution with noble purpose.
+                </div>
+            </div>
+            
+            <div class="content-card">
+                <div class="card-icon">💫</div>
+                <h3 class="card-title">Transformative Leadership</h3>
+                <div class="card-content">
+                    Magha is the star of divine command and collective elevation. These souls possess an innate authority that transforms environments, aligns groups with higher purpose, and establishes new orders of consciousness through righteous leadership.
+                </div>
+            </div>
+        </div>
+
+        <!-- Core Qualities -->
+        <div id="qualities" class="qualities-grid">
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Royal Presence</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>Commands respect through natural authority and noble bearing. Your presence alone establishes order and elevates the consciousness of those around you.</p>
+                </div>
+            </div>
+            
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Divine Authority</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>Leads through alignment with cosmic law. Your power flows from truth, righteousness, and the courage to establish new orders of being.</p>
+                </div>
+            </div>
+
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Ancestral Wisdom</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>Connected to the lineage of great kings and leaders. You carry the accumulated wisdom of noble rulership and righteous governance.</p>
+                </div>
+            </div>
+
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Transformative Vision</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>Sees the higher potential in systems and people. You have the power to envision and manifest new orders of consciousness.</p>
+                </div>
+            </div>
+
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Noble Purpose</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>Driven by the sacred responsibility of leadership. You understand that true power exists to serve the evolution of all beings.</p>
+                </div>
+            </div>
+
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Sovereign Command</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>Speaks with the voice of truth and authority. Your words have the power to align others with their highest purpose.</p>
+                </div>
+            </div>
+
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Sacred Order</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>Creates structures that support evolution. You establish systems and hierarchies that serve the awakening of consciousness.</p>
+                </div>
+            </div>
+
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Collective Elevation</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>Raises the vibration of entire groups and systems. Your leadership naturally uplifts and transforms those in your sphere of influence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Psychological Profile -->
+    <section class="psychology-section">
+        <div class="section-header">
+            <h2 class="section-title">Psychological Architecture</h2>
+            <p class="section-subtitle">Understanding the Magha mind through modern psychology</p>
+        </div>
+
+        <div class="two-column-grid">
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">🧠</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Cognitive Patterns</h3>
+                <div class="basic-content">
+                    How the Magha mind commands through sovereign intelligence
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Order Creation:</strong> Natural ability to perceive and establish hierarchies that serve evolution and collective growth.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Authority-Driven Reasoning:</strong> Thinks from the perspective of divine law and cosmic order, seeing patterns of righteous governance.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Noble Focus:</strong> Maintains unwavering attention on the highest good, directing all actions toward collective elevation.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Power Intelligence:</strong> Deep understanding of authority dynamics—how to command, delegate, and establish new orders effectively.
+                    </div>
+                    <div class="detail-item">
+                        <strong>System Transformation:</strong> Excellence in restructuring environments to support higher consciousness and evolution.
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">❤️</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Emotional Landscape</h3>
+                <div class="basic-content">
+                    The emotional world of the cosmic sovereign
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Noble Bearing:</strong> Projects an aura of dignified authority that naturally commands respect and inspires elevation.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Royal Responsibility:</strong> Feels deeply the sacred duty of leadership and the weight of guiding others toward evolution.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Sovereign Stability:</strong> Maintains emotional equilibrium through connection to divine authority and cosmic order.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Ancestral Connection:</strong> Draws emotional strength from lineage of great leaders and the timeless wisdom of noble rulership.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Transformative Presence:</strong> Emotions naturally align with higher purpose, inspiring others to reach for their greatest potential.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Personality Stats -->
+        <div class="stats-section expandable-card" onclick="toggleExpandableCard(this)" style="cursor: pointer;">
+            <div class="card-header-expand" style="justify-content: center; margin-bottom: 1rem;">
+                <h3 style="color: var(--magha-gold); margin: 0;">Personality Dynamics</h3>
+                <span class="expand-arrow" style="margin-left: 1rem;">▼</span>
+            </div>
+            
+            <div class="basic-content">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>92%</h3>
+                        <p>Command Presence</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>88%</h3>
+                        <p>Noble Authority</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>86%</h3>
+                        <p>System Vision</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>84%</h3>
+                        <p>Royal Wisdom</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>78%</h3>
+                        <p>Flexibility</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="detailed-content">
+                <div class="detail-item">
+                    <strong>Command Presence (92%):</strong> Natural authority that transforms environments and elevates collective consciousness.
+                </div>
+                <div class="detail-item">
+                    <strong>Noble Authority (88%):</strong> Leads through alignment with divine law and cosmic order.
+                </div>
+                <div class="detail-item">
+                    <strong>System Vision (86%):</strong> Sees and establishes new orders of consciousness and evolution.
+                </div>
+                <div class="detail-item">
+                    <strong>Royal Wisdom (84%):</strong> Deep connection to ancestral knowledge of righteous governance.
+                </div>
+                <div class="detail-item">
+                    <strong>Flexibility (78%):</strong> Balances firm command with adaptability to serve the highest good.
+                </div>
+                <div class="detail-item">
+                    <strong>Optimal Expression:</strong> Lead through divine authority while maintaining connection to collective evolution.
+                </div>
+            </div>
+        </div>
+
+        <!-- Trait Categories -->
+        <div class="psychology-traits">
+            <div class="trait-category">
+                <h3>Cognitive Strengths</h3>
+                <ul>
+                    <li>Strategic vision</li>
+                    <li>Order creation</li>
+                    <li>Power intelligence</li>
+                    <li>Noble reasoning</li>
+                    <li>System transformation</li>
+                </ul>
+            </div>
+            <div class="trait-category">
+                <h3>Emotional Qualities</h3>
+                <ul>
+                    <li>Royal bearing</li>
+                    <li>Sacred responsibility</li>
+                    <li>Sovereign stability</li>
+                    <li>Ancestral connection</li>
+                    <li>Transformative presence</li>
+                </ul>
+            </div>
+            <div class="trait-category">
+                <h3>Core Motivations</h3>
+                <ul>
+                    <li>Establishing divine order</li>
+                    <li>Collective elevation</li>
+                    <li>System transformation</li>
+                    <li>Noble leadership</li>
+                    <li>Consciousness evolution</li>
+                </ul>
+            </div>
+            <div class="trait-category">
+                <h3>Growth Areas</h3>
+                <ul>
+                    <li>Balancing authority with adaptability</li>
+                    <li>Managing power dynamics</li>
+                    <li>Inclusive leadership</li>
+                    <li>Gentle strength</li>
+                    <li>Democratic wisdom</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practical Applications -->
+    <section class="practical-section">
+        <div class="section-header">
+            <h2 class="section-title">Practical Applications</h2>
+            <p class="section-subtitle">Harnessing Magha's royal power in daily life</p>
+        </div>
+
+        <div class="three-column-grid">
+            <!-- Personal Sovereignty Card -->
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">👑</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Personal Sovereignty</h3>
+                <div class="basic-content">
+                    Cultivating inner authority and noble command
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Self-Command:</strong> Daily practices that align you with divine authority and sovereign presence.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Royal Presence:</strong> Develop dignified bearing that naturally establishes order.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Authority Embodiment:</strong> Turn values into behavior that others trust and follow.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Power Integrity:</strong> Wield influence with righteousness and responsibility.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Professional Excellence Card -->
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">💼</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Professional Excellence</h3>
+                <div class="basic-content">
+                    Building systems and cultures that elevate everyone
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Leadership Style:</strong> Guide through vision, clarity, and noble standards.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Order Creation:</strong> Establish structures that support collective evolution.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Team Elevation:</strong> Raise group capacity through righteous command.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Strategic Authority:</strong> Implement changes that align with cosmic order.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sacred Environment Card -->
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">🏛️</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Sacred Environment</h3>
+                <div class="basic-content">
+                    Creating spaces that reflect royal order and clarity
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Space Design:</strong> Arrange environments to broadcast sovereign calm and focus.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Symbolic Anchors:</strong> Use regal symbolism to reinforce noble intent.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Ritual Flow:</strong> Build daily rhythms that maintain order and momentum.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Energy Hygiene:</strong> Keep the field clear and oriented toward elevation.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practice Categories -->
+        <div class="practices-grid" style="margin-top: 3rem;">
+            <div class="practice-category">
+                <h3>Daily Practices</h3>
+                <ul>
+                    <li>Royal meditation</li>
+                    <li>Presence cultivation</li>
+                    <li>Authority embodiment</li>
+                    <li>Noble bearing</li>
+                    <li>Power alignment</li>
+                </ul>
+            </div>
+
+            <div class="practice-category">
+                <h3>Weekly Focus</h3>
+                <ul>
+                    <li>System review & optimization</li>
+                    <li>Leadership reflection</li>
+                    <li>Transformation assessment</li>
+                    <li>Group elevation</li>
+                    <li>Wisdom integration</li>
+                </ul>
+            </div>
+
+            <div class="practice-category">
+                <h3>Monthly Refinement</h3>
+                <ul>
+                    <li>Authority expansion</li>
+                    <li>Order transformation</li>
+                    <li>Leadership upgrade</li>
+                    <li>Strategic vision</li>
+                    <li>Power celebration</li>
+                </ul>
+            </div>
+
+            <div class="practice-category">
+                <h3>Advanced Techniques</h3>
+                <ul>
+                    <li>Divine authority activation</li>
+                    <li>Royal consciousness mastery</li>
+                    <li>Collective field transformation</li>
+                    <li>Power current channeling</li>
+                    <li>Sacred command</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CSS to match Rohini's practical grid UI -->
+        <style>
+        .practice-category {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--magha-border);
+            border-radius: 16px;
+            padding: 1.2rem;
+        }
+
+        .practice-category h3 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.1rem;
+            color: var(--magha-gold);
+            margin-bottom: 0.8rem;
+        }
+
+        .practice-category ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .practice-category li {
+            color: var(--magha-text-secondary);
+            margin: 0.35rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .practice-category li::before {
+            content: '\2713';
+            color: var(--magha-gold);
+            font-size: 0.9rem;
+        }
+
+        .practices-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        </style>
+    </section>
+
+    <!-- Modern Relevance -->
+    <section class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">Modern Relevance</h2>
+            <p class="section-subtitle">Applying Magha's wisdom to contemporary challenges</p>
+        </div>
+
+        <div class="two-column-grid">
+            <!-- Digital Age Command -->
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">📱</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Digital Age Command</h3>
+                <div class="basic-content">
+                    Sovereign presence and authority in virtual spaces
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Digital Authority:</strong> Project noble presence through platforms, content, and community.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Remote Command:</strong> Lead distributed teams with clarity, ritual, and rhythm.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Signal Integrity:</strong> Align messaging with truth and purpose to cut through noise.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Platform Sovereignty:</strong> Build systems where your values set the order.
+                    </div>
+                </div>
+            </div>
+
+            <!-- System Leadership -->
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">🏛️</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">System Leadership</h3>
+                <div class="basic-content">
+                    Transforming organizations through sacred order
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Order Creation:</strong> Establish structures that elevate people and outcomes.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Ethical Power:</strong> Exercise authority that serves the whole.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Change Navigation:</strong> Guide transitions with stability and clarity.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Legacy Building:</strong> Design systems that endure and uplift over time.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contemporary Applications -->
+        <div class="applications-grid" style="margin-top: 3rem;">
+            <div class="application-category">
+                <h3>Leadership</h3>
+                <ul>
+                    <li>Vision-driven culture</li>
+                    <li>Ethical authority</li>
+                    <li>Order and standards</li>
+                    <li>Team elevation</li>
+                    <li>System stewardship</li>
+                </ul>
+            </div>
+
+            <div class="application-category">
+                <h3>Digital Sovereignty</h3>
+                <ul>
+                    <li>Platform presence</li>
+                    <li>Remote command</li>
+                    <li>Signal clarity</li>
+                    <li>Community guidance</li>
+                    <li>Content authority</li>
+                </ul>
+            </div>
+
+            <div class="application-category">
+                <h3>Global Impact</h3>
+                <ul>
+                    <li>Cross-cultural leadership</li>
+                    <li>Institutional evolution</li>
+                    <li>Collective elevation</li>
+                    <li>Crisis stabilization</li>
+                    <li>Public trust building</li>
+                </ul>
+            </div>
+
+            <div class="application-category">
+                <h3>Future Readiness</h3>
+                <ul>
+                    <li>Adaptive governance</li>
+                    <li>Order in change</li>
+                    <li>Strategic foresight</li>
+                    <li>Principled innovation</li>
+                    <li>Legacy systems</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CSS to match Rohini's applications grid UI -->
+        <style>
+        .application-category {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--magha-border);
+            border-radius: 16px;
+            padding: 1.2rem;
+        }
+
+        .application-category h3 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.1rem;
+            color: var(--magha-gold);
+            margin-bottom: 0.8rem;
+        }
+
+        .application-category ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .application-category li {
+            color: var(--magha-text-secondary);
+            margin: 0.35rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .application-category li::before {
+            content: '\2713';
+            color: var(--magha-gold);
+            font-size: 0.9rem;
+        }
+
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+        </style>
+    </section>
+
+    <!-- Career & Life Direction -->
+    <section class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">Career & Life Direction</h2>
+            <p class="section-subtitle">Professional paths that align with Magha's royal power</p>
+        </div>
+
+        <style>
+        .guidance-category {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--magha-border);
+            border-radius: 16px;
+            padding: 1.2rem;
+        }
+
+        .guidance-category h3 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.1rem;
+            color: var(--magha-gold);
+            margin-bottom: 0.8rem;
+        }
+
+        .guidance-category ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .guidance-category li {
+            color: var(--magha-text-secondary);
+            margin: 0.35rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .guidance-category li::before {
+            content: '\2713';
+            color: var(--magha-gold);
+            font-size: 0.9rem;
+        }
+
+        .career-guidance {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+        </style>
+
+        <!-- Three-column cards (mirror Rohini structure) -->
+        <div class="three-column-grid">
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">💼</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Ideal Professions</h3>
+                <div class="basic-content">
+                    Career paths that leverage Magha's authority and command
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Leadership & Governance:</strong>
+                        <ul>
+                            <li>Chief Executive / Director</li>
+                            <li>Head of Operations</li>
+                            <li>Program Governance Lead</li>
+                            <li>Institutional Steward</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Systems & Strategy:</strong>
+                        <ul>
+                            <li>Organizational Architect</li>
+                            <li>Change Management Lead</li>
+                            <li>Policy & Standards Owner</li>
+                            <li>Strategic Operations</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Public Presence:</strong>
+                        <ul>
+                            <li>Community Leader</li>
+                            <li>Public Affairs / Protocol</li>
+                            <li>Cultural Custodian</li>
+                            <li>Institutional Relations</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Ethical Authority:</strong>
+                        <ul>
+                            <li>Compliance & Ethics Lead</li>
+                            <li>Governance Risk Manager</li>
+                            <li>Standards & Order Design</li>
+                            <li>Council / Board Advisor</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">🌟</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Life Purpose</h3>
+                <div class="basic-content">
+                    Core themes in Magha's royal journey
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Order Creation:</strong> Establish sacred structures that uplift people and systems.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Collective Elevation:</strong> Use authority to raise the field, not just the self.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Noble Stewardship:</strong> Protect and guide institutions with integrity.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Legacy Building:</strong> Create systems that endure and inspire future generations.
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">📈</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Growth Path</h3>
+                <div class="basic-content">
+                    Stages of professional evolution
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Foundation:</strong> Master standards, discipline, and reliability; learn how order elevates outcomes.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Development:</strong> Lead teams, set protocols, and build systems that others rely on.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Authority:</strong> Steward organizations through change with clarity and ethical power.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Legacy:</strong> Establish enduring structures and mentor the next generation of leaders.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Career Guidance (mirror Rohini) -->
+        <div class="career-guidance" style="margin-top: 3rem;">
+            <div class="guidance-category">
+                <h3>Workplace Strengths</h3>
+                <ul>
+                    <li>Command presence</li>
+                    <li>Order creation</li>
+                    <li>Standards & protocols</li>
+                    <li>System stewardship</li>
+                    <li>Stability under change</li>
+                </ul>
+            </div>
+
+            <div class="guidance-category">
+                <h3>Leadership Style</h3>
+                <ul>
+                    <li>Noble authority</li>
+                    <li>Vision with discipline</li>
+                    <li>Ethical decision-making</li>
+                    <li>Ritual and rhythm</li>
+                    <li>Clarity and standards</li>
+                </ul>
+            </div>
+
+            <div class="guidance-category">
+                <h3>Growth Opportunities</h3>
+                <ul>
+                    <li>Inclusive leadership</li>
+                    <li>Adaptive flexibility</li>
+                    <li>Human-centered systems</li>
+                    <li>Mentorship capacity</li>
+                    <li>Strategic empathy</li>
+                </ul>
+            </div>
+
+            <div class="guidance-category">
+                <h3>Success Principles</h3>
+                <ul>
+                    <li>Order serves evolution</li>
+                    <li>Power aligns with truth</li>
+                    <li>Consistency builds trust</li>
+                    <li>Legacy over ego</li>
+                    <li>Service through authority</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Relationships & Compatibility -->
+    <section class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">Relationships & Compatibility</h2>
+            <p class="section-subtitle">Understanding Magha's approach to power, love, and partnership</p>
+        </div>
+
+        <div class="two-column-grid">
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">❤️</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Relationship Style</h3>
+                <div class="basic-content">
+                    How Magha approaches love and sacred partnership
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Noble Presence:</strong> Creates safety through dignity, clarity, and dependable leadership.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Sacred Responsibility:</strong> Treats commitment as stewardship—protecting what is tender and worthy.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Clear Standards:</strong> Builds trust with consistent values, ritual, and honorable conduct.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Protective Strength:</strong> Uses power to uplift, defend, and establish harmony.
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">🤝</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Partnership Dynamics</h3>
+                <div class="basic-content">
+                    Core patterns in power, respect, and shared purpose
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Mutual Respect:</strong> Thrives where authority and autonomy are honored on both sides.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Order & Harmony:</strong> Clear roles and rhythms reduce friction and deepen trust.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Shared Purpose:</strong> Aligns around a vision that elevates both partners and their world.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Trust Stewardship:</strong> Treats confidence and intimacy as sacred responsibilities.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Compatibility Insights -->
+        <div class="compatibility-grid" style="margin-top: 3rem;">
+            <div class="guidance-category">
+                <h3>Natural Synergy</h3>
+                <ul>
+                    <li>Partners who value structure and stability</li>
+                    <li>Respectful, dependable personalities</li>
+                    <li>Purpose-driven companions</li>
+                    <li>Devotion to honor and integrity</li>
+                    <li>Shared love for ritual and rhythm</li>
+                </ul>
+            </div>
+
+            <div class="guidance-category">
+                <h3>Learning Opportunities</h3>
+                <ul>
+                    <li>Highly rebellious or authority-averse types</li>
+                    <li>Chaotic or ambiguous communicators</li>
+                    <li>Fast-shifting priorities without grounding</li>
+                    <li>Impatience with standards and process</li>
+                    <li>Aversion to commitment or responsibility</li>
+                </ul>
+            </div>
+
+            <div class="guidance-category">
+                <h3>Communication Keys</h3>
+                <ul>
+                    <li>Direct truth with respect</li>
+                    <li>Clarity of roles and expectations</li>
+                    <li>Rituals of appreciation and loyalty</li>
+                    <li>Transparency about boundaries</li>
+                    <li>Vision-anchored dialogue</li>
+                </ul>
+            </div>
+
+            <div class="guidance-category">
+                <h3>Growth Together</h3>
+                <ul>
+                    <li>Shared standards and ceremonies</li>
+                    <li>Co-created environments of order</li>
+                    <li>Mutual protection and elevation</li>
+                    <li>Long-term planning and legacy</li>
+                    <li>Mercy within discipline</li>
+                </ul>
+            </div>
+        </div>
+
+        <style>
+        .compatibility-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+        </style>
+
+        <!-- Relationship Wisdom -->
+        <div class="wisdom-notes" style="margin-top: 3rem; padding: 2rem; background: rgba(255, 215, 0, 0.08); border-radius: 20px; border: 1px solid var(--magha-border);">
+            <h3 style="margin-bottom: 1.5rem; color: var(--magha-gold);">Sacred Partnership Wisdom</h3>
+            <div class="wisdom-grid" style="display: grid; gap: 1.5rem;">
+                <div class="wisdom-item" style="background: rgba(255, 255, 255, 0.05); border: 1px solid var(--magha-border); border-radius: 16px; padding: 1.2rem;">
+                    <strong style="color: var(--magha-gold); display: block; margin-bottom: 0.5rem;">Lead With Care:</strong>
+                    <p style="color: var(--magha-text-secondary); margin: 0; line-height: 1.6;">Authority blossoms when grounded in kindness—power serves, it does not control.</p>
+                </div>
+                <div class="wisdom-item" style="background: rgba(255, 255, 255, 0.05); border: 1px solid var(--magha-border); border-radius: 16px; padding: 1.2rem;">
+                    <strong style="color: var(--magha-gold); display: block; margin-bottom: 0.5rem;">Honor the Covenant:</strong>
+                    <p style="color: var(--magha-text-secondary); margin: 0; line-height: 1.6;">Promises are sacred—keep them consistently and trust will deepen naturally.</p>
+                </div>
+                <div class="wisdom-item" style="background: rgba(255, 255, 255, 0.05); border: 1px solid var(--magha-border); border-radius: 16px; padding: 1.2rem;">
+                    <strong style="color: var(--magha-gold); display: block; margin-bottom: 0.5rem;">Order With Mercy:</strong>
+                    <p style="color: var(--magha-text-secondary); margin: 0; line-height: 1.6;">Standards matter—temper them with empathy so growth feels safe.</p>
+                </div>
+                <div class="wisdom-item" style="background: rgba(255, 255, 255, 0.05); border: 1px solid var(--magha-border); border-radius: 16px; padding: 1.2rem;">
+                    <strong style="color: var(--magha-gold); display: block; margin-bottom: 0.5rem;">Build a Legacy:</strong>
+                    <p style="color: var(--magha-text-secondary); margin: 0; line-height: 1.6;">Treat the relationship as a kingdom—create rituals, systems, and spaces that endure.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Nakshatras -->
+    <section class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">Explore Related Nakshatras</h2>
+            <p class="section-subtitle">Discover complementary stellar consciousness programs</p>
+        </div>
+
+        <div class="related-grid" style="margin-top: 1.5rem;">
+            <a href="ashlesha.html" class="related-card">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🐍</div>
+                <h3>Ashlesha</h3>
+                <p>The Serpent — Depth, kundalini power, and occult mastery</p>
+            </a>
+            <a href="purva-phalguni.html" class="related-card">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌸</div>
+                <h3>Purva Phalguni</h3>
+                <p>The Front of the Throne — Royal pleasure, creative power, and divine play</p>
+            </a>
+            <a href="uttara-phalguni.html" class="related-card">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">👑</div>
+                <h3>Uttara Phalguni</h3>
+                <p>The Back of the Throne — Sacred contracts, royal duties, and noble patronage</p>
+            </a>
+        </div>
+
+        <!-- Navigation Footer -->
+        <div class="nav-buttons" style="margin-top: 2rem; text-align: center;">
+            <a href="ashlesha.html" class="nav-btn">
+                <i class="fas fa-arrow-left"></i> Previous: Ashlesha
+            </a>
+            <a href="#top" class="nav-btn primary">
+                <i class="fas fa-arrow-up"></i> Back to Top
+            </a>
+            <a href="purva-phalguni.html" class="nav-btn">
+                Next: Purva Phalguni <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <style>
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        @media (max-width: 768px) {
+            .related-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                margin: 1.5rem var(--space-md);
+            }
+        }
+        .related-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--magha-border);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s ease-out,
+                      background-color 0.2s ease-out,
+                      border-color 0.2s ease-out,
+                      box-shadow 0.2s ease-out;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+            user-select: none;
+        }
+
+        @media (max-width: 768px) {
+            .related-card {
+                padding: 1.2rem;
+            }
+        }
+        .related-card:hover {
+            transform: translateY(-3px);
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255, 215, 0, 0.3);
+            box-shadow: 0 10px 30px var(--magha-glow);
+        }
+        .related-card h3 {
+            font-family: 'Orbitron', monospace;
+            color: var(--magha-gold);
+            margin-bottom: 0.4rem;
+        }
+        .related-card p {
+            color: var(--magha-text-secondary);
+            margin: 0;
+        }
+    </style>
+
+    <!-- Vedic Interpretations -->
+    <section class="vedic-section">
+        <div class="section-header">
+            <h2 class="section-title">Vedic Interpretations</h2>
+            <p class="section-subtitle">Traditional wisdom and symbolic architecture of Magha</p>
+        </div>
+
+        <div class="two-column-grid">
+            <!-- Core Vedic Data -->
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">👑</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Core Attributes</h3>
+                <div class="basic-content">
+                    The classical framework that defines Magha's sacred role in divine rulership
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Deity:</strong> Pitris (Ancestral Spirits) — The ancient kings and sages who embody divine authority. The Pitris infuse Magha with the accumulated wisdom of righteous rulership and sacred governance.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Shakti (Power):</strong> Samadhana Shakti — The power to honor and unite with the ancestors. This transformative force connects one with the eternal lineage of sacred kings and divine authority.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Sacred Symbol:</strong> The Royal Throne (Simhasana) — This sovereign seat represents:
+                        <ul>
+                            <li>Divine authority and cosmic order</li>
+                            <li>The center point of righteous command</li>
+                            <li>Power channeled through sacred duty</li>
+                            <li>The meeting place of heaven and earth</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Ruling Planet:</strong> Ketu — The shadow commander who:
+                        <ul>
+                            <li>Dissolves ego to reveal true authority</li>
+                            <li>Connects to ancient wisdom streams</li>
+                            <li>Purifies the seat of power</li>
+                            <li>Guides through spiritual detachment</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Elemental Nature:</strong> Fire (Agni) dominates, expressing as:
+                        <ul>
+                            <li>The flame of divine authority</li>
+                            <li>Transformative leadership power</li>
+                            <li>Purifying command and vision</li>
+                            <li>The light of righteous rule</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Zodiac Context:</strong> The throne room of Leo (0° - 13°20'), where:
+                        <ul>
+                            <li>Royal power reaches its purest expression</li>
+                            <li>Leadership finds divine sanction</li>
+                            <li>Authority flows from cosmic law</li>
+                            <li>Command becomes sacred service</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Essential Nature:</strong> The Divine Sovereign who:
+                        <ul>
+                            <li>Rules through truth and dharma</li>
+                            <li>Creates order that elevates all</li>
+                            <li>Channels power for collective good</li>
+                            <li>Manifests heaven's will on earth</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pada Themes -->
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">👑</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Pada Themes (Quarter Qualities)</h3>
+                <div class="basic-content">
+                    The four sacred expressions of Magha's royal wisdom
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Pada 1 — Divine Authority (0° - 3°20' Leo):</strong>
+                        <ul>
+                            <li>Establishes connection to cosmic order</li>
+                            <li>Masters the principles of sacred rule</li>
+                            <li>Creates systems aligned with dharma</li>
+                            <li>Leads with truth and vision</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Pada 2 — Royal Responsibility (3°20' - 6°40' Leo):</strong>
+                        <ul>
+                            <li>Channels power for collective elevation</li>
+                            <li>Cultivates noble leadership qualities</li>
+                            <li>Protects and guides with wisdom</li>
+                            <li>Transforms authority into service</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Pada 3 — Sacred Order (6°40' - 10°00' Leo):</strong>
+                        <ul>
+                            <li>Creates structures that manifest divine will</li>
+                            <li>Balances power with compassion</li>
+                            <li>Designs systems for evolution</li>
+                            <li>Establishes righteous governance</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Pada 4 — Sovereign Legacy (10°00' - 13°20' Leo):</strong>
+                        <ul>
+                            <li>Builds enduring foundations of dharma</li>
+                            <li>Mentors future leaders in wisdom</li>
+                            <li>Creates lasting systems of elevation</li>
+                            <li>Establishes noble traditions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sacred Meanings -->
+        <div class="content-card expandable-card" onclick="toggleExpandableCard(this)" style="margin-top:1rem;">
+            <div class="card-header-expand">
+                <div class="card-icon">🕉️</div>
+                <span class="expand-arrow">▼</span>
+            </div>
+            <h3 class="card-title">Sacred Meanings</h3>
+            <div class="basic-content">
+                The deeper spiritual wisdom within Magha's royal teachings
+            </div>
+            <div class="detailed-content">
+                <div class="detail-item">
+                    <strong>The Sacred Art of Leadership:</strong>
+                    <ul>
+                        <li>True authority flows from alignment with cosmic law</li>
+                        <li>Power is a sacred trust to be wielded for collective good</li>
+                        <li>Leadership is a path of spiritual service</li>
+                        <li>Royal consciousness requires constant self-purification</li>
+                    </ul>
+                </div>
+                <div class="detail-item">
+                    <strong>Divine Order as Sacred Technology:</strong>
+                    <ul>
+                        <li>Systems and structures can embody divine principles</li>
+                        <li>Order is not control—it's the framework for evolution</li>
+                        <li>Well-designed governance uplifts all beings</li>
+                        <li>Sacred command flows through clear channels</li>
+                    </ul>
+                </div>
+                <div class="detail-item">
+                    <strong>The Royal Dharma:</strong>
+                    <ul>
+                        <li>Leadership exists to serve the evolution of all</li>
+                        <li>Power must be tempered by wisdom and compassion</li>
+                        <li>True sovereignty comes from inner alignment</li>
+                        <li>Authority is earned through selfless service</li>
+                    </ul>
+                </div>
+                <div class="detail-item">
+                    <strong>Ancestral Wisdom:</strong>
+                    <ul>
+                        <li>We inherit the accumulated wisdom of great rulers</li>
+                        <li>Leadership patterns echo through generations</li>
+                        <li>Sacred authority carries eternal principles</li>
+                        <li>The throne connects past, present and future</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        /* Content Sections */
+        .content-section {
+            padding: var(--space-xxl) var(--space-xl);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: var(--space-xxl);
+        }
+
+        .content-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(to right,
+                transparent,
+                var(--magha-gold),
+                transparent
+            );
+            opacity: 0.3;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-xxl);
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: var(--magha-gold);
+            margin-bottom: var(--space-md);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: var(--magha-gold);
+            box-shadow: 0 0 10px var(--magha-gold);
+        }
+
+        .section-subtitle {
+            color: var(--magha-text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Section Background Variations */
+        .section-royal {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.15), rgba(139, 0, 0, 0.05));
+        }
+
+        .section-gold {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.02));
+        }
+
+        .section-dark {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .section-highlight {
+            position: relative;
+        }
+
+        .section-highlight::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at top, var(--magha-overlay) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Section Inner Container */
+        .section-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Section Spacing Utilities */
+        .section-spacing-sm { margin-bottom: var(--space-lg); }
+        .section-spacing-md { margin-bottom: var(--space-xl); }
+        .section-spacing-lg { margin-bottom: var(--space-xxl); }
+
+        /* Grid Layout System */
+        .grid {
+            display: grid;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-xl);
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .grid-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .grid-auto-fit {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .grid-auto-fill {
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        }
+
+        /* Match Rohini layout grids */
+        .two-column-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xxl);
+            margin-bottom: var(--space-xxl);
+        }
+
+        .three-column-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin-bottom: var(--space-xxl);
+        }
+
+        /* Match Rohini card visuals using Magha theme */
+        .content-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--magha-border);
+            border-radius: 20px;
+            padding: var(--space-xl);
+            transition: all 0.3s ease;
+        }
+
+        .content-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px var(--magha-glow);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+
+        .card-header-expand {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-md);
+        }
+
+        .expand-arrow {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+            color: var(--magha-gold);
+        }
+
+        .detailed-content .detail-item {
+            background: rgba(255,255,255,0.05);
+            padding: 10px 15px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border-left: 3px solid var(--magha-gold);
+        }
+
+        .detailed-content .detail-item strong {
+            color: var(--magha-gold);
+        }
+
+        /* Qualities Grid (match Rohini UI with Magha theme) */
+        .qualities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-md);
+            margin: var(--space-xl) 0;
+        }
+
+        .quality-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--magha-border);
+            border-radius: 25px;
+            overflow: hidden;
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+            z-index: 1;
+            transform: translate3d(0, 0, 0);
+            will-change: transform, box-shadow, background-color, border-color;
+            transition: transform 0.2s ease-out,
+                      box-shadow 0.2s ease-out,
+                      background-color 0.2s ease-out,
+                      border-color 0.2s ease-out;
+        }
+
+        .quality-item:hover {
+            background: rgba(255, 215, 0, 0.12);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px var(--magha-glow);
+            border-color: rgba(255, 215, 0, 0.35);
+        }
+
+        .quality-item:active {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 5px var(--magha-glow);
+            transition-duration: 0.1s;
+        }
+
+        .quality-item.expanded {
+            background: rgba(255, 215, 0, 0.18);
+            border-color: rgba(255, 215, 0, 0.45);
+            box-shadow: 0 4px 12px var(--magha-glow);
+        }
+
+        .quality-tag {
+            padding: 15px 20px;
+            text-align: center;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0;
+            background: transparent;
+            z-index: 2;
+        }
+
+        .quality-arrow {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+            color: var(--magha-gold);
+            opacity: 0.85;
+        }
+
+        .quality-item.expanded .quality-arrow {
+            transform: rotate(180deg);
+            opacity: 1;
+        }
+
+        .quality-details {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 20px;
+            opacity: 0;
+            transform: translate3d(0, -10px, 0);
+            background: rgba(255,255,255,0.05);
+            will-change: max-height, padding, opacity, transform;
+            transition: max-height 0.25s ease-out,
+                      padding 0.25s ease-out,
+                      opacity 0.2s ease-out,
+                      transform 0.2s ease-out;
+        }
+
+        .quality-item.expanded .quality-details {
+            max-height: 300px;
+            padding: 15px 20px;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .quality-details p {
+            color: var(--magha-text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Psychology Trait Cards (mirror Rohini UI) */
+        .psychology-traits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: var(--space-lg);
+        }
+
+        .trait-category {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--magha-border);
+            border-radius: 16px;
+            padding: var(--space-lg);
+        }
+
+        .trait-category h3 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.1rem;
+            color: var(--magha-gold);
+            margin-bottom: var(--space-sm);
+        }
+
+        .trait-category ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .trait-category li {
+            color: var(--magha-text-secondary);
+            margin: 0.35rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .trait-category li::before {
+            content: '\2713';
+            color: var(--magha-gold);
+            font-size: 0.9rem;
+        }
+
+        /* Grid Gap Variations */
+        .grid-gap-sm { gap: var(--space-md); }
+        .grid-gap-md { gap: var(--space-lg); }
+        .grid-gap-lg { gap: var(--space-xl); }
+
+        /* Grid Item Alignment */
+        .grid-center { align-items: center; }
+        .grid-start { align-items: start; }
+        .grid-end { align-items: end; }
+
+        /* Grid Item Span */
+        .span-2 { grid-column: span 2; }
+        .span-3 { grid-column: span 3; }
+        .span-full { grid-column: 1 / -1; }
+
+        /* Grid Content Alignment */
+        .grid-content-center { justify-items: center; }
+        .grid-content-start { justify-items: start; }
+        .grid-content-end { justify-items: end; }
+
+        /* Grid Flow Direction */
+        .grid-flow-row { grid-auto-flow: row; }
+        .grid-flow-col { grid-auto-flow: column; }
+        .grid-flow-dense { grid-auto-flow: dense; }
+
+        /* Card Components */
+        .card {
+            background: var(--magha-surface);
+            border: 1px solid var(--magha-border);
+            border-radius: 16px;
+            padding: var(--space-xl);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: var(--magha-gold);
+            box-shadow: 0 15px 35px var(--magha-glow);
+            background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.0));
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--space-md);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            color: var(--magha-gold);
+            filter: drop-shadow(0 0 10px var(--magha-gold));
+        }
+
+        .card-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.3rem;
+            color: var(--magha-text-primary);
+            margin: 0 0 var(--space-sm) 0;
+        }
+
+        .card-content {
+            color: var(--magha-text-secondary);
+        }
+
+        /* Expandable Cards */
+        .expandable-card {
+            cursor: pointer;
+            transform: translate3d(0, 0, 0);
+            will-change: transform, box-shadow;
+            transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+        }
+
+        .expandable-card .expand-arrow {
+            font-size: 1.2rem;
+            color: var(--magha-gold);
+            transform: translate3d(0, 0, 0);
+            will-change: transform;
+            transition: transform 0.2s ease-out;
+        }
+
+        .expandable-card.expanded .expand-arrow {
+            transform: rotate(180deg);
+        }
+
+        .expandable-card .basic-content {
+            will-change: opacity;
+            transition: opacity 0.2s ease-out;
+        }
+
+        .expandable-card .detailed-content {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            margin-top: var(--space-sm);
+            transform: translate3d(0, 0, 0);
+            will-change: max-height, opacity;
+            transition: max-height 0.25s ease-out, opacity 0.2s ease-out;
+        }
+
+        .expandable-card.expanded .detailed-content {
+            max-height: 2000px;
+            opacity: 1;
+        }
+
+        /* Special Sections */
+        .vedic-section {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.1), rgba(128, 0, 32, 0.05));
+            border-radius: 30px;
+            padding: var(--space-xxl);
+            margin: var(--space-xxl) 0;
+            border: 1px solid var(--magha-border);
+        }
+
+        .mythology-section {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.1), rgba(128, 0, 32, 0.05));
+            border-radius: 30px;
+            padding: var(--space-xxl);
+            margin: var(--space-xxl) 0;
+            border: 1px solid var(--magha-border);
+        }
+
+        .psychology-section {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.08), rgba(139, 0, 0, 0.05));
+            border-radius: 30px;
+            padding: var(--space-xxl);
+            margin: var(--space-xxl) 0;
+            border: 1px solid var(--magha-border);
+        }
+
+        .practical-section {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.06), rgba(255, 255, 255, 0.02));
+            border-radius: 30px;
+            padding: var(--space-xxl);
+            margin: var(--space-xxl) 0;
+            border: 1px solid var(--magha-border);
+        }
+
+        .stats-section {
+            background: rgba(255,255,255,0.03);
+            border-radius: 20px; 
+            padding: var(--space-xl); 
+            margin: var(--space-xxl) 0; 
+            border: 1px solid var(--magha-border);
+        }
+
+        .stats-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+            gap: var(--space-xl); 
+            text-align: center; 
+        }
+
+        .stat-item h3 { 
+            font-size: 2rem; 
+            color: var(--magha-gold); 
+            font-family: 'Orbitron', monospace; 
+        }
+
+        .stat-item p { 
+            color: var(--magha-text-secondary); 
+            font-size: 0.9rem; 
+            margin-top: var(--space-xs); 
+        }
+
+        /* Responsive Grid */
+        @media (max-width: 1024px) {
+            .grid-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .span-3 {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .content-section {
+                padding: var(--space-xl) var(--space-md);
+                margin-bottom: var(--space-xl);
+            }
+
+            .section-header {
+                margin-bottom: var(--space-xl);
+            }
+
+            .section-title {
+                font-size: clamp(1.8rem, 5vw, 2.2rem);
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+                padding: 0 var(--space-md);
+            }
+
+            .grid-2,
+            .grid-3,
+            .grid-4 {
+                grid-template-columns: 1fr;
+            }
+
+            .span-2,
+            .span-3 {
+                grid-column: auto;
+            }
+
+            .grid {
+                gap: var(--space-md);
+            }
+        }
+
+    <!-- Related Nakshatras -->
+    <section class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">Explore Related Nakshatras</h2>
+            <p class="section-subtitle">Discover complementary stellar consciousness programs</p>
+        </div>
+
+        <div class="related-grid" style="margin-top: 1.5rem;">
+            <a href="ashlesha.html" class="related-card">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🐍</div>
+                <h3>Ashlesha</h3>
+                <p>The Serpent — Depth, kundalini power, and occult mastery</p>
+            </a>
+            <a href="purva-phalguni.html" class="related-card">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌸</div>
+                <h3>Purva Phalguni</h3>
+                <p>The Front of the Throne — Royal pleasure, creative power, and divine play</p>
+            </a>
+            <a href="uttara-phalguni.html" class="related-card">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">👑</div>
+                <h3>Uttara Phalguni</h3>
+                <p>The Back of the Throne — Sacred contracts, royal duties, and noble patronage</p>
+            </a>
+        </div>
+
+        <!-- Navigation Footer -->
+
+        <style>
+        .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .related-card { background: rgba(255,255,255,0.05); border: 1px solid var(--magha-border); border-radius: 15px; padding: 1.5rem; text-decoration: none; color: inherit; transition: all 0.3s ease; }
+        .related-card:hover { transform: translateY(-3px); background: rgba(255,255,255,0.08); border-color: rgba(255, 215, 0, 0.3); box-shadow: 0 10px 30px var(--magha-glow); }
+        .related-card h3 { font-family: 'Orbitron', monospace; color: var(--magha-gold); margin-bottom: 0.4rem; }
+        .related-card p { color: var(--magha-text-secondary); margin: 0; }
+        .related-card h3 { font-family: 'Orbitron', monospace; color: var(--magha-gold); margin-bottom: 0.4rem; }
+        .related-card p { color: var(--magha-text-secondary); margin: 0; }
+        </style>
+    </section>
+
+    <!-- Bottom Navigation -->
+    <section class="content-section" style="text-align: center; padding: 3rem 0;">
+        <div class="nav-buttons">
+            <a href="nakshatras.html" class="nav-btn">
+                <i class="fas fa-arrow-left"></i> All Nakshatras
+            </a>
+            <a href="ashlesha.html" class="nav-btn">
+                <i class="fas fa-arrow-left"></i> Previous: Ashlesha
+            </a>
+            <a href="#top" class="nav-btn primary">
+                <i class="fas fa-arrow-up"></i> Back to Top
+            </a>
+            <a href="purva-phalguni.html" class="nav-btn">
+                Next: Purva Phalguni <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- JavaScript Dependencies -->
+    <script src="assets/js/components/expandable-card.js"></script>
+    <script src="assets/js/components/quality-toggle.js"></script>
+    <script src="assets/js/components/navigation-handler.js"></script>
+    
+    <script>
+        // Expandable card functionality
+        function toggleExpandableCard(card) {
+            card.classList.toggle('expanded');
+            const arrow = card.querySelector('.expand-arrow');
+            if (arrow) {
+                arrow.style.transform = card.classList.contains('expanded') ? 'rotate(180deg)' : 'rotate(0deg)';
+            }
+        }
+
+        // Quality item toggle
+        function toggleQuality(item) {
+            item.classList.toggle('expanded');
+        }
+
+        // Add click listeners to all expandable elements
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.expandable-card, .quality-item').forEach(element => {
+                element.addEventListener('click', () => {
+                    if (element.classList.contains('expandable-card')) {
+                        toggleExpandableCard(element);
+                    } else {
+                        toggleQuality(element);
+                    }
+                });
+            });
+        });
+
+        // Stellar background animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const bg = document.getElementById('stellarBg');
+            for(let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.width = Math.random() * 3 + 'px';
+                star.style.height = star.style.width;
+                star.style.left = Math.random() * 100 + 'vw';
+                star.style.top = Math.random() * 100 + 'vh';
+                bg.appendChild(star);
+            }
+        });
+    </script>
+</body>
+</html>

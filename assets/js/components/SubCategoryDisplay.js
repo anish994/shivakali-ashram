@@ -751,6 +751,17 @@ class SubCategoryDisplay {
                     const card = new SubCategoryCard(subCategory, data.parentCategory);
                     cardElement = card.createElement();
                 }
+            } else if (subCategory.id === 'purva-phalguni') {
+                // Use specialized card for Purva Phalguni (custom element)
+                console.log('Attempting to create Purva Phalguni card...');
+                try {
+                    cardElement = document.createElement('purva-phalguni-card');
+                    console.log('Purva Phalguni card element created successfully');
+                } catch (error) {
+                    console.error('Error creating Purva Phalguni card element:', error);
+                    const card = new SubCategoryCard(subCategory, data.parentCategory);
+                    cardElement = card.createElement();
+                }
             } else if (subCategory.id === 'nakshatra-codes') {
                 // Use specialized card for Nakshatra Codes if it exists
                 console.log('Attempting to create Nakshatra Codes card...');

@@ -1,0 +1,508 @@
+/**
+ * 🕉️ SACRED KNOWLEDGE HUB - Cosmic Interface Design
+ * 
+ * A revolutionary interface that combines:
+ * - Quantum visual effects
+ * - Sacred geometry animations
+ * - Cosmic energy flows
+ * - Neural network-like connections
+ */
+
+:root {
+    /* Sacred Gradients */
+    --cosmic-core: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+    --divine-gold: linear-gradient(45deg, #FFD700 0%, #FDB931 100%);
+    --mystic-blue: linear-gradient(45deg, #00ffff 0%, #0066ff 100%);
+    --spiritual-purple: linear-gradient(45deg, #9400D3 0%, #4B0082 100%);
+    --sacred-red: linear-gradient(45deg, #FF0000 0%, #8B0000 100%);
+    
+    /* Animation Timings */
+    --cosmic-pulse: 8.88s;
+    --energy-flow: 3.33s;
+    --quantum-shift: 1.618s;
+    
+    /* Sacred Proportions */
+    --phi: 1.618034; /* Golden Ratio */
+    --pi: 3.141592;
+    --root-two: 1.414214;
+}
+
+/* Core Layout */
+.vedic-knowledge-container {
+    min-height: 100vh;
+    background: var(--cosmic-core);
+    color: #fff;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Quantum Background Effect */
+.quantum-field {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.2;
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(255,215,0,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(148,0,211,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(0,102,255,0.1) 0%, transparent 50%);
+    filter: blur(80px);
+    animation: quantumFlow var(--cosmic-pulse) infinite alternate;
+}
+
+/* Sacred Geometry Overlay */
+.sacred-geometry {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200vmax;
+    height: 200vmax;
+    pointer-events: none;
+    opacity: 0.1;
+    background-image: 
+        repeating-conic-gradient(from 0deg,
+            rgba(255,215,0,0.1) 0deg 30deg,
+            transparent 30deg 60deg
+        );
+    animation: rotateGeometry calc(var(--cosmic-pulse) * 2) linear infinite;
+}
+
+/* Neural Network Connection Lines */
+.neural-connections {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.connection-line {
+    position: absolute;
+    background: linear-gradient(90deg, transparent, rgba(255,215,0,0.3), transparent);
+    height: 1px;
+    width: 100px;
+    animation: pulseLine var(--energy-flow) infinite;
+}
+
+/* Core Knowledge Section */
+.knowledge-core {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.core-symbol {
+    position: relative;
+    width: min(80vh, 80vw);
+    height: min(80vh, 80vw);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.7);
+    border-radius: 50%;
+    box-shadow: 
+        0 0 50px rgba(255,215,0,0.2),
+        0 0 100px rgba(255,215,0,0.1),
+        inset 0 0 30px rgba(255,215,0,0.3);
+}
+
+.om-symbol {
+    font-size: min(20vh, 20vw);
+    color: #FFD700;
+    text-shadow: 0 0 20px rgba(255,215,0,0.5);
+    animation: pulseOm var(--cosmic-pulse) infinite;
+}
+
+/* Veda Cards */
+.veda-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: calc(2rem * var(--phi));
+    padding: calc(2rem * var(--phi));
+    position: relative;
+    z-index: 2;
+}
+
+.veda-card {
+    position: relative;
+    background: rgba(0,0,0,0.7);
+    border-radius: 1rem;
+    padding: calc(1.5rem * var(--phi));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,215,0,0.2);
+    transition: transform var(--quantum-shift) cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.veda-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--divine-gold);
+    opacity: 0;
+    transition: opacity var(--quantum-shift);
+}
+
+.veda-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: rgba(255,215,0,0.5);
+}
+
+.veda-card:hover::before {
+    opacity: 0.1;
+}
+
+/* Vedanga Tools */
+.vedanga-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: calc(1.5rem * var(--phi));
+    padding: calc(2rem * var(--phi));
+    position: relative;
+    z-index: 2;
+}
+
+.vedanga-card {
+    position: relative;
+    background: rgba(0,0,0,0.8);
+    border-radius: 0.5rem;
+    padding: calc(1rem * var(--phi));
+    border: 1px solid rgba(255,215,0,0.1);
+    transition: all var(--quantum-shift);
+}
+
+.vedanga-card:hover {
+    border-color: rgba(255,215,0,0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* Animations */
+@keyframes quantumFlow {
+    0% { filter: blur(80px) hue-rotate(0deg); }
+    100% { filter: blur(80px) hue-rotate(360deg); }
+}
+
+@keyframes rotateGeometry {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes pulseOm {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+@keyframes pulseLine {
+    0% { transform: translateX(-100%) scaleY(1); opacity: 0; }
+    50% { transform: translateX(0) scaleY(2); opacity: 1; }
+    100% { transform: translateX(100%) scaleY(1); opacity: 0; }
+}
+
+/* Mobile & Touch Optimizations */
+@media (max-width: 768px) {
+    .veda-grid,
+    .vedanga-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+        gap: 1rem;
+    }
+    
+    .core-symbol {
+        width: 90vw;
+        height: 90vw;
+    }
+    
+    .om-symbol {
+        font-size: 15vw;
+    }
+}
+
+/* High-Performance Mode */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Dark Mode Enhancement */
+@media (prefers-color-scheme: dark) {
+    .vedic-knowledge-container {
+        background: #000;
+    }
+    
+    .quantum-field {
+        opacity: 0.15;
+    }
+}
+ * 
+ * A revolutionary interface for Vedic wisdom that combines:
+ * - Sacred geometry foundations
+ * - Divine proportion-based layouts
+ * - Energy-flow animations
+ * - Sanskrit-English integration
+ */
+
+:root {
+    /* Sacred Colors */
+    --divine-gold: #FFD700;
+    --cosmic-blue: #1E90FF;
+    --spiritual-white: #F8F8FF;
+    --sacred-red: #FF4444;
+    --vedic-orange: #FFA500;
+    --mystic-purple: #9370DB;
+    
+    /* Sacred Proportions */
+    --phi: 1.618034; /* Golden Ratio */
+    --sqrt5: 2.236068; /* Square root of 5 */
+    --pi: 3.141592; /* π */
+    
+    /* Animation Timings */
+    --cosmic-pulse: 8.88s;
+    --mantra-flow: 3.33s;
+    --wisdom-transition: 1.618s;
+}
+
+/* Main Hub Container */
+.sacred-knowledge-hub {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: radial-gradient(circle at center, 
+        rgba(0,0,0,0.95) 0%,
+        rgba(0,0,0,0.85) 50%,
+        rgba(0,0,0,0.95) 100%
+    );
+    overflow: hidden;
+}
+
+/* Sacred Geometry Background */
+.sacred-geometry-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.15;
+    pointer-events: none;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: calc(100% * var(--phi));
+        height: calc(100% * var(--phi));
+        background: 
+            linear-gradient(30deg, transparent 40%, var(--divine-gold) 45%, transparent 50%) repeat,
+            linear-gradient(-30deg, transparent 40%, var(--divine-gold) 45%, transparent 50%) repeat;
+        background-size: 60px 60px;
+        animation: rotateGeometry var(--cosmic-pulse) linear infinite;
+    }
+}
+
+/* Sri Yantra Core */
+.sri-yantra-core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(80vh, 80vw);
+    height: min(80vh, 80vw);
+    
+    &::before {
+        content: '🕉️';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 5rem;
+        color: var(--divine-gold);
+        text-shadow: 0 0 20px var(--divine-gold);
+        animation: pulseOm var(--cosmic-pulse) ease-in-out infinite;
+    }
+}
+
+/* Knowledge Stream Container */
+.knowledge-streams {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: calc(2rem * var(--phi));
+    padding: calc(3rem * var(--phi));
+    
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Veda Card Base */
+.veda-card {
+    position: relative;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 1rem;
+    padding: calc(1.5rem * var(--phi));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform var(--wisdom-transition) ease-in-out;
+    
+    &:hover {
+        transform: scale(1.02) translateY(-5px);
+        box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+    }
+}
+
+/* Sanskrit-English Integration */
+.dual-language-text {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    align-items: center;
+    
+    .sanskrit {
+        font-family: 'Sanskrit Text', serif;
+        color: var(--divine-gold);
+        font-size: 1.2em;
+    }
+    
+    .english {
+        color: var(--spiritual-white);
+        opacity: 0.9;
+    }
+}
+
+/* Knowledge Layer Visualization */
+.knowledge-layer {
+    position: relative;
+    margin: 1rem 0;
+    padding: 1rem;
+    border-left: 2px solid var(--divine-gold);
+    transition: all var(--wisdom-transition) ease;
+    
+    &:hover {
+        background: rgba(255, 215, 0, 0.1);
+        border-left-width: 4px;
+    }
+    
+    .layer-title {
+        font-weight: bold;
+        color: var(--divine-gold);
+    }
+    
+    .layer-content {
+        margin-top: 0.5rem;
+        color: var(--spiritual-white);
+        opacity: 0.8;
+    }
+}
+
+/* Vedanga Tool Cards */
+.vedanga-tool {
+    position: relative;
+    background: linear-gradient(
+        45deg,
+        rgba(0,0,0,0.8) 0%,
+        rgba(30,30,30,0.8) 100%
+    );
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin: 1rem 0;
+    border: 1px solid rgba(255,215,0,0.2);
+    
+    .tool-icon {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        width: 30px;
+        height: 30px;
+        background: var(--divine-gold);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+    }
+}
+
+/* Energy Flow Animations */
+@keyframes rotateGeometry {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes pulseOm {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.8; }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    .sacred-knowledge-hub {
+        padding: 1rem;
+    }
+    
+    .knowledge-streams {
+        padding: 1rem;
+        gap: 1rem;
+    }
+    
+    .veda-card {
+        padding: 1rem;
+    }
+    
+    .sri-yantra-core {
+        width: 90vw;
+        height: 90vw;
+    }
+}
+
+/* Touch Interactions */
+@media (hover: none) {
+    .veda-card {
+        transform: none !important;
+        
+        &:active {
+            transform: scale(0.98) !important;
+        }
+    }
+    
+    .knowledge-layer {
+        &:active {
+            background: rgba(255, 215, 0, 0.15);
+        }
+    }
+}
+
+/* High-DPI Screen Optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .sacred-geometry-layer::before {
+        background-size: 30px 30px;
+    }
+    
+    .veda-card {
+        border-width: 0.5px;
+    }
+}
+
+/* Dark Mode Enhancement */
+@media (prefers-color-scheme: dark) {
+    .sacred-knowledge-hub {
+        background: radial-gradient(circle at center, 
+            rgba(0,0,0,0.98) 0%,
+            rgba(0,0,0,0.95) 100%
+        );
+    }
+}

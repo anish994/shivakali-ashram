@@ -435,9 +435,39 @@ body {
     100% { opacity: 0.7; }
 }
 
-.error-state, .empty-state {
-    border-color: rgba(220, 20, 60, 0.5) !important;
-    background: linear-gradient(145deg, rgba(220, 20, 60, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%) !important;
+.error-state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    padding: 2rem;
+    text-align: center;
+    border: 2px solid rgba(220, 20, 60, 0.5);
+    border-radius: 20px;
+    background: linear-gradient(145deg, rgba(220, 20, 60, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+}
+
+.error-content {
+    max-width: 400px;
+    padding: 2rem;
+}
+
+.error-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.error-state h2 {
+    color: var(--sacred-gold);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.error-state p {
+    color: var(--sacred-cream);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
 }
 
 .retry-button {

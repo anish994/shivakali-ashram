@@ -1,0 +1,3246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>वेद विज्ञान | Vedic Sciences</title>
+    <meta name="theme-color" content="#0a0821">
+
+    <style>
+        /* Multi-layered Star Field Effect */
+        .starfield-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .starfield-layer1 {
+            z-index: 0;
+            background-image: 
+                radial-gradient(1px 1px at 10% 10%, var(--divine-gold) 1px, transparent 0),
+                radial-gradient(1px 1px at 25% 45%, var(--divine-gold) 1px, transparent 0),
+                radial-gradient(1.5px 1.5px at 40% 25%, var(--divine-gold) 1px, transparent 0),
+                radial-gradient(1px 1px at 55% 65%, var(--divine-gold) 1px, transparent 0),
+                radial-gradient(1px 1px at 70% 10%, var(--divine-gold) 1px, transparent 0),
+                radial-gradient(1.5px 1.5px at 85% 40%, var(--divine-gold) 1px, transparent 0),
+                radial-gradient(1px 1px at 95% 80%, var(--divine-gold) 1px, transparent 0);
+            opacity: 0.4;
+            mix-blend-mode: screen;
+        }
+
+        .starfield-layer2 {
+            z-index: 1;
+            background-image: 
+                radial-gradient(2px 2px at 15% 15%, rgba(255, 255, 255, 0.8) 1px, transparent 0),
+                radial-gradient(2px 2px at 35% 60%, rgba(255, 255, 255, 0.7) 1px, transparent 0),
+                radial-gradient(1.5px 1.5px at 55% 35%, rgba(255, 255, 255, 0.9) 1px, transparent 0),
+                radial-gradient(2px 2px at 75% 75%, rgba(255, 255, 255, 0.8) 1px, transparent 0),
+                radial-gradient(1.5px 1.5px at 90% 25%, rgba(255, 255, 255, 0.7) 1px, transparent 0);
+            opacity: 0.2;
+            mix-blend-mode: screen;
+            transform: translateZ(-1px);
+            will-change: transform;
+        }
+
+        .starfield-layer3 {
+            z-index: 2;
+            background-image: 
+                radial-gradient(1.2px 1.2px at 20% 30%, rgba(255, 255, 255, 0.9) 1px, transparent 0),
+                radial-gradient(1.2px 1.2px at 45% 80%, rgba(255, 255, 255, 0.8) 1px, transparent 0),
+                radial-gradient(1.2px 1.2px at 60% 15%, rgba(255, 255, 255, 0.9) 1px, transparent 0),
+                radial-gradient(1.2px 1.2px at 80% 50%, rgba(255, 255, 255, 0.8) 1px, transparent 0);
+            opacity: 0.15;
+            mix-blend-mode: screen;
+            animation: twinkle 4s infinite ease-in-out;
+            will-change: opacity;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.15; }
+            50% { opacity: 0.3; }
+        }
+
+        .moving-stars {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--divine-gold);
+            border-radius: 50%;
+            animation: star-move 8s linear infinite;
+            opacity: 0.4;
+        }
+
+        .star:nth-child(1) { left: 10%; top: -10%; animation-delay: 0s; }
+        .star:nth-child(2) { left: 30%; top: -10%; animation-delay: 1.6s; }
+        .star:nth-child(3) { left: 50%; top: -10%; animation-delay: 3.2s; }
+        .star:nth-child(4) { left: 70%; top: -10%; animation-delay: 4.8s; }
+        .star:nth-child(5) { left: 90%; top: -10%; animation-delay: 6.4s; }
+
+        @keyframes star-move {
+            from { transform: translateY(0) rotate(0deg); opacity: 0.4; }
+            to { transform: translateY(120vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Performance optimizations */
+        @media (prefers-reduced-motion: reduce) {
+            .starfield-layer,
+            .nebula-layer {
+                animation: none !important;
+                transform: none !important;
+            }
+        }
+
+        /* Optimize paint/composite layers */
+        .starfield-layer,
+        .nebula-layer {
+            backface-visibility: hidden;
+            perspective: 1000px;
+            transform-style: preserve-3d;
+        }
+
+        :root {
+            --cosmic-black: #000000;
+            --divine-gold: #FFD700;
+            --mystic-purple: #9400D3;
+            --celestial-blue: #4FACFE;
+            --sacred-red: #FF4444;
+            --pure-white: #FFFFFF;
+            
+            /* Enhanced Cosmic Colors */
+            --star-color-1: rgba(255, 255, 255, 0.9);
+            --star-color-2: rgba(255, 215, 0, 0.8);
+            --galaxy-blue: rgba(63, 81, 181, 0.3);
+            --galaxy-purple: rgba(156, 39, 176, 0.3);
+            --galaxy-gold: rgba(255, 215, 0, 0.15);
+            --nebula-pink: rgba(233, 30, 99, 0.2);
+            --nebula-blue: rgba(33, 150, 243, 0.2);
+            --space-blur-1: 30px;
+            --space-blur-2: 60px;
+            
+            /* Gradients */
+            --gold-glow: rgba(255, 215, 0, 0.15);
+            --cosmic-gradient: linear-gradient(135deg, rgba(148, 0, 211, 0.1) 0%, rgba(79, 172, 254, 0.1) 100%);
+            --card-bg: rgba(0, 0, 0, 0.7);
+        }
+
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Performance optimizations */
+        .starfield-layer,
+        .nebula-layer,
+        .quantum-card {
+            backface-visibility: hidden;
+            transform: translateZ(0);
+            will-change: transform;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .starfield-layer,
+            .nebula-layer,
+            .quantum-card,
+            .veda-icon-wrap {
+                animation: none !important;
+                transform: none !important;
+            }
+        }
+
+        /* Content-visibility optimizations */
+        .quantum-card {
+            content-visibility: auto;
+            contain: layout style paint;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Cosmic Background System */
+        /* Quantum noise texture */
+        .quantum-noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.4;
+            z-index: 0;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            background-size: 200px 200px;
+            mix-blend-mode: overlay;
+        }
+
+        /* Starfield (static, ultra-light) */
+        /* Star Field System */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .stars-small {
+            z-index: 1;
+            background-image: 
+                radial-gradient(1px 1px at 5% 5%, var(--star-color-1) 1px, transparent 0),
+                radial-gradient(1px 1px at 15% 25%, var(--star-color-1) 1px, transparent 0),
+                radial-gradient(1px 1px at 25% 45%, var(--star-color-1) 1px, transparent 0),
+                radial-gradient(1px 1px at 35% 65%, var(--star-color-1) 1px, transparent 0),
+                radial-gradient(1px 1px at 45% 85%, var(--star-color-1) 1px, transparent 0),
+                radial-gradient(1px 1px at 55% 5%, var(--star-color-1) 1px, transparent 0),
+                radial-gradient(1px 1px at 65% 25%, var(--star-color-1) 1px, transparent 0),
+                radial-gradient(1px 1px at 75% 45%, var(--star-color-1) 1px, transparent 0),
+                radial-gradient(1px 1px at 85% 65%, var(--star-color-1) 1px, transparent 0),
+                radial-gradient(1px 1px at 95% 85%, var(--star-color-1) 1px, transparent 0);
+            opacity: 0.8;
+            animation: twinkle-small 4s infinite alternate;
+        }
+
+        .stars-medium {
+            z-index: 2;
+            background-image: 
+                radial-gradient(1.5px 1.5px at 10% 10%, var(--star-color-2) 1px, transparent 0),
+                radial-gradient(1.5px 1.5px at 30% 30%, var(--star-color-2) 1px, transparent 0),
+                radial-gradient(1.5px 1.5px at 50% 50%, var(--star-color-2) 1px, transparent 0),
+                radial-gradient(1.5px 1.5px at 70% 70%, var(--star-color-2) 1px, transparent 0),
+                radial-gradient(1.5px 1.5px at 90% 90%, var(--star-color-2) 1px, transparent 0);
+            opacity: 0.6;
+            animation: twinkle-medium 6s infinite alternate-reverse;
+        }
+
+        .stars-large {
+            z-index: 3;
+            background-image: 
+                radial-gradient(2px 2px at 20% 20%, var(--star-color-1) 1px, transparent 0),
+                radial-gradient(2px 2px at 40% 40%, var(--star-color-2) 1px, transparent 0),
+                radial-gradient(2px 2px at 60% 60%, var(--star-color-1) 1px, transparent 0),
+                radial-gradient(2px 2px at 80% 80%, var(--star-color-2) 1px, transparent 0);
+            opacity: 0.7;
+            animation: twinkle-large 8s infinite alternate;
+        }
+            background-image:
+                /* faint distant stars */
+                radial-gradient(1px 1px at 8% 12%, rgba(255,255,255,0.7) 50%, transparent 51%),
+                radial-gradient(1px 1px at 22% 30%, rgba(255,255,255,0.6) 50%, transparent 51%),
+                radial-gradient(1px 1px at 40% 18%, rgba(255,255,255,0.5) 50%, transparent 51%),
+                radial-gradient(1px 1px at 65% 26%, rgba(255,255,255,0.65) 50%, transparent 51%),
+                radial-gradient(1px 1px at 78% 12%, rgba(255,255,255,0.6) 50%, transparent 51%),
+                radial-gradient(1px 1px at 15% 72%, rgba(255,255,255,0.6) 50%, transparent 51%),
+                radial-gradient(1px 1px at 35% 85%, rgba(255,255,255,0.55) 50%, transparent 51%),
+                radial-gradient(1px 1px at 58% 70%, rgba(255,255,255,0.65) 50%, transparent 51%),
+                radial-gradient(1px 1px at 82% 78%, rgba(255,255,255,0.6) 50%, transparent 51%);
+            opacity: 0.35;
+        }
+
+        /* Deep space background enhancement */
+        .cosmic-deep {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 25% 25%, 
+                    rgba(63, 81, 181, 0.2) 0%, 
+                    transparent 50%),
+                radial-gradient(circle at 75% 75%, 
+                    rgba(156, 39, 176, 0.2) 0%, 
+                    transparent 50%),
+                radial-gradient(circle at 50% 50%, 
+                    var(--mystic-black) 0%, 
+                    var(--deep-space) 100%);
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.9;
+        }
+
+        /* Enhanced Nebula/galaxy fields (soft, detached) */
+        .nebula-deep {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .nebula-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            mix-blend-mode: screen;
+        }
+
+        .nebula-layer1 {
+            background: 
+                radial-gradient(2000px 1500px at 15% 15%, 
+                    rgba(63, 81, 181, 0.15), 
+                    rgba(63, 81, 181, 0.05), 
+                    transparent 70%),
+                radial-gradient(1800px 1200px at 85% 85%, 
+                    rgba(156, 39, 176, 0.12), 
+                    rgba(156, 39, 176, 0.04), 
+                    transparent 70%);
+            filter: blur(30px);
+            opacity: 0.7;
+            transform: translateZ(-2px);
+            will-change: transform;
+            animation: nebulaPulse 15s infinite alternate ease-in-out;
+        }
+
+        .nebula-layer2 {
+            background: 
+                radial-gradient(2200px 1800px at 75% 25%, 
+                    rgba(33, 150, 243, 0.15), 
+                    rgba(33, 150, 243, 0.05), 
+                    transparent 70%),
+                radial-gradient(1600px 1400px at 25% 75%, 
+                    rgba(171, 71, 188, 0.12), 
+                    rgba(171, 71, 188, 0.04), 
+                    transparent 70%);
+            filter: blur(40px);
+            opacity: 0.6;
+            transform: translateZ(-1px) scale(1.05);
+            will-change: transform;
+            animation: nebulaPulse 20s infinite alternate-reverse ease-in-out;
+        }
+
+        .nebula-layer3 {
+            background: 
+                radial-gradient(1800px 1600px at 50% 50%, 
+                    rgba(255, 215, 0, 0.12), 
+                    rgba(255, 215, 0, 0.05), 
+                    transparent 70%),
+                radial-gradient(2400px 2000px at 50% 50%, 
+                    rgba(103, 58, 183, 0.15), 
+                    rgba(103, 58, 183, 0.05), 
+                    transparent 75%);
+            filter: blur(35px);
+            opacity: 0.65;
+            transform: translateZ(0) scale(1.1);
+            mix-blend-mode: screen;
+            animation: nebulaGlow 25s infinite alternate ease-in-out;
+            will-change: opacity, transform;
+        }
+
+        @keyframes nebulaPulse {
+            0% { 
+                transform: translateZ(-2px) scale(1); 
+                filter: blur(30px);
+            }
+            100% { 
+                transform: translateZ(-2px) scale(1.1); 
+                filter: blur(40px);
+            }
+        }
+
+        @keyframes nebulaGlow {
+            0% { 
+                opacity: 0.65;
+                transform: translateZ(0) scale(1.1);
+            }
+            50% { 
+                opacity: 0.45;
+                transform: translateZ(0) scale(1.15);
+            }
+            100% { 
+                opacity: 0.65;
+                transform: translateZ(0) scale(1.1);
+            }
+        }
+
+        /* Sacred geometry patterns */
+        .sacred-patterns {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.2;
+            background-image: 
+                /* Hexagonal grid */
+                repeating-linear-gradient(30deg, rgba(212,175,55,0.03) 0, rgba(212,175,55,0.03) 1px, transparent 1px, transparent 30px),
+                repeating-linear-gradient(-30deg, rgba(212,175,55,0.03) 0, rgba(212,175,55,0.03) 1px, transparent 1px, transparent 30px);
+            mix-blend-mode: screen;
+        }
+
+        .cosmic-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            background:
+            /* Enhanced deep space gradient */
+                linear-gradient(180deg, 
+                    var(--mystic-black) 0%, 
+                    var(--deep-space) 40%, 
+                    var(--mystic-black) 100%),
+                /* Subtle sacred geometry */
+                linear-gradient(45deg, rgba(255, 215, 0, 0.02) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(255, 215, 0, 0.02) 25%, transparent 25%);
+            background-size: auto, 50px 50px, 50px 50px;
+            opacity: 0.7;
+        }
+
+        .cosmic-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            background:
+                /* Ethereal energy fields */
+                radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(148, 0, 211, 0.05) 0%, transparent 50%);
+            mix-blend-mode: screen;
+        }
+
+        /* Vignette edges */
+        .vignette-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            background: radial-gradient(ellipse at center, rgba(0,0,0,0) 60%, rgba(0,0,0,0.35) 100%);
+        }
+
+        /* Section ambient halos */
+        .has-halo { position: relative; z-index: 2; }
+        .has-halo::before {
+            content: '';
+            position: absolute;
+            inset: -40px;
+            background: radial-gradient(ellipse at 50% 0%, rgba(212,175,55,0.08), transparent 60%),
+                        radial-gradient(ellipse at 50% 100%, rgba(148,0,211,0.07), transparent 60%);
+            filter: blur(12px);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Ethereal text effects */
+        .sanskrit-glow {
+            color: var(--divine-gold);
+            text-shadow: 
+                0 0 20px rgba(212,175,55,0.3),
+                0 0 40px rgba(212,175,55,0.1);
+        }
+
+        .cosmic-title {
+            background: linear-gradient(
+                90deg, 
+                var(--divine-gold) 0%,
+                rgba(212,175,55,0.8) 50%,
+                var(--divine-gold) 100%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(212,175,55,0.3);
+        }
+
+        .quantum-text {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            line-height: 1.8;
+            color: rgba(255,255,255,0.95);
+            padding: 2rem;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,215,0,0.2);
+            border-radius: 15px;
+            backdrop-filter: var(--quantum-blur);
+            box-shadow: inset 0 0 30px rgba(255,215,0,0.03);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Sacred Geometry Styles */
+        .sacred-geometry {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .sacred-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.3;
+            animation: patternRotate 60s infinite linear;
+        }
+
+        .sacred-mandala {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60vmin;
+            height: 60vmin;
+            border: 1px solid rgba(255,215,0,0.2);
+            border-radius: 50%;
+            opacity: 0.3;
+            background: 
+                repeating-conic-gradient(
+                    from 0deg,
+                    transparent 0deg,
+                    rgba(255,215,0,0.1) 10deg,
+                    transparent 20deg
+                );
+            animation: mandalaRotate 30s infinite linear;
+        }
+
+        .sacred-mandala::before,
+        .sacred-mandala::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid rgba(255,215,0,0.1);
+            border-radius: 50%;
+        }
+
+        .sacred-mandala::before {
+            width: 70%;
+            height: 70%;
+            animation: pulseGlow 4s infinite alternate;
+        }
+
+        .sacred-mandala::after {
+            width: 40%;
+            height: 40%;
+            animation: pulseGlow 4s infinite alternate-reverse;
+        }
+
+        @keyframes patternRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes mandalaRotate {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(-360deg); }
+        }
+
+        @keyframes pulseGlow {
+            0% { opacity: 0.2; transform: translate(-50%, -50%) scale(1); }
+            100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        /* Enhanced Color Variables */
+        :root {
+            --mystic-black: #0A0821;
+            --deep-space: #1A1035;
+            --cosmic-blue: #3F51B5;
+            --cosmic-purple: #9C27B0;
+            --cosmic-indigo: #673AB7;
+            --cosmic-purple: rgba(148, 0, 211, 0.2);
+            --divine-gold: #D4AF37;
+            --celestial-blue: #1E90FF;
+            --sacred-glow: rgba(255, 215, 0, 0.15);
+            --quantum-blur: blur(10px);
+        }
+
+        /* Advanced Animation Effects */
+        .reveal-element {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal-element.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .parallax-bg {
+            will-change: transform;
+            transform-style: preserve-3d;
+        }
+
+        .section-transition {
+            position: relative;
+            margin: -2rem 0;
+            height: 4rem;
+            background: linear-gradient(180deg, 
+                rgba(10, 8, 33, 0) 0%,
+                rgba(10, 8, 33, 0.8) 100%
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--mystic-black);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+
+        .preloader.loaded {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-mandala {
+            width: 80px;
+            height: 80px;
+            border: 2px solid var(--divine-gold);
+            border-radius: 50%;
+            position: relative;
+            animation: loaderSpin 2s linear infinite;
+        }
+
+        .loader-mandala::before,
+        .loader-mandala::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px solid var(--divine-gold);
+            border-radius: 50%;
+        }
+
+        .loader-mandala::before {
+            width: 60%;
+            height: 60%;
+            animation: loaderPulse 1s ease-in-out infinite alternate;
+        }
+
+        .loader-mandala::after {
+            width: 30%;
+            height: 30%;
+            animation: loaderPulse 1s ease-in-out infinite alternate-reverse;
+        }
+
+        @keyframes loaderSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes loaderPulse {
+            0% { opacity: 0.3; transform: translate(-50%, -50%) scale(0.8); }
+            100% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.2); }
+        }
+
+        body {
+            /* Remove the gradient from body */
+            background: var(--mystic-black);
+            position: relative;
+            z-index: 2;
+            background-image: 
+                radial-gradient(circle at 20% 20%, var(--gold-glow) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(103, 58, 183, 0.2) 0%, transparent 60%),
+                radial-gradient(circle at 50% 50%, rgba(33, 150, 243, 0.15) 0%, transparent 70%);
+            background-attachment: fixed;
+            color: var(--pure-white);
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+/* Quantum Hero Styles */
+        .header {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 4rem 2rem;
+            background: rgba(10, 8, 33, 0.95);
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .hero-title {
+            margin-bottom: 4rem;
+        }
+
+        .title-ornaments {
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            pointer-events: none;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 2rem;
+            opacity: 0.6;
+        }
+
+        .ornament {
+            color: var(--divine-gold);
+            font-size: 2rem;
+            animation: ornamentSpin 12s infinite linear;
+            display: block;
+            text-shadow: 0 0 20px rgba(212,175,55,0.4);
+        }
+
+        @keyframes ornamentSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hero-energy-ring {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border: 2px solid var(--divine-gold);
+            border-radius: 50%;
+            left: 50%;
+            top: -20px;
+            transform: translateX(-50%);
+            opacity: 0.6;
+            animation: energyPulse 3s infinite;
+        }
+
+        /* Enhanced Om Symbol */
+        .hero-om {
+            font-size: 4rem;
+            color: var(--divine-gold);
+            display: block;
+            margin-bottom: 1rem;
+            animation: omPulse 3s infinite ease-in-out;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cosmic-glow {
+            text-shadow: 
+                0 0 20px rgba(212,175,55,0.4),
+                0 0 40px rgba(212,175,55,0.2),
+                0 0 60px rgba(212,175,55,0.1);
+            animation: cosmicPulse 4s infinite alternate ease-in-out;
+        }
+
+        @keyframes omPulse {
+            0%, 100% { transform: scale(1); filter: brightness(1); }
+            50% { transform: scale(1.05); filter: brightness(1.2); }
+        }
+
+        @keyframes cosmicPulse {
+            0% { text-shadow: 0 0 20px rgba(212,175,55,0.4); }
+            100% { text-shadow: 0 0 40px rgba(212,175,55,0.6), 0 0 80px rgba(212,175,55,0.3); }
+        }
+
+        /* Enhanced Title Animations */
+        .sacred-symbol {
+            font-size: 4rem;
+            color: var(--divine-gold);
+            display: block;
+            margin-bottom: 2rem;
+        }
+
+        .hero-title h1 {
+            margin: 0 0 1.5rem 0;
+        }
+
+        .sanskrit-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: var(--divine-gold);
+            display: block;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        @keyframes titleShine {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .reveal-text {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: revealText 1.5s forwards ease-out;
+        }
+
+        .sanskrit-title.reveal-text { animation-delay: 0.5s; }
+        .english-title.reveal-text { animation-delay: 1s; }
+
+        @keyframes revealText {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .english-title {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: rgba(255, 255, 255, 0.95);
+            display: block;
+            font-weight: normal;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-style: italic;
+            margin: 0;
+        }
+
+        .hero-intro {
+            max-width: 900px;
+            margin: 0 auto 4rem auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            border-radius: 15px;
+        }
+
+        .wisdom-quote {
+            text-align: center;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+            padding-bottom: 2rem;
+        }
+
+        .wisdom-quote .sanskrit {
+            font-size: 1.8rem;
+            color: var(--divine-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .wisdom-quote .translation {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-style: italic;
+        }
+
+        .intro-text {
+            text-align: left;
+        }
+
+        .primary-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 3rem;
+        }
+
+        .key-aspects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .aspect h3 {
+            color: var(--divine-gold);
+            font-size: 1.1rem;
+            margin: 0 0 0.75rem 0;
+        }
+
+        .aspect p {
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .hero-intro-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Enhanced Manifesto Styles */
+        .hero-manifesto-container {
+            position: relative;
+            margin-bottom: 3rem;
+            padding: 1rem;
+        }
+
+        .manifesto-decoration {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 2px;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                var(--divine-gold),
+                transparent
+            );
+            opacity: 0.3;
+        }
+
+        .manifesto-decoration.top { top: 0; }
+        .manifesto-decoration.bottom { bottom: 0; }
+
+        .hero-manifesto {
+            position: relative;
+            font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            margin: 0;
+        }
+
+        .manifesto-lead {
+            font-size: 1.2em;
+            color: var(--pure-white);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .manifesto-lead .sacred-symbol {
+            display: block;
+            font-size: 2em;
+            margin-bottom: 1rem;
+            color: var(--divine-gold);
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .manifesto-revelation {
+            text-align: center;
+            margin: 2rem 0;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 10px;
+        }
+
+        .sanskrit-quote {
+            display: block;
+            font-size: 1.4em;
+            color: var(--divine-gold);
+            margin-bottom: 0.5rem;
+            font-style: normal;
+            letter-spacing: 0.05em;
+        }
+
+        .quote-translation {
+            display: block;
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.8);
+            font-style: italic;
+        }
+
+        .manifesto-essence {
+            text-align: center;
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+            border-left: 3px solid var(--divine-gold);
+            font-size: 0.95em;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .manifesto-pillars {
+            display: flex;
+            justify-content: space-around;
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .pillar {
+            text-align: center;
+            flex: 1;
+        }
+
+        .pillar-icon {
+            display: block;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            animation: pillarGlow 2s infinite alternate;
+        }
+
+        .pillar-text {
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.8);
+            display: block;
+        }
+
+        @keyframes pillarGlow {
+            0% { text-shadow: 0 0 10px rgba(255, 215, 0, 0.2); }
+            100% { text-shadow: 0 0 20px rgba(255, 215, 0, 0.4); }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hero-manifesto {
+                padding: 1.5rem;
+                font-size: 1rem;
+            }
+
+            .manifesto-pillars {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .pillar {
+                padding: 1rem;
+                background: rgba(255, 255, 255, 0.02);
+                border-radius: 8px;
+            }
+
+            .manifesto-essence {
+                padding-left: 1rem;
+                margin: 1rem 0;
+            }
+        }
+
+        .hero-stats {
+            margin-bottom: 3rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .quantum-btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 12px;
+            color: var(--divine-gold);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+
+        .quantum-btn--primary {
+            background: linear-gradient(135deg, 
+                rgba(255, 215, 0, 0.2),
+                rgba(148, 0, 211, 0.15));
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.2);
+        }
+
+        .quantum-btn:hover {
+            transform: translateY(-2px);
+            border-color: var(--divine-gold);
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .btn-icon {
+            font-size: 1.2rem;
+        }
+
+        .quantum-nav {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Enhanced Navigation Styles */
+        .quantum-nav {
+            position: relative;
+            margin: 2rem 0;
+            perspective: 1000px;
+            z-index: 5;
+        }
+
+        .nav-scroll-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 0.5rem;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            position: relative;
+        }
+
+        .nav-link {
+            position: relative;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            overflow: hidden;
+            scroll-snap-align: start;
+            transform-style: preserve-3d;
+        }
+
+        .nav-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-text {
+            position: relative;
+            z-index: 2;
+        }
+
+        .nav-indicator {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(255, 215, 0, 0.15),
+                rgba(148, 0, 211, 0.1)
+            );
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .nav-glow {
+            position: absolute;
+            inset: -1px;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 215, 0, 0.2),
+                transparent
+            );
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 0;
+        }
+
+        .nav-link:hover,
+        .nav-link:focus-visible {
+            color: var(--divine-gold);
+            border-color: var(--divine-gold);
+            transform: translateY(-2px);
+            box-shadow: 
+                0 5px 15px rgba(0, 0, 0, 0.2),
+                0 0 20px rgba(255, 215, 0, 0.1);
+        }
+
+        .nav-link:hover .nav-icon,
+        .nav-link:focus-visible .nav-icon {
+            transform: scale(1.2);
+        }
+
+        .nav-link:hover .nav-indicator,
+        .nav-link:focus-visible .nav-indicator {
+            opacity: 1;
+        }
+
+        .nav-link:hover .nav-glow,
+        .nav-link:focus-visible .nav-glow {
+            opacity: 1;
+            animation: glowSlide 2s infinite;
+        }
+
+        .nav-link.active {
+            color: var(--divine-gold);
+            border-color: var(--divine-gold);
+            background: rgba(255, 215, 0, 0.05);
+        }
+
+        .nav-link.active .nav-indicator {
+            opacity: 1;
+        }
+
+        @keyframes glowSlide {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(100%); }
+        }
+
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {
+            .nav-scroll-container {
+                overflow-x: auto;
+                justify-content: flex-start;
+                padding: 1rem;
+                margin: 0 -1rem;
+                -webkit-overflow-scrolling: touch;
+                mask-image: linear-gradient(
+                    90deg,
+                    transparent,
+                    #000 10px,
+                    #000 calc(100% - 10px),
+                    transparent
+                );
+            }
+
+            .nav-link {
+                padding: 0.6rem 1.2rem;
+                white-space: nowrap;
+                min-width: max-content;
+            }
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 215, 0, 0.1);
+            border-color: var(--divine-gold);
+        }
+
+        @keyframes energyPulse {
+            0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.6; }
+            50% { transform: translateX(-50%) scale(1.1); opacity: 0.8; }
+        }
+        
+        .btn { 
+            position: relative; 
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 0.5rem; 
+            padding: 0.6rem 1rem; 
+            border-radius: 12px; 
+            font-weight: 600; 
+            text-decoration: none; 
+            border: 1px solid rgba(255,215,0,0.35);
+            transition: all 0.2s ease;
+        }
+        
+        .btn--primary { 
+            background: linear-gradient(135deg, 
+                rgba(255, 185, 56, 0.25),
+                rgba(123, 44, 191, 0.22)
+            ); 
+            color: var(--divine-gold); 
+            box-shadow: 
+                0 6px 24px var(--gold-glow),
+                0 0 15px var(--gold-glow);
+        }
+        
+        .btn--primary:hover { 
+            border-color: var(--divine-gold); 
+            background: linear-gradient(135deg,
+                rgba(255, 185, 56, 0.3),
+                rgba(123, 44, 191, 0.25)
+            );
+            transform: translateY(-1px);
+        }
+        
+        .btn--ghost { 
+            background: rgba(255,255,255,0.04); 
+            color: var(--pure-white); 
+        }
+        
+        .btn--ghost:hover { 
+            background: rgba(255,255,255,0.07); 
+        }
+
+        .section-nav { 
+            display: flex; 
+            gap: 0.5rem; 
+            justify-content: center; 
+            flex-wrap: wrap; 
+            margin-top: 2rem; 
+        }
+        
+        .nav-pill { 
+            padding: 0.5rem 0.9rem; 
+            border-radius: 999px; 
+            border: 1px solid rgba(255,215,0,0.3); 
+            color: rgba(255,255,255,0.95); 
+            background: rgba(255,255,255,0.05); 
+            text-decoration: none; 
+            font-size: 0.9rem; 
+            transition: all 0.2s ease; 
+        }
+        
+        .nav-pill:hover { 
+            border-color: rgba(255,215,0,0.6); 
+            background: rgba(255,215,0,0.08); 
+        }
+
+        .pill { 
+            padding: 0.35rem 0.75rem; 
+            border-radius: 999px; 
+            border: 1px solid rgba(255,215,0,0.25); 
+            background: rgba(255,255,255,0.05); 
+            color: rgba(255,255,255,0.95); 
+            font-size: 0.9rem; 
+        }
+
+        .header-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--divine-gold);
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px var(--gold-glow);
+        }
+
+        .header-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+        }
+
+        /* Main Content */
+        .container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Knowledge Layers Section */
+        .knowledge-layers {
+            margin: 4rem 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--divine-gold);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 20px var(--gold-glow);
+        }
+
+        .section-intro {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            padding-left: 2rem;
+            border-left: 2px solid var(--divine-gold);
+        }
+
+        .layer-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Default to 2 columns */
+            gap: clamp(1rem, 2vw, 2rem);
+            margin: 0 auto;
+            max-width: 1400px;
+            width: 100%;
+        }
+
+        /* On larger screens, show all 4 in one row */
+        @media (min-width: 1200px) {
+            .layer-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* On smaller screens, stack them */
+        @media (max-width: 768px) {
+            .layer-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        /* Card isolation wrapper for knowledge layers */
+        .layer-card-wrap {
+            transform: translateZ(0);
+            isolation: isolate;
+        }
+
+/* Layer Cards Enhanced */
+        .layer-card {
+            background: rgba(10, 10, 32, 0.85);
+            border: 1px solid rgba(255, 215, 0, 0.25);
+            padding: 1.75rem;
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2), inset 0 0 30px rgba(255, 215, 0, 0.05);
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        .layer-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 215, 0, 0.4);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3), inset 0 0 50px rgba(255, 215, 0, 0.1);
+        }
+
+        .layer-tags {
+            display: inline-flex;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+            vertical-align: middle;
+            margin-bottom: 0.75rem;
+        }
+
+        .layer-tag {
+            padding: 0.2rem 0.5rem;
+            font-size: 0.75rem;
+            border: 1px solid rgba(255,215,0,0.3);
+            color: rgba(255,255,255,0.9);
+            border-radius: 999px;
+            background: rgba(255,255,255,0.05);
+        }
+
+        .layer-highlights {
+            list-style: none;
+            margin: 0.5rem 0 0.75rem;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.4rem 1rem;
+        }
+
+        .layer-highlights li {
+            font-size: 0.92rem;
+            color: rgba(255,255,255,0.88);
+        }
+
+        .layer-highlights li::before {
+            content: '✧';
+            color: var(--divine-gold);
+            margin-right: 0.35rem;
+        }
+
+        .layer-mantra {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.9);
+            background: rgba(255,255,255,0.05);
+            border-left: 3px solid var(--divine-gold);
+            padding: 0.6rem 0.75rem;
+            border-radius: 8px;
+            font-style: italic;
+            margin: 0.6rem 0 0.75rem;
+        }
+
+        .layer-card.samhita {
+            border-left-color: var(--divine-gold);
+            border-left-width: 4px;
+        }
+
+        .layer-card.brahmana {
+            border-left-color: var(--celestial-blue);
+            border-left-width: 4px;
+        }
+
+        .layer-card.aranyaka {
+            border-left-color: var(--mystic-purple);
+            border-left-width: 4px;
+        }
+
+        .layer-card.upanishad {
+            border-left-color: var(--sacred-red);
+            border-left-width: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .layer-highlights {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .layer-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--divine-gold);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 30px var(--gold-glow);
+        }
+
+        /* Layer card sub-components */
+        .layer-header-wrap,
+        .layer-content-wrap,
+        .layer-desc-wrap,
+        .layer-features-wrap {
+            position: relative;
+            isolation: isolate;
+        }
+
+        .layer-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .layer-number {
+            font-size: 2rem;
+            color: var(--divine-gold);
+            opacity: 0.5;
+        }
+
+        .layer-title {
+            margin: 0;
+            font-size: 1.5rem;
+            color: var(--divine-gold);
+            line-height: 1.2;
+        }
+
+        .layer-subtitle {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 0.25rem;
+        }
+
+        .layer-desc {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .layer-features {
+            list-style: none;
+        }
+
+        .layer-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .layer-feature::before {
+            content: '✧';
+            color: var(--divine-gold);
+            font-size: 1.2em;
+            opacity: 0.8;
+        }
+
+        .layer-feature:hover {
+            color: var(--pure-white);
+            transform: translateX(4px);
+        }
+
+        /* Unique styling for each layer */
+        .layer-card.samhita { border-left: 4px solid var(--divine-gold); }
+        .layer-card.brahmana { border-left: 4px solid var(--celestial-blue); }
+        .layer-card.aranyaka { border-left: 4px solid var(--mystic-purple); }
+        .layer-card.upanishad { border-left: 4px solid var(--sacred-red); }
+
+        /* Responsive */
+        /* Mobile Optimizations */
+        /* Mobile optimizations for cosmic background */
+/* Loading optimizations */
+        :root {
+            font-synthesis: none;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Reserve space for dynamic content */
+        .mystical-indicators {
+            min-height: 120px;
+        }
+
+        .quantum-card {
+            min-height: 400px;
+        }
+
+        /* Improved mobile optimizations */
+        @media (max-width: 768px) {
+            /* Reduce star layers for better performance */
+            .starfield-layer2,
+            .starfield-layer3 {
+                display: none;
+            }
+
+            .starfield-layer1 {
+                opacity: 0.3;
+            }
+
+            /* Simplify nebula effects */
+            .nebula-layer2,
+            .nebula-layer3 {
+                display: none;
+            }
+
+            .nebula-layer1 {
+                opacity: 0.3;
+                filter: blur(6px);
+            }
+
+            /* Optimize animations */
+            .starfield-layer,
+            .nebula-layer {
+                will-change: auto;
+            }
+
+            /* Adjust header padding */
+            .header {
+                padding: 2rem 1rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .layer-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .layer-card {
+                padding: 1.5rem;
+            }
+
+            .section-intro {
+                font-size: 1rem;
+                padding-left: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            /* Hero mobile styles */
+            .header {
+                padding: 2.5rem 1rem;
+            }
+
+            .hero-lead {
+                font-size: 1rem;
+                line-height: 1.7;
+                padding: 0.75rem 1rem;
+            }
+
+            .hero-pills {
+                gap: 0.4rem;
+            }
+
+            .hero-cta {
+                gap: 0.5rem;
+            }
+
+            .btn {
+                padding: 0.55rem 0.9rem;
+                font-size: 0.95rem;
+            }
+
+            .section-nav {
+                margin-top: 1.5rem;
+                gap: 0.4rem;
+            }
+
+            .nav-pill {
+                padding: 0.45rem 0.8rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Four Vedas Section Styles (Enhanced) */
+        .four-vedas {
+            margin: 5rem 0 3rem;
+            position: relative;
+            z-index: 2;
+        }
+        .four-vedas .section-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--divine-gold);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 20px var(--gold-glow);
+        }
+        .four-vedas .section-subtitle {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Shared quantum grid/card used by Vedangas too */
+        .cosmic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: clamp(1rem, 2vw, 1.5rem);
+padding: 0.5rem 0;
+            position: relative;
+            z-index: 2;
+        }
+        .quantum-card {
+            position: relative;
+            background: rgba(10, 10, 32, 0.8);
+            border-radius: 20px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .quantum-card:hover { transform: translateY(-5px); }
+        .quantum-glow-border {
+            position: absolute;
+            inset: 0;
+            border: 1px solid var(--divine-gold);
+            border-radius: 20px;
+            opacity: 0.3;
+            transition: opacity 0.4s;
+        }
+        .quantum-card:hover .quantum-glow-border {
+            opacity: 0.6;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.2), inset 0 0 20px rgba(255, 215, 0, 0.2);
+        }
+        .card-inner { padding: 1.75rem; position: relative; z-index: 1; }
+        .veda-icon-wrap { position: relative; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+        .veda-icon { font-size: 1.8rem; filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.35)); z-index: 2; }
+        .icon-resonance { position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(255, 215, 0, 0.18) 0%, transparent 70%); animation: resonance 3s infinite; }
+.veda-title { font-size: 1.6rem; color: var(--divine-gold); letter-spacing: 0.02em; margin-bottom: 0.25rem; text-shadow: 0 0 10px rgba(255, 215, 0, 0.3); display: inline-block; margin-right: 0.5rem; }
+        .veda-sanskrit { font-size: 1rem; color: rgba(255,255,255,0.85); margin-bottom: 0.75rem; }
+.veda-desc { color: rgba(255,255,255,0.92); line-height: 1.7; margin-bottom: 0.75rem; }
+.veda-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; background: rgba(255,255,255,0.04); padding: 0.75rem; border-radius: 12px; border: 1px solid rgba(255,215,0,0.15); }
+        .veda-spec { display: flex; flex-direction: column; gap: 0.2rem; }
+        .veda-spec .label { font-size: 0.78rem; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.05em; }
+        .veda-spec .value { font-size: 0.92rem; color: var(--divine-gold); }
+
+/* Veda extras */
+        .veda-tags { display: inline-flex; gap: 0.4rem; flex-wrap: wrap; vertical-align: middle; }
+        .veda-tag { padding: 0.2rem 0.5rem; font-size: 0.75rem; border: 1px solid rgba(255,215,0,0.3); color: rgba(255,255,255,0.9); border-radius: 999px; background: rgba(255,255,255,0.05); }
+        .veda-highlights { list-style: none; margin: 0.5rem 0 0.75rem; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem 1rem; }
+        .veda-highlights li { font-size: 0.92rem; color: rgba(255,255,255,0.88); }
+        .veda-highlights li::before { content: '✧'; color: var(--divine-gold); margin-right: 0.35rem; }
+        .veda-mantra { font-size: 0.9rem; color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.05); border-left: 3px solid var(--divine-gold); padding: 0.6rem 0.75rem; border-radius: 8px; font-style: italic; margin-top: 0.6rem; }
+        .veda-actions { display: flex; gap: 0.5rem; margin-top: 0.75rem; flex-wrap: wrap; }
+        .veda-btn { padding: 0.45rem 0.8rem; border-radius: 10px; border: 1px solid rgba(255,215,0,0.35); background: rgba(255,255,255,0.04); color: var(--divine-gold); font-weight: 600; font-size: 0.85rem; text-decoration: none; }
+        .veda-btn:hover { background: rgba(255,215,0,0.08); border-color: var(--divine-gold); }
+
+        @media (max-width: 768px) {
+            .four-vedas { padding: 0 0.5rem; }
+            .cosmic-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+            .veda-specs { grid-template-columns: 1fr; }
+        }
+
+/* Enhanced Vedangas Section Styles */
+        .vedangas-section {
+            position: relative;
+            padding: 4rem 0;
+            background: linear-gradient(180deg, rgba(10, 10, 32, 0) 0%, rgba(10, 10, 32, 0.8) 100%);
+            overflow: hidden;
+        }
+
+        .vedangas-cosmic-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(148, 0, 211, 0.1) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .vedangas-intro-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .quantum-glow {
+            position: relative;
+            color: var(--divine-gold);
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+            animation: quantumPulse 4s infinite;
+        }
+
+        .title-energy-ring {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border: 2px solid var(--divine-gold);
+            border-radius: 50%;
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.6;
+            animation: energyRing 3s infinite;
+        }
+
+        .sacred-symbol {
+            font-size: 2em;
+            margin-right: 1rem;
+            filter: drop-shadow(0 0 10px var(--divine-gold));
+        }
+
+        .sacred-grid-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(255, 215, 0, 0.1) 1px, transparent 1px),
+                          linear-gradient(90deg, rgba(255, 215, 0, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        /* Enhanced Mystical Indicators */
+        .mystical-indicators {
+            display: flex;
+            justify-content: space-around;
+            margin: 3rem 0;
+            gap: 2rem;
+            perspective: 1000px;
+        }
+
+        .indicator {
+            position: relative;
+            flex: 1;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            transform-style: preserve-3d;
+        }
+
+        .indicator:hover {
+            transform: translateY(-5px) rotateX(10deg);
+        }
+
+        .indicator-ring {
+            position: relative;
+            width: 140px;
+            height: 140px;
+            margin: 0 auto;
+        }
+
+        .indicator-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 50%;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            z-index: 2;
+        }
+
+        .sacred-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+            z-index: 1;
+        }
+
+        .progress-bg {
+            fill: none;
+            stroke: rgba(255, 215, 0, 0.1);
+            stroke-width: 2;
+        }
+
+        .progress-ring {
+            fill: none;
+            stroke: var(--divine-gold);
+            stroke-width: 2;
+            stroke-dasharray: 283;
+            stroke-dashoffset: 283;
+            animation: progressRing 2s ease-out forwards;
+            opacity: 0.4;
+        }
+
+        .progress-ring.infinity {
+            animation: infinityPulse 4s infinite ease-in-out;
+        }
+
+        @keyframes progressRing {
+            to { stroke-dashoffset: 0; }
+        }
+
+        @keyframes infinityPulse {
+            0%, 100% { stroke-dashoffset: 283; opacity: 0.2; }
+            50% { stroke-dashoffset: 141.5; opacity: 0.6; }
+        }
+
+        .indicator-glow {
+            position: absolute;
+            inset: -10px;
+            border-radius: 50%;
+            background: radial-gradient(circle at center, rgba(255, 215, 0, 0.2), transparent 70%);
+            animation: glowPulse 3s infinite alternate;
+            z-index: 0;
+        }
+
+        @keyframes glowPulse {
+            0% { opacity: 0.3; transform: scale(1); }
+            100% { opacity: 0.6; transform: scale(1.1); }
+        }
+
+        .indicator-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--divine-gold);
+            animation: iconFloat 3s infinite ease-in-out;
+        }
+
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .indicator-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--divine-gold);
+            line-height: 1;
+            margin: 0.3rem 0;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .indicator-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        .indicator-details {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: rgba(10, 8, 33, 0.95);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 10px;
+            padding: 1rem;
+            width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            z-index: 10;
+        }
+
+        .indicator:hover .indicator-details {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .detail-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .detail-list li {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .detail-list li:last-child {
+            border-bottom: none;
+        }
+
+        .detail-list li::before {
+            content: '✧';
+            color: var(--divine-gold);
+            margin-right: 0.5rem;
+            font-size: 0.8em;
+        }
+
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {
+            .mystical-indicators {
+                flex-direction: column;
+                align-items: center;
+                gap: 3rem;
+            }
+
+            .indicator {
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .indicator-details {
+                position: static;
+                transform: none;
+                width: 100%;
+                margin-top: 1rem;
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        .indicator {
+            text-align: center;
+            background: rgba(255, 215, 0, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .indicator-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .indicator-value {
+            font-size: 2.5rem;
+            color: var(--divine-gold);
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0.25rem;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+        }
+
+        .indicator-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .quantum-quote {
+            position: relative;
+            margin: 3rem 0;
+            padding: 2rem;
+            background: rgba(10, 10, 32, 0.6);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .quote-energy-field {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            animation: energyField 10s infinite linear;
+        }
+
+        .quantum-quote blockquote {
+            position: relative;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        @keyframes quantumPulse {
+            0%, 100% { text-shadow: 0 0 20px rgba(255, 215, 0, 0.4); }
+            50% { text-shadow: 0 0 30px rgba(255, 215, 0, 0.6); }
+        }
+
+        @keyframes energyRing {
+            0%, 100% { transform: translateY(-50%) scale(1); opacity: 0.6; }
+            50% { transform: translateY(-50%) scale(1.1); opacity: 0.8; }
+        }
+
+        @keyframes energyField {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* Sacred Tools Styles */
+        .sacred-tools
+            margin: 6rem 0 4rem;
+            position: relative;
+            z-index: 2;
+        }
+        .sacred-tools .section-title {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--divine-gold);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 20px var(--gold-glow);
+        }
+        .sacred-tools .section-intro {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            padding-left: 2rem;
+            border-left: 2px solid var(--divine-gold);
+        }
+        /* Vedangas Grid and Cards */
+        .vedanga-card {
+            background: rgba(10, 10, 32, 0.85);
+            border: 1px solid rgba(255, 215, 0, 0.25);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow:
+                0 4px 20px rgba(0, 0, 0, 0.2),
+                inset 0 0 30px rgba(255, 215, 0, 0.05);
+        }
+
+        .vedanga-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 215, 0, 0.4);
+            box-shadow:
+                0 8px 30px rgba(0, 0, 0, 0.3),
+                inset 0 0 50px rgba(255, 215, 0, 0.1);
+        }
+
+        .vedanga-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+            margin-bottom: 1.75rem;
+            position: relative;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+            padding-bottom: 1.5rem;
+        }
+
+        .vedanga-icon {
+            font-size: 2.2rem;
+            color: var(--divine-gold);
+            filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.4));
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .vedanga-card:hover .vedanga-icon {
+            transform: translateY(-2px);
+        }
+
+        .vedanga-title {
+            margin: 0;
+            font-size: 1.6rem;
+            background: linear-gradient(135deg, var(--divine-gold), #FFA500);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+            flex-grow: 1;
+            letter-spacing: 0.02em;
+            text-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
+        }
+
+        .vedanga-sanskrit {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-top: 0.35rem;
+            font-style: normal;
+            letter-spacing: 0.03em;
+        }
+
+        .vedanga-desc {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin: 0.5rem 0 1.75rem;
+            position: relative;
+            letter-spacing: 0.01em;
+        }
+
+        .vedanga-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            position: relative;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            padding: 1rem;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .vedanga-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+            padding: 0.6rem 0;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .vedanga-feature:last-child {
+            border-bottom: none;
+        }
+
+        .vedanga-feature:hover {
+            color: var(--divine-gold);
+            transform: translateX(4px);
+        }
+        .vedangas-section {
+            background: linear-gradient(180deg, 
+                rgba(10, 10, 32, 0) 0%,
+                rgba(10, 10, 32, 0.5) 100%);
+            padding: 4rem 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .vedangas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: clamp(1rem, 2vw, 2rem);
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .tools-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+        .tool-card-wrap {
+            transform: translateZ(0);
+            isolation: isolate;
+        }
+
+        /* Tool card sub-components */
+        .tool-header-wrap,
+        .tool-content-wrap,
+        .tool-desc-wrap,
+        .tool-features-wrap {
+            position: relative;
+            isolation: isolate;
+        }
+
+        .tool-header {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+        }
+        .tool-header { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem; position: relative; }
+        .tool-icon { font-size: 2rem; color: var(--divine-gold); filter: drop-shadow(0 0 10px var(--gold-glow)); flex-shrink: 0; }
+        .tool-title { margin: 0; font-size: 1.5rem; color: var(--divine-gold); line-height: 1.2; flex-grow: 1; }
+        .tool-sanskrit { font-size: 0.9rem; color: rgba(255, 255, 255, 0.7); margin-top: 0.25rem; font-style: italic; }
+        .tool-desc { color: rgba(255, 255, 255, 0.9); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem; position: relative; flex-grow: 1; }
+        .tool-features { list-style: none; padding: 0; margin: 0; position: relative; }
+        .tool-feature { display: flex; align-items: center; gap: 0.75rem; color: rgba(255, 255, 255, 0.8); font-size: 0.95rem; padding: 0.5rem 0; transition: all 0.3s ease; }
+        .tool-feature::before { content: '✧'; color: var(--divine-gold); font-size: 1.2em; opacity: 0.8; }
+        .tool-feature:hover { color: var(--pure-white); transform: translateX(4px); }
+        .tool-example { margin-top: 1.5rem; padding: 1rem; background: rgba(255, 255, 255, 0.03); border-radius: 8px; font-size: 0.9rem; color: rgba(255, 255, 255, 0.85); border-left: 3px solid var(--divine-gold); line-height: 1.6; position: relative; }
+        @media (max-width: 1200px) { .tools-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .tools-grid { grid-template-columns: 1fr; } }
+
+    </style>
+</head>
+<body>
+    <!-- Skip link for keyboard navigation -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 2rem;
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--divine-gold);
+            outline-offset: 2px;
+        }
+
+        .skip-to-content {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--divine-gold);
+            padding: 0.5rem 1rem;
+            border-radius: 0 0 0.5rem 0.5rem;
+            color: var(--mystic-black);
+            text-decoration: none;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+            z-index: 1000;
+        }
+
+        .skip-to-content:focus {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
+    <!-- Fixed Background Layers -->
+    <div class="cosmic-deep"></div>
+    <div class="cosmic-background"></div>
+    <div class="starfield"></div>
+    <div class="nebula-deep">
+        <div class="nebula-layer nebula-layer1"></div>
+        <div class="nebula-layer nebula-layer2"></div>
+        <div class="nebula-layer nebula-layer3"></div>
+    </div>
+    <div class="quantum-noise"></div>
+    <div class="sacred-patterns"></div>
+    <div class="cosmic-overlay"></div>
+    <div class="vignette-overlay"></div>
+    <div class="starfield-layer starfield-layer1"></div>
+    <div class="starfield-layer starfield-layer2"></div>
+    <div class="starfield-layer starfield-layer3"></div>
+    
+    <header class="header">
+        <div class="vedangas-cosmic-overlay"></div>
+        <div class="sacred-geometry">
+            <svg class="sacred-pattern" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                    <pattern id="sacred-grid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                        <circle cx="10" cy="10" r="0.5" fill="rgba(255,215,0,0.15)"/>
+                        <path d="M10,0 L10,20 M0,10 L20,10" stroke="rgba(255,215,0,0.1)" stroke-width="0.2"/>
+                    </pattern>
+                </defs>
+                <rect width="100" height="100" fill="url(#sacred-grid)"/>
+            </svg>
+            <div class="sacred-mandala"></div>
+        </div>
+        
+        <div class="hero-quantum-container">
+                <div class="hero-quantum-title">
+                <div class="hero-energy-ring"></div>
+                <span class="hero-om">ॐ</span>
+                <h1 class="header-title">
+                    <span class="sanskrit-title">वेद विज्ञान</span>
+                    <span class="english-title">Ancient Wisdom for Modern Awakening</span>
+                </h1>
+                <div class="title-ornaments">
+                    <span class="ornament left">☸</span>
+                    <span class="ornament right">☸</span>
+                </div>
+            </div>
+
+            <div class="hero-intro-container">
+                <div class="hero-manifesto">
+                    Explore the timeless principles of the Vedas — a sophisticated system of self-discovery, where
+                    ancient methodologies meet modern understanding. These teachings offer practical insights into consciousness,
+                    revealing the scientific foundations of personal transformation.
+                </div>
+
+                <div class="mystical-indicators">
+                    <div class="indicator">
+                        <span class="indicator-icon">📙</span>
+                        <span class="indicator-value">4</span>
+                        <span class="indicator-label">Sacred Vedas</span>
+                    </div>
+                    <div class="indicator">
+                        <span class="indicator-icon">✨</span>
+                        <span class="indicator-value">4</span>
+                        <span class="indicator-label">Knowledge Layers</span>
+                    </div>
+                    <div class="indicator">
+                        <span class="indicator-icon">🌌</span>
+                        <span class="indicator-value">6</span>
+                        <span class="indicator-label">Vedic Sciences</span>
+                    </div>
+                </div>
+
+                <div class="hero-actions">
+                    <a href="#vedas" class="quantum-btn quantum-btn--primary">
+                        <span class="btn-icon">📜</span>
+                        <span class="btn-text">Explore the Vedas</span>
+                    </a>
+                    <a href="#layers" class="quantum-btn quantum-btn--glow">
+                        <span class="btn-icon">🌌</span>
+                        <span class="btn-text">Navigate Layers</span>
+                    </a>
+                    <a href="#vedangas" class="quantum-btn quantum-btn--glow">
+                        <span class="btn-icon">✨</span>
+                        <span class="btn-text">Master Tools</span>
+                    </a>
+                </div>
+
+                <nav class="quantum-nav" role="navigation" aria-label="Main navigation">
+                    <div class="nav-scroll-container">
+                        <a href="#vedas" class="nav-link" data-section="vedas">
+                            <span class="nav-icon">📜</span>
+                            <span class="nav-text">Vedic Knowledge</span>
+                            <div class="nav-indicator"></div>
+                            <div class="nav-glow"></div>
+                        </a>
+                        <a href="#layers" class="nav-link" data-section="layers">
+                            <span class="nav-icon">🌌</span>
+                            <span class="nav-text">Sacred Architecture</span>
+                            <div class="nav-indicator"></div>
+                            <div class="nav-glow"></div>
+                        </a>
+                        <a href="#vedangas" class="nav-link" data-section="vedangas">
+                            <span class="nav-icon">✨</span>
+                            <span class="nav-text">Living Sciences</span>
+                            <div class="nav-indicator"></div>
+                            <div class="nav-glow"></div>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+<main id="main-content" class="container" role="main">
+<section class="knowledge-layers has-halo">
+            <div class="vedangas-cosmic-overlay"></div>
+
+            <div class="vedangas-intro-container">
+                <h2 class="section-title quantum-glow">
+                    <div class="title-energy-ring"></div>
+                    <span class="sacred-symbol">🕉️</span>
+                    <span>Knowledge Layers</span>
+                </h2>
+
+                <div class="meta-intro sacred-glow">
+                    <span class="meta-kicker">From Hymn to Realization — The Fourfold Unfolding</span>
+                </div>
+
+                <div class="sacred-grid-pattern"></div>
+
+                <p class="section-intro quantum-text">
+                    The Vedic corpus blossoms through four ascending layers: the revealed hymns (Samhita), the rites of
+                    application (Brahmana), the forest-mystic interpretations (Aranyaka), and the direct knowledge of
+                    Self (Upanishad). Each layer refines the energy of the previous, transforming sound into insight,
+                    action into meaning, and meaning into realization.
+                </p>
+
+                <div class="mystical-indicators">
+                    <div class="indicator">
+                        <span class="indicator-icon">📚</span>
+                        <span class="indicator-value">4</span>
+                        <span class="indicator-label">Primary Layers</span>
+                    </div>
+                    <div class="indicator">
+                        <span class="indicator-icon">✨</span>
+                        <span class="indicator-value">108</span>
+                        <span class="indicator-label">Core Teachings</span>
+                    </div>
+                    <div class="indicator">
+                        <span class="indicator-icon">∞</span>
+                        <span class="indicator-value">∞</span>
+                        <span class="indicator-label">Realizations</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-box" style="margin-bottom: 2rem;">
+                "Like a cosmic mandala unfolding from center to periphery, each layer reveals another facet of the infinite. The outer forms protect the inner mysteries, until the seeker is ready to pierce the veil."
+            </div>
+
+            <div class="layer-grid">
+                <!-- Samhita Layer -->
+                <div class="layer-card-wrap"><div class="layer-card samhita">
+                    <div class="layer-header">
+                        <span class="layer-number">01</span>
+                        <div>
+                            <h3 class="layer-title">Samhita</h3>
+                            <div class="layer-subtitle">The Foundation</div>
+                        </div>
+                    </div>
+                    <p class="layer-desc">
+                        The core collection of mantras, hymns, and verses that form the foundation 
+                        of Vedic knowledge. These are the original texts revealed to ancient seers.
+                    </p>
+                    <div class="layer-tags">
+                        <span class="layer-tag">Mantra</span>
+                        <span class="layer-tag">Devas</span>
+                        <span class="layer-tag">R̥ta</span>
+                    </div>
+                    <ul class="layer-highlights">
+                        <li>Origin hymns of creation</li>
+                        <li>Vibrational blueprints</li>
+                        <li>Seed-knowledge (Bīja)</li>
+                        <li>Cosmic invocations</li>
+                    </ul>
+                    <div class="layer-mantra">“Agním īḷe purohitaṁ” — I adore the Fire, the divine priest.</div>
+                    <ul class="layer-features">
+                        <li class="layer-feature">Sacred Sounds & Vibrations</li>
+                        <li class="layer-feature">Divine Revelations</li>
+                        <li class="layer-feature">Cosmic Laws & Principles</li>
+                        <li class="layer-feature">Natural Harmony</li>
+                    </ul>
+                </div></div>
+
+                <!-- Brahmana Layer -->
+                <div class="layer-card brahmana">
+                    <div class="layer-header">
+                        <span class="layer-number">02</span>
+                        <div>
+                            <h3 class="layer-title">Brahmana</h3>
+                            <div class="layer-subtitle">The Application</div>
+                        </div>
+                    </div>
+                    <p class="layer-desc">
+                        Detailed explanations of rituals, ceremonies, and practices. The Brahmanas 
+                        teach the practical application of Vedic mantras in daily and spiritual life.
+                    </p>
+                    <div class="layer-tags">
+                        <span class="layer-tag">Yajña</span>
+                        <span class="layer-tag">Procedure</span>
+                        <span class="layer-tag">Intention</span>
+                    </div>
+                    <ul class="layer-highlights">
+                        <li>Action aligned with law</li>
+                        <li>Ritual timing & roles</li>
+                        <li>Offerings as energy</li>
+                        <li>Purification methods</li>
+                    </ul>
+                    <div class="layer-mantra">“Yathā yajati tathā bhavati” — As one sacrifices, so one becomes.</div>
+                    <ul class="layer-features">
+                        <li class="layer-feature">Sacred Rituals & Ceremonies</li>
+                        <li class="layer-feature">Precise Methods</li>
+                        <li class="layer-feature">Practical Applications</li>
+                        <li class="layer-feature">Transformative Practices</li>
+                    </ul>
+                </div>
+
+                <!-- Aranyaka Layer -->
+                <div class="layer-card aranyaka">
+                    <div class="layer-header">
+                        <span class="layer-number">03</span>
+                        <div>
+                            <h3 class="layer-title">Aranyaka</h3>
+                            <div class="layer-subtitle">The Mystical</div>
+                        </div>
+                    </div>
+                    <p class="layer-desc">
+                        Forest treatises containing deeper, mystical interpretations of rituals and 
+                        mantras. These texts bridge the external practices with internal meditation.
+                    </p>
+                    <div class="layer-tags">
+                        <span class="layer-tag">Esoteric</span>
+                        <span class="layer-tag">Symbol</span>
+                        <span class="layer-tag">Meditation</span>
+                    </div>
+                    <ul class="layer-highlights">
+                        <li>Inner meaning of rites</li>
+                        <li>Symbolic correspondences</li>
+                        <li>Nature as scripture</li>
+                        <li>Solitude reflections</li>
+                    </ul>
+                    <div class="layer-mantra">“Tapasā brahma vijijñāsasva” — By austerity, seek Brahman.</div>
+                    <ul class="layer-features">
+                        <li class="layer-feature">Esoteric Meanings</li>
+                        <li class="layer-feature">Mystical Symbolism</li>
+                        <li class="layer-feature">Inner Practices</li>
+                        <li class="layer-feature">Meditative Insights</li>
+                    </ul>
+                </div>
+
+                <!-- Upanishad Layer -->
+                <div class="layer-card upanishad">
+                    <div class="layer-header">
+                        <span class="layer-number">04</span>
+                        <div>
+                            <h3 class="layer-title">Upanishad</h3>
+                            <div class="layer-subtitle">The Ultimate</div>
+                        </div>
+                    </div>
+                    <p class="layer-desc">
+                        The highest philosophical truths of the Vedas, revealing the nature of 
+                        Consciousness, Reality, and Self-realization. The essence of Vedantic wisdom.
+                    </p>
+                    <div class="layer-tags">
+                        <span class="layer-tag">Ātman</span>
+                        <span class="layer-tag">Brahman</span>
+                        <span class="layer-tag">Moksha</span>
+                    </div>
+                    <ul class="layer-highlights">
+                        <li>Non-dual realization</li>
+                        <li>Self-knowledge methods</li>
+                        <li>Teacher–student dialogue</li>
+                        <li>Ultimate inquiry</li>
+                    </ul>
+                    <div class="layer-mantra">“Tat tvam asi” — Thou art That.</div>
+                    <ul class="layer-features">
+                        <li class="layer-feature">Ultimate Reality</li>
+                        <li class="layer-feature">Self-Realization</li>
+                        <li class="layer-feature">Universal Consciousness</li>
+                        <li class="layer-feature">Divine Unity</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Four Vedas Section -->
+<section class="four-vedas has-halo" id="vedas">
+            <div class="vedangas-cosmic-overlay"></div>
+
+            <div class="vedangas-intro-container">
+                <h2 class="section-title quantum-glow">
+                    <div class="title-energy-ring"></div>
+                    <span class="sacred-symbol">ॐ</span>
+                    <span>The Four Vedas</span>
+                </h2>
+
+                <div class="meta-intro sacred-glow">
+                    <span class="meta-kicker">Primordial Rivers of Conscious Knowledge</span>
+                </div>
+
+                <div class="sacred-grid-pattern"></div>
+
+                <p class="section-intro quantum-text">
+                    The Vedas are living streams of revelation — four luminous currents flowing from the infinite into
+                    human understanding. They encode cosmic law, sacred action, melodic devotion, and embodied wisdom —
+                    forming a complete architecture for spiritual evolution.
+                </p>
+
+                <div class="mystical-indicators">
+                    <div class="indicator" data-tooltip="The Four Eternal Vedic Streams: Rig, Yajur, Sama, Atharva">
+                        <div class="indicator-ring">
+                            <div class="indicator-circle">
+                                <span class="indicator-icon cosmic-glow">📙</span>
+                                <span class="indicator-value" data-value="4">4</span>
+                                <span class="indicator-label">Sacred Streams</span>
+                            </div>
+                            <svg class="sacred-progress" viewBox="0 0 100 100">
+                                <circle class="progress-bg" cx="50" cy="50" r="45" />
+                                <circle class="progress-ring" cx="50" cy="50" r="45" />
+                            </svg>
+                            <div class="indicator-glow"></div>
+                        </div>
+                        <div class="indicator-details">
+                            <ul class="detail-list">
+                                <li>Rig Veda: Knowledge of the Divine</li>
+                                <li>Yajur Veda: Sacred Actions</li>
+                                <li>Sama Veda: Divine Melodies</li>
+                                <li>Atharva Veda: Life Wisdom</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="indicator" data-tooltip="Infinite Divine Melodies and Sacred Hymns">
+                        <div class="indicator-ring">
+                            <div class="indicator-circle">
+                                <span class="indicator-icon cosmic-glow">🎶</span>
+                                <span class="indicator-value" data-value="∞">∞</span>
+                                <span class="indicator-label">Hymns & Melodies</span>
+                            </div>
+                            <svg class="sacred-progress" viewBox="0 0 100 100">
+                                <circle class="progress-bg" cx="50" cy="50" r="45" />
+                                <circle class="progress-ring infinity" cx="50" cy="50" r="45" />
+                            </svg>
+                            <div class="indicator-glow"></div>
+                        </div>
+                        <div class="indicator-details">
+                            <ul class="detail-list">
+                                <li>Samhitas: Sacred Verses</li>
+                                <li>Mantras: Power Sounds</li>
+                                <li>Stotras: Divine Prayers</li>
+                                <li>Ragas: Sacred Melodies</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="indicator" data-tooltip="The Sacred Number of Vedic Perfection">
+                        <div class="indicator-ring">
+                            <div class="indicator-circle">
+                                <span class="indicator-icon cosmic-glow">🕯️</span>
+                                <span class="indicator-value" data-value="108">108</span>
+                                <span class="indicator-label">Sacred Actions</span>
+                            </div>
+                            <svg class="sacred-progress" viewBox="0 0 100 100">
+                                <circle class="progress-bg" cx="50" cy="50" r="45" />
+                                <circle class="progress-ring" cx="50" cy="50" r="45" />
+                            </svg>
+                            <div class="indicator-glow"></div>
+                        </div>
+                        <div class="indicator-details">
+                            <ul class="detail-list">
+                                <li>Yajnas: Sacred Rituals</li>
+                                <li>Kriyas: Purifying Actions</li>
+                                <li>Samskara: Life Ceremonies</li>
+                                <li>Dharma: Sacred Duties</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cosmic-grid">
+                <!-- Rig Veda -->
+                <div class="quantum-card veda-rig">
+                    <div class="quantum-glow-border"></div>
+                    <div class="card-inner">
+                        <div class="veda-icon-wrap">
+                            <span class="veda-icon">🔥</span>
+                            <div class="icon-resonance"></div>
+                        </div>
+                        <div class="veda-title">Rig Veda</div>
+<div class="veda-sanskrit">ऋग्वेद</div>
+                        <div class="veda-tags">
+                            <span class="veda-tag">Rta</span>
+                            <span class="veda-tag">Agni</span>
+                            <span class="veda-tag">Soma</span>
+                        </div>
+                        <p class="veda-desc">The original hymns of cosmic law — primordial revelations that encode the structure of reality.</p>
+                        <ul class="veda-highlights">
+                            <li>Primordial hymns to Devas</li>
+                            <li>Blueprints of cosmic order</li>
+                            <li>Seeds of later philosophies</li>
+                            <li>Visionary insights of Rishis</li>
+                        </ul>
+                        <div class="veda-mantra">“agnim īḷe purohitaṃ…” — I invoke Agni, the divine priest.</div>
+                        <div class="veda-specs">
+                            <div class="veda-spec">
+                                <span class="label">Essence</span>
+                                <span class="value">Knowledge (Jnana)</span>
+                            </div>
+                            <div class="veda-spec">
+                                <span class="label">Focus</span>
+                                <span class="value">Cosmic Powers (Devas)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Yajur Veda -->
+                <div class="quantum-card veda-yajur">
+                    <div class="quantum-glow-border"></div>
+                    <div class="card-inner">
+                        <div class="veda-icon-wrap">
+                            <span class="veda-icon">🕯️</span>
+                            <div class="icon-resonance"></div>
+                        </div>
+                        <div class="veda-title">Yajur Veda</div>
+<div class="veda-sanskrit">यजुर्वेद</div>
+                        <div class="veda-tags">
+                            <span class="veda-tag">Yajña</span>
+                            <span class="veda-tag">Procedure</span>
+                            <span class="veda-tag">Alignment</span>
+                        </div>
+                        <p class="veda-desc">The sacred manual of action — precise procedures aligning human will with universal law.</p>
+                        <ul class="veda-highlights">
+                            <li>Ritual synchronization</li>
+                            <li>Action as worship</li>
+                            <li>Cosmic contract logic</li>
+                            <li>Purification protocols</li>
+                        </ul>
+                        <div class="veda-mantra">“yajño vai viśvasya nābhiḥ” — Sacrifice is the navel of the universe.</div>
+                        <div class="veda-specs">
+                            <div class="veda-spec">
+                                <span class="label">Essence</span>
+                                <span class="value">Ritual (Kriya)</span>
+                            </div>
+                            <div class="veda-spec">
+                                <span class="label">Focus</span>
+                                <span class="value">Yajna (Sacred Action)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sama Veda -->
+                <div class="quantum-card veda-sama">
+                    <div class="quantum-glow-border"></div>
+                    <div class="card-inner">
+                        <div class="veda-icon-wrap">
+                            <span class="veda-icon">🎶</span>
+                            <div class="icon-resonance"></div>
+                        </div>
+                        <div class="veda-title">Sama Veda</div>
+<div class="veda-sanskrit">सामवेद</div>
+                        <div class="veda-tags">
+                            <span class="veda-tag">Raga</span>
+                            <span class="veda-tag">Bhakti</span>
+                            <span class="veda-tag">Nada</span>
+                        </div>
+                        <p class="veda-desc">The music of realization — where mantra becomes melody and vibration becomes devotion.</p>
+                        <ul class="veda-highlights">
+                            <li>Melodic transformation</li>
+                            <li>Devotional elevation</li>
+                            <li>Sound-to-consciousness</li>
+                            <li>Heart-centered refinement</li>
+                        </ul>
+                        <div class="veda-mantra">“udgīthaḥ prāṇa eva” — The sacred chant is life-breath itself.</div>
+                        <div class="veda-specs">
+                            <div class="veda-spec">
+                                <span class="label">Essence</span>
+                                <span class="value">Melody (Raga)</span>
+                            </div>
+                            <div class="veda-spec">
+                                <span class="label">Focus</span>
+                                <span class="value">Bhakti (Devotion)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Atharva Veda -->
+                <div class="quantum-card veda-atharva">
+                    <div class="quantum-glow-border"></div>
+                    <div class="card-inner">
+                        <div class="veda-icon-wrap">
+                            <span class="veda-icon">🌿</span>
+                            <div class="icon-resonance"></div>
+                        </div>
+                        <div class="veda-title">Atharva Veda</div>
+<div class="veda-sanskrit">अथर्ववेद</div>
+                        <div class="veda-tags">
+                            <span class="veda-tag">Healing</span>
+                            <span class="veda-tag">Protection</span>
+                            <span class="veda-tag">Prosperity</span>
+                        </div>
+                        <p class="veda-desc">The wisdom of embodied life — healing, protection, and prosperity guided by sacred intelligence.</p>
+                        <ul class="veda-highlights">
+                            <li>Protective rituals</li>
+                            <li>Herbal wisdom</li>
+                            <li>Household harmony</li>
+                            <li>Practical spirituality</li>
+                        </ul>
+                        <div class="veda-mantra">“śaṃ no mitraḥ śaṃ varuṇaḥ” — May there be auspiciousness and harmony.</div>
+                        <div class="veda-specs">
+                            <div class="veda-spec">
+                                <span class="label">Essence</span>
+                                <span class="value">Life (Prana)</span>
+                            </div>
+                            <div class="veda-spec">
+                                <span class="label">Focus</span>
+                                <span class="value">Healing & Harmony</span>
+                            </div>
+                        </div>
+</div>
+                <div class="veda-actions">
+                    <a href="#" class="veda-btn">Explore</a>
+                    <a href="#" class="veda-btn">Sample Mantras</a>
+                </div>
+            </div>
+        </section>
+
+<!-- Vedangas: The Living Architecture of Knowledge -->
+<section class="vedangas-section has-halo" id="vedangas">
+            <div class="vedangas-cosmic-overlay"></div>
+            
+            <div class="vedangas-intro-container">
+                <h2 class="section-title quantum-glow">
+                    <div class="title-energy-ring"></div>
+                    <span class="sacred-symbol">ॐ</span>
+                    <span>Vedāṅgāni: The Living Architecture of Wisdom</span>
+                </h2>
+                
+                <div class="meta-intro sacred-glow">
+                    <span class="meta-kicker">The Six Quantum Keys of Consciousness Evolution</span>
+                </div>
+
+                <div class="sacred-grid-pattern"></div>
+
+                <p class="section-intro quantum-text">
+                    Enter the quantum architecture of Vedic wisdom — where ancient technology meets cosmic intelligence. 
+                    The Vedāṅgāni are not mere subjects; they are living dimensions of consciousness, each a sacred interface 
+                    between human perception and divine understanding.
+                </p>
+
+                <div class="mystical-indicators">
+                    <div class="indicator">
+                        <span class="indicator-icon">🕉️</span>
+                        <span class="indicator-value">5000+</span>
+                        <span class="indicator-label">Years of Wisdom</span>
+                    </div>
+                    <div class="indicator">
+                        <span class="indicator-icon">⚡</span>
+                        <span class="indicator-value">6</span>
+                        <span class="indicator-label">Sacred Technologies</span>
+                    </div>
+                    <div class="indicator">
+                        <span class="indicator-icon">🧠</span>
+                        <span class="indicator-value">∞</span>
+                        <span class="indicator-label">Consciousness Potential</span>
+                    </div>
+                </div>
+
+                <div class="quantum-quote">
+                    <div class="quote-energy-field"></div>
+                    <blockquote>
+                        "As consciousness evolves through dimensions, the Vedāṅgāni unlock new layers of understanding — 
+                        transforming sound into light, knowledge into wisdom, and human awareness into cosmic realization."
+                    </blockquote>
+                </div>
+            </div>
+
+            <!-- Enhanced Vedangas Grid -->
+            <div class="vedangas-grid cosmic-grid">
+                <!-- Shiksha - Sacred Sound Technology -->
+                <div class="vedanga-card quantum-card" data-vedanga="shiksha">
+                    <div class="quantum-glow-border"></div>
+                    <div class="card-inner">
+                        <div class="vedanga-icon-wrap">
+                            <span class="vedanga-icon">🗣️</span>
+                            <div class="icon-resonance"></div>
+                        </div>
+                        <div class="vedanga-content">
+                            <h3 class="vedanga-title">Shiksha</h3>
+                            <div class="vedanga-sanskrit">शिक्षा</div>
+                            <p class="vedanga-desc">Sacred Sound Engineering - The quantum science of Vedic phonetics where vibration becomes consciousness.</p>
+                            <div class="tech-specs">
+                                <div class="spec">
+                                    <span class="spec-label">Frequency</span>
+                                    <span class="spec-value">432 Hz Core</span>
+                                </div>
+                                <div class="spec">
+                                    <span class="spec-label">Effect</span>
+                                    <span class="spec-value">Neural Resonance</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chandas - Sacred Mathematics -->
+                <div class="vedanga-card quantum-card" data-vedanga="chandas">
+                    <div class="quantum-glow-border"></div>
+                    <div class="card-inner">
+                        <div class="vedanga-icon-wrap">
+                            <span class="vedanga-icon">📏</span>
+                            <div class="icon-resonance"></div>
+                        </div>
+                        <div class="vedanga-content">
+                            <h3 class="vedanga-title">Chandas</h3>
+                            <div class="vedanga-sanskrit">छन्दस्</div>
+                            <p class="vedanga-desc">Divine Mathematics - Where rhythm meets consciousness through sacred meters and vibrational patterns.</p>
+                            <div class="tech-specs">
+                                <div class="spec">
+                                    <span class="spec-label">Patterns</span>
+                                    <span class="spec-value">108 Core Meters</span>
+                                </div>
+                                <div class="spec">
+                                    <span class="spec-label">Effect</span>
+                                    <span class="spec-value">Reality Matrix</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vyakarana - Consciousness Architecture -->
+                <div class="vedanga-card quantum-card" data-vedanga="vyakarana">
+                    <div class="quantum-glow-border"></div>
+                    <div class="card-inner">
+                        <div class="vedanga-icon-wrap">
+                            <span class="vedanga-icon">📝</span>
+                            <div class="icon-resonance"></div>
+                        </div>
+                        <div class="vedanga-content">
+                            <h3 class="vedanga-title">Vyakarana</h3>
+                            <div class="vedanga-sanskrit">व्याकरण</div>
+                            <p class="vedanga-desc">Language Architecture - The quantum mechanics of Sanskrit, where grammar shapes reality.</p>
+                            <div class="tech-specs">
+                                <div class="spec">
+                                    <span class="spec-label">System</span>
+                                    <span class="spec-value">Panini 64</span>
+                                </div>
+                                <div class="spec">
+                                    <span class="spec-label">Effect</span>
+                                    <span class="spec-value">Mind Architecture</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nirukta - Semantic Engineering -->
+                <div class="vedanga-card quantum-card" data-vedanga="nirukta">
+                    <div class="quantum-glow-border"></div>
+                    <div class="card-inner">
+                        <div class="vedanga-icon-wrap">
+                            <span class="vedanga-icon">🔍</span>
+                            <div class="icon-resonance"></div>
+                        </div>
+                        <div class="vedanga-content">
+                            <h3 class="vedanga-title">Nirukta</h3>
+                            <div class="vedanga-sanskrit">निरुक्त</div>
+                            <p class="vedanga-desc">Semantic Matrix - Unveiling the quantum etymology where word-seeds manifest reality.</p>
+                            <div class="tech-specs">
+                                <div class="spec">
+                                    <span class="spec-label">Depth</span>
+                                    <span class="spec-value">7 Layers</span>
+                                </div>
+                                <div class="spec">
+                                    <span class="spec-label">Effect</span>
+                                    <span class="spec-value">Reality Coding</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kalpa - Quantum Ritual Engineering -->
+                <div class="vedanga-card quantum-card" data-vedanga="kalpa">
+                    <div class="quantum-glow-border"></div>
+                    <div class="card-inner">
+                        <div class="vedanga-icon-wrap">
+                            <span class="vedanga-icon">🕯️</span>
+                            <div class="icon-resonance"></div>
+                        </div>
+                        <div class="vedanga-content">
+                            <h3 class="vedanga-title">Kalpa</h3>
+                            <div class="vedanga-sanskrit">कल्प</div>
+                            <p class="vedanga-desc">Ritual Technology - Precise protocols for consciousness manipulation through sacred geometry.</p>
+                            <div class="tech-specs">
+                                <div class="spec">
+                                    <span class="spec-label">Protocols</span>
+                                    <span class="spec-value">144 Core</span>
+                                </div>
+                                <div class="spec">
+                                    <span class="spec-label">Effect</span>
+                                    <span class="spec-value">Reality Hacking</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jyotisha - Quantum Time Engineering -->
+                <div class="vedanga-card quantum-card" data-vedanga="jyotisha">
+                    <div class="quantum-glow-border"></div>
+                    <div class="card-inner">
+                        <div class="vedanga-icon-wrap">
+                            <span class="vedanga-icon">🌠</span>
+                            <div class="icon-resonance"></div>
+                        </div>
+                        <div class="vedanga-content">
+                            <h3 class="vedanga-title">Jyotisha</h3>
+                            <div class="vedanga-sanskrit">ज्योतिष</div>
+                            <p class="vedanga-desc">Time Technology - Quantum navigation through the cosmic matrix of existence.</p>
+                            <div class="tech-specs">
+                                <div class="spec">
+                                    <span class="spec-label">Cycles</span>
+                                    <span class="spec-value">27 Core</span>
+                                </div>
+                                <div class="spec">
+                                    <span class="spec-label">Effect</span>
+                                    <span class="spec-value">Time Mastery</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        // Simple scroll reveal animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '50px'
+        });
+
+        document.querySelectorAll('.layer-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            observer.observe(card);
+        });
+    </script>
+    <!-- Scroll Spy Script -->
+    <script>
+        // Scroll spy implementation
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            // Smooth scroll to section when clicking nav links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Function to update active nav link based on scroll position
+            function updateActiveSection() {
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionHeight = section.offsetHeight;
+                    if (window.pageYOffset >= sectionTop && 
+                        window.pageYOffset < sectionTop + sectionHeight) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').substring(1) === currentSection) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            // Throttle function to limit scroll event firing
+            function throttle(func, limit) {
+                let inThrottle;
+                return function() {
+                    const args = arguments;
+                    const context = this;
+                    if (!inThrottle) {
+                        func.apply(context, args);
+                        inThrottle = true;
+                        setTimeout(() => inThrottle = false, limit);
+                    }
+                }
+            }
+
+            // Add scroll event listener with throttling
+            window.addEventListener('scroll', throttle(updateActiveSection, 100));
+
+            // Initialize active section on page load
+            updateActiveSection();
+        });
+    </script>
+    <!-- Advanced Animation Script -->
+    <div class="preloader">
+        <div class="loader-mandala"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize reveal elements
+            const revealElements = document.querySelectorAll('.hero-manifesto, .mystical-indicators, .layer-card, .quantum-card');
+            revealElements.forEach(element => element.classList.add('reveal-element'));
+
+            // Intersection Observer for reveal animations
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            revealElements.forEach(element => revealObserver.observe(element));
+
+            // Parallax effect for background elements
+            const parallaxElements = document.querySelectorAll('.parallax-bg');
+            let ticking = false;
+
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    window.requestAnimationFrame(() => {
+                        parallaxElements.forEach(element => {
+                            const speed = element.dataset.speed || 0.5;
+                            const yPos = -(window.pageYOffset * speed);
+                            element.style.transform = `translate3d(0, ${yPos}px, 0)`;
+                        });
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+
+            // Add parallax class to background elements
+            document.querySelectorAll('.cosmic-deep, .nebula-deep, .sacred-patterns').forEach(element => {
+                element.classList.add('parallax-bg');
+                element.dataset.speed = '0.2';
+            });
+
+            // Add section transitions
+            const sections = document.querySelectorAll('section[id]');
+            sections.forEach(section => {
+                const transition = document.createElement('div');
+                transition.className = 'section-transition';
+                section.before(transition);
+            });
+
+            // Remove preloader after content is loaded
+            window.addEventListener('load', () => {
+                const preloader = document.querySelector('.preloader');
+                preloader.classList.add('loaded');
+                setTimeout(() => preloader.remove(), 500);
+            });
+
+            // Optimize animations for mobile
+            function checkMobilePerformance() {
+                const isMobile = window.matchMedia('(max-width: 768px)').matches;
+                const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+                if (isMobile || prefersReducedMotion) {
+                    document.documentElement.style.setProperty('--animation-duration', '0s');
+                    parallaxElements.forEach(element => element.style.transform = 'none');
+                } else {
+                    document.documentElement.style.setProperty('--animation-duration', '0.3s');
+                }
+            }
+
+            window.addEventListener('resize', checkMobilePerformance);
+            checkMobilePerformance();
+        });
+    </script>
+</body>
+</html>
