@@ -186,7 +186,7 @@ class NakshatraCodesCard {
     }
 
     /**
-     * Attach event listeners for interactions (same as SubCategoryCard)
+     * Attach event listeners for interactions
      */
     attachEventListeners() {
         if (!this.element) return;
@@ -200,14 +200,18 @@ class NakshatraCodesCard {
             this.element.classList.remove('hovered');
         });
 
-        // Click effects
+        // *** CORRECTED CLICK BEHAVIOR ***
+        // Make the entire card clickable, except for the expand button.
         this.element.addEventListener('click', (e) => {
-            if (!e.target.closest('.sub-card-footer')) {
-                this.element.classList.add('clicked');
-                setTimeout(() => {
-                    this.element.classList.remove('clicked');
-                }, 200);
+            // If the "Show More" button or any of its children are clicked, let that button's own handler work.
+            if (e.target.closest('.expand-button')) {
+                // This allows the SubCategoryCard.toggleDetails(this) to function without navigating.
+                return; 
             }
+            
+            // For any other click on the card, navigate to the page.
+            // This ensures clicking the card body or the "Enter Portal" button works.
+            window.location.href = 'nakshatras.html';
         });
 
         // Touch support
