@@ -641,7 +641,7 @@
 
         <!-- Core Qualities -->
         <div id="qualities" class="qualities-grid">
-            <div class="quality-item" onclick="toggleQuality(this)">
+            <div class="quality-item">
                 <div class="quality-tag">
                     <span>Responsible & Virtuous</span>
                     <span class="quality-arrow">▼</span>
@@ -651,7 +651,7 @@
                 </div>
             </div>
             
-            <div class="quality-item" onclick="toggleQuality(this)">
+            <div class="quality-item">
                 <div class="quality-tag">
                     <span>Ambitious & Driven</span>
                     <span class="quality-arrow">▼</span>
@@ -661,7 +661,7 @@
                 </div>
             </div>
 
-            <div class="quality-item" onclick="toggleQuality(this)">
+            <div class="quality-item">
                 <div class="quality-tag">
                     <span>Polished & Refined</span>
                     <span class="quality-arrow">▼</span>
@@ -671,7 +671,7 @@
                 </div>
             </div>
 
-            <div class="quality-item" onclick="toggleQuality(this)">
+            <div class="quality-item">
                 <div class="quality-tag">
                     <span>Good Counselors</span>
                     <span class="quality-arrow">▼</span>
@@ -681,7 +681,7 @@
                 </div>
             </div>
 
-            <div class="quality-item" onclick="toggleQuality(this)">
+            <div class="quality-item">
                 <div class="quality-tag">
                     <span>Spiritual & Reflective</span>
                     <span class="quality-arrow">▼</span>
@@ -691,7 +691,7 @@
                 </div>
             </div>
 
-            <div class="quality-item" onclick="toggleQuality(this)">
+            <div class="quality-item">
                 <div class="quality-tag">
                     <span>Leaders & Pioneers</span>
                     <span class="quality-arrow">▼</span>
@@ -701,7 +701,7 @@
                 </div>
             </div>
 
-            <div class="quality-item" onclick="toggleQuality(this)">
+            <div class="quality-item">
                 <div class="quality-tag">
                     <span>Patient & Persevering</span>
                     <span class="quality-arrow">▼</span>
@@ -711,7 +711,7 @@
                 </div>
             </div>
 
-            <div class="quality-item" onclick="toggleQuality(this)">
+            <div class="quality-item">
                 <div class="quality-tag">
                     <span>Highly Respected</span>
                     <span class="quality-arrow">▼</span>
@@ -1569,6 +1569,47 @@
 
         }
 
+        function toggleQuality(el) {
+            try {
+                el.classList.toggle('expanded');
+            } catch (e) {
+                console.error('toggleQuality error:', e);
+            }
+        }
+
+        function initQualityItems() {
+            const grids = document.querySelectorAll('.qualities-grid');
+            
+            grids.forEach(grid => {
+                // Add click listener to the grid for event delegation
+                grid.addEventListener('click', (e) => {
+                    const qualityItem = e.target.closest('.quality-item');
+                    if (!qualityItem) return;
+                    
+                    // Toggle expanded state
+                    const isExpanded = qualityItem.classList.toggle('expanded');
+                    const arrow = qualityItem.querySelector('.quality-arrow');
+                    if (arrow) arrow.textContent = isExpanded ? '▲' : '▼';
+                });
+
+                // Add keyboard accessibility
+                grid.querySelectorAll('.quality-item').forEach(item => {
+                    // Make sure tabindex only gets added once
+                    if (!item.hasAttribute('tabindex')) {
+                        item.setAttribute('tabindex', '0');
+                        item.addEventListener('keydown', (e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                                e.preventDefault();
+                                const isExpanded = item.classList.toggle('expanded');
+                                const arrow = item.querySelector('.quality-arrow');
+                                if (arrow) arrow.textContent = isExpanded ? '▲' : '▼';
+                            }
+                        });
+                    }
+                });
+            });
+        }
+
         function initSmoothScroll() {
             document.querySelectorAll('a[href^="#"]').forEach(a => {
                 a.addEventListener('click', (e) => {
@@ -1596,6 +1637,7 @@
             initExpandableCards();
             initSmoothScroll();
             initStatsInteraction();
+            initQualityItems();
         });
 
     </script>
