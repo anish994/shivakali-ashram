@@ -9,6 +9,7 @@
     {
       "id": "planetary-intelligence",
       "title": "Planetary Intelligence",
+      "path": "planetary-intelligence.html",
       "subtitle": "Graha Vidya - Cosmic Consciousness Processors",
       "description": "🪐 DECODE THE UNIVERSE'S OPERATING SYSTEM: Each planet functions as a specialized consciousness processor in the cosmic computer. Understand the fundamental nature, energy signatures, and consciousness patterns of the nine planetary intelligences. Master how Sun governs identity, Moon controls emotions, Mars drives action, Mercury facilitates communication, Jupiter expands wisdom, Venus creates harmony, Saturn builds structure, while Rahu and Ketu process karmic evolution.",
       "icon": "🪐",
@@ -43,6 +44,7 @@
     {
       "id": "zodiac-signs",
       "title": "Zodiac Signs Mastery",
+      "path": "zodiac-signs.html",
       "subtitle": "Rashi Vidya - Cosmic Personality Architecture",
       "description": "♈ DECODE THE 12 COSMIC ARCHETYPES: Each zodiac sign represents a unique consciousness operating system with distinct strengths, challenges, and evolutionary paths. Master the psychological patterns, elemental energies, and transformational potentials of all 12 signs to understand the fundamental personality programming of human consciousness.",
       "icon": "♈",
@@ -76,7 +78,8 @@
 
     {
       "id": "house-systems",
-      "title": "House Systems Architecture", 
+      "title": "House Systems Architecture",
+      "path": "house-systems.html", 
       "subtitle": "Bhava Architecture - Life Domain Blueprint",
       "description": "🏛️ ARCHITECT YOUR REALITY BLUEPRINT: The 12 houses form your life's fundamental structure - each governing specific reality sectors and life experiences. Understand how the 1st house shapes identity, 2nd house governs resources, 7th house rules relationships, 10th house commands career, and 12th house opens spiritual liberation. Master the complete life domain architecture.",
       "icon": "🏛️",
@@ -114,6 +117,7 @@
     {
       "id": "nakshatra-codes",
       "title": "Nakshatra Codes",
+      "path": "nakshatras.html",
       "subtitle": "Stellar DNA Programming", 
       "description": "⭐ CRACK YOUR COSMIC GENETIC CODE: 27 Nakshatras contain your soul's source code - the stellar DNA that programs your deepest motivations, talents, and karmic missions. Each Nakshatra represents a unique consciousness archetype with specific characteristics, ruling deities, and evolutionary purposes. Master the complete stellar mapping system.",
       "icon": "⭐",
@@ -148,6 +152,7 @@
     {
       "id": "yogas",
       "title": "Yogas",
+      "path": "yogas.html",
       "subtitle": "Planetary Combination Mastery",
       "description": "🕉️ MASTER PLANETARY POWER COMBINATIONS: Yogas are specific planetary arrangements that create powerful results - fortune, wisdom, challenges, or transformation. Understand how Raja Yoga creates leadership, Dhana Yoga generates wealth, Gaja Kesari brings wisdom and respect, while Viparita Raja transforms adversity into strength. Master the sacred science of planetary combinations.",
       "icon": "🕉️",
@@ -182,6 +187,7 @@
     {
       "id": "doshas-afflictions",
       "title": "Doshas & Afflictions",
+      "path": "doshas-afflictions.html",
       "subtitle": "Karmic Block Codes",
       "description": "⚠️ UNDERSTAND KARMIC CHALLENGES: Doshas and afflictions aren't punishments - they're karmic learning programs designed to develop specific qualities. Master how Mangal Dosha teaches relationship maturity, Kemadruma develops self-reliance, Kala Sarpa accelerates spiritual growth, and other patterns create strength through challenge. Transform obstacles into wisdom.",
       "icon": "⚠️",
@@ -216,6 +222,7 @@
     {
       "id": "transits-timing",
       "title": "Transits & Timing",
+      "path": "transits-timing.html",
       "subtitle": "Gochar Vidya - Planetary Movement Wisdom",
       "description": "🌀 MASTER COSMIC TIMING CYCLES: Planetary transits create dynamic life experiences as moving planets interact with your birth chart. Understand how Saturn's Sade Sati teaches discipline over 7.5 years, Dhaiya provides focused lessons in 2.5 years, Jupiter's 12-year cycle expands different life areas, while Rahu-Ketu transits accelerate karmic evolution every 18 months.",
       "icon": "🌀",
@@ -250,6 +257,7 @@
     {
       "id": "dasha-systems",
       "title": "Dasha Systems",
+      "path": "dasha-systems.html",
       "subtitle": "Planetary Period Mastery",
       "description": "⏰ MASTER THE COSMIC TIMING MATRIX: Dasha systems reveal the precise timing of your life's chapters. Each planetary period (Dasha) activates different aspects of your consciousness and life themes. Navigate Vimshottari's 120-year cycle, understand how each planet rules specific life phases, and learn to optimize every period of your evolutionary journey.",
       "icon": "⏰",
@@ -284,6 +292,7 @@
     {
       "id": "predictive-algorithms",
       "title": "Predictive Algorithms",
+      "path": "predictive-algorithms.html",
       "subtitle": "Future Probability Engineering",
       "description": "🔮 UNDERSTAND PREDICTION METHODOLOGY: Jyotish prediction combines multiple knowledge systems - yogas, dashas, transits, and divisional charts - to understand life patterns and timing. Master the art of pattern recognition, learn to assess planetary strength and weakness, understand how different chart factors combine to create life experiences, and develop the wisdom to guide others through astrological insight.",
       "icon": "🔮",
@@ -318,6 +327,7 @@
     {
       "id": "gemstones",
       "title": "Gemstones",
+      "path": "gemstones.html",
       "subtitle": "Ratna Jyotish - Cosmic Resonance Therapy",
       "description": "💎 MASTER CRYSTAL CONSCIOUSNESS TECHNOLOGY: Gemstones act as planetary frequency modulators, channeling specific cosmic energies to strengthen beneficial planets or pacify challenging ones. Learn the sacred science of the Navaratna system, understand Uparatna substitutes, explore rare mystical stones, and master the art of selection, energization, and therapeutic application of Earth's crystalline treasures.",
       "icon": "💎",
@@ -356,6 +366,7 @@
     {
       "id": "rudraksha",
       "title": "Rudraksha",
+      "path": "rudraksha.html",
       "subtitle": "Sacred Seed Technology",
       "description": "🔮 HARNESS SACRED CONSCIOUSNESS BEADS: Rudraksha seeds are nature's spiritual technology, each Mukhi (face) resonating with specific planetary and divine frequencies. Master the complete science from 1-Mukhi (Shiva consciousness) to 21-Mukhi (Kubera prosperity), understand special forms like Gauri Shankar and Garbh Gauri, learn proper selection and wearing protocols for consciousness transformation.",
       "icon": "🔮",
@@ -394,6 +405,7 @@
     {
       "id": "remedial-technologies",
       "title": "Remedial Technologies",
+      "path": "remedial-technologies.html",
       "subtitle": "Parihara & Shanti Kriya",
       "description": "🛠️ MASTER COSMIC CORRECTION METHODS: Remedial measures aren't superstitions but sophisticated consciousness technologies for planetary harmonization. Learn the science behind mantra vibrations, yantra geometries, homa fire ceremonies, vrata spiritual disciplines, dana charitable giving, and temple protocols. Understand how to restore balance when planetary energies are disrupted.",
       "icon": "🛠️",
@@ -431,6 +443,7 @@
     {
       "id": "muhurta-applied",
       "title": "Muhurta & Applied Astrology",
+      "path": "muhurta-applied.html",
       "subtitle": "Action Timing Mastery",
       "description": "⏳ PERFECT THE ART OF COSMIC TIMING: Muhurta is the science of selecting the most auspicious moments for important activities. Master how to choose optimal timing for marriages, business launches, travel, medical procedures, spiritual practices, and major life decisions. Learn to read the cosmic weather and align human actions with celestial rhythms for maximum success and harmony.",
       "icon": "⏳",

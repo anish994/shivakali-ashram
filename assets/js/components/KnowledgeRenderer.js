@@ -139,17 +139,83 @@ class KnowledgeRenderer {
             if (!category) {
                 throw new Error(`Category '${categoryId}' not found`);
             }
-
             this.currentCategory = category;
             this.showLoadingState();
-            
-            // Load category content (to be implemented)
-            console.log(`Loading category: ${category.title}`);
-            
+            await this.renderSubCategoryGrid(category);
+            window.location.hash = `category-${categoryId}`;
         } catch (error) {
             console.error('❌ Failed to load category:', error);
             this.showErrorState();
         }
+    }
+
+    /**
+     * Renders the sub-category grid for a given category by fetching its data
+     */
+    async renderSubCategoryGrid(category) {
+        try {
+            const response = await fetch(`./knowledge/categories/${category.id}-subcategories.json?v=${new Date().getTime()}`); // Cache-busting
+            if (!response.ok) {
+                throw new Error(`Sub-category data for '${category.title}' not found.`);
+            }
+            const subCategories = await response.json();
+            console.log("Sub-category data received:", subCategories); // Debugging line
+
+            this.gridContainer.innerHTML = ''; // Clear loading state
+
+            const subCategoryWrapper = document.createElement('div');
+            subCategoryWrapper.className = 'sub-category-view';
+
+            subCategoryWrapper.innerHTML = `
+                <div class="sub-category-header">
+                    <a href="#" class="back-button">‹ Back to Gateway</a>
+                    <h1 class="sub-category-title">${category.title}</h1>
+                    <p class="sub-category-description">${category.description}</p>
+                </div>
+                <div class="sub-category-grid ${!subCategories.subCategories || subCategories.subCategories.length === 0 ? 'no-content' : ''}"></div>
+            `;
+
+            const subGrid = subCategoryWrapper.querySelector('.sub-category-grid');
+            if (subCategories.subCategories && subCategories.subCategories.length > 0) {
+                subCategories.subCategories.forEach(subCat => {
+                    const card = this.createSubCategoryCard(subCat);
+                    subGrid.appendChild(card);
+                });
+            } else {
+                subGrid.innerHTML = '<p class="no-content-message">Further wisdom on this path is being transcribed. Please check back later.</p>';
+            }
+
+            this.gridContainer.appendChild(subCategoryWrapper);
+
+            subCategoryWrapper.querySelector('.back-button').addEventListener('click', (e) => {
+                e.preventDefault();
+                window.location.hash = '';
+                this.renderSubjectsGrid('categories-grid');
+            });
+
+        } catch (error) {
+            console.error('❌ Failed to render sub-category grid:', error);
+            this.showErrorState(); // Show a user-friendly error screen
+        }
+    }
+
+    /**
+     * Creates a single sub-category card that links to a separate HTML page
+     */
+    createSubCategoryCard(subCategory) {
+        const card = document.createElement('a');
+        card.className = 'sub-category-card';
+        card.href = subCategory.path; // Use the new 'path' property
+
+        card.innerHTML = `
+            <div class="sub-card-icon">${subCategory.icon || '✨'}</div>
+            <div class="sub-card-content">
+                <h3 class="sub-card-title">${subCategory.title}</h3>
+                <p class="sub-card-description">${subCategory.description}</p>
+            </div>
+            <div class="sub-card-arrow">›</div>
+        `;
+        return card;
     }
 
     /**
