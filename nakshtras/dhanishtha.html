@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhanishtha Nakshatra - The Star of Symphony | ShivaKali Ashram</title>
+    <meta name="description" content="Discover Dhanishtha Nakshatra - The Star of Symphony. Explore the 23rd stellar consciousness program in Vedic astrology with modern insights into rhythm, prosperity, and cosmic timing.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0a2e, #16213e, #1a1a2e);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Stellar Background Animation */
+        .stellar-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            background: #ffffff;
+            border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+
+        .star:nth-child(odd) {
+            animation-delay: 1.5s;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Dhanishtha-specific gradient theme */
+        :root {
+            --dhanishtha-primary: linear-gradient(135deg, #9b59b6, #8e44ad);
+            --dhanishtha-secondary: rgba(155, 89, 182, 0.2);
+            --dhanishtha-glow: rgba(155, 89, 182, 0.4);
+            --dhanishtha-accent: #9b59b6;  /* Purple accent color */
+        }
+
+        /* Navigation */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 46, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-back {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 8px 16px;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-back:hover {
+            background: var(--dhanishtha-secondary);
+            transform: translateY(-1px);
+        }
+
+        .nav-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.2rem;
+            color: #9b59b6;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 4rem 2rem;
+            text-align: center;
+            background: radial-gradient(ellipse at center, var(--dhanishtha-secondary) 0%, transparent 70%);
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .nakshatra-symbol {
+            font-size: 6rem;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 20px #9b59b6);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            background: var(--dhanishtha-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            font-weight: 900;
+        }
+
+        .hero .translation {
+            font-size: 1.5rem;
+            color: #b19cd9;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .hero .tagline {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            background: linear-gradient(45deg, rgba(155, 89, 182, 0.2), rgba(142, 68, 173, 0.2));
+            border: 2px solid rgba(155, 89, 182, 0.3);
+            border-radius: 15px;
+            padding: 12px 24px;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            font-size: 0.95rem;
+        }
+
+        .nav-btn:hover {
+            background: linear-gradient(45deg, #9b59b6, #8e44ad);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px var(--dhanishtha-glow);
+        }
+
+        .nav-btn.primary {
+            background: linear-gradient(45deg, #9b59b6, #8e44ad);
+            border-color: #8e44ad;
+        }
+
+        .stellar-info-hero {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .info-item {
+            text-align: center;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: #9b59b6;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            color: #b19cd9;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Grid Layouts */
+        .two-column-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .three-column-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Content Cards */
+        .content-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px var(--dhanishtha-glow);
+            border-color: rgba(155, 89, 182, 0.3);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #9b59b6;
+            filter: drop-shadow(0 0 10px currentColor);
+        }
+
+        .card-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.3rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .card-content {
+            color: #e0e0e0;
+            line-height: 1.7;
+        }
+
+        /* Special Sections */
+        .mythology-section {
+            background: linear-gradient(135deg, rgba(155, 89, 182, 0.1), rgba(142, 68, 173, 0.05));
+            border-radius: 30px;
+            padding: 3rem;
+            margin: 3rem 0;
+        }
+
+        .psychology-section {
+            background: linear-gradient(135deg, rgba(155, 89, 182, 0.1), rgba(142, 68, 173, 0.05));
+            border-radius: 30px;
+            padding: 3rem;
+            margin: 3rem 0;
+        }
+
+        .practical-section {
+            background: linear-gradient(135deg, rgba(155, 89, 182, 0.1), rgba(142, 68, 173, 0.05));
+            border-radius: 30px;
+            padding: 3rem;
+            margin: 3rem 0;
+        }
+
+        /* Expandable Practical Cards */
+        .expandable-card { cursor: pointer; transition: all 0.4s ease; }
+        .expandable-card:hover { transform: translateY(-3px); box-shadow: 0 10px 25px var(--dhanishtha-glow); }
+        .card-header-expand { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+        .expand-arrow { font-size: 1.2rem; transition: transform 0.3s ease; color: #9b59b6; }
+        .expandable-card.expanded .expand-arrow { transform: rotate(180deg); }
+        .basic-content { transition: all 0.3s ease; }
+        .detailed-content { max-height: 0; overflow: hidden; transition: all 0.4s ease; margin-top: 1rem; }
+        .expandable-card.expanded .detailed-content { max-height: 800px; }
+        .detailed-content .detail-item { background: rgba(255,255,255,0.05); padding: 10px 15px; margin: 8px 0; border-radius: 8px; border-left: 3px solid #9b59b6; }
+        .detail-item strong { color: #9b59b6; }
+
+        /* Qualities Grid */
+        .qualities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .quality-item {
+            background: var(--dhanishtha-secondary);
+            border: 1px solid rgba(155, 89, 182, 0.2);
+            border-radius: 25px;
+            overflow: hidden;
+            transition: transform 0.2s ease-out,
+                      box-shadow 0.2s ease-out,
+                      background-color 0.2s ease-out,
+                      border-color 0.2s ease-out;
+            cursor: pointer;
+            user-select: none;
+            will-change: transform, box-shadow;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .quality-item:hover {
+            background: rgba(155, 89, 182, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px var(--dhanishtha-glow);
+            border-color: rgba(155, 89, 182, 0.4);
+        }
+        
+        .quality-item:active {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 5px var(--dhanishtha-glow);
+            transition-duration: 0.1s;
+        }
+
+        .quality-item.expanded {
+            background: rgba(155, 89, 182, 0.2);
+            border-color: rgba(155, 89, 182, 0.5);
+            box-shadow: 0 4px 12px var(--dhanishtha-glow);
+        }
+        
+        .quality-tag {
+            padding: 15px 20px;
+            text-align: center;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0;
+            background: transparent;
+            z-index: 2;
+        }
+        
+        .quality-arrow {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+            color: #9b59b6;
+            opacity: 0.8;
+        }
+        
+        .quality-item.expanded .quality-arrow {
+            transform: rotate(180deg);
+            opacity: 1;
+        }
+        
+        .quality-details {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 20px;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: max-height 0.3s ease-in-out,
+                      padding 0.3s ease-in-out,
+                      opacity 0.2s ease-out,
+                      transform 0.2s ease-out;
+            background: rgba(255,255,255,0.05);
+        }
+        
+        .quality-item.expanded .quality-details {
+            max-height: 300px;
+            padding: 15px 20px;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .quality-details p {
+            color: #e0e0e0;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Stats Section */
+        .stats-section { background: rgba(255,255,255,0.03); border-radius: 20px; padding: 2rem; margin: 3rem 0; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem; text-align: center; }
+        .stat-item h3 { font-size: 2rem; color: #9b59b6; font-family: 'Orbitron', monospace; }
+        .stat-item p { color: #b19cd9; font-size: 0.9rem; margin-top: 0.5rem; }
+
+        /* Related Nakshatras */
+        .related-section { margin-top: 4rem; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .related-card { background: rgba(255,255,255,0.05); border-radius: 15px; padding: 1.5rem; text-decoration: none; color: inherit; transition: all 0.3s ease; }
+        .related-card:hover { transform: translateY(-3px); background: rgba(255,255,255,0.08); }
+
+        /* Psychology trait cards */
+        .psychology-traits { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+        .trait-category { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 1.2rem; }
+        .trait-category h3 { font-family: 'Orbitron', monospace; font-size: 1.1rem; color: #9b59b6; margin-bottom: 0.8rem; }
+        .trait-category ul { list-style: none; padding-left: 0; }
+        .trait-category li { color: #e0e0e0; margin: 0.35rem 0; display: flex; align-items: center; gap: 0.5rem; }
+        .trait-category li::before { content: '\2713'; color: #9b59b6; font-size: 0.9rem; }
+
+        .practice-category {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 1.2rem;
+        }
+
+        .practice-category h3 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.1rem;
+            color: #9b59b6;
+            margin-bottom: 0.8rem;
+        }
+
+        .practice-category ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .practice-category li {
+            color: #e0e0e0;
+            margin: 0.35rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .practice-category li::before {
+            content: '\2713';
+            color: #9b59b6;
+            font-size: 0.9rem;
+        }
+
+        .practices-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .applications-grid, .career-guidance, .compatibility-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .application-category, .guidance-category {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 1.2rem;
+        }
+
+        .application-category h3, .guidance-category h3 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.1rem;
+            color: #9b59b6;
+            margin-bottom: 0.8rem;
+        }
+
+        .application-category ul, .guidance-category ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .application-category li, .guidance-category li {
+            color: #e0e0e0;
+            margin: 0.35rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .application-category li::before, .guidance-category li::before {
+            content: '\2713';
+            color: #9b59b6;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-bar { padding: 1rem; }
+            .hero { padding: 2rem 1rem; }
+            .nakshatra-symbol { font-size: 4rem; }
+            .stellar-info-hero { gap: 1.5rem; }
+            .content-section { padding: 2rem 1rem; }
+            .two-column-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .mythology-section, .psychology-section, .practical-section { padding: 2rem 1.5rem; margin: 2rem 0; }
+            .stats-grid { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1.5rem; }
+            .qualities-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+            .psychology-traits { grid-template-columns: 1fr; gap: 1rem; }
+            .quality-item { border-radius: 15px; }
+            .quality-tag { padding: 10px 15px; font-size: 0.9rem; }
+            .quality-arrow { font-size: 0.7rem; }
+            .quality-details { padding: 0 15px; }
+            .quality-details p { font-size: 0.85rem; }
+
+            .quality-item.expanded .quality-details { max-height: 400px; }
+            .detail-item { padding: 8px 12px; font-size: 0.85rem; }
+            .card-header-expand { margin-bottom: 0.8rem; }
+            .expand-arrow { font-size: 1rem; }
+            .hero div[style*="max-width: 900px"] { margin: 2rem 1rem 1.5rem 1rem !important; padding: 1.5rem !important; }
+            .hero div[style*="max-width: 900px"] p { font-size: 1rem !important; }
+            .hero div[style*="max-width: 900px"] p:first-child { font-size: 1.1rem !important; }
+        }
+    </style>
+</head>
+<body id="top">
+    <!-- Stellar Background -->
+    <div class="stellar-bg" id="stellarBg"></div>
+
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="nav-content">
+            <a href="nakshatras.html" class="nav-back">
+                <i class="fas fa-arrow-left"></i> All Nakshatras
+            </a>
+            <div class="nav-title">Dhanishtha Nakshatra</div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <!-- Navigation Buttons -->
+            <div class="nav-buttons" style="margin-bottom: 2rem;">
+                <a href="nakshatras.html" class="nav-btn">
+                    <i class="fas fa-arrow-left"></i> All Nakshatras
+                </a>
+                <a href="shravana.html" class="nav-btn">
+                    <i class="fas fa-arrow-left"></i> Previous: Shravana
+                </a>
+                <a href="#qualities" class="nav-btn primary">
+                    <i class="fas fa-drum"></i> Explore Qualities
+                </a>
+                <a href="shatabhisha.html" class="nav-btn">
+                    Next: Shatabhisha <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="nakshatra-symbol">🥁</div>
+            <h1>DHANISHTHA</h1>
+            <p class="translation">"The Wealthiest" or "The Star of Symphony"</p>
+            <p class="tagline">The Cosmic Drummer • The Wealthy One • The Star of Symphony</p>
+            
+            <!-- Engaging Introduction -->
+            <div style="max-width: 900px; margin: 3rem auto 2rem auto; padding: 2rem; background: rgba(155, 89, 182, 0.1); border-radius: 20px; border: 1px solid rgba(155, 89, 182, 0.2);">
+                <p style="font-size: 1.2rem; line-height: 1.8; color: #e0e0e0; text-align: left; margin-bottom: 1.5rem;">
+                    You are the <strong style="color: #9b59b6;">cosmic drummer of reality</strong>, the one who understands that <strong style="color: #9b59b6;">rhythm is the heartbeat of the universe</strong>. Where others hear chaos, you discern a symphony. You don't just exist—you <strong>create the soundtrack of existence</strong>.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.7; color: #e0e0e0; text-align: left; margin-bottom: 1.5rem;">
+                    Modern physics confirms your essence: <strong style="color: #8e44ad;">everything is vibration</strong>. Dhanishtha operates the same way—by attuning to the cosmic rhythm, life becomes <strong>abundant, famous, and full of purpose</strong>.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.7; color: #e0e0e0; text-align: left; font-style: italic;">
+                    Welcome to your divine assignment, <strong style="color: #9b59b6;">Keeper of the Cosmic Rhythm</strong>. You're not here to follow—you’re here to <strong>create the beat</strong>. 🥁
+                </p>
+            </div>
+            
+            <div class="stellar-info-hero">
+                <div class="info-item">
+                    <div class="info-label">Ruling Planet</div>
+                    <div class="info-value">Mars</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Element</div>
+                    <div class="info-value">Aether</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Zodiac Range</div>
+                    <div class="info-value">23°20' Capricorn - 6°40' Aquarius</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Archetype</div>
+                    <div class="info-value">The Musician</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mythology & Symbolism -->
+    <section class="mythology-section">
+        <div class="section-header">
+            <h2 class="section-title">Mythological Foundation</h2>
+            <p class="section-subtitle">The Ancient Wisdom Behind the Cosmic Symphony</p>
+        </div>
+
+        <div class="three-column-grid">
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">💎</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">The Eight Vasus</h3>
+                <div class="basic-content">
+                    Dhanishtha is ruled by the eight Vasus, the deities of earthly abundance and cosmic laws.
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Guardians of Wealth:</strong> The Vasus are the providers of wealth, prosperity, and all earthly treasures.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Keepers of Cosmic Order:</strong> They uphold the natural laws of the universe and maintain the rhythm of creation.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Masters of Manifestation:</strong> The Vasus have the power to manifest desires and to bring thoughts into reality.
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">🥁</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">The Drum (Damaru)</h3>
+                <div class="basic-content">
+                    The drum of Shiva, symbolizing the rhythm of the universe and the heartbeat of creation.
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>The Sound of Creation:</strong> The damaru is the instrument of creation, its beat bringing the universe into existence.
+                    </div>
+                    <div class="detail-item">
+                        <strong>The Rhythm of Time:</strong> The drum represents the cyclical nature of time and the rhythm of life, death, and rebirth.
+                    </div>
+                    <div class="detail-item">
+                        <strong>The Power of Vibration:</strong> The damaru reminds us that all of creation is vibration and that we can attune ourselves to the cosmic rhythm.
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">🎶</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">The Flute (Bansuri)</h3>
+                <div class="basic-content">
+                    The flute of Krishna, representing the music of the spheres and the captivating power of sound.
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>The Music of the Spheres:</strong> The flute symbolizes the divine music that pervades the universe and the harmony of creation.
+                    </div>
+                    <div class="detail-item">
+                        <strong>The Power of Attraction:</strong> The enchanting music of the flute has the power to attract and to mesmerize all who hear it.
+                    </div>
+                    <div class="detail-item">
+                        <strong>The Call of the Divine:</strong> The flute represents the call of the divine, inviting us to leave behind our worldly concerns and to merge with the cosmic consciousness.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Essence Section -->
+    <section class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">The Essence of Dhanishtha</h2>
+            <p class="section-subtitle">Understanding the cosmic drummer in the cosmic sequence</p>
+        </div>
+
+        <div class="two-column-grid">
+            <div class="content-card">
+                <div class="card-icon">🥁</div>
+                <h3 class="card-title">The Rhythm of Abundance</h3>
+                <div class="card-content">
+                    Ruled by Mars and anchored in Capricorn and Aquarius, Dhanishtha embodies the principle of rhythmic abundance. Like the beat of a drum, this energy creates a vibration that attracts wealth, fame, and recognition.
+                </div>
+            </div>
+            
+            <div class="content-card">
+                <div class="card-icon">🎶</div>
+                <h3 class="card-title">The Symphony of Success</h3>
+                <div class="card-content">
+                    Dhanishtha is the star of performance and showmanship. These individuals have a natural ability to captivate an audience and to achieve success in the material world. They are the rockstars of the zodiac.
+                </div>
+            </div>
+        </div>
+
+        <!-- Core Qualities -->
+        <div id="qualities" class="qualities-grid">
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Rhythmic & Musical</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>A natural sense of rhythm and a love of music and dance.</p>
+                </div>
+            </div>
+            
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Wealthy & Prosperous</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>The ability to attract wealth and to live a life of abundance.</p>
+                </div>
+            </div>
+
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Ambitious & Confident</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>A strong drive to succeed and a belief in one's own abilities.</p>
+                </div>
+            </div>
+
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Social & Popular</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>A charming and magnetic personality that attracts many friends and admirers.</p>
+                </div>
+            </div>
+
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Good at Conversation</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>The ability to engage in witty and intelligent conversation.</p>
+                </div>
+            </div>
+
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Spiritual & Philosophical</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>A deep interest in the spiritual and philosophical dimensions of life.</p>
+                </div>
+            </div>
+
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Loves to Travel</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>A desire to explore the world and to experience different cultures.</p>
+                </div>
+            </div>
+
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Enjoys the Limelight</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>A love of attention and a desire to be in the public eye.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Psychological Profile -->
+    <section class="psychology-section">
+        <div class="section-header">
+            <h2 class="section-title">Psychological Architecture</h2>
+            <p class="section-subtitle">Understanding the Dhanishtha mind through modern psychology</p>
+        </div>
+
+        <div class="two-column-grid">
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">🧠</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Cognitive Patterns</h3>
+                <div class="basic-content">
+                    How the Dhanishtha mind creates rhythm and abundance
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Rhythmic Thinking:</strong> The ability to perceive and to create patterns and rhythms in all areas of life.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Charismatic Expression:</strong> A natural talent for expressing oneself in a charismatic and captivating way.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Strategic Ambition:</strong> The ability to set and to achieve long-term goals with confidence and determination.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Confident Execution:</strong> A belief in one's own abilities and the courage to take decisive action.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Social Intelligence:</strong> An intuitive understanding of social dynamics and the ability to navigate any social situation with ease.
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">❤️</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Emotional Landscape</h3>
+                <div class="basic-content">
+                    The emotional world of the cosmic drummer
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Optimistic & Enthusiastic:</strong> A generally positive and upbeat outlook on life.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Seeks Recognition:</strong> A desire for fame, recognition, and appreciation from others.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Passionate & Intense:</strong> Experiences life with great passion and intensity.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Generous & Giving:</strong> A generous and giving nature, especially towards those they care about.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Prone to Impatience:</strong> Can be impatient and easily frustrated when things don't go their way.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Personality Stats -->
+        <div class="stats-section expandable-card" onclick="toggleExpandableCard(this)" style="cursor: pointer;">
+            <div class="card-header-expand" style="justify-content: center; margin-bottom: 1rem;">
+                <h3 style="color: #9b59b6; margin: 0;">Personality Dynamics</h3>
+                <span class="expand-arrow" style="margin-left: 1rem;">▼</span>
+            </div>
+            
+            <div class="basic-content">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>90%</h3>
+                        <p>Musicality</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>85%</h3>
+                        <p>Ambition</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>80%</h3>
+                        <p>Charisma</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>75%</h3>
+                        <p>Wealth Consciousness</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>70%</h3>
+                        <p>Performance</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="detailed-content">
+                <div class="detail-item">
+                    <strong>Musicality (90%):</strong> A natural talent for music, rhythm, and dance.
+                </div>
+                <div class="detail-item">
+                    <strong>Ambition (85%):</strong> A strong desire to achieve wealth, fame, and success.
+                </div>
+                <div class="detail-item">
+                    <strong>Charisma (80%):</strong> A magnetic personality that attracts others and inspires them to follow.
+                </div>
+                <div class="detail-item">
+                    <strong>Wealth Consciousness (75%):</strong> A natural ability to attract and to manage wealth.
+                </div>
+                <div class="detail-item">
+                    <strong>Performance (70%):</strong> A love of the stage and a talent for performing in front of an audience.
+                </div>
+            </div>
+        </div>
+
+        <!-- Trait Categories -->
+        <div class="psychology-traits">
+            <div class="trait-category">
+                <h3>Cognitive Strengths</h3>
+                <ul>
+                    <li>Rhythmic thinking</li>
+                    <li>Charismatic expression</li>
+                    <li>Strategic ambition</li>
+                    <li>Confident execution</li>
+                    <li>Social intelligence</li>
+                </ul>
+            </div>
+            <div class="trait-category">
+                <h3>Emotional Qualities</h3>
+                <ul>
+                    <li>Optimistic & enthusiastic</li>
+                    <li>Seeks recognition</li>
+                    <li>Passionate & intense</li>
+                    <li>Generous & giving</li>
+                    <li>Prone to impatience</li>
+                </ul>
+            </div>
+            <div class="trait-category">
+                <h3>Core Motivations</h3>
+                <ul>
+                    <li>To create and to perform</li>
+                    <li>To achieve wealth and fame</li>
+                    <li>To be a leader</li>
+                    <li>To enjoy life to the fullest</li>
+                    <li>To make a difference in the world</li>
+                </ul>
+            </div>
+            <div class="trait-category">
+                <h3>Growth Areas</h3>
+                <ul>
+                    <li>Overcoming arrogance</li>
+                    <li>Managing impatience</li>
+                    <li>Avoiding extravagance</li>
+                    <li>Dealing with criticism</li>
+                    <li>Balancing personal ambition with the needs of others</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practical Applications -->
+    <section class="practical-section">
+        <div class="section-header">
+            <h2 class="section-title">Practical Applications</h2>
+            <p class="section-subtitle">Harnessing Dhanishtha's rhythmic energy in daily life</p>
+        </div>
+
+        <div class="three-column-grid">
+            <!-- Music & Rhythm Card -->
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon"><i class="fas fa-music"></i></div>
+                    <h3 class="card-title">Music & Rhythm</h3>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <div class="basic-content">
+                    Tuning into the cosmic symphony for enhanced focus and creativity.
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Curate Playlists:</strong> Create playlists for different moods and tasks—focus, relaxation, and motivation.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Feel the Beat:</strong> Engage in activities like drumming, dancing, or even rhythmic breathing to connect with your inner pulse.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Explore Soundscapes:</strong> Use ambient sounds or binaural beats to create an optimal environment for deep work.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wealth & Abundance Card -->
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon"><i class="fas fa-gem"></i></div>
+                    <h3 class="card-title">Wealth & Abundance</h3>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <div class="basic-content">
+                    Attracting prosperity by aligning with the flow of universal resources.
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Generosity Cycle:</strong> Practice giving and receiving. The flow of wealth is a rhythm; share what you have to make space for more.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Abundance Mindset:</strong> Use affirmations and visualizations focused on prosperity and financial well-being.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Value Creation:</strong> Focus on providing genuine value in your work. Wealth follows contribution.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Performance & Recognition Card -->
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon"><i class="fas fa-star"></i></div>
+                    <h3 class="card-title">Performance & Recognition</h3>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <div class="basic-content">
+                    Shining your light and sharing your talents with the world.
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Share Your Work:</strong> Whether it's a project, an idea, or a piece of art, don't be afraid to put it out there.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Build a Platform:</strong> Use social media or a personal website to build your brand and connect with an audience.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Network Strategically:</strong> Attend events and connect with people who can help you advance your goals.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practice Categories -->
+        <div class="practices-grid" style="margin-top: 3rem;">
+            <div class="practice-category">
+                <h3>Daily Practices</h3>
+                <ul>
+                    <li>Listen to inspiring music</li>
+                    <li>Practice rhythmic breathing</li>
+                    <li>Repeat wealth affirmations</li>
+                    <li>Express gratitude for your talents</li>
+                </ul>
+            </div>
+
+            <div class="practice-category">
+                <h3>Weekly Focus</h3>
+                <ul>
+                    <li>Engage in a creative performance</li>
+                    <li>Network with one new person</li>
+                    <li>Review your financial goals</li>
+                    <li>Dance or drum to release stress</li>
+                </ul>
+            </div>
+
+            <div class="practice-category">
+                <h3>Monthly Refinement</h3>
+                <ul>
+                    <li>Take a course on public speaking</li>
+                    <li>Attend a wealth creation workshop</li>
+                    <li>Showcase a completed project</li>
+                    <li>Collaborate with another artist</li>
+                </ul>
+            </div>
+
+            <div class="practice-category">
+                <h3>Advanced Techniques</h3>
+                <ul>
+                    <li>Compose your own music or create a performance piece</li>
+                    <li>Launch a business or a personal brand</li>
+                    <li>Mentor others in your field of expertise</li>
+                    <li>Engage in philanthropic activities</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modern Relevance -->
+    <section class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">Modern Relevance</h2>
+            <p class="section-subtitle">Applying Dhanishtha's wisdom to contemporary challenges</p>
+        </div>
+
+        <div class="two-column-grid">
+            <!-- The Music Industry Card -->
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon"><i class="fas fa-microphone-alt"></i></div>
+                    <h3 class="card-title">The Music Industry</h3>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <div class="basic-content">
+                    The rhythm of the modern world and the pursuit of fame and fortune.
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>The Digital Stage:</strong> Social media and streaming platforms have become the new arenas for Dhanishtha's performative talents.
+                    </div>
+                    <div class="detail-item">
+                        <strong>The Creator Economy:</strong> Musicians and artists can now build their own empires, embodying Dhanishtha's entrepreneurial spirit.
+                    </div>
+                    <div class="detail-item">
+                        <strong>The Pressure to Perform:</strong> The constant demand for new content can lead to burnout, a challenge for Dhanishtha to manage.
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Attention Economy Card -->
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon"><i class="fas fa-eye"></i></div>
+                    <h3 class="card-title">The Attention Economy</h3>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <div class="basic-content">
+                    Competing for eyeballs and eardrums in a world of infinite distraction.
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Content as Currency:</strong> Dhanishtha's ability to captivate an audience is a valuable asset in the attention economy.
+                    </div>
+                    <div class="detail-item">
+                        <strong>The Art of the Hook:</strong> Crafting compelling narratives and performances that stand out from the noise.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Authenticity vs. Clicks:</strong> The challenge of staying true to one's artistic vision while also seeking popular acclaim.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contemporary Applications -->
+        <div class="applications-grid" style="margin-top: 3rem;">
+            <div class="application-category">
+                <h3>Entertainment</h3>
+                <ul>
+                    <li>Musicians, DJs, and Producers</li>
+                    <li>Dancers and Choreographers</li>
+                    <li>Actors and Performance Artists</li>
+                    <li>Social Media Influencers</li>
+                </ul>
+            </div>
+
+            <div class="application-category">
+                <h3>Business</h3>
+                <ul>
+                    <li>Entrepreneurs and Founders</li>
+                    <li>Marketing and Branding</li>
+                    <li>Public Relations and Media</li>
+                    <li>Venture Capital and Investment</li>
+                </ul>
+            </div>
+
+            <div class="application-category">
+                <h3>Technology</h3>
+                <ul>
+                    <li>Content Creation and Streaming</li>
+                    <li>Virtual and Augmented Reality</li>
+                    <li>Sound Design and Engineering</li>
+                    <li>User Experience (UX) Design</li>
+                </ul>
+            </div>
+
+            <div class="application-category">
+                <h3>Spirituality</h3>
+                <ul>
+                    <li>Kirtan and Devotional Music</li>
+                    <li>Sound Healing and Therapy</li>
+                    <li>Mantra and Chanting</li>
+                    <li>Spiritual Performance and Art</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career & Life Path -->
+    <section class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">Career & Life Direction</h2>
+            <p class="section-subtitle">Professional paths that align with Dhanishtha's rhythmic energy</p>
+        </div>
+
+        <div class="three-column-grid">
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon"><i class="fas fa-briefcase"></i></div>
+                    <h3 class="card-title">Ideal Professions</h3>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <div class="basic-content">
+                    Careers that leverage Dhanishtha's unique gifts for performance and rhythm.
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Creative Arts:</strong> Musicians, dancers, actors, and composers who thrive in the spotlight.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Business & Entrepreneurship:</strong> Founders, venture capitalists, and real estate developers with a talent for spotting opportunities.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Leadership Roles:</strong> CEOs, politicians, and military leaders who can inspire and motivate others.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Healing Arts:</strong> Sound healers, astrologers, and spiritual teachers who use rhythm and vibration to heal.
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon"><i class="fas fa-rocket"></i></div>
+                    <h3 class="card-title">Life Purpose</h3>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <div class="basic-content">
+                    Core themes that drive the Dhanishtha life journey toward fulfillment.
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>To Create and Perform:</strong> To express their unique talents through music, dance, and other art forms.
+                    </div>
+                    <div class="detail-item">
+                        <strong>To Achieve and Inspire:</strong> To attain material success and use their platform to motivate others.
+                    </div>
+                    <div class="detail-item">
+                        <strong>To Lead with Vision:</strong> To guide teams and communities toward a common goal with charisma and confidence.
+                    </div>
+                    <div class="detail-item">
+                        <strong>To Live Fully:</strong> To experience the richness and abundance of life in all its forms.
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3 class="card-title">Growth Path</h3>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <div class="basic-content">
+                    The evolutionary stages of a Dhanishtha professional journey.
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>The Performer:</strong> Early stages are marked by a love of the stage and a desire for recognition.
+                    </div>
+                    <div class="detail-item">
+                        <strong>The Entrepreneur:</strong> Using their talents to build a business and create wealth.
+                    </div>
+                    <div class="detail-item">
+                        <strong>The Leader:</strong> Becoming a respected figure in their field, guiding and inspiring others.
+                    </div>
+                    <div class="detail-item">
+                        <strong>The Philanthropist:</strong> Using their wealth and influence to make a positive impact on the world.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Career Guidance -->
+        <div class="career-guidance" style="margin-top: 3rem;">
+            <div class="guidance-category">
+                <h3>Workplace Strengths</h3>
+                <ul>
+                    <li>Charisma and Confidence</li>
+                    <li>Ambitious and Driven</li>
+                    <li>Creative and Innovative</li>
+                    <li>Excellent Social Skills</li>
+                </ul>
+            </div>
+
+            <div class="guidance-category">
+                <h3>Leadership Style</h3>
+                <ul>
+                    <li>Inspirational and Motivational</li>
+                    <li>Confident and Decisive</li>
+                    <li>Charismatic and Influential</li>
+                    <li>Results-Oriented</li>
+                </ul>
+            </div>
+
+            <div class="guidance-category">
+                <h3>Growth Opportunities</h3>
+                <ul>
+                    <li>Developing Patience</li>
+                    <li>Practicing Humility</li>
+                    <li>Learning to Listen</li>
+                    <li>Balancing Ambition with Team Needs</li>
+                </ul>
+            </div>
+
+            <div class="guidance-category">
+                <h3>Success Principles</h3>
+                <ul>
+                    <li>Follow Your Passion</li>
+                    <li>Believe in Your Vision</li>
+                    <li>Work Hard and Persevere</li>
+                    <li>Use Your Influence for Good</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Relationships & Compatibility -->
+    <section class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">Relationships & Compatibility</h2>
+            <p class="section-subtitle">Understanding Dhanishtha's approach to connections and partnerships</p>
+        </div>
+
+        <div class="two-column-grid">
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon"><i class="fas fa-heart"></i></div>
+                    <h3 class="card-title">Relationship Style</h3>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <div class="basic-content">
+                    How Dhanishtha approaches love and partnership with passion and flair.
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Passionate and Grand:</strong> Loves grand romantic gestures and expresses affection with dramatic flair.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Generous and Protective:</strong> Showers partners with gifts and defends them fiercely.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Social and Entertaining:</strong> Enjoys being part of a power couple and entertaining friends together.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Needs Freedom:</strong> Requires a partner who understands their need for independence and personal ambition.
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon"><i class="fas fa-users"></i></div>
+                    <h3 class="card-title">Partnership Dynamics</h3>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <div class="basic-content">
+                    The energetic interplay in a Dhanishtha relationship.
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Shared Ambition:</strong> Thrives with a partner who is equally ambitious and supportive of their goals.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Creative Collaboration:</strong> Loves to co-create with a partner, whether it's a project, a business, or a beautiful home.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Potential for Conflict:</strong> The fiery nature of Mars can lead to arguments if not balanced with patience and understanding.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Loyalty is Key:</strong> Demands unwavering loyalty and can be deeply hurt by betrayal.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Compatibility Insights -->
+        <div class="compatibility-grid" style="margin-top: 3rem;">
+            <div class="guidance-category">
+                <h3>Natural Synergy</h3>
+                <ul>
+                    <li>Ambitious and successful partners</li>
+                    <li>Creative and artistic souls</li>
+                    <li>Partners who enjoy socializing</li>
+                    <li>Those who appreciate grand gestures</li>
+                </ul>
+            </div>
+
+            <div class="guidance-category">
+                <h3>Learning Opportunities</h3>
+                <ul>
+                    <li>Overly sensitive or insecure partners</li>
+                    <li>Those who prefer a quiet, private life</li>
+                    <li>Partners who are indecisive or lack ambition</li>
+                    <li>Those who are critical of their spending habits</li>
+                </ul>
+            </div>
+
+            <div class="guidance-category">
+                <h3>Communication Keys</h3>
+                <ul>
+                    <li>Be direct, but not confrontational</li>
+                    <li>Appreciate their talents and efforts</li>
+                    <li>Give them space to pursue their goals</li>
+                    <li>Enjoy the journey of mutual success</li>
+                </ul>
+            </div>
+
+            <div class="guidance-category">
+                <h3>Growth Together</h3>
+                <ul>
+                    <li>Collaborate on a creative project</li>
+                    <li>Build a business or an empire together</li>
+                    <li>Travel the world and experience new cultures</li>
+                    <li>Host parties and entertain friends</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Relationship Wisdom -->
+        <div class="wisdom-notes" style="margin-top: 3rem; padding: 2rem; background: rgba(155, 89, 182, 0.1); border-radius: 20px;">
+            <h3 style="margin-bottom: 1.5rem; color: #9b59b6;">Sacred Partnership Wisdom</h3>
+            <div class="wisdom-grid" style="display: grid; gap: 1.5rem;">
+                <div class="wisdom-item">
+                    <strong>Create a Symphony, Not a Solo:</strong>
+                    <p>Your relationship is a duet. Ensure both partners have a chance to shine and contribute to the beautiful music you make together.</p>
+                </div>
+                <div class="wisdom-item">
+                    <strong>Share the Spotlight:</strong>
+                    <p>You love attention, but a healthy partnership requires sharing the stage. Celebrate your partner's successes as much as your own.</p>
+                </div>
+                <div class="wisdom-item">
+                    <strong>The Rhythm of Forgiveness:</strong>
+                    <p>In any relationship, there will be missed beats. Learn to forgive, adapt, and find the rhythm again. A lasting love is a dance of repair.</p>
+                </div>
+                <div class="wisdom-item">
+                    <strong>The Wealth of a Shared Life:</strong>
+                    <p>The greatest abundance is a life built together. Cherish the shared experiences, dreams, and love that you cultivate with your partner.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Nakshatras -->
+    <section class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">Explore Related Nakshatras</h2>
+            <p class="section-subtitle">Discover complementary stellar consciousness programs</p>
+        </div>
+
+        <div class="related-grid" style="margin-top: 1.5rem;">
+            <a href="shravana.html" class="related-card">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">👂</div>
+                <h3>Shravana</h3>
+                <p>The Star of Listening — Learning, communication, and deep connection</p>
+            </a>
+            <a href="chitra.html" class="related-card">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">💎</div>
+                <h3>Chitra</h3>
+                <p>The Star of Opportunity — Crafting beauty, and manifesting desires</p>
+            </a>
+            <a href="purva-bhadrapada.html" class="related-card">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔥</div>
+                <h3>Purva Bhadrapada</h3>
+                <p>The Transforming Star — Spiritual fire and revolutionary change</p>
+            </a>
+        </div>
+    </section>
+
+
+    <!-- Vedic Interpretations -->
+    <section class="vedic-section">
+        <div class="section-header">
+            <h2 class="section-title">Vedic Interpretations</h2>
+            <p class="section-subtitle">Traditional wisdom and symbolic architecture of Dhanishtha</p>
+        </div>
+
+        <div class="two-column-grid">
+            <!-- Core Vedic Data -->
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">🥁</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Core Attributes</h3>
+                <div class="basic-content">
+                    The classical framework that defines Dhanishtha's sacred role in the cosmic symphony
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Deity:</strong> The Eight Vasus — The deities of earthly abundance, representing the elements and the cosmic laws.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Shakti (Power):</strong> Khyapayitri Shakti — The power to give fame and abundance.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Sacred Symbol:</strong> The Drum (Damaru) — This symbol represents the rhythm of the universe, the heartbeat of creation, and the music of the spheres.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Ruling Planet:</strong> Mars (Mangala) — The planet of energy, action, and ambition.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Elemental Nature:</strong> Aether (Akasha) — The element of space, sound, and vibration.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Zodiac Context:</strong> 23°20' Capricorn - 6°40' Aquarius — Where the rhythm of the universe meets the collective consciousness.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Essential Nature:</strong> The Rhythmic Star — The one who creates the soundtrack of existence and attunes to the cosmic symphony.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pada Themes -->
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">🌱</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Pada Themes (Quarter Qualities)</h3>
+                <div class="basic-content">
+                    The four sacred expressions of Dhanishtha's rhythmic wisdom
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Pada 1 — 23°20' - 26°40' Capricorn (Leo Navamsa):</strong>
+                        <ul>
+                            <li>Ambitious and creative</li>
+                            <li>A desire for recognition and fame</li>
+                            <li>A natural leader</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Pada 2 — 26°40' - 30°00' Capricorn (Virgo Navamsa):</strong>
+                        <ul>
+                            <li>Intelligent and analytical</li>
+                            <li>Good at communication and writing</li>
+                            <li>A perfectionist</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Pada 3 — 0°00' - 3°20' Aquarius (Libra Navamsa):</strong>
+                        <ul>
+                            <li>Social and diplomatic</li>
+                            <li>A love of partnership and collaboration</li>
+                            <li>A good negotiator</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Pada 4 — 3°20' - 6°40' Aquarius (Scorpio Navamsa):</strong>
+                        <ul>
+                            <li>Secretive and mysterious</li>
+                            <li>A powerful intuition</li>
+                            <li>A passion for research and investigation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sacred Meanings -->
+        <div class="content-card expandable-card" onclick="toggleExpandableCard(this)" style="margin-top:1rem;">
+            <div class="card-header-expand">
+                <div class="card-icon">🕉️</div>
+                <span class="expand-arrow">▼</span>
+            </div>
+            <h3 class="card-title">Sacred Meanings</h3>
+            <div class="basic-content">
+                The deeper spiritual wisdom within Dhanishtha's rhythmic teachings
+            </div>
+            <div class="detailed-content">
+                <div class="detail-item">
+                    <strong>The Rhythm of the Universe:</strong>
+                    <ul>
+                        <li>Everything in the universe has a rhythm.</li>
+                        <li>By attuning to the cosmic rhythm, we can achieve harmony and success.</li>
+                        <li>The heartbeat, the breath, and the seasons are all expressions of the universal rhythm.</li>
+                    </ul>
+                </div>
+                <div class="detail-item">
+                    <strong>The Music of the Spheres:</strong>
+                    <ul>
+                        <li>The universe is a symphony of sound and vibration.</li>
+                        <li>By listening closely, we can hear the music of the spheres and the voice of the divine.</li>
+                        <li>Music has the power to heal, to inspire, and to transform.</li>
+                    </ul>
+                </div>
+                <div class="detail-item">
+                    <strong>The Dance of Creation:</strong>
+                    <ul>
+                        <li>Life is a dance of creation and destruction, of joy and sorrow, of light and shadow.</li>
+                        <li>By embracing the dance, we can find freedom and liberation.</li>
+                        <li>The dance of life is a celebration of the divine.</li>
+                    </ul>
+                </div>
+                <div class="detail-item">
+                    <strong>The Symphony of Life:</strong>
+                    <ul>
+                        <li>Each of us has a unique instrument to play in the symphony of life.</li>
+                        <li>By playing our part with passion and skill, we can contribute to the beauty and harmony of the whole.</li>
+                        <li>The goal of life is to create a masterpiece.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation Footer -->
+    <section class="content-section" style="text-align: center;">
+        <div class="nav-buttons">
+            <a href="shravana.html" class="nav-btn">
+                <i class="fas fa-arrow-left"></i> Previous: Shravana
+            </a>
+            <a href="#top" class="nav-btn primary">
+                <i class="fas fa-arrow-up"></i> Back to Top
+            </a>
+            <a href="shatabhisha.html" class="nav-btn">
+                Next: Shatabhisha <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+
+
+    <script>
+        // Interactive features: expandable cards, stats interactions, smooth scroll
+        function toggleExpandableCard(card) {
+            if (!card) return;
+            const isExpanded = card.classList.toggle('expanded');
+            const arrow = card.querySelector('.expand-arrow');
+            if (arrow) arrow.textContent = isExpanded ? '▲' : '▼';
+        }
+
+        function initExpandableCards() {
+            // Enable click on header to toggle (in addition to inline onclick)
+            document.querySelectorAll('.expandable-card .card-header-expand')
+                .forEach(h => {
+                    h.style.cursor = 'pointer';
+                    h.addEventListener('click', (e) => {
+                        const card = e.currentTarget.closest('.expandable-card');
+                        if (card) toggleExpandableCard(card);
+                    });
+                    // Keyboard accessibility
+                    h.setAttribute('tabindex', '0');
+                    h.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            const card = e.currentTarget.closest('.expandable-card');
+                            if (card) toggleExpandableCard(card);
+                        }
+                    });
+                });
+        }
+
+        function initSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(a => {
+                a.addEventListener('click', (e) => {
+                    const targetId = a.getAttribute('href').slice(1);
+                    if (!targetId) return;
+                    const target = document.getElementById(targetId) || document.querySelector(`[data-anchor="${targetId}"]`);
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        }
+
+        function initStatsInteraction() {
+            // Ensure stats sections show basic grid by default and toggle details
+            document.querySelectorAll('.stats-section.expandable-card').forEach(card => {
+                // If it starts expanded, normalize arrow state
+                const arrow = card.querySelector('.expand-arrow');
+                if (arrow) arrow.textContent = card.classList.contains('expanded') ? '▲' : '▼';
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initExpandableCards();
+            initSmoothScroll();
+            initStatsInteraction();
+        });
+
+    </script>
+</body>
+</html>

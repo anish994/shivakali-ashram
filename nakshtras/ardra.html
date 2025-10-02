@@ -1,0 +1,1880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ardra Nakshatra - The Storm of Transformation | ShivaKali Ashram</title>
+    <meta name="description" content="Explore Ardra Nakshatra - The Teardrop star that brings intense transformation. Learn about the sixth stellar consciousness in Vedic astrology and its modern psychological insights.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0a2e, #16213e, #1a1a2e);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Ardra-specific theme colors */
+        :root {
+            --ardra-primary: linear-gradient(135deg, #74b9ff, #0984e3);
+            --ardra-secondary: rgba(116, 185, 255, 0.2);
+            --ardra-accent: #74b9ff;
+            --ardra-glow: rgba(116, 185, 255, 0.4);
+        }
+
+        /* Navigation */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 46, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-back {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 8px 16px;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-back:hover {
+            background: var(--ardra-secondary);
+            transform: translateY(-1px);
+        }
+
+        .nav-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            color: var(--ardra-accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            text-align: center;
+            background: radial-gradient(circle at center, var(--ardra-secondary) 0%, transparent 70%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 90vh;
+            padding: 6rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .nakshatra-symbol {
+            font-size: 6rem;
+            margin-bottom: 1rem;
+            animation: float 3s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: var(--ardra-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px var(--ardra-glow);
+        }
+
+        /* Stellar Info Styling */
+        .stellar-info-hero {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .info-item {
+            text-align: center;
+        }
+
+        .info-label {
+            color: #b19cd9;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-value {
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .translation {
+            font-size: 1.5rem;
+            color: #b19cd9;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Navigation Buttons */
+        .nav-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 2rem auto;
+            max-width: 1200px;
+        }
+
+        .nav-btn {
+            background: linear-gradient(45deg, rgba(116, 185, 255, 0.2), rgba(9, 132, 227, 0.2));
+            border: 2px solid rgba(116, 185, 255, 0.3);
+            border-radius: 15px;
+            padding: 12px 24px;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .nav-btn:hover {
+            background: var(--ardra-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px var(--ardra-glow);
+        }
+
+        .nav-btn.primary {
+            background: var(--ardra-primary);
+            border-color: #0984e3;
+        }
+
+        /* Active state for nav buttons */
+        .nav-btn.active {
+            background: var(--ardra-primary);
+            border-color: #0984e3;
+            box-shadow: 0 10px 30px var(--ardra-glow);
+        }
+
+        /* Ensure anchored sections are not hidden behind fixed nav */
+        section[id] {
+            scroll-margin-top: 100px;
+        }
+
+        /* Section Styling */
+        .content-section, .mythology-section, .psychology-section, 
+        .practical-section, .career-section, .vedic-section {
+            padding: 4rem;
+            max-width: 1600px;
+            margin: 4rem auto;
+            width: 96%;
+            background: linear-gradient(135deg, rgba(116, 185, 255, 0.1), rgba(9, 132, 227, 0.05));
+            border-radius: 30px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: var(--ardra-accent);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            color: #b19cd9;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Grid Layouts */
+        .two-column-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .three-column-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Content Cards */
+        .content-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(116, 185, 255, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        /* Expandable Card Styles */
+        .expandable-card { 
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .expandable-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px var(--ardra-glow);
+        }
+
+        .card-header-expand {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            pointer-events: none;
+        }
+
+        .expand-arrow {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+            color: var(--ardra-accent);
+        }
+
+        .expandable-card.expanded .expand-arrow {
+            transform: rotate(180deg);
+        }
+
+        .basic-content {
+            color: #e0e0e0;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .detailed-content {
+            display: none;
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .expandable-card.expanded .detailed-content {
+            display: block;
+            opacity: 1;
+            margin-top: 1.5rem;
+        }
+
+        .detailed-content .detail-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem 1.25rem;
+            margin: 0.75rem 0;
+            border-radius: 12px;
+            border-left: 3px solid var(--ardra-accent);
+        }
+
+        .detail-item strong {
+            color: var(--ardra-accent);
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px var(--ardra-glow);
+            border-color: rgba(116, 185, 255, 0.3);
+            background: rgba(116, 185, 255, 0.08);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--ardra-accent);
+            filter: drop-shadow(0 0 10px rgba(116, 185, 255, 0.5));
+        }
+
+        .card-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        /* Responsive Design */
+        /* Tablet Styles */
+        @media (max-width: 1024px) {
+            .content-section,
+            .mythology-section,
+            .psychology-section,
+            .practical-section,
+            .career-section,
+            .vedic-section {
+                width: 100%;
+                padding: 3rem 2rem;
+                margin: 3rem auto;
+            }
+
+            .two-column-grid {
+                gap: 2rem;
+            }
+
+            .three-column-grid {
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            }
+
+            .nav-buttons {
+                padding: 0 2rem;
+            }
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            /* Adjust anchor offset for smaller screens */
+            section[id] { scroll-margin-top: 80px; }
+            .nav-bar { 
+                padding: 1rem; 
+            }
+
+            .hero { 
+                padding: 2rem 1rem;
+                min-height: unset;
+            }
+
+            .nakshatra-symbol { 
+                font-size: 4rem; 
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .translation {
+                font-size: 1.2rem;
+            }
+
+            .tagline {
+                font-size: 1.1rem;
+            }
+
+            .content-section,
+            .mythology-section,
+            .psychology-section,
+            .practical-section,
+            .career-section,
+            .vedic-section {
+                padding: 2rem 1rem;
+                width: 100%;
+                margin: 2rem auto;
+            }
+
+            .section-header {
+                margin: 2rem 0 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+            }
+
+            .two-column-grid,
+            .three-column-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .content-card {
+                padding: 1.5rem;
+            }
+
+            .card-icon {
+                font-size: 2rem;
+            }
+
+            .card-title {
+                font-size: 1.2rem;
+            }
+
+            .nav-buttons {
+                gap: 1rem;
+                padding: 0 1rem;
+                flex-direction: column;
+            }
+
+            .nav-btn {
+                width: 100%;
+                text-align: center;
+                padding: 0.8rem;
+            }
+        }
+
+        /* Small Mobile Styles */
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .translation {
+                font-size: 1rem;
+            }
+
+            .tagline {
+                font-size: 0.95rem;
+            }
+
+            .content-card {
+                padding: 1.2rem;
+            }
+
+            .card-icon {
+                font-size: 1.8rem;
+            }
+
+            .nav-buttons {
+                gap: 0.8rem;
+            }
+
+            .section-header {
+                padding: 1rem;
+            }
+        }
+        /* Stellar Background Animation */
+        .stellar-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            background: #ffffff;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: twinkle 3.6s infinite ease-in-out;
+        }
+
+        .star:nth-child(odd) {
+            animation-delay: 1.4s;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.25); }
+        }
+    </style>
+</head>
+<body id="top">
+    <!-- Stellar Background -->
+    <div class="stellar-bg" id="stellarBg"></div>
+    <script>
+        // Generate gentle star field like Rohini
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('stellarBg');
+            if (!container) return;
+            const STAR_COUNT = 90;
+            for (let i = 0; i < STAR_COUNT; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                const size = 0.8 + Math.random() * 2.2; // 0.8px - 3px
+                star.style.width = size + 'px';
+                star.style.height = size + 'px';
+                star.style.top = (Math.random() * 100) + '%';
+                star.style.left = (Math.random() * 100) + '%';
+                star.style.opacity = (0.25 + Math.random() * 0.6).toFixed(2);
+                star.style.animationDuration = (2.6 + Math.random() * 3.8).toFixed(2) + 's';
+                container.appendChild(star);
+            }
+        });
+    </script>
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+        <div class="nav-content">
+            <a href="nakshatras.html" class="nav-back">
+                <i class="fas fa-chevron-left"></i> Back to Nakshatras
+            </a>
+            <div class="nav-title">ARDRA</div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <!-- Navigation Buttons -->
+            <div class="nav-buttons" style="margin-bottom: 2rem;">
+                <a href="nakshatras.html" class="nav-btn">
+                    <i class="fas fa-arrow-left"></i> All Nakshatras
+                </a>
+                <a href="mrigashira.html" class="nav-btn">
+                    <i class="fas fa-arrow-left"></i> Previous: Mrigashira
+                </a>
+                <a href="#qualities" class="nav-btn primary">
+                    <i class="fas fa-bolt"></i> Explore Qualities
+                </a>
+                <a href="punarvasu.html" class="nav-btn">
+                    Next: Punarvasu <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="nakshatra-symbol">💧</div>
+            <h1>ARDRA</h1>
+            <p class="translation">"The Storm Bringer"</p>
+            <p class="tagline">Storm Master • Divine Transformer • Change Catalyst</p>
+            
+            <!-- Engaging Introduction -->
+            <div style="max-width: 900px; margin: 3rem auto 2rem auto; padding: 2rem; background: rgba(116, 185, 255, 0.1); border-radius: 20px; border: 1px solid rgba(116, 185, 255, 0.2);">
+                <p style="font-size: 1.2rem; line-height: 1.8; color: #e0e0e0; text-align: left; margin-bottom: 1.5rem;">
+                    You are the <strong style="color: #74b9ff;">sacred storm that purifies</strong>, the one who understands that <strong style="color: #74b9ff;">transformation requires intensity</strong>. Where others fear change, you embrace it. You don't just weather storms—you <strong>become them</strong>, channeling their raw power for profound evolution.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.7; color: #e0e0e0; text-align: left; margin-bottom: 1.5rem;">
+                    Modern physics confirms your essence: <strong style="color: #4ecdc4;">chaos precedes new order</strong>. Ardra operates the same way—through concentrated bursts of transformative energy that <strong>reshape reality itself</strong>.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.7; color: #e0e0e0; text-align: left; font-style: italic;">
+                    Welcome to your divine assignment, <strong style="color: #74b9ff;">Master of Sacred Storms</strong>. You're not here to maintain—you're here to <strong>transform</strong>. ⚡
+                </p>
+            </div>
+            
+            <div class="stellar-info-hero">
+                <div class="info-item">
+                    <div class="info-label">Ruling Planet</div>
+                    <div class="info-value">Rahu</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Element</div>
+                    <div class="info-value">Air</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Zodiac Range</div>
+                    <div class="info-value">6°40' - 20°00' Gemini</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Archetype</div>
+                    <div class="info-value">The Transformer</div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Mythology & Symbolism -->
+    <section class="mythology-section">
+        <div class="section-header">
+            <h2 class="section-title">Mythological Foundation</h2>
+            <p class="section-subtitle">The Ancient Wisdom Behind Sacred Transformation</p>
+        </div>
+
+        <div class="three-column-grid">
+            <div class="content-card expandable-card">
+                <div class="card-header-expand">
+                    <div class="card-icon">⚡</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Storm Lord's Power</h3>
+                <div class="basic-content">
+                    Rudra's cosmic dance of destruction and renewal
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Divine Storm:</strong> In Vedic lore, Ardra embodies Rudra's transformative power—the cosmic storm that breaks down old forms to make way for new life.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Sacred Dance:</strong> Through Rudra's tandava, the dance of destruction, stagnant energies are shattered and purified.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Cleansing Force:</strong> The storm's intensity represents necessary upheaval that cleanses both consciousness and cosmos.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Modern Expression:</strong> Understanding that profound change requires intensity—evolution through creative destruction.
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card expandable-card">
+                <div class="card-header-expand">
+                    <div class="card-icon">💧</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">The Sacred Teardrop</h3>
+                <div class="basic-content">
+                    Divine tears that initiate cosmic transformation
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Divine Emotion:</strong> Ardra means "moist" or "green"—representing the tears of Rudra that bring life-giving rain after the storm.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Cyclical Renewal:</strong> The teardrop symbolizes the sacred cycle of dissolution and rebirth essential for evolution.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Emotional Power:</strong> Deep feeling becomes transformative force, turning emotional intensity into evolutionary fuel.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Modern Meaning:</strong> Understanding emotional upheaval as necessary cleansing that precedes new growth.
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card expandable-card">
+                <div class="card-header-expand">
+                    <div class="card-icon">🌪️</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Storm Wisdom</h3>
+                <div class="basic-content">
+                    The transformative current that reshapes reality
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Celestial Position:</strong> Ardra resides in Gemini, the sign of duality and exchange—where storm energy catalyzes rapid evolution.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Raw Power:</strong> The storm's intensity as sacred force that breaks through resistance and stagnation.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Divine Purpose:</strong> Transformation is not punishment but purification—the cosmos evolving through necessary change.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Modern Vision:</strong> Building systems and societies that embrace transformation as essential to growth.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Expandable card toggle for Mythological Foundation
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.expandable-card');
+            
+            // Initialize all cards
+            cards.forEach(card => {
+                const details = card.querySelector('.detailed-content');
+                if (details) details.style.display = 'none';
+
+                // Add click handler to entire card
+                card.addEventListener('click', (e) => {
+                    // Don't toggle if clicking a link or button
+                    const tag = (e.target.tagName || '').toLowerCase();
+                    if (['a', 'button'].includes(tag)) return;
+
+                    const willExpand = !card.classList.contains('expanded');
+
+                    // Close all other cards in the same grid first
+                    const grid = card.closest('.three-column-grid');
+                    if (grid) {
+                        grid.querySelectorAll('.expandable-card.expanded').forEach(openCard => {
+                            if (openCard !== card) {
+                                openCard.classList.remove('expanded');
+                                const openDetails = openCard.querySelector('.detailed-content');
+                                if (openDetails) {
+                                    openDetails.style.display = 'none';
+                                }
+                            }
+                        });
+                    }
+
+                    // Toggle this card
+                    card.classList.toggle('expanded');
+                    if (details) {
+                        details.style.display = willExpand ? 'block' : 'none';
+                        
+                        // Ensure smooth animation by delaying opacity change
+                        if (willExpand) {
+                            requestAnimationFrame(() => {
+                                details.style.opacity = '1';
+                                details.style.transform = 'translateY(0)';
+                            });
+                        } else {
+                            details.style.opacity = '0';
+                            details.style.transform = 'translateY(-10px)';
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!-- Core Essence Section -->
+    <section class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">The Essence of Ardra</h2>
+            <p class="section-subtitle">Understanding the sacred transformer in the cosmic sequence</p>
+        </div>
+
+        <div class="two-column-grid">
+            <div class="content-card">
+                <div class="card-icon">⚡</div>
+                <h3 class="card-title">Transformative Essence</h3>
+                <div class="card-content">
+                    Ruled by Rudra and expressed through the storm, Ardra embodies purification through intensity. This energy breaks stagnation and clears pathways—so renewal can arrive with honesty, power, and clarity.
+                </div>
+            </div>
+            
+            <div class="content-card">
+                <div class="card-icon">💧</div>
+                <h3 class="card-title">Sacred Purification</h3>
+                <div class="card-content">
+                    Ardra’s teardrop symbolizes divine compassion after catharsis—the rain that follows lightning. Transformation is not chaos for chaos’ sake; it is care expressed as truth, clearing what blocks evolution.
+                </div>
+            </div>
+        </div>
+
+        <!-- Core Qualities -->
+        <div id="qualities" class="qualities-grid">
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Purifying Change</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>Turns disruption into clarity. Removes what no longer serves so new patterns can take root with integrity.</p>
+                </div>
+            </div>
+
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Emotional Alchemy</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>Transmutes intense feelings into focused action and courageous truth-telling that liberates growth.</p>
+                </div>
+            </div>
+
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Storm Clarity</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>Finds signal in turbulence. Sees the essential message inside crisis and responds with precision.</p>
+                </div>
+            </div>
+
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Creative Destruction</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>Breaks old containers to birth higher forms—ending with respect so beginnings have clean ground.</p>
+                </div>
+            </div>
+
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Resilient Heart</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>Stays steady through intensity. Learns to self-soothe, ground, and guide others through change.</p>
+                </div>
+            </div>
+
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Focused Power</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>Channels raw force with ethics. Uses intensity consciously—never to harm, always to evolve.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Local styles to match Rohini's qualities UI with Ardra colors -->
+        <style>
+        .qualities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .quality-item {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 0.2rem 0.2rem 0.2rem 0.2rem;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+        .quality-item:hover { 
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px var(--ardra-glow);
+            border-color: rgba(116,185,255,0.35);
+        }
+        .quality-item.expanded { 
+            background: rgba(116,185,255,0.12);
+            border-color: rgba(116,185,255,0.45);
+            box-shadow: 0 6px 18px var(--ardra-glow);
+        }
+        .quality-tag {
+            padding: 14px 16px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .quality-arrow { color: var(--ardra-accent); font-size: 0.9rem; transition: transform 0.25s ease; }
+        .quality-item.expanded .quality-arrow { transform: rotate(180deg); }
+        .quality-details {
+            max-height: 0; overflow: hidden; opacity: 0; transform: translateY(-6px);
+            padding: 0 16px; transition: max-height 0.3s ease, padding 0.25s ease, opacity 0.2s ease, transform 0.2s ease;
+            background: rgba(255,255,255,0.04);
+            border-top: 1px solid rgba(255,255,255,0.06);
+            border-radius: 0 0 14px 14px;
+        }
+        .quality-item.expanded .quality-details {
+            max-height: 220px; padding: 12px 16px 14px; opacity: 1; transform: translateY(0);
+        }
+        .quality-details p { color: #e0e0e0; margin: 0; line-height: 1.6; font-size: 0.95rem; }
+        </style>
+
+        <script>
+        function toggleQuality(el){
+            const willExpand = !el.classList.contains('expanded');
+            const grid = el.closest('.qualities-grid');
+            if (grid){
+                grid.querySelectorAll('.quality-item.expanded').forEach(open => open.classList.remove('expanded'));
+            }
+            if (willExpand) el.classList.add('expanded');
+        }
+        </script>
+    </section>
+
+    <!-- Psychological Architecture -->
+    <section id="psychology" class="psychology-section">
+        <div class="section-header">
+            <h2 class="section-title">Psychological Architecture</h2>
+            <p class="section-subtitle">How the Ardra mind processes intensity into transformation</p>
+        </div>
+
+        <div class="three-column-grid">
+            <div class="content-card expandable-card">
+                <div class="card-header-expand">
+                    <div class="card-icon">🧠</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Cognitive Patterns</h3>
+                <div class="basic-content">
+                    How Ardra converts chaos into clear decisions and action
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Signal Extraction:</strong> Rapidly detects the core issue inside complex, emotionally charged situations.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Decisive Clarity:</strong> Thinks in thresholds—when truth is clear, acts boldly and cleanly.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Systems Reset:</strong> Comfortable rebuilding structures when they no longer serve evolution.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Truth-first Logic:</strong> Prioritizes what is real over what is comfortable; integrity over appeasement.
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card expandable-card">
+                <div class="card-header-expand">
+                    <div class="card-icon">❤️</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Emotional Landscape</h3>
+                <div class="basic-content">
+                    The storm-heart that purifies, releases, and renews
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Deep Release:</strong> Intensity surfaces the truth—tears, rage, or catharsis become healing currents.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Compassion Aftermath:</strong> Post-storm softness; empathy increases after honest clearing.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Trigger Alchemy:</strong> Learns to metabolize triggers into awareness rather than reaction.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Nervous System Skill:</strong> Practices grounding (breath, movement, water) to regulate power.
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card expandable-card">
+                <div class="card-header-expand">
+                    <div class="card-icon">🌀</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Adaptive Behavior</h3>
+                <div class="basic-content">
+                    What Ardra does under pressure to create real change
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Clean Breaks:</strong> Ends misaligned patterns decisively, with respect and non-drag.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Crisis to Protocol:</strong> Turns one-time chaos into repeatable systems and safeguards.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Boundary Power:</strong> Sets firm, clear edges that protect transformation pathways.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Leadership Under Fire:</strong> Stabilizes others, names truth, and directs energy toward renewal.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Personality Dynamics (Stats) -->
+        <div class="stats-section expandable-card" style="cursor: pointer; margin-top: 1rem;" onclick="/* allow entire card click */void(0)">
+            <div class="card-header-expand" style="justify-content: center; margin-bottom: 0.8rem;">
+                <h3 style="color: var(--ardra-accent); margin: 0;">Personality Dynamics</h3>
+                <span class="expand-arrow" style="margin-left: 0.6rem;">▼</span>
+            </div>
+
+            <div class="basic-content">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>88%</h3>
+                        <p>Transformative Drive</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>84%</h3>
+                        <p>Emotional Intensity</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>86%</h3>
+                        <p>Truth Orientation</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>82%</h3>
+                        <p>Resilience</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>78%</h3>
+                        <p>Adaptive Strategy</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detailed-content">
+                <div class="detail-item">
+                    <strong>Transformative Drive (88%):</strong> Innate push toward catalytic change—moves stagnant systems into renewed flow.
+                </div>
+                <div class="detail-item">
+                    <strong>Emotional Intensity (84%):</strong> Feels deeply; when guided, that intensity becomes medicine instead of mayhem.
+                </div>
+                <div class="detail-item">
+                    <strong>Truth Orientation (86%):</strong> Prioritizes what is real over what is convenient; values integrity as north star.
+                </div>
+                <div class="detail-item">
+                    <strong>Resilience (82%):</strong> Rebounds after disruption with clearer boundaries and refined purpose.
+                </div>
+                <div class="detail-item">
+                    <strong>Adaptive Strategy (78%):</strong> Converts lessons from crisis into protocols that prevent repetition.
+                </div>
+            </div>
+        </div>
+
+        <style>
+        /* Minimal stats styling (matches Rohini pattern with Ardra colors) */
+        .stats-section { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 1.2rem; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; text-align: center; }
+        .stat-item h3 { font-size: 1.6rem; color: var(--ardra-accent); font-family: 'Orbitron', sans-serif; margin: 0; }
+        .stat-item p { color: #b19cd9; font-size: 0.9rem; margin: 0.35rem 0 0; }
+        </style>
+
+        <!-- Trait Categories (match Rohini structure, Ardra theme) -->
+        <div class="psychology-traits" style="margin-top: 1rem;">
+            <div class="trait-category">
+                <h3>Cognitive Strengths</h3>
+                <ul>
+                    <li>Pattern disruption awareness</li>
+                    <li>Systems reset thinking</li>
+                    <li>Truth-centered decisioning</li>
+                    <li>Elegant simplification under pressure</li>
+                    <li>Decisive execution</li>
+                </ul>
+            </div>
+            <div class="trait-category">
+                <h3>Emotional Qualities</h3>
+                <ul>
+                    <li>Grounded intensity</li>
+                    <li>Compassion after catharsis</li>
+                    <li>Somatic self-regulation</li>
+                    <li>Courageous honesty</li>
+                    <li>Stabilizing presence</li>
+                </ul>
+            </div>
+            <div class="trait-category">
+                <h3>Core Motivations</h3>
+                <ul>
+                    <li>Clearing what blocks growth</li>
+                    <li>Serving truth and integrity</li>
+                    <li>Protecting the essential</li>
+                    <li>Designing cleaner systems</li>
+                    <li>Transforming crisis into clarity</li>
+                </ul>
+            </div>
+            <div class="trait-category">
+                <h3>Growth Areas</h3>
+                <ul>
+                    <li>Balancing intensity with tenderness</li>
+                    <li>Avoiding burn-through decisions</li>
+                    <li>Releasing all-or-nothing thinking</li>
+                    <li>Practicing paced transitions</li>
+                    <li>Guarding energy boundaries</li>
+                </ul>
+            </div>
+        </div>
+
+        <style>
+        .psychology-traits { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; }
+        .trait-category { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 1.2rem; }
+        .trait-category h3 { font-family: 'Orbitron', sans-serif; font-size: 1.05rem; color: var(--ardra-accent); margin-bottom: 0.8rem; }
+        .trait-category ul { list-style: none; padding-left: 0; margin: 0; }
+        .trait-category li { color: #e0e0e0; margin: 0.35rem 0; display: flex; align-items: center; gap: 0.5rem; }
+        .trait-category li::before { content: '\2713'; color: var(--ardra-accent); font-size: 0.9rem; }
+        @media (max-width: 768px) {
+            .psychology-traits { grid-template-columns: 1fr; gap: 1rem; }
+        }
+        </style>
+    </section>
+
+    <!-- Practical Applications -->
+    <section id="practical" class="practical-section">
+        <div class="section-header">
+            <h2 class="section-title">Practical Applications</h2>
+            <p class="section-subtitle">Working with Ardra's storm intelligence in daily life</p>
+        </div>
+
+        <div class="three-column-grid">
+            <!-- Personal Practice -->
+            <div class="content-card expandable-card">
+                <div class="card-header-expand">
+                    <div class="card-icon">🌪️</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Personal Practice</h3>
+                <div class="basic-content">Channel and purify intensity through embodied rituals</div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Storm Meditation:</strong> Breath in 4-4-6 cadence; exhale with sound to release pressure. Visualize lightning clearing stagnation.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Movement Catharsis:</strong> Shake, stomp, or dance for 3–7 minutes to metabolize charge; ground with slow walking after.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Water Alchemy:</strong> Cold rinse for 30–60s post-shower to reset the nervous system and anchor clarity.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Aftercare:</strong> Tea + journaling: one truth I’m naming, one pattern I’m ending, one action I’m taking.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Protective Tools -->
+            <div class="content-card expandable-card">
+                <div class="card-header-expand">
+                    <div class="card-icon">🛡️</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Protective Tools</h3>
+                <div class="basic-content">Direct Ardra’s force with ethical boundaries and allies</div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Crystals:</strong> Black Tourmaline (protect), Moldavite (transform), Aquamarine (soothe), Hematite (ground).
+                    </div>
+                    <div class="detail-item">
+                        <strong>Space Protocols:</strong> Clear clutter weekly; keep a “storm corner” for intense movement + breathwork.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Boundary Script:</strong> “For integrity, I’m ending X. This creates space for Y.” Use when closing loops.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Digital Hygiene:</strong> Unfollow, mute, archive. Remove inputs that amplify chaos without purpose.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timing & Cycles -->
+            <div class="content-card expandable-card">
+                <div class="card-header-expand">
+                    <div class="card-icon">⏳</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Timing & Cycles</h3>
+                <div class="basic-content">Align actions with windows of maximum transformative effect</div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Ardra Transit:</strong> Use Ardra lunar days for endings, clearing, refactors, and honest conversations.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Storm Windows:</strong> When emotions spike, schedule a 15–30 min ritual—don’t decide mid-surge.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Weekly Reset:</strong> Choose one “storm hour” per week to end stale tasks and close open loops.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Monthly Purge:</strong> One thing to end, one boundary to strengthen, one structure to simplify.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practice Categories -->
+        <div class="practices-grid" style="margin-top: 3rem;">
+            <div class="practice-category">
+                <h3>Daily Practices</h3>
+                <ul>
+                    <li>3–7 min movement catharsis</li>
+                    <li>Cold rinse reset</li>
+                    <li>Truth journaling (3 lines)</li>
+                    <li>Nervous system grounding walk</li>
+                    <li>Space micro-clear (5 items)</li>
+                </ul>
+            </div>
+
+            <div class="practice-category">
+                <h3>Weekly Focus</h3>
+                <ul>
+                    <li>“Storm hour” to end/clear</li>
+                    <li>Boundary script practice</li>
+                    <li>Clutter zone reset</li>
+                    <li>Ritual: salt bath or sauna</li>
+                    <li>Relationship repair conversation</li>
+                </ul>
+            </div>
+
+            <div class="practice-category">
+                <h3>Monthly Refinement</h3>
+                <ul>
+                    <li>One structural refactor</li>
+                    <li>One courageous ending</li>
+                    <li>One environment upgrade</li>
+                    <li>One truth-driven goal</li>
+                    <li>One celebration of renewal</li>
+                </ul>
+            </div>
+
+            <div class="practice-category">
+                <h3>Advanced Techniques</h3>
+                <ul>
+                    <li>Conflict-to-protocol mapping</li>
+                    <li>Somatic trigger alchemy</li>
+                    <li>Team refactor workshop</li>
+                    <li>Lifecycle design (start/end)</li>
+                    <li>Ethical disruption planning</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Styles to match Rohini's practice boxes with Ardra theme -->
+        <style>
+        .practice-category { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 1.2rem; }
+        .practice-category h3 { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; color: var(--ardra-accent); margin-bottom: 0.8rem; }
+        .practice-category ul { list-style: none; padding-left: 0; }
+        .practice-category li { color: #e0e0e0; margin: 0.35rem 0; display: flex; align-items: center; gap: 0.5rem; }
+        .practice-category li::before { content: '\2713'; color: var(--ardra-accent); font-size: 0.9rem; }
+        .practices-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+        </style>
+    </section>
+
+    <!-- Modern Relevance -->
+    <section class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">Modern Relevance</h2>
+            <p class="section-subtitle">Applying Ardra’s transformation wisdom to today’s challenges</p>
+        </div>
+
+        <div class="two-column-grid">
+            <!-- Digital Age Clarity -->
+            <div class="content-card expandable-card">
+                <div class="card-header-expand">
+                    <div class="card-icon">📱</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Digital Age Clarity</h3>
+                <div class="basic-content">Finding truth through noise in hyper-stimulated environments</div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Signal Over Noise:</strong> Reduce inputs; strengthen discernment rituals—mute, unfollow, unsubscribe.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Decision Windows:</strong> Use time-boxing during high arousal; decide after somatic reset, not mid-trigger.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Refactor Thinking:</strong> Document recurring digital frictions and redesign workflows once per week.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Truth Hygiene:</strong> Prioritize first-source info; avoid outrage cycles and performative debates.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ethical Disruption -->
+            <div class="content-card expandable-card">
+                <div class="card-header-expand">
+                    <div class="card-icon">⚡</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Ethical Disruption</h3>
+                <div class="basic-content">Ending misaligned patterns to make space for cleaner systems</div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Closure Protocols:</strong> Name the friction, propose the boundary, offer a transition path.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Team Refactors:</strong> Convert recurring crises into clear playbooks; remove single points of failure.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Risk with Care:</strong> Pilot changes in small scopes; observe; scale what stabilizes energy.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Respectful Endings:</strong> End with gratitude and clarity; avoid ambiguity that reopens loops.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contemporary Applications -->
+        <div class="applications-grid" style="margin-top: 3rem;">
+            <div class="application-category">
+                <h3>Mental Health</h3>
+                <ul>
+                    <li>Trigger → ritual conversion</li>
+                    <li>Nervous system resets</li>
+                    <li>Honest repair conversations</li>
+                    <li>Boundaries as self-care</li>
+                    <li>Clarity journaling</li>
+                </ul>
+            </div>
+
+            <div class="application-category">
+                <h3>Professional Life</h3>
+                <ul>
+                    <li>Refactor recurring problems</li>
+                    <li>Conflict-to-protocol mapping</li>
+                    <li>Decision hygiene under pressure</li>
+                    <li>Scope-safe disruption</li>
+                    <li>Closure and handoffs</li>
+                </ul>
+            </div>
+
+            <div class="application-category">
+                <h3>Wellness Practices</h3>
+                <ul>
+                    <li>Movement catharsis + grounding</li>
+                    <li>Water-based resets</li>
+                    <li>Digital detox windows</li>
+                    <li>Breath-led de-escalation</li>
+                    <li>Sound release rituals</li>
+                </ul>
+            </div>
+
+            <div class="application-category">
+                <h3>Social Impact</h3>
+                <ul>
+                    <li>Ethical disruption frameworks</li>
+                    <li>Community repair practices</li>
+                    <li>Transparent change processes</li>
+                    <li>Resilience by design</li>
+                    <li>Clear ending culture</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Local styles to match Rohini with Ardra theme -->
+        <style>
+        .application-category { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 1.2rem; }
+        .application-category h3 { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; color: var(--ardra-accent); margin-bottom: 0.8rem; }
+        .application-category ul { list-style: none; padding-left: 0; }
+        .application-category li { color: #e0e0e0; margin: 0.35rem 0; display: flex; align-items: center; gap: 0.5rem; }
+        .application-category li::before { content: '\2713'; color: var(--ardra-accent); font-size: 0.9rem; }
+        .applications-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+        </style>
+    </section>
+
+    <!-- Career & Life Direction -->
+    <section class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">Career & Life Direction</h2>
+            <p class="section-subtitle">Professional paths aligned with Ardra's transformative power</p>
+        </div>
+
+        <!-- Three-column cards -->
+        <div class="three-column-grid">
+            <div class="content-card expandable-card">
+                <div class="card-header-expand">
+                    <div class="card-icon">💼</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Ideal Professions</h3>
+                <div class="basic-content">Careers that channel storm intelligence into renewal</div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Change & Crisis:</strong>
+                        <ul>
+                            <li>Change Management Lead</li>
+                            <li>Crisis Response / Incident Commander</li>
+                            <li>Security & Risk Strategist</li>
+                            <li>Emergency Operations</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Systems Refactor:</strong>
+                        <ul>
+                            <li>Organizational Transformation</li>
+                            <li>Process Re-engineering</li>
+                            <li>DevOps / SRE (postmortems → protocols)</li>
+                            <li>Product Turnaround Specialist</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Human Transformation:</strong>
+                        <ul>
+                            <li>Trauma-informed Coach</li>
+                            <li>Somatic Therapist</li>
+                            <li>Conflict Mediator</li>
+                            <li>Recovery Program Designer</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Creative Destruction:</strong>
+                        <ul>
+                            <li>Ethical Disruption Consultant</li>
+                            <li>Turnaround CEO / Founder</li>
+                            <li>Policy Reform Strategist</li>
+                            <li>Refactor Architect</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card expandable-card">
+                <div class="card-header-expand">
+                    <div class="card-icon">🌟</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Life Purpose</h3>
+                <div class="basic-content">Core themes that guide Ardra’s vocational calling</div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Purify Systems:</strong> Remove what blocks truth and growth in people, teams, and structures.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Make Clean Endings:</strong> Close cycles with clarity so new life can begin on solid ground.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Stabilize Through Change:</strong> Lead others through intensity with grounded presence.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Transform Crisis:</strong> Convert breakdowns into protocols, learning, and renewal.
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card expandable-card">
+                <div class="card-header-expand">
+                    <div class="card-icon">📈</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Growth Path</h3>
+                <div class="basic-content">Stages of development for the Ardra professional</div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Foundation:</strong> Learn de-escalation, boundary scripts, and postmortem analysis.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Development:</strong> Lead small refactors; design playbooks from recurring frictions.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Leadership:</strong> Orchestrate cross-team transformation with care and clarity.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Legacy:</strong> Build enduring systems that self-correct and sustain renewal.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Guidance grid -->
+        <div class="career-guidance" style="margin-top: 3rem;">
+            <div class="guidance-category">
+                <h3>Workplace Strengths</h3>
+                <ul>
+                    <li>Truth-centered leadership</li>
+                    <li>Refactor thinking</li>
+                    <li>Calm in crisis</li>
+                    <li>Boundary clarity</li>
+                    <li>Protocol design</li>
+                </ul>
+            </div>
+
+            <div class="guidance-category">
+                <h3>Leadership Style</h3>
+                <ul>
+                    <li>Direct, compassionate feedback</li>
+                    <li>Rapid signal extraction</li>
+                    <li>Respectful endings</li>
+                    <li>Ethical disruption</li>
+                    <li>Stability through change</li>
+                </ul>
+            </div>
+
+            <div class="guidance-category">
+                <h3>Growth Opportunities</h3>
+                <ul>
+                    <li>Patience with pacing</li>
+                    <li>Stakeholder attunement</li>
+                    <li>Repair before replace</li>
+                    <li>Energy budgeting</li>
+                    <li>Delegation during surge</li>
+                </ul>
+            </div>
+
+            <div class="guidance-category">
+                <h3>Success Principles</h3>
+                <ul>
+                    <li>End well, begin clean</li>
+                    <li>Care + clarity > speed</li>
+                    <li>Ritualize learning</li>
+                    <li>Boundaries protect mission</li>
+                    <li>Protocols outlive people</li>
+                </ul>
+            </div>
+        </div>
+
+        <style>
+        .career-guidance { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+        .guidance-category { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 1.2rem; }
+        .guidance-category h3 { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; color: var(--ardra-accent); margin-bottom: 0.8rem; }
+        .guidance-category ul { list-style: none; padding-left: 0; margin: 0; }
+        .guidance-category li { color: #e0e0e0; margin: 0.35rem 0; display: flex; align-items: center; gap: 0.5rem; }
+        .guidance-category li::before { content: '\2713'; color: var(--ardra-accent); font-size: 0.9rem; }
+        </style>
+    </section>
+
+    <!-- Relationships & Compatibility -->
+    <section class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">Relationships & Compatibility</h2>
+            <p class="section-subtitle">How Ardra loves, protects, and transforms through connection</p>
+        </div>
+
+        <div class="two-column-grid">
+            <div class="content-card expandable-card">
+                <div class="card-header-expand">
+                    <div class="card-icon">❤️</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Relationship Style</h3>
+                <div class="basic-content">Devotion with clarity — honest love that purifies and renews</div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Honest Intimacy:</strong> Values truth over comfort; difficult conversations are seen as acts of love.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Protective Care:</strong> Creates safe containers for emotional release and repair after storms.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Ritual Repair:</strong> Post-conflict rituals (walks, tea, breathwork) to re-regulate and reconnect.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Clean Cycles:</strong> Ends patterns that harm the bond; begins again with agreements and structure.
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card expandable-card">
+                <div class="card-header-expand">
+                    <div class="card-icon">🤝</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Partnership Dynamics</h3>
+                <div class="basic-content">Transforming together through boundaries, repair, and renewal</div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Boundary Wisdom:</strong> Clear edges protect connection; "no" preserves space for authentic "yes".
+                    </div>
+                    <div class="detail-item">
+                        <strong>Storm Agreements:</strong> Pre-agree on de-escalation steps: pause, breath, name truth, reconnect later.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Shared Endings:</strong> Retire failed patterns together; replace with simple, repeatable rituals.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Growth Alignment:</strong> Choose a shared transformation goal each month and track progress.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Compatibility Insights -->
+        <div class="compatibility-grid" style="margin-top: 3rem;">
+            <div class="guidance-category">
+                <h3>Natural Synergy</h3>
+                <ul>
+                    <li>Truth-seeking partners</li>
+                    <li>Emotionally brave types</li>
+                    <li>Boundary-respectful people</li>
+                    <li>Repair-oriented communicators</li>
+                    <li>Transformation-friendly souls</li>
+                </ul>
+            </div>
+
+            <div class="guidance-category">
+                <h3>Learning Opportunities</h3>
+                <ul>
+                    <li>Comfort-first personalities</li>
+                    <li>Avoidant conflict styles</li>
+                    <li>Ambiguity in agreements</li>
+                    <li>Over-intensity without grounding</li>
+                    <li>All-or-nothing thinking</li>
+                </ul>
+            </div>
+
+            <div class="guidance-category">
+                <h3>Communication Keys</h3>
+                <ul>
+                    <li>Gentle honesty</li>
+                    <li>Time-bound pauses</li>
+                    <li>State needs, not blame</li>
+                    <li>Repair rituals</li>
+                    <li>Clarity over assumption</li>
+                </ul>
+            </div>
+
+            <div class="guidance-category">
+                <h3>Grow Together</h3>
+                <ul>
+                    <li>Shared storm protocol</li>
+                    <li>Weekly repair practice</li>
+                    <li>Mutual boundary honoring</li>
+                    <li>Monthly ending + beginning</li>
+                    <li>Celebrate renewal</li>
+                </ul>
+            </div>
+        </div>
+
+        <style>
+        .compatibility-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+        .guidance-category { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 1.2rem; }
+        .guidance-category h3 { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; color: var(--ardra-accent); margin-bottom: 0.8rem; }
+        .guidance-category ul { list-style: none; padding-left: 0; margin: 0; }
+        .guidance-category li { color: #e0e0e0; margin: 0.35rem 0; display: flex; align-items: center; gap: 0.5rem; }
+        .guidance-category li::before { content: '\2713'; color: var(--ardra-accent); font-size: 0.9rem; }
+        </style>
+
+        <!-- Relationship Wisdom -->
+        <div class="wisdom-notes" style="margin-top: 3rem; padding: 2rem; background: rgba(116, 185, 255, 0.1); border-radius: 20px;">
+            <h3 style="margin-bottom: 1.2rem; color: var(--ardra-accent);">Sacred Partnership Wisdom</h3>
+            <div class="wisdom-grid" style="display: grid; gap: 1.2rem;">
+                <div class="wisdom-item" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 1.2rem;">
+                    <strong style="color: var(--ardra-accent); display:block; margin-bottom: 0.4rem;">Truth Heals Faster:</strong>
+                    <p style="margin:0; color:#e0e0e0;">Say the real thing kindly and early. Honesty prevents pressure from becoming damage.</p>
+                </div>
+                <div class="wisdom-item" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 1.2rem;">
+                    <strong style="color: var(--ardra-accent); display:block; margin-bottom: 0.4rem;">Regulate, Then Relate:</strong>
+                    <p style="margin:0; color:#e0e0e0;">De-escalate first (breath, water, walk); connect after. Nervous systems first, strategies second.</p>
+                </div>
+                <div class="wisdom-item" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 1.2rem;">
+                    <strong style="color: var(--ardra-accent); display:block; margin-bottom: 0.4rem;">End With Respect:</strong>
+                    <p style="margin:0; color:#e0e0e0;">When a pattern must end, close it with clarity and gratitude so love can renew cleanly.</p>
+                </div>
+                <div class="wisdom-item" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 1.2rem;">
+                    <strong style="color: var(--ardra-accent); display:block; margin-bottom: 0.4rem;">Design for Repair:</strong>
+                    <p style="margin:0; color:#e0e0e0;">Have a simple, repeatable repair ritual. What’s designed in peace works under pressure.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Explore Related Nakshatras -->
+    <section class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">Explore Related Nakshatras</h2>
+            <p class="section-subtitle">Discover complementary stellar programs connected to transformation</p>
+        </div>
+
+        <div class="related-grid" style="margin-top: 1.5rem;">
+            <a href="rohini.html" class="related-card">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌱</div>
+                <h3>Rohini</h3>
+                <p>The Nurturer — Beauty, growth, and fertile abundance</p>
+            </a>
+            <a href="mrigashira.html" class="related-card">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🦌</div>
+                <h3>Mrigashira</h3>
+                <p>The Seeker — Curiosity, discovery, and graceful movement</p>
+            </a>
+            <a href="punarvasu.html" class="related-card">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌟</div>
+                <h3>Punarvasu</h3>
+                <p>The Restorer — Renewal, return to source, and sacred beginnings</p>
+            </a>
+        </div>
+
+        <style>
+        .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+        .related-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 15px; padding: 1.5rem; text-decoration: none; color: inherit; transition: all 0.3s ease; }
+        .related-card:hover { transform: translateY(-3px); background: rgba(255,255,255,0.08); box-shadow: 0 10px 25px var(--ardra-glow); }
+        .related-card h3 { margin: 0.3rem 0; color: #fff; font-family: 'Orbitron', sans-serif; }
+        .related-card p { margin: 0; color: #b9c1ff; font-size: 0.95rem; }
+        </style>
+    </section>
+
+    <!-- Vedic Interpretations -->
+    <section id="vedic" class="vedic-section">
+        <div class="section-header">
+            <h2 class="section-title">Vedic Interpretations</h2>
+            <p class="section-subtitle">Traditional wisdom and symbolic architecture of Ardra</p>
+        </div>
+
+        <div class="two-column-grid">
+            <!-- Core Vedic Data -->
+            <div class="content-card expandable-card">
+                <div class="card-header-expand">
+                    <div class="card-icon">🕉️</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Core Attributes</h3>
+                <div class="basic-content">The classical framework that defines Ardra's sacred role in transformation</div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Deity:</strong> Rudra (Shiva's storm aspect) — The purifier through sacred intensity; breaks stagnation, restores flow.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Shakti (Power):</strong> The Power to Make Effort and Achieve (Yati Shakti) — resolve, endurance, and catalytic will.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Sacred Symbols:</strong> The Teardrop • Lightning • Storm — catharsis, illumination, and cleansing force.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Ruling Planet:</strong> Rahu — amplifies intensity, innovation, and disruptive transformation.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Elemental Nature:</strong> Air (Vayu) — movement, circulation, and rapid shifts that clear stagnation.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Zodiac Context:</strong> 6°40' - 20°00' Gemini — communication, pattern recognition, and reframing through truth.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Essential Nature:</strong> The Sacred Purifier — ends what blocks life so new growth can begin cleanly.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pada Themes -->
+            <div class="content-card expandable-card">
+                <div class="card-header-expand">
+                    <div class="card-icon">🌬️</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Pada Themes (Quarter Qualities)</h3>
+                <div class="basic-content">Four expressions of Ardra's transformative intelligence</div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Pada 1 — Ignition:</strong>
+                        <ul>
+                            <li>Honest disruption to reveal truth</li>
+                            <li>Quick signal extraction in chaos</li>
+                            <li>Action-first courage with clear intent</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Pada 2 — Structure:</strong>
+                        <ul>
+                            <li>Turns insight into boundaries and protocols</li>
+                            <li>Designs containers that hold intensity safely</li>
+                            <li>Stability through clean agreements</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Pada 3 — Communication:</strong>
+                        <ul>
+                            <li>Truth-centered dialogue and repair</li>
+                            <li>Names patterns simply and precisely</li>
+                            <li>Builds shared language for change</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Pada 4 — Renewal:</strong>
+                        <ul>
+                            <li>Resets systems; ends cycles respectfully</li>
+                            <li>Institutionalizes learning from crisis</li>
+                            <li>Begins again with clarity and care</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sacred Meanings -->
+        <div class="content-card expandable-card" style="margin-top:1rem;">
+            <div class="card-header-expand">
+                <div class="card-icon">⚡</div>
+                <span class="expand-arrow">▼</span>
+            </div>
+            <h3 class="card-title">Sacred Meanings</h3>
+            <div class="basic-content">The spiritual wisdom within Ardra's storm teachings</div>
+            <div class="detailed-content">
+                <div class="detail-item">
+                    <strong>Compassionate Purification:</strong>
+                    <ul>
+                        <li>Truth spoken with care heals faster</li>
+                        <li>Endings are acts of love when they protect life</li>
+                        <li>Catharsis clears what kindness could not</li>
+                    </ul>
+                </div>
+                <div class="detail-item">
+                    <strong>Lightning Insight:</strong>
+                    <ul>
+                        <li>Sudden clarity reveals simple next steps</li>
+                        <li>Insight without action becomes pressure</li>
+                        <li>Act cleanly; avoid collateral harm</li>
+                    </ul>
+                </div>
+                <div class="detail-item">
+                    <strong>Renewal Dharma:</strong>
+                    <ul>
+                        <li>Close with respect, begin with clarity</li>
+                        <li>Design for repair before designing for speed</li>
+                        <li>Let systems learn so people can rest</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </section>
+
+    <!-- Navigation Footer -->
+    <section class="content-section" style="text-align: center;">
+        <div class="nav-buttons">
+            <a href="mrigashira.html" class="nav-btn">
+                <i class="fas fa-arrow-left"></i> Previous: Mrigashira
+            </a>
+            <a href="#top" class="nav-btn primary">
+                <i class="fas fa-arrow-up"></i> Back to Top
+            </a>
+            <a href="punarvasu.html" class="nav-btn">
+                Next: Punarvasu <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling and active menu highlighting for Ardra page
+        document.addEventListener('DOMContentLoaded', () => {
+            const navButtons = Array.from(document.querySelectorAll('.nav-buttons .nav-btn'));
+            const sectionIds = ['mythology', 'psychology', 'practical', 'vedic', 'meditation'];
+            const sections = sectionIds
+                .map(id => document.getElementById(id))
+                .filter(Boolean);
+
+            // Click -> smooth scroll
+            navButtons.forEach(btn => {
+                const href = btn.getAttribute('href') || '';
+                if (href.startsWith('#')) {
+                    btn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    });
+                }
+            });
+
+            // Intersection observer to highlight active section
+            const setActive = (id) => {
+                navButtons.forEach(btn => {
+                    const href = btn.getAttribute('href') || '';
+                    if (href === `#${id}`) btn.classList.add('active');
+                    else btn.classList.remove('active');
+                });
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                // Choose the most visible section
+                const visible = entries
+                    .filter(e => e.isIntersecting)
+                    .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+                if (visible && visible.target && visible.target.id) {
+                    setActive(visible.target.id);
+                }
+            }, {
+                root: null,
+                // Top offset to account for fixed header; favor section that's well within viewport
+                rootMargin: '-30% 0px -50% 0px',
+                threshold: [0.1, 0.25, 0.5, 0.75]
+            });
+
+            sections.forEach(sec => observer.observe(sec));
+
+            // If URL has a hash on load, set active and perform aligned scroll
+            if (window.location.hash) {
+                const target = document.querySelector(window.location.hash);
+                if (target) {
+                    setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

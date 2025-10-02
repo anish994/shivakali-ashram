@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashwini Nakshatra - The Cosmic Physicians | ShivaKali Ashram</title>
+    <meta name="description" content="Discover Ashwini Nakshatra - The Horse Riders and Divine Healers. Explore the first stellar consciousness program in Vedic astrology with modern psychological insights.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0a2e, #16213e, #1a1a2e);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Stellar Background Animation */
+        .stellar-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            background: #ffffff;
+            border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+
+        .star:nth-child(odd) {
+            animation-delay: 1.5s;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Ashwini-specific gradient theme */
+        :root {
+            --ashwini-primary: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            --ashwini-secondary: rgba(255, 107, 107, 0.2);
+            --ashwini-glow: rgba(255, 107, 107, 0.4);
+        }
+
+        /* Navigation */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 46, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-back {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 8px 16px;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-back:hover {
+            background: var(--ashwini-secondary);
+            transform: translateY(-1px);
+        }
+
+        .nav-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.2rem;
+            color: #ff6b6b;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 4rem 2rem;
+            text-align: center;
+            background: radial-gradient(ellipse at center, var(--ashwini-secondary) 0%, transparent 70%);
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .nakshatra-symbol {
+            font-size: 6rem;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 20px #ff6b6b);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            background: var(--ashwini-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            font-weight: 900;
+        }
+
+        .hero .translation {
+            font-size: 1.5rem;
+            color: #b19cd9;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .hero .tagline {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stellar-info-hero {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .info-item {
+            text-align: center;
+        }
+
+        .info-label {
+            font-size: 0.9rem;
+            color: #b19cd9;
+            margin-bottom: 0.3rem;
+        }
+
+        .info-value {
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 1.1rem;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            color: #b19cd9;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Grid Layouts */
+        .two-column-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .three-column-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Content Cards */
+        .content-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px var(--ashwini-glow);
+            border-color: rgba(255, 107, 107, 0.3);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #ff6b6b;
+            filter: drop-shadow(0 0 10px currentColor);
+        }
+
+        .card-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.3rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .card-content {
+            color: #e0e0e0;
+            line-height: 1.7;
+        }
+
+        /* Special Sections */
+        .mythology-section {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(238, 90, 82, 0.05));
+            border-radius: 30px;
+            padding: 3rem;
+            margin: 3rem 0;
+        }
+
+        .psychology-section {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.1), rgba(69, 183, 209, 0.05));
+            border-radius: 30px;
+            padding: 3rem;
+            margin: 3rem 0;
+        }
+
+        .practical-section {
+            background: linear-gradient(135deg, rgba(254, 202, 87, 0.1), rgba(255, 107, 107, 0.05));
+            border-radius: 30px;
+            padding: 3rem;
+            margin: 3rem 0;
+        }
+
+        /* Expandable Practical Cards */
+        .expandable-card {
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .expandable-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px var(--ashwini-glow);
+        }
+
+        .card-header-expand {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .expand-arrow {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+            color: #feca57;
+        }
+
+        .expandable-card.expanded .expand-arrow {
+            transform: rotate(180deg);
+        }
+
+        .basic-content {
+            transition: all 0.3s ease;
+        }
+
+        .detailed-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            margin-top: 1rem;
+        }
+
+        .expandable-card.expanded .detailed-content {
+            max-height: 800px;
+        }
+
+        .detailed-content .detail-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px 15px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border-left: 3px solid #feca57;
+        }
+
+        .detail-item strong {
+            color: #feca57;
+        }
+
+        /* Qualities Grid */
+        .qualities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .quality-item {
+            background: var(--ashwini-secondary);
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            border-radius: 25px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .quality-item:hover {
+            background: rgba(255, 107, 107, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px var(--ashwini-glow);
+        }
+
+        .quality-tag {
+            padding: 12px 20px;
+            text-align: center;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0;
+        }
+
+        .quality-arrow {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+            color: #ff6b6b;
+        }
+
+        .quality-item.expanded .quality-arrow {
+            transform: rotate(180deg);
+        }
+
+        .quality-details {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 20px;
+            transition: all 0.4s ease;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .quality-item.expanded .quality-details {
+            max-height: 300px;
+            padding: 15px 20px;
+        }
+
+        .quality-details p {
+            color: #e0e0e0;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            color: #ff6b6b;
+            font-family: 'Orbitron', monospace;
+        }
+
+        .stat-item p {
+            color: #b19cd9;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Related Nakshatras */
+        .related-section {
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .related-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .related-card:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-bar {
+                padding: 1rem;
+            }
+            
+            .hero {
+                padding: 2rem 1rem;
+            }
+            
+            .nakshatra-symbol {
+                font-size: 4rem;
+            }
+            
+            .stellar-info-hero {
+                gap: 1.5rem;
+            }
+            
+            .content-section {
+                padding: 2rem 1rem;
+            }
+            
+            .two-column-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .mythology-section,
+            .psychology-section,
+            .practical-section {
+                padding: 2rem 1.5rem;
+                margin: 2rem 0;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 1.5rem;
+            }
+            
+            /* Mobile optimizations for expandable elements */
+            .qualities-grid {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+            
+            .quality-item {
+                border-radius: 15px;
+            }
+            
+            .quality-tag {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .quality-arrow {
+                font-size: 0.7rem;
+            }
+            
+            .quality-details {
+                padding: 0 15px;
+            }
+            
+            .quality-details p {
+                font-size: 0.85rem;
+            }
+            
+            .expandable-card .detailed-content {
+                max-height: 800px; /* More space on mobile for scrolling */
+            }
+            
+            .quality-item.expanded .quality-details {
+                max-height: 400px; /* Increased for mobile */
+            }
+            
+            .detail-item {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+            }
+            
+            .card-header-expand {
+                margin-bottom: 0.8rem;
+            }
+            
+            .expand-arrow {
+                font-size: 1rem;
+            }
+            
+            /* Mobile intro section */
+            .hero div[style*="max-width: 900px"] {
+                margin: 2rem 1rem 1.5rem 1rem !important;
+                padding: 1.5rem !important;
+            }
+            
+            .hero div[style*="max-width: 900px"] p {
+                font-size: 1rem !important;
+            }
+            
+            .hero div[style*="max-width: 900px"] p:first-child {
+                font-size: 1.1rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Stellar Background -->
+    <div class="stellar-bg" id="stellarBg"></div>
+
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="nav-content">
+            <a href="nakshatras.html" class="nav-back">
+                <i class="fas fa-arrow-left"></i> All Nakshatras
+            </a>
+            <div class="nav-title">Ashwini Nakshatra</div>
+        </div>
+    </nav>
+    <!-- Stellar Background -->
+    <div class="stellar-bg" id="stellarBg"></div>
+
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="nav-content">
+            <a href="nakshatras.html" class="nav-back">
+                <i class="fas fa-arrow-left"></i> All Nakshatras
+            </a>
+            <div class="nav-title">Ashwini Nakshatra</div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <!-- Navigation Buttons -->
+            <div class="nav-buttons" style="margin-bottom: 2rem;">
+                <a href="nakshatras.html" class="nav-btn">
+                    <i class="fas fa-arrow-left"></i> All Nakshatras
+                </a>
+                <a href="bharani.html" class="nav-btn primary">
+                    Next: Bharani <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="nakshatra-symbol">🐎</div>
+            <h1>Ashwini</h1>
+            <p class="translation">"The Horse Rider"</p>
+            <p class="tagline">Swift Healers • Divine Physicians • Celestial Guardians</p>
+            
+            <!-- Engaging Introduction -->
+            <div style="max-width: 900px; margin: 3rem auto 2rem auto; padding: 2rem; background: rgba(255, 107, 107, 0.1); border-radius: 20px; border: 1px solid rgba(255, 107, 107, 0.2);">
+                <p style="font-size: 1.2rem; line-height: 1.8; color: #e0e0e0; text-align: left; margin-bottom: 1.5rem;">
+                    Imagine having <strong style="color: #ff6b6b;">lightning in your veins</strong> and <strong style="color: #ff6b6b;">healing in your hands</strong>. You're the person everyone calls in emergencies because somehow, miraculously, you always know exactly what to do. You're first to volunteer, first to explore, first to heal—not because you're reckless, but because <strong>your consciousness operates at the speed of intuition</strong>.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.7; color: #e0e0e0; text-align: left; margin-bottom: 1.5rem;">
+                    Modern neuroscience is just catching up to what ancient Vedic seers knew: <strong style="color: #4ecdc4;">your brain processes information differently</strong>. While others analyze, you <em>know</em>. While others hesitate, you <em>act</em>. While others treat symptoms, you <strong>heal the source</strong>. You're not just fast—you're <strong>quantum-fast</strong>, operating at the intersection where matter meets consciousness.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.7; color: #e0e0e0; text-align: left; font-style: italic;">
+                    Welcome to your cosmic programming, <strong style="color: #ff6b6b;">Horse Rider</strong>. You're not just living—you're <strong>pioneering the future of human potential</strong>. 🌟
+                </p>
+            </div>
+            
+            <div class="stellar-info-hero">
+                <div class="info-item">
+                    <div class="info-label">Ruling Planet</div>
+                    <div class="info-value">Ketu</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Element</div>
+                    <div class="info-value">Fire</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Zodiac Range</div>
+                    <div class="info-value">0°00' - 13°20' Aries</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Archetype</div>
+                    <div class="info-value">The Healer</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Essence Section -->
+    <section class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">The Essence of Ashwini</h2>
+            <p class="section-subtitle">Understanding the first stellar consciousness program in the cosmic sequence</p>
+        </div>
+
+        <div class="two-column-grid">
+            <div class="content-card">
+                <div class="card-icon">⚡</div>
+                <h3 class="card-title">Lightning-Fast Healing</h3>
+                <div class="card-content">
+                    Ashwini natives possess an almost miraculous ability to heal—both themselves and others. Like the mythical Ashwini Kumar twins (divine physicians), they can rapidly restore vitality and wholeness. Modern research shows this correlates with enhanced neuroplasticity and accelerated cellular regeneration patterns.
+                </div>
+            </div>
+            
+            <div class="content-card">
+                <div class="card-icon">🚀</div>
+                <h3 class="card-title">Initiation Energy</h3>
+                <div class="card-content">
+                    As the first Nakshatra, Ashwini carries the cosmic power of beginnings. These individuals are natural pioneers, always first to explore new territories—whether physical, intellectual, or spiritual. Their consciousness operates at the quantum level of pure potential, where all possibilities exist simultaneously.
+                </div>
+            </div>
+        </div>
+
+        <!-- Core Qualities -->
+        <div class="qualities-grid">
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Quick Decision Making</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>Ashwini natives make lightning-fast decisions based on intuitive knowing rather than lengthy analysis. This rapid decision-making ability often leads to being first in opportunities and pioneering new paths.</p>
+                </div>
+            </div>
+            
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Natural Healing Abilities</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>Like the mythical Ashwini Kumar physicians, these individuals possess an innate ability to heal others through touch, energy, or presence. They often find themselves in healing professions or naturally helping others recover from illness or trauma.</p>
+                </div>
+            </div>
+            
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Pioneer Spirit</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>As the first Nakshatra, Ashwini carries the cosmic energy of initiation. These individuals are natural pioneers who love exploring uncharted territories, whether in business, relationships, or spiritual practices.</p>
+                </div>
+            </div>
+            
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>High Energy Levels</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>Ashwini individuals typically have abundant physical and mental energy. They're often the most energetic person in the room and prefer active, dynamic environments over sedentary or slow-paced situations.</p>
+                </div>
+            </div>
+            
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Intuitive Insights</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>Their connection to Ketu grants exceptional intuitive abilities. They often "just know" things without logical explanation and can sense underlying patterns or hidden truths that others miss completely.</p>
+                </div>
+            </div>
+            
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Adventure Seeking</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>The horse symbolism manifests as a love for adventure and exploration. They crave new experiences, travel, and challenges that test their limits. Routine and predictability can feel suffocating to their free spirit.</p>
+                </div>
+            </div>
+            
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Compassionate Action</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>Their compassion isn't just emotional—it translates into immediate action. When they see suffering, they don't just feel bad; they immediately jump in to help, often putting others' needs before their own.</p>
+                </div>
+            </div>
+            
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Innovative Thinking</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>Their minds work differently from most people, often finding creative solutions that bypass conventional approaches. They're natural innovators who can see possibilities others miss and implement them rapidly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mythology & Symbolism -->
+    <section class="mythology-section">
+        <div class="section-header">
+            <h2 class="section-title">Mythological Foundation</h2>
+            <p class="section-subtitle">The Ancient Wisdom Behind the Horse Riders</p>
+        </div>
+
+        <div class="three-column-grid">
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">👥</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">The Ashwini Kumar Twins</h3>
+                <div class="basic-content">
+                    Divine twin physicians who ride golden horses across the sky
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>The Legend:</strong> In Vedic mythology, the Ashwini Kumars are divine twin physicians born from Surya (the Sun) and Sanjna. They ride golden horses across the pre-dawn sky, bringing healing to gods and mortals alike.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Miraculous Powers:</strong> They possess the power to heal the unhealable, restore youth to the aged, attach severed limbs, and even bring the dead back to life through their divine medical knowledge.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Famous Healings:</strong> They restored sight to the blind sage Rjrasva, gave children to barren women, and provided artificial legs to the warrior Vispala when hers were cut off in battle.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Dual Nature Symbolism:</strong> The twins represent the dual nature of Ashwini - the ability to bridge different worlds, combine opposing forces, and heal through divine intervention rather than conventional methods.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Modern Parallel:</strong> Ashwini natives often work in pairs or teams, excel in emergency medicine, and seem to have an almost supernatural ability to diagnose and heal complex problems quickly.
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">🐎</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Horse Symbolism</h3>
+                <div class="basic-content">
+                    Sacred animals that traverse earthly and celestial domains
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Shamanic Transport:</strong> In ancient traditions, horses were sacred animals that could carry consciousness between different realms - physical, astral, and spiritual dimensions.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Speed & Power:</strong> The horse represents not just physical speed, but the velocity of consciousness - the ability to process information, make decisions, and take action faster than normal human response time.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Freedom & Independence:</strong> Horses symbolize the untamed spirit, the need for freedom to roam and explore, and resistance to being controlled or confined by conventional limitations.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Psychopomp Role:</strong> Like mythological horses that guide souls between worlds, Ashwini natives often serve as bridges - helping others transition between states, heal from trauma, or discover new possibilities.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Modern Manifestation:</strong> This shows up as love for travel, adventure sports, fast cars, or careers involving movement and exploration - plus an almost magical ability to appear exactly when someone needs help.
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">🌅</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Dawn Consciousness</h3>
+                <div class="basic-content">
+                    The magical liminal time when night transforms into day
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Liminal Power:</strong> Ashwini governs the pre-dawn hours (4-6 AM), the most magical time of day when the veil between dimensions is thinnest and transformation is most possible.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Catalytic Energy:</strong> Like dawn that triggers the awakening of all life, Ashwini natives are natural catalysts who can trigger positive change, inspiration, and healing in any situation they enter.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Light Bringers:</strong> They have the power to bring light to darkness - literally and metaphorically. They often arrive in people's lives during their darkest moments to offer hope and practical solutions.
+                    </div>
+                    <div class="detail-item">
+                        <strong>New Beginning Energy:</strong> Dawn represents fresh starts, new possibilities, and the power to leave the past behind. Ashwini individuals help others (and themselves) embrace new chapters in life.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Optimal Timing:</strong> Many Ashwini natives are naturally early risers and do their best creative/healing work in the early morning hours when their cosmic energy is strongest.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Psychological Profile -->
+    <section class="psychology-section">
+        <div class="section-header">
+            <h2 class="section-title">Psychological Architecture</h2>
+            <p class="section-subtitle">Understanding the Ashwini mind through modern psychology</p>
+        </div>
+
+        <div class="two-column-grid">
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">🧠</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Cognitive Patterns</h3>
+                <div class="basic-content">
+                    How the Ashwini mind processes information and makes decisions
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Processing Style:</strong> Rapid-fire intuitive leaps rather than linear analysis - they "know" before they think
+                    </div>
+                    <div class="detail-item">
+                        <strong>Decision Making:</strong> Instinctual and immediate, trusting gut feelings over extensive deliberation
+                    </div>
+                    <div class="detail-item">
+                        <strong>Learning Preference:</strong> Experiential and hands-on rather than theoretical - they learn by doing
+                    </div>
+                    <div class="detail-item">
+                        <strong>Problem Solving:</strong> Innovative approaches that bypass conventional methods, finding shortcuts others miss
+                    </div>
+                    <div class="detail-item">
+                        <strong>Focus Style:</strong> Intense bursts of concentration followed by need for movement and variety
+                    </div>
+                    <div class="detail-item">
+                        <strong>Memory Pattern:</strong> Exceptional recall for experiences and practical knowledge, less for abstract concepts
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">❤️</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Emotional Landscape</h3>
+                <div class="basic-content">
+                    Understanding the emotional patterns and relationship dynamics
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Core Motivation:</strong> Deep desire to heal and help others, driven by compassionate action rather than recognition
+                    </div>
+                    <div class="detail-item">
+                        <strong>Stress Response:</strong> Fight-or-flight with strong preference for action - they'd rather do something than worry
+                    </div>
+                    <div class="detail-item">
+                        <strong>Emotional Expression:</strong> Direct and authentic, sometimes impulsive - what you see is what you get
+                    </div>
+                    <div class="detail-item">
+                        <strong>Relationship Style:</strong> Loyal and devoted but needs freedom to explore - commitment without suffocation
+                    </div>
+                    <div class="detail-item">
+                        <strong>Anger Pattern:</strong> Quick to flare but also quick to forgive and move on - doesn't hold grudges
+                    </div>
+                    <div class="detail-item">
+                        <strong>Love Language:</strong> Acts of service and quality time, showing care through helpful actions
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Personality Stats -->
+        <div class="stats-section expandable-card" onclick="toggleExpandableCard(this)" style="cursor: pointer;">
+            <div class="card-header-expand" style="justify-content: center; margin-bottom: 1rem;">
+                <h3 style="color: #4ecdc4; margin: 0;">Personality Dynamics</h3>
+                <span class="expand-arrow" style="margin-left: 1rem;">▼</span>
+            </div>
+            
+            <div class="basic-content">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>95%</h3>
+                        <p>Initiative Taking</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>90%</h3>
+                        <p>Healing Energy</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>85%</h3>
+                        <p>Speed of Action</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>80%</h3>
+                        <p>Intuitive Insights</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>75%</h3>
+                        <p>Patience Level</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="detailed-content">
+                <div class="detail-item">
+                    <strong>Initiative Taking (95%):</strong> Exceptionally high - Ashwini natives are usually the first to volunteer, start projects, or take charge in situations requiring leadership
+                </div>
+                <div class="detail-item">
+                    <strong>Healing Energy (90%):</strong> Naturally high healing vibration - people feel better just being around them, and they're drawn to healing professions
+                </div>
+                <div class="detail-item">
+                    <strong>Speed of Action (85%):</strong> Very fast execution - they prefer to act quickly rather than overthink, making them excellent in emergency situations
+                </div>
+                <div class="detail-item">
+                    <strong>Intuitive Insights (80%):</strong> Strong intuitive abilities - they often "know" things without logical reasoning, trusting their inner guidance
+                </div>
+                <div class="detail-item">
+                    <strong>Patience Level (75%):</strong> Moderate patience - while they can be patient when needed, they prefer quick results and may get restless with slow progress
+                </div>
+                <div class="detail-item">
+                    <strong>Optimal Balance:</strong> Their high initiative and healing energy are balanced by moderate patience, creating dynamic yet compassionate personalities
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practical Applications -->
+    <section class="practical-section">
+        <div class="section-header">
+            <h2 class="section-title">Living Your Ashwini Nature</h2>
+            <p class="section-subtitle">Practical ways to align with your cosmic programming</p>
+        </div>
+
+        <div class="three-column-grid">
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">🏥</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Optimal Careers</h3>
+                <div class="basic-content">
+                    Perfect for healing, emergency, and pioneering roles
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Emergency Medicine:</strong> Trauma surgeons, paramedics, ER doctors - their quick reflexes save lives
+                    </div>
+                    <div class="detail-item">
+                        <strong>Alternative Healing:</strong> Acupuncture, energy healing, massage therapy, naturopathy
+                    </div>
+                    <div class="detail-item">
+                        <strong>Sports Medicine:</strong> Athletic trainers, sports therapists, performance coaches
+                    </div>
+                    <div class="detail-item">
+                        <strong>Entrepreneurship:</strong> Startup founders, innovation consultants, venture capitalists
+                    </div>
+                    <div class="detail-item">
+                        <strong>Adventure Careers:</strong> Expedition leaders, adventure tourism, extreme sports instruction
+                    </div>
+                    <div class="detail-item">
+                        <strong>Veterinary Science:</strong> Animal healing, wildlife rehabilitation, equine therapy
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">🧘</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Spiritual Practices</h3>
+                <div class="basic-content">
+                    Dynamic practices that channel your healing energy
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Dynamic Meditation:</strong> Osho techniques, breath-based practices, active meditation
+                    </div>
+                    <div class="detail-item">
+                        <strong>Energy Healing:</strong> Reiki, pranic healing, crystal therapy, chakra balancing
+                    </div>
+                    <div class="detail-item">
+                        <strong>Movement Practices:</strong> Martial arts, yoga flow, dance meditation, qigong
+                    </div>
+                    <div class="detail-item">
+                        <strong>Dawn Rituals:</strong> Sunrise meditation, morning prayers, greeting the new day
+                    </div>
+                    <div class="detail-item">
+                        <strong>Service Healing:</strong> Volunteer healing work, community service, helping others
+                    </div>
+                    <div class="detail-item">
+                        <strong>Animal Connection:</strong> Horse therapy, working with healing animals, nature immersion
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">⚖️</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Life Balance</h3>
+                <div class="basic-content">
+                    Managing your intense energy for optimal wellbeing
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Energy Management:</strong> Alternate high-intensity activities with restorative practices
+                    </div>
+                    <div class="detail-item">
+                        <strong>Patience Practice:</strong> Count to 10 before major decisions, practice mindful pausing
+                    </div>
+                    <div class="detail-item">
+                        <strong>Physical Outlets:</strong> Daily exercise essential - running, swimming, martial arts
+                    </div>
+                    <div class="detail-item">
+                        <strong>Healing Environment:</strong> Create sacred spaces with crystals, plants, healing music
+                    </div>
+                    <div class="detail-item">
+                        <strong>Adventure Balance:</strong> Regular travel or exploration to satisfy your wanderlust
+                    </div>
+                    <div class="detail-item">
+                        <strong>Boundary Setting:</strong> Learn to say no to avoid energetic burnout from over-giving
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Nakshatras -->
+    <section class="content-section">
+        <div class="related-section">
+            <h2 class="section-title">Explore Related Nakshatras</h2>
+            <p class="section-subtitle">Discover complementary stellar consciousness programs</p>
+            
+            <div class="related-grid">
+                <a href="bharani.html" class="related-card">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌺</div>
+                    <h3>Bharani</h3>
+                    <p>The Bearer - Next in sequence, masters of transformation</p>
+                </a>
+                
+                <a href="krittika.html" class="related-card">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔥</div>
+                    <h3>Krittika</h3>
+                    <p>The Cutter - The purifier who brings clarity</p>
+                </a>
+                
+                <a href="#" class="related-card">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🏹</div>
+                    <h3>Punarvasu</h3>
+                    <p>The Returner - The renewer who restores</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Navigation -->
+    <section class="content-section" style="text-align: center;">
+        <div class="nav-buttons">
+            <a href="nakshatras.html" class="nav-btn">
+                <i class="fas fa-home"></i> All Nakshatras
+            </a>
+            <a href="bharani.html" class="nav-btn primary">
+                Next: Bharani <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <script>
+        // Stellar background animation
+        function createStars() {
+            const stellarBg = document.getElementById('stellarBg');
+            const starCount = 80;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.width = Math.random() * 3 + 1 + 'px';
+                star.style.height = star.style.width;
+                star.style.animationDelay = Math.random() * 3 + 's';
+                stellarBg.appendChild(star);
+            }
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Toggle quality details
+        function toggleQuality(element) {
+            element.classList.toggle('expanded');
+        }
+
+        // Toggle expandable card details
+        function toggleExpandableCard(element) {
+            element.classList.toggle('expanded');
+        }
+
+        // Toggle quality details
+        function toggleQuality(element) {
+            element.classList.toggle('expanded');
+        }
+
+        // Toggle expandable card details
+        function toggleExpandableCard(element) {
+            element.classList.toggle('expanded');
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            createStars();
+            
+            // Add scroll-triggered animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all content cards for animation (excluding expandable ones)
+            document.querySelectorAll('.content-card:not(.expandable-card)').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+            
+            // Observe quality items for animation
+            document.querySelectorAll('.quality-item').forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(item);
+            });
+            
+            // Observe expandable cards for animation
+            document.querySelectorAll('.expandable-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
