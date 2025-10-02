@@ -73,6 +73,11 @@
             transition: all 0.3s ease;
         }
         
+        .back-button-container {
+            display: flex;
+            gap: 1rem;
+        }
+
         .back-button:hover {
             background: rgba(147, 197, 253, 0.2);
             transform: translateY(-2px);
@@ -420,10 +425,16 @@
     <!-- Portal Header -->
     <header class="portal-header">
         <nav class="portal-nav">
-            <a href="index.html" class="back-button">
+        <div class="back-button-container">
+            <a href="/index.html#category-jyotisha" class="back-button">
                 <span>←</span>
+                <span>Back to Jyotish</span>
+            </a>
+            <a href="/index.html" class="back-button">
+                <span>⌂</span>
                 <span>Back to Ashram</span>
             </a>
+        </div>
             
             <div class="portal-title-section">
                 <div class="portal-icon">🪐</div>

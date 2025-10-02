@@ -204,7 +204,7 @@ class KnowledgeRenderer {
      */
     createSubCategoryCard(subCategory) {
         const card = document.createElement('a');
-        card.className = 'sub-category-card';
+        card.className = `sub-category-card ${subCategory.cardStyle || ''}`.trim();
         card.href = subCategory.path; // Use the new 'path' property
 
         card.innerHTML = `
