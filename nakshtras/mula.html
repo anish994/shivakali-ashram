@@ -95,14 +95,14 @@
         }
 
         .nav-back:hover {
-            background: var(--rohini-secondary);
+            background: var(--mula-secondary);
             transform: translateY(-1px);
         }
 
         .nav-title {
             font-family: 'Orbitron', monospace;
             font-size: 1.2rem;
-            color: #2ecc71;
+            color: var(--mula-accent);
         }
 
         /* Hero Section */
@@ -110,7 +110,7 @@
             margin-top: 80px;
             padding: 4rem 2rem;
             text-align: center;
-            background: radial-gradient(ellipse at center, var(--rohini-secondary) 0%, transparent 70%);
+            background: radial-gradient(ellipse at center, var(--mula-secondary) 0%, transparent 70%);
         }
 
         .hero-content {
@@ -121,7 +121,7 @@
         .nakshatra-symbol {
             font-size: 6rem;
             margin-bottom: 1rem;
-            filter: drop-shadow(0 0 20px #2ecc71);
+            filter: drop-shadow(0 0 20px var(--mula-accent));
             animation: float 3s ease-in-out infinite;
         }
 
@@ -133,7 +133,7 @@
         .hero h1 {
             font-family: 'Orbitron', monospace;
             font-size: clamp(2.5rem, 6vw, 4rem);
-            background: var(--rohini-primary);
+            background: var(--mula-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -165,8 +165,8 @@
         }
 
         .nav-btn {
-            background: linear-gradient(45deg, rgba(46, 204, 113, 0.2), rgba(39, 174, 96, 0.2));
-            border: 2px solid rgba(46, 204, 113, 0.3);
+            background: linear-gradient(45deg, var(--mula-secondary), var(--mula-secondary));
+            border: 2px solid var(--mula-accent);
             border-radius: 15px;
             padding: 12px 24px;
             color: #ffffff;
@@ -178,14 +178,14 @@
         }
 
         .nav-btn:hover {
-            background: linear-gradient(45deg, #2ecc71, #27ae60);
+            background: var(--mula-primary);
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(46, 204, 113, 0.3);
+            box-shadow: 0 10px 30px var(--mula-glow);
         }
 
         .nav-btn.primary {
-            background: linear-gradient(45deg, #2ecc71, #27ae60);
-            border-color: #27ae60;
+            background: var(--mula-primary);
+            border-color: var(--mula-accent);
         }
 
         .stellar-info-hero {
@@ -215,7 +215,7 @@
         .section-title {
             font-family: 'Orbitron', monospace;
             font-size: clamp(2rem, 4vw, 2.8rem);
-            color: #2ecc71;
+            color: var(--mula-accent);
             margin-bottom: 1rem;
         }
 
@@ -253,14 +253,14 @@
 
         .content-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px var(--rohini-glow);
-            border-color: rgba(46, 204, 113, 0.3);
+            box-shadow: 0 15px 35px var(--mula-glow);
+            border-color: var(--mula-accent);
         }
 
         .card-icon {
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            color: #2ecc71;
+            color: var(--mula-accent);
             filter: drop-shadow(0 0 10px currentColor);
         }
 
@@ -278,7 +278,7 @@
 
         /* Special Sections */
         .mythology-section {
-            background: linear-gradient(135deg, rgba(46, 204, 113, 0.1), rgba(39, 174, 96, 0.05));
+            background: linear-gradient(135deg, var(--mula-secondary), rgba(39, 174, 96, 0.05));
             border-radius: 30px;
             padding: 3rem;
             margin: 3rem 0;
@@ -292,7 +292,7 @@
         }
 
         .practical-section {
-            background: linear-gradient(135deg, rgba(254, 202, 87, 0.1), rgba(46, 204, 113, 0.05));
+            background: linear-gradient(135deg, rgba(254, 202, 87, 0.1), var(--mula-secondary));
             border-radius: 30px;
             padding: 3rem;
             margin: 3rem 0;
@@ -300,15 +300,15 @@
 
         /* Expandable Practical Cards */
         .expandable-card { cursor: pointer; transition: all 0.4s ease; }
-        .expandable-card:hover { transform: translateY(-3px); box-shadow: 0 10px 25px var(--rohini-glow); }
+        .expandable-card:hover { transform: translateY(-3px); box-shadow: 0 10px 25px var(--mula-glow); }
         .card-header-expand { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
-        .expand-arrow { font-size: 1.2rem; transition: transform 0.3s ease; color: #2ecc71; }
+        .expand-arrow { font-size: 1.2rem; transition: transform 0.3s ease; color: var(--mula-accent); }
         .expandable-card.expanded .expand-arrow { transform: rotate(180deg); }
         .basic-content { transition: all 0.3s ease; }
         .detailed-content { max-height: 0; overflow: hidden; transition: all 0.4s ease; margin-top: 1rem; }
         .expandable-card.expanded .detailed-content { max-height: 800px; }
-        .detailed-content .detail-item { background: rgba(255,255,255,0.05); padding: 10px 15px; margin: 8px 0; border-radius: 8px; border-left: 3px solid #2ecc71; }
-        .detail-item strong { color: #2ecc71; }
+        .detailed-content .detail-item { background: rgba(255,255,255,0.05); padding: 10px 15px; margin: 8px 0; border-radius: 8px; border-left: 3px solid var(--mula-accent); }
+        .detail-item strong { color: var(--mula-accent); }
 
         /* Qualities Grid */
         .qualities-grid {
@@ -319,8 +319,8 @@
         }
         
         .quality-item {
-            background: var(--rohini-secondary);
-            border: 1px solid rgba(46, 204, 113, 0.2);
+            background: var(--mula-secondary);
+            border: 1px solid var(--mula-accent);
             border-radius: 25px;
             overflow: hidden;
             transition: transform 0.2s ease-out,
@@ -335,22 +335,22 @@
         }
         
         .quality-item:hover {
-            background: rgba(46, 204, 113, 0.15);
+            background: rgba(139, 69, 19, 0.15);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px var(--rohini-glow);
-            border-color: rgba(46, 204, 113, 0.4);
+            box-shadow: 0 5px 15px var(--mula-glow);
+            border-color: rgba(210, 105, 30, 0.4);
         }
         
         .quality-item:active {
             transform: translateY(-1px);
-            box-shadow: 0 2px 5px var(--rohini-glow);
+            box-shadow: 0 2px 5px var(--mula-glow);
             transition-duration: 0.1s;
         }
 
         .quality-item.expanded {
-            background: rgba(46, 204, 113, 0.2);
-            border-color: rgba(46, 204, 113, 0.5);
-            box-shadow: 0 4px 12px var(--rohini-glow);
+            background: rgba(139, 69, 19, 0.2);
+            border-color: rgba(210, 105, 30, 0.5);
+            box-shadow: 0 4px 12px var(--mula-glow);
         }
         
         .quality-tag {
@@ -368,7 +368,7 @@
         .quality-arrow {
             font-size: 0.8rem;
             transition: transform 0.3s ease;
-            color: #2ecc71;
+            color: var(--mula-accent);
             opacity: 0.8;
         }
         
@@ -407,7 +407,7 @@
         /* Stats Section */
         .stats-section { background: rgba(255,255,255,0.03); border-radius: 20px; padding: 2rem; margin: 3rem 0; }
         .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem; text-align: center; }
-        .stat-item h3 { font-size: 2rem; color: #2ecc71; font-family: 'Orbitron', monospace; }
+        .stat-item h3 { font-size: 2rem; color: var(--mula-accent); font-family: 'Orbitron', monospace; }
         .stat-item p { color: #b19cd9; font-size: 0.9rem; margin-top: 0.5rem; }
 
         /* Related Nakshatras */
@@ -419,10 +419,10 @@
         /* Psychology trait cards */
         .psychology-traits { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
         .trait-category { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 1.2rem; }
-        .trait-category h3 { font-family: 'Orbitron', monospace; font-size: 1.1rem; color: #2ecc71; margin-bottom: 0.8rem; }
+        .trait-category h3 { font-family: 'Orbitron', monospace; font-size: 1.1rem; color: var(--mula-accent); margin-bottom: 0.8rem; }
         .trait-category ul { list-style: none; padding-left: 0; }
         .trait-category li { color: #e0e0e0; margin: 0.35rem 0; display: flex; align-items: center; gap: 0.5rem; }
-        .trait-category li::before { content: '\2713'; color: #2ecc71; font-size: 0.9rem; }
+        .trait-category li::before { content: '\2713'; color: var(--mula-accent); font-size: 0.9rem; }
 
         /* Responsive */
         @media (max-width: 768px) {
@@ -452,7 +452,7 @@
         }
     </style>
 </head>
-<body id="top">
+<body>
     <!-- Stellar Background -->
     <div class="stellar-bg" id="stellarBg"></div>
 
@@ -474,14 +474,14 @@
                 <a href="nakshatras.html" class="nav-btn">
                     <i class="fas fa-arrow-left"></i> All Nakshatras
                 </a>
-                <a href="krittika.html" class="nav-btn">
-                    <i class="fas fa-arrow-left"></i> Previous: Krittika
+                <a href="jyeshtha.html" class="nav-btn">
+                    <i class="fas fa-arrow-left"></i> Previous: Jyeshtha
                 </a>
                 <a href="#qualities" class="nav-btn primary">
                     <i class="fas fa-seedling"></i> Explore Qualities
                 </a>
-                <a href="mrigashira.html" class="nav-btn">
-                    Next: Mrigashira <i class="fas fa-arrow-right"></i>
+                <a href="purva-ashadha.html" class="nav-btn">
+                    Next: Purva Ashadha <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
 
@@ -491,15 +491,15 @@
             <p class="tagline">Truth Seeker • Karmic Destroyer • Root Investigator</p>
             
             <!-- Engaging Introduction -->
-            <div style="max-width: 900px; margin: 3rem auto 2rem auto; padding: 2rem; background: rgba(46, 204, 113, 0.1); border-radius: 20px; border: 1px solid rgba(46, 204, 113, 0.2);">
+            <div style="max-width: 900px; margin: 3rem auto 2rem auto; padding: 2rem; background: rgba(139, 69, 19, 0.1); border-radius: 20px; border: 1px solid rgba(139, 69, 19, 0.2);">
                 <p style="font-size: 1.2rem; line-height: 1.8; color: #e0e0e0; text-align: left; margin-bottom: 1.5rem;">
-                    You are the <strong style="color: #8B4513;">divine investigator of reality</strong>, the one who understands that <strong style="color: #8B4513;">truth requires destroying illusion</strong>. Where others cling to comfort, you dig deeper. You don't just accept—you <strong>uproot falsehood to find the source</strong>.
+                    You are the <strong style="color: #D2691E;">divine investigator of reality</strong>, the one who understands that <strong style="color: #D2691E;">truth requires destroying illusion</strong>. Where others cling to comfort, you dig deeper. You don't just accept—you <strong>uproot falsehood to find the source</strong>.
                 </p>
                 <p style="font-size: 1.1rem; line-height: 1.7; color: #e0e0e0; text-align: left; margin-bottom: 1.5rem;">
-                    Modern psychology confirms your essence: <strong style="color: #D2691E;">genuine transformation requires confronting core patterns</strong>. Mula operates the same way—by destroying what's inauthentic, truth becomes <strong>clear, powerful, and transformative</strong>.
+                    Modern psychology confirms your essence: <strong style="color: #8B4513;">genuine transformation requires confronting core patterns</strong>. Mula operates the same way—by destroying what's inauthentic, truth becomes <strong>clear, powerful, and transformative</strong>.
                 </p>
                 <p style="font-size: 1.1rem; line-height: 1.7; color: #e0e0e0; text-align: left; font-style: italic;">
-                    Welcome to your divine assignment, <strong style="color: #8B4513;">Seeker of Ultimate Truth</strong>. You're not here for comfort—you're here to <strong>investigate</strong>. 🌿
+                    Welcome to your divine assignment, <strong style="color: #D2691E;">Seeker of Ultimate Truth</strong>. You're not here for comfort—you're here to <strong>investigate</strong>. 🌿
                 </p>
             </div>
             
@@ -528,81 +528,81 @@
     <section class="mythology-section">
         <div class="section-header">
             <h2 class="section-title">Mythological Foundation</h2>
-            <p class="section-subtitle">The Ancient Wisdom Behind Living Abundance</p>
+            <p class="section-subtitle">The Ancient Wisdom of Destruction and Truth</p>
         </div>
 
         <div class="three-column-grid">
             <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
                 <div class="card-header-expand">
-                    <div class="card-icon">🌕</div>
+                    <div class="card-icon">💀</div>
                     <span class="expand-arrow">▼</span>
                 </div>
-                <h3 class="card-title">Moon's Favorite</h3>
+                <h3 class="card-title">Goddess Nirṛti</h3>
                 <div class="basic-content">
-                    Rohini, the beloved of Chandra (Moon), symbolizing nourishment and beauty
+                    The deity of dissolution who presides over destruction to pave the way for new creation.
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Beloved Star:</strong> In Vedic lore, Rohini is the Moon's favorite, representing the lush, life-giving qualities of emotional nourishment and material beauty.
+                        <strong>Cosmic Recycler:</strong> Nirṛti is not evil, but a necessary force of cosmic order that dissolves what is corrupt, decayed, or no longer serves a purpose.
                     </div>
                     <div class="detail-item">
-                        <strong>Creative Magnetism:</strong> This favoritism symbolizes magnetic attraction—how Rohini draws in resources and opportunities naturally.
+                        <strong>Liberation from Bondage:</strong> Her energy is what allows for the breaking of karmic chains and attachments, leading to spiritual freedom.
                     </div>
                     <div class="detail-item">
-                        <strong>Lunar Abundance:</strong> The Moon's cycles mirror Rohini's gift—growth through rhythm, patience, and care rather than force.
+                        <strong>Facing the Void:</strong> She represents the confrontation with emptiness and the void, a necessary step before true creation can begin.
                     </div>
                     <div class="detail-item">
-                        <strong>Modern Parallel:</strong> Emotional intelligence and environmental design that make people feel safe, seen, and supported.
+                        <strong>Modern Parallel:</strong> The psychological concept of 'ego death' or the process of radical deconstruction in philosophy and science.
                     </div>
                 </div>
             </div>
 
             <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
                 <div class="card-header-expand">
-                    <div class="card-icon">🦌</div>
+                    <div class="card-icon">🌿</div>
                     <span class="expand-arrow">▼</span>
                 </div>
-                <h3 class="card-title">Red Deer Symbolism</h3>
+                <h3 class="card-title">Tied Roots Symbolism</h3>
                 <div class="basic-content">
-                    Graceful growth, fertility, and the beauty of living nature
+                    Represents the binding to the core of things, both karmically and in the search for truth.
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Grace & Strength:</strong> The deer embodies elegance with grounded power—Rohini's signature growth style.
+                        <strong>Deep Investigation:</strong> The roots signify a drive to go beneath the surface and investigate the hidden causes of things.
                     </div>
                     <div class="detail-item">
-                        <strong>Fertility & Renewal:</strong> Seasonal antler renewal symbolizes cyclical growth and continuous abundance.
+                        <strong>Karmic Entanglement:</strong> The 'tied' nature of the roots points to the bondage of past karmas that Mula seeks to understand and uproot.
                     </div>
                     <div class="detail-item">
-                        <strong>Gentle Magnetism:</strong> Attraction through beauty and harmony rather than conquest or control.
+                        <strong>Foundational Power:</strong> Once the negative aspects are cleared, the roots provide a powerful, unshakable foundation based on truth.
                     </div>
                     <div class="detail-item">
-                        <strong>Modern Expression:</strong> Sustainable growth strategies, regenerative design, and an eye for natural aesthetics.
+                        <strong>Modern Expression:</strong> Fields like genetics, investigative journalism, and psychoanalysis that seek to uncover foundational truths.
                     </div>
                 </div>
             </div>
 
             <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
                 <div class="card-header-expand">
-                    <div class="card-icon">🌾</div>
+                    <div class="card-icon">☄️</div>
                     <span class="expand-arrow">▼</span>
                 </div>
-                <h3 class="card-title">Abundance Current</h3>
+                <h3 class="card-title">Ketu's Influence</h3>
                 <div class="basic-content">
-                    The sacred current of life that transforms care into prosperity
+                    The headless shadow planet that governs detachment, spiritual insight, and the severing of material attachments.
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Earthly Blessing:</strong> Rohini sits in Taurus, the sign of resources and stability—linking cosmic beauty with material wellbeing.
+                        <strong>Spiritual Detachment:</strong> Ketu's influence drives a native to look beyond the material world for answers, fostering a sense of detachment from worldly desires.
                     </div>
                     <div class="detail-item">
-                        <strong>Beauty as Power:</strong> Aesthetic harmony as a force that attracts collaboration, trust, and opportunities.
+                        <strong>Past Life Connection:</strong> As the significator of past lives, Ketu connects Mula to deep-seated, often unconscious karmic patterns.
                     </div>
                     <div class="detail-item">
-                        <strong>Embodied Prosperity:</strong> Abundance is not chase, but cultivation—creating conditions where life wants to grow.
+                        <strong>Sudden Revelations:</strong> Ketu can bring sudden and shocking insights that shatter illusions and reveal a deeper reality.
                     </div>
                     <div class="detail-item">
-                        <strong>Modern Meaning:</strong> Building systems and cultures where prosperity emerges from care, rhythm, and reciprocity.
+                        <strong>Modern Meaning:</strong> The pursuit of minimalist lifestyles, the study of metaphysics, and the quest for non-dual awareness.
                     </div>
                 </div>
             </div>
@@ -612,24 +612,24 @@
     <!-- Core Essence Section -->
     <section class="content-section">
         <div class="section-header">
-            <h2 class="section-title">The Essence of Rohini</h2>
-            <p class="section-subtitle">Understanding the divine nurturer in the cosmic sequence</p>
+            <h2 class="section-title">The Essence of Mula</h2>
+            <p class="section-subtitle">Understanding the root of cosmic truth</p>
         </div>
 
         <div class="two-column-grid">
             <div class="content-card">
-                <div class="card-icon">🌱</div>
-                <h3 class="card-title">Living Growth</h3>
+                <div class="card-icon">💥</div>
+                <h3 class="card-title">Destructive Creation</h3>
                 <div class="card-content">
-                    Ruled by the Moon and anchored in Taurus, Rohini embodies the sacred principle of steady growth. Like a fertile garden, this energy cultivates conditions where life naturally flourishes—patiently, beautifully, and sustainably.
+                    Ruled by Ketu and anchored in Sagittarius, Mula embodies the principle of destruction for the sake of truth. Like a wildfire that clears a forest for new growth, this energy dismantles illusions and attachments to reveal the underlying reality.
                 </div>
             </div>
             
             <div class="content-card">
-                <div class="card-icon">🍎</div>
-                <h3 class="card-title">Creative Abundance</h3>
+                <div class="card-icon">🔎</div>
+                <h3 class="card-title">Investigative Truth</h3>
                 <div class="card-content">
-                    Rohini is the star of attraction and manifestation. These individuals have a natural gift for drawing in resources, opportunities, and relationships—and transforming them into lasting value through care and devotion.
+                    Mula is the star of the investigator and the truth-seeker. These individuals have a natural drive to dig deep, to question everything, and to get to the root of any matter, no matter how uncomfortable the truth may be.
                 </div>
             </div>
         </div>
@@ -638,81 +638,81 @@
         <div id="qualities" class="qualities-grid">
             <div class="quality-item" onclick="toggleQuality(this)">
                 <div class="quality-tag">
-                    <span>Fertile Creativity</span>
+                    <span>Investigative Mind</span>
                     <span class="quality-arrow">▼</span>
                 </div>
                 <div class="quality-details">
-                    <p>Rohini generates new life—ideas, projects, communities—with a natural sense of timing and care, bringing visions into tangible reality.</p>
+                    <p>A deep need to probe, question, and get to the bottom of things, refusing to accept surface-level explanations.</p>
                 </div>
             </div>
             
             <div class="quality-item" onclick="toggleQuality(this)">
                 <div class="quality-tag">
-                    <span>Steady Manifestation</span>
+                    <span>Truth Seeking</span>
                     <span class="quality-arrow">▼</span>
                 </div>
                 <div class="quality-details">
-                    <p>Prefers consistent progress over quick wins. Builds foundations that endure, prioritizing quality, comfort, and sustainability.</p>
+                    <p>A relentless drive to uncover hidden truths, even if they are disruptive or challenge existing beliefs.</p>
                 </div>
             </div>
 
             <div class="quality-item" onclick="toggleQuality(this)">
                 <div class="quality-tag">
-                    <span>Magnetic Presence</span>
+                    <span>Detachment</span>
                     <span class="quality-arrow">▼</span>
                 </div>
                 <div class="quality-details">
-                    <p>Radiates a calming, attractive aura. People, opportunities, and resources gravitate toward Rohini’s graceful steadiness.</p>
+                    <p>An innate ability to let go of material and emotional attachments, especially after a period of intense transformation.</p>
                 </div>
             </div>
 
             <div class="quality-item" onclick="toggleQuality(this)">
                 <div class="quality-tag">
-                    <span>Sensory Intelligence</span>
+                    <span>Transformative Power</span>
                     <span class="quality-arrow">▼</span>
                 </div>
                 <div class="quality-details">
-                    <p>Deep connection to the body and senses. Knows how to design environments that nourish wellbeing and support elevated performance.</p>
+                    <p>The capacity to undergo and facilitate profound, life-altering changes, often involving destruction of the old.</p>
                 </div>
             </div>
 
             <div class="quality-item" onclick="toggleQuality(this)">
                 <div class="quality-tag">
-                    <span>Resource Stewardship</span>
+                    <span>Spiritual Insight</span>
                     <span class="quality-arrow">▼</span>
                 </div>
                 <div class="quality-details">
-                    <p>Exceptional at managing resources—time, money, energy—with wisdom and care to create lasting abundance for self and others.</p>
+                    <p>A natural inclination towards spirituality, metaphysics, and the esoteric, seeking answers beyond the material realm.</p>
                 </div>
             </div>
 
             <div class="quality-item" onclick="toggleQuality(this)">
                 <div class="quality-tag">
-                    <span>Grounded Devotion</span>
+                    <span>Directness</span>
                     <span class="quality-arrow">▼</span>
                 </div>
                 <div class="quality-details">
-                    <p>Combines heart-centered devotion with practical follow-through. Love becomes structure; care becomes growth.</p>
+                    <p>A tendency to be blunt and direct in communication, cutting through superficiality to get to the core of the issue.</p>
                 </div>
             </div>
 
             <div class="quality-item" onclick="toggleQuality(this)">
                 <div class="quality-tag">
-                    <span>Elegant Simplicity</span>
+                    <span>Resilience</span>
                     <span class="quality-arrow">▼</span>
                 </div>
                 <div class="quality-details">
-                    <p>Finds beauty in minimalism and function. Creates simple systems that produce reliable results without excess complexity.</p>
+                    <p>The ability to withstand and recover from catastrophic loss or change, emerging stronger from the experience.</p>
                 </div>
             </div>
 
             <div class="quality-item" onclick="toggleQuality(this)">
                 <div class="quality-tag">
-                    <span>Protective Nurture</span>
+                    <span>Karmic Awareness</span>
                     <span class="quality-arrow">▼</span>
                 </div>
                 <div class="quality-details">
-                    <p>Offers safe, stabilizing presence for people and projects to grow, protecting what is tender until it can stand strong.</p>
+                    <p>A deep, often unconscious, connection to past-life karma and a powerful drive to resolve it in this lifetime.</p>
                 </div>
             </div>
         </div>
@@ -722,7 +722,7 @@
     <section class="psychology-section">
         <div class="section-header">
             <h2 class="section-title">Psychological Architecture</h2>
-            <p class="section-subtitle">Understanding the Rohini mind through modern psychology</p>
+            <p class="section-subtitle">Understanding the Mula mind through modern psychology</p>
         </div>
 
         <div class="two-column-grid">
@@ -733,23 +733,23 @@
                 </div>
                 <h3 class="card-title">Cognitive Patterns</h3>
                 <div class="basic-content">
-                    How the Rohini mind cultivates clarity and growth
+                    How the Mula mind investigates and deconstructs reality
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Systems Cultivation:</strong> Natural ability to create and optimize environments where outcomes improve steadily over time.
+                        <strong>Root Cause Analysis:</strong> A tendency to bypass symptoms and go directly to the source of a problem, no matter how deep it is buried.
                     </div>
                     <div class="detail-item">
-                        <strong>Beauty-Driven Reasoning:</strong> Seeks elegant, simple solutions that are both functional and aesthetically harmonious.
+                        <strong>Deconstructive Logic:</strong> The ability to dismantle complex systems of thought to find their core assumptions and flaws.
                     </div>
                     <div class="detail-item">
-                        <strong>Steady Focus:</strong> Prefers sustainable pacing and consistent progress over intense bursts and burnout cycles.
+                        <strong>Intuitive Leaps:</strong> A reliance on sudden, intuitive insights that can shatter existing paradigms and reveal a completely new perspective.
                     </div>
                     <div class="detail-item">
-                        <strong>Resource Awareness:</strong> Strong practical intelligence about time, energy, and materials—what to invest, when, and how.
+                        <strong>Pattern Recognition:</strong> A talent for seeing the hidden patterns and karmic threads that connect seemingly unrelated events.
                     </div>
                     <div class="detail-item">
-                        <strong>Pattern Stabilization:</strong> Excellent at turning promising patterns into reliable systems others can depend on.
+                        <strong>Truth over Comfort:</strong> A cognitive bias towards prioritizing uncomfortable truths over comforting falsehoods.
                     </div>
                 </div>
             </div>
@@ -761,23 +761,23 @@
                 </div>
                 <h3 class="card-title">Emotional Landscape</h3>
                 <div class="basic-content">
-                    The emotional world of the cosmic nurturer
+                    The emotional world of the spiritual investigator
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Calm Magnetism:</strong> A soothing presence that makes others feel safe, welcomed, and ready to grow.
+                        <strong>Periodic Turmoil:</strong> A tendency to experience periods of intense emotional upheaval as old, limiting structures are destroyed.
                     </div>
                     <div class="detail-item">
-                        <strong>Devotional Care:</strong> Expresses love through consistency, support, and protection of what is tender.
+                        <strong>Radical Detachment:</strong> The ability to emotionally detach from people, situations, and outcomes, which can be perceived as coldness but is a self-preservation mechanism.
                     </div>
                     <div class="detail-item">
-                        <strong>Sensory Grounding:</strong> Regulates emotions through embodied practices—nature, touch, breath, and environment.
+                        <strong>Existential Angst:</strong> A proneness to questioning the meaning of life, which can lead to feelings of alienation or emptiness before a deeper purpose is found.
                     </div>
                     <div class="detail-item">
-                        <strong>Healthy Boundaries:</strong> Learns to balance generosity with self-preservation to prevent over-giving.
+                        <strong>Transformative Resilience:</strong> A deep, underlying resilience that allows for recovery and rebirth after emotional crises.
                     </div>
                     <div class="detail-item">
-                        <strong>Stability Priority:</strong> Values emotional steady-state over drama; prefers repair and renewal over conflict.
+                        <strong>Authenticity Craving:</strong> A deep-seated need for raw, authentic emotional expression, and a disdain for superficiality.
                     </div>
                 </div>
             </div>
@@ -786,53 +786,53 @@
         <!-- Personality Stats -->
         <div class="stats-section expandable-card" onclick="toggleExpandableCard(this)" style="cursor: pointer;">
             <div class="card-header-expand" style="justify-content: center; margin-bottom: 1rem;">
-                <h3 style="color: #4ecdc4; margin: 0;">Personality Dynamics</h3>
+                <h3 style="color: #D2691E; margin: 0;">Personality Dynamics</h3>
                 <span class="expand-arrow" style="margin-left: 1rem;">▼</span>
             </div>
             
             <div class="basic-content">
                 <div class="stats-grid">
                     <div class="stat-item">
-                        <h3>90%</h3>
-                        <p>Nurturing Presence</p>
+                        <h3>95%</h3>
+                        <p>Truth Seeking</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>92%</h3>
+                        <p>Investigative Drive</p>
                     </div>
                     <div class="stat-item">
                         <h3>88%</h3>
-                        <p>Steady Growth</p>
+                        <p>Spiritual Insight</p>
                     </div>
                     <div class="stat-item">
-                        <h3>84%</h3>
-                        <p>Resource Wisdom</p>
+                        <h3>85%</h3>
+                        <p>Resilience</p>
                     </div>
                     <div class="stat-item">
-                        <h3>82%</h3>
-                        <p>Beauty Intelligence</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>74%</h3>
-                        <p>Change Tolerance</p>
+                        <h3>30%</h3>
+                        <p>Social Conformity</p>
                     </div>
                 </div>
             </div>
             
             <div class="detailed-content">
                 <div class="detail-item">
-                    <strong>Nurturing Presence (90%):</strong> Strong capacity to provide emotional safety and practical support that accelerates growth.
+                    <strong>Truth Seeking (95%):</strong> An uncompromising drive to uncover the absolute truth, regardless of consequences.
                 </div>
                 <div class="detail-item">
-                    <strong>Steady Growth (88%):</strong> Thrives with consistent routines and structures that deliver reliable progress.
+                    <strong>Investigative Drive (92%):</strong> A powerful need to dig into the roots of any issue, from scientific problems to personal history.
                 </div>
                 <div class="detail-item">
-                    <strong>Resource Wisdom (84%):</strong> Skillful at aligning resources with priorities—minimal waste, maximum result.
+                    <strong>Spiritual Insight (88%):</strong> A natural connection to the metaphysical and a talent for profound spiritual understanding.
                 </div>
                 <div class="detail-item">
-                    <strong>Beauty Intelligence (82%):</strong> Uses aesthetics as a functional tool—spaces, visuals, and flows that enhance performance.
+                    <strong>Resilience (85%):</strong> An exceptional ability to survive and transform through crises, losses, and periods of intense destruction.
                 </div>
                 <div class="detail-item">
-                    <strong>Change Tolerance (74%):</strong> Prefers stable evolution to sudden shifts; adapts best when transitions are paced and grounded.
+                    <strong>Social Conformity (30%):</strong> A low need for social approval, often leading to a path that is unconventional or rebellious.
                 </div>
                 <div class="detail-item">
-                    <strong>Optimal Expression:</strong> Harmonize care with boundaries, and growth with rest—prosperity becomes natural.
+                    <strong>Optimal Expression:</strong> Harmonize investigation with compassion, and destruction with a vision for what new truth will be built in its place.
                 </div>
             </div>
         </div>
@@ -842,41 +842,41 @@
             <div class="trait-category">
                 <h3>Cognitive Strengths</h3>
                 <ul>
-                    <li>Environmental systems thinking</li>
-                    <li>Pattern stabilization</li>
-                    <li>Resource-aware planning</li>
-                    <li>Elegant problem solving</li>
-                    <li>Consistent execution</li>
+                    <li>Root-cause analysis</li>
+                    <li>Deconstruction</li>
+                    <li>Intuitive leaps</li>
+                    <li>Pattern recognition</li>
+                    <li>Truth-focus</li>
                 </ul>
             </div>
             <div class="trait-category">
                 <h3>Emotional Qualities</h3>
                 <ul>
-                    <li>Grounding calm</li>
-                    <li>Devotional care</li>
-                    <li>Sensory awareness</li>
-                    <li>Reliable compassion</li>
-                    <li>Steady encouragement</li>
+                    <li>Periodic turmoil</li>
+                    <li>Radical detachment</li>
+                    <li>Existential angst</li>
+                    <li>Transformative resilience</li>
+                    <li>Authenticity craving</li>
                 </ul>
             </div>
             <div class="trait-category">
                 <h3>Core Motivations</h3>
                 <ul>
-                    <li>Creating fertile conditions</li>
-                    <li>Building lasting value</li>
-                    <li>Protecting the tender</li>
-                    <li>Designing beauty that works</li>
-                    <li>Bringing visions into form</li>
+                    <li>Uncovering secrets</li>
+                    <li>Destroying illusion</li>
+                    <li>Spiritual liberation</li>
+                    <li>Finding the source</li>
+                    <li>Radical honesty</li>
                 </ul>
             </div>
             <div class="trait-category">
                 <h3>Growth Areas</h3>
                 <ul>
-                    <li>Balancing comfort with stretch</li>
-                    <li>Avoiding over-attachment</li>
-                    <li>Releasing perfection</li>
-                    <li>Practicing timely change</li>
-                    <li>Guarding energy boundaries</li>
+                    <li>Avoiding cynicism</li>
+                    <li>Cultivating compassion</li>
+                    <li>Finding constructive outlets</li>
+                    <li>Managing intensity</li>
+                    <li>Integrating insights</li>
                 </ul>
             </div>
         </div>
@@ -886,7 +886,7 @@
     <section class="practical-section">
         <div class="section-header">
             <h2 class="section-title">Practical Applications</h2>
-            <p class="section-subtitle">Harnessing Rohini's nurturing energy in daily life</p>
+            <p class="section-subtitle">Harnessing Mula's transformative energy in daily life</p>
         </div>
 
         <div class="three-column-grid">
@@ -898,20 +898,20 @@
                 </div>
                 <h3 class="card-title">Personal Growth</h3>
                 <div class="basic-content">
-                    Cultivating inner abundance and steady evolution
+                    Embracing radical self-honesty and transformation
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Self-Nurturing:</strong> Develop a consistent self-care routine that prioritizes rest, nourishment, and gentle progress.
+                        <strong>Shadow Work:</strong> Actively investigate your own hidden motives, fears, and desires.
                     </div>
                     <div class="detail-item">
-                        <strong>Resource Wisdom:</strong> Practice mindful resource management in time, energy, and material wealth.
+                        <strong>Letting Go:</strong> Practice non-attachment by regularly decluttering your life, both physically and emotionally.
                     </div>
                     <div class="detail-item">
-                        <strong>Growth Mindset:</strong> Embrace steady, sustainable progress over quick fixes and burnout cycles.
+                        <strong>Grounding Practices:</strong> Connect with the earth through gardening, hiking, or other grounding activities to balance the intensity.
                     </div>
                     <div class="detail-item">
-                        <strong>Beauty Practice:</strong> Create and maintain environments that support your evolution and well-being.
+                        <strong>Journaling:</strong> Use writing as a tool for self-inquiry and to document your journey of discovery.
                     </div>
                 </div>
             </div>
@@ -924,20 +924,20 @@
                 </div>
                 <h3 class="card-title">Professional Excellence</h3>
                 <div class="basic-content">
-                    Building sustainable success through nurturing leadership
+                    Bringing investigative rigor and transformative insight to your work
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Leadership Style:</strong> Focus on creating environments where teams and projects can flourish naturally.
+                        <strong>Problem Solving:</strong> Excel in roles that require deep investigation, research, and getting to the root of complex problems.
                     </div>
                     <div class="detail-item">
-                        <strong>Resource Management:</strong> Develop systems for optimal allocation and growth of resources.
+                        <strong>Innovation:</strong> Use your ability to deconstruct old paradigms to create space for new and innovative solutions.
                     </div>
                     <div class="detail-item">
-                        <strong>Team Development:</strong> Invest in steady, long-term growth of people and capabilities.
+                        <strong>Authentic Leadership:</strong> Lead with a commitment to truth and transparency, even when it's difficult.
                     </div>
                     <div class="detail-item">
-                        <strong>Project Success:</strong> Build sustainable processes that deliver consistent, high-quality results.
+                        <strong>Crisis Management:</strong> Your resilience and ability to stay centered in chaos make you a valuable asset in times of crisis.
                     </div>
                 </div>
             </div>
@@ -950,121 +950,31 @@
                 </div>
                 <h3 class="card-title">Sacred Environment</h3>
                 <div class="basic-content">
-                    Creating spaces that nurture growth and abundance
+                    Creating spaces that support deep inquiry and transformation
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Space Design:</strong> Arrange living and working spaces to support flow, growth, and well-being.
+                        <strong>Minimalist Space:</strong> A clean, uncluttered environment helps to focus the mind and reduce external distractions.
                     </div>
                     <div class="detail-item">
-                        <strong>Nature Connection:</strong> Incorporate plants, natural materials, and outdoor elements into daily life.
+                        <strong>Research Corner:</strong> Dedicate a space for study and investigation, with books and tools for deep inquiry.
                     </div>
                     <div class="detail-item">
-                        <strong>Sacred Routines:</strong> Establish daily practices that honor the cycles of growth and rest.
+                        <strong>Connection to the Earth:</strong> Incorporate natural elements like stones, wood, and plants to stay grounded.
                     </div>
                     <div class="detail-item">
-                        <strong>Energy Flow:</strong> Maintain spaces that feel both grounding and uplifting.
+                        <strong>Altar of Transformation:</strong> Create a sacred space to honor the cycle of destruction and creation, and to set intentions for personal growth.
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Practice Categories -->
-        <div class="practices-grid" style="margin-top: 3rem;">
-            <div class="practice-category">
-                <h3>Daily Practices</h3>
-                <ul>
-                    <li>Morning nature connection</li>
-                    <li>Mindful resource tracking</li>
-                    <li>Space beautification</li>
-                    <li>Nurturing rituals</li>
-                    <li>Growth journaling</li>
-                </ul>
-            </div>
-
-            <div class="practice-category">
-                <h3>Weekly Focus</h3>
-                <ul>
-                    <li>Resource review & planning</li>
-                    <li>Deep environment care</li>
-                    <li>Growth milestone check</li>
-                    <li>Team/Project nurturing</li>
-                    <li>Abundance meditation</li>
-                </ul>
-            </div>
-
-            <div class="practice-category">
-                <h3>Monthly Refinement</h3>
-                <ul>
-                    <li>Growth cycle evaluation</li>
-                    <li>Resource reallocation</li>
-                    <li>Space energy refresh</li>
-                    <li>Long-term planning</li>
-                    <li>Abundance celebration</li>
-                </ul>
-            </div>
-
-            <div class="practice-category">
-                <h3>Advanced Techniques</h3>
-                <ul>
-                    <li>Sacred space creation</li>
-                    <li>Abundance manifestation</li>
-                    <li>Growth system design</li>
-                    <li>Resource mastery</li>
-                    <li>Nurturing leadership</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- CSS for matching Krittika's styling exactly -->
-        <style>
-        .practice-category {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 1.2rem;
-        }
-
-        .practice-category h3 {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.1rem;
-            color: #4ecdc4;
-            margin-bottom: 0.8rem;
-        }
-
-        .practice-category ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .practice-category li {
-            color: #e0e0e0;
-            margin: 0.35rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .practice-category li::before {
-            content: '\2713';
-            color: #4ecdc4;
-            font-size: 0.9rem;
-        }
-
-        .practices-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-        </style>
     </section>
 
     <!-- Modern Relevance -->
     <section class="content-section">
         <div class="section-header">
             <h2 class="section-title">Modern Relevance</h2>
-            <p class="section-subtitle">Applying Rohini's wisdom to contemporary challenges</p>
+            <p class="section-subtitle">Applying Mula's wisdom to contemporary challenges</p>
         </div>
 
         <div class="two-column-grid">
@@ -1074,22 +984,22 @@
                     <div class="card-icon">📱</div>
                     <span class="expand-arrow">▼</span>
                 </div>
-                <h3 class="card-title">Digital Age Growth</h3>
+                <h3 class="card-title">Digital Age Truth Seeking</h3>
                 <div class="basic-content">
-                    Nurturing authentic development in a virtual world
+                    Navigating the complexities of information and misinformation
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Digital Wellness:</strong> Creating healthy relationships with technology and online spaces.
+                        <strong>Fact-Checking:</strong> Use your investigative skills to verify information and identify biases in the digital world.
                     </div>
                     <div class="detail-item">
-                        <strong>Virtual Communities:</strong> Building nurturing online environments that support real growth.
+                        <strong>Digital Declutter:</strong> Regularly purge your digital life of anything that is inauthentic or no longer serves you.
                     </div>
                     <div class="detail-item">
-                        <strong>Tech-Life Balance:</strong> Maintaining grounded presence in an increasingly digital world.
+                        <strong>Authentic Online Presence:</strong> Strive for a digital persona that is a true reflection of your core self.
                     </div>
                     <div class="detail-item">
-                        <strong>Online Resources:</strong> Managing digital abundance while staying connected to organic growth.
+                        <strong>Deep Dives:</strong> Use the internet for deep research and learning, rather than superficial browsing.
                     </div>
                 </div>
             </div>
@@ -1100,165 +1010,34 @@
                     <div class="card-icon">🌿</div>
                     <span class="expand-arrow">▼</span>
                 </div>
-                <h3 class="card-title">Environmental Consciousness</h3>
+                <h3 class="card-title">Ecological Consciousness</h3>
                 <div class="basic-content">
-                    Rohini's role in ecological restoration and growth
+                    Mula's role in addressing the root causes of environmental issues
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Sustainable Systems:</strong> Applying Rohini's growth wisdom to create regenerative environmental practices.
+                        <strong>Root Cause Analysis:</strong> Investigate the systemic roots of environmental destruction, rather than just addressing the symptoms.
                     </div>
                     <div class="detail-item">
-                        <strong>Resource Conservation:</strong> Using Rohini's resource intelligence for ecological preservation.
+                        <strong>Deconstruction of Harmful Systems:</strong> Advocate for the dismantling of economic and social systems that harm the planet.
                     </div>
                     <div class="detail-item">
-                        <strong>Natural Harmony:</strong> Restoring balance between human progress and environmental health.
+                        <strong>Regenerative Practices:</strong> Support and engage in practices that restore and regenerate ecosystems.
                     </div>
                     <div class="detail-item">
-                        <strong>Growth Ethics:</strong> Developing frameworks for sustainable expansion that benefits all life.
+                        <strong>Radical Simplicity:</strong> Embrace a lifestyle that minimizes consumption and honors the earth's resources.
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Contemporary Applications -->
-        <div class="applications-grid" style="margin-top: 3rem;">
-            <div class="application-category">
-                <h3>Mental Health</h3>
-                <ul>
-                    <li>Steady healing practices</li>
-                    <li>Growth mindset development</li>
-                    <li>Emotional resource management</li>
-                    <li>Nurturing self-care</li>
-                    <li>Sustainable well-being</li>
-                </ul>
-            </div>
-
-            <div class="application-category">
-                <h3>Professional Life</h3>
-                <ul>
-                    <li>Resource optimization</li>
-                    <li>Growth-oriented leadership</li>
-                    <li>Team nurturing systems</li>
-                    <li>Sustainable success</li>
-                    <li>Development pathways</li>
-                </ul>
-            </div>
-
-            <div class="application-category">
-                <h3>Wellness Practices</h3>
-                <ul>
-                    <li>Holistic nourishment</li>
-                    <li>Growth-supportive routines</li>
-                    <li>Resource-aware living</li>
-                    <li>Natural rhythms</li>
-                    <li>Energy cultivation</li>
-                </ul>
-            </div>
-
-            <div class="application-category">
-                <h3>Social Impact</h3>
-                <ul>
-                    <li>Community development</li>
-                    <li>Collective resource sharing</li>
-                    <li>Sustainable systems</li>
-                    <li>Growth facilitation</li>
-                    <li>Nurturing leadership</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- CSS to match Krittika's styling exactly -->
-        <style>
-        .application-category {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 1.2rem;
-        }
-
-        .application-category h3 {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.1rem;
-            color: #4ecdc4;
-            margin-bottom: 0.8rem;
-        }
-
-        .application-category ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .application-category li {
-            color: #e0e0e0;
-            margin: 0.35rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .application-category li::before {
-            content: '\2713';
-            color: #4ecdc4;
-            font-size: 0.9rem;
-        }
-
-        .applications-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-        }
-        </style>
-
     </section>
 
     <!-- Career & Life Path -->
     <section class="content-section">
         <div class="section-header">
             <h2 class="section-title">Career & Life Direction</h2>
-            <p class="section-subtitle">Professional paths that align with Rohini's nurturing energy</p>
+            <p class="section-subtitle">Professional paths that align with Mula's investigative energy</p>
         </div>
-
-        <style>
-        .guidance-category {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 1.2rem;
-        }
-
-        .guidance-category h3 {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.1rem;
-            color: #4ecdc4;
-            margin-bottom: 0.8rem;
-        }
-
-        .guidance-category ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .guidance-category li {
-            color: #e0e0e0;
-            margin: 0.35rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .guidance-category li::before {
-            content: '\2713';
-            color: #4ecdc4;
-            font-size: 0.9rem;
-        }
-
-        .career-guidance {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-        }
-        </style>
 
         <!-- Three-column cards (match Krittika structure) -->
         <div class="three-column-grid">
@@ -1269,43 +1048,43 @@
                 </div>
                 <h3 class="card-title">Ideal Professions</h3>
                 <div class="basic-content">
-                    Career paths that leverage Rohini's gifts
+                    Career paths that leverage Mula's gifts
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Growth & Development:</strong>
+                        <strong>Investigation & Research:</strong>
                         <ul>
-                            <li>Growth Strategist</li>
-                            <li>Development Coach</li>
-                            <li>Training Specialist</li>
-                            <li>Organizational Developer</li>
+                            <li>Investigative Journalist</li>
+                            <li>Detective or Police Officer</li>
+                            <li>Scientific Researcher</li>
+                            <li>Historian or Archaeologist</li>
                         </ul>
                     </div>
                     <div class="detail-item">
-                        <strong>Nature & Resources:</strong>
+                        <strong>Healing & Transformation:</strong>
                         <ul>
-                            <li>Environmental Manager</li>
-                            <li>Resource Coordinator</li>
-                            <li>Sustainability Expert</li>
-                            <li>Agricultural Consultant</li>
+                            <li>Psychotherapist or Psychoanalyst</li>
+                            <li>Shamanic Practitioner</li>
+                            <li>Trauma Specialist</li>
+                            <li>Hospice Worker</li>
                         </ul>
                     </div>
                     <div class="detail-item">
-                        <strong>Nurturing Leadership:</strong>
+                        <strong>Spiritual & Esoteric:</strong>
                         <ul>
-                            <li>Team Development Lead</li>
-                            <li>Mentorship Director</li>
-                            <li>Growth Program Manager</li>
-                            <li>Talent Cultivator</li>
+                            <li>Astrologer or Metaphysician</li>
+                            <li>Spiritual Teacher or Guru</li>
+                            <li>Meditation Instructor</li>
+                            <li>Exorcist or Psychic</li>
                         </ul>
                     </div>
                     <div class="detail-item">
-                        <strong>Creative Growth:</strong>
+                        <strong>Science & Technology:</strong>
                         <ul>
-                            <li>Arts Education Director</li>
-                            <li>Creative Development</li>
-                            <li>Design Growth Lead</li>
-                            <li>Innovation Nurturer</li>
+                            <li>Geneticist or Microbiologist</li>
+                            <li>Data Scientist</li>
+                            <li>Forensic Scientist</li>
+                            <li>Nuclear Physicist</li>
                         </ul>
                     </div>
                 </div>
@@ -1318,20 +1097,20 @@
                 </div>
                 <h3 class="card-title">Life Purpose</h3>
                 <div class="basic-content">
-                    Core themes in Rohini's life journey
+                    Core themes in Mula's life journey
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Growth Facilitation:</strong> Creating environments and opportunities that foster development in others.
+                        <strong>Uncovering Truth:</strong> To get to the root of things and expose hidden truths, both personal and collective.
                     </div>
                     <div class="detail-item">
-                        <strong>Resource Stewardship:</strong> Wisely managing and multiplying resources for sustainable abundance.
+                        <strong>Spiritual Liberation:</strong> To break free from karmic bonds and achieve a state of spiritual liberation (moksha).
                     </div>
                     <div class="detail-item">
-                        <strong>Nurturing Leadership:</strong> Guiding others through steady, supportive development.
+                        <strong>Catalyst for Transformation:</strong> To act as a catalyst for profound change in the lives of others and in society.
                     </div>
                     <div class="detail-item">
-                        <strong>Sacred Growth:</strong> Tending to the evolution of consciousness in self and others.
+                        <strong>Facing the Shadow:</strong> To confront the darkest aspects of the self and the world in order to heal and transform them.
                     </div>
                 </div>
             </div>
@@ -1343,69 +1122,22 @@
                 </div>
                 <h3 class="card-title">Growth Path</h3>
                 <div class="basic-content">
-                    Stages of professional development
+                    Stages of spiritual development
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Foundation Stage:</strong> Building core skills in nurturing and resource management through practical experience.
+                        <strong>The Investigator:</strong> The initial stage of questioning everything and seeking to understand the hidden causes of things.
                     </div>
                     <div class="detail-item">
-                        <strong>Development Phase:</strong> Expanding capacity to foster growth in larger systems and teams.
+                        <strong>The Destroyer:</strong> The stage of actively dismantling old beliefs, attachments, and structures that are no longer serving a purpose.
                     </div>
                     <div class="detail-item">
-                        <strong>Leadership Evolution:</strong> Creating environments and programs that support collective growth.
+                        <strong>The Healer:</strong> The stage of using one's insights to heal oneself and others from deep-seated trauma and karmic wounds.
                     </div>
                     <div class="detail-item">
-                        <strong>Legacy Creation:</strong> Establishing sustainable growth systems that continue nurturing future generations.
+                        <strong>The Liberated Soul:</strong> The final stage of achieving spiritual freedom and living in alignment with ultimate truth.
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <!-- Career Guidance (match Krittika) -->
-        <div class="career-guidance" style="margin-top: 3rem;">
-            <div class="guidance-category">
-                <h3>Workplace Strengths</h3>
-                <ul>
-                    <li>Resource optimization</li>
-                    <li>Growth facilitation</li>
-                    <li>Environment creation</li>
-                    <li>Team nurturing</li>
-                    <li>Development planning</li>
-                </ul>
-            </div>
-
-            <div class="guidance-category">
-                <h3>Leadership Style</h3>
-                <ul>
-                    <li>Nurturing guidance</li>
-                    <li>Resource wisdom</li>
-                    <li>Growth-oriented vision</li>
-                    <li>Steady development</li>
-                    <li>Sustainable progress</li>
-                </ul>
-            </div>
-
-            <div class="guidance-category">
-                <h3>Growth Opportunities</h3>
-                <ul>
-                    <li>Strategic expansion</li>
-                    <li>Resource innovation</li>
-                    <li>System evolution</li>
-                    <li>Team cultivation</li>
-                    <li>Vision manifestation</li>
-                </ul>
-            </div>
-
-            <div class="guidance-category">
-                <h3>Success Principles</h3>
-                <ul>
-                    <li>Sustainable growth</li>
-                    <li>Resource mastery</li>
-                    <li>Steady progress</li>
-                    <li>Nurturing leadership</li>
-                    <li>Value creation</li>
-                </ul>
             </div>
         </div>
     </section>
@@ -1414,7 +1146,7 @@
     <section class="content-section">
         <div class="section-header">
             <h2 class="section-title">Relationships & Compatibility</h2>
-            <p class="section-subtitle">Understanding Rohini's approach to connections and partnerships</p>
+            <p class="section-subtitle">Understanding Mula's approach to connections and partnerships</p>
         </div>
 
         <div class="two-column-grid">
@@ -1425,20 +1157,20 @@
                 </div>
                 <h3 class="card-title">Relationship Style</h3>
                 <div class="basic-content">
-                    How Rohini approaches love and partnership
+                    How Mula approaches love and partnership
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Nurturing Presence:</strong> Creates emotional safety and fertile conditions for relationships to grow.
+                        <strong>Intense and Transformative:</strong> Relationships with Mula natives are often intense and can be deeply transformative for both partners.
                     </div>
                     <div class="detail-item">
-                        <strong>Steady Devotion:</strong> Values consistency, loyalty, and practical expressions of care.
+                        <strong>Craves Authenticity:</strong> Mula cannot tolerate superficiality in relationships and demands raw, honest connection.
                     </div>
                     <div class="detail-item">
-                        <strong>Beauty & Comfort:</strong> Builds harmonious environments that support connection and trust.
+                        <strong>Prone to Upheaval:</strong> The destructive energy of Mula can sometimes lead to sudden breakups or crises in relationships.
                     </div>
                     <div class="detail-item">
-                        <strong>Growth Through Care:</strong> Helps partners flourish through patient tending and supportive structure.
+                        <strong>Spiritual Connection:</strong> Seeks a partner who is also on a path of self-discovery and is not afraid to confront the shadow.
                     </div>
                 </div>
             </div>
@@ -1454,236 +1186,61 @@
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Resource Harmony:</strong> Thrives where time, energy, and care are respected and shared wisely.
+                        <strong>Deep Inquiry:</strong> A tendency to probe and investigate a partner's psyche, which can feel intrusive to some.
                     </div>
                     <div class="detail-item">
-                        <strong>Steady Growth:</strong> Relationships deepen best through consistent effort rather than intensity spikes.
+                        <strong>Shared Transformation:</strong> The relationship itself becomes a crucible for mutual transformation and spiritual growth.
                     </div>
                     <div class="detail-item">
-                        <strong>Sacred Boundaries:</strong> Clear, kind boundaries protect the relationship’s growth space.
+                        <strong>Need for Freedom:</strong> A deep need for personal freedom and a partner who understands their unconventional path.
                     </div>
                     <div class="detail-item">
-                        <strong>Mutual Cultivation:</strong> Partners co-create environments where both can blossom.
+                        <strong>Loyalty to Truth:</strong> Mula's ultimate loyalty is to the truth, which can sometimes take precedence over the relationship itself.
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Compatibility Insights -->
-        <div class="compatibility-grid" style="margin-top: 3rem;">
-            <div class="guidance-category">
-                <h3>Natural Synergy</h3>
-                <ul>
-                    <li>Nurturing personalities</li>
-                    <li>Steady, reliable partners</li>
-                    <li>Resource-respectful types</li>
-                    <li>Home & beauty lovers</li>
-                    <li>Growth-oriented companions</li>
-                </ul>
-            </div>
-
-            <div class="guidance-category">
-                <h3>Learning Opportunities</h3>
-                <ul>
-                    <li>Highly spontaneous types</li>
-                    <li>Change-first personalities</li>
-                    <li>Detached communicators</li>
-                    <li>Fast-paced decision makers</li>
-                    <li>Minimalists about comfort</li>
-                </ul>
-            </div>
-
-            <div class="guidance-category">
-                <h3>Communication Keys</h3>
-                <ul>
-                    <li>Gentle honesty</li>
-                    <li>Clear expectations</li>
-                    <li>Rituals of appreciation</li>
-                    <li>Resource transparency</li>
-                    <li>Growth-focused dialogue</li>
-                </ul>
-            </div>
-
-            <div class="guidance-category">
-                <h3>Growth Together</h3>
-                <ul>
-                    <li>Shared routines</li>
-                    <li>Co-created spaces</li>
-                    <li>Mutual caretaking</li>
-                    <li>Long-term planning</li>
-                    <li>Beauty + function balance</li>
-                </ul>
-            </div>
-        </div>
-
-        <style>
-        .compatibility-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .guidance-category {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 1.2rem;
-        }
-
-        .guidance-category h3 {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.1rem;
-            color: #2ecc71;
-            margin-bottom: 0.8rem;
-        }
-
-        .guidance-category ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .guidance-category li {
-            color: #e0e0e0;
-            margin: 0.35rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .guidance-category li::before {
-            content: '\2713';
-            color: #2ecc71;
-            font-size: 0.9rem;
-        }
-        </style>
-
-        <!-- Relationship Wisdom -->
-        <div class="wisdom-notes" style="margin-top: 3rem; padding: 2rem; background: rgba(46, 204, 113, 0.1); border-radius: 20px;">
-            <h3 style="margin-bottom: 1.5rem; color: #2ecc71;">Sacred Partnership Wisdom</h3>
-            <div class="wisdom-grid" style="display: grid; gap: 1.5rem;">
-                <div class="wisdom-item">
-                    <strong>Balance Giving & Receiving:</strong>
-                    <p>While nurturing others comes naturally, remember to also receive care and support. True partnership thrives on mutual tending and balanced exchange.</p>
-                </div>
-                <div class="wisdom-item">
-                    <strong>Create Fertile Ground:</strong>
-                    <p>Your gift for creating supportive environments serves relationships well. Design spaces and routines that allow love to grow naturally and steadily.</p>
-                </div>
-                <div class="wisdom-item">
-                    <strong>Honor Natural Timing:</strong>
-                    <p>Like a garden, relationships flourish with patient care and respect for natural cycles. Trust the wisdom of steady, sustainable growth.</p>
-                </div>
-                <div class="wisdom-item">
-                    <strong>Cultivate Shared Resources:</strong>
-                    <p>Approach love as a sacred collaboration where time, energy, and care are mindfully shared resources that grow more abundant through wise stewardship.</p>
-                </div>
-            </div>
-        </div>
-        <style>
-        /* Match Krittika wisdom UI with Rohini colors */
-        .wisdom-grid { display: grid; gap: 1.5rem; }
-        .wisdom-item { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 1.2rem; }
-        .wisdom-item strong { color: #2ecc71; display: block; margin-bottom: 0.5rem; }
-        .wisdom-item p { color: #e0e0e0; margin: 0; line-height: 1.6; }
-        </style>
-    </section>
-
-    <!-- Related Nakshatras -->
-    <section class="content-section">
-        <div class="section-header">
-            <h2 class="section-title">Explore Related Nakshatras</h2>
-            <p class="section-subtitle">Discover complementary stellar consciousness programs</p>
-        </div>
-
-        <div class="related-grid" style="margin-top: 1.5rem;">
-            <a href="bharani.html" class="related-card">
-                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌺</div>
-                <h3>Bharani</h3>
-                <p>The Bearer — Transformation through creation and responsibility</p>
-            </a>
-            <a href="krittika.html" class="related-card">
-                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔥</div>
-                <h3>Krittika</h3>
-                <p>The Cutter — Purification through sacred fire</p>
-            </a>
-            <a href="mrigashira.html" class="related-card">
-                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🦉</div>
-                <h3>Mrigashira</h3>
-                <p>The Seeker — Curiosity, discovery, and graceful movement</p>
-            </a>
         </div>
     </section>
-
 
     <!-- Vedic Interpretations -->
     <section class="vedic-section">
         <div class="section-header">
             <h2 class="section-title">Vedic Interpretations</h2>
-            <p class="section-subtitle">Traditional wisdom and symbolic architecture of Rohini</p>
+            <p class="section-subtitle">Traditional wisdom and symbolic architecture of Mula</p>
         </div>
 
         <div class="two-column-grid">
             <!-- Core Vedic Data -->
             <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
                 <div class="card-header-expand">
-                    <div class="card-icon">🌺</div>
+                    <div class="card-icon">🕉️</div>
                     <span class="expand-arrow">▼</span>
                 </div>
                 <h3 class="card-title">Core Attributes</h3>
                 <div class="basic-content">
-                    The classical framework that defines Rohini's sacred role in cosmic growth
+                    The classical framework that defines Mula's sacred role in the cosmos
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Deity:</strong> Prajapati (Brahma) — The cosmic gardener who nurtures universes into being. As the creator god, Prajapati's presence in Rohini infuses this nakshatra with the power to cultivate life's endless forms.
+                        <strong>Deity:</strong> Nirṛti — The goddess of dissolution and destruction, who clears away the old to make way for the new.
                     </div>
                     <div class="detail-item">
-                        <strong>Shakti (Power):</strong> Rohana Shakti — The divine force of ascension and growth. This transformative power takes seeds of potential and elevates them into flourishing realities through patient nurturing.
+                        <strong>Shakti (Power):</strong> Barhana Shakti — The power to ruin, destroy, and break things apart.
                     </div>
                     <div class="detail-item">
-                        <strong>Sacred Symbol:</strong> The Cart (Shakata) — This ancient vehicle represents:
-                        <ul>
-                            <li>Resources in harmonious motion</li>
-                            <li>The steady journey of manifestation</li>
-                            <li>Abundance carried forward with purpose</li>
-                            <li>The sacred vehicle of earthly prosperity</li>
-                        </ul>
+                        <strong>Sacred Symbol:</strong> A bunch of roots tied together — This symbol represents being bound to the root of things, both karmically and in the search for truth.
                     </div>
                     <div class="detail-item">
-                        <strong>Ruling Planet:</strong> Moon (Chandra) — The cosmic mother who:
-                        <ul>
-                            <li>Pours divine nectar of nourishment</li>
-                            <li>Establishes growth-supporting rhythms</li>
-                            <li>Cultivates deep emotional intelligence</li>
-                            <li>Maintains cycles of regeneration</li>
-                        </ul>
+                        <strong>Ruling Planet:</strong> Ketu — The south node of the Moon, a shadow planet representing spiritual liberation, detachment, and the severing of material attachments.
                     </div>
                     <div class="detail-item">
-                        <strong>Elemental Nature:</strong> Earth (Prithvi) dominates, expressing as:
-                        <ul>
-                            <li>Grounded stability in manifestation</li>
-                            <li>Material abundance and prosperity</li>
-                            <li>Tangible results and real growth</li>
-                            <li>Fertile soil for all possibilities</li>
-                        </ul>
+                        <strong>Elemental Nature:</strong> Air (Vayu) — This element gives Mula its investigative and probing nature.
                     </div>
                     <div class="detail-item">
-                        <strong>Zodiac Context:</strong> The fertile heart of Taurus (10°00' - 23°20'), where:
-                        <ul>
-                            <li>Material potential reaches peak fertility</li>
-                            <li>Growth finds its most stable expression</li>
-                            <li>Resources multiply naturally</li>
-                            <li>Abundance becomes self-sustaining</li>
-                        </ul>
+                        <strong>Zodiac Context:</strong> The beginning of Sagittarius (0°00' - 13°20'), where the search for truth and higher meaning begins.
                     </div>
                     <div class="detail-item">
-                        <strong>Essential Nature:</strong> The Divine Nurturer who:
-                        <ul>
-                            <li>Cultivates with gentle persistence</li>
-                            <li>Creates beauty that serves purpose</li>
-                            <li>Grows wealth that lasts generations</li>
-                            <li>Transforms potential into prosperity</li>
-                        </ul>
+                        <strong>Essential Nature:</strong> The Investigator who seeks the ultimate truth by uprooting all that is false.
                     </div>
                 </div>
             </div>
@@ -1696,95 +1253,21 @@
                 </div>
                 <h3 class="card-title">Pada Themes (Quarter Qualities)</h3>
                 <div class="basic-content">
-                    The four sacred expressions of Rohini's growth wisdom
+                    The four sacred expressions of Mula's investigative wisdom
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Pada 1 — Foundation Layer (10°00' - 13°20' Taurus):</strong>
-                        <ul>
-                            <li>Establishes unshakeable growth foundations</li>
-                            <li>Masters the rhythms of sustainable progress</li>
-                            <li>Creates systems that support natural expansion</li>
-                            <li>Builds with patience and deep understanding</li>
-                        </ul>
+                        <strong>Pada 1 — The Seeker (0°00' - 3°20' Sagittarius):</strong> The journey begins with an intense and fiery search for truth, often leading to a crisis of faith.
                     </div>
                     <div class="detail-item">
-                        <strong>Pada 2 — Resource Mastery (13°20' - 16°40' Taurus):</strong>
-                        <ul>
-                            <li>Develops and multiplies available resources</li>
-                            <li>Cultivates skills that generate abundance</li>
-                            <li>Nurtures material and spiritual wealth</li>
-                            <li>Transforms potential into tangible results</li>
-                        </ul>
+                        <strong>Pada 2 — The Investigator (3°20' - 6°40' Sagittarius):</strong> The focus shifts to a more grounded and practical investigation of the material world.
                     </div>
                     <div class="detail-item">
-                        <strong>Pada 3 — Sacred Design (16°40' - 20°00' Taurus):</strong>
-                        <ul>
-                            <li>Creates environments that enhance life</li>
-                            <li>Balances beauty with practical function</li>
-                            <li>Designs systems that support thriving</li>
-                            <li>Manifests harmony in physical spaces</li>
-                        </ul>
+                        <strong>Pada 3 — The Communicator (6°40' - 10°00' Sagittarius):</strong> The native learns to communicate their findings and insights with others, often in a direct and challenging way.
                     </div>
                     <div class="detail-item">
-                        <strong>Pada 4 — Abundance Sharing (20°00' - 23°20' Taurus):</strong>
-                        <ul>
-                            <li>Distributes prosperity to benefit all</li>
-                            <li>Mentors others in growth wisdom</li>
-                            <li>Establishes lasting abundance cycles</li>
-                            <li>Creates legacy systems of prosperity</li>
-                        </ul>
+                        <strong>Pada 4 — The Healer (10°00' - 13°20' Sagittarius):</strong> The journey culminates in the ability to use their hard-won wisdom to heal themselves and others.
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Sacred Meanings -->
-        <div class="content-card expandable-card" onclick="toggleExpandableCard(this)" style="margin-top:1rem;">
-            <div class="card-header-expand">
-                <div class="card-icon">🕉️</div>
-                <span class="expand-arrow">▼</span>
-            </div>
-            <h3 class="card-title">Sacred Meanings</h3>
-            <div class="basic-content">
-                The deeper spiritual wisdom within Rohini's abundance teachings
-            </div>
-            <div class="detailed-content">
-                <div class="detail-item">
-                    <strong>The Sacred Art of Growth:</strong>
-                    <ul>
-                        <li>Growth is a divine dance of patience and persistence</li>
-                        <li>Every seed contains infinite potential waiting to be nurtured</li>
-                        <li>True abundance emerges through cycles of care and attention</li>
-                        <li>Sustainable growth requires honoring natural rhythms</li>
-                    </ul>
-                </div>
-                <div class="detail-item">
-                    <strong>Beauty as Divine Technology:</strong>
-                    <ul>
-                        <li>Aesthetic harmony creates fertile ground for prosperity</li>
-                        <li>Beauty is not superficial—it's a force that attracts abundance</li>
-                        <li>Well-designed environments naturally support growth</li>
-                        <li>Visual harmony reflects deeper universal order</li>
-                    </ul>
-                </div>
-                <div class="detail-item">
-                    <strong>The Abundance Dharma:</strong>
-                    <ul>
-                        <li>True wealth flows from supporting life's natural expansion</li>
-                        <li>Prosperity is meant to benefit the whole, not just the part</li>
-                        <li>Sustainable abundance comes from ethical stewardship</li>
-                        <li>Growth should enhance life for all beings</li>
-                    </ul>
-                </div>
-                <div class="detail-item">
-                    <strong>Divine Gardener Wisdom:</strong>
-                    <ul>
-                        <li>Every manifestation requires the right conditions</li>
-                        <li>Growth cannot be forced—it must be cultivated</li>
-                        <li>Patience and persistence yield the sweetest fruits</li>
-                        <li>The gardener serves life's inherent drive to flourish</li>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -1793,64 +1276,64 @@
     <!-- Navigation Footer -->
     <section class="content-section" style="text-align: center;">
         <div class="nav-buttons">
-            <a href="krittika.html" class="nav-btn">
-                <i class="fas fa-arrow-left"></i> Previous: Krittika
+            <a href="jyeshtha.html" class="nav-btn">
+                <i class="fas fa-arrow-left"></i> Previous: Jyeshtha
             </a>
             <a href="#top" class="nav-btn primary">
                 <i class="fas fa-arrow-up"></i> Back to Top
             </a>
-            <a href="mrigashira.html" class="nav-btn">
-                Next: Mrigashira <i class="fas fa-arrow-right"></i>
+            <a href="purva-ashadha.html" class="nav-btn">
+                Next: Purva Ashadha <i class="fas fa-arrow-right"></i>
             </a>
         </div>
     </section>
 
-    <style id="theme-rohini">
-        /* Rohini Theme: growth, abundance, nurturing */
+    <style id="theme-mula">
+        /* Mula Theme: truth, destruction, investigation */
         :root {
-            --rohini-bg: #0c1114;
-            --rohini-surface: #12181c;
-            --rohini-surface-2: #0f1519;
-            --rohini-border: rgba(255,255,255,0.08);
-            --rohini-text: #e6fff9;
-            --rohini-dim: rgba(230, 255, 249, 0.75);
-            --rohini-accent: #4ecdc4;   /* teal mint */
-            --rohini-accent-2: #84fab0; /* green gradient */
-            --rohini-accent-3: #8fd3f4; /* light blue */
-            --rohini-warm: #ffd29f;     /* warm growth */
+            --mula-bg: #0c1114;
+            --mula-surface: #12181c;
+            --mula-surface-2: #0f1519;
+            --mula-border: rgba(255,255,255,0.08);
+            --mula-text: #e6fff9;
+            --mula-dim: rgba(230, 255, 249, 0.75);
+            --mula-accent: #D2691E;   /* Root brown */
+            --mula-accent-2: #8B4513; /* Saddle brown */
+            --mula-accent-3: #A0522D; /* Sienna */
+            --mula-warm: #ffd29f;     /* warm growth */
             --shadow-1: 0 6px 20px rgba(0,0,0,0.25);
             --shadow-2: 0 10px 30px rgba(0,0,0,0.35);
         }
 
-        body { background: radial-gradient(1200px 700px at 50% -10%, rgba(78,205,196,0.08), transparent),
-                               radial-gradient(900px 600px at 100% 20%, rgba(143,211,244,0.06), transparent),
-                               var(--rohini-bg); color: var(--rohini-text); }
+        body { background: radial-gradient(1200px 700px at 50% -10%, rgba(210,105,30,0.08), transparent),
+                               radial-gradient(900px 600px at 100% 20%, rgba(139,69,19,0.06), transparent),
+                               var(--mula-bg); color: var(--mula-text); }
 
         /* Section theming */
-        .psychology-section { background: linear-gradient(180deg, rgba(78,205,196,0.07), rgba(0,0,0,0) 35%); border-top: 1px solid var(--rohini-border); }
-        .practical-section { background: linear-gradient(180deg, rgba(132,250,176,0.08), rgba(0,0,0,0) 35%); border-top: 1px solid var(--rohini-border); }
-        .modern-section { background: linear-gradient(180deg, rgba(143,211,244,0.08), rgba(0,0,0,0) 35%); border-top: 1px solid var(--rohini-border); }
-        .career-section { background: linear-gradient(180deg, rgba(255,210,159,0.08), rgba(0,0,0,0) 35%); border-top: 1px solid var(--rohini-border); }
-        .relationships-section { background: linear-gradient(180deg, rgba(132,250,176,0.06), rgba(0,0,0,0) 35%); border-top: 1px solid var(--rohini-border); }
-        .connected-stars-section { background: linear-gradient(180deg, rgba(78,205,196,0.06), rgba(0,0,0,0) 35%); border-top: 1px solid var(--rohini-border); }
+        .psychology-section { background: linear-gradient(180deg, rgba(210,105,30,0.07), rgba(0,0,0,0) 35%); border-top: 1px solid var(--mula-border); }
+        .practical-section { background: linear-gradient(180deg, rgba(139,69,19,0.08), rgba(0,0,0,0) 35%); border-top: 1px solid var(--mula-border); }
+        .modern-section { background: linear-gradient(180deg, rgba(160,82,45,0.08), rgba(0,0,0,0) 35%); border-top: 1px solid var(--mula-border); }
+        .career-section { background: linear-gradient(180deg, rgba(255,210,159,0.08), rgba(0,0,0,0) 35%); border-top: 1px solid var(--mula-border); }
+        .relationships-section { background: linear-gradient(180deg, rgba(139,69,19,0.06), rgba(0,0,0,0) 35%); border-top: 1px solid var(--mula-border); }
+        .connected-stars-section { background: linear-gradient(180deg, rgba(210,105,30,0.06), rgba(0,0,0,0) 35%); border-top: 1px solid var(--mula-border); }
 
         .section-header { margin: 1.2rem 0 1rem; }
-        .section-title { color: var(--rohini-accent); letter-spacing: 0.6px; }
-        .section-subtitle { color: var(--rohini-dim); }
+        .section-title { color: var(--mula-accent); letter-spacing: 0.6px; }
+        .section-subtitle { color: var(--mula-dim); }
 
         /* Cards */
         .content-card, .connection-card, .compatibility-card, .influence-card, .stage-card, .guidance-card, .sequence-card {
             background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.0));
-            border: 1px solid var(--rohini-border);
+            border: 1px solid var(--mula-border);
             border-radius: 14px;
             box-shadow: var(--shadow-1);
             transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
         }
         .content-card:hover, .connection-card:hover, .compatibility-card:hover, .influence-card:hover, .stage-card:hover, .guidance-card:hover, .sequence-card:hover {
             transform: translateY(-2px);
-            border-color: rgba(78,205,196,0.25);
+            border-color: rgba(210,105,30,0.25);
             box-shadow: var(--shadow-2);
-            background: linear-gradient(180deg, rgba(78,205,196,0.06), rgba(255,255,255,0.01));
+            background: linear-gradient(180deg, rgba(210,105,30,0.06), rgba(255,255,255,0.01));
         }
 
         /* Expand/collapse animation */
@@ -1860,42 +1343,42 @@
         .expandable-card .basic-content { opacity: 0.95; }
         .expandable-card.expanded .basic-content { opacity: 1; }
 
-        .expand-arrow { color: var(--rohini-accent); font-weight: 600; }
+        .expand-arrow { color: var(--mula-accent); font-weight: 600; }
 
         /* Icons */
         .card-icon, .box-icon, .sequence-icon, .influence-icon, .guidance-icon { 
             width: 40px; height: 40px; display: grid; place-items: center; 
-            background: radial-gradient(60% 60% at 50% 50%, rgba(78,205,196,0.25), rgba(255,255,255,0)); 
-            border: 1px solid rgba(78,205,196,0.25); border-radius: 10px; color: var(--rohini-text);
+            background: radial-gradient(60% 60% at 50% 50%, rgba(210,105,30,0.25), rgba(255,255,255,0)); 
+            border: 1px solid rgba(210,105,30,0.25); border-radius: 10px; color: var(--mula-text);
         }
 
         /* Buttons */
-        .button { background: linear-gradient(180deg, rgba(78,205,196,0.12), rgba(255,255,255,0.02));
-                  border: 1px solid var(--rohini-border); color: var(--rohini-text); 
+        .button { background: linear-gradient(180deg, rgba(210,105,30,0.12), rgba(255,255,255,0.02));
+                  border: 1px solid var(--mula-border); color: var(--mula-text); 
                   border-radius: 12px; transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease; }
-        .button:hover { background: linear-gradient(180deg, rgba(78,205,196,0.2), rgba(255,255,255,0.04)); border-color: rgba(78,205,196,0.35); transform: translateY(-1px); }
+        .button:hover { background: linear-gradient(180deg, rgba(210,105,30,0.2), rgba(255,255,255,0.04)); border-color: rgba(210,105,30,0.35); transform: translateY(-1px); }
 
         /* Grids spacing */
         .two-column-grid, .three-column-grid, .applications-grid, .category-grid, .professions-grid, .stages-grid, .guidance-grid, .connected-stars-grid, .influence-cards, .insights-container { gap: 1.1rem; }
 
         /* Wisdom box */
-        .sacred-wisdom-box { border: 1px solid var(--rohini-border); border-radius: 16px; padding: 1rem; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(78,205,196,0.06)); box-shadow: var(--shadow-1); }
-        .sacred-wisdom-box .wisdom-header { display: flex; align-items: center; gap: 0.6rem; color: var(--rohini-accent); }
+        .sacred-wisdom-box { border: 1px solid var(--mula-border); border-radius: 16px; padding: 1rem; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(210,105,30,0.06)); box-shadow: var(--shadow-1); }
+        .sacred-wisdom-box .wisdom-header { display: flex; align-items: center; gap: 0.6rem; color: var(--mula-accent); }
         .sacred-wisdom-box .wisdom-quote { font-style: italic; opacity: 0.9; margin: 0.6rem 0 0.8rem; }
 
         /* Sequence */
         .star-sequence { display: flex; align-items: stretch; gap: 0.6rem; }
-        .sequence-step { border: 1px solid var(--rohini-border); border-radius: 12px; padding: 0.6rem; text-align: center; min-width: 110px; }
-        .sequence-step.current { border-color: rgba(78,205,196,0.35); background: linear-gradient(180deg, rgba(78,205,196,0.12), rgba(255,255,255,0.02)); }
+        .sequence-step { border: 1px solid var(--mula-border); border-radius: 12px; padding: 0.6rem; text-align: center; min-width: 110px; }
+        .sequence-step.current { border-color: rgba(210,105,30,0.35); background: linear-gradient(180deg, rgba(210,105,30,0.12), rgba(255,255,255,0.02)); }
         .sequence-arrow { display: grid; place-items: center; opacity: 0.6; padding: 0 0.2rem; }
 
         /* Stats */
-        .stats-grid .stat-item { border: 1px solid var(--rohini-border); border-radius: 12px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(78,205,196,0.06)); box-shadow: var(--shadow-1); }
-        .stats-grid .stat-item h3 { color: var(--rohini-warm); }
+        .stats-grid .stat-item { border: 1px solid var(--mula-border); border-radius: 12px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(210,105,30,0.06)); box-shadow: var(--shadow-1); }
+        .stats-grid .stat-item h3 { color: var(--mula-warm); }
     </style>
 
-    <style id="responsive-rohini">
-        /* Responsive utilities for Rohini page */
+    <style id="responsive-mula">
+        /* Responsive utilities for Mula page */
         /* Base adjustments for medium screens */
         @media (max-width: 1024px) {
             .three-column-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }

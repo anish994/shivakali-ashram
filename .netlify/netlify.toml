@@ -1,0 +1,72 @@
+headersOrigin = "config"
+redirectsOrigin = "config"
+plugins = []
+
+[functions]
+
+[functions."*"]
+
+[build]
+publish = "C:\\Users\\Achariya\\project\\shivakali-ashram"
+publishOrigin = "config"
+commandOrigin = "config"
+command = "echo 'Static site deployment - no build required'"
+
+[build.environment]
+NODE_VERSION = "18"
+
+[build.processing]
+skip_processing = false
+
+[build.processing.css]
+bundle = false
+minify = false
+
+[build.processing.html]
+pretty_urls = true
+
+[build.processing.images]
+compress = false
+
+[build.processing.js]
+bundle = false
+minify = false
+
+[build.services]
+
+[[headers]]
+for = "/*"
+
+[headers.values]
+X-Frame-Options = "DENY"
+X-Content-Type-Options = "nosniff"
+X-XSS-Protection = "1; mode=block"
+Referrer-Policy = "strict-origin-when-cross-origin"
+Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+for = "*.html"
+
+[headers.values]
+Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+for = "/assets/*"
+
+[headers.values]
+Cache-Control = "public, max-age=31536000, immutable"
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+Role = ["admin", "editor"]
+Language = ["en"]
+Country = ["US"]
+
+[redirects.headers]

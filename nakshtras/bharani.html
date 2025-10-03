@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bharani Nakshatra - The Cosmic Creators | ShivaKali Ashram</title>
-    <meta name="description" content="Discover Bharani Nakshatra - The Bearer and Divine Creator. Explore the second stellar consciousness program in Vedic astrology with modern insights into creation cycles.">
+    <title>Bharani Nakshatra - The Bearer of Life | ShivaKali Ashram</title>
+    <meta name="description" content="Explore Bharani Nakshatra - The mystical star of creation and transformation. Discover the second stellar mansion in Vedic astrology, associated with birth, death, and the cycles of existence.">
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -56,9 +56,10 @@
 
         /* Bharani-specific gradient theme */
         :root {
-            --bharani-primary: linear-gradient(135deg, #ff9ff3, #f368e0);
-            --bharani-secondary: rgba(255, 159, 243, 0.2);
-            --bharani-glow: rgba(243, 104, 224, 0.4);
+            --bharani-primary: linear-gradient(135deg, #990000, #2a0000);
+            --bharani-secondary: rgba(153, 0, 0, 0.2);
+            --bharani-glow: rgba(153, 0, 0, 0.4);
+            --bharani-accent: #ff3333;  /* Blood red accent color */
         }
 
         /* Navigation */
@@ -101,7 +102,7 @@
         .nav-title {
             font-family: 'Orbitron', monospace;
             font-size: 1.2rem;
-            color: #ff9ff3;
+            color: #990000;
         }
 
         /* Hero Section */
@@ -120,7 +121,7 @@
         .nakshatra-symbol {
             font-size: 6rem;
             margin-bottom: 1rem;
-            filter: drop-shadow(0 0 20px #ff9ff3);
+            filter: drop-shadow(0 0 20px #990000);
             animation: float 3s ease-in-out infinite;
         }
 
@@ -156,6 +157,37 @@
             margin-right: auto;
         }
 
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            background: linear-gradient(45deg, rgba(46, 204, 113, 0.2), rgba(39, 174, 96, 0.2));
+            border: 2px solid rgba(46, 204, 113, 0.3);
+            border-radius: 15px;
+            padding: 12px 24px;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            font-size: 0.95rem;
+        }
+
+        .nav-btn:hover {
+            background: linear-gradient(45deg, #990000, #2a0000);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(153, 0, 0, 0.3);
+        }
+
+        .nav-btn.primary {
+            background: linear-gradient(45deg, #990000, #2a0000);
+            border-color: #2a0000;
+        }
+
         .stellar-info-hero {
             display: flex;
             justify-content: center;
@@ -166,18 +198,6 @@
 
         .info-item {
             text-align: center;
-        }
-
-        .info-label {
-            font-size: 0.9rem;
-            color: #b19cd9;
-            margin-bottom: 0.3rem;
-        }
-
-        .info-value {
-            font-weight: 600;
-            color: #ffffff;
-            font-size: 1.1rem;
         }
 
         /* Content Sections */
@@ -195,7 +215,7 @@
         .section-title {
             font-family: 'Orbitron', monospace;
             font-size: clamp(2rem, 4vw, 2.8rem);
-            color: #ff9ff3;
+            color: #2ecc71;
             margin-bottom: 1rem;
         }
 
@@ -233,14 +253,14 @@
 
         .content-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px var(--bharani-glow);
-            border-color: rgba(255, 159, 243, 0.3);
+            box-shadow: 0 15px 35px var(--rohini-glow);
+            border-color: rgba(46, 204, 113, 0.3);
         }
 
         .card-icon {
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            color: #ff9ff3;
+            color: #2ecc71;
             filter: drop-shadow(0 0 10px currentColor);
         }
 
@@ -258,7 +278,7 @@
 
         /* Special Sections */
         .mythology-section {
-            background: linear-gradient(135deg, rgba(255, 159, 243, 0.1), rgba(243, 104, 224, 0.05));
+            background: linear-gradient(135deg, rgba(46, 204, 113, 0.1), rgba(39, 174, 96, 0.05));
             border-radius: 30px;
             padding: 3rem;
             margin: 3rem 0;
@@ -272,66 +292,23 @@
         }
 
         .practical-section {
-            background: linear-gradient(135deg, rgba(254, 202, 87, 0.1), rgba(255, 159, 243, 0.05));
+            background: linear-gradient(135deg, rgba(254, 202, 87, 0.1), rgba(46, 204, 113, 0.05));
             border-radius: 30px;
             padding: 3rem;
             margin: 3rem 0;
         }
 
         /* Expandable Practical Cards */
-        .expandable-card {
-            cursor: pointer;
-            transition: all 0.4s ease;
-        }
-
-        .expandable-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px var(--bharani-glow);
-        }
-
-        .card-header-expand {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .expand-arrow {
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
-            color: #feca57;
-        }
-
-        .expandable-card.expanded .expand-arrow {
-            transform: rotate(180deg);
-        }
-
-        .basic-content {
-            transition: all 0.3s ease;
-        }
-
-        .detailed-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            margin-top: 1rem;
-        }
-
-        .expandable-card.expanded .detailed-content {
-            max-height: 800px;
-        }
-
-        .detailed-content .detail-item {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 10px 15px;
-            margin: 8px 0;
-            border-radius: 8px;
-            border-left: 3px solid #feca57;
-        }
-
-        .detail-item strong {
-            color: #feca57;
-        }
+        .expandable-card { cursor: pointer; transition: all 0.4s ease; }
+        .expandable-card:hover { transform: translateY(-3px); box-shadow: 0 10px 25px var(--rohini-glow); }
+        .card-header-expand { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+        .expand-arrow { font-size: 1.2rem; transition: transform 0.3s ease; color: #2ecc71; }
+        .expandable-card.expanded .expand-arrow { transform: rotate(180deg); }
+        .basic-content { transition: all 0.3s ease; }
+        .detailed-content { max-height: 0; overflow: hidden; transition: all 0.4s ease; margin-top: 1rem; }
+        .expandable-card.expanded .detailed-content { max-height: 800px; }
+        .detailed-content .detail-item { background: rgba(255,255,255,0.05); padding: 10px 15px; margin: 8px 0; border-radius: 8px; border-left: 3px solid #2ecc71; }
+        .detail-item strong { color: #2ecc71; }
 
         /* Qualities Grid */
         .qualities-grid {
@@ -340,55 +317,86 @@
             gap: 1rem;
             margin: 2rem 0;
         }
-
+        
         .quality-item {
-            background: var(--bharani-secondary);
-            border: 1px solid rgba(255, 159, 243, 0.3);
+            background: var(--rohini-secondary);
+            border: 1px solid rgba(46, 204, 113, 0.2);
             border-radius: 25px;
             overflow: hidden;
-            transition: all 0.4s ease;
+            transition: transform 0.2s ease-out,
+                      box-shadow 0.2s ease-out,
+                      background-color 0.2s ease-out,
+                      border-color 0.2s ease-out;
             cursor: pointer;
+            user-select: none;
+            will-change: transform, box-shadow;
+            position: relative;
+            z-index: 1;
         }
-
+        
         .quality-item:hover {
-            background: rgba(255, 159, 243, 0.3);
+            background: rgba(46, 204, 113, 0.15);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px var(--bharani-glow);
+            box-shadow: 0 5px 15px var(--rohini-glow);
+            border-color: rgba(46, 204, 113, 0.4);
+        }
+        
+        .quality-item:active {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 5px var(--rohini-glow);
+            transition-duration: 0.1s;
         }
 
+        .quality-item.expanded {
+            background: rgba(46, 204, 113, 0.2);
+            border-color: rgba(46, 204, 113, 0.5);
+            box-shadow: 0 4px 12px var(--rohini-glow);
+        }
+        
         .quality-tag {
-            padding: 12px 20px;
+            padding: 15px 20px;
             text-align: center;
             font-weight: 500;
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin: 0;
+            background: transparent;
+            z-index: 2;
         }
-
+        
         .quality-arrow {
             font-size: 0.8rem;
             transition: transform 0.3s ease;
-            color: #ff9ff3;
+            color: #2ecc71;
+            opacity: 0.8;
         }
-
+        
         .quality-item.expanded .quality-arrow {
             transform: rotate(180deg);
+            opacity: 1;
         }
-
+        
         .quality-details {
             max-height: 0;
             overflow: hidden;
             padding: 0 20px;
-            transition: all 0.4s ease;
-            background: rgba(255, 255, 255, 0.05);
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: max-height 0.3s ease-in-out,
+                      padding 0.3s ease-in-out,
+                      opacity 0.2s ease-out,
+                      transform 0.2s ease-out;
+            background: rgba(255,255,255,0.05);
         }
-
+        
         .quality-item.expanded .quality-details {
             max-height: 300px;
             padding: 15px 20px;
+            opacity: 1;
+            transform: translateY(0);
         }
-
+        
         .quality-details p {
             color: #e0e0e0;
             font-size: 0.9rem;
@@ -397,163 +405,54 @@
         }
 
         /* Stats Section */
-        .stats-section {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 20px;
-            padding: 2rem;
-            margin: 3rem 0;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .stat-item h3 {
-            font-size: 2rem;
-            color: #ff9ff3;
-            font-family: 'Orbitron', monospace;
-        }
-
-        .stat-item p {
-            color: #b19cd9;
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-        }
+        .stats-section { background: rgba(255,255,255,0.03); border-radius: 20px; padding: 2rem; margin: 3rem 0; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem; text-align: center; }
+        .stat-item h3 { font-size: 2rem; color: #2ecc71; font-family: 'Orbitron', monospace; }
+        .stat-item p { color: #b19cd9; font-size: 0.9rem; margin-top: 0.5rem; }
 
         /* Related Nakshatras */
-        .related-section {
-            margin-top: 4rem;
-            text-align: center;
-        }
+        .related-section { margin-top: 4rem; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .related-card { background: rgba(255,255,255,0.05); border-radius: 15px; padding: 1.5rem; text-decoration: none; color: inherit; transition: all 0.3s ease; }
+        .related-card:hover { transform: translateY(-3px); background: rgba(255,255,255,0.08); }
 
-        .related-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
+        /* Psychology trait cards */
+        .psychology-traits { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+        .trait-category { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 1.2rem; }
+        .trait-category h3 { font-family: 'Orbitron', monospace; font-size: 1.1rem; color: #2ecc71; margin-bottom: 0.8rem; }
+        .trait-category ul { list-style: none; padding-left: 0; }
+        .trait-category li { color: #e0e0e0; margin: 0.35rem 0; display: flex; align-items: center; gap: 0.5rem; }
+        .trait-category li::before { content: '\2713'; color: #2ecc71; font-size: 0.9rem; }
 
-        .related-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 1.5rem;
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s ease;
-        }
-
-        .related-card:hover {
-            transform: translateY(-3px);
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 768px) {
-            .nav-bar {
-                padding: 1rem;
-            }
-            
-            .hero {
-                padding: 2rem 1rem;
-            }
-            
-            .nakshatra-symbol {
-                font-size: 4rem;
-            }
-            
-            .stellar-info-hero {
-                gap: 1.5rem;
-            }
-            
-            .content-section {
-                padding: 2rem 1rem;
-            }
-            
-            .two-column-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .mythology-section,
-            .psychology-section,
-            .practical-section {
-                padding: 2rem 1.5rem;
-                margin: 2rem 0;
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-                gap: 1.5rem;
-            }
-            
-            /* Mobile optimizations for expandable elements */
-            .qualities-grid {
-                grid-template-columns: 1fr;
-                gap: 0.8rem;
-            }
-            
-            .quality-item {
-                border-radius: 15px;
-            }
-            
-            .quality-tag {
-                padding: 10px 15px;
-                font-size: 0.9rem;
-            }
-            
-            .quality-arrow {
-                font-size: 0.7rem;
-            }
-            
-            .quality-details {
-                padding: 0 15px;
-            }
-            
-            .quality-details p {
-                font-size: 0.85rem;
-            }
-            
-            .expandable-card .detailed-content {
-                max-height: 800px;
-            }
-            
-            .quality-item.expanded .quality-details {
-                max-height: 400px;
-            }
-            
-            .detail-item {
-                padding: 8px 12px;
-                font-size: 0.85rem;
-            }
-            
-            .card-header-expand {
-                margin-bottom: 0.8rem;
-            }
-            
-            .expand-arrow {
-                font-size: 1rem;
-            }
-            
-            /* Mobile intro section */
-            .hero div[style*="max-width: 900px"] {
-                margin: 2rem 1rem 1.5rem 1rem !important;
-                padding: 1.5rem !important;
-            }
-            
-            .hero div[style*="max-width: 900px"] p {
-                font-size: 1rem !important;
-            }
-            
-            .hero div[style*="max-width: 900px"] p:first-child {
-                font-size: 1.1rem !important;
-            }
+            .nav-bar { padding: 1rem; }
+            .hero { padding: 2rem 1rem; }
+            .nakshatra-symbol { font-size: 4rem; }
+            .stellar-info-hero { gap: 1.5rem; }
+            .content-section { padding: 2rem 1rem; }
+            .two-column-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .mythology-section, .psychology-section, .practical-section { padding: 2rem 1.5rem; margin: 2rem 0; }
+            .stats-grid { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1.5rem; }
+            .qualities-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+            .psychology-traits { grid-template-columns: 1fr; gap: 1rem; }
+            .quality-item { border-radius: 15px; }
+            .quality-tag { padding: 10px 15px; font-size: 0.9rem; }
+            .quality-arrow { font-size: 0.7rem; }
+            .quality-details { padding: 0 15px; }
+            .quality-details p { font-size: 0.85rem; }
+            .expandable-card .detailed-content { max-height: 800px; }
+            .quality-item.expanded .quality-details { max-height: 400px; }
+            .detail-item { padding: 8px 12px; font-size: 0.85rem; }
+            .card-header-expand { margin-bottom: 0.8rem; }
+            .expand-arrow { font-size: 1rem; }
+            .hero div[style*="max-width: 900px"] { margin: 2rem 1rem 1.5rem 1rem !important; padding: 1.5rem !important; }
+            .hero div[style*="max-width: 900px"] p { font-size: 1rem !important; }
+            .hero div[style*="max-width: 900px"] p:first-child { font-size: 1.1rem !important; }
         }
     </style>
 </head>
-<body>
+<body id="top">
     <!-- Stellar Background -->
     <div class="stellar-bg" id="stellarBg"></div>
 
@@ -563,7 +462,7 @@
             <a href="nakshatras.html" class="nav-back">
                 <i class="fas fa-arrow-left"></i> All Nakshatras
             </a>
-            <div class="nav-title">Bharani Nakshatra</div>
+            <div class="nav-title">Rohini Nakshatra</div>
         </div>
     </nav>
 
@@ -579,156 +478,47 @@
                     <i class="fas fa-arrow-left"></i> Previous: Ashwini
                 </a>
                 <a href="#qualities" class="nav-btn primary">
-                    <i class="fas fa-fire"></i> Explore Qualities
+                    <i class="fas fa-skull"></i> Explore Qualities
                 </a>
                 <a href="krittika.html" class="nav-btn">
                     Next: Krittika <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
 
-            <div class="nakshatra-symbol">🌺</div>
-            <h1>Bharani</h1>
+            <div class="nakshatra-symbol">⚱️</div>
+            <h1>BHARANI</h1>
             <p class="translation">"The Bearer"</p>
-            <p class="tagline">Divine Creators • Transformation Masters • Life Cycle Guardians</p>
+            <p class="tagline">Life Bearer • Transformer of Souls • Guardian of Cycles</p>
             
             <!-- Engaging Introduction -->
-            <div style="max-width: 900px; margin: 3rem auto 2rem auto; padding: 2rem; background: rgba(255, 159, 243, 0.1); border-radius: 20px; border: 1px solid rgba(255, 159, 243, 0.2);">
+            <div style="max-width: 900px; margin: 3rem auto 2rem auto; padding: 2rem; background: rgba(153, 0, 0, 0.1); border-radius: 20px; border: 1px solid rgba(153, 0, 0, 0.2);">
                 <p style="font-size: 1.2rem; line-height: 1.8; color: #e0e0e0; text-align: left; margin-bottom: 1.5rem;">
-                    You are the <strong style="color: #ff9ff3;">cosmic midwife of existence</strong>, the one who understands that <strong style="color: #ff9ff3;">destruction and creation are lovers, not enemies</strong>. While others fear endings, you see them as doorways to new beginnings. You don't just witness transformation—you <strong>orchestrate it with the precision of a master conductor</strong>.
+                    You are the <strong style="color: #990000;">bearer of life's mysteries</strong>, the one who understands that <strong style="color: #990000;">transformation is eternal</strong>. Where others see endings, you perceive beginnings. You don't just observe—you <strong>guide souls through the cycles of existence</strong>.
                 </p>
                 <p style="font-size: 1.1rem; line-height: 1.7; color: #e0e0e0; text-align: left; margin-bottom: 1.5rem;">
-                    Epigenetics research now proves what Bharani souls have always known: <strong style="color: #4ecdc4;">environmental pressure triggers evolutionary leaps</strong>. You thrive in the spaces others avoid—crisis, transition, rebirth. Your consciousness is <strong>built for metamorphosis</strong>, capable of bearing the weight of transformation that would crush ordinary minds.
+                    Modern science affirms your essence: <strong style="color: #ff3333;">matter and energy are never destroyed, only transformed</strong>. Bharani operates the same way—by embracing change, existence becomes <strong>profound, meaningful, and eternal</strong>.
                 </p>
                 <p style="font-size: 1.1rem; line-height: 1.7; color: #e0e0e0; text-align: left; font-style: italic;">
-                    Welcome to your divine assignment, <strong style="color: #ff9ff3;">Bearer of Worlds</strong>. You're not just surviving change—you're <strong>the architect of evolution itself</strong>. 🌸
+                    Welcome to your divine assignment, <strong style="color: #2ecc71;">Keeper of Living Abundance</strong>. You're not here to rush—you’re here to <strong>cultivate</strong>. 🌱
                 </p>
             </div>
             
             <div class="stellar-info-hero">
                 <div class="info-item">
                     <div class="info-label">Ruling Planet</div>
-                    <div class="info-value">Venus</div>
+                    <div class="info-value">Moon</div>
                 </div>
                 <div class="info-item">
                     <div class="info-label">Element</div>
-                    <div class="info-value">Fire</div>
+                    <div class="info-value">Earth</div>
                 </div>
                 <div class="info-item">
                     <div class="info-label">Zodiac Range</div>
-                    <div class="info-value">13°20' - 26°40' Aries</div>
+                    <div class="info-value">10°00' - 23°20' Taurus</div>
                 </div>
                 <div class="info-item">
                     <div class="info-label">Archetype</div>
-                    <div class="info-value">The Creator</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Core Essence Section -->
-    <section class="content-section">
-        <div class="section-header">
-            <h2 class="section-title">The Essence of Bharani</h2>
-            <p class="section-subtitle">Understanding the master transformer in the cosmic sequence</p>
-        </div>
-
-        <div class="two-column-grid">
-            <div class="content-card">
-                <div class="card-icon">🔄</div>
-                <h3 class="card-title">Transformation Mastery</h3>
-                <div class="card-content">
-                    Bharani natives are the universe's transformation specialists. Like skilled alchemists, they can take any situation—no matter how challenging—and transmute it into something meaningful and beautiful. They understand that every ending contains the seeds of a new beginning.
-                </div>
-            </div>
-            
-            <div class="content-card">
-                <div class="card-icon">🌱</div>
-                <h3 class="card-title">Creative Life Force</h3>
-                <div class="card-content">
-                    Ruled by Venus, Bharani carries the cosmic power of creation itself. These individuals are natural creators—whether bringing new life, artistic expressions, innovative ideas, or revolutionary changes into the world. They're the cosmic gardeners of human potential.
-                </div>
-            </div>
-        </div>
-
-        <!-- Core Qualities -->
-        <div class="qualities-grid">
-            <div class="quality-item" onclick="toggleQuality(this)">
-                <div class="quality-tag">
-                    <span>Deep Transformation Ability</span>
-                    <span class="quality-arrow">▼</span>
-                </div>
-                <div class="quality-details">
-                    <p>Bharani natives excel at profound personal and environmental transformation. They can take seemingly hopeless situations and completely reorganize them into opportunities for growth and renewal.</p>
-                </div>
-            </div>
-            
-            <div class="quality-item" onclick="toggleQuality(this)">
-                <div class="quality-tag">
-                    <span>Creative Powerhouse</span>
-                    <span class="quality-arrow">▼</span>
-                </div>
-                <div class="quality-details">
-                    <p>With Venus as their ruler, they possess exceptional creative abilities across all mediums—art, music, writing, business innovation, and especially creating new life and nurturing growth in others.</p>
-                </div>
-            </div>
-            
-            <div class="quality-item" onclick="toggleQuality(this)">
-                <div class="quality-tag">
-                    <span>Responsibility Bearer</span>
-                    <span class="quality-arrow">▼</span>
-                </div>
-                <div class="quality-details">
-                    <p>True to their name "The Bearer," they willingly carry heavy responsibilities that others avoid. They're the ones who step up during family crises, business challenges, or community needs.</p>
-                </div>
-            </div>
-            
-            <div class="quality-item" onclick="toggleQuality(this)">
-                <div class="quality-tag">
-                    <span>Life Cycle Wisdom</span>
-                    <span class="quality-arrow">▼</span>
-                </div>
-                <div class="quality-details">
-                    <p>They understand the natural cycles of birth, growth, death, and rebirth better than most. This makes them excellent counselors, coaches, and guides during life transitions and major changes.</p>
-                </div>
-            </div>
-            
-            <div class="quality-item" onclick="toggleQuality(this)">
-                <div class="quality-tag">
-                    <span>Intense Passion</span>
-                    <span class="quality-arrow">▼</span>
-                </div>
-                <div class="quality-details">
-                    <p>Bharani individuals feel everything deeply and passionately. Whether love, creativity, anger, or joy, their emotions run deep and fuel their incredible capacity for meaningful action and creation.</p>
-                </div>
-            </div>
-            
-            <div class="quality-item" onclick="toggleQuality(this)">
-                <div class="quality-tag">
-                    <span>Boundary Respect</span>
-                    <span class="quality-arrow">▼</span>
-                </div>
-                <div class="quality-details">
-                    <p>Despite their transformative power, they deeply respect natural boundaries and timing. They know when to push for change and when to allow natural processes to unfold at their own pace.</p>
-                </div>
-            </div>
-            
-            <div class="quality-item" onclick="toggleQuality(this)">
-                <div class="quality-tag">
-                    <span>Nurturing Strength</span>
-                    <span class="quality-arrow">▼</span>
-                </div>
-                <div class="quality-details">
-                    <p>They combine Venus's nurturing qualities with Aries's strength, creating a unique ability to provide both gentle support and powerful protection for those they care about.</p>
-                </div>
-            </div>
-            
-            <div class="quality-item" onclick="toggleQuality(this)">
-                <div class="quality-tag">
-                    <span>Pattern Recognition</span>
-                    <span class="quality-arrow">▼</span>
-                </div>
-                <div class="quality-details">
-                    <p>Their consciousness naturally recognizes patterns and cycles, allowing them to predict outcomes and prepare for changes before others even notice what's coming.</p>
+                    <div class="info-value">The Nurturer</div>
                 </div>
             </div>
         </div>
@@ -738,91 +528,191 @@
     <section class="mythology-section">
         <div class="section-header">
             <h2 class="section-title">Mythological Foundation</h2>
-            <p class="section-subtitle">The Ancient Wisdom Behind the Bearer</p>
+            <p class="section-subtitle">The Ancient Wisdom Behind Living Abundance</p>
         </div>
 
         <div class="three-column-grid">
             <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
                 <div class="card-header-expand">
-                    <div class="card-icon">⚱️</div>
+                    <div class="card-icon">🌕</div>
                     <span class="expand-arrow">▼</span>
                 </div>
-                <h3 class="card-title">Yama - Lord of Death</h3>
+                <h3 class="card-title">Moon's Favorite</h3>
                 <div class="basic-content">
-                    The cosmic guardian who oversees all transitions and transformations
+                    Rohini, the beloved of Chandra (Moon), symbolizing nourishment and beauty
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Divine Judge:</strong> Yama is the divine judge who determines the karma of souls and guides their next evolutionary step. He's not a punisher but a cosmic accountant of growth.
+                        <strong>Beloved Star:</strong> In Vedic lore, Rohini is the Moon's favorite, representing the lush, life-giving qualities of emotional nourishment and material beauty.
                     </div>
                     <div class="detail-item">
-                        <strong>Transformation Guide:</strong> He oversees the most fundamental transformation - death and rebirth - teaching that endings are always doorways to new beginnings.
+                        <strong>Creative Magnetism:</strong> This favoritism symbolizes magnetic attraction—how Rohini draws in resources and opportunities naturally.
                     </div>
                     <div class="detail-item">
-                        <strong>Dharmic Balance:</strong> Yama ensures that cosmic justice and balance are maintained, representing Bharani's ability to see the bigger picture beyond immediate circumstances.
+                        <strong>Lunar Abundance:</strong> The Moon's cycles mirror Rohini's gift—growth through rhythm, patience, and care rather than force.
                     </div>
                     <div class="detail-item">
-                        <strong>Fearless Authority:</strong> As the first being to die and thus conquer death, he represents the courage to face and master what others fear most.
-                    </div>
-                    <div class="detail-item">
-                        <strong>Modern Parallel:</strong> Bharani natives often work as counselors, therapists, hospice workers, or in any field involving major life transitions and helping others through difficult changes.
+                        <strong>Modern Parallel:</strong> Emotional intelligence and environmental design that make people feel safe, seen, and supported.
                     </div>
                 </div>
             </div>
 
             <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
                 <div class="card-header-expand">
-                    <div class="card-icon">🌺</div>
+                    <div class="card-icon">🦌</div>
                     <span class="expand-arrow">▼</span>
                 </div>
-                <h3 class="card-title">Yoni Symbolism</h3>
+                <h3 class="card-title">Red Deer Symbolism</h3>
                 <div class="basic-content">
-                    The cosmic womb from which all creation emerges
+                    Graceful growth, fertility, and the beauty of living nature
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Creative Womb:</strong> The yoni (feminine creative organ) represents the cosmic womb from which all life emerges, symbolizing Bharani's role as creator and nurturer.
+                        <strong>Grace & Strength:</strong> The deer embodies elegance with grounded power—Rohini's signature growth style.
                     </div>
                     <div class="detail-item">
-                        <strong>Sacred Feminine:</strong> This symbol honors the divine feminine principle - the power to conceive, gestate, and birth new realities into existence through focused intention.
+                        <strong>Fertility & Renewal:</strong> Seasonal antler renewal symbolizes cyclical growth and continuous abundance.
                     </div>
                     <div class="detail-item">
-                        <strong>Receptive Power:</strong> Unlike masculine creative force which projects outward, the yoni represents receptive power - the ability to receive, transform, and birth something entirely new.
+                        <strong>Gentle Magnetism:</strong> Attraction through beauty and harmony rather than conquest or control.
                     </div>
                     <div class="detail-item">
-                        <strong>Cyclical Nature:</strong> Just as the feminine cycle mirrors lunar cycles, Bharani individuals understand and work with natural rhythms rather than forcing artificial timelines.
-                    </div>
-                    <div class="detail-item">
-                        <strong>Modern Expression:</strong> This manifests as exceptional ability in fields requiring creation, nurturing, and transformation - from parenting to artistic endeavors to revolutionary social changes.
+                        <strong>Modern Expression:</strong> Sustainable growth strategies, regenerative design, and an eye for natural aesthetics.
                     </div>
                 </div>
             </div>
 
             <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
                 <div class="card-header-expand">
-                    <div class="card-icon">🌅</div>
+                    <div class="card-icon">🌾</div>
                     <span class="expand-arrow">▼</span>
                 </div>
-                <h3 class="card-title">Restraint & Discipline</h3>
+                <h3 class="card-title">Abundance Current</h3>
                 <div class="basic-content">
-                    The wisdom to know when to act and when to wait
+                    The sacred current of life that transforms care into prosperity
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Divine Timing:</strong> Bharani teaches the crucial importance of right timing - knowing when transformation should occur naturally versus when intervention is needed.
+                        <strong>Earthly Blessing:</strong> Rohini sits in Taurus, the sign of resources and stability—linking cosmic beauty with material wellbeing.
                     </div>
                     <div class="detail-item">
-                        <strong>Controlled Power:</strong> Like a skilled surgeon who knows exactly where and when to cut, Bharani individuals learn to apply their transformative power with precision rather than force.
+                        <strong>Beauty as Power:</strong> Aesthetic harmony as a force that attracts collaboration, trust, and opportunities.
                     </div>
                     <div class="detail-item">
-                        <strong>Moral Boundaries:</strong> Despite their ability to create change, they develop strong ethical guidelines about when and how to use their influence over others' lives.
+                        <strong>Embodied Prosperity:</strong> Abundance is not chase, but cultivation—creating conditions where life wants to grow.
                     </div>
                     <div class="detail-item">
-                        <strong>Patient Gestation:</strong> They understand that creation requires proper gestation periods - rushing the process often results in premature or incomplete manifestations.
+                        <strong>Modern Meaning:</strong> Building systems and cultures where prosperity emerges from care, rhythm, and reciprocity.
                     </div>
-                    <div class="detail-item">
-                        <strong>Wisdom Through Experience:</strong> Often learned through early mistakes, they develop incredible wisdom about the responsible use of creative and transformative power.
-                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Essence Section -->
+    <section class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">The Essence of Bharani</h2>
+            <p class="section-subtitle">Understanding the cosmic bearer of life's eternal cycles</p>
+        </div>
+
+        <div class="two-column-grid">
+            <div class="content-card">
+                <div class="card-icon">⚱️</div>
+                <h3 class="card-title">Sacred Transformation</h3>
+                <div class="card-content">
+                    Ruled by Venus and placed in Aries, Bharani embodies the sacred principle of transformation. Like a mystical vessel, this energy holds the power of birth and renewal—carrying souls through the eternal cycle of existence.
+                </div>
+            </div>
+            
+            <div class="content-card">
+                <div class="card-icon">🔮</div>
+                <h3 class="card-title">Divine Mystery</h3>
+                <div class="card-content">
+                    Bharani is the star of profound transformation and rebirth. These individuals possess a deep understanding of life's mysteries and have the power to guide others through periods of significant change and renewal.
+                </div>
+            </div>
+        </div>
+
+        <!-- Core Qualities -->
+        <div id="qualities" class="qualities-grid">
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Transformative Power</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>Bharani carries the power of transformation—guiding souls, energies, and matter through their sacred cycles with deep wisdom and understanding of life's eternal nature.</p>
+                </div>
+            </div>
+            
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Steady Manifestation</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>Prefers consistent progress over quick wins. Builds foundations that endure, prioritizing quality, comfort, and sustainability.</p>
+                </div>
+            </div>
+
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Magnetic Presence</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>Radiates a calming, attractive aura. People, opportunities, and resources gravitate toward Rohini’s graceful steadiness.</p>
+                </div>
+            </div>
+
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Sensory Intelligence</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>Deep connection to the body and senses. Knows how to design environments that nourish wellbeing and support elevated performance.</p>
+                </div>
+            </div>
+
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Resource Stewardship</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>Exceptional at managing resources—time, money, energy—with wisdom and care to create lasting abundance for self and others.</p>
+                </div>
+            </div>
+
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Grounded Devotion</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>Combines heart-centered devotion with practical follow-through. Love becomes structure; care becomes growth.</p>
+                </div>
+            </div>
+
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Elegant Simplicity</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>Finds beauty in minimalism and function. Creates simple systems that produce reliable results without excess complexity.</p>
+                </div>
+            </div>
+
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Protective Nurture</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>Offers safe, stabilizing presence for people and projects to grow, protecting what is tender until it can stand strong.</p>
                 </div>
             </div>
         </div>
@@ -843,23 +733,23 @@
                 </div>
                 <h3 class="card-title">Cognitive Patterns</h3>
                 <div class="basic-content">
-                    How the Bharani mind processes transformation and creation
+                    How the Bharani mind navigates transformation and renewal
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Systems Thinking:</strong> Natural ability to see how different parts connect and influence each other - excellent at identifying root causes rather than just symptoms
+                        <strong>Cycle Awareness:</strong> Natural ability to understand and guide transformational processes, seeing beyond apparent endings to new beginnings.
                     </div>
                     <div class="detail-item">
-                        <strong>Pattern Recognition:</strong> Exceptional at recognizing cycles, trends, and recurring patterns that others miss, especially in human behavior and natural processes
+                        <strong>Depth-Driven Insight:</strong> Perceives the profound layers of existence, comfortable with both mystery and revelation.
                     </div>
                     <div class="detail-item">
-                        <strong>Long-term Vision:</strong> Thinks in terms of life cycles and generations rather than immediate gratification, making decisions based on long-term consequences
+                        <strong>Transformative Focus:</strong> Excels in facilitating change and renewal, helping others navigate life's transitions.
                     </div>
                     <div class="detail-item">
-                        <strong>Paradox Integration:</strong> Comfortable holding contradictory truths simultaneously - understands that destruction can be creative and endings can be beginnings
+                        <strong>Mystical Intelligence:</strong> Deep intuitive understanding of life's sacred cycles, death, rebirth, and the eternal nature of existence.
                     </div>
                     <div class="detail-item">
-                        <strong>Intuitive Synthesis:</strong> Combines logical analysis with deep intuitive knowing, often arriving at solutions through felt sense rather than pure reasoning
+                        <strong>Pattern Stabilization:</strong> Excellent at turning promising patterns into reliable systems others can depend on.
                     </div>
                 </div>
             </div>
@@ -871,26 +761,23 @@
                 </div>
                 <h3 class="card-title">Emotional Landscape</h3>
                 <div class="basic-content">
-                    Understanding the deep emotional currents and relationship patterns
+                    The emotional world of the cosmic nurturer
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Emotional Intensity:</strong> Feels emotions deeply and completely - when they love, hate, create, or grieve, they do so with their entire being
+                        <strong>Calm Magnetism:</strong> A soothing presence that makes others feel safe, welcomed, and ready to grow.
                     </div>
                     <div class="detail-item">
-                        <strong>Transformative Processing:</strong> Uses emotional experiences as fuel for personal growth and creative expression rather than just enduring them
+                        <strong>Devotional Care:</strong> Expresses love through consistency, support, and protection of what is tender.
                     </div>
                     <div class="detail-item">
-                        <strong>Protective Instincts:</strong> Fierce protective energy toward those they care about, especially during vulnerable periods or major life transitions
+                        <strong>Sensory Grounding:</strong> Regulates emotions through embodied practices—nature, touch, breath, and environment.
                     </div>
                     <div class="detail-item">
-                        <strong>Relationship Depth:</strong> Prefers deep, meaningful connections over casual relationships - tends to form bonds that last through multiple life changes
+                        <strong>Healthy Boundaries:</strong> Learns to balance generosity with self-preservation to prevent over-giving.
                     </div>
                     <div class="detail-item">
-                        <strong>Boundary Sensitivity:</strong> Highly sensitive to others' boundaries and consent, having learned the importance of respecting others' autonomy in transformation
-                    </div>
-                    <div class="detail-item">
-                        <strong>Cyclical Moods:</strong> Emotional states often follow natural cycles, with periods of intense creativity followed by rest and integration
+                        <strong>Stability Priority:</strong> Values emotional steady-state over drama; prefers repair and renewal over conflict.
                     </div>
                 </div>
             </div>
@@ -907,46 +794,90 @@
                 <div class="stats-grid">
                     <div class="stat-item">
                         <h3>90%</h3>
-                        <p>Transformation Ability</p>
+                        <p>Nurturing Presence</p>
                     </div>
                     <div class="stat-item">
-                        <h3>85%</h3>
-                        <p>Creative Energy</p>
+                        <h3>88%</h3>
+                        <p>Steady Growth</p>
                     </div>
                     <div class="stat-item">
-                        <h3>80%</h3>
-                        <p>Responsibility Taking</p>
+                        <h3>84%</h3>
+                        <p>Resource Wisdom</p>
                     </div>
                     <div class="stat-item">
-                        <h3>85%</h3>
-                        <p>Emotional Depth</p>
+                        <h3>82%</h3>
+                        <p>Beauty Intelligence</p>
                     </div>
                     <div class="stat-item">
-                        <h3>70%</h3>
-                        <p>Patience Level</p>
+                        <h3>74%</h3>
+                        <p>Change Tolerance</p>
                     </div>
                 </div>
             </div>
             
             <div class="detailed-content">
                 <div class="detail-item">
-                    <strong>Transformation Ability (90%):</strong> Exceptional capacity for profound change - can completely reinvent themselves and help others through major life transitions
+                    <strong>Nurturing Presence (90%):</strong> Strong capacity to provide emotional safety and practical support that accelerates growth.
                 </div>
                 <div class="detail-item">
-                    <strong>Creative Energy (85%):</strong> High creative output across multiple domains - art, innovation, problem-solving, and especially creating meaningful experiences for others
+                    <strong>Steady Growth (88%):</strong> Thrives with consistent routines and structures that deliver reliable progress.
                 </div>
                 <div class="detail-item">
-                    <strong>Responsibility Taking (80%):</strong> Willingly shoulders burdens others avoid, often becoming the family or group stabilizer during difficult periods
+                    <strong>Resource Wisdom (84%):</strong> Skillful at aligning resources with priorities—minimal waste, maximum result.
                 </div>
                 <div class="detail-item">
-                    <strong>Emotional Depth (85%):</strong> Profound emotional capacity - feels deeply, loves intensely, and uses emotions as fuel for growth and creativity
+                    <strong>Beauty Intelligence (82%):</strong> Uses aesthetics as a functional tool—spaces, visuals, and flows that enhance performance.
                 </div>
                 <div class="detail-item">
-                    <strong>Patience Level (70%):</strong> Moderate patience - understands the need for proper timing but can become restless when transformation is clearly needed but delayed
+                    <strong>Change Tolerance (74%):</strong> Prefers stable evolution to sudden shifts; adapts best when transitions are paced and grounded.
                 </div>
                 <div class="detail-item">
-                    <strong>Optimal Expression:</strong> Their high transformation and creative abilities combined with responsible nature make them powerful agents of positive change in the world
+                    <strong>Optimal Expression:</strong> Harmonize care with boundaries, and growth with rest—prosperity becomes natural.
                 </div>
+            </div>
+        </div>
+
+        <!-- Trait Categories -->
+        <div class="psychology-traits">
+            <div class="trait-category">
+                <h3>Cognitive Strengths</h3>
+                <ul>
+                    <li>Environmental systems thinking</li>
+                    <li>Pattern stabilization</li>
+                    <li>Resource-aware planning</li>
+                    <li>Elegant problem solving</li>
+                    <li>Consistent execution</li>
+                </ul>
+            </div>
+            <div class="trait-category">
+                <h3>Emotional Qualities</h3>
+                <ul>
+                    <li>Grounding calm</li>
+                    <li>Devotional care</li>
+                    <li>Sensory awareness</li>
+                    <li>Reliable compassion</li>
+                    <li>Steady encouragement</li>
+                </ul>
+            </div>
+            <div class="trait-category">
+                <h3>Core Motivations</h3>
+                <ul>
+                    <li>Creating fertile conditions</li>
+                    <li>Building lasting value</li>
+                    <li>Protecting the tender</li>
+                    <li>Designing beauty that works</li>
+                    <li>Bringing visions into form</li>
+                </ul>
+            </div>
+            <div class="trait-category">
+                <h3>Growth Areas</h3>
+                <ul>
+                    <li>Balancing comfort with stretch</li>
+                    <li>Avoiding over-attachment</li>
+                    <li>Releasing perfection</li>
+                    <li>Practicing timely change</li>
+                    <li>Guarding energy boundaries</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -954,153 +885,1119 @@
     <!-- Practical Applications -->
     <section class="practical-section">
         <div class="section-header">
-            <h2 class="section-title">Living Your Bharani Nature</h2>
-            <p class="section-subtitle">Practical ways to align with your cosmic programming</p>
+            <h2 class="section-title">Practical Applications</h2>
+            <p class="section-subtitle">Harnessing Rohini's nurturing energy in daily life</p>
         </div>
 
         <div class="three-column-grid">
+            <!-- Personal Growth Card -->
             <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
                 <div class="card-header-expand">
-                    <div class="card-icon">🏗️</div>
+                    <div class="card-icon">🌱</div>
                     <span class="expand-arrow">▼</span>
                 </div>
-                <h3 class="card-title">Optimal Careers</h3>
+                <h3 class="card-title">Personal Growth</h3>
                 <div class="basic-content">
-                    Perfect for creation, transformation, and nurturing roles
+                    Cultivating inner abundance and steady evolution
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Creative Arts:</strong> Artist, musician, writer, designer, filmmaker - any field requiring bringing new beauty into the world
+                        <strong>Self-Nurturing:</strong> Develop a consistent self-care routine that prioritizes rest, nourishment, and gentle progress.
                     </div>
                     <div class="detail-item">
-                        <strong>Life Transitions:</strong> Counselor, therapist, life coach, hospice worker, midwife, fertility specialist
+                        <strong>Resource Wisdom:</strong> Practice mindful resource management in time, energy, and material wealth.
                     </div>
                     <div class="detail-item">
-                        <strong>Business Innovation:</strong> Entrepreneur, business consultant, transformation specialist, change management expert
+                        <strong>Growth Mindset:</strong> Embrace steady, sustainable progress over quick fixes and burnout cycles.
                     </div>
                     <div class="detail-item">
-                        <strong>Education & Development:</strong> Teacher, trainer, human development specialist, child psychologist
-                    </div>
-                    <div class="detail-item">
-                        <strong>Healing Arts:</strong> Massage therapist, energy healer, bodyworker, trauma specialist, somatic therapist
-                    </div>
-                    <div class="detail-item">
-                        <strong>Social Change:</strong> Social activist, non-profit leader, community organizer, policy reform advocate
+                        <strong>Beauty Practice:</strong> Create and maintain environments that support your evolution and well-being.
                     </div>
                 </div>
             </div>
 
+            <!-- Professional Excellence Card -->
             <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
                 <div class="card-header-expand">
-                    <div class="card-icon">🧘</div>
+                    <div class="card-icon">💼</div>
                     <span class="expand-arrow">▼</span>
                 </div>
-                <h3 class="card-title">Spiritual Practices</h3>
+                <h3 class="card-title">Professional Excellence</h3>
                 <div class="basic-content">
-                    Practices that honor your transformative nature
+                    Building sustainable success through nurturing leadership
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Cycle-Based Meditation:</strong> Practices aligned with lunar cycles, seasonal changes, and natural rhythms
+                        <strong>Leadership Style:</strong> Focus on creating environments where teams and projects can flourish naturally.
                     </div>
                     <div class="detail-item">
-                        <strong>Creative Spirituality:</strong> Art as meditation, sacred music, dance, creative writing as spiritual practice
+                        <strong>Resource Management:</strong> Develop systems for optimal allocation and growth of resources.
                     </div>
                     <div class="detail-item">
-                        <strong>Death & Rebirth Rituals:</strong> Ceremonies marking life transitions, releasing old patterns, embracing new phases
+                        <strong>Team Development:</strong> Invest in steady, long-term growth of people and capabilities.
                     </div>
                     <div class="detail-item">
-                        <strong>Goddess Worship:</strong> Connecting with divine feminine energy through Lakshmi, Saraswati, Durga devotion
-                    </div>
-                    <div class="detail-item">
-                        <strong>Shadow Work:</strong> Deep psychological exploration, trauma healing, integrating rejected aspects of self
-                    </div>
-                    <div class="detail-item">
-                        <strong>Service Meditation:</strong> Finding spiritual fulfillment through helping others navigate life transitions
+                        <strong>Project Success:</strong> Build sustainable processes that deliver consistent, high-quality results.
                     </div>
                 </div>
             </div>
 
+            <!-- Sacred Environment Card -->
             <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
                 <div class="card-header-expand">
-                    <div class="card-icon">⚖️</div>
+                    <div class="card-icon">🏡</div>
                     <span class="expand-arrow">▼</span>
                 </div>
-                <h3 class="card-title">Life Balance</h3>
+                <h3 class="card-title">Sacred Environment</h3>
                 <div class="basic-content">
-                    Managing your intense transformative energy
+                    Creating spaces that nurture growth and abundance
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Cycle Awareness:</strong> Learn your natural rhythms - honor periods of intense creativity and necessary rest
+                        <strong>Space Design:</strong> Arrange living and working spaces to support flow, growth, and well-being.
                     </div>
                     <div class="detail-item">
-                        <strong>Boundary Setting:</strong> Practice saying no to others' transformation needs when you're in your own transition phase
+                        <strong>Nature Connection:</strong> Incorporate plants, natural materials, and outdoor elements into daily life.
                     </div>
                     <div class="detail-item">
-                        <strong>Creative Outlets:</strong> Maintain regular creative practice to channel intense emotions and transformative energy
+                        <strong>Sacred Routines:</strong> Establish daily practices that honor the cycles of growth and rest.
                     </div>
                     <div class="detail-item">
-                        <strong>Support Network:</strong> Cultivate relationships with others who understand and appreciate your depth and intensity
-                    </div>
-                    <div class="detail-item">
-                        <strong>Patience Practice:</strong> Develop tolerance for natural timing - not everything can or should be transformed immediately
-                    </div>
-                    <div class="detail-item">
-                        <strong>Self-Care Rituals:</strong> Regular practices that nourish and restore your deep well of creative energy
+                        <strong>Energy Flow:</strong> Maintain spaces that feel both grounding and uplifting.
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Practice Categories -->
+        <div class="practices-grid" style="margin-top: 3rem;">
+            <div class="practice-category">
+                <h3>Daily Practices</h3>
+                <ul>
+                    <li>Morning nature connection</li>
+                    <li>Mindful resource tracking</li>
+                    <li>Space beautification</li>
+                    <li>Nurturing rituals</li>
+                    <li>Growth journaling</li>
+                </ul>
+            </div>
+
+            <div class="practice-category">
+                <h3>Weekly Focus</h3>
+                <ul>
+                    <li>Resource review & planning</li>
+                    <li>Deep environment care</li>
+                    <li>Growth milestone check</li>
+                    <li>Team/Project nurturing</li>
+                    <li>Abundance meditation</li>
+                </ul>
+            </div>
+
+            <div class="practice-category">
+                <h3>Monthly Refinement</h3>
+                <ul>
+                    <li>Growth cycle evaluation</li>
+                    <li>Resource reallocation</li>
+                    <li>Space energy refresh</li>
+                    <li>Long-term planning</li>
+                    <li>Abundance celebration</li>
+                </ul>
+            </div>
+
+            <div class="practice-category">
+                <h3>Advanced Techniques</h3>
+                <ul>
+                    <li>Sacred space creation</li>
+                    <li>Abundance manifestation</li>
+                    <li>Growth system design</li>
+                    <li>Resource mastery</li>
+                    <li>Nurturing leadership</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CSS for matching Krittika's styling exactly -->
+        <style>
+        .practice-category {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 1.2rem;
+        }
+
+        .practice-category h3 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.1rem;
+            color: #4ecdc4;
+            margin-bottom: 0.8rem;
+        }
+
+        .practice-category ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .practice-category li {
+            color: #e0e0e0;
+            margin: 0.35rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .practice-category li::before {
+            content: '\2713';
+            color: #4ecdc4;
+            font-size: 0.9rem;
+        }
+
+        .practices-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        </style>
+    </section>
+
+    <!-- Modern Relevance -->
+    <section class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">Modern Relevance</h2>
+            <p class="section-subtitle">Applying Bharani's wisdom to contemporary challenges</p>
+        </div>
+
+        <div class="two-column-grid">
+            <!-- Digital Age Transformation -->
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">�</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Digital Transformation</h3>
+                <div class="basic-content">
+                    Navigating change and renewal in the digital era
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Digital Evolution:</strong> Guiding technological transitions and upgrades with wisdom and purpose.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Virtual Rebirth:</strong> Facilitating renewal and transformation in online spaces and communities.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Cyber Resilience:</strong> Maintaining spiritual depth while navigating digital transformations.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Digital Legacy:</strong> Understanding the cycles of data, information, and digital preservation.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sustainable Living -->
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">�</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Cycles of Change</h3>
+                <div class="basic-content">
+                    Bharani's guidance through life's transformations
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Life Transitions:</strong> Understanding and navigating major life changes with wisdom and grace.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Sacred Cycles:</strong> Recognizing and honoring the natural rhythms of existence.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Transformative Power:</strong> Harnessing change as a force for growth and renewal.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Eternal Wisdom:</strong> Applying timeless insights to modern transformational processes.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contemporary Applications -->
+        <div class="applications-grid" style="margin-top: 3rem;">
+            <div class="application-category">
+                <h3>Personal Evolution</h3>
+                <ul>
+                    <li>Transformative practices</li>
+                    <li>Life transition guidance</li>
+                    <li>Inner alchemy work</li>
+                    <li>Sacred cycle awareness</li>
+                    <li>Spiritual rebirth</li>
+                </ul>
+            </div>
+
+            <div class="application-category">
+                <h3>Life Changes</h3>
+                <ul>
+                    <li>Career transitions</li>
+                    <li>Relationship evolution</li>
+                    <li>Personal reinvention</li>
+                    <li>Change management</li>
+                    <li>New beginnings</li>
+                </ul>
+            </div>
+
+            <div class="application-category">
+                <h3>Spiritual Growth</h3>
+                <ul>
+                    <li>Holistic nourishment</li>
+                    <li>Growth-supportive routines</li>
+                    <li>Resource-aware living</li>
+                    <li>Natural rhythms</li>
+                    <li>Energy cultivation</li>
+                </ul>
+            </div>
+
+            <div class="application-category">
+                <h3>Social Impact</h3>
+                <ul>
+                    <li>Community development</li>
+                    <li>Collective resource sharing</li>
+                    <li>Sustainable systems</li>
+                    <li>Growth facilitation</li>
+                    <li>Nurturing leadership</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CSS to match Krittika's styling exactly -->
+        <style>
+        .application-category {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 1.2rem;
+        }
+
+        .application-category h3 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.1rem;
+            color: #4ecdc4;
+            margin-bottom: 0.8rem;
+        }
+
+        .application-category ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .application-category li {
+            color: #e0e0e0;
+            margin: 0.35rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .application-category li::before {
+            content: '\2713';
+            color: #4ecdc4;
+            font-size: 0.9rem;
+        }
+
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+        </style>
+
+    </section>
+
+    <!-- Career & Life Path -->
+    <section class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">Career & Life Direction</h2>
+            <p class="section-subtitle">Professional paths that align with Rohini's nurturing energy</p>
+        </div>
+
+        <style>
+        .guidance-category {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 1.2rem;
+        }
+
+        .guidance-category h3 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.1rem;
+            color: #4ecdc4;
+            margin-bottom: 0.8rem;
+        }
+
+        .guidance-category ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .guidance-category li {
+            color: #e0e0e0;
+            margin: 0.35rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .guidance-category li::before {
+            content: '\2713';
+            color: #4ecdc4;
+            font-size: 0.9rem;
+        }
+
+        .career-guidance {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+        </style>
+
+        <!-- Three-column cards (match Krittika structure) -->
+        <div class="three-column-grid">
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">💼</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Ideal Professions</h3>
+                <div class="basic-content">
+                    Career paths that leverage Rohini's gifts
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Growth & Development:</strong>
+                        <ul>
+                            <li>Growth Strategist</li>
+                            <li>Development Coach</li>
+                            <li>Training Specialist</li>
+                            <li>Organizational Developer</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Nature & Resources:</strong>
+                        <ul>
+                            <li>Environmental Manager</li>
+                            <li>Resource Coordinator</li>
+                            <li>Sustainability Expert</li>
+                            <li>Agricultural Consultant</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Nurturing Leadership:</strong>
+                        <ul>
+                            <li>Team Development Lead</li>
+                            <li>Mentorship Director</li>
+                            <li>Growth Program Manager</li>
+                            <li>Talent Cultivator</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Creative Growth:</strong>
+                        <ul>
+                            <li>Arts Education Director</li>
+                            <li>Creative Development</li>
+                            <li>Design Growth Lead</li>
+                            <li>Innovation Nurturer</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">🌟</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Life Purpose</h3>
+                <div class="basic-content">
+                    Core themes in Rohini's life journey
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Growth Facilitation:</strong> Creating environments and opportunities that foster development in others.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Resource Stewardship:</strong> Wisely managing and multiplying resources for sustainable abundance.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Nurturing Leadership:</strong> Guiding others through steady, supportive development.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Sacred Growth:</strong> Tending to the evolution of consciousness in self and others.
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">📈</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Growth Path</h3>
+                <div class="basic-content">
+                    Stages of professional development
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Foundation Stage:</strong> Building core skills in nurturing and resource management through practical experience.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Development Phase:</strong> Expanding capacity to foster growth in larger systems and teams.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Leadership Evolution:</strong> Creating environments and programs that support collective growth.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Legacy Creation:</strong> Establishing sustainable growth systems that continue nurturing future generations.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Career Guidance (match Krittika) -->
+        <div class="career-guidance" style="margin-top: 3rem;">
+            <div class="guidance-category">
+                <h3>Workplace Strengths</h3>
+                <ul>
+                    <li>Resource optimization</li>
+                    <li>Growth facilitation</li>
+                    <li>Environment creation</li>
+                    <li>Team nurturing</li>
+                    <li>Development planning</li>
+                </ul>
+            </div>
+
+            <div class="guidance-category">
+                <h3>Leadership Style</h3>
+                <ul>
+                    <li>Nurturing guidance</li>
+                    <li>Resource wisdom</li>
+                    <li>Growth-oriented vision</li>
+                    <li>Steady development</li>
+                    <li>Sustainable progress</li>
+                </ul>
+            </div>
+
+            <div class="guidance-category">
+                <h3>Growth Opportunities</h3>
+                <ul>
+                    <li>Strategic expansion</li>
+                    <li>Resource innovation</li>
+                    <li>System evolution</li>
+                    <li>Team cultivation</li>
+                    <li>Vision manifestation</li>
+                </ul>
+            </div>
+
+            <div class="guidance-category">
+                <h3>Success Principles</h3>
+                <ul>
+                    <li>Sustainable growth</li>
+                    <li>Resource mastery</li>
+                    <li>Steady progress</li>
+                    <li>Nurturing leadership</li>
+                    <li>Value creation</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Relationships & Compatibility -->
+    <section class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">Relationships & Compatibility</h2>
+            <p class="section-subtitle">Understanding Rohini's approach to connections and partnerships</p>
+        </div>
+
+        <div class="two-column-grid">
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">❤️</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Relationship Style</h3>
+                <div class="basic-content">
+                    How Rohini approaches love and partnership
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Nurturing Presence:</strong> Creates emotional safety and fertile conditions for relationships to grow.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Steady Devotion:</strong> Values consistency, loyalty, and practical expressions of care.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Beauty & Comfort:</strong> Builds harmonious environments that support connection and trust.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Growth Through Care:</strong> Helps partners flourish through patient tending and supportive structure.
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">🤝</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Partnership Dynamics</h3>
+                <div class="basic-content">
+                    Core patterns in relationships and interactions
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Resource Harmony:</strong> Thrives where time, energy, and care are respected and shared wisely.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Steady Growth:</strong> Relationships deepen best through consistent effort rather than intensity spikes.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Sacred Boundaries:</strong> Clear, kind boundaries protect the relationship’s growth space.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Mutual Cultivation:</strong> Partners co-create environments where both can blossom.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Compatibility Insights -->
+        <div class="compatibility-grid" style="margin-top: 3rem;">
+            <div class="guidance-category">
+                <h3>Natural Synergy</h3>
+                <ul>
+                    <li>Nurturing personalities</li>
+                    <li>Steady, reliable partners</li>
+                    <li>Resource-respectful types</li>
+                    <li>Home & beauty lovers</li>
+                    <li>Growth-oriented companions</li>
+                </ul>
+            </div>
+
+            <div class="guidance-category">
+                <h3>Learning Opportunities</h3>
+                <ul>
+                    <li>Highly spontaneous types</li>
+                    <li>Change-first personalities</li>
+                    <li>Detached communicators</li>
+                    <li>Fast-paced decision makers</li>
+                    <li>Minimalists about comfort</li>
+                </ul>
+            </div>
+
+            <div class="guidance-category">
+                <h3>Communication Keys</h3>
+                <ul>
+                    <li>Gentle honesty</li>
+                    <li>Clear expectations</li>
+                    <li>Rituals of appreciation</li>
+                    <li>Resource transparency</li>
+                    <li>Growth-focused dialogue</li>
+                </ul>
+            </div>
+
+            <div class="guidance-category">
+                <h3>Growth Together</h3>
+                <ul>
+                    <li>Shared routines</li>
+                    <li>Co-created spaces</li>
+                    <li>Mutual caretaking</li>
+                    <li>Long-term planning</li>
+                    <li>Beauty + function balance</li>
+                </ul>
+            </div>
+        </div>
+
+        <style>
+        .compatibility-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .guidance-category {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 1.2rem;
+        }
+
+        .guidance-category h3 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.1rem;
+            color: #2ecc71;
+            margin-bottom: 0.8rem;
+        }
+
+        .guidance-category ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .guidance-category li {
+            color: #e0e0e0;
+            margin: 0.35rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .guidance-category li::before {
+            content: '\2713';
+            color: #2ecc71;
+            font-size: 0.9rem;
+        }
+        </style>
+
+        <!-- Relationship Wisdom -->
+        <div class="wisdom-notes" style="margin-top: 3rem; padding: 2rem; background: rgba(46, 204, 113, 0.1); border-radius: 20px;">
+            <h3 style="margin-bottom: 1.5rem; color: #2ecc71;">Sacred Partnership Wisdom</h3>
+            <div class="wisdom-grid" style="display: grid; gap: 1.5rem;">
+                <div class="wisdom-item">
+                    <strong>Balance Giving & Receiving:</strong>
+                    <p>While nurturing others comes naturally, remember to also receive care and support. True partnership thrives on mutual tending and balanced exchange.</p>
+                </div>
+                <div class="wisdom-item">
+                    <strong>Create Fertile Ground:</strong>
+                    <p>Your gift for creating supportive environments serves relationships well. Design spaces and routines that allow love to grow naturally and steadily.</p>
+                </div>
+                <div class="wisdom-item">
+                    <strong>Honor Natural Timing:</strong>
+                    <p>Like a garden, relationships flourish with patient care and respect for natural cycles. Trust the wisdom of steady, sustainable growth.</p>
+                </div>
+                <div class="wisdom-item">
+                    <strong>Cultivate Shared Resources:</strong>
+                    <p>Approach love as a sacred collaboration where time, energy, and care are mindfully shared resources that grow more abundant through wise stewardship.</p>
+                </div>
+            </div>
+        </div>
+        <style>
+        /* Match Krittika wisdom UI with Rohini colors */
+        .wisdom-grid { display: grid; gap: 1.5rem; }
+        .wisdom-item { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 1.2rem; }
+        .wisdom-item strong { color: #2ecc71; display: block; margin-bottom: 0.5rem; }
+        .wisdom-item p { color: #e0e0e0; margin: 0; line-height: 1.6; }
+        </style>
     </section>
 
     <!-- Related Nakshatras -->
     <section class="content-section">
-        <div class="related-section">
+        <div class="section-header">
             <h2 class="section-title">Explore Related Nakshatras</h2>
             <p class="section-subtitle">Discover complementary stellar consciousness programs</p>
-            
-            <div class="related-grid">
-                <a href="ashwini.html" class="related-card">
-                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🐎</div>
-                    <h3>Ashwini</h3>
-                    <p>The Horse Riders - Previous in sequence, masters of swift healing</p>
-                </a>
-                
-                <a href="#" class="related-card">
-                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔥</div>
-                    <h3>Krittika</h3>
-                    <p>The Cutter - Next in sequence, masters of purification</p>
-                </a>
-                
-                <a href="#" class="related-card">
-                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌹</div>
-                    <h3>Rohini</h3>
-                    <p>The Red One - Fellow Venus-influenced creator energy</p>
-                </a>
+        </div>
+
+        <div class="related-grid" style="margin-top: 1.5rem;">
+            <a href="bharani.html" class="related-card">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌺</div>
+                <h3>Bharani</h3>
+                <p>The Bearer — Transformation through creation and responsibility</p>
+            </a>
+            <a href="krittika.html" class="related-card">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔥</div>
+                <h3>Krittika</h3>
+                <p>The Cutter — Purification through sacred fire</p>
+            </a>
+            <a href="mrigashira.html" class="related-card">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🦉</div>
+                <h3>Mrigashira</h3>
+                <p>The Seeker — Curiosity, discovery, and graceful movement</p>
+            </a>
+        </div>
+    </section>
+
+
+    <!-- Vedic Interpretations -->
+    <section class="vedic-section">
+        <div class="section-header">
+            <h2 class="section-title">Vedic Interpretations</h2>
+            <p class="section-subtitle">Traditional wisdom and symbolic architecture of Rohini</p>
+        </div>
+
+        <div class="two-column-grid">
+            <!-- Core Vedic Data -->
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">🌺</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Core Attributes</h3>
+                <div class="basic-content">
+                    The classical framework that defines Rohini's sacred role in cosmic growth
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Deity:</strong> Prajapati (Brahma) — The cosmic gardener who nurtures universes into being. As the creator god, Prajapati's presence in Rohini infuses this nakshatra with the power to cultivate life's endless forms.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Shakti (Power):</strong> Rohana Shakti — The divine force of ascension and growth. This transformative power takes seeds of potential and elevates them into flourishing realities through patient nurturing.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Sacred Symbol:</strong> The Cart (Shakata) — This ancient vehicle represents:
+                        <ul>
+                            <li>Resources in harmonious motion</li>
+                            <li>The steady journey of manifestation</li>
+                            <li>Abundance carried forward with purpose</li>
+                            <li>The sacred vehicle of earthly prosperity</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Ruling Planet:</strong> Moon (Chandra) — The cosmic mother who:
+                        <ul>
+                            <li>Pours divine nectar of nourishment</li>
+                            <li>Establishes growth-supporting rhythms</li>
+                            <li>Cultivates deep emotional intelligence</li>
+                            <li>Maintains cycles of regeneration</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Elemental Nature:</strong> Earth (Prithvi) dominates, expressing as:
+                        <ul>
+                            <li>Grounded stability in manifestation</li>
+                            <li>Material abundance and prosperity</li>
+                            <li>Tangible results and real growth</li>
+                            <li>Fertile soil for all possibilities</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Zodiac Context:</strong> The fertile heart of Taurus (10°00' - 23°20'), where:
+                        <ul>
+                            <li>Material potential reaches peak fertility</li>
+                            <li>Growth finds its most stable expression</li>
+                            <li>Resources multiply naturally</li>
+                            <li>Abundance becomes self-sustaining</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Essential Nature:</strong> The Divine Nurturer who:
+                        <ul>
+                            <li>Cultivates with gentle persistence</li>
+                            <li>Creates beauty that serves purpose</li>
+                            <li>Grows wealth that lasts generations</li>
+                            <li>Transforms potential into prosperity</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pada Themes -->
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">🌱</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Pada Themes (Quarter Qualities)</h3>
+                <div class="basic-content">
+                    The four sacred expressions of Rohini's growth wisdom
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Pada 1 — Foundation Layer (10°00' - 13°20' Taurus):</strong>
+                        <ul>
+                            <li>Establishes unshakeable growth foundations</li>
+                            <li>Masters the rhythms of sustainable progress</li>
+                            <li>Creates systems that support natural expansion</li>
+                            <li>Builds with patience and deep understanding</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Pada 2 — Resource Mastery (13°20' - 16°40' Taurus):</strong>
+                        <ul>
+                            <li>Develops and multiplies available resources</li>
+                            <li>Cultivates skills that generate abundance</li>
+                            <li>Nurtures material and spiritual wealth</li>
+                            <li>Transforms potential into tangible results</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Pada 3 — Sacred Design (16°40' - 20°00' Taurus):</strong>
+                        <ul>
+                            <li>Creates environments that enhance life</li>
+                            <li>Balances beauty with practical function</li>
+                            <li>Designs systems that support thriving</li>
+                            <li>Manifests harmony in physical spaces</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Pada 4 — Abundance Sharing (20°00' - 23°20' Taurus):</strong>
+                        <ul>
+                            <li>Distributes prosperity to benefit all</li>
+                            <li>Mentors others in growth wisdom</li>
+                            <li>Establishes lasting abundance cycles</li>
+                            <li>Creates legacy systems of prosperity</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sacred Meanings -->
+        <div class="content-card expandable-card" onclick="toggleExpandableCard(this)" style="margin-top:1rem;">
+            <div class="card-header-expand">
+                <div class="card-icon">🕉️</div>
+                <span class="expand-arrow">▼</span>
+            </div>
+            <h3 class="card-title">Sacred Meanings</h3>
+            <div class="basic-content">
+                The deeper spiritual wisdom within Rohini's abundance teachings
+            </div>
+            <div class="detailed-content">
+                <div class="detail-item">
+                    <strong>The Sacred Art of Growth:</strong>
+                    <ul>
+                        <li>Growth is a divine dance of patience and persistence</li>
+                        <li>Every seed contains infinite potential waiting to be nurtured</li>
+                        <li>True abundance emerges through cycles of care and attention</li>
+                        <li>Sustainable growth requires honoring natural rhythms</li>
+                    </ul>
+                </div>
+                <div class="detail-item">
+                    <strong>Beauty as Divine Technology:</strong>
+                    <ul>
+                        <li>Aesthetic harmony creates fertile ground for prosperity</li>
+                        <li>Beauty is not superficial—it's a force that attracts abundance</li>
+                        <li>Well-designed environments naturally support growth</li>
+                        <li>Visual harmony reflects deeper universal order</li>
+                    </ul>
+                </div>
+                <div class="detail-item">
+                    <strong>The Abundance Dharma:</strong>
+                    <ul>
+                        <li>True wealth flows from supporting life's natural expansion</li>
+                        <li>Prosperity is meant to benefit the whole, not just the part</li>
+                        <li>Sustainable abundance comes from ethical stewardship</li>
+                        <li>Growth should enhance life for all beings</li>
+                    </ul>
+                </div>
+                <div class="detail-item">
+                    <strong>Divine Gardener Wisdom:</strong>
+                    <ul>
+                        <li>Every manifestation requires the right conditions</li>
+                        <li>Growth cannot be forced—it must be cultivated</li>
+                        <li>Patience and persistence yield the sweetest fruits</li>
+                        <li>The gardener serves life's inherent drive to flourish</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer Navigation -->
+    <!-- Navigation Footer -->
     <section class="content-section" style="text-align: center;">
         <div class="nav-buttons">
-            <a href="nakshatras.html" class="nav-btn">
-                <i class="fas fa-home"></i> All Nakshatras
+            <a href="krittika.html" class="nav-btn">
+                <i class="fas fa-arrow-left"></i> Previous: Krittika
             </a>
-            <a href="ashwini.html" class="nav-btn">
-                <i class="fas fa-arrow-left"></i> Previous: Ashwini
+            <a href="#top" class="nav-btn primary">
+                <i class="fas fa-arrow-up"></i> Back to Top
             </a>
-            <a href="#qualities" class="nav-btn">
-                <i class="fas fa-fire"></i> Explore Qualities
-            </a>
-            <a href="krittika.html" class="nav-btn primary">
-                Next: Krittika <i class="fas fa-arrow-right"></i>
+            <a href="mrigashira.html" class="nav-btn">
+                Next: Mrigashira <i class="fas fa-arrow-right"></i>
             </a>
         </div>
     </section>
 
+    <style id="theme-bharani">
+        /* Bharani Theme: transformation, mystery, cycles */
+        :root {
+            --bharani-bg: #0c0404;
+            --bharani-surface: #1c0c0c;
+            --bharani-surface-2: #150808;
+            --bharani-border: rgba(153,0,0,0.08);
+            --bharani-text: #ffe6e6;
+            --bharani-dim: rgba(255, 230, 230, 0.75);
+            --bharani-accent: #990000;   /* blood red */
+            --bharani-accent-2: #ff3333; /* bright red */
+            --bharani-accent-3: #cc0000; /* deep red */
+            --bharani-warm: #ff9999;     /* soft red */
+            --shadow-1: 0 6px 20px rgba(0,0,0,0.25);
+            --shadow-2: 0 10px 30px rgba(0,0,0,0.35);
+        }
+
+        body { background: radial-gradient(1200px 700px at 50% -10%, rgba(153,0,0,0.08), transparent),
+                               radial-gradient(900px 600px at 100% 20%, rgba(204,0,0,0.06), transparent),
+                               var(--bharani-bg); color: var(--bharani-text); }
+
+        /* Section theming */
+        .psychology-section { background: linear-gradient(180deg, rgba(153,0,0,0.07), rgba(0,0,0,0) 35%); border-top: 1px solid var(--bharani-border); }
+        .practical-section { background: linear-gradient(180deg, rgba(255,51,51,0.08), rgba(0,0,0,0) 35%); border-top: 1px solid var(--bharani-border); }
+        .modern-section { background: linear-gradient(180deg, rgba(204,0,0,0.08), rgba(0,0,0,0) 35%); border-top: 1px solid var(--bharani-border); }
+        .career-section { background: linear-gradient(180deg, rgba(255,153,153,0.08), rgba(0,0,0,0) 35%); border-top: 1px solid var(--bharani-border); }
+        .relationships-section { background: linear-gradient(180deg, rgba(255,51,51,0.06), rgba(0,0,0,0) 35%); border-top: 1px solid var(--bharani-border); }
+        .connected-stars-section { background: linear-gradient(180deg, rgba(153,0,0,0.06), rgba(0,0,0,0) 35%); border-top: 1px solid var(--bharani-border); }
+
+        .section-header { margin: 1.2rem 0 1rem; }
+        .section-title { color: var(--bharani-accent); letter-spacing: 0.6px; }
+        .section-subtitle { color: var(--bharani-dim); }
+
+        /* Cards */
+        .content-card, .connection-card, .compatibility-card, .influence-card, .stage-card, .guidance-card, .sequence-card {
+            background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.0));
+            border: 1px solid var(--rohini-border);
+            border-radius: 14px;
+            box-shadow: var(--shadow-1);
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+        }
+        .content-card:hover, .connection-card:hover, .compatibility-card:hover, .influence-card:hover, .stage-card:hover, .guidance-card:hover, .sequence-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(78,205,196,0.25);
+            box-shadow: var(--shadow-2);
+            background: linear-gradient(180deg, rgba(78,205,196,0.06), rgba(255,255,255,0.01));
+        }
+
+        /* Expand/collapse animation */
+        .expandable-card .detailed-content { max-height: 0; opacity: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.3s ease; }
+        .expandable-card.expanded .detailed-content { max-height: 1200px; opacity: 1; }
+
+        .expandable-card .basic-content { opacity: 0.95; }
+        .expandable-card.expanded .basic-content { opacity: 1; }
+
+        .expand-arrow { color: var(--rohini-accent); font-weight: 600; }
+
+        /* Icons */
+        .card-icon, .box-icon, .sequence-icon, .influence-icon, .guidance-icon { 
+            width: 40px; height: 40px; display: grid; place-items: center; 
+            background: radial-gradient(60% 60% at 50% 50%, rgba(78,205,196,0.25), rgba(255,255,255,0)); 
+            border: 1px solid rgba(78,205,196,0.25); border-radius: 10px; color: var(--rohini-text);
+        }
+
+        /* Buttons */
+        .button { background: linear-gradient(180deg, rgba(78,205,196,0.12), rgba(255,255,255,0.02));
+                  border: 1px solid var(--rohini-border); color: var(--rohini-text); 
+                  border-radius: 12px; transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease; }
+        .button:hover { background: linear-gradient(180deg, rgba(78,205,196,0.2), rgba(255,255,255,0.04)); border-color: rgba(78,205,196,0.35); transform: translateY(-1px); }
+
+        /* Grids spacing */
+        .two-column-grid, .three-column-grid, .applications-grid, .category-grid, .professions-grid, .stages-grid, .guidance-grid, .connected-stars-grid, .influence-cards, .insights-container { gap: 1.1rem; }
+
+        /* Wisdom box */
+        .sacred-wisdom-box { border: 1px solid var(--rohini-border); border-radius: 16px; padding: 1rem; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(78,205,196,0.06)); box-shadow: var(--shadow-1); }
+        .sacred-wisdom-box .wisdom-header { display: flex; align-items: center; gap: 0.6rem; color: var(--rohini-accent); }
+        .sacred-wisdom-box .wisdom-quote { font-style: italic; opacity: 0.9; margin: 0.6rem 0 0.8rem; }
+
+        /* Sequence */
+        .star-sequence { display: flex; align-items: stretch; gap: 0.6rem; }
+        .sequence-step { border: 1px solid var(--rohini-border); border-radius: 12px; padding: 0.6rem; text-align: center; min-width: 110px; }
+        .sequence-step.current { border-color: rgba(78,205,196,0.35); background: linear-gradient(180deg, rgba(78,205,196,0.12), rgba(255,255,255,0.02)); }
+        .sequence-arrow { display: grid; place-items: center; opacity: 0.6; padding: 0 0.2rem; }
+
+        /* Stats */
+        .stats-grid .stat-item { border: 1px solid var(--rohini-border); border-radius: 12px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(78,205,196,0.06)); box-shadow: var(--shadow-1); }
+        .stats-grid .stat-item h3 { color: var(--rohini-warm); }
+    </style>
+
+    <style id="responsive-rohini">
+        /* Responsive utilities for Rohini page */
+        /* Base adjustments for medium screens */
+        @media (max-width: 1024px) {
+            .three-column-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+            .applications-grid, .category-grid, .professions-grid, .stages-grid, .guidance-grid,
+            .connected-stars-grid, .influence-cards, .insights-container { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+            .section-title { font-size: clamp(1.25rem, 2.2vw, 1.6rem); }
+            .section-subtitle { font-size: clamp(0.9rem, 1.8vw, 1rem); }
+            .page-footer { flex-direction: column; align-items: stretch; gap: 0.6rem; }
+        }
+        /* Mobile-first stacking */
+        @media (max-width: 768px) {
+            .two-column-grid, .three-column-grid { display: grid; grid-template-columns: 1fr; gap: 0.9rem; }
+            .applications-grid, .category-grid, .professions-grid, .stages-grid, .guidance-grid,
+            .connected-stars-grid, .influence-cards, .insights-container { grid-template-columns: 1fr; }
+            .content-card, .connection-card, .compatibility-card, .influence-card, .stage-card, .guidance-card { padding: 1rem; }
+            .stats-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem; }
+            .nav-container { flex-direction: column; align-items: stretch !important; gap: 0.5rem !important; }
+            .nav-links { justify-content: space-between; }
+            .back-to-top button { padding: 0.5rem 0.7rem !important; font-size: 0.9rem; }
+            .section-header { text-align: center; }
+        }
+        /* Very small screens */
+        @media (max-width: 420px) {
+            .stats-grid { grid-template-columns: 1fr; }
+            .top-nav .button { padding: 0.4rem 0.6rem !important; font-size: 0.9rem; }
+            .card-title { font-size: 1.05rem; }
+        }
+    </style>
+
     <script>
+        // Interactive features: expandable cards, stats interactions, smooth scroll
+        function toggleExpandableCard(card) {
+            if (!card) return;
+            const isExpanded = card.classList.toggle('expanded');
+            const arrow = card.querySelector('.expand-arrow');
+            if (arrow) arrow.textContent = isExpanded ? '▲' : '▼';
+        }
+
+        function initExpandableCards() {
+            // Enable click on header to toggle (in addition to inline onclick)
+            document.querySelectorAll('.expandable-card .card-header-expand')
+                .forEach(h => {
+                    h.style.cursor = 'pointer';
+                    h.addEventListener('click', (e) => {
+                        const card = e.currentTarget.closest('.expandable-card');
+                        if (card) toggleExpandableCard(card);
+                    });
+                    // Keyboard accessibility
+                    h.setAttribute('tabindex', '0');
+                    h.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            const card = e.currentTarget.closest('.expandable-card');
+                            if (card) toggleExpandableCard(card);
+                        }
+                    });
+                });
+
+            // Optional: quality items inline expansion if present
+            document.querySelectorAll('.quality-item')
+                .forEach(item => {
+                    item.style.cursor = 'pointer';
+                    item.addEventListener('click', () => item.classList.toggle('open'));
+                    item.setAttribute('tabindex', '0');
+                    item.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            item.classList.toggle('open');
+                        }
+                    });
+                });
+        }
+
+        function initSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(a => {
+                a.addEventListener('click', (e) => {
+                    const targetId = a.getAttribute('href').slice(1);
+                    if (!targetId) return;
+                    const target = document.getElementById(targetId) || document.querySelector(`[data-anchor="${targetId}"]`);
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        }
+
+        function initStatsInteraction() {
+            // Ensure stats sections show basic grid by default and toggle details
+            document.querySelectorAll('.stats-section.expandable-card').forEach(card => {
+                // If it starts expanded, normalize arrow state
+                const arrow = card.querySelector('.expand-arrow');
+                if (arrow) arrow.textContent = card.classList.contains('expanded') ? '▲' : '▼';
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initExpandableCards();
+            initSmoothScroll();
+            initStatsInteraction();
+        });
+
         // Stellar background animation
         function createStars() {
             const stellarBg = document.getElementById('stellarBg');
@@ -1118,12 +2015,41 @@
             }
         }
 
-        // Toggle quality details
-        function toggleQuality(element) {
-            element.classList.toggle('expanded');
+        // Initialize quality items to be fully clickable
+        function initQualityItems() {
+            const grids = document.querySelectorAll('.qualities-grid');
+            
+            grids.forEach(grid => {
+                // Add click listener to the grid for event delegation
+                grid.addEventListener('click', (e) => {
+                    const qualityItem = e.target.closest('.quality-item');
+                    if (!qualityItem) return;
+                    
+                    // Toggle expanded state
+                    const isExpanded = qualityItem.classList.toggle('expanded');
+                    const arrow = qualityItem.querySelector('.quality-arrow');
+                    if (arrow) arrow.textContent = isExpanded ? '▲' : '▼';
+                });
+
+                // Add keyboard accessibility
+                grid.querySelectorAll('.quality-item').forEach(item => {
+                    // Make sure tabindex only gets added once
+                    if (!item.hasAttribute('tabindex')) {
+                        item.setAttribute('tabindex', '0');
+                        item.addEventListener('keydown', (e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                                e.preventDefault();
+                                const isExpanded = item.classList.toggle('expanded');
+                                const arrow = item.querySelector('.quality-arrow');
+                                if (arrow) arrow.textContent = isExpanded ? '▲' : '▼';
+                            }
+                        });
+                    }
+                });
+            });
         }
 
-        // Toggle expandable card details
+        // Toggle expandable card details (for sections/cards with arrows)
         function toggleExpandableCard(element) {
             element.classList.toggle('expanded');
         }
@@ -1131,7 +2057,85 @@
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             createStars();
+            initExpandableCards();
+            initQualityItems();
+            initSmoothScroll();
+            initStatsInteraction();
         });
     </script>
+</body>
+    <script>
+        // Ensure stellar background exists and animates (parity with Krittika)
+        function createStars() {
+            var stellarBg = document.getElementById('stellarBg');
+            if (!stellarBg) return;
+            if (stellarBg.dataset.starsInit === '1') return; // avoid double init
+            stellarBg.dataset.starsInit = '1';
+            var starCount = 80;
+            for (var i = 0; i < starCount; i++) {
+                var star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                var size = (Math.random() * 3 + 1) + 'px';
+                star.style.width = size;
+                star.style.height = size;
+                star.style.animationDelay = (Math.random() * 3) + 's';
+                stellarBg.appendChild(star);
+            }
+        }
+
+        // Expand/collapse cards (match Krittika: class toggle only; CSS handles animation)
+        function toggleExpandableCard(el) {
+            try {
+                el.classList.toggle('expanded');
+            } catch (e) {
+                console.error('toggleExpandableCard error:', e);
+            }
+        }
+
+        // Expand/collapse quality tags (class toggle only)
+        function toggleQuality(el) {
+            try {
+                el.classList.toggle('expanded');
+            } catch (e) {
+                console.error('toggleQuality error:', e);
+            }
+        }
+
+        // Initialize on DOM ready (idempotent)
+        (function(){
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', createStars, { once: true });
+            } else {
+                createStars();
+            }
+        })();
+    </script>
+
+    <script>
+        // Click delegation to ensure header/icon/arrow also toggle like in Krittika
+        document.addEventListener('click', function(e) {
+            var header = e.target.closest('.card-header-expand');
+            if (header) {
+                var card = header.closest('.expandable-card');
+                if (card) toggleExpandableCard(card);
+            }
+            var qualityTag = e.target.closest('.quality-tag');
+            if (qualityTag) {
+                var qItem = qualityTag.closest('.quality-item');
+                if (qItem) toggleQuality(qItem);
+            }
+        });
+    </script>
+
+    <style>
+        /* Ensure header/icon/arrow are clickable via parent (parity with Krittika) */
+        .expandable-card { cursor: pointer; }
+        .expandable-card .card-header-expand,
+        .expandable-card .card-icon,
+        .expandable-card .expand-arrow { pointer-events: none; }
+        .quality-item .quality-arrow { pointer-events: none; }
+    </style>
 </body>
 </html>

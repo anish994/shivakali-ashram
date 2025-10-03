@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Krittika Nakshatra - The Cosmic Purifier | ShivaKali Ashram</title>
-    <meta name="description" content="Discover Krittika Nakshatra - The Cutter that purifies through divine fire. Explore the third stellar consciousness program in Vedic astrology with modern insights into transformation and clarity.">
+    <title>Krittika Nakshatra - The Star of Fire | ShivaKali Ashram</title>
+    <meta name="description" content="Discover Krittika Nakshatra - The Star of Fire that purifies and transforms. Explore the third stellar consciousness program in Vedic astrology with modern insights into truth and decisive action.">
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -56,9 +57,10 @@
 
         /* Krittika-specific gradient theme */
         :root {
-            --krittika-primary: linear-gradient(135deg, #feca57, #ff6b35);
-            --krittika-secondary: rgba(255, 170, 60, 0.2);
-            --krittika-glow: rgba(255, 170, 60, 0.4);
+            --krittika-primary: linear-gradient(135deg, #ff4500, #ffd700);
+            --krittika-secondary: rgba(255, 69, 0, 0.2);
+            --krittika-glow: rgba(255, 69, 0, 0.4);
+            --krittika-accent: #ff8c00;  /* DarkOrange accent color */
         }
 
         /* Navigation */
@@ -101,7 +103,7 @@
         .nav-title {
             font-family: 'Orbitron', monospace;
             font-size: 1.2rem;
-            color: #feca57;
+            color: var(--krittika-accent);
         }
 
         /* Hero Section */
@@ -120,7 +122,7 @@
         .nakshatra-symbol {
             font-size: 6rem;
             margin-bottom: 1rem;
-            filter: drop-shadow(0 0 20px #feca57);
+            filter: drop-shadow(0 0 20px var(--krittika-accent));
             animation: float 3s ease-in-out infinite;
         }
 
@@ -142,7 +144,7 @@
 
         .hero .translation {
             font-size: 1.5rem;
-            color: #b19cd9;
+            color: #ffc3a0; /* Lighter shade for Krittika */
             font-style: italic;
             margin-bottom: 1rem;
         }
@@ -164,8 +166,8 @@
         }
 
         .nav-btn {
-            background: linear-gradient(45deg, rgba(255, 170, 60, 0.2), rgba(255, 107, 53, 0.2));
-            border: 2px solid rgba(255, 170, 60, 0.3);
+            background: linear-gradient(45deg, rgba(255, 69, 0, 0.2), rgba(255, 140, 0, 0.2));
+            border: 2px solid rgba(255, 69, 0, 0.3);
             border-radius: 15px;
             padding: 12px 24px;
             color: #ffffff;
@@ -177,14 +179,14 @@
         }
 
         .nav-btn:hover {
-            background: linear-gradient(45deg, #ffaa3c, #ff6b35);
+            background: var(--krittika-primary);
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255, 170, 60, 0.3);
+            box-shadow: 0 10px 30px var(--krittika-glow);
         }
 
         .nav-btn.primary {
-            background: linear-gradient(45deg, #feca57, #ff6b35);
-            border-color: #ffaa3c;
+            background: var(--krittika-primary);
+            border-color: #ff4500;
         }
 
         .stellar-info-hero {
@@ -197,18 +199,6 @@
 
         .info-item {
             text-align: center;
-        }
-
-        .info-label {
-            font-size: 0.9rem;
-            color: #b19cd9;
-            margin-bottom: 0.3rem;
-        }
-
-        .info-value {
-            font-weight: 600;
-            color: #ffffff;
-            font-size: 1.1rem;
         }
 
         /* Content Sections */
@@ -226,12 +216,12 @@
         .section-title {
             font-family: 'Orbitron', monospace;
             font-size: clamp(2rem, 4vw, 2.8rem);
-            color: #feca57;
+            color: var(--krittika-accent);
             margin-bottom: 1rem;
         }
 
         .section-subtitle {
-            color: #b19cd9;
+            color: #ffc3a0;
             font-size: 1.1rem;
             max-width: 600px;
             margin: 0 auto;
@@ -265,13 +255,13 @@
         .content-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 35px var(--krittika-glow);
-            border-color: rgba(254, 202, 87, 0.3);
+            border-color: rgba(255, 69, 0, 0.3);
         }
 
         .card-icon {
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            color: #feca57;
+            color: var(--krittika-accent);
             filter: drop-shadow(0 0 10px currentColor);
         }
 
@@ -289,80 +279,37 @@
 
         /* Special Sections */
         .mythology-section {
-            background: linear-gradient(135deg, rgba(254, 202, 87, 0.1), rgba(255, 107, 53, 0.05));
+            background: linear-gradient(135deg, rgba(255, 69, 0, 0.1), rgba(255, 140, 0, 0.05));
             border-radius: 30px;
             padding: 3rem;
             margin: 3rem 0;
         }
 
         .psychology-section {
-            background: linear-gradient(135deg, rgba(78, 205, 196, 0.1), rgba(69, 183, 209, 0.05));
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(255, 69, 0, 0.05));
             border-radius: 30px;
             padding: 3rem;
             margin: 3rem 0;
         }
 
         .practical-section {
-            background: linear-gradient(135deg, rgba(254, 202, 87, 0.1), rgba(255, 107, 53, 0.05));
+            background: linear-gradient(135deg, rgba(255, 165, 0, 0.1), rgba(255, 69, 0, 0.05));
             border-radius: 30px;
             padding: 3rem;
             margin: 3rem 0;
         }
 
         /* Expandable Practical Cards */
-        .expandable-card {
-            cursor: pointer;
-            transition: all 0.4s ease;
-        }
-
-        .expandable-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px var(--krittika-glow);
-        }
-
-        .card-header-expand {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .expand-arrow {
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
-            color: #feca57;
-        }
-
-        .expandable-card.expanded .expand-arrow {
-            transform: rotate(180deg);
-        }
-
-        .basic-content {
-            transition: all 0.3s ease;
-        }
-
-        .detailed-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            margin-top: 1rem;
-        }
-
-        .expandable-card.expanded .detailed-content {
-            max-height: 800px;
-        }
-
-        .detailed-content .detail-item {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 10px 15px;
-            margin: 8px 0;
-            border-radius: 8px;
-            border-left: 3px solid #feca57;
-        }
-
-        .detail-item strong {
-            color: #feca57;
-        }
+        .expandable-card { cursor: pointer; transition: all 0.4s ease; }
+        .expandable-card:hover { transform: translateY(-3px); box-shadow: 0 10px 25px var(--krittika-glow); }
+        .card-header-expand { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+        .expand-arrow { font-size: 1.2rem; transition: transform 0.3s ease; color: var(--krittika-accent); }
+        .expandable-card.expanded .expand-arrow { transform: rotate(180deg); }
+        .basic-content { transition: all 0.3s ease; }
+        .detailed-content { max-height: 0; overflow: hidden; transition: all 0.4s ease; margin-top: 1rem; }
+        .expandable-card.expanded .detailed-content { max-height: 800px; }
+        .detailed-content .detail-item { background: rgba(255,255,255,0.05); padding: 10px 15px; margin: 8px 0; border-radius: 8px; border-left: 3px solid var(--krittika-accent); }
+        .detail-item strong { color: var(--krittika-accent); }
 
         /* Qualities Grid */
         .qualities-grid {
@@ -371,55 +318,86 @@
             gap: 1rem;
             margin: 2rem 0;
         }
-
+        
         .quality-item {
             background: var(--krittika-secondary);
-            border: 1px solid rgba(254, 202, 87, 0.3);
+            border: 1px solid rgba(255, 69, 0, 0.2);
             border-radius: 25px;
             overflow: hidden;
-            transition: all 0.4s ease;
+            transition: transform 0.2s ease-out,
+                      box-shadow 0.2s ease-out,
+                      background-color 0.2s ease-out,
+                      border-color 0.2s ease-out;
             cursor: pointer;
+            user-select: none;
+            will-change: transform, box-shadow;
+            position: relative;
+            z-index: 1;
         }
-
+        
         .quality-item:hover {
-            background: rgba(254, 202, 87, 0.3);
+            background: rgba(255, 69, 0, 0.15);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px var(--krittika-glow);
+            border-color: rgba(255, 69, 0, 0.4);
+        }
+        
+        .quality-item:active {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 5px var(--krittika-glow);
+            transition-duration: 0.1s;
         }
 
+        .quality-item.expanded {
+            background: rgba(255, 69, 0, 0.2);
+            border-color: rgba(255, 69, 0, 0.5);
+            box-shadow: 0 4px 12px var(--krittika-glow);
+        }
+        
         .quality-tag {
-            padding: 12px 20px;
+            padding: 15px 20px;
             text-align: center;
             font-weight: 500;
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin: 0;
+            background: transparent;
+            z-index: 2;
         }
-
+        
         .quality-arrow {
             font-size: 0.8rem;
             transition: transform 0.3s ease;
-            color: #feca57;
+            color: var(--krittika-accent);
+            opacity: 0.8;
         }
-
+        
         .quality-item.expanded .quality-arrow {
             transform: rotate(180deg);
+            opacity: 1;
         }
-
+        
         .quality-details {
             max-height: 0;
             overflow: hidden;
             padding: 0 20px;
-            transition: all 0.4s ease;
-            background: rgba(255, 255, 255, 0.05);
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: max-height 0.3s ease-in-out,
+                      padding 0.3s ease-in-out,
+                      opacity 0.2s ease-out,
+                      transform 0.2s ease-out;
+            background: rgba(255,255,255,0.05);
         }
-
+        
         .quality-item.expanded .quality-details {
             max-height: 300px;
             padding: 15px 20px;
+            opacity: 1;
+            transform: translateY(0);
         }
-
+        
         .quality-details p {
             color: #e0e0e0;
             font-size: 0.9rem;
@@ -427,299 +405,97 @@
             margin: 0;
         }
 
-        /* Utility Grids */
-        .psychology-traits,
-        .practices-grid,
-        .applications-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .trait-category,
-        .practice-category,
-        .application-category {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 1.2rem;
-        }
-
-        .trait-category h3,
-        .practice-category h3,
-        .application-category h3 {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.1rem;
-            color: #feca57;
-            margin-bottom: 0.8rem;
-        }
-
-        .trait-category ul,
-        .practice-category ul,
-        .application-category ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .trait-category li,
-        .practice-category li,
-        .application-category li {
-            color: #e0e0e0;
-            margin: 0.35rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .trait-category li::before,
-        .practice-category li::before,
-        .application-category li::before {
-            content: '\2713';
-            color: #feca57;
-            font-size: 0.9rem;
-        }
-
-        /* Career and Compatibility Grids */
-        .career-guidance,
-        .compatibility-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .guidance-category,
-        .compatibility-category {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 1.2rem;
-        }
-
-        .guidance-category h3,
-        .compatibility-category h3 {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.1rem;
-            color: #feca57;
-            margin-bottom: 0.8rem;
-        }
-
-        .guidance-category ul,
-        .compatibility-category ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .guidance-category li,
-        .compatibility-category li {
-            color: #e0e0e0;
-            margin: 0.35rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .guidance-category li::before,
-        .compatibility-category li::before {
-            content: '\2713';
-            color: #feca57;
-            font-size: 0.9rem;
-        }
-
-        /* Wisdom and Context Grids */
-        .wisdom-grid,
-        .context-grid {
-            display: grid;
-            gap: 1.5rem;
-        }
-
-        .wisdom-item,
-        .context-item {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 1.2rem;
-        }
-
-        .wisdom-item strong,
-        .context-item strong {
-            color: #feca57;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .wisdom-item p,
-        .context-item p {
-            color: #e0e0e0;
-            margin: 0;
-            line-height: 1.6;
-        }
-
         /* Stats Section */
-        .stats-section {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 20px;
-            padding: 2rem;
-            margin: 3rem 0;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .stat-item h3 {
-            font-size: 2rem;
-            color: #feca57;
-            font-family: 'Orbitron', monospace;
-        }
-
-        .stat-item p {
-            color: #b19cd9;
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-        }
+        .stats-section { background: rgba(255,255,255,0.03); border-radius: 20px; padding: 2rem; margin: 3rem 0; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem; text-align: center; }
+        .stat-item h3 { font-size: 2rem; color: var(--krittika-accent); font-family: 'Orbitron', monospace; }
+        .stat-item p { color: #ffc3a0; font-size: 0.9rem; margin-top: 0.5rem; }
 
         /* Related Nakshatras */
-        .related-section {
-            margin-top: 4rem;
-            text-align: center;
-        }
+        .related-section { margin-top: 4rem; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .related-card { background: rgba(255,255,255,0.05); border-radius: 15px; padding: 1.5rem; text-decoration: none; color: inherit; transition: all 0.3s ease; }
+        .related-card:hover { transform: translateY(-3px); background: rgba(255,255,255,0.08); }
 
-        .related-grid {
+        /* Psychology trait cards */
+        .psychology-traits { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+        .trait-category { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 1.2rem; }
+        .trait-category h3 { font-family: 'Orbitron', monospace; font-size: 1.1rem; color: var(--krittika-accent); margin-bottom: 0.8rem; }
+        .trait-category ul { list-style: none; padding-left: 0; }
+        .trait-category li { color: #e0e0e0; margin: 0.35rem 0; display: flex; align-items: center; gap: 0.5rem; }
+        .trait-category li::before { content: '\2713'; color: var(--krittika-accent); font-size: 0.9rem; }
+
+        .practices-grid, .applications-grid, .career-guidance, .compatibility-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 1.5rem;
-            margin-top: 2rem;
+            margin-top: 3rem;
         }
 
-        .related-card {
+        .practice-category, .application-category, .guidance-category {
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 1.5rem;
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 1.2rem;
         }
 
-        .related-card:hover {
-            transform: translateY(-3px);
-            background: rgba(255, 255, 255, 0.08);
+        .practice-category h3, .application-category h3, .guidance-category h3 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.1rem;
+            color: var(--krittika-accent);
+            margin-bottom: 0.8rem;
         }
 
-        /* Mobile Responsive Design */
+        .practice-category ul, .application-category ul, .guidance-category ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .practice-category li, .application-category li, .guidance-category li {
+            color: #e0e0e0;
+            margin: 0.35rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .practice-category li::before, .application-category li::before, .guidance-category li::before {
+            content: '\2713';
+            color: var(--krittika-accent);
+            font-size: 0.9rem;
+        }
+
+        .wisdom-grid { display: grid; gap: 1.5rem; }
+        .wisdom-item { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 1.2rem; }
+        .wisdom-item strong { color: var(--krittika-accent); display: block; margin-bottom: 0.5rem; }
+        .wisdom-item p { color: #e0e0e0; margin: 0; line-height: 1.6; }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .nav-bar {
-                padding: 1rem;
-            }
-            
-            .hero {
-                padding: 2rem 1rem;
-            }
-            
-            .nakshatra-symbol {
-                font-size: 4rem;
-            }
-            
-            .stellar-info-hero {
-                gap: 1.5rem;
-            }
-            
-            .content-section {
-                padding: 2rem 1rem;
-            }
-            
-            .two-column-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .mythology-section,
-            .psychology-section,
-            .practical-section {
-                padding: 2rem 1.5rem;
-                margin: 2rem 0;
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-                gap: 1.5rem;
-            }
-            
-            .qualities-grid {
-                grid-template-columns: 1fr;
-                gap: 0.8rem;
-            }
-
-            /* Utility grids responsive */
-            .psychology-traits,
-            .practices-grid,
-            .applications-grid,
-            .career-guidance,
-            .compatibility-grid,
-            .wisdom-grid,
-            .context-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            
-            .quality-item {
-                border-radius: 15px;
-            }
-            
-            .quality-tag {
-                padding: 10px 15px;
-                font-size: 0.9rem;
-            }
-            
-            .quality-arrow {
-                font-size: 0.7rem;
-            }
-            
-            .quality-details {
-                padding: 0 15px;
-            }
-            
-            .quality-details p {
-                font-size: 0.85rem;
-            }
-            
-            .expandable-card .detailed-content {
-                max-height: 800px;
-            }
-            
-            .quality-item.expanded .quality-details {
-                max-height: 400px;
-            }
-            
-            .detail-item {
-                padding: 8px 12px;
-                font-size: 0.85rem;
-            }
-            
-            .card-header-expand {
-                margin-bottom: 0.8rem;
-            }
-            
-            .expand-arrow {
-                font-size: 1rem;
-            }
-            
-            .hero div[style*="max-width: 900px"] {
-                margin: 2rem 1rem 1.5rem 1rem !important;
-                padding: 1.5rem !important;
-            }
-            
-            .hero div[style*="max-width: 900px"] p {
-                font-size: 1rem !important;
-            }
-            
-            .hero div[style*="max-width: 900px"] p:first-child {
-                font-size: 1.1rem !important;
-            }
+            .nav-bar { padding: 1rem; }
+            .hero { padding: 2rem 1rem; }
+            .nakshatra-symbol { font-size: 4rem; }
+            .stellar-info-hero { gap: 1.5rem; }
+            .content-section { padding: 2rem 1rem; }
+            .two-column-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .mythology-section, .psychology-section, .practical-section { padding: 2rem 1.5rem; margin: 2rem 0; }
+            .stats-grid { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1.5rem; }
+            .qualities-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+            .psychology-traits { grid-template-columns: 1fr; gap: 1rem; }
+            .quality-item { border-radius: 15px; }
+            .quality-tag { padding: 10px 15px; font-size: 0.9rem; }
+            .quality-arrow { font-size: 0.7rem; }
+            .quality-details { padding: 0 15px; }
+            .quality-details p { font-size: 0.85rem; }
+            .expandable-card .detailed-content { max-height: 800px; }
+            .quality-item.expanded .quality-details { max-height: 400px; }
+            .detail-item { padding: 8px 12px; font-size: 0.85rem; }
+            .card-header-expand { margin-bottom: 0.8rem; }
+            .expand-arrow { font-size: 1rem; }
+            .hero div[style*="max-width: 900px"] { margin: 2rem 1rem 1.5rem 1rem !important; padding: 1.5rem !important; }
+            .hero div[style*="max-width: 900px"] p { font-size: 1rem !important; }
+            .hero div[style*="max-width: 900px"] p:first-child { font-size: 1.1rem !important; }
         }
-
     </style>
 </head>
 <body id="top">
@@ -758,18 +534,18 @@
             <div class="nakshatra-symbol">🔥</div>
             <h1>KRITTIKA</h1>
             <p class="translation">"The Cutter"</p>
-            <p class="tagline">Divine Purifier • Solar Radiance • Sacred Fire</p>
+            <p class="tagline">The Purifier • Sacred Fire • Divine Cutter</p>
             
             <!-- Engaging Introduction -->
-            <div style="max-width: 900px; margin: 3rem auto 2rem auto; padding: 2rem; background: rgba(254, 202, 87, 0.1); border-radius: 20px; border: 1px solid rgba(254, 202, 87, 0.2);">
+            <div style="max-width: 900px; margin: 3rem auto 2rem auto; padding: 2rem; background: rgba(255, 69, 0, 0.1); border-radius: 20px; border: 1px solid rgba(255, 69, 0, 0.2);">
                 <p style="font-size: 1.2rem; line-height: 1.8; color: #e0e0e0; text-align: left; margin-bottom: 1.5rem;">
-                    You are the <strong style="color: #feca57;">sacred purifier</strong> of consciousness, the one who understands that <strong style="color: #feca57;">truth is an act of refinement</strong>. Where others see confusion, you see what must be cut away to reveal the essence. You don't just analyze—you <strong>clarify reality with precision</strong>.
+                    You are the <strong style="color: #ff4500;">divine warrior of reality</strong>, the one who understands that <strong style="color: #ff4500;">purification is a sacred act</strong>. Where others see chaos, you bring clarity. You don't just dream—you <strong>cut through illusion with divine precision</strong>.
                 </p>
                 <p style="font-size: 1.1rem; line-height: 1.7; color: #e0e0e0; text-align: left; margin-bottom: 1.5rem;">
-                    Neuroscience echoes your nature: <strong style="color: #4ecdc4;">the brain becomes sharper by pruning unused connections</strong>. Krittika operates the same way—by removing what's unnecessary, life becomes <strong>clearer, brighter, and more powerful</strong>.
+                    Modern physics confirms your essence: <strong style="color: #ffd700;">energy is released when bonds are broken</strong>. Krittika operates the same way—by cutting away what is unnecessary, life becomes <strong style="color: #ffd700;">focused, powerful, and true</strong>.
                 </p>
                 <p style="font-size: 1.1rem; line-height: 1.7; color: #e0e0e0; text-align: left; font-style: italic;">
-                    Welcome to your divine assignment, <strong style="color: #feca57;">Keeper of the Sacred Flame</strong>. You're not here to destroy—you’re here to <strong>perfect</strong>. 🔥
+                    Welcome to your divine assignment, <strong style="color: #ff4500;">Keeper of the Sacred Flame</strong>. You're not here to wait—you’re here to <strong>act</strong>. 🔥
                 </p>
             </div>
             
@@ -794,6 +570,91 @@
         </div>
     </section>
 
+    <!-- Mythology & Symbolism -->
+    <section class="mythology-section">
+        <div class="section-header">
+            <h2 class="section-title">Mythological Foundation</h2>
+            <p class="section-subtitle">The Ancient Wisdom Behind Sacred Fire</p>
+        </div>
+
+        <div class="three-column-grid">
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">🔥</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Agni's Fire</h3>
+                <div class="basic-content">
+                    The purifying flame of the fire god, Agni
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Divine Purifier:</strong> Agni, the deity of Krittika, represents the sacred fire that burns away impurities, leaving only truth and light.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Cosmic Digestion:</strong> This fire digests experiences, transforming them into wisdom and power.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Bridge to Divine:</strong> Agni is the messenger, carrying offerings from the human to the divine realm, symbolizing the power of intention.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Modern Parallel:</strong> The process of critical analysis, debugging code, or refining a theory until only the essential truth remains.
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">🔪</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">The Razor/Axe</h3>
+                <div class="basic-content">
+                    Symbol of cutting through illusion and taking decisive action
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Decisive Action:</strong> The razor represents the ability to make sharp, precise cuts, separating truth from falsehood.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Severing Attachments:</strong> It symbolizes the courage to cut away negative patterns, attachments, and obstacles to growth.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Creative & Destructive:</strong> The blade can be used to create (sculpt, carve) or destroy, highlighting the dual nature of Krittika's power.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Modern Expression:</strong> Strategic decision-making, setting firm boundaries, and the ability to say "no" to distractions.
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">⚔️</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Kartikeya's Power</h3>
+                <div class="basic-content">
+                    The warrior energy of the celestial commander, Kartikeya
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Divine Warrior:</strong> Kartikeya, raised by the seven sisters (the Pleiades), embodies courage, strength, and leadership.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Focused Intention:</strong> His spear (vel) represents the power of a focused mind to penetrate any obstacle.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Protecting the Dharma:</strong> Krittika carries the energy of a spiritual warrior, defending truth and cosmic order.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Modern Meaning:</strong> The drive to compete, to lead with integrity, and to champion a cause with unwavering determination.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Core Essence Section -->
     <section class="content-section">
         <div class="section-header">
@@ -806,15 +667,15 @@
                 <div class="card-icon">🔥</div>
                 <h3 class="card-title">Sacred Fire</h3>
                 <div class="card-content">
-                    Ruled by the Sun, Krittika embodies the divine fire that purifies all it touches. Like a master smith's forge, this energy doesn't destroy needlessly—it transforms raw material into its highest potential through precise, purposeful refinement.
+                    Ruled by the Sun and embodied by Agni, Krittika represents the purifying power of fire. This energy burns away impurities, illuminates truth, and transforms the gross into the subtle, providing the courage to face challenges head-on.
                 </div>
             </div>
             
             <div class="content-card">
-                <div class="card-icon">⚔️</div>
-                <h3 class="card-title">Divine Discernment</h3>
+                <div class="card-icon">🔪</div>
+                <h3 class="card-title">Decisive Action</h3>
                 <div class="card-content">
-                    Krittika natives possess laser-sharp clarity and the ability to cut through confusion. They see truth beneath layers of complexity and have the courage to remove what doesn't serve evolution, whether in thoughts, relationships, or systems.
+                    Krittika is the star of decisive action and sharp intellect. These individuals have a natural ability to cut through confusion, make clear judgments, and take the necessary actions to achieve their goals with precision and power.
                 </div>
             </div>
         </div>
@@ -823,166 +684,81 @@
         <div id="qualities" class="qualities-grid">
             <div class="quality-item" onclick="toggleQuality(this)">
                 <div class="quality-tag">
-                    <span>Purification Power</span>
+                    <span>Sharp Intellect</span>
                     <span class="quality-arrow">▼</span>
                 </div>
                 <div class="quality-details">
-                    <p>Natural ability to identify and remove impurities, whether in material substances, thought patterns, or emotional dynamics. This purification always serves a higher purpose of refinement.</p>
+                    <p>Krittika possesses a sharp, penetrating intellect, allowing for quick understanding and precise analysis of complex situations.</p>
                 </div>
             </div>
             
             <div class="quality-item" onclick="toggleQuality(this)">
                 <div class="quality-tag">
-                    <span>Sharp Intelligence</span>
+                    <span>Decisive Action</span>
                     <span class="quality-arrow">▼</span>
                 </div>
                 <div class="quality-details">
-                    <p>Krittika's intellect is like a sacred blade—precise, clear, and penetrating. They naturally see through confusion and can articulate complex truths with remarkable clarity.</p>
-                </div>
-            </div>
-            
-            <div class="quality-item" onclick="toggleQuality(this)">
-                <div class="quality-tag">
-                    <span>Solar Authority</span>
-                    <span class="quality-arrow">▼</span>
-                </div>
-                <div class="quality-details">
-                    <p>Ruled by the Sun, they carry natural authority that comes from clarity of purpose. Their presence often inspires others to seek higher standards and greater truth.</p>
-                </div>
-            </div>
-            
-            <div class="quality-item" onclick="toggleQuality(this)">
-                <div class="quality-tag">
-                    <span>Sacred Fire Mastery</span>
-                    <span class="quality-arrow">▼</span>
-                </div>
-                <div class="quality-details">
-                    <p>Deep understanding of transformative fire—both literal and metaphorical. They know how to use intensity to perfect rather than destroy, to refine rather than burn away.</p>
-                </div>
-            </div>
-            
-            <div class="quality-item" onclick="toggleQuality(this)">
-                <div class="quality-tag">
-                    <span>Precision & Detail</span>
-                    <span class="quality-arrow">▼</span>
-                </div>
-                <div class="quality-details">
-                    <p>Exceptional attention to detail and ability to maintain high standards. They notice what others miss and have the discipline to perfect even the smallest elements.</p>
-                </div>
-            </div>
-            
-            <div class="quality-item" onclick="toggleQuality(this)">
-                <div class="quality-tag">
-                    <span>Truth Vision</span>
-                    <span class="quality-arrow">▼</span>
-                </div>
-                <div class="quality-details">
-                    <p>Ability to perceive essential truth beneath surface appearances. Their vision cuts through illusion, pretense, and self-deception to reveal what's real.</p>
-                </div>
-            </div>
-            
-            <div class="quality-item" onclick="toggleQuality(this)">
-                <div class="quality-tag">
-                    <span>Divine Ethics</span>
-                    <span class="quality-arrow">▼</span>
-                </div>
-                <div class="quality-details">
-                    <p>Strong moral clarity and ethical discernment. They naturally understand the difference between constructive and destructive uses of their purifying power.</p>
-                </div>
-            </div>
-            
-            <div class="quality-item" onclick="toggleQuality(this)">
-                <div class="quality-tag">
-                    <span>Transformative Focus</span>
-                    <span class="quality-arrow">▼</span>
-                </div>
-                <div class="quality-details">
-                    <p>Ability to maintain focused intensity over long periods, particularly when engaged in purification or refinement processes. Their concentration is like a focused laser beam.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Mythology & Symbolism -->
-    <section class="mythology-section">
-        <div class="section-header">
-            <h2 class="section-title">Mythological Foundation</h2>
-            <p class="section-subtitle">The Ancient Wisdom Behind the Sacred Fire</p>
-        </div>
-
-        <div class="three-column-grid">
-            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
-                <div class="card-header-expand">
-                    <div class="card-icon">🔥</div>
-                    <span class="expand-arrow">▼</span>
-                </div>
-                <h3 class="card-title">The Seven Pleiades</h3>
-                <div class="basic-content">
-                    The divine stars representing celestial purification
-                </div>
-                <div class="detailed-content">
-                    <div class="detail-item">
-                        <strong>Sacred Stars:</strong> In Vedic mythology, the Pleiades are known as the Krittikas - seven divine nurses who nurtured the cosmic fire god.
-                    </div>
-                    <div class="detail-item">
-                        <strong>Divine Nurturers:</strong> They were chosen to care for Kartikeya, the divine warrior, representing their ability to channel and direct sacred power.
-                    </div>
-                    <div class="detail-item">
-                        <strong>Celestial Fire:</strong> Each star embodies an aspect of purifying flame - from gentle warmth to intense transformation.
-                    </div>
-                    <div class="detail-item">
-                        <strong>Modern Parallel:</strong> The Pleiades cluster continues to inspire with its beauty and mystery, reminding us of the eternal flame of consciousness.
-                    </div>
+                    <p>Prefers direct, powerful action over hesitation. Cuts through obstacles with courage and determination.</p>
                 </div>
             </div>
 
-            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
-                <div class="card-header-expand">
-                    <div class="card-icon">⚔️</div>
-                    <span class="expand-arrow">▼</span>
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Purifying Fire</span>
+                    <span class="quality-arrow">▼</span>
                 </div>
-                <h3 class="card-title">Divine Warrior</h3>
-                <div class="basic-content">
-                    The sacred story of Kartikeya, child of the stars
-                </div>
-                <div class="detailed-content">
-                    <div class="detail-item">
-                        <strong>Cosmic Birth:</strong> Born from divine fire and nurtured by the seven stars, Kartikeya represents focused power and pure intention.
-                    </div>
-                    <div class="detail-item">
-                        <strong>Sacred Mission:</strong> He became the divine warrior who defeats ignorance and impurity, showing how Krittika's fire serves truth.
-                    </div>
-                    <div class="detail-item">
-                        <strong>Star Child:</strong> His connection to the Pleiades shows how celestial wisdom guides earthly action.
-                    </div>
-                    <div class="detail-item">
-                        <strong>Modern Meaning:</strong> Reminds us that purification and protection go hand in hand - clarity serves dharma.
-                    </div>
+                <div class="quality-details">
+                    <p>Radiates a purifying energy that burns away negativity, falsehood, and outdated patterns, leaving clarity and truth.</p>
                 </div>
             </div>
 
-            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
-                <div class="card-header-expand">
-                    <div class="card-icon">☀️</div>
-                    <span class="expand-arrow">▼</span>
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Protective Power</span>
+                    <span class="quality-arrow">▼</span>
                 </div>
-                <h3 class="card-title">The Sun's Fire</h3>
-                <div class="basic-content">
-                    Solar wisdom in the star of purification
+                <div class="quality-details">
+                    <p>A fierce protector of truth, justice, and those they care about. Establishes and defends strong moral boundaries.</p>
                 </div>
-                <div class="detailed-content">
-                    <div class="detail-item">
-                        <strong>Solar Rule:</strong> The Sun's rulership of Krittika represents the highest expression of purifying fire - light that reveals truth.
-                    </div>
-                    <div class="detail-item">
-                        <strong>Divine Light:</strong> Just as sunlight purifies and energizes, Krittika's power cleanses and revitalizes.
-                    </div>
-                    <div class="detail-item">
-                        <strong>Central Force:</strong> Like the Sun at the center of our solar system, Krittika represents the core principle of purification.
-                    </div>
-                    <div class="detail-item">
-                        <strong>Eternal Flame:</strong> The Sun's eternal fire mirrors Krittika's timeless role as cosmic purifier.
-                    </div>
+            </div>
+
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Truth Seeker</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>Driven by a deep need for honesty and authenticity. Exposes hidden truths and confronts deception directly.</p>
+                </div>
+            </div>
+
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Pioneering Spirit</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>Possesses a natural leadership quality and a desire to forge new paths. Not afraid to be the first to act or explore.</p>
+                </div>
+            </div>
+
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Unwavering Courage</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>Faces challenges with immense bravery and a warrior-like spirit. Does not back down from a necessary confrontation.</p>
+                </div>
+            </div>
+
+            <div class="quality-item" onclick="toggleQuality(this)">
+                <div class="quality-tag">
+                    <span>Disciplined Will</span>
+                    <span class="quality-arrow">▼</span>
+                </div>
+                <div class="quality-details">
+                    <p>Harnesses a strong willpower and self-discipline to achieve goals, often through intense focus and dedication.</p>
                 </div>
             </div>
         </div>
@@ -1003,20 +779,23 @@
                 </div>
                 <h3 class="card-title">Cognitive Patterns</h3>
                 <div class="basic-content">
-                    The unique way Krittika natives process information and truth
+                    How the Krittika mind purifies and clarifies
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Analytical Excellence:</strong> Sharp, discerning mind that naturally sorts and categorizes information, identifying patterns and inconsistencies.
+                        <strong>Critical Analysis:</strong> Natural ability to identify flaws, inconsistencies, and weaknesses in any system or argument.
                     </div>
                     <div class="detail-item">
-                        <strong>Clarity Focus:</strong> Strong drive to eliminate confusion and establish clear understanding in all situations.
+                        <strong>Decisive Logic:</strong> Thinks in a direct, linear fashion to arrive at conclusions quickly and confidently.
                     </div>
                     <div class="detail-item">
-                        <strong>Perfection Seeking:</strong> Natural inclination to refine and improve, always working towards the highest possible quality.
+                        <strong>Strategic Elimination:</strong> Focuses on what to remove or cut away to improve a situation, rather than what to add.
                     </div>
                     <div class="detail-item">
-                        <strong>Truth Detection:</strong> Highly developed ability to sense deception or falsehood, coupled with a drive to reveal truth.
+                        <strong>Truth-Oriented Perception:</strong> A cognitive bias towards honesty and facts, often filtering out emotional or subjective information.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Goal-Focused Execution:</strong> Once a target is set, the mind is relentlessly focused on the most direct path to achieving it.
                     </div>
                 </div>
             </div>
@@ -1028,20 +807,23 @@
                 </div>
                 <h3 class="card-title">Emotional Landscape</h3>
                 <div class="basic-content">
-                    The emotional world of the celestial purifier
+                    The emotional world of the divine warrior
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Emotional Clarity:</strong> Tendency to process emotions through the lens of purpose and truth, seeking to understand rather than simply feel.
+                        <strong>Passionate & Intense:</strong> Emotions are felt strongly and can flare up quickly, like a fire.
                     </div>
                     <div class="detail-item">
-                        <strong>Purifying Passion:</strong> Deep emotional drive to improve and perfect, channeling feelings into constructive transformation.
+                        <strong>Protective Loyalty:</strong> Fiercely loyal and protective of loved ones, forming a powerful inner circle.
                     </div>
                     <div class="detail-item">
-                        <strong>Ethical Foundation:</strong> Strong moral compass that influences emotional responses and decision-making.
+                        <strong>Impatience with Inauthenticity:</strong> A low tolerance for dishonesty, excuses, or emotional manipulation.
                     </div>
                     <div class="detail-item">
-                        <strong>Transformative Love:</strong> Capacity to love in a way that uplifts and purifies, helping others reach their highest potential.
+                        <strong>Need for a Cause:</strong> Emotions are often channeled into a purpose or mission, providing a constructive outlet for their intensity.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Vulnerability Shield:</strong> Can appear tough or sharp on the outside as a way to protect a more sensitive inner core.
                     </div>
                 </div>
             </div>
@@ -1050,7 +832,7 @@
         <!-- Personality Stats -->
         <div class="stats-section expandable-card" onclick="toggleExpandableCard(this)" style="cursor: pointer;">
             <div class="card-header-expand" style="justify-content: center; margin-bottom: 1rem;">
-                <h3 style="color: #4ecdc4; margin: 0;">Personality Dynamics</h3>
+                <h3 style="color: var(--krittika-accent); margin: 0;">Personality Dynamics</h3>
                 <span class="expand-arrow" style="margin-left: 1rem;">▼</span>
             </div>
             
@@ -1058,91 +840,89 @@
                 <div class="stats-grid">
                     <div class="stat-item">
                         <h3>92%</h3>
-                        <p>Discernment Clarity</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>90%</h3>
-                        <p>Purification Power</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>85%</h3>
-                        <p>Focused Intensity</p>
+                        <p>Decisive Action</p>
                     </div>
                     <div class="stat-item">
                         <h3>88%</h3>
-                        <p>Ethical Standards</p>
+                        <p>Purifying Fire</p>
                     </div>
                     <div class="stat-item">
-                        <h3>72%</h3>
-                        <p>Patience Level</p>
+                        <h3>85%</h3>
+                        <p>Sharp Intellect</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>80%</h3>
+                        <p>Protective Loyalty</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>70%</h3>
+                        <p>Emotional Patience</p>
                     </div>
                 </div>
             </div>
             
             <div class="detailed-content">
                 <div class="detail-item">
-                    <strong>Discernment Clarity (92%):</strong> Exceptional ability to separate the essential from the superficial, quickly organizing complexity into clear insight.
+                    <strong>Decisive Action (92%):</strong> Strong capacity to act quickly and confidently, cutting through hesitation and doubt.
                 </div>
                 <div class="detail-item">
-                    <strong>Purification Power (90%):</strong> Strong transformative energy that refines systems, spaces, and relationships toward higher quality.
+                    <strong>Purifying Fire (88%):</strong> A powerful drive to eliminate negativity, expose truth, and refine systems to their essential form.
                 </div>
                 <div class="detail-item">
-                    <strong>Focused Intensity (85%):</strong> Deep concentration when engaged in meaningful work—best channeled into refinement and precision tasks.
+                    <strong>Sharp Intellect (85%):</strong> Excellent at critical thinking, analysis, and identifying the root cause of a problem.
                 </div>
                 <div class="detail-item">
-                    <strong>Ethical Standards (88%):</strong> Robust moral compass that guides decisions and leadership through clarity rather than force.
+                    <strong>Protective Loyalty (80%):</strong> Fiercely devoted and protective of their inner circle and their principles.
                 </div>
                 <div class="detail-item">
-                    <strong>Patience Level (72%):</strong> Generally steady, but may feel urgency to correct inefficiency—balanced by conscious relaxation practices.
+                    <strong>Emotional Patience (70%):</strong> Can be impatient with emotional ambiguity or drama, preferring directness and clarity.
                 </div>
                 <div class="detail-item">
-                    <strong>Optimal Expression:</strong> Combine your clarity and standards with compassion to become a purifier who uplifts without harshness.
+                    <strong>Optimal Expression:</strong> Harmonize critical analysis with compassion, and decisive action with strategic patience.
                 </div>
             </div>
         </div>
 
+        <!-- Trait Categories -->
         <div class="psychology-traits">
             <div class="trait-category">
                 <h3>Cognitive Strengths</h3>
                 <ul>
-                    <li>Sharp analytical abilities</li>
-                    <li>Excellent pattern recognition</li>
-                    <li>Strong ethical reasoning</li>
-                    <li>Detail-oriented focus</li>
-                    <li>Natural problem-solving skills</li>
+                    <li>Critical analysis</li>
+                    <li>Decisive problem-solving</li>
+                    <li>Strategic elimination</li>
+                    <li>Truth-focused perception</li>
+                    <li>Rapid execution</li>
                 </ul>
             </div>
-
             <div class="trait-category">
                 <h3>Emotional Qualities</h3>
                 <ul>
-                    <li>Emotional intelligence</li>
-                    <li>Clarity in feelings</li>
-                    <li>Transformative passion</li>
-                    <li>Ethical sensitivity</li>
-                    <li>Deep empathy</li>
+                    <li>Passionate intensity</li>
+                    <li>Fierce loyalty</li>
+                    <li>Courageous honesty</li>
+                    <li>Protective instincts</li>
+                    <li>Motivational drive</li>
                 </ul>
             </div>
-
             <div class="trait-category">
                 <h3>Core Motivations</h3>
                 <ul>
-                    <li>Seeking truth</li>
-                    <li>Improving systems</li>
-                    <li>Purifying environment</li>
-                    <li>Maintaining standards</li>
-                    <li>Sharing wisdom</li>
+                    <li>Purifying systems</li>
+                    <li>Revealing the truth</li>
+                    <li>Protecting the innocent</li>
+                    <li>Achieving excellence</li>
+                    <li>Cutting through illusion</li>
                 </ul>
             </div>
-
             <div class="trait-category">
                 <h3>Growth Areas</h3>
                 <ul>
-                    <li>Balancing perfectionism</li>
-                    <li>Managing intensity</li>
-                    <li>Embracing imperfection</li>
-                    <li>Softening judgment</li>
-                    <li>Finding peace in process</li>
+                    <li>Cultivating patience</li>
+                    <li>Softening criticism</li>
+                    <li>Embracing vulnerability</li>
+                    <li>Managing impatience</li>
+                    <li>Balancing action with rest</li>
                 </ul>
             </div>
         </div>
@@ -1152,81 +932,84 @@
     <section class="practical-section">
         <div class="section-header">
             <h2 class="section-title">Practical Applications</h2>
-            <p class="section-subtitle">Harnessing Krittika's purifying fire in daily life</p>
+            <p class="section-subtitle">Harnessing Krittika's purifying energy in daily life</p>
         </div>
 
         <div class="three-column-grid">
+            <!-- Personal Growth Card -->
             <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
                 <div class="card-header-expand">
-                    <div class="card-icon">⚡</div>
+                    <div class="card-icon">🔥</div>
                     <span class="expand-arrow">▼</span>
                 </div>
                 <h3 class="card-title">Personal Growth</h3>
                 <div class="basic-content">
-                    Transform your life through sacred discernment
+                    Cultivating inner clarity and decisive action
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Mental Clarity:</strong> Practice focused meditation to cut through mental clutter and find pure awareness.
+                        <strong>Radical Honesty:</strong> Practice unflinching honesty with yourself about your strengths, weaknesses, and motivations.
                     </div>
                     <div class="detail-item">
-                        <strong>Emotional Purification:</strong> Use journaling and self-reflection to identify and release emotional patterns that no longer serve.
+                        <strong>Strategic Elimination:</strong> Regularly identify and remove habits, beliefs, or possessions that no longer serve you.
                     </div>
                     <div class="detail-item">
-                        <strong>Life Editing:</strong> Regularly assess activities, relationships, and possessions - keep what truly matters, release the rest.
+                        <strong>Channel Intensity:</strong> Use physical exercise or competitive activities as a healthy outlet for your inner fire.
                     </div>
                     <div class="detail-item">
-                        <strong>Sacred Standards:</strong> Set high but achievable standards in important areas of life, creating a foundation for growth.
+                        <strong>Sharpen Your Skills:</strong> Dedicate time to mastering a skill that requires precision and focus.
                     </div>
                 </div>
             </div>
 
+            <!-- Professional Excellence Card -->
             <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
                 <div class="card-header-expand">
-                    <div class="card-icon">🌟</div>
+                    <div class="card-icon">💼</div>
                     <span class="expand-arrow">▼</span>
                 </div>
                 <h3 class="card-title">Professional Excellence</h3>
                 <div class="basic-content">
-                    Apply purifying wisdom in your work
+                    Building a career with precision and integrity
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Quality Focus:</strong> Develop systems for maintaining high standards and continuous improvement in your work.
+                        <strong>Leadership Style:</strong> Lead by example with clarity, decisiveness, and unwavering integrity.
                     </div>
                     <div class="detail-item">
-                        <strong>Clear Communication:</strong> Practice delivering complex information with clarity and precision.
+                        <strong>Problem Solving:</strong> Be the one who identifies the core problem and proposes a direct, effective solution.
                     </div>
                     <div class="detail-item">
-                        <strong>Process Refinement:</strong> Regularly analyze and optimize workflows, removing inefficiencies.
+                        <strong>Project Management:</strong> Excel in roles that require cutting through red tape and driving projects to completion.
                     </div>
                     <div class="detail-item">
-                        <strong>Leadership Clarity:</strong> Help teams focus on what's essential and maintain high standards without becoming harsh.
+                        <strong>Ethical Standards:</strong> Uphold high ethical and quality standards, acting as the guardian of your team's integrity.
                     </div>
                 </div>
             </div>
 
+            <!-- Sacred Environment Card -->
             <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
                 <div class="card-header-expand">
-                    <div class="card-icon">🏠</div>
+                    <div class="card-icon">🏡</div>
                     <span class="expand-arrow">▼</span>
                 </div>
                 <h3 class="card-title">Sacred Environment</h3>
                 <div class="basic-content">
-                    Create spaces that support clarity and transformation
+                    Creating spaces that are sharp, clean, and focused
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Space Clearing:</strong> Regular decluttering with intention, keeping only what serves your highest purpose.
+                        <strong>Minimalist Power:</strong> Design your workspace for maximum focus and minimal distraction. A clean space equals a clear mind.
                     </div>
                     <div class="detail-item">
-                        <strong>Energy Purification:</strong> Use sacred fire (candles, incense) and sunlight to cleanse and energize spaces.
+                        <strong>Functional Tools:</strong> Invest in high-quality tools that do their job perfectly. Appreciate the beauty of function.
                     </div>
                     <div class="detail-item">
-                        <strong>Mindful Organization:</strong> Create systems that maintain order and support focused activity.
+                        <strong>Purifying Elements:</strong> Use fire (candles, fireplace) or sharp, clean lines in your decor to invoke Krittika's energy.
                     </div>
                     <div class="detail-item">
-                        <strong>Sacred Zones:</strong> Designate areas for specific purposes, maintaining their energetic clarity.
+                        <strong>Energetic Cleansing:</strong> Regularly cleanse your space energetically, using methods like smudging or sound, to remove stagnant energy.
                     </div>
                 </div>
             </div>
@@ -1237,47 +1020,49 @@
             <div class="practice-category">
                 <h3>Daily Practices</h3>
                 <ul>
-                    <li>Morning sun gazing meditation</li>
-                    <li>Clarity journaling practice</li>
-                    <li>Sacred space maintenance</li>
-                    <li>Mindful decluttering ritual</li>
-                    <li>Evening review and refinement</li>
+                    <li>Morning goal setting</li>
+                    <li>Digital detox periods</li>
+                    <li>Intense physical workout</li>
+                    <li>Reviewing for truth</li>
+                    <li>One decisive action</li>
                 </ul>
             </div>
 
             <div class="practice-category">
                 <h3>Weekly Focus</h3>
                 <ul>
-                    <li>Deep cleaning with intention</li>
-                    <li>System optimization review</li>
-                    <li>Relationship clarity check</li>
-                    <li>Professional standards audit</li>
-                    <li>Sacred fire ceremony</li>
+                    <li>Review and cut one commitment</li>
+                    <li>Tackle a difficult conversation</li>
+                    <li>Deep clean your workspace</li>
+                    <li>Strategic planning session</li>
+                    <li>Competitive game or sport</li>
                 </ul>
             </div>
 
             <div class="practice-category">
                 <h3>Monthly Refinement</h3>
                 <ul>
-                    <li>Life direction alignment</li>
-                    <li>Major space purification</li>
-                    <li>Habit pattern assessment</li>
-                    <li>Relationship energy clearing</li>
-                    <li>Professional vision refining</li>
+                    <li>Review long-term goals</li>
+                    <li>Eliminate a major time-waster</li>
+                    <li>Set a new personal record</li>
+                    <li>Mentor someone with direct feedback</li>
+                    <li>Purge unnecessary files/items</li>
                 </ul>
             </div>
 
             <div class="practice-category">
                 <h3>Advanced Techniques</h3>
                 <ul>
-                    <li>Krittika fire meditation</li>
-                    <li>Solar consciousness practice</li>
-                    <li>Sacred editing ritual</li>
-                    <li>Truth revelation ceremony</li>
-                    <li>Transformative integration</li>
+                    <li>Leading a high-stakes project</li>
+                    <li>Public speaking on a controversial truth</li>
+                    <li>Creating a new system from scratch</li>
+                    <li>Mastering a precision skill</li>
+                    <li>Acting as an ethical watchdog</li>
                 </ul>
             </div>
         </div>
+
+
     </section>
 
     <!-- Modern Relevance -->
@@ -1288,52 +1073,54 @@
         </div>
 
         <div class="two-column-grid">
+            <!-- Digital Age Clarity -->
             <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
                 <div class="card-header-expand">
-                    <div class="card-icon">💻</div>
+                    <div class="card-icon">📱</div>
                     <span class="expand-arrow">▼</span>
                 </div>
                 <h3 class="card-title">Digital Age Clarity</h3>
                 <div class="basic-content">
-                    Navigate information overload with discernment
+                    Cutting through the noise of the information age
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Information Filtering:</strong> Apply Krittika's discernment to separate valuable content from digital noise.
+                        <strong>Information Diet:</strong> Actively cutting out sources of misinformation and low-quality content.
                     </div>
                     <div class="detail-item">
-                        <strong>Digital Declutter:</strong> Regular cleansing of digital spaces - inbox, files, social media - keeping only what serves purpose.
+                        <strong>Focused Work:</strong> Using tools and techniques to eliminate digital distractions and achieve deep work.
                     </div>
                     <div class="detail-item">
-                        <strong>Focused Attention:</strong> Maintaining clarity and purpose in an age of endless distractions.
+                        <strong>Direct Communication:</strong> Favoring clear, concise communication over ambiguous or passive-aggressive online interactions.
                     </div>
                     <div class="detail-item">
-                        <strong>Online Boundaries:</strong> Creating clear digital boundaries that protect energy and attention.
+                        <strong>Cybersecurity:</strong> A natural inclination to protect digital sovereignty and cut off security threats.
                     </div>
                 </div>
             </div>
 
+            <!-- Truth in Leadership -->
             <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
                 <div class="card-header-expand">
-                    <div class="card-icon">🌎</div>
+                    <div class="card-icon">🌿</div>
                     <span class="expand-arrow">▼</span>
                 </div>
-                <h3 class="card-title">Sustainable Living</h3>
+                <h3 class="card-title">Truth in Leadership</h3>
                 <div class="basic-content">
-                    Environmental consciousness through purification
+                    Krittika's role in modern leadership and ethics
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Mindful Consumption:</strong> Using Krittika's discernment to make environmentally conscious choices.
+                        <strong>Ethical Watchdogs:</strong> A drive to hold leaders and organizations accountable to high standards of integrity.
                     </div>
                     <div class="detail-item">
-                        <strong>Waste Reduction:</strong> Applying purification principles to minimize environmental impact.
+                        <strong>Whistleblower Energy:</strong> The courage to expose corruption and speak truth to power, even at personal risk.
                     </div>
                     <div class="detail-item">
-                        <strong>Energy Awareness:</strong> Being conscious of energy use and choosing cleaner alternatives.
+                        <strong>Lean Methodologies:</strong> Applying Krittika's cutting principle to business, such as in lean startups or agile development.
                     </div>
                     <div class="detail-item">
-                        <strong>Sacred Ecology:</strong> Seeing environmental stewardship as a spiritual practice.
+                        <strong>Radical Candor:</strong> The ability to give direct, honest feedback that is both challenging and constructive.
                     </div>
                 </div>
             </div>
@@ -1344,47 +1131,50 @@
             <div class="application-category">
                 <h3>Mental Health</h3>
                 <ul>
-                    <li>Anxiety reduction through clarity</li>
-                    <li>Mindful social media use</li>
-                    <li>Digital detox practices</li>
-                    <li>Clear boundary setting</li>
-                    <li>Stress management through discernment</li>
+                    <li>Cognitive Behavioral Therapy (CBT)</li>
+                    <li>Setting firm boundaries</li>
+                    <li>Confronting self-deception</li>
+                    <li>Trauma processing</li>
+                    <li>Disciplined self-improvement</li>
                 </ul>
             </div>
 
             <div class="application-category">
                 <h3>Professional Life</h3>
                 <ul>
-                    <li>Remote work boundaries</li>
-                    <li>Digital organization systems</li>
-                    <li>Clear online communication</li>
-                    <li>Virtual team leadership</li>
-                    <li>Work-life balance clarity</li>
+                    <li>Quality assurance & control</li>
+                    <li>Strategic planning & execution</li>
+                    <li>Legal and ethical professions</li>
+                    <li>Surgical or precision trades</li>
+                    <li>Military or emergency services</li>
                 </ul>
             </div>
 
             <div class="application-category">
                 <h3>Wellness Practices</h3>
                 <ul>
-                    <li>Clean eating awareness</li>
-                    <li>Mindful exercise routines</li>
-                    <li>Digital wellness tracking</li>
-                    <li>Sleep hygiene optimization</li>
-                    <li>Energy management techniques</li>
+                    <li>Intermittent fasting or detox</li>
+                    <li>High-Intensity Interval Training (HIIT)</li>
+                    <li>Fire-gazing meditation (Trataka)</li>
+                    <li>Practicing sharp focus</li>
+                    <li>Minimalist living</li>
                 </ul>
             </div>
 
             <div class="application-category">
                 <h3>Social Impact</h3>
                 <ul>
-                    <li>Truth in media discernment</li>
-                    <li>Conscious activism</li>
-                    <li>Community building clarity</li>
-                    <li>Ethical decision making</li>
-                    <li>Environmental stewardship</li>
+                    <li>Investigative journalism</li>
+                    <li>Activism against corruption</li>
+                    <li>Championing social justice</li>
+                    <li>Leading reform movements</li>
+                    <li>Debating and public speaking</li>
                 </ul>
             </div>
         </div>
+
+
+
     </section>
 
     <!-- Career & Life Path -->
@@ -1394,6 +1184,9 @@
             <p class="section-subtitle">Professional paths that align with Krittika's purifying energy</p>
         </div>
 
+
+
+        <!-- Three-column cards (match Krittika structure) -->
         <div class="three-column-grid">
             <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
                 <div class="card-header-expand">
@@ -1406,39 +1199,39 @@
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Analysis & Research:</strong>
+                        <strong>Leadership & Command:</strong>
                         <ul>
+                            <li>CEO, Executive</li>
+                            <li>Military Officer</li>
+                            <li>Police Officer, Firefighter</li>
+                            <li>Head of a department</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Purification & Precision:</strong>
+                        <ul>
+                            <li>Surgeon, Dentist</li>
+                            <li>Editor, Critic</li>
+                            <li>Quality Assurance Engineer</li>
                             <li>Data Analyst</li>
-                            <li>Research Scientist</li>
-                            <li>Quality Assurance</li>
-                            <li>Systems Analyst</li>
                         </ul>
                     </div>
                     <div class="detail-item">
-                        <strong>Creative Refinement:</strong>
+                        <strong>Justice & Ethics:</strong>
                         <ul>
-                            <li>Editor</li>
-                            <li>Art Director</li>
-                            <li>Film Editor</li>
-                            <li>Content Curator</li>
+                            <li>Lawyer, Judge</li>
+                            <li>Investigative Journalist</li>
+                            <li>Ethicist, Compliance Officer</li>
+                            <li>Activist</li>
                         </ul>
                     </div>
                     <div class="detail-item">
-                        <strong>Process Optimization:</strong>
+                        <strong>Fire & Metal:</strong>
                         <ul>
-                            <li>Process Engineer</li>
-                            <li>Business Analyst</li>
-                            <li>Efficiency Consultant</li>
-                            <li>Project Manager</li>
-                        </ul>
-                    </div>
-                    <div class="detail-item">
-                        <strong>Transformative Leadership:</strong>
-                        <ul>
-                            <li>Executive Coach</li>
-                            <li>Change Management</li>
-                            <li>Quality Director</li>
-                            <li>Strategic Advisor</li>
+                            <li>Blacksmith, Jeweler</li>
+                            <li>Chef, Cook</li>
+                            <li>Welder, Engineer</li>
+                            <li>Demolitions Expert</li>
                         </ul>
                     </div>
                 </div>
@@ -1455,16 +1248,16 @@
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Truth Revelation:</strong> Uncovering and sharing essential wisdom that helps others see clearly.
+                        <strong>To Purify and Refine:</strong> A lifelong mission to cut away the non-essential and reveal the truth in all things.
                     </div>
                     <div class="detail-item">
-                        <strong>Sacred Refinement:</strong> Helping transform raw potential into its highest expression.
+                        <strong>To Lead with Integrity:</strong> A drive to be a pillar of strength and honesty, guiding others with courage and conviction.
                     </div>
                     <div class="detail-item">
-                        <strong>Quality Leadership:</strong> Setting and maintaining high standards that inspire excellence.
+                        <strong>To Champion a Cause:</strong> A need to find a purpose greater than oneself and fight for it with unwavering dedication.
                     </div>
                     <div class="detail-item">
-                        <strong>Purification Service:</strong> Creating clarity and transformation in whatever field you choose.
+                        <strong>To Master the Self:</strong> The ultimate challenge of turning their critical eye inward to purify their own ego and motivations.
                     </div>
                 </div>
             </div>
@@ -1480,64 +1273,64 @@
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Foundation Stage:</strong> Building technical skills and developing discernment through hands-on experience.
+                        <strong>Foundation Stage:</strong> Learning to harness their sharp intellect and develop a strong work ethic.
                     </div>
                     <div class="detail-item">
-                        <strong>Refinement Phase:</strong> Specializing in your chosen field while maintaining high standards of excellence.
+                        <strong>Development Phase:</strong> Taking on leadership roles and learning to temper their criticism with diplomacy.
                     </div>
                     <div class="detail-item">
-                        <strong>Leadership Evolution:</strong> Taking on roles where you can influence and uplift larger systems.
+                        <strong>Leadership Evolution:</strong> Becoming a trusted authority known for their integrity, clarity, and decisive action.
                     </div>
                     <div class="detail-item">
-                        <strong>Legacy Creation:</strong> Establishing systems and standards that continue your purifying work.
+                        <strong>Legacy Creation:</strong> Establishing new standards of excellence or leaving behind a legacy of truth and purification.
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Career Guidance -->
+        <!-- Career Guidance (match Krittika) -->
         <div class="career-guidance" style="margin-top: 3rem;">
             <div class="guidance-category">
                 <h3>Workplace Strengths</h3>
                 <ul>
-                    <li>Attention to detail</li>
-                    <li>Quality assurance</li>
-                    <li>Process improvement</li>
-                    <li>Clear communication</li>
-                    <li>Strategic thinking</li>
+                    <li>Direct communication</li>
+                    <li>High standards</li>
+                    <li>Problem identification</li>
+                    <li>Decisive leadership</li>
+                    <li>Unwavering focus</li>
                 </ul>
             </div>
 
             <div class="guidance-category">
                 <h3>Leadership Style</h3>
                 <ul>
-                    <li>Clear direction setting</li>
-                    <li>High standards maintenance</li>
-                    <li>Team optimization</li>
-                    <li>Quality-driven approach</li>
-                    <li>Transformative guidance</li>
+                    <li>Authoritative and direct</li>
+                    <li>Leads by example</li>
+                    <li>Demands excellence</li>
+                    <li>Protective of the team</li>
+                    <li>Intolerant of excuses</li>
                 </ul>
             </div>
 
             <div class="guidance-category">
                 <h3>Growth Opportunities</h3>
                 <ul>
-                    <li>Balancing perfection</li>
-                    <li>Empathetic leadership</li>
-                    <li>Collaborative refinement</li>
-                    <li>Process flexibility</li>
-                    <li>Delegating effectively</li>
+                    <li>Developing patience</li>
+                    <li>Practicing diplomacy</li>
+                    <li>Learning to delegate</li>
+                    <li>Celebrating progress, not just perfection</li>
+                    <li>Balancing criticism with praise</li>
                 </ul>
             </div>
 
             <div class="guidance-category">
                 <h3>Success Principles</h3>
                 <ul>
-                    <li>Maintain high standards</li>
-                    <li>Trust your discernment</li>
-                    <li>Focus on improvement</li>
-                    <li>Lead with clarity</li>
-                    <li>Create lasting value</li>
+                    <li>Integrity above all</li>
+                    <li>Action over words</li>
+                    <li>Clarity is kindness</li>
+                    <li>Master your craft</li>
+                    <li>Know what you stand for</li>
                 </ul>
             </div>
         </div>
@@ -1562,16 +1355,16 @@
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Clear Communication:</strong> Values direct, honest dialogue that cuts through confusion and establishes mutual understanding.
+                        <strong>Fierce Loyalty:</strong> Once committed, Krittika is a deeply loyal and protective partner.
                     </div>
                     <div class="detail-item">
-                        <strong>Quality Standards:</strong> Seeks relationships that support growth and maintains high standards for connection.
+                        <strong>Honesty & Directness:</strong> Prefers relationships built on truth and transparency, avoiding emotional games.
                     </div>
                     <div class="detail-item">
-                        <strong>Transformative Love:</strong> Helps partners grow and evolve through supportive refinement and clarity.
+                        <strong>Passionate Connection:</strong> Relationships are often intense, passionate, and centered around a shared purpose.
                     </div>
                     <div class="detail-item">
-                        <strong>Sacred Space:</strong> Creates clear boundaries and protected space for relationships to flourish.
+                        <strong>Acts of Service:</strong> Shows love through practical actions and by protecting and providing for their partner.
                     </div>
                 </div>
             </div>
@@ -1587,16 +1380,16 @@
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Truth-Seeking:</strong> Partners appreciate Krittika's ability to see through confusion and establish clarity.
+                        <strong>Need for a Mission:</strong> Thrives in partnerships that have a shared goal or mission to work towards.
                     </div>
                     <div class="detail-item">
-                        <strong>Growth Focus:</strong> Relationships thrive when both partners value continuous improvement and refinement.
+                        <strong>Conflict as Purification:</strong> Doesn't shy away from conflict, seeing it as a tool to burn away falsehood and strengthen the bond.
                     </div>
                     <div class="detail-item">
-                        <strong>Sacred Support:</strong> Krittika provides stability and direction while maintaining high standards.
+                        <strong>Challenges with Criticism:</strong> Must learn to temper their critical nature to avoid hurting their partner's feelings.
                     </div>
                     <div class="detail-item">
-                        <strong>Purifying Presence:</strong> Helps partners release what no longer serves their highest good.
+                        <strong>Protective Boundaries:</strong> Creates a strong, protective boundary around the relationship, shielding it from external negativity.
                     </div>
                 </div>
             </div>
@@ -1604,172 +1397,104 @@
 
         <!-- Compatibility Insights -->
         <div class="compatibility-grid" style="margin-top: 3rem;">
-            <div class="compatibility-category">
+            <div class="guidance-category">
                 <h3>Natural Synergy</h3>
                 <ul>
-                    <li>Truth seekers</li>
-                    <li>Quality focused individuals</li>
-                    <li>Growth-oriented partners</li>
-                    <li>Clear communicators</li>
-                    <li>Transformative leaders</li>
+                    <li>Partners with strong convictions</li>
+                    <li>Independent and self-reliant types</li>
+                    <li>Those who appreciate honesty</li>
+                    <li>Ambitious and goal-oriented people</li>
+                    <li>Other fire or air nakshatras</li>
                 </ul>
             </div>
 
-            <div class="compatibility-category">
+            <div class="guidance-category">
                 <h3>Learning Opportunities</h3>
                 <ul>
-                    <li>More relaxed personalities</li>
-                    <li>Spontaneous spirits</li>
-                    <li>Emotional expressives</li>
-                    <li>Creative free spirits</li>
-                    <li>Flexible adapters</li>
+                    <li>Overly sensitive or emotional types</li>
+                    <li>Those who avoid conflict</li>
+                    <li>People who require constant validation</li>
+                    <li>Passive or indecisive personalities</li>
+                    <li>Watery or earth-dominant nakshatras</li>
                 </ul>
             </div>
 
-            <div class="compatibility-category">
+            <div class="guidance-category">
                 <h3>Communication Keys</h3>
                 <ul>
-                    <li>Direct honesty</li>
-                    <li>Clear expectations</li>
-                    <li>Constructive feedback</li>
-                    <li>Respectful boundaries</li>
-                    <li>Growth-focused dialogue</li>
+                    <li>Be direct but not blunt</li>
+                    <li>Focus on shared goals</li>
+                    <li>Appreciate their loyalty</li>
+                    <li>Don't hide the truth</li>
+                    <li>Give them space to lead</li>
                 </ul>
             </div>
 
-            <div class="compatibility-category">
+            <div class="guidance-category">
                 <h3>Growth Together</h3>
                 <ul>
-                    <li>Mutual improvement</li>
-                    <li>Shared standards</li>
-                    <li>Sacred partnership</li>
-                    <li>Transformative support</li>
-                    <li>Evolutionary bond</li>
+                    <li>Tackle a major project</li>
+                    <li>Engage in healthy debate</li>
+                    <li>Take a leadership course</li>
+                    <li>Build something lasting</li>
+                    <li>Champion a cause as a team</li>
                 </ul>
             </div>
         </div>
 
+
+
         <!-- Relationship Wisdom -->
-        <div class="wisdom-notes" style="margin-top: 3rem; padding: 2rem; background: rgba(254, 202, 87, 0.1); border-radius: 20px;">
-            <h3 style="margin-bottom: 1.5rem; color: #feca57;">Sacred Partnership Wisdom</h3>
+        <div class="wisdom-notes" style="margin-top: 3rem; padding: 2rem; background: rgba(255, 69, 0, 0.1); border-radius: 20px;">
+            <h3 style="margin-bottom: 1.5rem; color: var(--krittika-accent);">Sacred Partnership Wisdom</h3>
             <div class="wisdom-grid" style="display: grid; gap: 1.5rem;">
                 <div class="wisdom-item">
-                    <strong>Balance Perfection & Acceptance:</strong>
-                    <p>While maintaining high standards is natural for Krittika, remember that true love includes accepting imperfections and supporting growth with patience.</p>
+                    <strong>Truth as a Foundation:</strong>
+                    <p>Build your connection on a bedrock of radical honesty. A bond that can withstand the fire of truth is unbreakable.</p>
                 </div>
                 <div class="wisdom-item">
-                    <strong>Transform Through Love:</strong>
-                    <p>Your purifying energy is most effective when channeled through compassion. Help others grow by illuminating their potential rather than focusing on flaws.</p>
+                    <strong>Forge a Shared Purpose:</strong>
+                    <p>Your passion needs a direction. Unite with your partner in a common goal, and your relationship will become a powerful force.</p>
                 </div>
                 <div class="wisdom-item">
-                    <strong>Create Sacred Space:</strong>
-                    <p>Use your natural ability to create clear boundaries and maintain high standards to build relationships that honor both individual growth and shared evolution.</p>
+                    <strong>Wield Criticism with Care:</strong>
+                    <p>Your sharp insight is a gift. Use it to build your partner up, not to cut them down. The best criticism is an act of love.</p>
                 </div>
                 <div class="wisdom-item">
-                    <strong>Trust Your Discernment:</strong>
-                    <p>Your clarity about what serves highest good is a gift. Trust your ability to see truth while remaining open to different perspectives and paths.</p>
+                    <strong>Defend Your Union:</strong>
+                    <p>Protect your relationship with the same fire you bring to your personal battles. A strong partnership is a fortress.</p>
                 </div>
             </div>
         </div>
+
     </section>
 
     <!-- Related Nakshatras -->
     <section class="content-section">
         <div class="section-header">
-            <h2 class="section-title">Connected Stars</h2>
-            <p class="section-subtitle">Understanding Krittika's place in the celestial sequence</p>
-        </div>
-
-        <div class="three-column-grid">
-            <a href="bharani.html" class="content-card" style="text-decoration: none; color: inherit;">
-                <div class="card-icon">🔥</div>
-                <h3 class="card-title">Bharani - The Bearer</h3>
-                <div class="card-content">
-                    <p style="margin-bottom: 1rem;">Previous star in the sequence</p>
-                    <div class="detail-item">
-                        <strong>Connection:</strong> Both stars deal with transformation, but while Bharani carries and gestates, Krittika cuts and purifies.
-                    </div>
-                    <div class="detail-item">
-                        <strong>Evolution:</strong> Together they represent the cycle of carrying forward what's essential (Bharani) and removing what isn't (Krittika).
-                    </div>
-                </div>
-            </a>
-
-            <div class="content-card">
-                <div class="card-icon">⭐</div>
-                <h3 class="card-title">Krittika - The Cutter</h3>
-                <div class="card-content">
-                    <p style="margin-bottom: 1rem;">Current position</p>
-                    <div class="detail-item">
-                        <strong>Bridge Position:</strong> Krittika bridges Aries and Taurus, combining fiery transformation with earthy manifestation.
-                    </div>
-                    <div class="detail-item">
-                        <strong>Central Role:</strong> Acts as a purifying force between preservation (Bharani) and growth (Rohini).
-                    </div>
-                </div>
-            </div>
-
-            <a href="rohini.html" class="content-card" style="text-decoration: none; color: inherit;">
-                <div class="card-icon">🌱</div>
-                <h3 class="card-title">Rohini - The Growing Star</h3>
-                <div class="card-content">
-                    <p style="margin-bottom: 1rem;">Next star in the sequence</p>
-                    <div class="detail-item">
-                        <strong>Connection:</strong> After Krittika's purification comes Rohini's growth and manifestation.
-                    </div>
-                    <div class="detail-item">
-                        <strong>Evolution:</strong> Krittika creates the clear space and pure conditions that allow Rohini's creative growth.
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <!-- Celestial Context -->
-        <div class="celestial-context" style="margin-top: 3rem; padding: 2rem; background: rgba(254, 202, 87, 0.1); border-radius: 20px;">
-            <h3 style="margin-bottom: 1.5rem; color: #feca57;">Celestial Sequence Understanding</h3>
-            <div class="context-grid" style="display: grid; gap: 1.5rem;">
-                <div class="context-item">
-                    <strong>Early Aries to Early Taurus:</strong>
-                    <p>Krittika's position across these signs combines the initiating fire of Aries with the grounding manifestation of Taurus.</p>
-                </div>
-                <div class="context-item">
-                    <strong>Transformative Sequence:</strong>
-                    <p>Bharani gathers and holds, Krittika purifies and refines, Rohini grows and manifests - a perfect cycle of evolution.</p>
-                </div>
-                <div class="context-item">
-                    <strong>Sacred Triangle:</strong>
-                    <p>These three stars form a powerful transformative triangle: preservation (Bharani) → purification (Krittika) → growth (Rohini).</p>
-                </div>
-                <div class="context-item">
-                    <strong>Evolutionary Purpose:</strong>
-                    <p>Understanding these connections helps us see how Krittika's purifying fire serves the larger process of cosmic evolution.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Explore Related Nakshatras (parity with other pages) -->
-        <div class="related-section" style="margin-top: 2.5rem; text-align: center;">
             <h2 class="section-title">Explore Related Nakshatras</h2>
             <p class="section-subtitle">Discover complementary stellar consciousness programs</p>
-            <div class="related-grid" style="margin-top: 1.5rem;">
-                <a href="ashwini.html" class="related-card">
-                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🐎</div>
-                    <h3>Ashwini</h3>
-                    <p>The Horse Riders — Masters of swift healing and initiation</p>
-                </a>
-                <a href="bharani.html" class="related-card">
-                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌺</div>
-                    <h3>Bharani</h3>
-                    <p>The Bearer — Transformation through creation and responsibility</p>
-                </a>
-                <a href="rohini.html" class="related-card">
-                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌱</div>
-                    <h3>Rohini</h3>
-                    <p>The Red One — Creative growth and fertile manifestation</p>
-                </a>
-            </div>
+        </div>
+
+        <div class="related-grid" style="margin-top: 1.5rem;">
+            <a href="bharani.html" class="related-card">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌺</div>
+                <h3>Bharani</h3>
+                <p>The Bearer — Transformation through creation and responsibility</p>
+            </a>
+            <a href="krittika.html" class="related-card">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔥</div>
+                <h3>Krittika</h3>
+                <p>The Cutter — Purification through sacred fire</p>
+            </a>
+            <a href="rohini.html" class="related-card">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌱</div>
+                <h3>Rohini</h3>
+                <p>The Red One — Growth, nurturing, and abundance</p>
+            </a>
         </div>
     </section>
+
 
     <!-- Vedic Interpretations -->
     <section class="vedic-section">
@@ -1791,67 +1516,25 @@
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Deity:</strong> Agni (The Fire God) — The cosmic purifier who:
-                        <ul>
-                            <li>Transforms gross matter into pure essence</li>
-                            <li>Carries offerings to the divine realms</li>
-                            <li>Illuminates truth through sacred flames</li>
-                            <li>Burns away all that obscures pure reality</li>
-                        </ul>
+                        <strong>Deity:</strong> Agni — The god of fire, who purifies, transforms, and acts as the divine messenger.
                     </div>
                     <div class="detail-item">
-                        <strong>Shakti (Power):</strong> Dahana Shakti — The power to burn and transform. This divine force:
-                        <ul>
-                            <li>Purifies through intense transformation</li>
-                            <li>Reveals essence by removing impurities</li>
-                            <li>Transforms limitations into light</li>
-                            <li>Ignites the sacred fire of evolution</li>
-                        </ul>
+                        <strong>Shakti (Power):</strong> Dahana Shakti — The power to burn and purify, to sever ties with the past, and to digest experiences.
                     </div>
                     <div class="detail-item">
-                        <strong>Sacred Symbol:</strong> The Razor's Edge (Kshura) — This divine blade represents:
-                        <ul>
-                            <li>Sharp discernment that cuts through illusion</li>
-                            <li>Precision in separating real from unreal</li>
-                            <li>The fine line between wisdom and ignorance</li>
-                            <li>Surgical removal of what doesn't serve growth</li>
-                        </ul>
+                        <strong>Sacred Symbol:</strong> The Razor or Axe — Represents the ability to cut through illusion, negativity, and obstacles with precision.
                     </div>
                     <div class="detail-item">
-                        <strong>Ruling Planet:</strong> Sun (Surya) — The cosmic purifier who:
-                        <ul>
-                            <li>Radiates pure, transformative light</li>
-                            <li>Burns away darkness and confusion</li>
-                            <li>Reveals truth through illumination</li>
-                            <li>Empowers through clarity and purpose</li>
-                        </ul>
+                        <strong>Ruling Planet:</strong> Sun (Surya) — The source of light, truth, and vitality, bestowing leadership and a strong will.
                     </div>
                     <div class="detail-item">
-                        <strong>Elemental Nature:</strong> Fire (Agni) dominates, expressing as:
-                        <ul>
-                            <li>Transformative spiritual heat</li>
-                            <li>Purifying flames of wisdom</li>
-                            <li>Illuminating consciousness</li>
-                            <li>Sacred fire of evolution</li>
-                        </ul>
+                        <strong>Elemental Nature:</strong> Fire (Tejas) — Dominates, expressing as passion, intensity, courage, and a drive for transformation.
                     </div>
                     <div class="detail-item">
-                        <strong>Zodiac Context:</strong> Bridge of Aries-Taurus (26°40' Aries - 10°00' Taurus), where:
-                        <ul>
-                            <li>Fiery spirit meets earthly form</li>
-                            <li>Divine fire transforms matter</li>
-                            <li>Purification becomes tangible</li>
-                            <li>Spiritual heat refines material reality</li>
-                        </ul>
+                        <strong>Zodiac Context:</strong> Spanning Aries (26°40') to Taurus (10°00'), blending Martian fire with Venusian earthiness.
                     </div>
                     <div class="detail-item">
-                        <strong>Essential Nature:</strong> The Divine Purifier who:
-                        <ul>
-                            <li>Transforms through sacred fire</li>
-                            <li>Reveals truth through removal</li>
-                            <li>Refines everything it touches</li>
-                            <li>Creates clarity through purification</li>
-                        </ul>
+                        <strong>Essential Nature:</strong> The Divine Purifier who cuts away the inessential to reveal the core truth.
                     </div>
                 </div>
             </div>
@@ -1868,40 +1551,16 @@
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Pada 1 — Initial Fire (26°40' - 30°00' Aries):</strong>
-                        <ul>
-                            <li>Ignites the sacred flame of transformation</li>
-                            <li>Begins the purification process</li>
-                            <li>Awakens the desire for truth</li>
-                            <li>Sets the stage for deep refinement</li>
-                        </ul>
+                        <strong>Pada 1 — The Pioneer (Aries):</strong> Independent, courageous, and militaristic. Driven to lead and conquer.
                     </div>
                     <div class="detail-item">
-                        <strong>Pada 2 — Transformative Heat (00°00' - 03°20' Taurus):</strong>
-                        <ul>
-                            <li>Intensifies the purifying process</li>
-                            <li>Burns away deeper impurities</li>
-                            <li>Transforms resistance into light</li>
-                            <li>Refines understanding through challenge</li>
-                        </ul>
+                        <strong>Pada 2 — The Nurturer (Taurus):</strong> Combines fire with earthy care. Desires to build and provide, with a focus on material security.
                     </div>
                     <div class="detail-item">
-                        <strong>Pada 3 — Sacred Alchemy (03°20' - 06°40' Taurus):</strong>
-                        <ul>
-                            <li>Transmutes base matter into gold</li>
-                            <li>Reveals hidden spiritual essences</li>
-                            <li>Masters the fire of transformation</li>
-                            <li>Creates through purification</li>
-                        </ul>
+                        <strong>Pada 3 — The Explorer (Taurus):</strong> Curious and communicative. Uses their sharp mind to explore new ideas and share knowledge.
                     </div>
                     <div class="detail-item">
-                        <strong>Pada 4 — Pure Light (06°40' - 10°00' Taurus):</strong>
-                        <ul>
-                            <li>Radiates the light of pure truth</li>
-                            <li>Shares transformative wisdom</li>
-                            <li>Illuminates paths for others</li>
-                            <li>Establishes purified foundations</li>
-                        </ul>
+                        <strong>Pada 4 — The Creator (Taurus):</strong> The most creative and artistic pada. Channels their fiery passion into tangible, beautiful creations.
                     </div>
                 </div>
             </div>
@@ -1915,43 +1574,39 @@
             </div>
             <h3 class="card-title">Sacred Meanings</h3>
             <div class="basic-content">
-                The deeper spiritual wisdom within Krittika's purifying flame
+                The deeper spiritual wisdom within Krittika's purification teachings
             </div>
             <div class="detailed-content">
                 <div class="detail-item">
-                    <strong>The Sacred Art of Purification:</strong>
+                    <strong>The Sacred Act of Cutting:</strong>
                     <ul>
-                        <li>Transformation requires sacred fire and divine timing</li>
-                        <li>Every challenge is an opportunity for refinement</li>
-                        <li>True purification reveals rather than destroys</li>
-                        <li>The flame that purifies also illuminates</li>
+                        <li>True growth requires pruning the unnecessary.</li>
+                        <li>Clarity is achieved by cutting through confusion.</li>
+                        <li>Boundaries are an act of self-respect.</li>
                     </ul>
                 </div>
                 <div class="detail-item">
-                    <strong>Divine Discernment:</strong>
+                    <strong>Fire as Transformation:</strong>
                     <ul>
-                        <li>Clarity comes through removal of the non-essential</li>
-                        <li>Sharp wisdom cuts through all illusions</li>
-                        <li>Truth emerges when veils are burned away</li>
-                        <li>Sacred discrimination reveals pure reality</li>
+                        <li>What is burned away is not lost, but transformed.</li>
+                        <li>Passion is the fuel of creation.</li>
+                        <li>Enthusiasm is a divine gift.</li>
                     </ul>
                 </div>
                 <div class="detail-item">
-                    <strong>The Transformative Path:</strong>
+                    <strong>The Warrior's Dharma:</strong>
                     <ul>
-                        <li>Evolution requires burning away of old forms</li>
-                        <li>Spiritual heat transforms darkness into light</li>
-                        <li>Sacred fire transmutes lead into gold</li>
-                        <li>Every ending contains a new beginning</li>
+                        <li>Stand for truth, even when it is difficult.</li>
+                        <li>Protect the vulnerable.</li>
+                        <li>Discipline is the foundation of power.</li>
                     </ul>
                 </div>
                 <div class="detail-item">
-                    <strong>Keeper of Sacred Fire:</strong>
+                    <strong>The Razor's Edge:</strong>
                     <ul>
-                        <li>The purifier serves divine transformation</li>
-                        <li>Sacred fire must be wielded with wisdom</li>
-                        <li>True refinement preserves the essential</li>
-                        <li>Purification creates space for higher truth</li>
+                        <li>The path to truth is narrow and requires precision.</li>
+                        <li>A sharp mind must be wielded with care.</li>
+                        <li>The most important battles are fought within.</li>
                     </ul>
                 </div>
             </div>
@@ -1973,7 +1628,199 @@
         </div>
     </section>
 
+    <style id="theme-krittika">
+        /* Krittika Theme: fire, purification, cutting edge */
+        :root {
+            --krittika-bg: #1a0000;
+            --krittika-surface: #2a0800;
+            --krittika-surface-2: #3f1000;
+            --krittika-border: rgba(255, 107, 107, 0.2);
+            --krittika-text: #ffe8e8;
+            --krittika-dim: rgba(255, 200, 200, 0.75);
+            --krittika-accent: #ff4500;   /* orangered */
+            --krittika-accent-2: #ff8c00; /* darkorange */
+            --krittika-accent-3: #ffd700; /* gold */
+            --krittika-warm: #ffc3a0;     /* warm glow */
+            --shadow-1: 0 6px 20px rgba(0,0,0,0.4);
+            --shadow-2: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        body { background: radial-gradient(1200px 700px at 50% -10%, rgba(255,69,0,0.15), transparent),
+                               radial-gradient(900px 600px at 100% 20%, rgba(255,215,0,0.1), transparent),
+                               var(--krittika-bg); color: var(--krittika-text); }
+
+        /* Section theming */
+        .psychology-section { background: linear-gradient(180deg, rgba(255,69,0,0.1), rgba(0,0,0,0) 35%); border-top: 1px solid var(--krittika-border); }
+        .practical-section { background: linear-gradient(180deg, rgba(255,140,0,0.1), rgba(0,0,0,0) 35%); border-top: 1px solid var(--krittika-border); }
+        .modern-section { background: linear-gradient(180deg, rgba(255,215,0,0.1), rgba(0,0,0,0) 35%); border-top: 1px solid var(--krittika-border); }
+        .career-section { background: linear-gradient(180deg, rgba(255,165,0,0.1), rgba(0,0,0,0) 35%); border-top: 1px solid var(--krittika-border); }
+        .relationships-section { background: linear-gradient(180deg, rgba(255,107,107,0.1), rgba(0,0,0,0) 35%); border-top: 1px solid var(--krittika-border); }
+        .connected-stars-section { background: linear-gradient(180deg, rgba(255,69,0,0.1), rgba(0,0,0,0) 35%); border-top: 1px solid var(--krittika-border); }
+
+        .section-header { margin: 1.2rem 0 1rem; }
+        .section-title { color: var(--krittika-accent); letter-spacing: 0.6px; }
+        .section-subtitle { color: var(--krittika-dim); }
+
+        /* Cards */
+        .content-card, .connection-card, .compatibility-card, .influence-card, .stage-card, .guidance-card, .sequence-card {
+            background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.0));
+            border: 1px solid var(--krittika-border);
+            border-radius: 14px;
+            box-shadow: var(--shadow-1);
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+        }
+        .content-card:hover, .connection-card:hover, .compatibility-card:hover, .influence-card:hover, .stage-card:hover, .guidance-card:hover, .sequence-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255,69,0,0.3);
+            box-shadow: var(--shadow-2);
+            background: linear-gradient(180deg, rgba(255,69,0,0.1), rgba(255,255,255,0.01));
+        }
+
+        /* Expand/collapse animation */
+        .expandable-card .detailed-content { max-height: 0; opacity: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.3s ease; }
+        .expandable-card.expanded .detailed-content { max-height: 1200px; opacity: 1; }
+
+        .expandable-card .basic-content { opacity: 0.95; }
+        .expandable-card.expanded .basic-content { opacity: 1; }
+
+        .expand-arrow { color: var(--krittika-accent); font-weight: 600; }
+
+        /* Icons */
+        .card-icon, .box-icon, .sequence-icon, .influence-icon, .guidance-icon { 
+            width: 40px; height: 40px; display: grid; place-items: center; 
+            background: radial-gradient(60% 60% at 50% 50%, rgba(255,69,0,0.25), rgba(255,255,255,0)); 
+            border: 1px solid rgba(255,69,0,0.25); border-radius: 10px; color: var(--krittika-text);
+        }
+
+        /* Buttons */
+        .button { background: linear-gradient(180deg, rgba(255,69,0,0.15), rgba(255,255,255,0.02));
+                  border: 1px solid var(--krittika-border); color: var(--krittika-text); 
+                  border-radius: 12px; transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease; }
+        .button:hover { background: linear-gradient(180deg, rgba(255,69,0,0.25), rgba(255,255,255,0.04)); border-color: rgba(255,69,0,0.4); transform: translateY(-1px); }
+
+        /* Grids spacing */
+        .two-column-grid, .three-column-grid, .applications-grid, .category-grid, .professions-grid, .stages-grid, .guidance-grid, .connected-stars-grid, .influence-cards, .insights-container { gap: 1.1rem; }
+
+        /* Wisdom box */
+        .sacred-wisdom-box { border: 1px solid var(--krittika-border); border-radius: 16px; padding: 1rem; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,69,0,0.1)); box-shadow: var(--shadow-1); }
+        .sacred-wisdom-box .wisdom-header { display: flex; align-items: center; gap: 0.6rem; color: var(--krittika-accent); }
+        .sacred-wisdom-box .wisdom-quote { font-style: italic; opacity: 0.9; margin: 0.6rem 0 0.8rem; }
+
+        /* Sequence */
+        .star-sequence { display: flex; align-items: stretch; gap: 0.6rem; }
+        .sequence-step { border: 1px solid var(--krittika-border); border-radius: 12px; padding: 0.6rem; text-align: center; min-width: 110px; }
+        .sequence-step.current { border-color: rgba(255,69,0,0.4); background: linear-gradient(180deg, rgba(255,69,0,0.2), rgba(255,255,255,0.02)); }
+        .sequence-arrow { display: grid; place-items: center; opacity: 0.6; padding: 0 0.2rem; }
+
+        /* Stats */
+        .stats-grid .stat-item { border: 1px solid var(--krittika-border); border-radius: 12px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,69,0,0.1)); box-shadow: var(--shadow-1); }
+        .stats-grid .stat-item h3 { color: var(--krittika-warm); }
+    </style>
+
+    <style id="responsive-krittika">
+        /* Responsive utilities for Rohini page */
+        /* Base adjustments for medium screens */
+        @media (max-width: 1024px) {
+            .three-column-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+            .applications-grid, .category-grid, .professions-grid, .stages-grid, .guidance-grid,
+            .connected-stars-grid, .influence-cards, .insights-container { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+            .section-title { font-size: clamp(1.25rem, 2.2vw, 1.6rem); }
+            .section-subtitle { font-size: clamp(0.9rem, 1.8vw, 1rem); }
+            .page-footer { flex-direction: column; align-items: stretch; gap: 0.6rem; }
+        }
+        /* Mobile-first stacking */
+        @media (max-width: 768px) {
+            .two-column-grid, .three-column-grid { display: grid; grid-template-columns: 1fr; gap: 0.9rem; }
+            .applications-grid, .category-grid, .professions-grid, .stages-grid, .guidance-grid,
+            .connected-stars-grid, .influence-cards, .insights-container { grid-template-columns: 1fr; }
+            .content-card, .connection-card, .compatibility-card, .influence-card, .stage-card, .guidance-card { padding: 1rem; }
+            .stats-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem; }
+            .nav-container { flex-direction: column; align-items: stretch !important; gap: 0.5rem !important; }
+            .nav-links { justify-content: space-between; }
+            .back-to-top button { padding: 0.5rem 0.7rem !important; font-size: 0.9rem; }
+            .section-header { text-align: center; }
+        }
+        /* Very small screens */
+        @media (max-width: 420px) {
+            .stats-grid { grid-template-columns: 1fr; }
+            .top-nav .button { padding: 0.4rem 0.6rem !important; font-size: 0.9rem; }
+            .card-title { font-size: 1.05rem; }
+        }
+    </style>
+
     <script>
+        // Interactive features: expandable cards, stats interactions, smooth scroll
+        function toggleExpandableCard(card) {
+            if (!card) return;
+            const isExpanded = card.classList.toggle('expanded');
+            const arrow = card.querySelector('.expand-arrow');
+            if (arrow) arrow.textContent = isExpanded ? '▲' : '▼';
+        }
+
+        function initExpandableCards() {
+            // Enable click on header to toggle (in addition to inline onclick)
+            document.querySelectorAll('.expandable-card .card-header-expand')
+                .forEach(h => {
+                    h.style.cursor = 'pointer';
+                    h.addEventListener('click', (e) => {
+                        const card = e.currentTarget.closest('.expandable-card');
+                        if (card) toggleExpandableCard(card);
+                    });
+                    // Keyboard accessibility
+                    h.setAttribute('tabindex', '0');
+                    h.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            const card = e.currentTarget.closest('.expandable-card');
+                            if (card) toggleExpandableCard(card);
+                        }
+                    });
+                });
+
+            // Optional: quality items inline expansion if present
+            document.querySelectorAll('.quality-item')
+                .forEach(item => {
+                    item.style.cursor = 'pointer';
+                    item.addEventListener('click', () => item.classList.toggle('open'));
+                    item.setAttribute('tabindex', '0');
+                    item.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            item.classList.toggle('open');
+                        }
+                    });
+                });
+        }
+
+        function initSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(a => {
+                a.addEventListener('click', (e) => {
+                    const targetId = a.getAttribute('href').slice(1);
+                    if (!targetId) return;
+                    const target = document.getElementById(targetId) || document.querySelector(`[data-anchor="${targetId}"]`);
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        }
+
+        function initStatsInteraction() {
+            // Ensure stats sections show basic grid by default and toggle details
+            document.querySelectorAll('.stats-section.expandable-card').forEach(card => {
+                // If it starts expanded, normalize arrow state
+                const arrow = card.querySelector('.expand-arrow');
+                if (arrow) arrow.textContent = card.classList.contains('expanded') ? '▲' : '▼';
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initExpandableCards();
+            initSmoothScroll();
+            initStatsInteraction();
+        });
+
         // Stellar background animation
         function createStars() {
             const stellarBg = document.getElementById('stellarBg');
@@ -1991,9 +1838,38 @@
             }
         }
 
-        // Toggle quality details (for expandable quality tags)
-        function toggleQuality(element) {
-            element.classList.toggle('expanded');
+        // Initialize quality items to be fully clickable
+        function initQualityItems() {
+            const grids = document.querySelectorAll('.qualities-grid');
+            
+            grids.forEach(grid => {
+                // Add click listener to the grid for event delegation
+                grid.addEventListener('click', (e) => {
+                    const qualityItem = e.target.closest('.quality-item');
+                    if (!qualityItem) return;
+                    
+                    // Toggle expanded state
+                    const isExpanded = qualityItem.classList.toggle('expanded');
+                    const arrow = qualityItem.querySelector('.quality-arrow');
+                    if (arrow) arrow.textContent = isExpanded ? '▲' : '▼';
+                });
+
+                // Add keyboard accessibility
+                grid.querySelectorAll('.quality-item').forEach(item => {
+                    // Make sure tabindex only gets added once
+                    if (!item.hasAttribute('tabindex')) {
+                        item.setAttribute('tabindex', '0');
+                        item.addEventListener('keydown', (e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                                e.preventDefault();
+                                const isExpanded = item.classList.toggle('expanded');
+                                const arrow = item.querySelector('.quality-arrow');
+                                if (arrow) arrow.textContent = isExpanded ? '▲' : '▼';
+                            }
+                        });
+                    }
+                });
+            });
         }
 
         // Toggle expandable card details (for sections/cards with arrows)
@@ -2004,6 +1880,10 @@
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             createStars();
+            initExpandableCards();
+            initQualityItems();
+            initSmoothScroll();
+            initStatsInteraction();
         });
     </script>
 </body>
