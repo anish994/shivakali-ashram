@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pushya Nakshatra - The Star of Nourishment | ShivaKali Ashram</title>
-    <meta name="description" content="Discover Pushya Nakshatra - The Nourishing Star that blesses with divine sustenance. Explore the eighth stellar consciousness program in Vedic astrology with modern insights into spiritual and material nourishment.">
-    
+    <meta name="description" content="Discover Pushya Nakshatra - The Star of Divine Nourishment. Explore the eighth stellar consciousness program in Vedic astrology with modern insights into spiritual growth, nourishment, and inner flowering.">
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
@@ -25,14 +25,6 @@
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             overflow-x: hidden;
-        }
-
-        /* Pushya-specific theme colors */
-        :root {
-            --pushya-primary: linear-gradient(135deg, #ffd700, #daa520); /* Golden theme for Pushya */
-            --pushya-secondary: rgba(255, 215, 0, 0.2);
-            --pushya-glow: rgba(255, 215, 0, 0.4);
-            --pushya-accent: #daa520; /* Golden accent color */
         }
 
         /* Stellar Background Animation */
@@ -60,6 +52,14 @@
         @keyframes twinkle {
             0%, 100% { opacity: 0.3; transform: scale(1); }
             50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Pushya-specific gradient theme */
+        :root {
+            --pushya-primary: linear-gradient(135deg, #3498db, #2980b9);
+            --pushya-secondary: rgba(52, 152, 219, 0.2);
+            --pushya-glow: rgba(52, 152, 219, 0.4);
+            --pushya-accent: #f1c40f;  /* Golden star accent color */
         }
 
         /* Navigation */
@@ -102,7 +102,7 @@
         .nav-title {
             font-family: 'Orbitron', monospace;
             font-size: 1.2rem;
-            color: var(--pushya-accent);
+            color: #3498db;
         }
 
         /* Hero Section */
@@ -121,7 +121,7 @@
         .nakshatra-symbol {
             font-size: 6rem;
             margin-bottom: 1rem;
-            filter: drop-shadow(0 0 20px var(--pushya-accent));
+            filter: drop-shadow(0 0 20px #3498db);
             animation: float 3s ease-in-out infinite;
         }
 
@@ -157,6 +157,49 @@
             margin-right: auto;
         }
 
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            background: linear-gradient(45deg, rgba(52, 152, 219, 0.2), rgba(41, 128, 185, 0.2));
+            border: 2px solid rgba(52, 152, 219, 0.3);
+            border-radius: 15px;
+            padding: 12px 24px;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            font-size: 0.95rem;
+        }
+
+        .nav-btn:hover {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(52, 152, 219, 0.3);
+        }
+
+        .nav-btn.primary {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            border-color: #2980b9;
+        }
+
+        .stellar-info-hero {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .info-item {
+            text-align: center;
+        }
+
         /* Content Sections */
         .content-section {
             padding: 4rem 2rem;
@@ -172,7 +215,7 @@
         .section-title {
             font-family: 'Orbitron', monospace;
             font-size: clamp(2rem, 4vw, 2.8rem);
-            color: var(--pushya-accent);
+            color: #3498db;
             margin-bottom: 1rem;
         }
 
@@ -183,44 +226,12 @@
             margin: 0 auto;
         }
 
-        /* Navigation Buttons */
-        .nav-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .nav-btn {
-            background: linear-gradient(45deg, rgba(255, 215, 0, 0.2), rgba(218, 165, 32, 0.2));
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            border-radius: 15px;
-            padding: 12px 24px;
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-            font-size: 0.95rem;
-        }
-
-        .nav-btn:hover {
-            background: linear-gradient(45deg, #ffd700, #daa520);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
-        }
-
-        .nav-btn.primary {
-            background: linear-gradient(45deg, #ffd700, #daa520);
-            border-color: #daa520;
-        }
-
-        /* Mythology Section Styles */
-        .mythology-section {
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(218, 165, 32, 0.05));
-            border-radius: 30px;
-            padding: 3rem;
-            margin: 3rem 0;
+        /* Grid Layouts */
+        .two-column-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
         }
 
         .three-column-grid {
@@ -243,13 +254,13 @@
         .content-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 35px var(--pushya-glow);
-            border-color: rgba(255, 215, 0, 0.3);
+            border-color: rgba(52, 152, 219, 0.3);
         }
 
         .card-icon {
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            color: var(--pushya-accent);
+            color: #3498db;
             filter: drop-shadow(0 0 10px currentColor);
         }
 
@@ -265,25 +276,39 @@
             line-height: 1.7;
         }
 
-        /* Expandable Card Styles */
+        /* Special Sections */
+        .mythology-section {
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(41, 128, 185, 0.05));
+            border-radius: 30px;
+            padding: 3rem;
+            margin: 3rem 0;
+        }
+
+        .psychology-section {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.1), rgba(69, 183, 209, 0.05));
+            border-radius: 30px;
+            padding: 3rem;
+            margin: 3rem 0;
+        }
+
+        .practical-section {
+            background: linear-gradient(135deg, rgba(241, 196, 15, 0.1), rgba(52, 152, 219, 0.05));
+            border-radius: 30px;
+            padding: 3rem;
+            margin: 3rem 0;
+        }
+
+        /* Expandable Practical Cards */
         .expandable-card { cursor: pointer; transition: all 0.4s ease; }
         .expandable-card:hover { transform: translateY(-3px); box-shadow: 0 10px 25px var(--pushya-glow); }
         .card-header-expand { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
-        .expand-arrow { font-size: 1.2rem; transition: transform 0.3s ease; color: var(--pushya-accent); }
+        .expand-arrow { font-size: 1.2rem; transition: transform 0.3s ease; color: #3498db; }
         .expandable-card.expanded .expand-arrow { transform: rotate(180deg); }
         .basic-content { transition: all 0.3s ease; }
         .detailed-content { max-height: 0; overflow: hidden; transition: all 0.4s ease; margin-top: 1rem; }
         .expandable-card.expanded .detailed-content { max-height: 800px; }
-        .detailed-content .detail-item { background: rgba(255,255,255,0.05); padding: 10px 15px; margin: 8px 0; border-radius: 8px; border-left: 3px solid var(--pushya-accent); }
-        .detail-item strong { color: var(--pushya-accent); }
-
-        /* Core Essence Styles */
-        .two-column-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
+        .detailed-content .detail-item { background: rgba(255,255,255,0.05); padding: 10px 15px; margin: 8px 0; border-radius: 8px; border-left: 3px solid #3498db; }
+        .detail-item strong { color: #3498db; }
 
         /* Qualities Grid */
         .qualities-grid {
@@ -295,7 +320,7 @@
         
         .quality-item {
             background: var(--pushya-secondary);
-            border: 1px solid rgba(255, 215, 0, 0.2);
+            border: 1px solid rgba(52, 152, 219, 0.2);
             border-radius: 25px;
             overflow: hidden;
             transition: transform 0.2s ease-out,
@@ -310,10 +335,10 @@
         }
         
         .quality-item:hover {
-            background: rgba(255, 215, 0, 0.15);
+            background: rgba(52, 152, 219, 0.15);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px var(--pushya-glow);
-            border-color: rgba(255, 215, 0, 0.4);
+            border-color: rgba(52, 152, 219, 0.4);
         }
         
         .quality-item:active {
@@ -323,8 +348,8 @@
         }
 
         .quality-item.expanded {
-            background: rgba(255, 215, 0, 0.2);
-            border-color: rgba(255, 215, 0, 0.5);
+            background: rgba(52, 152, 219, 0.2);
+            border-color: rgba(52, 152, 219, 0.5);
             box-shadow: 0 4px 12px var(--pushya-glow);
         }
         
@@ -343,7 +368,7 @@
         .quality-arrow {
             font-size: 0.8rem;
             transition: transform 0.3s ease;
-            color: var(--pushya-accent);
+            color: #3498db;
             opacity: 0.8;
         }
         
@@ -379,211 +404,51 @@
             margin: 0;
         }
 
-        /* Psychology Section Styles */
-        .psychology-section {
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(218, 165, 32, 0.05));
-            border-radius: 30px;
-            padding: 3rem;
-            margin: 3rem 0;
-        }
+        /* Stats Section */
+        .stats-section { background: rgba(255,255,255,0.03); border-radius: 20px; padding: 2rem; margin: 3rem 0; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem; text-align: center; }
+        .stat-item h3 { font-size: 2rem; color: #3498db; font-family: 'Orbitron', monospace; }
+        .stat-item p { color: #b19cd9; font-size: 0.9rem; margin-top: 0.5rem; }
+
+        /* Related Nakshatras */
+        .related-section { margin-top: 4rem; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .related-card { background: rgba(255,255,255,0.05); border-radius: 15px; padding: 1.5rem; text-decoration: none; color: inherit; transition: all 0.3s ease; }
+        .related-card:hover { transform: translateY(-3px); background: rgba(255,255,255,0.08); }
 
         /* Psychology trait cards */
-        .psychology-traits {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
+        .psychology-traits { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+        .trait-category { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 1.2rem; }
+        .trait-category h3 { font-family: 'Orbitron', monospace; font-size: 1.1rem; color: #3498db; margin-bottom: 0.8rem; }
+        .trait-category ul { list-style: none; padding-left: 0; }
+        .trait-category li { color: #e0e0e0; margin: 0.35rem 0; display: flex; align-items: center; gap: 0.5rem; }
+        .trait-category li::before { content: '\2713'; color: #3498db; font-size: 0.9rem; }
 
-        .trait-category {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 16px;
-            padding: 1.2rem;
-        }
-
-        .trait-category h3 {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.1rem;
-            color: var(--pushya-accent);
-            margin-bottom: 0.8rem;
-        }
-
-        .trait-category ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .trait-category li {
-            color: #e0e0e0;
-            margin: 0.35rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .trait-category li::before {
-            content: '\2713';
-            color: var(--pushya-accent);
-            font-size: 0.9rem;
-        }
-
-        /* Stats Section */
-        .stats-section {
-            background: rgba(255,255,255,0.03);
-            border-radius: 20px;
-            padding: 2rem;
-            margin: 3rem 0;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .stat-item h3 {
-            font-size: 2rem;
-            color: var(--pushya-accent);
-            font-family: 'Orbitron', monospace;
-        }
-
-        .stat-item p {
-            color: #b19cd9;
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-        }
-
-        /* Practical Applications Styles */
-        .practical-section {
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(218, 165, 32, 0.05));
-            border-radius: 30px;
-            padding: 3rem;
-            margin: 3rem 0;
-        }
-
-        .practices-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .practice-category {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 1.2rem;
-        }
-
-        .practice-category h3 {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.1rem;
-            color: var(--pushya-accent);
-            margin-bottom: 0.8rem;
-        }
-
-        .practice-category ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .practice-category li {
-            color: #e0e0e0;
-            margin: 0.35rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .practice-category li::before {
-            content: '\2713';
-            color: var(--pushya-accent);
-            font-size: 0.9rem;
-        }
-
-        /* Modern Relevance Styles */
-        .modern-section {
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(218, 165, 32, 0.05));
-            border-radius: 30px;
-            padding: 3rem;
-            margin: 3rem 0;
-        }
-
-        .applications-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .application-category {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 1.2rem;
-        }
-
-        .application-category h3 {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.1rem;
-            color: var(--pushya-accent);
-            margin-bottom: 0.8rem;
-        }
-
-        .application-category ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .application-category li {
-            color: #e0e0e0;
-            margin: 0.35rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .application-category li::before {
-            content: '\2713';
-            color: var(--pushya-accent);
-            font-size: 0.9rem;
-        }
-
-        /* Wisdom box */
-        .sacred-wisdom-box {
-            border: 1px solid var(--pushya-secondary);
-            border-radius: 16px;
-            padding: 1.5rem;
-            background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255, 215, 0, 0.06));
-            margin-top: 2rem;
-        }
-
-        .wisdom-header {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            color: var(--pushya-accent);
-            font-family: 'Orbitron', monospace;
-            margin-bottom: 1rem;
-        }
-
-        .wisdom-quote {
-            font-style: italic;
-            opacity: 0.9;
-            margin: 0.6rem 0;
-            color: #e0e0e0;
-            line-height: 1.6;
-        }
-
-        /* Mobile Responsive */
+        /* Responsive */
         @media (max-width: 768px) {
             .nav-bar { padding: 1rem; }
             .hero { padding: 2rem 1rem; }
             .nakshatra-symbol { font-size: 4rem; }
+            .stellar-info-hero { gap: 1.5rem; }
             .content-section { padding: 2rem 1rem; }
-            .section-title { font-size: 2rem; }
+            .two-column-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .mythology-section, .psychology-section, .practical-section { padding: 2rem 1.5rem; margin: 2rem 0; }
+            .stats-grid { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1.5rem; }
+            .qualities-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+            .psychology-traits { grid-template-columns: 1fr; gap: 1rem; }
+            .quality-item { border-radius: 15px; }
+            .quality-tag { padding: 10px 15px; font-size: 0.9rem; }
+            .quality-arrow { font-size: 0.7rem; }
+            .quality-details { padding: 0 15px; }
+            .quality-details p { font-size: 0.85rem; }
+            .expandable-card .detailed-content { max-height: 800px; }
+            .quality-item.expanded .quality-details { max-height: 400px; }
+            .detail-item { padding: 8px 12px; font-size: 0.85rem; }
+            .card-header-expand { margin-bottom: 0.8rem; }
+            .expand-arrow { font-size: 1rem; }
+            .hero div[style*="max-width: 900px"] { margin: 2rem 1rem 1.5rem 1rem !important; padding: 1.5rem !important; }
+            .hero div[style*="max-width: 900px"] p { font-size: 1rem !important; }
+            .hero div[style*="max-width: 900px"] p:first-child { font-size: 1.1rem !important; }
         }
     </style>
 </head>
@@ -609,8 +474,8 @@
                 <a href="nakshatras.html" class="nav-btn">
                     <i class="fas fa-arrow-left"></i> All Nakshatras
                 </a>
-                <a href="punarvasu.html" class="nav-btn">
-                    <i class="fas fa-arrow-left"></i> Previous: Punarvasu
+                <a href="ardra.html" class="nav-btn">
+                    <i class="fas fa-arrow-left"></i> Previous: Ardra
                 </a>
                 <a href="#qualities" class="nav-btn primary">
                     <i class="fas fa-star"></i> Explore Qualities
@@ -620,19 +485,41 @@
                 </a>
             </div>
 
-            <div class="nakshatra-symbol">🌟</div>
+            <div class="nakshatra-symbol">⭐</div>
             <h1>PUSHYA</h1>
             <p class="translation">"The Nourisher"</p>
-            <p class="tagline">Sacred Nourishment • Divine Growth • Spiritual Sustenance</p>
+            <p class="tagline">Divine Nourisher • Spiritual Guide • Wisdom Keeper</p>
             
-            <!-- Engaging Introduction (will be styled later) -->
-            <div style="max-width: 900px; margin: 3rem auto 2rem auto; padding: 2rem; background: rgba(255, 215, 0, 0.1); border-radius: 20px; border: 1px solid rgba(255, 215, 0, 0.2);">
+            <!-- Engaging Introduction -->
+            <div style="max-width: 900px; margin: 3rem auto 2rem auto; padding: 2rem; background: rgba(52, 152, 219, 0.1); border-radius: 20px; border: 1px solid rgba(52, 152, 219, 0.2);">
                 <p style="font-size: 1.2rem; line-height: 1.8; color: #e0e0e0; text-align: left; margin-bottom: 1.5rem;">
-                    You are the <strong style="color: var(--pushya-accent);">divine nourisher</strong>, the one who understands that <strong style="color: var(--pushya-accent);">true growth comes from sacred sustenance</strong>. Where others see scarcity, you create abundance through nurturing wisdom.
+                    You are the <strong style="color: #3498db;">divine gardener of reality</strong>, the one who understands that <strong style="color: #3498db;">growth is a sacred art</strong>. Where others see scarcity, you cultivate abundance. You don't just dream—you <strong>nurture the conditions for life to flourish</strong>.
                 </p>
-                <p style="font-size: 1.1rem; line-height: 1.7; color: #e0e0e0; text-align: left;">
-                    Welcome to your cosmic assignment, <strong style="color: var(--pushya-accent);">Bearer of Sacred Nourishment</strong>. You're here to feed the growth of consciousness itself. 🌟
+                <p style="font-size: 1.1rem; line-height: 1.7; color: #e0e0e0; text-align: left; margin-bottom: 1.5rem;">
+                    Modern biology confirms your essence: <strong style="color: #4ecdc4;">systems thrive when environments support growth</strong>. Rohini operates the same way—by creating fertile conditions, life becomes <strong>steady, beautiful, and prosperous</strong>.
                 </p>
+                <p style="font-size: 1.1rem; line-height: 1.7; color: #e0e0e0; text-align: left; font-style: italic;">
+                    Welcome to your divine assignment, <strong style="color: #2ecc71;">Keeper of Living Abundance</strong>. You're not here to rush—you’re here to <strong>cultivate</strong>. 🌱
+                </p>
+            </div>
+            
+            <div class="stellar-info-hero">
+                <div class="info-item">
+                    <div class="info-label">Ruling Planet</div>
+                    <div class="info-value">Moon</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Element</div>
+                    <div class="info-value">Water</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Zodiac Range</div>
+                    <div class="info-value">3°20' - 16°40' Cancer</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Archetype</div>
+                    <div class="info-value">The Divine Nourisher</div>
+                </div>
             </div>
         </div>
     </section>
@@ -641,81 +528,81 @@
     <section class="mythology-section">
         <div class="section-header">
             <h2 class="section-title">Mythological Foundation</h2>
-            <p class="section-subtitle">The Ancient Wisdom Behind Sacred Nourishment</p>
+            <p class="section-subtitle">The Ancient Wisdom Behind Living Abundance</p>
         </div>
 
         <div class="three-column-grid">
             <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
                 <div class="card-header-expand">
-                    <div class="card-icon">🌟</div>
+                    <div class="card-icon">⭐</div>
                     <span class="expand-arrow">▼</span>
                 </div>
-                <h3 class="card-title">Divine Nourisher</h3>
+                <h3 class="card-title">Star of Nourishment</h3>
                 <div class="basic-content">
-                    Pushya, the star of sacred nourishment and divine sustenance
+                    Pushya, the divine nourisher, symbolizing spiritual wisdom and inner growth
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Sacred Role:</strong> Known as "The Nourisher" in Vedic tradition, Pushya represents the cosmic force that sustains and nurtures all forms of growth.
+                        <strong>Sacred Nourisher:</strong> In Vedic wisdom, Pushya represents the highest form of spiritual nourishment—the divine force that feeds both soul and matter.
                     </div>
                     <div class="detail-item">
-                        <strong>Divine Connection:</strong> Associated with Brihaspati (Jupiter), the cosmic teacher who nourishes through wisdom and spiritual guidance.
+                        <strong>Inner Guide:</strong> This star symbolizes the inner guru—the wisdom that guides us toward true prosperity through spiritual alignment.
                     </div>
                     <div class="detail-item">
-                        <strong>Spiritual Essence:</strong> Embodies the principle of dharmic nourishment—providing sustenance that aligns with cosmic order.
+                        <strong>Universal Care:</strong> Pushya's energy reflects the nurturing aspect of the cosmos itself—how the universe supports all life.
                     </div>
                     <div class="detail-item">
-                        <strong>Modern Expression:</strong> Represents holistic growth through proper nourishment of body, mind, and spirit.
+                        <strong>Modern Parallel:</strong> Holistic development that integrates spiritual wisdom with practical nourishment and support systems.
                     </div>
                 </div>
             </div>
 
             <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
                 <div class="card-header-expand">
-                    <div class="card-icon">🌾</div>
+                    <div class="card-icon">🌺</div>
                     <span class="expand-arrow">▼</span>
                 </div>
-                <h3 class="card-title">Flower Symbolism</h3>
+                <h3 class="card-title">Lotus of Wisdom</h3>
                 <div class="basic-content">
-                    The sacred lotus of spiritual nourishment and growth
+                    Sacred flower symbolizing spiritual awakening and divine guidance
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Sacred Symbol:</strong> The blooming lotus represents Pushya's power to nourish consciousness into full flowering.
+                        <strong>Sacred Growth:</strong> The lotus rises from the depths to bloom in pure radiance—Pushya's path of spiritual evolution.
                     </div>
                     <div class="detail-item">
-                        <strong>Growth Wisdom:</strong> Like a lotus that transforms mud into beauty, Pushya transforms base matter into spiritual sustenance.
+                        <strong>Divine Wisdom:</strong> Like the lotus that knows when to open its petals, Pushya guides us in divine timing.
                     </div>
                     <div class="detail-item">
-                        <strong>Divine Process:</strong> Demonstrates how proper nourishment leads to natural unfolding of inner potential.
+                        <strong>Spiritual Purity:</strong> Though rooted in matter, it blooms untouched—teaching transcendence while staying grounded.
                     </div>
                     <div class="detail-item">
-                        <strong>Modern Meaning:</strong> Teaches the art of holistic nourishment that supports genuine transformation.
+                        <strong>Modern Expression:</strong> Integration of spiritual wisdom with practical life, maintaining purity amidst worldly duties.
                     </div>
                 </div>
             </div>
 
             <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
                 <div class="card-header-expand">
-                    <div class="card-icon">🍶</div>
+                    <div class="card-icon">�</div>
                     <span class="expand-arrow">▼</span>
                 </div>
-                <h3 class="card-title">Milk of Wisdom</h3>
+                <h3 class="card-title">Divine Flow</h3>
                 <div class="basic-content">
-                    The divine flow of spiritual and material sustenance
+                    The celestial stream of wisdom that nourishes spiritual growth
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Sacred Flow:</strong> Pushya governs the cosmic milk of wisdom and nourishment that sustains all life.
+                        <strong>Celestial Grace:</strong> Pushya resides in Cancer, the sign of nurturing and emotional depth—bridging divine wisdom with soul nourishment.
                     </div>
                     <div class="detail-item">
-                        <strong>Divine Gift:</strong> Represents the capacity to receive and distribute spiritual sustenance.
+                        <strong>Wisdom as Power:</strong> Spiritual knowledge as the force that guides evolution, growth, and enlightened development.
                     </div>
                     <div class="detail-item">
-                        <strong>Abundant Nature:</strong> Teaches that true abundance comes through proper spiritual nourishment.
+                        <strong>Embodied Prosperity:</strong> Abundance is not chase, but cultivation—creating conditions where life wants to grow.
                     </div>
                     <div class="detail-item">
-                        <strong>Modern Application:</strong> Guides the creation of nurturing environments that support holistic growth.
+                        <strong>Modern Meaning:</strong> Building systems and cultures where prosperity emerges from care, rhythm, and reciprocity.
                     </div>
                 </div>
             </div>
@@ -731,18 +618,18 @@
 
         <div class="two-column-grid">
             <div class="content-card">
-                <div class="card-icon">🌟</div>
+                <div class="card-icon">⭐</div>
                 <h3 class="card-title">Sacred Nourishment</h3>
                 <div class="card-content">
-                    Under Jupiter's guidance and anchored in Cancer, Pushya embodies the principle of sacred nourishment. Like a cosmic mother, this energy provides the perfect conditions for growth—spiritually, emotionally, and materially—creating environments where life naturally flourishes.
+                    Ruled by the Moon and placed in Cancer, Pushya embodies the principle of divine nourishment. Like a wise guru, this energy provides the spiritual sustenance needed for souls to grow—gently, wisely, and completely.
                 </div>
             </div>
             
             <div class="content-card">
-                <div class="card-icon">🍶</div>
-                <h3 class="card-title">Divine Sustenance</h3>
+                <div class="card-icon">�</div>
+                <h3 class="card-title">Spiritual Guidance</h3>
                 <div class="card-content">
-                    Pushya represents the flow of divine sustenance through all levels of existence. These individuals have a natural gift for nourishing growth in others—whether through teaching, healing, or creating nurturing spaces that support transformation and evolution.
+                    Pushya is the star of wisdom and inner guidance. These individuals have a natural gift for nurturing growth at all levels—physical, emotional, and spiritual—transforming challenges into opportunities for evolution through divine guidance.
                 </div>
             </div>
         </div>
@@ -751,81 +638,81 @@
         <div id="qualities" class="qualities-grid">
             <div class="quality-item" onclick="toggleQuality(this)">
                 <div class="quality-tag">
-                    <span>Sacred Nourisher</span>
+                    <span>Divine Nourishment</span>
                     <span class="quality-arrow">▼</span>
                 </div>
                 <div class="quality-details">
-                    <p>Natural ability to provide spiritual and material sustenance, creating environments where growth flourishes effortlessly.</p>
+                    <p>Pushya provides spiritual sustenance—wisdom, guidance, support—with perfect timing and divine understanding, helping souls evolve naturally.</p>
                 </div>
             </div>
             
             <div class="quality-item" onclick="toggleQuality(this)">
                 <div class="quality-tag">
-                    <span>Wisdom Flow</span>
+                    <span>Spiritual Guidance</span>
                     <span class="quality-arrow">▼</span>
                 </div>
                 <div class="quality-details">
-                    <p>Channels divine knowledge and understanding, nourishing others through the transmission of sacred wisdom.</p>
+                    <p>Acts as an inner guru, providing wise direction and support. Builds spiritual understanding that endures through all challenges.</p>
                 </div>
             </div>
 
             <div class="quality-item" onclick="toggleQuality(this)">
                 <div class="quality-tag">
-                    <span>Growth Catalyst</span>
+                    <span>Magnetic Presence</span>
                     <span class="quality-arrow">▼</span>
                 </div>
                 <div class="quality-details">
-                    <p>Creates and maintains conditions that support natural evolution and transformation in all spheres of life.</p>
+                    <p>Radiates a calming, attractive aura. People, opportunities, and resources gravitate toward Rohini’s graceful steadiness.</p>
                 </div>
             </div>
 
             <div class="quality-item" onclick="toggleQuality(this)">
                 <div class="quality-tag">
-                    <span>Divine Mother</span>
+                    <span>Sensory Intelligence</span>
                     <span class="quality-arrow">▼</span>
                 </div>
                 <div class="quality-details">
-                    <p>Embodies the nurturing aspect of the cosmos, providing care and sustenance that helps others reach their full potential.</p>
+                    <p>Deep connection to the body and senses. Knows how to design environments that nourish wellbeing and support elevated performance.</p>
                 </div>
             </div>
 
             <div class="quality-item" onclick="toggleQuality(this)">
                 <div class="quality-tag">
-                    <span>Abundance Flow</span>
+                    <span>Resource Stewardship</span>
                     <span class="quality-arrow">▼</span>
                 </div>
                 <div class="quality-details">
-                    <p>Masters the art of creating and maintaining streams of spiritual and material abundance through proper nourishment.</p>
+                    <p>Exceptional at managing resources—time, money, energy—with wisdom and care to create lasting abundance for self and others.</p>
                 </div>
             </div>
 
             <div class="quality-item" onclick="toggleQuality(this)">
                 <div class="quality-tag">
-                    <span>Sacred Teacher</span>
+                    <span>Grounded Devotion</span>
                     <span class="quality-arrow">▼</span>
                 </div>
                 <div class="quality-details">
-                    <p>Guides others through gentle wisdom and nurturing support, helping them discover their inner truth and potential.</p>
+                    <p>Combines heart-centered devotion with practical follow-through. Love becomes structure; care becomes growth.</p>
                 </div>
             </div>
 
             <div class="quality-item" onclick="toggleQuality(this)">
                 <div class="quality-tag">
-                    <span>Divine Protector</span>
+                    <span>Elegant Simplicity</span>
                     <span class="quality-arrow">▼</span>
                 </div>
                 <div class="quality-details">
-                    <p>Creates safe, nurturing spaces where others can grow and evolve without fear or limitation.</p>
+                    <p>Finds beauty in minimalism and function. Creates simple systems that produce reliable results without excess complexity.</p>
                 </div>
             </div>
 
             <div class="quality-item" onclick="toggleQuality(this)">
                 <div class="quality-tag">
-                    <span>Eternal Flow</span>
+                    <span>Protective Nurture</span>
                     <span class="quality-arrow">▼</span>
                 </div>
                 <div class="quality-details">
-                    <p>Maintains continuous streams of nourishment and support, ensuring sustainable growth and evolution.</p>
+                    <p>Offers safe, stabilizing presence for people and projects to grow, protecting what is tender until it can stand strong.</p>
                 </div>
             </div>
         </div>
@@ -846,23 +733,23 @@
                 </div>
                 <h3 class="card-title">Cognitive Patterns</h3>
                 <div class="basic-content">
-                    How the Pushya mind nurtures growth and wisdom
+                    How the Pushya mind nurtures wisdom and spiritual growth
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Nurturing Intelligence:</strong> Natural ability to understand and provide exactly what others need for optimal growth and development.
+                        <strong>Spiritual Cultivation:</strong> Natural ability to create and guide environments where souls can grow and evolve harmoniously.
                     </div>
                     <div class="detail-item">
-                        <strong>Holistic Thinking:</strong> Sees the interconnected nature of all growth processes, understanding how to nourish the whole system.
+                        <strong>Wisdom-Driven Reasoning:</strong> Seeks deep, transformative solutions that integrate spiritual truth with practical guidance.
                     </div>
                     <div class="detail-item">
-                        <strong>Resource Wisdom:</strong> Intuitive understanding of how to gather and distribute resources for maximum benefit and growth.
+                        <strong>Divine Focus:</strong> Maintains steady connection to spiritual wisdom while helping others navigate their growth journey.
                     </div>
                     <div class="detail-item">
-                        <strong>Pattern Recognition:</strong> Excellent at identifying growth patterns and knowing exactly when and how to provide support.
+                        <strong>Soul Awareness:</strong> Strong intuitive intelligence about spiritual timing—when to guide, when to support, when to step back.
                     </div>
                     <div class="detail-item">
-                        <strong>Spiritual Synthesis:</strong> Ability to blend practical nourishment with spiritual wisdom for holistic development.
+                        <strong>Growth Facilitation:</strong> Excellent at creating conditions where spiritual understanding can deepen naturally.
                     </div>
                 </div>
             </div>
@@ -874,23 +761,23 @@
                 </div>
                 <h3 class="card-title">Emotional Landscape</h3>
                 <div class="basic-content">
-                    The emotional world of the cosmic nourisher
+                    The emotional world of the divine nourisher
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Nurturing Presence:</strong> A naturally calming and supportive emotional energy that helps others feel safe and cared for.
+                        <strong>Sacred Presence:</strong> A nurturing energy that helps others feel spiritually supported and ready for growth.
                     </div>
                     <div class="detail-item">
-                        <strong>Emotional Wisdom:</strong> Deep understanding of emotional needs and how to provide appropriate emotional nourishment.
+                        <strong>Divine Care:</strong> Expresses wisdom through compassionate guidance, support, and protection of developing souls.
                     </div>
                     <div class="detail-item">
-                        <strong>Compassionate Care:</strong> Natural empathy combined with practical wisdom in providing emotional support.
+                        <strong>Spiritual Grounding:</strong> Maintains emotional balance through spiritual practices—meditation, prayer, contemplation.
                     </div>
                     <div class="detail-item">
-                        <strong>Boundary Awareness:</strong> Understanding of when to provide support and when to allow independent growth.
+                        <strong>Sacred Boundaries:</strong> Balances universal compassion with discernment about who is ready for deeper teachings.
                     </div>
                     <div class="detail-item">
-                        <strong>Growth-Oriented:</strong> Finds joy and fulfillment in supporting the growth and development of others.
+                        <strong>Inner Peace:</strong> Values spiritual tranquility; guides others toward resolution through wisdom and understanding.
                     </div>
                 </div>
             </div>
@@ -899,7 +786,7 @@
         <!-- Personality Stats -->
         <div class="stats-section expandable-card" onclick="toggleExpandableCard(this)" style="cursor: pointer;">
             <div class="card-header-expand" style="justify-content: center; margin-bottom: 1rem;">
-                <h3 style="color: var(--pushya-accent); margin: 0;">Personality Dynamics</h3>
+                <h3 style="color: #4ecdc4; margin: 0;">Personality Dynamics</h3>
                 <span class="expand-arrow" style="margin-left: 1rem;">▼</span>
             </div>
             
@@ -907,42 +794,45 @@
                 <div class="stats-grid">
                     <div class="stat-item">
                         <h3>95%</h3>
-                        <p>Nurturing Ability</p>
+                        <p>Spiritual Nourishment</p>
                     </div>
                     <div class="stat-item">
                         <h3>92%</h3>
-                        <p>Emotional Wisdom</p>
+                        <p>Divine Guidance</p>
                     </div>
                     <div class="stat-item">
                         <h3>88%</h3>
-                        <p>Resource Management</p>
+                        <p>Spiritual Wisdom</p>
                     </div>
                     <div class="stat-item">
                         <h3>85%</h3>
-                        <p>Growth Facilitation</p>
+                        <p>Soul Intelligence</p>
                     </div>
                     <div class="stat-item">
                         <h3>82%</h3>
-                        <p>Spiritual Connection</p>
+                        <p>Inner Peace</p>
                     </div>
                 </div>
             </div>
             
             <div class="detailed-content">
                 <div class="detail-item">
-                    <strong>Nurturing Ability (95%):</strong> Exceptional capacity to provide exactly what's needed for optimal growth and development.
+                    <strong>Spiritual Nourishment (95%):</strong> Exceptional capacity to provide spiritual guidance and support that accelerates soul evolution.
                 </div>
                 <div class="detail-item">
-                    <strong>Emotional Wisdom (92%):</strong> Deep understanding of emotional needs and how to support them effectively.
+                    <strong>Divine Guidance (92%):</strong> Thrives in role of spiritual mentor, offering consistent wisdom and enlightened direction.
                 </div>
                 <div class="detail-item">
-                    <strong>Resource Management (88%):</strong> Skilled at gathering and distributing resources for maximum benefit.
+                    <strong>Spiritual Wisdom (88%):</strong> Skillful at aligning earthly life with divine purpose—minimal confusion, maximum growth.
                 </div>
                 <div class="detail-item">
-                    <strong>Growth Facilitation (85%):</strong> Natural ability to create and maintain environments that support development.
+                    <strong>Soul Intelligence (85%):</strong> Uses spiritual insight as a transformative tool—guiding others toward higher consciousness.
                 </div>
                 <div class="detail-item">
-                    <strong>Spiritual Connection (82%):</strong> Strong link to divine wisdom and the ability to channel spiritual nourishment.
+                    <strong>Inner Peace (82%):</strong> Maintains deep spiritual calm; helps others find tranquility through divine connection.
+                </div>
+                <div class="detail-item">
+                    <strong>Optimal Expression:</strong> Balance universal compassion with discerning wisdom—spiritual evolution becomes natural.
                 </div>
             </div>
         </div>
@@ -950,43 +840,43 @@
         <!-- Trait Categories -->
         <div class="psychology-traits">
             <div class="trait-category">
-                <h3>Cognitive Strengths</h3>
+                <h3>Spiritual Strengths</h3>
                 <ul>
-                    <li>Nurturing intelligence</li>
-                    <li>Resource wisdom</li>
-                    <li>Growth pattern recognition</li>
-                    <li>Holistic understanding</li>
-                    <li>Spiritual synthesis</li>
+                    <li>Divine wisdom integration</li>
+                    <li>Soul guidance</li>
+                    <li>Spiritual discernment</li>
+                    <li>Sacred problem solving</li>
+                    <li>Inner transformation</li>
                 </ul>
             </div>
             <div class="trait-category">
                 <h3>Emotional Qualities</h3>
                 <ul>
-                    <li>Compassionate presence</li>
-                    <li>Emotional wisdom</li>
-                    <li>Nurturing care</li>
-                    <li>Supportive nature</li>
-                    <li>Growth-oriented joy</li>
+                    <li>Sacred peace</li>
+                    <li>Divine compassion</li>
+                    <li>Spiritual awareness</li>
+                    <li>Universal love</li>
+                    <li>Soul nurturing</li>
                 </ul>
             </div>
             <div class="trait-category">
                 <h3>Core Motivations</h3>
                 <ul>
-                    <li>Supporting growth</li>
-                    <li>Providing nourishment</li>
-                    <li>Creating safety</li>
-                    <li>Facilitating development</li>
-                    <li>Channeling wisdom</li>
+                    <li>Guiding spiritual growth</li>
+                    <li>Sharing divine wisdom</li>
+                    <li>Nurturing consciousness</li>
+                    <li>Creating sacred space</li>
+                    <li>Elevating awareness</li>
                 </ul>
             </div>
             <div class="trait-category">
                 <h3>Growth Areas</h3>
                 <ul>
-                    <li>Self-nourishment balance</li>
-                    <li>Boundary setting</li>
-                    <li>Discerning support</li>
-                    <li>Energy management</li>
-                    <li>Personal space</li>
+                    <li>Balancing wisdom with action</li>
+                    <li>Avoiding spiritual bypass</li>
+                    <li>Releasing judgment</li>
+                    <li>Practicing divine timing</li>
+                    <li>Setting sacred boundaries</li>
                 </ul>
             </div>
         </div>
@@ -996,32 +886,32 @@
     <section class="practical-section">
         <div class="section-header">
             <h2 class="section-title">Practical Applications</h2>
-            <p class="section-subtitle">Harnessing Pushya's nourishing energy in daily life</p>
+            <p class="section-subtitle">Harnessing Pushya's divine wisdom in daily life</p>
         </div>
 
         <div class="three-column-grid">
             <!-- Personal Growth Card -->
             <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
                 <div class="card-header-expand">
-                    <div class="card-icon">🌱</div>
+                    <div class="card-icon">⭐</div>
                     <span class="expand-arrow">▼</span>
                 </div>
-                <h3 class="card-title">Personal Growth</h3>
+                <h3 class="card-title">Spiritual Growth</h3>
                 <div class="basic-content">
-                    Cultivating inner nourishment and sacred sustenance
+                    Cultivating divine wisdom and inner enlightenment
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Self-Nourishment:</strong> Develop a consistent practice of nurturing your body, mind, and spirit with proper sustenance.
+                        <strong>Soul Nurturing:</strong> Develop a consistent spiritual practice that prioritizes meditation, prayer, and inner growth.
                     </div>
                     <div class="detail-item">
-                        <strong>Resource Management:</strong> Create and maintain streams of nourishment that support your personal evolution.
+                        <strong>Divine Wisdom:</strong> Practice connecting with higher guidance through contemplation and sacred study.
                     </div>
                     <div class="detail-item">
-                        <strong>Growth Mindset:</strong> Cultivate an attitude that sees every experience as an opportunity for nourishment and growth.
+                        <strong>Growth Mindset:</strong> Embrace steady spiritual evolution through consistent practice and divine alignment.
                     </div>
                     <div class="detail-item">
-                        <strong>Sacred Practice:</strong> Establish daily rituals that connect you to divine sources of nourishment.
+                        <strong>Sacred Space:</strong> Create and maintain environments that support your spiritual development and meditation.
                     </div>
                 </div>
             </div>
@@ -1029,25 +919,25 @@
             <!-- Professional Excellence Card -->
             <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
                 <div class="card-header-expand">
-                    <div class="card-icon">💼</div>
+                    <div class="card-icon">🌟</div>
                     <span class="expand-arrow">▼</span>
                 </div>
-                <h3 class="card-title">Professional Excellence</h3>
+                <h3 class="card-title">Spiritual Leadership</h3>
                 <div class="basic-content">
-                    Building success through nurturing leadership
+                    Guiding others through wisdom and divine insight
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Leadership Style:</strong> Develop a nurturing leadership approach that helps team members flourish and grow.
+                        <strong>Leadership Style:</strong> Focus on creating environments where spiritual understanding can flourish naturally.
                     </div>
                     <div class="detail-item">
-                        <strong>Resource Distribution:</strong> Create systems for optimal allocation and flow of resources within organizations.
+                        <strong>Sacred Guidance:</strong> Develop systems for sharing wisdom and supporting others' spiritual growth.
                     </div>
                     <div class="detail-item">
-                        <strong>Growth Environment:</strong> Design workspaces and processes that support natural development and evolution.
+                        <strong>Soul Development:</strong> Invest in the long-term spiritual evolution of individuals and communities.
                     </div>
                     <div class="detail-item">
-                        <strong>Team Development:</strong> Foster an environment where each team member receives the nourishment they need to excel.
+                        <strong>Divine Success:</strong> Build sustainable practices that foster consistent spiritual advancement.
                     </div>
                 </div>
             </div>
@@ -1055,108 +945,151 @@
             <!-- Sacred Environment Card -->
             <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
                 <div class="card-header-expand">
-                    <div class="card-icon">🏫</div>
+                    <div class="card-icon">🕉️</div>
                     <span class="expand-arrow">▼</span>
                 </div>
-                <h3 class="card-title">Sacred Environment</h3>
+                <h3 class="card-title">Sacred Practice</h3>
                 <div class="basic-content">
-                    Creating spaces that channel divine nourishment
+                    Creating conditions for spiritual awakening and divine wisdom
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Space Design:</strong> Arrange environments to optimize the flow of nurturing energies and support growth.
+                        <strong>Sacred Space:</strong> Create meditation and prayer spaces that support spiritual connection and inner peace.
                     </div>
                     <div class="detail-item">
-                        <strong>Sacred Flow:</strong> Establish channels for divine nourishment to flow through your spaces and activities.
+                        <strong>Divine Connection:</strong> Incorporate sacred symbols, mantras, and spiritual practices into daily life.
                     </div>
                     <div class="detail-item">
-                        <strong>Growth Zones:</strong> Create dedicated areas for different types of nourishment and development.
+                        <strong>Spiritual Routines:</strong> Establish daily practices that honor the cycles of spiritual evolution.
                     </div>
                     <div class="detail-item">
-                        <strong>Energy Management:</strong> Maintain the purity and potency of nurturing energies in your environment.
+                        <strong>Energy Flow:</strong> Maintain environments that support both deep meditation and active service.
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Practice Categories -->
-        <div class="practices-grid">
+        <div class="practices-grid" style="margin-top: 3rem;">
             <div class="practice-category">
                 <h3>Daily Practices</h3>
                 <ul>
-                    <li>Sacred nourishment ritual</li>
-                    <li>Resource flow tracking</li>
-                    <li>Growth meditation</li>
-                    <li>Nurturing reflection</li>
-                    <li>Sustenance offering</li>
+                    <li>Morning meditation</li>
+                    <li>Sacred study time</li>
+                    <li>Spiritual journaling</li>
+                    <li>Divine connection rituals</li>
+                    <li>Wisdom contemplation</li>
                 </ul>
             </div>
 
             <div class="practice-category">
                 <h3>Weekly Focus</h3>
                 <ul>
-                    <li>Resource assessment</li>
-                    <li>Growth environment care</li>
-                    <li>Nourishment planning</li>
-                    <li>Support system review</li>
+                    <li>Spiritual progress review</li>
                     <li>Sacred space cleansing</li>
+                    <li>Soul evolution check</li>
+                    <li>Community service</li>
+                    <li>Divine wisdom sharing</li>
                 </ul>
             </div>
 
             <div class="practice-category">
-                <h3>Monthly Development</h3>
+                <h3>Monthly Refinement</h3>
                 <ul>
-                    <li>Growth cycle evaluation</li>
-                    <li>Resource reallocation</li>
-                    <li>Support system upgrade</li>
+                    <li>Spiritual growth reflection</li>
+                    <li>Sacred practice renewal</li>
+                    <li>Space energy refresh</li>
                     <li>Long-term planning</li>
-                    <li>Wisdom integration</li>
+                    <li>Abundance celebration</li>
                 </ul>
             </div>
 
             <div class="practice-category">
                 <h3>Advanced Techniques</h3>
                 <ul>
-                    <li>Divine channel opening</li>
-                    <li>Nurturing mastery</li>
-                    <li>Growth system design</li>
-                    <li>Resource alchemy</li>
-                    <li>Sacred sustenance</li>
+                    <li>Sacred meditation space</li>
+                    <li>Divine wisdom channeling</li>
+                    <li>Spiritual guidance system</li>
+                    <li>Soul evolution mastery</li>
+                    <li>Enlightened leadership</li>
                 </ul>
             </div>
         </div>
+
+        <!-- CSS for matching Krittika's styling exactly -->
+        <style>
+        .practice-category {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 1.2rem;
+        }
+
+        .practice-category h3 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.1rem;
+            color: #4ecdc4;
+            margin-bottom: 0.8rem;
+        }
+
+        .practice-category ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .practice-category li {
+            color: #e0e0e0;
+            margin: 0.35rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .practice-category li::before {
+            content: '\2713';
+            color: #4ecdc4;
+            font-size: 0.9rem;
+        }
+
+        .practices-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        </style>
     </section>
 
     <!-- Modern Relevance -->
-    <section class="modern-section">
+    <section class="content-section">
         <div class="section-header">
             <h2 class="section-title">Modern Relevance</h2>
             <p class="section-subtitle">Applying Pushya's wisdom to contemporary challenges</p>
         </div>
 
         <div class="two-column-grid">
-            <!-- Digital Age Wisdom -->
+            <!-- Digital Age Clarity -->
             <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
                 <div class="card-header-expand">
-                    <div class="card-icon">📱</div>
+                    <div class="card-icon">🌟</div>
                     <span class="expand-arrow">▼</span>
                 </div>
-                <h3 class="card-title">Digital Age Nourishment</h3>
+                <h3 class="card-title">Digital Age Wisdom</h3>
                 <div class="basic-content">
-                    Maintaining sacred sustenance in a virtual world
+                    Nurturing spiritual growth in a virtual world
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Digital Wellness:</strong> Creating nourishing relationships with technology and online spaces that support genuine growth.
+                        <strong>Digital Spirituality:</strong> Creating authentic spiritual connections in online spaces.
                     </div>
                     <div class="detail-item">
-                        <strong>Virtual Communities:</strong> Building online environments that provide authentic nourishment and support.
+                        <strong>Virtual Sangha:</strong> Building sacred online communities that support genuine spiritual growth.
                     </div>
                     <div class="detail-item">
-                        <strong>Tech-Life Balance:</strong> Maintaining grounded nourishment practices in an increasingly digital world.
+                        <strong>Tech-Spirit Balance:</strong> Maintaining divine connection in an increasingly digital world.
                     </div>
                     <div class="detail-item">
-                        <strong>Online Resources:</strong> Curating and sharing digital resources that provide genuine sustenance and growth.
+                        <strong>Online Wisdom:</strong> Sharing spiritual teachings while preserving their sacred essence.
                     </div>
                 </div>
             </div>
@@ -1164,246 +1097,126 @@
             <!-- Sustainable Living -->
             <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
                 <div class="card-header-expand">
-                    <div class="card-icon">🌿</div>
+                    <div class="card-icon">🕉️</div>
                     <span class="expand-arrow">▼</span>
                 </div>
-                <h3 class="card-title">Sustainable Nourishment</h3>
+                <h3 class="card-title">Universal Consciousness</h3>
                 <div class="basic-content">
-                    Pushya's role in ecological restoration and growth
+                    Pushya's role in spiritual evolution and global awakening
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Ecological Care:</strong> Applying Pushya's nourishing wisdom to environmental stewardship and restoration.
+                        <strong>Sacred Systems:</strong> Applying Pushya's wisdom to create sustainable spiritual practices.
                     </div>
                     <div class="detail-item">
-                        <strong>Resource Wisdom:</strong> Using Pushya's understanding of sustenance for sustainable resource management.
+                        <strong>Soul Conservation:</strong> Using Pushya's guidance for preserving ancient wisdom.
                     </div>
                     <div class="detail-item">
-                        <strong>Natural Harmony:</strong> Restoring balance between human needs and environmental health.
+                        <strong>Divine Harmony:</strong> Restoring balance between material progress and spiritual growth.
                     </div>
                     <div class="detail-item">
-                        <strong>Growth Ethics:</strong> Developing frameworks for sustainable development that nourishes all life.
+                        <strong>Evolution Ethics:</strong> Developing frameworks for conscious evolution that benefits all beings.
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Contemporary Applications -->
-        <div class="applications-grid">
+        <div class="applications-grid" style="margin-top: 3rem;">
             <div class="application-category">
-                <h3>Mental Health</h3>
+                <h3>Inner Wellness</h3>
                 <ul>
-                    <li>Nourishing self-care</li>
-                    <li>Emotional sustenance</li>
-                    <li>Resource awareness</li>
-                    <li>Growth support systems</li>
-                    <li>Sustainable wellness</li>
+                    <li>Sacred healing practices</li>
+                    <li>Spiritual mindset development</li>
+                    <li>Soul energy management</li>
+                    <li>Divine self-care</li>
+                    <li>Eternal well-being</li>
                 </ul>
             </div>
 
             <div class="application-category">
-                <h3>Social Impact</h3>
+                <h3>Spiritual Life</h3>
                 <ul>
-                    <li>Community nourishment</li>
-                    <li>Resource distribution</li>
-                    <li>Support networks</li>
-                    <li>Growth facilitation</li>
-                    <li>Collective care</li>
+                    <li>Divine wisdom integration</li>
+                    <li>Soul-guided leadership</li>
+                    <li>Sacred community building</li>
+                    <li>Spiritual evolution</li>
+                    <li>Enlightenment pathways</li>
                 </ul>
             </div>
 
             <div class="application-category">
-                <h3>Workplace Evolution</h3>
+                <h3>Sacred Practices</h3>
                 <ul>
-                    <li>Nurturing leadership</li>
-                    <li>Resource optimization</li>
-                    <li>Growth environments</li>
-                    <li>Team sustenance</li>
-                    <li>Cultural nourishment</li>
+                    <li>Divine nourishment</li>
+                    <li>Wisdom-based routines</li>
+                    <li>Soul-aware living</li>
+                    <li>Sacred rhythms</li>
+                    <li>Spiritual cultivation</li>
                 </ul>
             </div>
 
             <div class="application-category">
-                <h3>Global Solutions</h3>
+                <h3>Global Impact</h3>
                 <ul>
-                    <li>Sustainable systems</li>
-                    <li>Resource equity</li>
-                    <li>Growth frameworks</li>
-                    <li>Support networks</li>
-                    <li>Universal nourishment</li>
+                    <li>Consciousness raising</li>
+                    <li>Universal wisdom sharing</li>
+                    <li>Sacred systems design</li>
+                    <li>Spiritual facilitation</li>
+                    <li>Divine leadership</li>
                 </ul>
             </div>
         </div>
 
-        <!-- Sacred Wisdom Box -->
-        <div class="sacred-wisdom-box">
-            <div class="wisdom-header">
-                <span class="wisdom-icon">🌟</span>
-                <h3>Eternal Wisdom for Modern Times</h3>
-            </div>
-            <div class="wisdom-quote">
-                "In an age of digital acceleration and global complexity, Pushya's ancient wisdom of sacred nourishment becomes more vital than ever. The star that has guided growth for millennia now teaches us how to sustain ourselves, our communities, and our planet with divine wisdom."
-            </div>
-            <div class="wisdom-quote">
-                "Remember: True nourishment transcends time. Whether through ancient rituals or modern technologies, the essence of supporting growth remains unchanged. Your role as a channel of divine sustenance is eternally relevant."
-            </div>
-        </div>
+        <!-- CSS to match Krittika's styling exactly -->
+        <style>
+        .application-category {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 1.2rem;
+        }
+
+        .application-category h3 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.1rem;
+            color: #4ecdc4;
+            margin-bottom: 0.8rem;
+        }
+
+        .application-category ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .application-category li {
+            color: #e0e0e0;
+            margin: 0.35rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .application-category li::before {
+            content: '\2713';
+            color: #4ecdc4;
+            font-size: 0.9rem;
+        }
+
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+        </style>
+
     </section>
 
     <!-- Career & Life Path -->
     <section class="content-section">
         <div class="section-header">
             <h2 class="section-title">Career & Life Direction</h2>
-            <p class="section-subtitle">Professional paths that align with Pushya's nourishing energy</p>
-        </div>
-
-        <!-- Three-column cards -->
-        <div class="three-column-grid">
-            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
-                <div class="card-header-expand">
-                    <div class="card-icon">💼</div>
-                    <span class="expand-arrow">▼</span>
-                </div>
-                <h3 class="card-title">Ideal Professions</h3>
-                <div class="basic-content">
-                    Career paths that leverage Pushya's gifts of nourishment
-                </div>
-                <div class="detailed-content">
-                    <div class="detail-item">
-                        <strong>Sacred Nourishment:</strong>
-                        <ul>
-                            <li>Spiritual Teacher/Guide</li>
-                            <li>Wellness Practitioner</li>
-                            <li>Nutritionist/Dietitian</li>
-                            <li>Holistic Health Coach</li>
-                        </ul>
-                    </div>
-                    <div class="detail-item">
-                        <strong>Education & Nurture:</strong>
-                        <ul>
-                            <li>Educational Counselor</li>
-                            <li>Child Development Specialist</li>
-                            <li>Life Skills Coach</li>
-                            <li>Special Education Teacher</li>
-                        </ul>
-                    </div>
-                    <div class="detail-item">
-                        <strong>Support Systems:</strong>
-                        <ul>
-                            <li>Community Support Worker</li>
-                            <li>Social Services Director</li>
-                            <li>Family Counselor</li>
-                            <li>Elder Care Specialist</li>
-                        </ul>
-                    </div>
-                    <div class="detail-item">
-                        <strong>Resource Management:</strong>
-                        <ul>
-                            <li>Sustainability Consultant</li>
-                            <li>Resource Coordinator</li>
-                            <li>Nonprofit Director</li>
-                            <li>Humanitarian Aid Manager</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
-                <div class="card-header-expand">
-                    <div class="card-icon">🌟</div>
-                    <span class="expand-arrow">▼</span>
-                </div>
-                <h3 class="card-title">Life Purpose</h3>
-                <div class="basic-content">
-                    Core themes in Pushya's life journey
-                </div>
-                <div class="detailed-content">
-                    <div class="detail-item">
-                        <strong>Sacred Nourishment:</strong> Providing divine sustenance and support that helps others grow and thrive.
-                    </div>
-                    <div class="detail-item">
-                        <strong>Resource Distribution:</strong> Ensuring the flow of resources reaches those who need them most.
-                    </div>
-                    <div class="detail-item">
-                        <strong>Support Systems:</strong> Creating and maintaining networks of care and nourishment.
-                    </div>
-                    <div class="detail-item">
-                        <strong>Sacred Growth:</strong> Fostering the evolution of consciousness through proper nourishment.
-                    </div>
-                </div>
-            </div>
-
-            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
-                <div class="card-header-expand">
-                    <div class="card-icon">📈</div>
-                    <span class="expand-arrow">▼</span>
-                </div>
-                <h3 class="card-title">Growth Path</h3>
-                <div class="basic-content">
-                    Stages of professional development
-                </div>
-                <div class="detailed-content">
-                    <div class="detail-item">
-                        <strong>Foundation Stage:</strong> Developing core skills in providing nourishment and support through direct experience.
-                    </div>
-                    <div class="detail-item">
-                        <strong>Development Phase:</strong> Expanding capacity to nourish larger groups and systems effectively.
-                    </div>
-                    <div class="detail-item">
-                        <strong>Leadership Evolution:</strong> Creating programs and systems that provide sustainable nourishment.
-                    </div>
-                    <div class="detail-item">
-                        <strong>Legacy Creation:</strong> Establishing lasting systems of nourishment that continue supporting future generations.
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Career Guidance Grid -->
-        <div class="career-guidance" style="margin-top: 3rem;">
-            <div class="guidance-category">
-                <h3>Workplace Strengths</h3>
-                <ul>
-                    <li>Nurturing leadership</li>
-                    <li>Support provision</li>
-                    <li>Resource distribution</li>
-                    <li>System maintenance</li>
-                    <li>Growth facilitation</li>
-                </ul>
-            </div>
-
-            <div class="guidance-category">
-                <h3>Leadership Style</h3>
-                <ul>
-                    <li>Supportive guidance</li>
-                    <li>Resource wisdom</li>
-                    <li>Nurturing approach</li>
-                    <li>Steady provision</li>
-                    <li>Growth enablement</li>
-                </ul>
-            </div>
-
-            <div class="guidance-category">
-                <h3>Growth Opportunities</h3>
-                <ul>
-                    <li>System expansion</li>
-                    <li>Support innovation</li>
-                    <li>Resource mastery</li>
-                    <li>Network building</li>
-                    <li>Vision manifestation</li>
-                </ul>
-            </div>
-
-            <div class="guidance-category">
-                <h3>Success Principles</h3>
-                <ul>
-                    <li>Consistent support</li>
-                    <li>Resource flow</li>
-                    <li>Steady nourishment</li>
-                    <li>Growth enablement</li>
-                    <li>Value creation</li>
-                </ul>
-            </div>
+            <p class="section-subtitle">Professional paths that align with Pushya's divine wisdom</p>
         </div>
 
         <style>
@@ -1417,7 +1230,7 @@
         .guidance-category h3 {
             font-family: 'Orbitron', monospace;
             font-size: 1.1rem;
-            color: var(--pushya-accent);
+            color: #4ecdc4;
             margin-bottom: 0.8rem;
         }
 
@@ -1436,7 +1249,7 @@
 
         .guidance-category li::before {
             content: '\2713';
-            color: var(--pushya-accent);
+            color: #4ecdc4;
             font-size: 0.9rem;
         }
 
@@ -1446,13 +1259,162 @@
             gap: 1.5rem;
         }
         </style>
+
+        <!-- Three-column cards (match Krittika structure) -->
+        <div class="three-column-grid">
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">💼</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Ideal Professions</h3>
+                <div class="basic-content">
+                    Career paths that leverage Pushya's gifts
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Spiritual Guidance:</strong>
+                        <ul>
+                            <li>Spiritual Teacher</li>
+                            <li>Meditation Guide</li>
+                            <li>Yoga Instructor</li>
+                            <li>Wisdom Counselor</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Sacred Service:</strong>
+                        <ul>
+                            <li>Ashram Director</li>
+                            <li>Retreat Coordinator</li>
+                            <li>Spiritual Counselor</li>
+                            <li>Sacred Space Designer</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Divine Leadership:</strong>
+                        <ul>
+                            <li>Spiritual Community Leader</li>
+                            <li>Meditation Center Director</li>
+                            <li>Sacred Program Guide</li>
+                            <li>Soul Development Coach</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Wisdom Sharing:</strong>
+                        <ul>
+                            <li>Sacred Text Teacher</li>
+                            <li>Spiritual Writer</li>
+                            <li>Wisdom Traditions Guide</li>
+                            <li>Consciousness Explorer</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">🌟</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Life Purpose</h3>
+                <div class="basic-content">
+                    Core themes in Pushya's life journey
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Divine Guidance:</strong> Creating environments and opportunities that foster spiritual awakening in others.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Wisdom Stewardship:</strong> Wisely preserving and sharing sacred knowledge for universal evolution.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Spiritual Leadership:</strong> Guiding others through steady, enlightened development.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Sacred Growth:</strong> Nurturing the evolution of consciousness in self and others.
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
+                <div class="card-header-expand">
+                    <div class="card-icon">📈</div>
+                    <span class="expand-arrow">▼</span>
+                </div>
+                <h3 class="card-title">Spiritual Path</h3>
+                <div class="basic-content">
+                    Stages of spiritual development and service
+                </div>
+                <div class="detailed-content">
+                    <div class="detail-item">
+                        <strong>Foundation Stage:</strong> Building core practices in meditation, contemplation, and spiritual study.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Development Phase:</strong> Expanding capacity to share wisdom and guide others in their spiritual journey.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Leadership Evolution:</strong> Creating environments and programs that support collective awakening.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Legacy Creation:</strong> Establishing sacred wisdom traditions that continue guiding future generations.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Career Guidance (match Krittika) -->
+        <div class="career-guidance" style="margin-top: 3rem;">
+            <div class="guidance-category">
+                <h3>Spiritual Strengths</h3>
+                <ul>
+                    <li>Divine guidance</li>
+                    <li>Wisdom sharing</li>
+                    <li>Sacred space creation</li>
+                    <li>Soul nurturing</li>
+                    <li>Spiritual planning</li>
+                </ul>
+            </div>
+
+            <div class="guidance-category">
+                <h3>Leadership Style</h3>
+                <ul>
+                    <li>Sacred guidance</li>
+                    <li>Divine wisdom</li>
+                    <li>Soul-oriented vision</li>
+                    <li>Spiritual development</li>
+                    <li>Consciousness expansion</li>
+                </ul>
+            </div>
+
+            <div class="guidance-category">
+                <h3>Growth Opportunities</h3>
+                <ul>
+                    <li>Wisdom expansion</li>
+                    <li>Sacred innovation</li>
+                    <li>Consciousness evolution</li>
+                    <li>Soul cultivation</li>
+                    <li>Divine manifestation</li>
+                </ul>
+            </div>
+
+            <div class="guidance-category">
+                <h3>Success Principles</h3>
+                <ul>
+                    <li>Divine guidance</li>
+                    <li>Spiritual mastery</li>
+                    <li>Sacred progress</li>
+                    <li>Enlightened leadership</li>
+                    <li>Soul evolution</li>
+                </ul>
+            </div>
+        </div>
     </section>
 
     <!-- Relationships & Compatibility -->
     <section class="content-section">
         <div class="section-header">
             <h2 class="section-title">Relationships & Compatibility</h2>
-            <p class="section-subtitle">Understanding Pushya's approach to connections and partnerships</p>
+            <p class="section-subtitle">Understanding Pushya's approach to spiritual connections</p>
         </div>
 
         <div class="two-column-grid">
@@ -1463,20 +1425,20 @@
                 </div>
                 <h3 class="card-title">Relationship Style</h3>
                 <div class="basic-content">
-                    How Pushya approaches love and partnership
+                    How Pushya approaches love and spiritual partnership
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Nourishing Presence:</strong> Creates environments of deep sustenance and support where relationships can flourish naturally.
+                        <strong>Divine Presence:</strong> Creates sacred space for relationships to evolve spiritually.
                     </div>
                     <div class="detail-item">
-                        <strong>Consistent Support:</strong> Provides reliable, steady nourishment through both emotional and practical means.
+                        <strong>Sacred Devotion:</strong> Values spiritual alignment, divine love, and sacred expressions of care.
                     </div>
                     <div class="detail-item">
-                        <strong>Resource Sharing:</strong> Naturally skilled at ensuring both partners have what they need to thrive and grow.
+                        <strong>Wisdom & Peace:</strong> Builds enlightened connections that support mutual spiritual growth.
                     </div>
                     <div class="detail-item">
-                        <strong>Growth Through Nourishment:</strong> Helps relationships evolve through constant, nurturing attention and care.
+                        <strong>Growth Through Wisdom:</strong> Helps partners evolve through divine guidance and sacred understanding.
                     </div>
                 </div>
             </div>
@@ -1492,16 +1454,16 @@
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Nourishment Flow:</strong> Relationships thrive when there's a healthy exchange of emotional and practical sustenance.
+                        <strong>Resource Harmony:</strong> Thrives where time, energy, and care are respected and shared wisely.
                     </div>
                     <div class="detail-item">
-                        <strong>Support Systems:</strong> Creates reliable networks of mutual care and assistance that both partners can depend on.
+                        <strong>Steady Growth:</strong> Relationships deepen best through consistent effort rather than intensity spikes.
                     </div>
                     <div class="detail-item">
-                        <strong>Sacred Space:</strong> Maintains environments where both partners feel deeply nourished and supported.
+                        <strong>Sacred Boundaries:</strong> Clear, kind boundaries protect the relationship’s growth space.
                     </div>
                     <div class="detail-item">
-                        <strong>Mutual Growth:</strong> Partners evolve together through consistent nourishment and support.
+                        <strong>Mutual Cultivation:</strong> Partners co-create environments where both can blossom.
                     </div>
                 </div>
             </div>
@@ -1512,68 +1474,45 @@
             <div class="guidance-category">
                 <h3>Natural Synergy</h3>
                 <ul>
-                    <li>Supportive personalities</li>
-                    <li>Nurturing partners</li>
-                    <li>Resource-sharing types</li>
-                    <li>Growth-focused souls</li>
-                    <li>Care-oriented beings</li>
+                    <li>Spiritual seekers</li>
+                    <li>Divine wisdom carriers</li>
+                    <li>Sacred knowledge keepers</li>
+                    <li>Meditation practitioners</li>
+                    <li>Soul-oriented companions</li>
                 </ul>
             </div>
 
             <div class="guidance-category">
                 <h3>Learning Opportunities</h3>
                 <ul>
-                    <li>Overly independent types</li>
-                    <li>Resource-hoarding minds</li>
-                    <li>Emotionally distant souls</li>
-                    <li>Support-resistant beings</li>
-                    <li>Self-focused spirits</li>
+                    <li>Materialistic types</li>
+                    <li>Surface-level thinkers</li>
+                    <li>Spiritually resistant</li>
+                    <li>Quick-fix seekers</li>
+                    <li>Wisdom skeptics</li>
                 </ul>
             </div>
 
             <div class="guidance-category">
                 <h3>Communication Keys</h3>
                 <ul>
-                    <li>Nurturing expression</li>
-                    <li>Support dialogue</li>
-                    <li>Resource discussions</li>
-                    <li>Care-based feedback</li>
-                    <li>Growth conversations</li>
+                    <li>Sacred truth-telling</li>
+                    <li>Divine guidance</li>
+                    <li>Spiritual appreciation</li>
+                    <li>Soul transparency</li>
+                    <li>Wisdom-focused dialogue</li>
                 </ul>
             </div>
 
             <div class="guidance-category">
                 <h3>Growth Together</h3>
                 <ul>
-                    <li>Mutual nourishment</li>
-                    <li>Shared support systems</li>
-                    <li>Combined resources</li>
-                    <li>Joint evolution</li>
-                    <li>Collective care</li>
+                    <li>Sacred practices</li>
+                    <li>Divine spaces</li>
+                    <li>Spiritual nurturing</li>
+                    <li>Soul evolution</li>
+                    <li>Wisdom + compassion</li>
                 </ul>
-            </div>
-        </div>
-
-        <!-- Relationship Wisdom -->
-        <div class="wisdom-notes" style="margin-top: 3rem; padding: 2rem; background: rgba(255, 215, 0, 0.1); border-radius: 20px;">
-            <h3 style="margin-bottom: 1.5rem; color: var(--pushya-accent);">Sacred Partnership Wisdom</h3>
-            <div class="wisdom-grid" style="display: grid; gap: 1.5rem;">
-                <div class="wisdom-item">
-                    <strong>Balance Giving & Receiving:</strong>
-                    <p>While providing nourishment comes naturally, remember to also receive sustenance. True partnership thrives on mutual care and balanced support.</p>
-                </div>
-                <div class="wisdom-item">
-                    <strong>Create Supportive Space:</strong>
-                    <p>Your gift for creating nurturing environments serves relationships deeply. Design spaces and routines that allow love to receive constant nourishment.</p>
-                </div>
-                <div class="wisdom-item">
-                    <strong>Honor Natural Rhythms:</strong>
-                    <p>Like a garden that needs consistent care, relationships flourish with regular nourishment and attention. Trust the wisdom of steady, reliable support.</p>
-                </div>
-                <div class="wisdom-item">
-                    <strong>Share Resources Wisely:</strong>
-                    <p>Approach love as a sacred exchange where emotional and practical resources flow freely, creating an endless cycle of mutual growth and support.</p>
-                </div>
             </div>
         </div>
 
@@ -1594,7 +1533,7 @@
         .guidance-category h3 {
             font-family: 'Orbitron', monospace;
             font-size: 1.1rem;
-            color: var(--pushya-accent);
+            color: #3498db;
             margin-bottom: 0.8rem;
         }
 
@@ -1613,14 +1552,38 @@
 
         .guidance-category li::before {
             content: '\2713';
-            color: var(--pushya-accent);
+            color: #3498db;
             font-size: 0.9rem;
         }
+        </style>
 
-        /* Match Krittika wisdom UI with Pushya colors */
+        <!-- Relationship Wisdom -->
+        <div class="wisdom-notes" style="margin-top: 3rem; padding: 2rem; background: rgba(52, 152, 219, 0.1); border-radius: 20px;">
+            <h3 style="margin-bottom: 1.5rem; color: #3498db;">Sacred Partnership Wisdom</h3>
+            <div class="wisdom-grid" style="display: grid; gap: 1.5rem;">
+                <div class="wisdom-item">
+                    <strong>Balance Teaching & Learning:</strong>
+                    <p>While guiding others comes naturally, remember to also remain a student of divine wisdom. True spiritual partnership thrives on mutual evolution and sacred exchange.</p>
+                </div>
+                <div class="wisdom-item">
+                    <strong>Create Sacred Space:</strong>
+                    <p>Your gift for creating spiritually uplifting environments serves relationships well. Design spaces and practices that allow divine love to flourish naturally.</p>
+                </div>
+                <div class="wisdom-item">
+                    <strong>Honor Divine Timing:</strong>
+                    <p>Like a soul's journey, relationships evolve with divine timing and sacred cycles. Trust the wisdom of steady, spiritual unfoldment.</p>
+                </div>
+                <div class="wisdom-item">
+                    <strong>Cultivate Shared Wisdom:</strong>
+                    <p>Approach love as a sacred collaboration where wisdom, devotion, and spiritual understanding are mindfully shared treasures that grow more profound through divine guidance.</p>
+                </div>
+            </div>
+        </div>
+        <style>
+        /* Match Krittika wisdom UI with Rohini colors */
         .wisdom-grid { display: grid; gap: 1.5rem; }
         .wisdom-item { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 1.2rem; }
-        .wisdom-item strong { color: var(--pushya-accent); display: block; margin-bottom: 0.5rem; }
+        .wisdom-item strong { color: #3498db; display: block; margin-bottom: 0.5rem; }
         .wisdom-item p { color: #e0e0e0; margin: 0; line-height: 1.6; }
         </style>
     </section>
@@ -1633,61 +1596,24 @@
         </div>
 
         <div class="related-grid" style="margin-top: 1.5rem;">
-            <a href="punarvasu.html" class="related-card">
-                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌟</div>
-                <h3>Punarvasu</h3>
-                <p>The Returner — Renewal through wisdom and divine light</p>
+            <a href="bharani.html" class="related-card">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌺</div>
+                <h3>Bharani</h3>
+                <p>The Bearer — Transformation through creation and responsibility</p>
             </a>
-            <a href="rohini.html" class="related-card">
-                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌱</div>
-                <h3>Rohini</h3>
-                <p>The Red One — Growth through divine nourishment</p>
+            <a href="krittika.html" class="related-card">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔥</div>
+                <h3>Krittika</h3>
+                <p>The Cutter — Purification through sacred fire</p>
             </a>
-            <a href="ashlesha.html" class="related-card">
-                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🐍</div>
-                <h3>Ashlesha</h3>
-                <p>The Entwiner — Transformation through kundalini wisdom</p>
+            <a href="mrigashira.html" class="related-card">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🦉</div>
+                <h3>Mrigashira</h3>
+                <p>The Seeker — Curiosity, discovery, and graceful movement</p>
             </a>
         </div>
-
-        <style>
-        .related-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .related-card {
-            background: rgba(255,255,255,0.05);
-            border-radius: 15px;
-            padding: 1.5rem;
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .related-card:hover {
-            transform: translateY(-3px);
-            background: rgba(255,255,255,0.08);
-            border-color: var(--pushya-accent);
-        }
-
-        .related-card h3 {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.2rem;
-            margin: 0.5rem 0;
-            color: var(--pushya-accent);
-        }
-
-        .related-card p {
-            margin: 0;
-            font-size: 0.9rem;
-            opacity: 0.9;
-            line-height: 1.5;
-        }
-        </style>
     </section>
+
 
     <!-- Vedic Interpretations -->
     <section class="vedic-section">
@@ -1700,57 +1626,63 @@
             <!-- Core Vedic Data -->
             <div class="content-card expandable-card" onclick="toggleExpandableCard(this)">
                 <div class="card-header-expand">
-                    <div class="card-icon">🌟</div>
+                    <div class="card-icon">🌺</div>
                     <span class="expand-arrow">▼</span>
                 </div>
                 <h3 class="card-title">Core Attributes</h3>
                 <div class="basic-content">
-                    The classical framework that defines Pushya's sacred role in cosmic nourishment
+                    The classical framework that defines Pushya's sacred role in spiritual evolution
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Deity:</strong> Brihaspati (Jupiter) — The cosmic teacher who:
+                        <strong>Deity:</strong> Brihaspati (Jupiter) — The cosmic guru who guides souls toward enlightenment. As the teacher of the gods, Brihaspati's presence in Pushya infuses this nakshatra with the power to nourish spiritual wisdom.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Shakti (Power):</strong> Samposhan Shakti — The power of spiritual nourishment. This divine force provides the sacred sustenance needed for souls to evolve and flourish through divine guidance.
+                    </div>
+                    <div class="detail-item">
+                        <strong>Sacred Symbol:</strong> The Lotus Flower or Circle — This divine symbol represents:
                         <ul>
-                            <li>Provides divine wisdom and nourishment</li>
-                            <li>Guides the evolution of consciousness</li>
-                            <li>Sustains dharmic order through knowledge</li>
-                            <li>Channels sacred teachings for growth</li>
+                            <li>Spiritual wisdom in full bloom</li>
+                            <li>The journey from darkness to light</li>
+                            <li>Divine nourishment and guidance</li>
+                            <li>The sacred flower of enlightenment</li>
                         </ul>
                     </div>
                     <div class="detail-item">
-                        <strong>Shakti (Power):</strong> Poshana Shakti — The divine force of nourishment that:
+                        <strong>Ruling Planet:</strong> Moon (Chandra) — The divine nourisher who:
                         <ul>
-                            <li>Provides sustenance on all levels of being</li>
-                            <li>Ensures proper growth and development</li>
-                            <li>Maintains the flow of vital resources</li>
-                            <li>Supports evolution through care</li>
-                        </ul>
-                    </div>
-                    <div class="detail-item">
-                        <strong>Sacred Symbol:</strong> The Udder (Circle of Nourishment) represents:
-                        <ul>
-                            <li>Divine flow of sustenance</li>
-                            <li>Continuous stream of support</li>
-                            <li>Inexhaustible source of nourishment</li>
-                            <li>Sacred vessel of life-giving energy</li>
-                        </ul>
-                    </div>
-                    <div class="detail-item">
-                        <strong>Ruling Planet:</strong> Saturn (Shani) — The cosmic teacher who:
-                        <ul>
-                            <li>Ensures proper distribution of resources</li>
-                            <li>Maintains structure and support systems</li>
-                            <li>Provides discipline in nourishment</li>
-                            <li>Guards the wisdom of sustainable growth</li>
+                            <li>Provides spiritual sustenance</li>
+                            <li>Guides through inner wisdom</li>
+                            <li>Cultivates soul intelligence</li>
+                            <li>Maintains cycles of evolution</li>
                         </ul>
                     </div>
                     <div class="detail-item">
                         <strong>Elemental Nature:</strong> Water (Jala) dominates, expressing as:
                         <ul>
-                            <li>Flowing nourishment and sustenance</li>
-                            <li>Emotional support and care</li>
-                            <li>Adaptable resource distribution</li>
-                            <li>Purifying and cleansing energy</li>
+                            <li>Flowing spiritual wisdom</li>
+                            <li>Divine nourishment and grace</li>
+                            <li>Soul purification and growth</li>
+                            <li>Sacred waters of transformation</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Zodiac Context:</strong> The nurturing heart of Cancer (3°20' - 16°40'), where:
+                        <ul>
+                            <li>Spiritual wisdom reaches full expression</li>
+                            <li>Soul evolution finds perfect guidance</li>
+                            <li>Divine nourishment flows freely</li>
+                            <li>Sacred growth becomes self-sustaining</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Essential Nature:</strong> The Divine Guide who:
+                        <ul>
+                            <li>Nourishes with spiritual wisdom</li>
+                            <li>Creates conditions for awakening</li>
+                            <li>Guides souls toward enlightenment</li>
+                            <li>Transforms seekers into sages</li>
                         </ul>
                     </div>
                 </div>
@@ -1764,43 +1696,43 @@
                 </div>
                 <h3 class="card-title">Pada Themes (Quarter Qualities)</h3>
                 <div class="basic-content">
-                    The four sacred expressions of Pushya's nourishing wisdom
+                    The four sacred expressions of Pushya's divine wisdom
                 </div>
                 <div class="detailed-content">
                     <div class="detail-item">
-                        <strong>Pada 1 — Foundation Layer (03°20' - 06°40' Cancer):</strong>
+                        <strong>Pada 1 — Spiritual Foundation (3°20' - 6°40' Cancer):</strong>
                         <ul>
-                            <li>Establishes basic systems of nourishment</li>
-                            <li>Creates foundational support structures</li>
-                            <li>Develops core nurturing abilities</li>
-                            <li>Grounds the flow of sustenance</li>
+                            <li>Establishes unshakeable spiritual foundations</li>
+                            <li>Masters the rhythms of divine evolution</li>
+                            <li>Creates systems that support soul growth</li>
+                            <li>Builds with wisdom and sacred understanding</li>
                         </ul>
                     </div>
                     <div class="detail-item">
-                        <strong>Pada 2 — Resource Mastery (06°40' - 10°00' Cancer):</strong>
+                        <strong>Pada 2 — Divine Mastery (6°40' - 10°00' Cancer):</strong>
                         <ul>
-                            <li>Masters the art of resource distribution</li>
-                            <li>Develops sophisticated support systems</li>
-                            <li>Refines methods of nourishment</li>
-                            <li>Optimizes sustenance channels</li>
+                            <li>Develops and shares spiritual wisdom</li>
+                            <li>Cultivates skills that awaken consciousness</li>
+                            <li>Nurtures soul evolution and enlightenment</li>
+                            <li>Transforms seekers into realized beings</li>
                         </ul>
                     </div>
                     <div class="detail-item">
-                        <strong>Pada 3 — Sacred Flow (10°00' - 13°20' Cancer):</strong>
+                        <strong>Pada 3 — Sacred Design (10°00' - 13°20' Cancer):</strong>
                         <ul>
-                            <li>Channels divine forms of nourishment</li>
-                            <li>Creates spiritual support networks</li>
-                            <li>Develops higher methods of care</li>
-                            <li>Establishes sacred sustenance paths</li>
+                            <li>Creates environments that support awakening</li>
+                            <li>Balances wisdom with compassion</li>
+                            <li>Designs systems that nurture spiritual growth</li>
+                            <li>Manifests harmony in sacred spaces</li>
                         </ul>
                     </div>
                     <div class="detail-item">
-                        <strong>Pada 4 — Universal Support (13°20' - 16°40' Cancer):</strong>
+                        <strong>Pada 4 — Wisdom Sharing (13°20' - 16°40' Cancer):</strong>
                         <ul>
-                            <li>Provides universal forms of nourishment</li>
-                            <li>Creates systems that support all beings</li>
-                            <li>Establishes collective care networks</li>
-                            <li>Manifests complete support structures</li>
+                            <li>Distributes divine knowledge to benefit all</li>
+                            <li>Mentors others in spiritual wisdom</li>
+                            <li>Establishes lasting wisdom traditions</li>
+                            <li>Creates legacy systems of enlightenment</li>
                         </ul>
                     </div>
                 </div>
@@ -1815,43 +1747,43 @@
             </div>
             <h3 class="card-title">Sacred Meanings</h3>
             <div class="basic-content">
-                The deeper spiritual wisdom within Pushya's nourishment teachings
+                The deeper spiritual wisdom within Pushya's divine teachings
             </div>
             <div class="detailed-content">
                 <div class="detail-item">
-                    <strong>The Sacred Art of Nourishment:</strong>
+                    <strong>The Sacred Art of Evolution:</strong>
                     <ul>
-                        <li>Divine sustenance flows through all levels of existence</li>
-                        <li>Every being contains the seed of infinite potential</li>
-                        <li>True support addresses all dimensions of growth</li>
-                        <li>Sustainable nourishment follows cosmic rhythms</li>
+                        <li>Evolution is a divine dance of wisdom and guidance</li>
+                        <li>Every soul contains infinite potential waiting to be awakened</li>
+                        <li>True enlightenment emerges through cycles of practice and devotion</li>
+                        <li>Spiritual growth requires honoring divine timing</li>
                     </ul>
                 </div>
                 <div class="detail-item">
-                    <strong>Support as Divine Technology:</strong>
+                    <strong>Wisdom as Divine Technology:</strong>
                     <ul>
-                        <li>Proper nourishment creates fertile ground for evolution</li>
-                        <li>Support systems are channels for divine energy</li>
-                        <li>Resource distribution follows sacred patterns</li>
-                        <li>Care and attention amplify growth potential</li>
+                        <li>Sacred knowledge creates fertile ground for awakening</li>
+                        <li>Wisdom is not theoretical—it's a force that transforms consciousness</li>
+                        <li>Well-guided practices naturally support evolution</li>
+                        <li>Spiritual harmony reflects cosmic divine order</li>
                     </ul>
                 </div>
                 <div class="detail-item">
-                    <strong>The Nourishment Dharma:</strong>
+                    <strong>The Enlightenment Dharma:</strong>
                     <ul>
-                        <li>True sustenance flows from alignment with cosmic law</li>
-                        <li>Support must benefit the whole, not just parts</li>
-                        <li>Sustainable care follows ethical principles</li>
-                        <li>Nourishment should enhance all forms of life</li>
+                        <li>True wisdom flows from supporting soul evolution</li>
+                        <li>Divine knowledge is meant to benefit all beings</li>
+                        <li>Sustainable growth comes from spiritual guidance</li>
+                        <li>Evolution should elevate consciousness for all</li>
                     </ul>
                 </div>
                 <div class="detail-item">
-                    <strong>Divine Provider Wisdom:</strong>
+                    <strong>Divine Guide Wisdom:</strong>
                     <ul>
-                        <li>Every being requires unique forms of nourishment</li>
-                        <li>Support cannot be forced—it must flow naturally</li>
-                        <li>Patience and consistency yield deepest growth</li>
-                        <li>The provider serves life's inherent need for sustenance</li>
+                        <li>Every awakening requires sacred guidance</li>
+                        <li>Evolution cannot be forced—it must be nurtured</li>
+                        <li>Patience and devotion yield the highest realizations</li>
+                        <li>The guide serves the soul's inherent drive toward enlightenment</li>
                     </ul>
                 </div>
             </div>
@@ -1861,55 +1793,349 @@
     <!-- Navigation Footer -->
     <section class="content-section" style="text-align: center;">
         <div class="nav-buttons">
-            <a href="punarvasu.html" class="nav-btn">
-                <i class="fas fa-arrow-left"></i> Previous: Punarvasu
+            <a href="krittika.html" class="nav-btn">
+                <i class="fas fa-arrow-left"></i> Previous: Krittika
             </a>
             <a href="#top" class="nav-btn primary">
                 <i class="fas fa-arrow-up"></i> Back to Top
             </a>
-            <a href="ashlesha.html" class="nav-btn">
-                Next: Ashlesha <i class="fas fa-arrow-right"></i>
+            <a href="mrigashira.html" class="nav-btn">
+                Next: Mrigashira <i class="fas fa-arrow-right"></i>
             </a>
         </div>
     </section>
 
+    <style id="theme-rohini">
+        /* Rohini Theme: growth, abundance, nurturing */
+        :root {
+            --pushya-bg: #0c1420;
+            --pushya-surface: #121e2c;
+            --pushya-surface-2: #0f1825;
+            --pushya-border: rgba(255,255,255,0.08);
+            --pushya-text: #e6f3ff;
+            --pushya-dim: rgba(230, 243, 255, 0.75);
+            --pushya-accent: #3498db;   /* bright blue */
+            --pushya-accent-2: #2980b9; /* darker blue */
+            --pushya-accent-3: #f1c40f; /* golden yellow */
+            --pushya-warm: #e67e22;     /* warm orange */
+            --shadow-1: 0 6px 20px rgba(0,0,0,0.25);
+            --shadow-2: 0 10px 30px rgba(0,0,0,0.35);
+        }
+
+        body { background: radial-gradient(1200px 700px at 50% -10%, rgba(52,152,219,0.08), transparent),
+                               radial-gradient(900px 600px at 100% 20%, rgba(143,211,244,0.06), transparent),
+                               var(--pushya-bg); color: var(--pushya-text); }
+
+        /* Section theming */
+        .psychology-section { background: linear-gradient(180deg, rgba(52,152,219,0.07), rgba(0,0,0,0) 35%); border-top: 1px solid var(--pushya-border); }
+        .practical-section { background: linear-gradient(180deg, rgba(41,128,185,0.08), rgba(0,0,0,0) 35%); border-top: 1px solid var(--pushya-border); }
+        .modern-section { background: linear-gradient(180deg, rgba(241,196,15,0.08), rgba(0,0,0,0) 35%); border-top: 1px solid var(--pushya-border); }
+        .career-section { background: linear-gradient(180deg, rgba(230,126,34,0.08), rgba(0,0,0,0) 35%); border-top: 1px solid var(--pushya-border); }
+        .relationships-section { background: linear-gradient(180deg, rgba(41,128,185,0.06), rgba(0,0,0,0) 35%); border-top: 1px solid var(--pushya-border); }
+        .connected-stars-section { background: linear-gradient(180deg, rgba(52,152,219,0.06), rgba(0,0,0,0) 35%); border-top: 1px solid var(--pushya-border); }
+
+        .section-header { margin: 1.2rem 0 1rem; }
+        .section-title { color: var(--pushya-accent); letter-spacing: 0.6px; }
+        .section-subtitle { color: var(--pushya-dim); }
+
+        /* Cards */
+        .content-card, .connection-card, .compatibility-card, .influence-card, .stage-card, .guidance-card, .sequence-card {
+            background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.0));
+            border: 1px solid var(--pushya-border);
+            border-radius: 14px;
+            box-shadow: var(--shadow-1);
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+        }
+        .content-card:hover, .connection-card:hover, .compatibility-card:hover, .influence-card:hover, .stage-card:hover, .guidance-card:hover, .sequence-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(52,152,219,0.25);
+            box-shadow: var(--shadow-2);
+            background: linear-gradient(180deg, rgba(52,152,219,0.06), rgba(255,255,255,0.01));
+        }
+
+        /* Expand/collapse animation */
+        .expandable-card .detailed-content { max-height: 0; opacity: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.3s ease; }
+        .expandable-card.expanded .detailed-content { max-height: 1200px; opacity: 1; }
+
+        .expandable-card .basic-content { opacity: 0.95; }
+        .expandable-card.expanded .basic-content { opacity: 1; }
+
+        .expand-arrow { color: var(--pushya-accent); font-weight: 600; }
+
+        /* Icons */
+        .card-icon, .box-icon, .sequence-icon, .influence-icon, .guidance-icon { 
+            width: 40px; height: 40px; display: grid; place-items: center; 
+            background: radial-gradient(60% 60% at 50% 50%, rgba(52,152,219,0.25), rgba(255,255,255,0)); 
+            border: 1px solid rgba(52,152,219,0.25); border-radius: 10px; color: var(--pushya-text);
+        }
+
+        /* Buttons */
+        .button { background: linear-gradient(180deg, rgba(52,152,219,0.12), rgba(255,255,255,0.02));
+                  border: 1px solid var(--pushya-border); color: var(--pushya-text); 
+                  border-radius: 12px; transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease; }
+        .button:hover { background: linear-gradient(180deg, rgba(52,152,219,0.2), rgba(255,255,255,0.04)); border-color: rgba(52,152,219,0.35); transform: translateY(-1px); }
+
+        /* Grids spacing */
+        .two-column-grid, .three-column-grid, .applications-grid, .category-grid, .professions-grid, .stages-grid, .guidance-grid, .connected-stars-grid, .influence-cards, .insights-container { gap: 1.1rem; }
+
+        /* Wisdom box */
+        .sacred-wisdom-box { border: 1px solid var(--pushya-border); border-radius: 16px; padding: 1rem; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(52,152,219,0.06)); box-shadow: var(--shadow-1); }
+        .sacred-wisdom-box .wisdom-header { display: flex; align-items: center; gap: 0.6rem; color: var(--pushya-accent); }
+        .sacred-wisdom-box .wisdom-quote { font-style: italic; opacity: 0.9; margin: 0.6rem 0 0.8rem; }
+
+        /* Sequence */
+        .star-sequence { display: flex; align-items: stretch; gap: 0.6rem; }
+        .sequence-step { border: 1px solid var(--pushya-border); border-radius: 12px; padding: 0.6rem; text-align: center; min-width: 110px; }
+        .sequence-step.current { border-color: rgba(52,152,219,0.35); background: linear-gradient(180deg, rgba(52,152,219,0.12), rgba(255,255,255,0.02)); }
+        .sequence-arrow { display: grid; place-items: center; opacity: 0.6; padding: 0 0.2rem; }
+
+        /* Stats */
+        .stats-grid .stat-item { border: 1px solid var(--pushya-border); border-radius: 12px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(52,152,219,0.06)); box-shadow: var(--shadow-1); }
+        .stats-grid .stat-item h3 { color: var(--pushya-warm); }
+    </style>
+
+    <style id="responsive-pushya">
+        /* Responsive utilities for Pushya page */
+        /* Base adjustments for medium screens */
+        @media (max-width: 1024px) {
+            .three-column-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+            .applications-grid, .category-grid, .professions-grid, .stages-grid, .guidance-grid,
+            .connected-stars-grid, .influence-cards, .insights-container { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+            .section-title { font-size: clamp(1.25rem, 2.2vw, 1.6rem); }
+            .section-subtitle { font-size: clamp(0.9rem, 1.8vw, 1rem); }
+            .page-footer { flex-direction: column; align-items: stretch; gap: 0.6rem; }
+        }
+        /* Mobile-first stacking */
+        @media (max-width: 768px) {
+            .two-column-grid, .three-column-grid { display: grid; grid-template-columns: 1fr; gap: 0.9rem; }
+            .applications-grid, .category-grid, .professions-grid, .stages-grid, .guidance-grid,
+            .connected-stars-grid, .influence-cards, .insights-container { grid-template-columns: 1fr; }
+            .content-card, .connection-card, .compatibility-card, .influence-card, .stage-card, .guidance-card { padding: 1rem; }
+            .stats-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem; }
+            .nav-container { flex-direction: column; align-items: stretch !important; gap: 0.5rem !important; }
+            .nav-links { justify-content: space-between; }
+            .back-to-top button { padding: 0.5rem 0.7rem !important; font-size: 0.9rem; }
+            .section-header { text-align: center; }
+        }
+        /* Very small screens */
+        @media (max-width: 420px) {
+            .stats-grid { grid-template-columns: 1fr; }
+            .top-nav .button { padding: 0.4rem 0.6rem !important; font-size: 0.9rem; }
+            .card-title { font-size: 1.05rem; }
+        }
+    </style>
+
     <script>
-        // Create stellar background
+        // Interactive features: expandable cards, stats interactions, smooth scroll
+        function toggleExpandableCard(card) {
+            if (!card) return;
+            const isExpanded = card.classList.toggle('expanded');
+            const arrow = card.querySelector('.expand-arrow');
+            if (arrow) arrow.textContent = isExpanded ? '▲' : '▼';
+        }
+
+        function initExpandableCards() {
+            // Enable click on header to toggle (in addition to inline onclick)
+            document.querySelectorAll('.expandable-card .card-header-expand')
+                .forEach(h => {
+                    h.style.cursor = 'pointer';
+                    h.addEventListener('click', (e) => {
+                        const card = e.currentTarget.closest('.expandable-card');
+                        if (card) toggleExpandableCard(card);
+                    });
+                    // Keyboard accessibility
+                    h.setAttribute('tabindex', '0');
+                    h.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            const card = e.currentTarget.closest('.expandable-card');
+                            if (card) toggleExpandableCard(card);
+                        }
+                    });
+                });
+
+            // Optional: quality items inline expansion if present
+            document.querySelectorAll('.quality-item')
+                .forEach(item => {
+                    item.style.cursor = 'pointer';
+                    item.addEventListener('click', () => item.classList.toggle('open'));
+                    item.setAttribute('tabindex', '0');
+                    item.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            item.classList.toggle('open');
+                        }
+                    });
+                });
+        }
+
+        function initSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(a => {
+                a.addEventListener('click', (e) => {
+                    const targetId = a.getAttribute('href').slice(1);
+                    if (!targetId) return;
+                    const target = document.getElementById(targetId) || document.querySelector(`[data-anchor="${targetId}"]`);
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        }
+
+        function initStatsInteraction() {
+            // Ensure stats sections show basic grid by default and toggle details
+            document.querySelectorAll('.stats-section.expandable-card').forEach(card => {
+                // If it starts expanded, normalize arrow state
+                const arrow = card.querySelector('.expand-arrow');
+                if (arrow) arrow.textContent = card.classList.contains('expanded') ? '▲' : '▼';
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initExpandableCards();
+            initSmoothScroll();
+            initStatsInteraction();
+        });
+
+        // Stellar background animation
         function createStars() {
-            const bg = document.getElementById('stellarBg');
-            const count = 100;
+            const stellarBg = document.getElementById('stellarBg');
+            const starCount = 80;
             
-            for (let i = 0; i < count; i++) {
+            for (let i = 0; i < starCount; i++) {
                 const star = document.createElement('div');
                 star.className = 'star';
-                
-                // Random position
-                star.style.left = `${Math.random() * 100}%`;
-                star.style.top = `${Math.random() * 100}%`;
-                
-                // Random size
-                const size = Math.random() * 3 + 1;
-                star.style.width = `${size}px`;
-                star.style.height = `${size}px`;
-                
-                bg.appendChild(star);
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.width = Math.random() * 3 + 1 + 'px';
+                star.style.height = star.style.width;
+                star.style.animationDelay = Math.random() * 3 + 's';
+                stellarBg.appendChild(star);
             }
         }
 
-        // Initialize on load
-        document.addEventListener('DOMContentLoaded', () => {
+        // Initialize quality items to be fully clickable
+        function initQualityItems() {
+            const grids = document.querySelectorAll('.qualities-grid');
+            
+            grids.forEach(grid => {
+                // Add click listener to the grid for event delegation
+                grid.addEventListener('click', (e) => {
+                    const qualityItem = e.target.closest('.quality-item');
+                    if (!qualityItem) return;
+                    
+                    // Toggle expanded state
+                    const isExpanded = qualityItem.classList.toggle('expanded');
+                    const arrow = qualityItem.querySelector('.quality-arrow');
+                    if (arrow) arrow.textContent = isExpanded ? '▲' : '▼';
+                });
+
+                // Add keyboard accessibility
+                grid.querySelectorAll('.quality-item').forEach(item => {
+                    // Make sure tabindex only gets added once
+                    if (!item.hasAttribute('tabindex')) {
+                        item.setAttribute('tabindex', '0');
+                        item.addEventListener('keydown', (e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                                e.preventDefault();
+                                const isExpanded = item.classList.toggle('expanded');
+                                const arrow = item.querySelector('.quality-arrow');
+                                if (arrow) arrow.textContent = isExpanded ? '▲' : '▼';
+                            }
+                        });
+                    }
+                });
+            });
+        }
+
+        // Toggle expandable card details (for sections/cards with arrows)
+        function toggleExpandableCard(element) {
+            element.classList.toggle('expanded');
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
             createStars();
+            initExpandableCards();
+            initQualityItems();
+            initSmoothScroll();
+            initStatsInteraction();
         });
-
-        // Toggle expandable cards
-        function toggleExpandableCard(card) {
-            card.classList.toggle('expanded');
-        }
-
-        // Toggle quality items
-        function toggleQuality(item) {
-            item.classList.toggle('expanded');
-        }
     </script>
+</body>
+    <script>
+        // Ensure stellar background exists and animates (parity with Krittika)
+        function createStars() {
+            var stellarBg = document.getElementById('stellarBg');
+            if (!stellarBg) return;
+            if (stellarBg.dataset.starsInit === '1') return; // avoid double init
+            stellarBg.dataset.starsInit = '1';
+            var starCount = 80;
+            for (var i = 0; i < starCount; i++) {
+                var star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                var size = (Math.random() * 3 + 1) + 'px';
+                star.style.width = size;
+                star.style.height = size;
+                star.style.animationDelay = (Math.random() * 3) + 's';
+                stellarBg.appendChild(star);
+            }
+        }
+
+        // Expand/collapse cards (match Krittika: class toggle only; CSS handles animation)
+        function toggleExpandableCard(el) {
+            try {
+                el.classList.toggle('expanded');
+            } catch (e) {
+                console.error('toggleExpandableCard error:', e);
+            }
+        }
+
+        // Expand/collapse quality tags (class toggle only)
+        function toggleQuality(el) {
+            try {
+                el.classList.toggle('expanded');
+            } catch (e) {
+                console.error('toggleQuality error:', e);
+            }
+        }
+
+        // Initialize on DOM ready (idempotent)
+        (function(){
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', createStars, { once: true });
+            } else {
+                createStars();
+            }
+        })();
+    </script>
+
+    <script>
+        // Click delegation to ensure header/icon/arrow also toggle like in Krittika
+        document.addEventListener('click', function(e) {
+            var header = e.target.closest('.card-header-expand');
+            if (header) {
+                var card = header.closest('.expandable-card');
+                if (card) toggleExpandableCard(card);
+            }
+            var qualityTag = e.target.closest('.quality-tag');
+            if (qualityTag) {
+                var qItem = qualityTag.closest('.quality-item');
+                if (qItem) toggleQuality(qItem);
+            }
+        });
+    </script>
+
+    <style>
+        /* Ensure header/icon/arrow are clickable via parent (parity with Krittika) */
+        .expandable-card { cursor: pointer; }
+        .expandable-card .card-header-expand,
+        .expandable-card .card-icon,
+        .expandable-card .expand-arrow { pointer-events: none; }
+        .quality-item .quality-arrow { pointer-events: none; }
+    </style>
 </body>
 </html>
