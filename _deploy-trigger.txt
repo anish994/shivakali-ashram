@@ -1,9 +1,9 @@
 NETLIFY DEPLOYMENT FORCE TRIGGER
 =================================
 
-Deployment triggered: 2025-10-05T12:00:00Z
-🔧 ARIES NAVIGATION: ADD BACK TO HUB
-Git commit: 5330217
+Deployment triggered: 2025-10-05T12:45:00Z
+🔧 ARIES NAVIGATION: SECOND REDEPLOY (CACHE BUST)
+Git commit: 7fd805e
 
 🏠 HOUSE SYSTEMS PORTAL DEPLOYED:
 ✅ house-systems.html - Complete Life Domain Command Centers portal
