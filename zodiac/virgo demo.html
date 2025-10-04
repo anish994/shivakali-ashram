@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 
-<html class="dark" lang="en"><head>
+<html class="" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" name="viewport"/>
-<title>Pisces Zodiac Sign</title>
+<title>Virgo Zodiac Sign</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700;900&amp;family=Space+Grotesk:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;900&amp;family=Manrope:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-<link rel="stylesheet" href="../assets/css/scrolling-fixes.css"/>
+<link rel="stylesheet" href="assets/css/scrolling-fixes.css"/>
 <style type="text/tailwindcss">
         @layer base {
              :root {
-                --primary: #a78bfa;--primary-glow: #a78bfa80;
-                --background-light: #100C14;
-                --background-dark: #08060A;
-                --text-light: #FBF9FF;
-                --text-dark: #EADFFD;
-                --subtle-light: #3D2C5E;
-                --subtle-dark: #6D4E9C;
+                --primary: #5A7D5E;--primary-glow: #5a7d5e80;
+                --background-light: #021A0A;
+                --background-dark: #010D05;
+                --text-light: #E8FDEB;
+                --text-dark: #D6FFDD;
+                --subtle-light: #0A4D20;
+                --subtle-dark: #148034;
                 --mouse-x: 50%;
                 --mouse-y: 50%;
                 --scroll-y: 0;
@@ -39,25 +39,32 @@
         }
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
+            max-width: 100vw;
         }
         body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            margin: 0;
+            padding: 0;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
         .animate-subtle-pulse {
-            animation: subtle-pulse 5s ease-in-out infinite;
+            animation: subtle-pulse 4s ease-in-out infinite;
         }
         .animate-subtle-float {
-            animation: subtle-float 7s ease-in-out infinite;}
-        .pisces-logo-glow {
+            animation: subtle-float 5s ease-in-out infinite;
+        }
+        .virgo-logo-glow {
             filter: drop-shadow(0 0 12px var(--primary-glow)) drop-shadow(0 0 20px var(--primary-glow));
             transition: filter 0.3s ease-in-out;
         }
-        .pisces-logo-glow:hover {
+        .virgo-logo-glow:hover {
             filter: drop-shadow(0 0 18px var(--primary)) drop-shadow(0 0 30px var(--primary));
         }
         .data-card {
-            background-color: #a78bfa08;
+            background-color: #5a7d5e08;
             border: 1px solid var(--primary-glow);
             backdrop-filter: blur(12px);
             transition: all 0.3s ease;
@@ -87,7 +94,7 @@
         .data-card:nth-child(6) { animation-delay: 0.7s; }
         .data-card:hover {
             transform: translateY(-8px) scale(1.03);
-            background-color: #a78bfa1a;
+            background-color: #5a7d5e1a;
             border-color: var(--primary);
         }
         .content-section {
@@ -96,7 +103,7 @@
              animation-delay: 0.6s;
         }
         .futuristic-card {
-            background: linear-gradient(145deg, rgba(167, 139, 250, 0.05), rgba(167, 139, 250, 0.1));
+            background: linear-gradient(145deg, rgba(90, 125, 94, 0.05), rgba(90, 125, 94, 0.1));
             border: 1px solid var(--primary-glow);
             backdrop-filter: blur(10px);
             clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
@@ -112,14 +119,14 @@
             z-index: -1;
             opacity: 0;
             transition: opacity 0.4s ease-in-out;
-            animation: subtle-pulse 6s infinite;
+            animation: subtle-pulse 5s infinite;
         }
         .futuristic-card:hover::before {
             opacity: 0.3;
         }
         .futuristic-card:hover {
             transform: translateY(-5px);
-            background: linear-gradient(145deg, rgba(167, 139, 250, 0.1), rgba(167, 139, 250, 0.15));
+            background: linear-gradient(145deg, rgba(90, 125, 94, 0.1), rgba(90, 125, 94, 0.15));
             border-color: var(--primary);
         }
         .accordion-item {
@@ -130,13 +137,13 @@
         }
         .accordion-item:hover {
              border-color: var(--primary);
-             background-color: rgba(167, 139, 250, 0.05);
+             background-color: rgba(90, 125, 94, 0.05);
         }
         .accordion-item summary::-webkit-details-marker {
             display: none;
         }
         .icon-card {
-            background: rgba(167, 139, 250, 0.03);
+            background: rgba(90, 125, 94, 0.03);
             border: 1px solid var(--primary-glow);
             transition: all 0.3s ease;
             position: relative;
@@ -145,7 +152,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(ellipse at center, rgba(167, 139, 250, 0.3), transparent 70%);
+            background: radial-gradient(ellipse at center, rgba(90, 125, 94, 0.3), transparent 70%);
             filter: blur(15px);
             z-index: -1;
             opacity: 0;
@@ -155,7 +162,7 @@
             opacity: 0.6;
         }
         .icon-card:hover {
-            background: rgba(167, 139, 250, 0.08);
+            background: rgba(90, 125, 94, 0.08);
             border-color: var(--primary);
             transform: translateY(-5px);
         }
@@ -163,7 +170,8 @@
             --angle: 0deg;
             border: 2px solid;
             border-image: conic-gradient(from var(--angle), transparent 20%, var(--primary), transparent 80%) 1;
-            animation: 12s rotate linear infinite;background: radial-gradient(ellipse at center, rgba(167, 139, 250, 0.1) 0%, transparent 70%);
+            animation: 10s rotate linear infinite;
+            background: radial-gradient(ellipse at center, rgba(90, 125, 94, 0.1) 0%, transparent 70%);
             position: relative;
             overflow: hidden;
             transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
@@ -216,8 +224,8 @@
             animation: move-twink-back 200s linear infinite;transform: translate(calc(calc(50% - var(--mouse-x)) / 40), calc(calc(50% - var(--mouse-y)) / 40)) translateY(calc(var(--scroll-y) * 0.3px));
         }
         .nebula {
-            background: radial-gradient(ellipse at 70% 30%, rgba(167, 139, 250, 0.25) 0%, transparent 50%),
-                        radial-gradient(ellipse at 20% 80%, rgba(109, 78, 156, 0.2) 0%, transparent 40%);
+            background: radial-gradient(ellipse at 70% 30%, rgba(90, 125, 94, 0.25) 0%, transparent 50%),
+                        radial-gradient(ellipse at 20% 80%, rgba(90, 125, 94, 0.2) 0%, transparent 40%);
             animation: move-nebula 120s ease-in-out infinite alternate;transform: translate(calc(calc(50% - var(--mouse-x)) / 60), calc(calc(50% - var(--mouse-y)) / 60)) translateY(calc(var(--scroll-y) * 0.5px));
         }
         .light-flare {
@@ -228,7 +236,7 @@
             height: 100%;
             pointer-events: none;
             z-index: -20;
-            background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(167, 139, 250, 0.1) 0%, transparent 20%);
+            background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(90, 125, 94, 0.1) 0%, transparent 20%);
             opacity: 0;
             transition: opacity 0.5s ease-out;
         }
@@ -263,9 +271,8 @@
             opacity: 1;
             padding-top: 1.5rem;
             padding-bottom: 1.5rem;
-        }
-        .decan-card {
-            background-color: rgba(167, 139, 250, 0.05);
+        }.decan-card {
+            background-color: rgba(90, 125, 94,0.05);
             border-left: 3px solid var(--primary-glow);
             transition: all 0.4s ease;
             transform: translateX(-20px);
@@ -276,31 +283,32 @@
             opacity: 1;
         }
         .decan-card:hover {
-            background-color: rgba(167, 139, 250, 0.1);
+            background-color: rgba(90, 125, 94,0.1);
             border-left-color: var(--primary);
             transform: scale(1.02);
         }
         @keyframes float-asteroid {
-            0%, 100% { transform: translateY(0px) rotate(-3deg); }
-            50% { transform: translateY(-12px) rotate(3deg); }
+            0%, 100% { transform: translateY(0px) rotate(-5deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
         }
         .asteroid-card {
-            background: radial-gradient(circle, rgba(167, 139, 250, 0.15) 0%, transparent 80%);
+            background: radial-gradient(circle, rgba(90, 125, 94,0.15) 0%, transparent 80%);
             border: 1px dashed var(--primary-glow);
-            animation: float-asteroid 10s ease-in-out infinite;transition: all 0.4s ease;
+            animation: float-asteroid 8s ease-in-out infinite;
+            transition: all 0.4s ease;
         }
         .asteroid-card:hover {
             animation-play-state: paused;
             transform: scale(1.1);
-            background: radial-gradient(circle, rgba(167, 139, 250, 0.3) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(90, 125, 94,0.3) 0%, transparent 70%);
             border-style: solid;
             border-color: var(--primary);
             filter: drop-shadow(0 0 15px var(--primary));
         }
-        .asteroid-card:nth-child(2) { animation-delay: -2s; animation-duration: 9s; }
-        .asteroid-card:nth-child(3) { animation-delay: -4s; animation-duration: 11s; }
+        .asteroid-card:nth-child(2) { animation-delay: -2s; animation-duration: 7s; }
+        .asteroid-card:nth-child(3) { animation-delay: -4s; animation-duration: 9s; }
         .color-spectrum {
-            background: linear-gradient(90deg, #6b21a8 0%, var(--primary) 50%, #e9d5ff 100%);
+            background: linear-gradient(90deg, #345D3B 0%, var(--primary) 50%, #A2C5A6 100%);
             position: relative;
             cursor: none;
             transition: all 0.3s ease-out;
@@ -333,7 +341,7 @@
             transform: translateY(0) scale(1);
         }
         .chiron-card {
-            background: linear-gradient(220deg, rgba(167, 139, 250, 0.05), rgba(109, 78, 156, 0.2));
+            background: linear-gradient(220deg, rgba(90, 125, 94, 0.05), rgba(20, 80, 40, 0.2));
             border: 1px solid var(--primary-glow);
             backdrop-filter: blur(15px);
             clip-path: polygon(0 0, 100% 0, 100% 100%, 20px 100%, 0 calc(100% - 20px));
@@ -342,7 +350,7 @@
         .chiron-card:hover {
             transform: translateY(-8px);
             border-color: var(--primary);
-            background: linear-gradient(220deg, rgba(167, 139, 250, 0.1), rgba(124, 58, 237, 0.3));
+            background: linear-gradient(220deg, rgba(90, 125, 94, 0.1), rgba(30, 100, 50, 0.3));
         }
         .archetype-link {
             position: relative;
@@ -413,22 +421,23 @@
             right: 0;
             bottom: 0;
             z-index: 0;
-            background: linear-gradient(120deg, rgba(167, 139, 250, 0), rgba(167, 139, 250, 0.1), rgba(167, 139, 250, 0));
+            background: linear-gradient(120deg, rgba(90, 125, 94, 0), rgba(90, 125, 94, 0.1), rgba(90, 125, 94, 0));
             background-size: 200% 200%;
-            animation: animated-gradient 10s ease infinite;}
+            animation: animated-gradient 8s ease infinite;
+        }
         .expanded-content-text-gradient {
             background: linear-gradient(120deg, var(--text-dark), var(--text-light));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .progress-bar-container {
-            background-color: rgba(167, 139, 250, 0.1);
+            background-color: rgba(90, 125, 94, 0.1);
             border-radius: 9999px;
             overflow: hidden;
             border: 1px solid var(--primary-glow);
         }
         .progress-bar {
-            background: linear-gradient(90deg, var(--primary) 0%, #e9d5ff 100%);
+            background: linear-gradient(90deg, var(--primary) 0%, #a2c5a6 100%);
             box-shadow: 0 0 15px var(--primary-glow);
             transition: width 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
         }
@@ -436,9 +445,9 @@
             width: var(--progress-width, 0%);
         }
     </style>
-<script>tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#607AFB", "background-light": "#f5f6f8", "background-dark": "#0f1323", "text-light": "var(--text-light)", "text-dark": "var(--text-dark)", "subtle-light": "var(--subtle-light)", "subtle-dark": "var(--subtle-dark)"}, fontFamily: {display: "Space Grotesk", body: ["Roboto Mono", "monospace"]}, borderRadius: {DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px"}}}};</script>
+<script>tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#845f19", "background-light": "#f8f7f6", "background-dark": "#201b12", "text-light": "var(--text-light)", "text-dark": "var(--text-dark)", "subtle-light": "var(--subtle-light)", "subtle-dark": "var(--subtle-dark)"}, fontFamily: {display: "Manrope", body: ["Roboto Mono", "monospace"]}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}}}};</script>
 </head>
-<body class="bg-background-dark font-body text-text-dark will-change-scroll overflow-x-hidden">
+<body class="bg-background-dark font-body text-text-dark will-change-scroll">
 <div class="min-h-screen relative main-container overflow-hidden">
 <div class="absolute inset-0 bg-background-dark -z-50"></div>
 <div class="stars absolute inset-0 opacity-80 -z-40 transition-transform duration-300 ease-out"></div>
@@ -448,18 +457,18 @@
 <header class="border-b border-subtle-dark/50 backdrop-blur-md bg-background-dark/30 sticky top-0 z-50 transition-all duration-300 ease-in-out">
 <div class="container mx-auto flex items-center justify-between px-6 py-4">
 <div class="flex items-center gap-4 group">
-<img src="../pictures/piscespic.png" class="h-10 w-10 text-primary pisces-logo-glow group-hover:scale-110 transition-transform duration-300">
+<img src="../pictures/virgo pic.png" class="h-10 w-10 text-primary virgo-logo-glow group-hover:scale-110 transition-transform duration-300">
 <div class="flex flex-col items-start">
 <h1 class="text-2xl font-bold font-display uppercase tracking-wider text-text-light group-hover:text-primary transition-colors duration-300" style="text-shadow: 0 0 10px var(--primary-glow);">AstroVibe</h1>
 <span class="text-xs text-text-dark/60 font-body transition-all duration-300 group-hover:text-primary/70">by ShivaKali Ashram</span>
 </div>
 </div>
 <div class="flex items-center gap-2 md:gap-4">
-<a href="../zodiac-signs.html" class="nav-button">Zodiac Hub</a>
+<a href="zodiac-signs.html" class="nav-button">Zodiac Hub</a>
 <a href="../index.html" class="nav-button">Back to Ashram</a>
 <a href="../index.html#jyotisha" class="nav-button">Back to Jotish</a>
-<button class="nav-button" onclick="window.location.href='aquarius demo.html'">Previous Sign</button>
-<button class="nav-button" onclick="window.location.href='aries demo.html'">Next Sign</button>
+<button class="nav-button" onclick="window.location.href='leo demo.html'">Previous Sign</button>
+<button class="nav-button" onclick="window.location.href='libra demo.html'">Next Sign</button>
 </div>
 </div>
 </header>
@@ -467,12 +476,12 @@
 <div class="max-w-5xl mx-auto">
 <div class="text-center mb-16 md:mb-24">
 <div class="flex justify-center mb-6 animate-subtle-float">
-<img src="../pictures/piscespic.png" class="h-28 w-28 md:h-36 md:w-36 text-primary pisces-logo-glow">
+<img src="../pictures/virgo pic.png" class="h-28 w-28 md:h-36 md:w-36 text-primary virgo-logo-glow">
 </div>
-<h2 class="text-6xl md:text-8xl font-black font-display text-transparent bg-clip-text bg-gradient-to-r from-primary via-violet-300 to-indigo-200 tracking-widest animate-subtle-pulse" style="text-shadow: 0 0 30px var(--primary-glow);">PISCES</h2>
+<h2 class="text-6xl md:text-8xl font-black font-display text-transparent bg-clip-text bg-gradient-to-r from-primary via-green-400 to-green-300 tracking-widest animate-subtle-pulse" style="text-shadow: 0 0 30px var(--primary-glow);">VIRGO</h2>
 <div class="mt-4 content-section intro-text-bg" style="animation-delay: 0.2s;">
 <p class="relative z-10 text-lg md:text-xl text-text-dark/80 max-w-3xl mx-auto font-body">
-<span class="text-primary/80">&lt;SYSTEM_LOG&gt;</span> Ruled by Neptune, the planet of dreams, illusion, and spiritual transcendence. Pisces is the cosmic ocean, the <span class="font-bold text-primary animate-pulse">Great Dissolver</span> of the zodiac. It seeks unity through empathy, artistic expression, and surrendering to the divine current. This is the narrative of universal consciousness, selfless service, and the boundless power of imagination. <span class="text-primary/80">&lt;/TRANSMISSION&gt;</span>
+<span class="text-primary/80">&lt;SYSTEM_LOG&gt;</span> Ruled by Mercury, the planet of intellect, communication, and systems. Virgo is the sacred harvest, the <span class="font-bold text-primary animate-pulse">Divine Analyst</span> of the zodiac. It purifies, perfects, and serves with meticulous devotion and grounded wisdom. This is the narrative of refinement, order, and the sacred geometry of existence. <span class="text-primary/80">&lt;/TRANSMISSION&gt;</span>
 </p>
 </div>
 </div>
@@ -482,27 +491,27 @@
 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
 <div class="data-card p-4 flex flex-col items-center justify-center text-center">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Somatic Focus</p>
-<p class="font-bold text-2xl font-display text-primary">Feet</p>
-<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Mystic Union</p>
+<p class="font-bold text-2xl font-display text-primary">Digestive System</p>
+<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Sacred Analysis</p>
 </div>
 <div class="data-card p-4 flex flex-col items-center justify-center text-center">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Crystal</p>
-<p class="font-bold text-2xl font-display text-primary">Moonstone</p>
-<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Divine Dreams</p>
+<p class="font-bold text-2xl font-display text-primary">Sapphire</p>
+<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Divine Service</p>
 </div>
 <div class="data-card p-4 flex flex-col items-center justify-center text-center">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Chroma Key</p>
-<p class="font-bold text-2xl font-display text-primary">Sea Green</p>
+<p class="font-bold text-2xl font-display text-primary">Navy</p>
 <p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Energy</p>
 </div>
 <div class="data-card p-4 flex flex-col items-center justify-center text-center">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Ruling Planet</p>
-<p class="font-bold text-2xl font-display text-primary">Neptune</p>
-<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Neptune's Vision</p>
+<p class="font-bold text-2xl font-display text-primary">Mercury</p>
+<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Mercury's Wisdom</p>
 </div>
 <div class="data-card p-4 flex flex-col items-center justify-center text-center">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Element</p>
-<p class="font-bold text-2xl font-display text-primary">Water</p>
+<p class="font-bold text-2xl font-display text-primary">Earth</p>
 <p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Essence</p>
 </div>
 <div class="data-card p-4 flex flex-col items-center justify-center text-center">
@@ -516,28 +525,19 @@
 <div class="border-t border-primary/20 pt-8 mt-8 grid md:grid-cols-2 gap-x-12 gap-y-8 text-sm">
 <div>
 <h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">System Analysis: Root Code</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary font-semibold">[KERNEL_ANALYSIS::INITIATED]</span> The Core Matrix of Pisces is an operating system for universal connection. 'Feet' represent the soul's journey and connection to both earth and spirit. 'Amethyst,' with its calming hues, enhances intuition and spiritual awareness. 'Violet' is the frequency of higher consciousness and cosmic unity. 'Neptune' is the central processor, prioritizing imagination, empathy, and dissolving boundaries. 'Water' is the medium for emotional flow and psychic sensitivity. 'Mutable' is the prime directive: <span class="font-bold text-violet-300 animate-pulse">DREAM. MERGE. TRANSCEND.</span></p>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary font-semibold">[KERNEL_ANALYSIS::INITIATED]</span> The Core Matrix of Virgo is the OS of divine order. 'Gut' signifies the somatic intelligence, the second brain processing data with intuitive precision. 'Sapphire,' with its celestial blue-green hues, represents the wisdom of discernment. 'Green' is the signature of life, growth, and healing. 'Mercury' serves as the high-speed processor for language, data, and systems. 'Earth' is the stable hardware, grounding theory in practical application. 'Mutable' is the adaptability protocol, hard-coded for refinement: <span class="font-bold text-green-400 animate-pulse">ANALYZE. REFINE. PERFECT.</span></p>
 </div>
 <div>
 <h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Metaphysical Resonance Field</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary font-semibold">[FREQUENCY_CALIBRATION::ACTIVE]</span> These are not mere symbols; they are cosmic frequencies that tune reality towards compassion and oneness. Meditating on 'Violet', holding 'Amethyst', or focusing on the 'Feet' as a spiritual antenna aligns your bio-field with the Piscean frequency. This matrix provides a universal pattern for artistic inspiration, selfless love, and spiritual liberation. It is the universe's algorithm for dissolving the ego, the <span class="font-bold text-violet-300 animate-pulse">sacred equation of enlightenment.</span></p>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary font-semibold">[FREQUENCY_CALIBRATION::ACTIVE]</span> These elements are vibrational keys to the Virgoan frequency. Immersing in the 'Green' spectrum, aligning with a Sapphire's crystalline structure, or tuning into the 'Gut's' wisdom enhances the Virgo resonance within your bio-field. This matrix is a universal pattern for purification and service, a blueprint for any soul seeking to embody clarity, helpfulness, and the healing power of meticulous care. It is the universe's editing software, the <span class="font-bold text-green-400 animate-pulse">sacred algorithm for improvement.</span></p>
 </div>
 <div class="md:col-span-2">
 <h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Interactive Energy Calibration</h4>
-<p class="leading-relaxed expanded-content-text-gradient mb-4">Engage with the Piscean core frequency. Below are the key energetic signatures. Focus on a concept and visualize its essence flowing into your own system.</p>
+<p class="leading-relaxed expanded-content-text-gradient mb-4">Engage with the Virgoan core frequency. Below are the key energetic signatures. Focus on a concept and visualize its power integrating with your own system.</p>
 <div class="space-y-3">
 <div class="w-full">
 <div class="flex justify-between text-xs font-mono text-text-dark mb-1">
-<span>EMPATHY</span>
-<span>98%</span>
-</div>
-<div class="progress-bar-container h-2.5">
-<div class="progress-bar h-full rounded-full" style="--progress-width: 98%;"></div>
-</div>
-</div>
-<div class="w-full">
-<div class="flex justify-between text-xs font-mono text-text-dark mb-1">
-<span>IMAGINATION</span>
+<span>ANALYTICAL PRECISION</span>
 <span>95%</span>
 </div>
 <div class="progress-bar-container h-2.5">
@@ -546,11 +546,20 @@
 </div>
 <div class="w-full">
 <div class="flex justify-between text-xs font-mono text-text-dark mb-1">
-<span>BOUNDARIES</span>
-<span>15%</span>
+<span>DEVOTED SERVICE</span>
+<span>85%</span>
 </div>
 <div class="progress-bar-container h-2.5">
-<div class="progress-bar h-full rounded-full" style="--progress-width: 15%;"></div>
+<div class="progress-bar h-full rounded-full" style="--progress-width: 85%;"></div>
+</div>
+</div>
+<div class="w-full">
+<div class="flex justify-between text-xs font-mono text-text-dark mb-1">
+<span>TOLERANCE FOR CHAOS</span>
+<span>20%</span>
+</div>
+<div class="progress-bar-container h-2.5">
+<div class="progress-bar h-full rounded-full" style="--progress-width: 20%;"></div>
 </div>
 </div>
 </div>
@@ -563,19 +572,19 @@
 <h3 class="text-4xl font-bold font-display mb-8 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Decanic Sub-Rulers</h3>
 <div class="grid md:grid-cols-3 gap-8 font-body text-base leading-relaxed">
 <div class="decan-card p-6 in-view" style="transition-delay: 100ms;">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decan I: The Dreamer (0-9°)</h4>
-<p class="text-sm text-text-dark/70 mb-2">Sub-ruler: Neptune</p>
-<p class="text-text-dark/90 text-sm">Pure, unfiltered Piscean energy. The mystic, the artist, the visionary. Embodies boundless compassion and a deep connection to the collective unconscious. This is the drive for spiritual union in its most potent form.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decan I: The Analyst (0-9°)</h4>
+<p class="text-sm text-text-dark/70 mb-2">Sub-ruler: Mercury</p>
+<p class="text-text-dark/90 text-sm">Pure, distilled Virgoan energy. The meticulous organizer, the sharp-witted critic, the master of details. Embodies precision and a love for functional systems.</p>
 </div>
 <div class="decan-card p-6 in-view" style="transition-delay: 200ms;">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decan II: The Nurturer (10-19°)</h4>
-<p class="text-sm text-text-dark/70 mb-2">Sub-ruler: Moon</p>
-<p class="text-text-dark/90 text-sm">The dreamy nature is now grounded in emotional sensitivity and caring. The focus shifts to healing, devotion, and creating a safe haven for others. The soul is deeply empathetic and protective.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decan II: The Craftsman (10-19°)</h4>
+<p class="text-sm text-text-dark/70 mb-2">Sub-ruler: Saturn</p>
+<p class="text-text-dark/90 text-sm">Intellect is now channeled into tangible, enduring work. The focus shifts from analysis to mastery and building lasting structures. The drive is for practical, disciplined application.</p>
 </div>
 <div class="decan-card p-6 in-view" style="transition-delay: 300ms;">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decan III: The Vessel (20-29°)</h4>
-<p class="text-sm text-text-dark/70 mb-2">Sub-ruler: Pluto</p>
-<p class="text-text-dark/90 text-sm">Compassion now merges with transformative power. This is the Pisces who uses their intuitive depth to facilitate profound psychological healing. The drive is for spiritual surrender and rebirth.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decan III: The Alchemist (20-29°)</h4>
+<p class="text-sm text-text-dark/70 mb-2">Sub-ruler: Venus</p>
+<p class="text-text-dark/90 text-sm">Analysis is now elevated by a love of beauty and harmony. This is the Virgoan artist, refining raw material into something of aesthetic and practical value, a fusion of function and form.</p>
 </div>
 </div>
 </div>
@@ -583,30 +592,30 @@
 <h3 class="text-4xl font-bold font-display mb-8 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Rare Asteroid Connections</h3>
 <div class="grid md:grid-cols-3 gap-12 font-body text-base leading-relaxed pt-10">
 <div class="asteroid-card p-6 text-center rounded-full flex flex-col justify-center items-center aspect-square">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Psyche</h4>
-<p class="text-text-dark/80 text-sm">Goddess of the Soul. Amplifies Pisces' connection to empathy, soul-level connections, and the ability to understand others' innermost feelings and motivations without words.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Vesta</h4>
+<p class="text-text-dark/80 text-sm">The high priestess of sacred devotion. Amplifies Virgo's dedication, turning daily tasks into sacred rituals and work into an act of spiritual service.</p>
 </div>
 <div class="asteroid-card p-6 text-center rounded-full flex flex-col justify-center items-center aspect-square">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Chiron</h4>
-<p class="text-text-dark/80 text-sm">The Wounded Healer. Represents Pisces' ability to transmute personal suffering into universal compassion, healing others through their deep understanding of pain.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Ceres</h4>
+<p class="text-text-dark/80 text-sm">The earth mother of harvest and nourishment. Infuses Virgo's practicality with unconditional care, nurturing projects and people toward optimal health.</p>
 </div>
 <div class="asteroid-card p-6 text-center rounded-full flex flex-col justify-center items-center aspect-square">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Isis</h4>
-<p class="text-text-dark/80 text-sm">The Egyptian goddess of magic and unconditional love. Infuses the Piscean drive with the power to piece together fragmented souls and restore wholeness through divine love.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Hygieia</h4>
+<p class="text-text-dark/80 text-sm">The goddess of health and hygiene. Represents the Virgoan drive for purity, preventative care, and the maintenance of holistic systems of well-being.</p>
 </div>
 </div>
 </div>
 <div class="content-section" style="animation-delay: 0.9s;">
 <h3 class="text-4xl font-bold font-display mb-4 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Color-Energy Spectrum Visualizer</h3>
 <p class="text-center text-text-dark/80 mb-8 max-w-2xl mx-auto font-body text-sm">
-<span class="text-primary/80">[// INTERACTIVE_INTERFACE //]</span> Move your cursor across the spectrum below to decode the Piscean energy signature. Each shade of violet represents a different facet of its compassion. The light bar indicates your current position on the vibrational scale, revealing the qualities associated with that specific frequency. Engage with the flow to understand the dynamic range of Pisces, from deep empathy to cosmic consciousness.
+<span class="text-primary/80">[// INTERACTIVE_INTERFACE //]</span> Move your cursor across the spectrum below to decode the Virgoan energy signature. Each shade of green represents a different facet of its power. The light bar indicates your current position on the vibrational scale, revealing the qualities associated with that specific frequency. Engage with the flow to understand the dynamic range of Virgo, from deep forest wisdom to the fresh growth of spring.
                     </p>
 <div class="relative" id="spectrum-container">
 <div class="color-spectrum h-20 w-full rounded-lg" id="color-spectrum"></div>
 <div class="spectrum-info-container absolute bottom-full mb-2 w-full flex justify-center pointer-events-none" id="spectrum-info-container">
 <div class="p-4 rounded-lg bg-background-dark/80 border border-primary/30 backdrop-blur-sm text-center w-64" id="spectrum-info">
-<h5 class="font-bold text-primary font-display text-lg transition-all duration-200" id="spectrum-title">Soft Violet</h5>
-<p class="text-xs text-text-dark/80 transition-all duration-200" id="spectrum-desc">The core frequency of dreams, compassion, artistic inspiration, and spiritual connection. The soul of the cosmos.</p>
+<h5 class="font-bold text-primary font-display text-lg transition-all duration-200" id="spectrum-title">Sage Green</h5>
+<p class="text-xs text-text-dark/80 transition-all duration-200" id="spectrum-desc">The core frequency of analysis, refinement, service, and practical wisdom. The nervous system of the zodiac.</p>
 </div>
 </div>
 </div>
@@ -616,31 +625,31 @@
 <h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary flex items-center justify-between" style="text-shadow: 0 0 15px var(--primary-glow);">Shadow Aspects Unveiled<span class="material-symbols-outlined text-3xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
 <div class="grid md:grid-cols-2 gap-8 font-body text-base leading-relaxed">
 <div class="futuristic-card p-6">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Escapist</h4>
-<p class="text-text-dark/90">The desire to transcend reality, when corrupted by fear of pain, becomes a need to escape. The shadow appears as addiction, self-deception, and avoidance of responsibility.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Perfectionist</h4>
+<p class="text-text-dark/90">When the drive for improvement is corrupted by anxiety, it becomes a paralyzing perfectionism. The shadow appears as harsh self-criticism and an inability to start or finish out of fear of imperfection.</p>
 </div>
 <div class="futuristic-card p-6">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Martyr</h4>
-<p class="text-text-dark/90">The depth of compassion, without the balance of self-preservation, leads to victimhood. The shadow is obsessed with sacrifice, attracting draining energies, and enabling others.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Worrier</h4>
+<p class="text-text-dark/90">The analytical mind, without a grounding in faith, can catastrophize. The shadow is a system over-run with anxiety, constantly scanning for future problems and overlooking present joys.</p>
 </div>
 </div>
 </summary>
 <div class="expandable-card-content px-6">
 <div class="border-t border-primary/20 pt-8 mt-8 grid md:grid-cols-2 gap-x-12 gap-y-8 text-sm">
 <div>
-<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Integration Path: Conscious Creativity</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[EGO_MODULATION::REQUIRED]</span> The antidote to escapism is creation. The evolved Pisces understands that true transcendence comes from channeling their imagination into art, music, or healing practices. By giving form to their inner worlds, they learn that reality can be shaped, not just fled. <span class="font-bold text-violet-300 animate-pulse">Thus, escapism is refined into true inspiration.</span></p>
+<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Integration Path: Wabi-Sabi Wisdom</h4>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[ANXIETY_MODULATION::REQUIRED]</span> The antidote to perfectionism is embracing the beauty of imperfection (Wabi-Sabi). The evolved Virgo understands that flaws are signatures of authenticity. By focusing on process over outcome and service over self-evaluation, criticism transmutes into compassionate discernment. <span class="font-bold text-green-400 animate-pulse">Thus, purity is found not in flawlessness, but in honest effort.</span></p>
 </div>
 <div>
-<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Integration Path: Discerned Compassion</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[EMOTIONAL_ALCHEMY::CRITICAL]</span> The shadow of martyrdom is healed by embracing wisdom from its opposite sign, Virgo. Through cultivating discernment and healthy boundaries, Pisces learns that true service requires self-care. By filling their own cup first, their self-pity transforms into sustainable compassion. <span class="font-bold text-violet-300 animate-pulse">The victim becomes the conscious healer.</span></p>
+<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Integration Path: Sacred Surrender</h4>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[FAITH_PROTOCOL::CRITICAL]</span> The shadow of worry is healed by embracing wisdom from its opposite sign, Pisces. Through faith and surrender to a higher order, Virgo learns that not every variable can or should be controlled. By releasing the need to analyze every possibility, the mind finds peace. <span class="font-bold text-green-400 animate-pulse">The meticulous plan evolves into a sacred trust.</span></p>
 </div>
 <div class="md:col-span-2 pt-4">
 <div class="flex items-center gap-6 p-4 rounded-lg bg-background-dark/30 border border-primary/20">
-<span class="material-symbols-outlined text-5xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">water_drop</span>
+<span class="material-symbols-outlined text-5xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">model_training</span>
 <div>
 <h5 class="font-bold font-display text-primary/90 text-lg">Shadow Integration Exercise</h5>
-<p class="text-sm text-text-dark/90 leading-relaxed">Next time you feel drained, pause. Ask: "Is this my emotion, or someone else's? Where do I end and they begin?" This simple query reroutes the martyr circuit into one of self-awareness, shifting the focus from 'How can I save them?' to 'How can I serve from a place of wholeness?'.</p>
+<p class="text-sm text-text-dark/90 leading-relaxed">Next time you feel the urge to over-analyze, pause. Ask: "What is one small, imperfect action I can take right now to be helpful?" This simple query reroutes the analytical loop into productive service, shifting the focus from 'Is it perfect?' to 'Is it useful?'.</p>
 </div>
 </div>
 </div>
@@ -648,13 +657,13 @@
 </div>
 </details>
 <div class="content-section chiron-card p-8" style="animation-delay: 1.1s;">
-<h3 class="text-4xl font-bold font-display mb-4 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Chiron in Pisces: The Wounded Mystic</h3>
+<h3 class="text-4xl font-bold font-display mb-4 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Chiron in Virgo: The Wounded Healer</h3>
 <div class="grid md:grid-cols-3 gap-8">
 <div class="md:col-span-2">
-<p class="text-text-dark/90 leading-relaxed">Chiron in Pisces points to a core wound around spirituality, belonging, and the nature of reality. Individuals with this placement may feel a profound sense of cosmic homelessness, disillusionment, or a longing for a divine connection that feels lost. The healing journey involves courageously embracing the unknown, learning to find the sacred in the mundane, and understanding that true faith lies in surrender. By healing their own spiritual wounds, they become master guides for others, navigating the mists of illusion by <span class="font-bold text-primary/80 animate-pulse">embodying divine love.</span></p>
+<p class="text-text-dark/90 leading-relaxed">Chiron in Virgo points to a core wound around purity, order, and self-worth. Individuals with this placement may feel chronically flawed, imperfect, or never "good enough." They may struggle with health anxieties or chaotic lifestyles. The healing journey involves accepting their own humanity, embracing imperfection, and learning that their greatest gift lies in helping others organize and heal their lives. By healing their own wound of inadequacy, they become master healers for those who feel broken, teaching wholeness by <span class="font-bold text-primary/80 animate-pulse">embodying compassionate service.</span></p>
 </div>
 <div class="flex items-center justify-center">
-<span class="material-symbols-outlined text-8xl text-primary/70" style="filter: drop-shadow(0 0 10px var(--primary-glow));">self_improvement</span>
+<span class="material-symbols-outlined text-8xl text-primary/70" style="filter: drop-shadow(0 0 10px var(--primary-glow));">health_and_safety</span>
 </div>
 </div>
 </div>
@@ -662,26 +671,26 @@
 <h3 class="text-4xl font-bold font-display mb-8 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Zodiacal Archetype Cross-Reference</h3>
 <div class="flex justify-center items-center gap-12 md:gap-20 pt-4">
 <div class="archetype-link">
-<span class="material-symbols-outlined text-6xl text-primary cursor-pointer">brush</span>
+<span class="material-symbols-outlined text-6xl text-primary cursor-pointer">spa</span>
 <div class="archetype-info w-56 p-4 rounded-xl bg-background-dark/90 border border-primary/50 backdrop-blur-md">
-<h5 class="font-bold font-display text-primary">The Artist</h5>
-<p class="text-xs text-text-dark/80">The universal archetype of creation, inspiration, and channeling the intangible into form. The musician, the poet, the painter.</p>
+<h5 class="font-bold font-display text-primary">The Healer</h5>
+<p class="text-xs text-text-dark/80">The universal archetype of purification, medicine, and restoration. Found in figures like Hygieia (Greek) and the wise herbalist.</p>
 </div>
 </div>
 <span class="material-symbols-outlined text-4xl text-primary/50">link</span>
 <div class="archetype-link">
-<span class="material-symbols-outlined text-6xl text-primary cursor-pointer">psychology</span>
+<span class="material-symbols-outlined text-6xl text-primary cursor-pointer">engineering</span>
 <div class="archetype-info w-56 p-4 rounded-xl bg-background-dark/90 border border-primary/50 backdrop-blur-md">
-<h5 class="font-bold font-display text-primary">The Mystic</h5>
-<p class="text-xs text-text-dark/80">The symbol of spiritual questing and union with the divine. The one who dissolves the ego to experience universal consciousness.</p>
+<h5 class="font-bold font-display text-primary">The Artisan</h5>
+<p class="text-xs text-text-dark/80">The meticulous craftsperson who hones their skill to perfection. The scribe, the weaver, the master of a sacred trade.</p>
 </div>
 </div>
 <span class="material-symbols-outlined text-4xl text-primary/50">link</span>
 <div class="archetype-link">
-<span class="material-symbols-outlined text-6xl text-primary cursor-pointer">volunteer_activism</span>
+<span class="material-symbols-outlined text-6xl text-primary cursor-pointer">real_estate_agent</span>
 <div class="archetype-info w-56 p-4 rounded-xl bg-background-dark/90 border border-primary/50 backdrop-blur-md">
-<h5 class="font-bold font-display text-primary">The Savior</h5>
-<p class="text-xs text-text-dark/80">Represents unconditional love and self-sacrifice for the greater good. The healer, the redeemer, the agent of compassion.</p>
+<h5 class="font-bold font-display text-primary">The Servant</h5>
+<p class="text-xs text-text-dark/80">Represents selfless devotion and humility. The one who finds sacred purpose in being of practical use to others.</p>
 </div>
 </div>
 </div>
@@ -692,62 +701,62 @@
 <h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary flex items-center justify-between" style="text-shadow: 0 0 15px var(--primary-glow);">Operational Directives <span class="material-symbols-outlined text-3xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
 <div class="grid md:grid-cols-3 gap-8 font-body text-base leading-relaxed">
 <div class="icon-card p-6 flex flex-col items-center text-center rounded-lg" style="clip-path: polygon(0 15px, 15px 0, 100% 0, 100% 100%, 0 100%);">
-<span class="material-symbols-outlined text-4xl text-primary mb-3" style="filter: drop-shadow(0 0 8px var(--primary-glow));">waves</span>
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Strength: Empathy</h4>
-<p class="text-text-dark/80 text-sm">Innate ability to absorb and understand the emotional states of others, fostering deep, non-verbal connection and healing.</p>
+<span class="material-symbols-outlined text-4xl text-primary mb-3" style="filter: drop-shadow(0 0 8px var(--primary-glow));">psychology</span>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Strength: Analysis</h4>
+<p class="text-text-dark/80 text-sm">A superior ability to discern patterns, identify flaws, and create efficient systems. The master diagnostician of the zodiac.</p>
 </div>
 <div class="icon-card p-6 flex flex-col items-center text-center rounded-lg" style="clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 0 100%);">
-<span class="material-symbols-outlined text-4xl text-primary mb-3" style="filter: drop-shadow(0 0 8px var(--primary-glow));">visibility_off</span>
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Challenge: Illusion</h4>
-<p class="text-text-dark/80 text-sm">A tendency to see the world through rose-colored glasses can lead to self-deception, gullibility, and disappointment.</p>
+<span class="material-symbols-outlined text-4xl text-primary mb-3" style="filter: drop-shadow(0 0 8px var(--primary-glow));">error</span>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Challenge: Criticism</h4>
+<p class="text-text-dark/80 text-sm">A tendency to focus on flaws can manifest as nagging or harsh judgment of self and others, missing the bigger picture.</p>
 </div>
 <div class="icon-card p-6 flex flex-col items-center text-center rounded-lg" style="clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);">
 <span class="material-symbols-outlined text-4xl text-primary mb-3" style="filter: drop-shadow(0 0 8px var(--primary-glow));">favorite</span>
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Love: Soul Mate</h4>
-<p class="text-text-dark/80 text-sm">In romance, Pisces seeks an ethereal, spiritual connection—a merging of souls that transcends the physical world.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Love: Devoted Service</h4>
+<p class="text-text-dark/80 text-sm">In romance, Virgo shows love through practical acts of care, valuing a partner who appreciates their effort and offers gentle reassurance.</p>
 </div>
 </div>
 </summary>
 <div class="expandable-card-content px-6">
 <div class="border-t border-primary/20 pt-8 mt-8 grid md:grid-cols-3 gap-x-12 gap-y-8 text-sm">
 <div>
-<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Deep Dive: Empathic Protocol</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[CONNECTION_CORE::ONLINE]</span> Piscean strength is a Neptunian force—a drive to dissolve boundaries and merge with the universal consciousness. It excels in healing by feeling what others feel. The evolutionary task is to transition from being a passive emotional sponge to a conscious channel for compassion. Unchanneled, it is chaotic. Channeled, it holds the power to <span class="font-bold text-violet-300 animate-pulse">bring divine love to earth.</span></p>
+<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Deep Dive: Analysis Protocol</h4>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[DIAGNOSTIC_CORE::ONLINE]</span> Virgoan analysis is a form of sacred geometry—seeing the divine order within chaos. It excels at breaking down complex systems into their component parts to identify and correct inefficiencies. The evolutionary task is to transition from merely finding flaws to architecting elegant, functional solutions. Unchanneled, it leads to nit-picking. Channeled, it holds the power to <span class="font-bold text-green-400 animate-pulse">heal broken systems.</span></p>
 </div>
 <div>
-<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Deep Dive: Illusion Algorithm</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[REALITY_FILTER::ACTIVE]</span> This is a feature, not a flaw. Pisces is running a complex reality-simulation, scanning for potential and beauty. The idealistic nature is a system check for hope. The spiritual mission is to trust their powerful intuition while learning to differentiate between genuine potential and wishful thinking. The Fish must learn to <span class="font-bold text-violet-300 animate-pulse">see with both their heart and their eyes.</span></p>
+<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Deep Dive: Criticism Algorithm</h4>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[ERROR_LOG::DETECTED]</span> This is a feature, not a flaw. Virgo possesses a high-resolution perception field, designed to detect dissonance. The frustration of "imperfection" is a system error triggered by an uncalibrated ideal. The spiritual mission is to understand that the purpose of identifying a flaw is not to condemn, but to offer a path to greater harmony. The critic must learn to <span class="font-bold text-green-400 animate-pulse">become a compassionate editor.</span></p>
 </div>
 <div>
 <h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Deep Dive: Relational Dynamics</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[SOUL_MERGE::INITIATED]</span> The Piscean search for a partner is a sacred quest for a soul who can meet them in the imaginal realms. A relationship devoid of magic, spiritual depth, and unconditional love is a barren desert. They fall in love with another's soul, seeking a partner who is brave enough to <span class="font-bold text-violet-300 animate-pulse">dream the same dream together.</span></p>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[DEVOTION_DRIVE::ACTIVE]</span> The Virgoan expression of love is a quiet, consistent rhythm of thoughtful acts. It is not a grand declaration, but a sacred contract of mutual support. They fall in love with the process of helping a partner become the best version of themselves, seeking someone who sees their service not as a duty, but as a <span class="font-bold text-green-400 animate-pulse">language of profound love.</span></p>
 </div>
 </div>
 </div>
 </details>
 <details class="group content-section expandable-card" style="animation-delay: 1.0s;">
 <summary class="list-none cursor-pointer">
-<h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary flex items-center justify-between" style="text-shadow: 0 0 15px var(--primary-glow);">The Fish's Paradox<span class="material-symbols-outlined text-3xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
+<h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary flex items-center justify-between" style="text-shadow: 0 0 15px var(--primary-glow);">The Maiden's Paradox <span class="material-symbols-outlined text-3xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
 <div class="grid md:grid-cols-2 gap-8 font-body text-base leading-relaxed">
 <div class="futuristic-card p-6">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Grounded Dreamer</h4>
-<p class="text-text-dark/90">Obsessed with dreams and the ethereal, Pisces possesses a hidden, profound wisdom about the material world, often understanding its mechanics with surprising clarity.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Sensual Puritan</h4>
+<p class="text-text-dark/90">Beneath the reserved exterior lies a deep appreciation for earthly pleasures. As a grounded Earth sign, Virgo finds sacredness in the physical world, yet their pursuit of purity can create a tension with their own sensual nature.</p>
 </div>
 <div class="futuristic-card p-6">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Solitary Companion</h4>
-<p class="text-text-dark/90">While deeply craving connection and merging with others, Pisces has a fundamental need for solitude to recharge, reconnect with their source, and process the world's energies.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Humble Leader</h4>
+<p class="text-text-dark/90">Often avoiding the spotlight, Virgo's leadership is one of quiet competence. They create order from chaos behind the scenes, their influence rooted in mastery and reliability rather than overt command—a form of invisible power.</p>
 </div>
 </div>
 </summary>
 <div class="expandable-card-content px-6">
 <div class="border-t border-primary/20 pt-8 mt-8 grid md:grid-cols-2 gap-x-12 gap-y-8 text-sm">
 <div>
-<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Paradox Resolution: Intuitive Logic</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[TRANSMUTATION_PROTOCOL::ENGAGED]</span> The drive to dream while understanding reality is an intuitive gift. Pisces absorbs information on a subliminal level. They "feel" the truth rather than analyzing it. The evolved Pisces learns to trust this inner knowing, using their dreams as a blueprint for what's possible in the material world. <span class="font-bold text-violet-300 animate-pulse">True wisdom is knowing that reality is a shared dream.</span></p>
+<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Paradox Resolution: The Sacred Body</h4>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[TRANSMUTATION_PROTOCOL::ENGAGED]</span> The path to resolving this tension is to see the body as a sacred temple, not a source of imperfection. By treating physical experience—food, touch, nature—as a form of communion, the Puritanical instinct is sanctified. Their greatest power is born from this integration, transmuting shame into reverence. <span class="font-bold text-green-400 animate-pulse">The body is not to be transcended, but honored.</span></p>
 </div>
 <div>
-<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Paradox Resolution: Sacred Space as Connection</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[QUANTUM_LOGIC::EXECUTED]</span> The 'Solitary Companion' seeks connection so deep it transcends physical presence. Solitude is a defense mechanism against psychic overload. When they find companions who respect their need for space, solitude becomes the ultimate act of intimacy—a sacred communion with self that enriches all their connections. Their alone time becomes a <span class="font-bold text-violet-300 animate-pulse">gateway to universal love.</span></p>
+<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Paradox Resolution: Service as Authority</h4>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[SYSTEM_LOGIC::EXECUTED]</span> The 'Humble Leader' operates on a logic that inverts traditional power structures—the greatest authority is the greatest servant. Their power is not asserted, but earned through undeniable competence and unwavering dedication. The proof is not in the title, but in the seamless functioning of the system they maintain. Their humility is a <span class="font-bold text-green-400 animate-pulse">direct line to authentic influence.</span></p>
 </div>
 </div>
 </div>
@@ -758,40 +767,40 @@
 <details class="dynamic-card" style="animation-delay: 0s;">
 <summary class="p-6 flex flex-col items-center text-center cursor-pointer list-none">
 <div class="flex items-center justify-between w-full mb-3">
-<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">palette</span>
+<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">local_florist</span>
 <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon">add</span>
 </div>
 <h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Career Trajectory</h4>
-<p class="text-text-dark/80 text-sm">Thrives in roles requiring imagination, compassion, and artistry. Healing arts, filmmaking, social work, and spiritual guidance are natural arenas.</p>
+<p class="text-text-dark/80 text-sm">Thrives in roles requiring precision, organization, and service. Healing arts, research, data analysis, and craft-based professions are natural arenas.</p>
 </summary>
 <div class="dynamic-card-content px-6 pb-6 text-left">
-<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[ASCENSION_VECTOR::PLOTTED]</span> The Piscean professional is a channel, a system-healer sent to infuse soulless structures with compassion. They don't climb the corporate ladder; they dissolve it with kindness. Their challenge lies in avoiding exploitation. They must learn that their gifts are valuable. <span class="font-bold text-violet-300 animate-pulse">Their purpose is not just to dream, but to inspire.</span></p>
+<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[ASCENSION_VECTOR::PLOTTED]</span> The Virgoan professional is a system optimizer, a master craftsperson sent to bring order and functionality to chaotic environments. They do not seek to disrupt, but to refine and perfect existing structures. Their challenge lies in trusting their own expertise and avoiding being relegated to a perpetual support role. They must learn to own their mastery and see their skill not as mere labor, but as invaluable art. <span class="font-bold text-green-400 animate-pulse">Their purpose is not just to fix, but to elevate.</span></p>
 </div>
 </details>
-<details class="dynamic-card" style="--angle: 120deg; animation-delay: -4s;">
+<details class="dynamic-card" style="--angle: 120deg; animation-delay: -3.33s;">
 <summary class="p-6 flex flex-col items-center text-center cursor-pointer list-none">
 <div class="flex items-center justify-between w-full mb-3">
-<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">blur_on</span>
+<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">shield</span>
 <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon">add</span>
 </div>
 <h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Defensive Protocol</h4>
-<p class="text-text-dark/80 text-sm">When challenged, the Fish employs strategic disengagement and confusion. They will become a shapeshifting mirage, impossible to pin down or attack directly.</p>
+<p class="text-text-dark/80 text-sm">When challenged, Virgo retreats to analyze. The defense is a barrage of logic, facts, and critical analysis aimed at deconstructing the opponent's argument.</p>
 </summary>
 <div class="dynamic-card-content px-6 pb-6 text-left">
-<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[THREAT_RESPONSE::ACTIVATED]</span> This protocol is not passive; it is an advanced energetic cloaking system. The Piscean "defense" is designed to de-escalate and dissolve conflict through non-resistance. Their vagueness is a shield, their adaptability a superpower. They would rather flow around an obstacle than confront it head-on. <span class="font-bold text-violet-300 animate-pulse">Confusion is a fortress against aggression.</span></p>
+<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[THREAT_RESPONSE::ACTIVATED]</span> This protocol is not malice; it is a diagnostic tool. The Virgoan "attack" is designed to stress-test an argument, exposing its flaws and inconsistencies to arrive at a more precise truth. Their criticism is a purification by intellect, restoring order and reason, even if the process feels cold. They would rather face a meticulous, sterile truth than exist in a comforting, flawed fantasy. <span class="font-bold text-green-400 animate-pulse">Analysis is a scalpel for revealing truth.</span></p>
 </div>
 </details>
-<details class="dynamic-card" style="--angle: 240deg; animation-delay: -8s;">
+<details class="dynamic-card" style="--angle: 240deg; animation-delay: -6.66s;">
 <summary class="p-6 flex flex-col items-center text-center cursor-pointer list-none">
 <div class="flex items-center justify-between w-full mb-3">
 <span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">groups</span>
 <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon">add</span>
 </div>
 <h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Social Dynamics</h4>
-<p class="text-text-dark/80 text-sm">As the mystic of the zodiac, Pisces prefers deep, soulful connections. They are the friend who feels your pain and loves you unconditionally.</p>
+<p class="text-text-dark/80 text-sm">As the helper of the group, Virgo offers practical support. They are the friend who plans the itinerary, brings the first-aid kit, and remembers everyone's dietary needs.</p>
 </summary>
 <div class="dynamic-card-content px-6 pb-6 text-left">
-<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[UNITY_MODULE::ONLINE]</span> In any social matrix, the Piscean function is that of the heart. They create unshakable bonds of empathy and acceptance, demanding nothing but your true self. Their presence encourages vulnerability, forgiveness, and spiritual growth. To be in their inner circle is to be perpetually invited to dissolve your ego and connect to love. <span class="font-bold text-violet-300 animate-pulse">They are the living embodiment of oneness.</span></p>
+<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[SUPPORT_MODULE::ONLINE]</span> In any social matrix, the Virgoan's function is that of the stabilizer. They transmute the group's chaotic energy into a smooth, functional experience, mitigating potential problems before they arise. Their presence allows friends to relax, knowing the details are handled. To be in their orbit is to be gently guided toward a more organized, healthy, and considered way of being. <span class="font-bold text-green-400 animate-pulse">They are the living embodiment of "God is in the details."</span></p>
 </div>
 </details>
 </div>
@@ -799,43 +808,43 @@
 <div class="content-section" style="animation-delay: 1.3s;">
 <h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Uncommon Lore</h3>
 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 font-body text-base leading-relaxed">
-<details class="dynamic-card" style="--angle: 60deg; animation-delay: -2s;">
+<details class="dynamic-card" style="--angle: 60deg; animation-delay: -1.66s;">
 <summary class="p-6 flex flex-col items-center text-center cursor-pointer list-none">
 <div class="flex items-center justify-between w-full mb-3">
-<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">all_inclusive</span>
+<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">grass</span>
 <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon">add</span>
 </div>
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Two Fish</h4>
-<p class="text-text-dark/80 text-sm">The two fish swimming in opposite directions represent the duality of Pisces: one fish swims towards the material world, the other towards the spiritual realm.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Sheaf of Wheat</h4>
+<p class="text-text-dark/80 text-sm">The symbol of Virgo isn't just a maiden, but one holding a sheaf of wheat, representing the harvest and the ability to discern the useful from the useless.</p>
 </summary>
 <div class="dynamic-card-content px-6 pb-6 text-left">
-<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80">[EVOLUTIONARY_PATH::MAPPED]</span> These are not opposing forces, but a sacred dance of consciousness. The Piscean journey is to unite these two currents. They learn to be in the world but not of it, to honor their human experience while remaining connected to their divine source. It is the journey from spiritual confusion to <span class="font-bold text-violet-300 animate-pulse">embodied enlightenment.</span></p>
+<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80">[EXTRACTION_PROTOCOL::MAPPED]</span> This is the core algorithm of Virgo: to harvest wisdom from experience. The wheat represents the nourishing essence, while the chaff represents the distracting, unhelpful details. The Virgoan mind is a divine thresher, separating what truly matters from what doesn't. This isn't about mere organization, but about extracting spiritual and practical sustenance from the raw data of life. It is the journey from information to <span class="font-bold text-green-400 animate-pulse">distilled wisdom.</span></p>
 </div>
 </details>
-<details class="dynamic-card" style="--angle: 180deg; animation-delay: -6s;">
+<details class="dynamic-card" style="--angle: 180deg; animation-delay: -5s;">
 <summary class="p-6 flex flex-col items-center text-center cursor-pointer list-none">
 <div class="flex items-center justify-between w-full mb-3">
-<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">spa</span>
+<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">psychology</span>
 <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon">add</span>
 </div>
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Exaltation of Venus</h4>
-<p class="text-text-dark/80 text-sm">Venus is "exalted" in Pisces, meaning the planet of love and beauty finds its highest, most spiritual expression here, as unconditional, divine love.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Exaltation of Mercury</h4>
+<p class="text-text-dark/80 text-sm">Mercury is "exalted" in Virgo, meaning the intellect and communication find their most precise, practical expression here—a supercomputer for the real world.</p>
 </summary>
 <div class="dynamic-card-content px-6 pb-6 text-left">
-<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[LOVE_FREQUENCY::ENABLED]</span> This "exaltation" is Pisces' divine gift. It elevates romantic love to Agape—universal, selfless love. The unevolved Piscean Venus is prone to idealization and codependency. The evolved Piscean Venus becomes a channel for divine love, capable of profound healing and fostering creative genius through connections built on <span class="font-bold text-violet-300 animate-pulse">unconditional acceptance.</span></p>
+<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[NEURAL_PROCESSOR::MAX_CAPACITY]</span> This exaltation is a double-edged scalpel. It bestows superior analytical and diagnostic abilities, but also presents the ultimate test: to use the intellect for service, not for anxiety or judgment. The unevolved Virgoan Mercury manifests as analysis-paralysis and incessant worry. The evolved Virgoan Mercury becomes a master diagnostician, a gifted teacher, and a clear channel for <span class="font-bold text-green-400 animate-pulse">practical, healing wisdom.</span></p>
 </div>
 </details>
-<details class="dynamic-card" style="--angle: 300deg; animation-delay: -10s;">
+<details class="dynamic-card" style="--angle: 300deg; animation-delay: -8.33s;">
 <summary class="p-6 flex flex-col items-center text-center cursor-pointer list-none">
 <div class="flex items-center justify-between w-full mb-3">
-<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">invert_colors_off</span>
+<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">troubleshoot</span>
 <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon">add</span>
 </div>
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Mutable Water Paradox</h4>
-<p class="text-text-dark/80 text-sm">As "mutable water," Pisces is like the ocean: formless, adaptable, and containing all things, yet holding the immense power of the collective.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Sixth House Link</h4>
+<p class="text-text-dark/80 text-sm">Virgo governs the 6th House of daily routines, health, and service. This imbues the sign with a deep connection to the sacredness of everyday work.</p>
 </summary>
 <div class="dynamic-card-content px-6 pb-6 text-left">
-<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[SYSTEM_OVERRIDE::POTENTIAL_ENERGY]</span> This is not a contradiction, but a core feature of their unifying function. To hold a fixed form would be to create separation. Their cosmic duty is to be a vessel for the collective emotional body. True wisdom for Pisces lies in learning to channel this vast ocean of feeling into creative acts, transmuting collective chaos into <span class="font-bold text-violet-300 animate-pulse">deliberate, healing art.</span></p>
+<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[SYSTEM_MAINTENANCE::RITUALIZED]</span> This is not about mundane chores, but about sanctifying the mundane. For Virgo, the daily grind is a spiritual practice, a moving meditation. Their cosmic duty is to reveal that enlightenment is found not in escaping the world, but in perfecting one's engagement with it. True wisdom for Virgo lies in understanding that how you do one thing is how you do everything. <span class="font-bold text-green-400 animate-pulse">Their focus is always on refining the present moment.</span></p>
 </div>
 </details>
 </div>
@@ -851,18 +860,18 @@
 </div>
 </summary>
 <div class="px-4 pb-4 text-base overflow-hidden transition-all duration-500 ease-in-out max-h-screen group-open:max-h-screen">
-<p class="leading-relaxed expanded-content-text-gradient">Linked to the myth of Aphrodite and Eros, who transformed into fish to escape the monster Typhon, this subroutine subverts the 'weak' stereotype. It recasts the Piscean archetype as a master of adaptation and flow, a symbol of love's power to transcend danger through metamorphosis. This reveals the core code is not merely 'escape', but <span class="font-bold text-violet-300 animate-pulse">'transmute'</span>—undergoing total transformation to achieve a higher, safer state of being.</p>
+<p class="leading-relaxed expanded-content-text-gradient">Linked to Astraea, the celestial virgin who was the last of the immortals to leave Earth as humanity fell from grace. This subroutine recasts the Virgoan archetype as a keeper of purity and divine order in a flawed world. It reveals the core code is not merely 'critique', but <span class="font-bold text-green-400 animate-pulse">'to hold a standard'</span>—maintaining a vision of what is possible, even amid chaos. The Maiden represents the incorruptible part of the soul, a reminder of the sacred potential within all things.</p>
 </div>
 </details>
 <details class="group accordion-item">
 <summary class="flex cursor-pointer list-none items-center justify-between p-4 font-bold text-xl font-display text-primary tracking-wider transition-all duration-300">
-                                    The "Dissolution" Protocol
+                                    The "Axis of Service" Protocol
                                     <div class="text-primary transition-transform duration-300 group-open:rotate-90">
 <svg class="feather feather-chevron-right" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
 </div>
 </summary>
 <div class="px-4 pb-4 text-base overflow-hidden transition-all duration-500 ease-in-out max-h-0 group-open:max-h-screen">
-<p class="leading-relaxed expanded-content-text-gradient">Pisces rules the 12th house, the domain of the collective unconscious, past lives, and self-undoing. Planets positioned here do not just express their energy for the self; they use it to dissolve karmic patterns and connect to the universal whole. A Piscean Mars doesn't just act, it acts on behalf of a dream or ideal. They are system-level mystics, here to experience life not as an individual journey, but through the crucible of spiritual surrender. Their personal evolution becomes, intentionally or not, a <span class="font-bold text-violet-300 animate-pulse">catalyst for collective healing.</span></p>
+<p class="leading-relaxed expanded-content-text-gradient">The Virgo-Pisces axis is the spine of the zodiac, connecting the practical with the mystical. Virgo grounds spiritual ideals (Pisces) in tangible reality, while Pisces gives Virgo's practical work a sense of divine purpose. Natives with strong placements on this axis are here to bridge worlds, to be "practical mystics." Their mission is to demonstrate that true service is both earthly and divine, a marriage of meticulous skill and boundless compassion. Their life's work is a <span class="font-bold text-green-400 animate-pulse">prayer in motion.</span></p>
 </div>
 </details>
 <details class="group accordion-item">
@@ -873,7 +882,7 @@
 </div>
 </summary>
 <div class="px-4 pb-4 text-base overflow-hidden transition-all duration-500 ease-in-out max-h-0 group-open:max-h-screen">
-<p class="leading-relaxed expanded-content-text-gradient">While instinctively favoring the profound empathy of fellow Water signs (Cancer, Scorpio) and the grounding stability of Earth signs (Taurus, Virgo), Pisces achieves profound growth through high-friction pairings. Air signs (Gemini, Aquarius) install critical 'logic' and 'communication' modules, teaching Pisces to articulate their vast inner world. Fire signs (Aries, Leo) provide the 'action' patch, connecting their boundless imagination to a more confident, expressive way of being in the world. <span class="font-bold text-violet-300 animate-pulse">True love requires dynamic integration.</span></p>
+<p class="leading-relaxed expanded-content-text-gradient">While instinctively favoring the stability of fellow Earth signs (Taurus, Capricorn) and the deep connection of Water signs (Cancer, Scorpio), Virgo achieves profound growth through high-friction pairings. Fire signs (Aries, Leo) install critical 'spontaneity' and 'self-confidence' modules, teaching the Maiden to trust their instincts over their analysis. Air signs (Gemini, Aquarius) provide the 'big picture' patch, liberating Virgoan intellect from the weeds of detail and applying it to broader, more innovative concepts. <span class="font-bold text-green-400 animate-pulse">True evolution requires dynamic tension.</span></p>
 </div>
 </details>
 </div>
@@ -918,9 +927,9 @@
         const spectrumTitle = document.getElementById('spectrum-title');
         const spectrumDesc = document.getElementById('spectrum-desc');
         const spectrumData = [
-            { range: [0, 0.33], title: 'Deep Indigo', desc: 'Cosmic consciousness, mystic wisdom, and universal knowledge. The root of Pisces\' intuition.' },
-            { range: [0.33, 0.66], title: 'Soft Violet', desc: 'The core frequency of dreams, compassion, artistic inspiration, and spiritual connection. The soul of the cosmos.' },
-            { range: [0.66, 1], title: 'Pale Lavender', desc: 'Unconditional love, spiritual healing, and the gentle expression of divine grace. The Angelic frequency.' }
+            { range: [0, 0.33], title: 'Deep Forest Green', desc: 'Ancient wisdom, grounding, natural law. The deep roots of understanding.' },
+            { range: [0.33, 0.66], title: 'Sage Green', desc: 'The core frequency of analysis, refinement, service, and practical wisdom. The nervous system of the zodiac.' },
+            { range: [0.66, 1], title: 'Mint Green', desc: 'Healing, clarity, and mental freshness. The cleansing expression of purity and order.' }
         ];
         spectrum.addEventListener('mousemove', (e) => {
             const rect = spectrum.getBoundingClientRect();

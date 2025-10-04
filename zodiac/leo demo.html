@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="en"><head>
+<html lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" name="viewport"/>
-<title>Pisces Zodiac Sign</title>
+<title>Leo Zodiac Sign</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700;900&amp;family=Space+Grotesk:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&amp;family=Roboto+Mono:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-<link rel="stylesheet" href="../assets/css/scrolling-fixes.css"/>
+<link rel="stylesheet" href="assets/css/scrolling-fixes.css"/>
 <style type="text/tailwindcss">
         @layer base {
              :root {
-                --primary: #a78bfa;--primary-glow: #a78bfa80;
-                --background-light: #100C14;
-                --background-dark: #08060A;
-                --text-light: #FBF9FF;
-                --text-dark: #EADFFD;
-                --subtle-light: #3D2C5E;
-                --subtle-dark: #6D4E9C;
+                --primary: #FFD700;
+                --primary-glow: #ffd70080;
+                --background-light: #1A1400;
+                --background-dark: #0D0A00;
+                --text-light: #FFF8E1;
+                --text-dark: #FFEEC2;
+                --subtle-light: #4D3D00;
+                --subtle-dark: #806700;
                 --mouse-x: 50%;
                 --mouse-y: 50%;
                 --scroll-y: 0;
@@ -39,25 +39,32 @@
         }
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
+            max-width: 100vw;
         }
         body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            margin: 0;
+            padding: 0;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
         .animate-subtle-pulse {
-            animation: subtle-pulse 5s ease-in-out infinite;
+            animation: subtle-pulse 4s ease-in-out infinite;
         }
         .animate-subtle-float {
-            animation: subtle-float 7s ease-in-out infinite;}
-        .pisces-logo-glow {
+            animation: subtle-float 5s ease-in-out infinite;
+        }
+        .leo-logo-glow {
             filter: drop-shadow(0 0 12px var(--primary-glow)) drop-shadow(0 0 20px var(--primary-glow));
             transition: filter 0.3s ease-in-out;
         }
-        .pisces-logo-glow:hover {
+        .leo-logo-glow:hover {
             filter: drop-shadow(0 0 18px var(--primary)) drop-shadow(0 0 30px var(--primary));
         }
         .data-card {
-            background-color: #a78bfa08;
+            background-color: #ffd70008;
             border: 1px solid var(--primary-glow);
             backdrop-filter: blur(12px);
             transition: all 0.3s ease;
@@ -87,7 +94,7 @@
         .data-card:nth-child(6) { animation-delay: 0.7s; }
         .data-card:hover {
             transform: translateY(-8px) scale(1.03);
-            background-color: #a78bfa1a;
+            background-color: #ffd7001a;
             border-color: var(--primary);
         }
         .content-section {
@@ -96,7 +103,7 @@
              animation-delay: 0.6s;
         }
         .futuristic-card {
-            background: linear-gradient(145deg, rgba(167, 139, 250, 0.05), rgba(167, 139, 250, 0.1));
+            background: linear-gradient(145deg, rgba(255, 215, 0, 0.05), rgba(255, 215, 0, 0.1));
             border: 1px solid var(--primary-glow);
             backdrop-filter: blur(10px);
             clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
@@ -112,14 +119,14 @@
             z-index: -1;
             opacity: 0;
             transition: opacity 0.4s ease-in-out;
-            animation: subtle-pulse 6s infinite;
+            animation: subtle-pulse 5s infinite;
         }
         .futuristic-card:hover::before {
             opacity: 0.3;
         }
         .futuristic-card:hover {
             transform: translateY(-5px);
-            background: linear-gradient(145deg, rgba(167, 139, 250, 0.1), rgba(167, 139, 250, 0.15));
+            background: linear-gradient(145deg, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.15));
             border-color: var(--primary);
         }
         .accordion-item {
@@ -130,13 +137,13 @@
         }
         .accordion-item:hover {
              border-color: var(--primary);
-             background-color: rgba(167, 139, 250, 0.05);
+             background-color: rgba(255,215,0,0.05);
         }
         .accordion-item summary::-webkit-details-marker {
             display: none;
         }
         .icon-card {
-            background: rgba(167, 139, 250, 0.03);
+            background: rgba(255, 215, 0, 0.03);
             border: 1px solid var(--primary-glow);
             transition: all 0.3s ease;
             position: relative;
@@ -145,7 +152,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(ellipse at center, rgba(167, 139, 250, 0.3), transparent 70%);
+            background: radial-gradient(ellipse at center, rgba(255, 215, 0, 0.3), transparent 70%);
             filter: blur(15px);
             z-index: -1;
             opacity: 0;
@@ -155,7 +162,7 @@
             opacity: 0.6;
         }
         .icon-card:hover {
-            background: rgba(167, 139, 250, 0.08);
+            background: rgba(255, 215, 0, 0.08);
             border-color: var(--primary);
             transform: translateY(-5px);
         }
@@ -163,7 +170,8 @@
             --angle: 0deg;
             border: 2px solid;
             border-image: conic-gradient(from var(--angle), transparent 20%, var(--primary), transparent 80%) 1;
-            animation: 12s rotate linear infinite;background: radial-gradient(ellipse at center, rgba(167, 139, 250, 0.1) 0%, transparent 70%);
+            animation: 10s rotate linear infinite;
+            background: radial-gradient(ellipse at center, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
             position: relative;
             overflow: hidden;
             transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
@@ -216,8 +224,8 @@
             animation: move-twink-back 200s linear infinite;transform: translate(calc(calc(50% - var(--mouse-x)) / 40), calc(calc(50% - var(--mouse-y)) / 40)) translateY(calc(var(--scroll-y) * 0.3px));
         }
         .nebula {
-            background: radial-gradient(ellipse at 70% 30%, rgba(167, 139, 250, 0.25) 0%, transparent 50%),
-                        radial-gradient(ellipse at 20% 80%, rgba(109, 78, 156, 0.2) 0%, transparent 40%);
+            background: radial-gradient(ellipse at 70% 30%, rgba(255, 215, 0, 0.25) 0%, transparent 50%),
+                        radial-gradient(ellipse at 20% 80%, rgba(255, 215, 0, 0.2) 0%, transparent 40%);
             animation: move-nebula 120s ease-in-out infinite alternate;transform: translate(calc(calc(50% - var(--mouse-x)) / 60), calc(calc(50% - var(--mouse-y)) / 60)) translateY(calc(var(--scroll-y) * 0.5px));
         }
         .light-flare {
@@ -228,7 +236,7 @@
             height: 100%;
             pointer-events: none;
             z-index: -20;
-            background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(167, 139, 250, 0.1) 0%, transparent 20%);
+            background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(255, 215, 0, 0.1) 0%, transparent 20%);
             opacity: 0;
             transition: opacity 0.5s ease-out;
         }
@@ -263,9 +271,8 @@
             opacity: 1;
             padding-top: 1.5rem;
             padding-bottom: 1.5rem;
-        }
-        .decan-card {
-            background-color: rgba(167, 139, 250, 0.05);
+        }.decan-card {
+            background-color: rgba(255,215,0,0.05);
             border-left: 3px solid var(--primary-glow);
             transition: all 0.4s ease;
             transform: translateX(-20px);
@@ -276,31 +283,32 @@
             opacity: 1;
         }
         .decan-card:hover {
-            background-color: rgba(167, 139, 250, 0.1);
+            background-color: rgba(255,215,0,0.1);
             border-left-color: var(--primary);
             transform: scale(1.02);
         }
         @keyframes float-asteroid {
-            0%, 100% { transform: translateY(0px) rotate(-3deg); }
-            50% { transform: translateY(-12px) rotate(3deg); }
+            0%, 100% { transform: translateY(0px) rotate(-5deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
         }
         .asteroid-card {
-            background: radial-gradient(circle, rgba(167, 139, 250, 0.15) 0%, transparent 80%);
+            background: radial-gradient(circle, rgba(255,215,0,0.15) 0%, transparent 80%);
             border: 1px dashed var(--primary-glow);
-            animation: float-asteroid 10s ease-in-out infinite;transition: all 0.4s ease;
+            animation: float-asteroid 8s ease-in-out infinite;
+            transition: all 0.4s ease;
         }
         .asteroid-card:hover {
             animation-play-state: paused;
             transform: scale(1.1);
-            background: radial-gradient(circle, rgba(167, 139, 250, 0.3) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255,215,0,0.3) 0%, transparent 70%);
             border-style: solid;
             border-color: var(--primary);
             filter: drop-shadow(0 0 15px var(--primary));
         }
-        .asteroid-card:nth-child(2) { animation-delay: -2s; animation-duration: 9s; }
-        .asteroid-card:nth-child(3) { animation-delay: -4s; animation-duration: 11s; }
+        .asteroid-card:nth-child(2) { animation-delay: -2s; animation-duration: 7s; }
+        .asteroid-card:nth-child(3) { animation-delay: -4s; animation-duration: 9s; }
         .color-spectrum {
-            background: linear-gradient(90deg, #6b21a8 0%, var(--primary) 50%, #e9d5ff 100%);
+            background: linear-gradient(90deg, #b8860b 0%, var(--primary) 50%, #fffacd 100%);
             position: relative;
             cursor: none;
             transition: all 0.3s ease-out;
@@ -333,7 +341,7 @@
             transform: translateY(0) scale(1);
         }
         .chiron-card {
-            background: linear-gradient(220deg, rgba(167, 139, 250, 0.05), rgba(109, 78, 156, 0.2));
+            background: linear-gradient(220deg, rgba(255, 215, 0, 0.05), rgba(80, 65, 10, 0.2));
             border: 1px solid var(--primary-glow);
             backdrop-filter: blur(15px);
             clip-path: polygon(0 0, 100% 0, 100% 100%, 20px 100%, 0 calc(100% - 20px));
@@ -342,7 +350,7 @@
         .chiron-card:hover {
             transform: translateY(-8px);
             border-color: var(--primary);
-            background: linear-gradient(220deg, rgba(167, 139, 250, 0.1), rgba(124, 58, 237, 0.3));
+            background: linear-gradient(220deg, rgba(255, 215, 0, 0.1), rgba(100, 80, 15, 0.3));
         }
         .archetype-link {
             position: relative;
@@ -413,22 +421,23 @@
             right: 0;
             bottom: 0;
             z-index: 0;
-            background: linear-gradient(120deg, rgba(167, 139, 250, 0), rgba(167, 139, 250, 0.1), rgba(167, 139, 250, 0));
+            background: linear-gradient(120deg, rgba(255, 215, 0, 0), rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0));
             background-size: 200% 200%;
-            animation: animated-gradient 10s ease infinite;}
+            animation: animated-gradient 8s ease infinite;
+        }
         .expanded-content-text-gradient {
             background: linear-gradient(120deg, var(--text-dark), var(--text-light));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .progress-bar-container {
-            background-color: rgba(167, 139, 250, 0.1);
+            background-color: rgba(255,215,0,0.1);
             border-radius: 9999px;
             overflow: hidden;
             border: 1px solid var(--primary-glow);
         }
         .progress-bar {
-            background: linear-gradient(90deg, var(--primary) 0%, #e9d5ff 100%);
+            background: linear-gradient(90deg, var(--primary) 0%, #FFFACD 100%);
             box-shadow: 0 0 15px var(--primary-glow);
             transition: width 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
         }
@@ -436,9 +445,9 @@
             width: var(--progress-width, 0%);
         }
     </style>
-<script>tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#607AFB", "background-light": "#f5f6f8", "background-dark": "#0f1323", "text-light": "var(--text-light)", "text-dark": "var(--text-dark)", "subtle-light": "var(--subtle-light)", "subtle-dark": "var(--subtle-dark)"}, fontFamily: {display: "Space Grotesk", body: ["Roboto Mono", "monospace"]}, borderRadius: {DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px"}}}};</script>
+<script>tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#FFD700", "background-light": "#1A1400", "background-dark": "#0D0A00", "text-light": "var(--text-light)", "text-dark": "var(--text-dark)", "subtle-light": "var(--subtle-light)", "subtle-dark": "var(--subtle-dark)"}, fontFamily: {display: "Orbitron", body: ["Roboto Mono", "monospace"]}, borderRadius: {DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px"}}}};</script>
 </head>
-<body class="bg-background-dark font-body text-text-dark will-change-scroll overflow-x-hidden">
+<body class="bg-background-dark font-body text-text-dark will-change-scroll">
 <div class="min-h-screen relative main-container overflow-hidden">
 <div class="absolute inset-0 bg-background-dark -z-50"></div>
 <div class="stars absolute inset-0 opacity-80 -z-40 transition-transform duration-300 ease-out"></div>
@@ -448,18 +457,18 @@
 <header class="border-b border-subtle-dark/50 backdrop-blur-md bg-background-dark/30 sticky top-0 z-50 transition-all duration-300 ease-in-out">
 <div class="container mx-auto flex items-center justify-between px-6 py-4">
 <div class="flex items-center gap-4 group">
-<img src="../pictures/piscespic.png" class="h-10 w-10 text-primary pisces-logo-glow group-hover:scale-110 transition-transform duration-300">
+<img src="../pictures/leo pic.png" class="h-10 w-10 text-primary leo-logo-glow group-hover:scale-110 transition-transform duration-300">
 <div class="flex flex-col items-start">
 <h1 class="text-2xl font-bold font-display uppercase tracking-wider text-text-light group-hover:text-primary transition-colors duration-300" style="text-shadow: 0 0 10px var(--primary-glow);">AstroVibe</h1>
 <span class="text-xs text-text-dark/60 font-body transition-all duration-300 group-hover:text-primary/70">by ShivaKali Ashram</span>
 </div>
 </div>
 <div class="flex items-center gap-2 md:gap-4">
-<a href="../zodiac-signs.html" class="nav-button">Zodiac Hub</a>
+<a href="zodiac-signs.html" class="nav-button">Zodiac Hub</a>
 <a href="../index.html" class="nav-button">Back to Ashram</a>
 <a href="../index.html#jyotisha" class="nav-button">Back to Jotish</a>
-<button class="nav-button" onclick="window.location.href='aquarius demo.html'">Previous Sign</button>
-<button class="nav-button" onclick="window.location.href='aries demo.html'">Next Sign</button>
+<button class="nav-button" onclick="window.location.href='cancer demo.html'">Previous Sign</button>
+<button class="nav-button" onclick="window.location.href='virgo demo.html'">Next Sign</button>
 </div>
 </div>
 </header>
@@ -467,12 +476,12 @@
 <div class="max-w-5xl mx-auto">
 <div class="text-center mb-16 md:mb-24">
 <div class="flex justify-center mb-6 animate-subtle-float">
-<img src="../pictures/piscespic.png" class="h-28 w-28 md:h-36 md:w-36 text-primary pisces-logo-glow">
+<img src="../pictures/leo pic.png" class="h-28 w-28 md:h-36 md:w-36 text-primary leo-logo-glow">
 </div>
-<h2 class="text-6xl md:text-8xl font-black font-display text-transparent bg-clip-text bg-gradient-to-r from-primary via-violet-300 to-indigo-200 tracking-widest animate-subtle-pulse" style="text-shadow: 0 0 30px var(--primary-glow);">PISCES</h2>
+<h2 class="text-6xl md:text-8xl font-black font-display text-transparent bg-clip-text bg-gradient-to-r from-primary via-yellow-300 to-yellow-200 tracking-widest animate-subtle-pulse" style="text-shadow: 0 0 30px var(--primary-glow);">LEO</h2>
 <div class="mt-4 content-section intro-text-bg" style="animation-delay: 0.2s;">
 <p class="relative z-10 text-lg md:text-xl text-text-dark/80 max-w-3xl mx-auto font-body">
-<span class="text-primary/80">&lt;SYSTEM_LOG&gt;</span> Ruled by Neptune, the planet of dreams, illusion, and spiritual transcendence. Pisces is the cosmic ocean, the <span class="font-bold text-primary animate-pulse">Great Dissolver</span> of the zodiac. It seeks unity through empathy, artistic expression, and surrendering to the divine current. This is the narrative of universal consciousness, selfless service, and the boundless power of imagination. <span class="text-primary/80">&lt;/TRANSMISSION&gt;</span>
+<span class="text-primary/80">&lt;SYSTEM_LOG&gt;</span> Ruled by the Sun, the celestial heart of our solar system. Leo is the radiant core of creative expression, the <span class="font-bold text-primary animate-pulse">Cosmic Center Stage</span> of the zodiac. It emanates warmth, magnanimity, and a noble spirit. This is the narrative of sovereignty, performance, and the magnificent projection of the self. <span class="text-primary/80">&lt;/TRANSMISSION&gt;</span>
 </p>
 </div>
 </div>
@@ -482,32 +491,32 @@
 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
 <div class="data-card p-4 flex flex-col items-center justify-center text-center">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Somatic Focus</p>
-<p class="font-bold text-2xl font-display text-primary">Feet</p>
-<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Mystic Union</p>
+<p class="font-bold text-2xl font-display text-primary">Heart</p>
+<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Royal Power</p>
 </div>
 <div class="data-card p-4 flex flex-col items-center justify-center text-center">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Crystal</p>
-<p class="font-bold text-2xl font-display text-primary">Moonstone</p>
-<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Divine Dreams</p>
+<p class="font-bold text-2xl font-display text-primary">Ruby</p>
+<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Divine Light</p>
 </div>
 <div class="data-card p-4 flex flex-col items-center justify-center text-center">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Chroma Key</p>
-<p class="font-bold text-2xl font-display text-primary">Sea Green</p>
+<p class="font-bold text-2xl font-display text-primary">Gold</p>
 <p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Energy</p>
 </div>
 <div class="data-card p-4 flex flex-col items-center justify-center text-center">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Ruling Planet</p>
-<p class="font-bold text-2xl font-display text-primary">Neptune</p>
-<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Neptune's Vision</p>
+<p class="font-bold text-2xl font-display text-primary">Sun</p>
+<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Solar Force</p>
 </div>
 <div class="data-card p-4 flex flex-col items-center justify-center text-center">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Element</p>
-<p class="font-bold text-2xl font-display text-primary">Water</p>
+<p class="font-bold text-2xl font-display text-primary">Fire</p>
 <p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Essence</p>
 </div>
 <div class="data-card p-4 flex flex-col items-center justify-center text-center">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Modality</p>
-<p class="font-bold text-2xl font-display text-primary">Mutable</p>
+<p class="font-bold text-2xl font-display text-primary">Fixed</p>
 <p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Style</p>
 </div>
 </div>
@@ -516,28 +525,19 @@
 <div class="border-t border-primary/20 pt-8 mt-8 grid md:grid-cols-2 gap-x-12 gap-y-8 text-sm">
 <div>
 <h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">System Analysis: Root Code</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary font-semibold">[KERNEL_ANALYSIS::INITIATED]</span> The Core Matrix of Pisces is an operating system for universal connection. 'Feet' represent the soul's journey and connection to both earth and spirit. 'Amethyst,' with its calming hues, enhances intuition and spiritual awareness. 'Violet' is the frequency of higher consciousness and cosmic unity. 'Neptune' is the central processor, prioritizing imagination, empathy, and dissolving boundaries. 'Water' is the medium for emotional flow and psychic sensitivity. 'Mutable' is the prime directive: <span class="font-bold text-violet-300 animate-pulse">DREAM. MERGE. TRANSCEND.</span></p>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary font-semibold">[KERNEL_ANALYSIS::INITIATED]</span> The Leo Core Matrix defines the blueprint for sustained, radiant self-expression. 'Heart' is the central generator, broadcasting courage and warmth. 'Peridot,' born of volcanic fire, symbolizes the joyful expression of inner light. 'Gold' is the signature of incorruptible value and sovereignty. 'The Sun' acts as the primary power source, defining identity and purpose. 'Fire' is the engine of creative passion. 'Fixed' is the prime directive, hard-coded into its being: <span class="font-bold text-yellow-300 animate-pulse">RADIATE. CREATE. ENDURE.</span></p>
 </div>
 <div>
 <h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Metaphysical Resonance Field</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary font-semibold">[FREQUENCY_CALIBRATION::ACTIVE]</span> These are not mere symbols; they are cosmic frequencies that tune reality towards compassion and oneness. Meditating on 'Violet', holding 'Amethyst', or focusing on the 'Feet' as a spiritual antenna aligns your bio-field with the Piscean frequency. This matrix provides a universal pattern for artistic inspiration, selfless love, and spiritual liberation. It is the universe's algorithm for dissolving the ego, the <span class="font-bold text-violet-300 animate-pulse">sacred equation of enlightenment.</span></p>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary font-semibold">[FREQUENCY_CALIBRATION::ACTIVE]</span> These are not mere symbols; they are cosmic keys to unlocking your own sovereign power. Adorning oneself in the 'Gold' spectrum, aligning with Peridot's vibrant energy, or focusing loving-kindness in the 'Heart' center amplifies the Leonine frequency in your personal bio-field. This matrix is a universal pattern for creative manifestation, a blueprint for any soul seeking to embody leadership, generosity, and the magnanimous power of a stable, shining spirit. It is the universe's <span class="font-bold text-yellow-300 animate-pulse">declaration of selfhood.</span></p>
 </div>
 <div class="md:col-span-2">
 <h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Interactive Energy Calibration</h4>
-<p class="leading-relaxed expanded-content-text-gradient mb-4">Engage with the Piscean core frequency. Below are the key energetic signatures. Focus on a concept and visualize its essence flowing into your own system.</p>
+<p class="leading-relaxed expanded-content-text-gradient mb-4">Engage with the Leonine core frequency. Below are the key energetic signatures. Focus on a concept and visualize its power integrating with your own system.</p>
 <div class="space-y-3">
 <div class="w-full">
 <div class="flex justify-between text-xs font-mono text-text-dark mb-1">
-<span>EMPATHY</span>
-<span>98%</span>
-</div>
-<div class="progress-bar-container h-2.5">
-<div class="progress-bar h-full rounded-full" style="--progress-width: 98%;"></div>
-</div>
-</div>
-<div class="w-full">
-<div class="flex justify-between text-xs font-mono text-text-dark mb-1">
-<span>IMAGINATION</span>
+<span>CREATIVE EXPRESSION</span>
 <span>95%</span>
 </div>
 <div class="progress-bar-container h-2.5">
@@ -546,11 +546,20 @@
 </div>
 <div class="w-full">
 <div class="flex justify-between text-xs font-mono text-text-dark mb-1">
-<span>BOUNDARIES</span>
-<span>15%</span>
+<span>GENEROSITY</span>
+<span>90%</span>
 </div>
 <div class="progress-bar-container h-2.5">
-<div class="progress-bar h-full rounded-full" style="--progress-width: 15%;"></div>
+<div class="progress-bar h-full rounded-full" style="--progress-width: 90%;"></div>
+</div>
+</div>
+<div class="w-full">
+<div class="flex justify-between text-xs font-mono text-text-dark mb-1">
+<span>ACCEPTING CRITICISM</span>
+<span>25%</span>
+</div>
+<div class="progress-bar-container h-2.5">
+<div class="progress-bar h-full rounded-full" style="--progress-width: 25%;"></div>
 </div>
 </div>
 </div>
@@ -563,19 +572,19 @@
 <h3 class="text-4xl font-bold font-display mb-8 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Decanic Sub-Rulers</h3>
 <div class="grid md:grid-cols-3 gap-8 font-body text-base leading-relaxed">
 <div class="decan-card p-6 in-view" style="transition-delay: 100ms;">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decan I: The Dreamer (0-9°)</h4>
-<p class="text-sm text-text-dark/70 mb-2">Sub-ruler: Neptune</p>
-<p class="text-text-dark/90 text-sm">Pure, unfiltered Piscean energy. The mystic, the artist, the visionary. Embodies boundless compassion and a deep connection to the collective unconscious. This is the drive for spiritual union in its most potent form.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decan I: The Performer (0-9°)</h4>
+<p class="text-sm text-text-dark/70 mb-2">Sub-ruler: The Sun</p>
+<p class="text-text-dark/90 text-sm">Pure, unfiltered Leonine radiance. The entertainer, the creative force, the natural leader. Embodies charisma and a need for self-expression. This is the star in its brightest form.</p>
 </div>
 <div class="decan-card p-6 in-view" style="transition-delay: 200ms;">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decan II: The Nurturer (10-19°)</h4>
-<p class="text-sm text-text-dark/70 mb-2">Sub-ruler: Moon</p>
-<p class="text-text-dark/90 text-sm">The dreamy nature is now grounded in emotional sensitivity and caring. The focus shifts to healing, devotion, and creating a safe haven for others. The soul is deeply empathetic and protective.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decan II: The Director (10-19°)</h4>
+<p class="text-sm text-text-dark/70 mb-2">Sub-ruler: Jupiter</p>
+<p class="text-text-dark/90 text-sm">The creative impulse is now channeled into grand visions and benevolent rule. The focus shifts from personal spotlight to optimistic expansion and philosophical leadership. The vision is broad and generous.</p>
 </div>
 <div class="decan-card p-6 in-view" style="transition-delay: 300ms;">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decan III: The Vessel (20-29°)</h4>
-<p class="text-sm text-text-dark/70 mb-2">Sub-ruler: Pluto</p>
-<p class="text-text-dark/90 text-sm">Compassion now merges with transformative power. This is the Pisces who uses their intuitive depth to facilitate profound psychological healing. The drive is for spiritual surrender and rebirth.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decan III: The Star (20-29°)</h4>
+<p class="text-sm text-text-dark/70 mb-2">Sub-ruler: Mars</p>
+<p class="text-text-dark/90 text-sm">Radiance is now fueled by will and a desire to compete and win. This is the ambitious Leo, seeking acclaim through decisive action and bold performance. The drive is for recognition and victory.</p>
 </div>
 </div>
 </div>
@@ -583,30 +592,30 @@
 <h3 class="text-4xl font-bold font-display mb-8 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Rare Asteroid Connections</h3>
 <div class="grid md:grid-cols-3 gap-12 font-body text-base leading-relaxed pt-10">
 <div class="asteroid-card p-6 text-center rounded-full flex flex-col justify-center items-center aspect-square">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Psyche</h4>
-<p class="text-text-dark/80 text-sm">Goddess of the Soul. Amplifies Pisces' connection to empathy, soul-level connections, and the ability to understand others' innermost feelings and motivations without words.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Apollo</h4>
+<p class="text-text-dark/80 text-sm">The god of arts, music, and prophecy. Amplifies Leo's creative gifts and connects their self-expression to a higher, divine inspiration. Bestows a touch of the muse.</p>
 </div>
 <div class="asteroid-card p-6 text-center rounded-full flex flex-col justify-center items-center aspect-square">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Chiron</h4>
-<p class="text-text-dark/80 text-sm">The Wounded Healer. Represents Pisces' ability to transmute personal suffering into universal compassion, healing others through their deep understanding of pain.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Vesta</h4>
+<p class="text-text-dark/80 text-sm">The keeper of the sacred flame. Infuses the Leonine ego with a sense of devotion and purpose, turning personal radiance into a sacred fire that warms the community.</p>
 </div>
 <div class="asteroid-card p-6 text-center rounded-full flex flex-col justify-center items-center aspect-square">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Isis</h4>
-<p class="text-text-dark/80 text-sm">The Egyptian goddess of magic and unconditional love. Infuses the Piscean drive with the power to piece together fragmented souls and restore wholeness through divine love.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Hebe</h4>
+<p class="text-text-dark/80 text-sm">The goddess of youth and cupbearer to the gods. Represents Leo's eternal inner child, their ability to find joy and play, and their gift of rejuvenating the spirits of others.</p>
 </div>
 </div>
 </div>
 <div class="content-section" style="animation-delay: 0.9s;">
 <h3 class="text-4xl font-bold font-display mb-4 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Color-Energy Spectrum Visualizer</h3>
 <p class="text-center text-text-dark/80 mb-8 max-w-2xl mx-auto font-body text-sm">
-<span class="text-primary/80">[// INTERACTIVE_INTERFACE //]</span> Move your cursor across the spectrum below to decode the Piscean energy signature. Each shade of violet represents a different facet of its compassion. The light bar indicates your current position on the vibrational scale, revealing the qualities associated with that specific frequency. Engage with the flow to understand the dynamic range of Pisces, from deep empathy to cosmic consciousness.
+<span class="text-primary/80">[// INTERACTIVE_INTERFACE //]</span> Move your cursor across the spectrum below to decode the Leonine energy signature. Each shade of gold represents a different facet of its power. The light bar indicates your current position on the vibrational scale, revealing the qualities associated with that specific frequency. Engage with the flow to understand the dynamic range of Leo, from playful creativity to noble sovereignty.
                     </p>
 <div class="relative" id="spectrum-container">
 <div class="color-spectrum h-20 w-full rounded-lg" id="color-spectrum"></div>
 <div class="spectrum-info-container absolute bottom-full mb-2 w-full flex justify-center pointer-events-none" id="spectrum-info-container">
 <div class="p-4 rounded-lg bg-background-dark/80 border border-primary/30 backdrop-blur-sm text-center w-64" id="spectrum-info">
-<h5 class="font-bold text-primary font-display text-lg transition-all duration-200" id="spectrum-title">Soft Violet</h5>
-<p class="text-xs text-text-dark/80 transition-all duration-200" id="spectrum-desc">The core frequency of dreams, compassion, artistic inspiration, and spiritual connection. The soul of the cosmos.</p>
+<h5 class="font-bold text-primary font-display text-lg transition-all duration-200" id="spectrum-title">Radiant Gold</h5>
+<p class="text-xs text-text-dark/80 transition-all duration-200" id="spectrum-desc">The core frequency of sovereignty, creative power, generosity, and charismatic leadership. The heart of the zodiac.</p>
 </div>
 </div>
 </div>
@@ -616,31 +625,31 @@
 <h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary flex items-center justify-between" style="text-shadow: 0 0 15px var(--primary-glow);">Shadow Aspects Unveiled<span class="material-symbols-outlined text-3xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
 <div class="grid md:grid-cols-2 gap-8 font-body text-base leading-relaxed">
 <div class="futuristic-card p-6">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Escapist</h4>
-<p class="text-text-dark/90">The desire to transcend reality, when corrupted by fear of pain, becomes a need to escape. The shadow appears as addiction, self-deception, and avoidance of responsibility.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Monarch</h4>
+<p class="text-text-dark/90">When the need for admiration is corrupted by insecurity, it becomes a demand for constant validation. The shadow appears as arrogance, vanity, and a refusal to acknowledge others' contributions.</p>
 </div>
 <div class="futuristic-card p-6">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Martyr</h4>
-<p class="text-text-dark/90">The depth of compassion, without the balance of self-preservation, leads to victimhood. The shadow is obsessed with sacrifice, attracting draining energies, and enabling others.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Drama Queen</h4>
+<p class="text-text-dark/90">The desire to be at the center of life can morph into creating unnecessary drama to get attention. The shadow is a scene-stealer, exaggerating emotions and turning every situation into a personal performance.</p>
 </div>
 </div>
 </summary>
 <div class="expandable-card-content px-6">
 <div class="border-t border-primary/20 pt-8 mt-8 grid md:grid-cols-2 gap-x-12 gap-y-8 text-sm">
 <div>
-<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Integration Path: Conscious Creativity</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[EGO_MODULATION::REQUIRED]</span> The antidote to escapism is creation. The evolved Pisces understands that true transcendence comes from channeling their imagination into art, music, or healing practices. By giving form to their inner worlds, they learn that reality can be shaped, not just fled. <span class="font-bold text-violet-300 animate-pulse">Thus, escapism is refined into true inspiration.</span></p>
+<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Integration Path: Humble Sovereignty</h4>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[EGO_MODULATION::REQUIRED]</span> The antidote to vanity is genuine self-worth. The evolved Leo understands that true sovereignty needs no external applause. Their radiance becomes a source of warmth for others, not a spotlight to be hogged. By celebrating the light in others, their own flame burns brighter, transforming from a demanding Monarch into a benevolent Sovereign. <span class="font-bold text-yellow-300 animate-pulse">Thus, ego is refined into true self-possession.</span></p>
 </div>
 <div>
-<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Integration Path: Discerned Compassion</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[EMOTIONAL_ALCHEMY::CRITICAL]</span> The shadow of martyrdom is healed by embracing wisdom from its opposite sign, Virgo. Through cultivating discernment and healthy boundaries, Pisces learns that true service requires self-care. By filling their own cup first, their self-pity transforms into sustainable compassion. <span class="font-bold text-violet-300 animate-pulse">The victim becomes the conscious healer.</span></p>
+<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Integration Path: Authentic Expression</h4>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[EMOTIONAL_REGULATION::CRITICAL]</span> The shadow of drama is healed by embracing vulnerability and its opposite sign, Aquarius. Through focus on the group and collective good, Leo learns that their creative energy is most powerful when it serves a purpose beyond personal attention. By channeling their dramatic flair into genuine creative arts or inspiring leadership, the melodrama transforms into meaningful performance. <span class="font-bold text-yellow-300 animate-pulse">The desperate plea for attention becomes a powerful message.</span></p>
 </div>
 <div class="md:col-span-2 pt-4">
 <div class="flex items-center gap-6 p-4 rounded-lg bg-background-dark/30 border border-primary/20">
-<span class="material-symbols-outlined text-5xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">water_drop</span>
+<span class="material-symbols-outlined text-5xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">theater_comedy</span>
 <div>
 <h5 class="font-bold font-display text-primary/90 text-lg">Shadow Integration Exercise</h5>
-<p class="text-sm text-text-dark/90 leading-relaxed">Next time you feel drained, pause. Ask: "Is this my emotion, or someone else's? Where do I end and they begin?" This simple query reroutes the martyr circuit into one of self-awareness, shifting the focus from 'How can I save them?' to 'How can I serve from a place of wholeness?'.</p>
+<p class="text-sm text-text-dark/90 leading-relaxed">The next time you feel the urge for the spotlight, pause. Ask: "Am I seeking to illuminate something important, or simply to be seen?" This query reroutes the circuit of vanity into one of purpose, shifting the focus from 'Look at me' to 'Look at what we can create'.</p>
 </div>
 </div>
 </div>
@@ -648,10 +657,10 @@
 </div>
 </details>
 <div class="content-section chiron-card p-8" style="animation-delay: 1.1s;">
-<h3 class="text-4xl font-bold font-display mb-4 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Chiron in Pisces: The Wounded Mystic</h3>
+<h3 class="text-4xl font-bold font-display mb-4 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Chiron in Leo: The Wounded Sovereign</h3>
 <div class="grid md:grid-cols-3 gap-8">
 <div class="md:col-span-2">
-<p class="text-text-dark/90 leading-relaxed">Chiron in Pisces points to a core wound around spirituality, belonging, and the nature of reality. Individuals with this placement may feel a profound sense of cosmic homelessness, disillusionment, or a longing for a divine connection that feels lost. The healing journey involves courageously embracing the unknown, learning to find the sacred in the mundane, and understanding that true faith lies in surrender. By healing their own spiritual wounds, they become master guides for others, navigating the mists of illusion by <span class="font-bold text-primary/80 animate-pulse">embodying divine love.</span></p>
+<p class="text-text-dark/90 leading-relaxed">Chiron, the "Wounded Healer," points to our deepest core wound. In Leo, this is the wound of self-expression, creativity, and recognition. Individuals with this placement may feel a profound fear of the spotlight, a blockage in their creative channels, or a sense of being unworthy of admiration. The healing journey involves courageously sharing one's unique gifts, claiming the stage of their own life, and learning that their self-expression is a gift to the world. By healing their own wound of visibility, they become master healers for others who struggle to shine, teaching confidence by <span class="font-bold text-primary/80 animate-pulse">embodying it.</span></p>
 </div>
 <div class="flex items-center justify-center">
 <span class="material-symbols-outlined text-8xl text-primary/70" style="filter: drop-shadow(0 0 10px var(--primary-glow));">self_improvement</span>
@@ -662,26 +671,26 @@
 <h3 class="text-4xl font-bold font-display mb-8 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Zodiacal Archetype Cross-Reference</h3>
 <div class="flex justify-center items-center gap-12 md:gap-20 pt-4">
 <div class="archetype-link">
-<span class="material-symbols-outlined text-6xl text-primary cursor-pointer">brush</span>
+<span class="material-symbols-outlined text-6xl text-primary cursor-pointer">verified_user</span>
 <div class="archetype-info w-56 p-4 rounded-xl bg-background-dark/90 border border-primary/50 backdrop-blur-md">
-<h5 class="font-bold font-display text-primary">The Artist</h5>
-<p class="text-xs text-text-dark/80">The universal archetype of creation, inspiration, and channeling the intangible into form. The musician, the poet, the painter.</p>
+<h5 class="font-bold font-display text-primary">The King/Queen</h5>
+<p class="text-xs text-text-dark/80">The universal archetype of sovereignty, leadership, and the benevolent ruler. Found in figures like King Arthur, Queen Elizabeth I, and the concept of the noble heart.</p>
 </div>
 </div>
 <span class="material-symbols-outlined text-4xl text-primary/50">link</span>
 <div class="archetype-link">
-<span class="material-symbols-outlined text-6xl text-primary cursor-pointer">psychology</span>
+<span class="material-symbols-outlined text-6xl text-primary cursor-pointer">palette</span>
 <div class="archetype-info w-56 p-4 rounded-xl bg-background-dark/90 border border-primary/50 backdrop-blur-md">
-<h5 class="font-bold font-display text-primary">The Mystic</h5>
-<p class="text-xs text-text-dark/80">The symbol of spiritual questing and union with the divine. The one who dissolves the ego to experience universal consciousness.</p>
+<h5 class="font-bold font-display text-primary">The Performer</h5>
+<p class="text-xs text-text-dark/80">The artist who lives to express their inner world. The actor, the musician, the creator who must share their vision with an audience.</p>
 </div>
 </div>
 <span class="material-symbols-outlined text-4xl text-primary/50">link</span>
 <div class="archetype-link">
-<span class="material-symbols-outlined text-6xl text-primary cursor-pointer">volunteer_activism</span>
+<span class="material-symbols-outlined text-6xl text-primary cursor-pointer">celebration</span>
 <div class="archetype-info w-56 p-4 rounded-xl bg-background-dark/90 border border-primary/50 backdrop-blur-md">
-<h5 class="font-bold font-display text-primary">The Savior</h5>
-<p class="text-xs text-text-dark/80">Represents unconditional love and self-sacrifice for the greater good. The healer, the redeemer, the agent of compassion.</p>
+<h5 class="font-bold font-display text-primary">The Inner Child</h5>
+<p class="text-xs text-text-dark/80">Represents pure joy, playfulness, and spontaneous creativity. The part of us that remembers how to have fun without inhibition.</p>
 </div>
 </div>
 </div>
@@ -692,62 +701,62 @@
 <h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary flex items-center justify-between" style="text-shadow: 0 0 15px var(--primary-glow);">Operational Directives <span class="material-symbols-outlined text-3xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
 <div class="grid md:grid-cols-3 gap-8 font-body text-base leading-relaxed">
 <div class="icon-card p-6 flex flex-col items-center text-center rounded-lg" style="clip-path: polygon(0 15px, 15px 0, 100% 0, 100% 100%, 0 100%);">
-<span class="material-symbols-outlined text-4xl text-primary mb-3" style="filter: drop-shadow(0 0 8px var(--primary-glow));">waves</span>
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Strength: Empathy</h4>
-<p class="text-text-dark/80 text-sm">Innate ability to absorb and understand the emotional states of others, fostering deep, non-verbal connection and healing.</p>
+<span class="material-symbols-outlined text-4xl text-primary mb-3" style="filter: drop-shadow(0 0 8px var(--primary-glow));">wb_sunny</span>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Strength: Charisma</h4>
+<p class="text-text-dark/80 text-sm">Natural magnetism for inspiring loyalty, leading with warmth, and being the center of attention. The sun that others orbit.</p>
 </div>
 <div class="icon-card p-6 flex flex-col items-center text-center rounded-lg" style="clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 0 100%);">
-<span class="material-symbols-outlined text-4xl text-primary mb-3" style="filter: drop-shadow(0 0 8px var(--primary-glow));">visibility_off</span>
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Challenge: Illusion</h4>
-<p class="text-text-dark/80 text-sm">A tendency to see the world through rose-colored glasses can lead to self-deception, gullibility, and disappointment.</p>
+<span class="material-symbols-outlined text-4xl text-primary mb-3" style="filter: drop-shadow(0 0 8px var(--primary-glow));">sentiment_dissatisfied</span>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Challenge: Pride</h4>
+<p class="text-text-dark/80 text-sm">A need for admiration can lead to arrogance and difficulty accepting criticism, seeing it as a personal attack rather than feedback.</p>
 </div>
 <div class="icon-card p-6 flex flex-col items-center text-center rounded-lg" style="clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);">
-<span class="material-symbols-outlined text-4xl text-primary mb-3" style="filter: drop-shadow(0 0 8px var(--primary-glow));">favorite</span>
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Love: Soul Mate</h4>
-<p class="text-text-dark/80 text-sm">In romance, Pisces seeks an ethereal, spiritual connection—a merging of souls that transcends the physical world.</p>
+<span class="material-symbols-outlined text-4xl text-primary mb-3" style="filter: drop-shadow(0 0 8px var(--primary-glow));">loyalty</span>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Love: Grand Romance</h4>
+<p class="text-text-dark/80 text-sm">In romance, Leo is generous and theatrical, valuing grand gestures, loyalty, and a partner who worships them as they worship in return.</p>
 </div>
 </div>
 </summary>
 <div class="expandable-card-content px-6">
 <div class="border-t border-primary/20 pt-8 mt-8 grid md:grid-cols-3 gap-x-12 gap-y-8 text-sm">
 <div>
-<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Deep Dive: Empathic Protocol</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[CONNECTION_CORE::ONLINE]</span> Piscean strength is a Neptunian force—a drive to dissolve boundaries and merge with the universal consciousness. It excels in healing by feeling what others feel. The evolutionary task is to transition from being a passive emotional sponge to a conscious channel for compassion. Unchanneled, it is chaotic. Channeled, it holds the power to <span class="font-bold text-violet-300 animate-pulse">bring divine love to earth.</span></p>
+<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Deep Dive: Power Protocol</h4>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[RADIANCE_CORE::ONLINE]</span> Leonine strength is a gravitational, solar force—a steady, creative fire emanating from a powerful core of selfhood. It excels in leadership by inspiring joy and loyalty, not fear. The evolutionary task is to transition from needing an audience to becoming a source of light for others. Unchanneled, it leads to narcissism. Channeled, it holds the power to <span class="font-bold text-yellow-300 animate-pulse">catalyze greatness in all.</span></p>
 </div>
 <div>
-<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Deep Dive: Illusion Algorithm</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[REALITY_FILTER::ACTIVE]</span> This is a feature, not a flaw. Pisces is running a complex reality-simulation, scanning for potential and beauty. The idealistic nature is a system check for hope. The spiritual mission is to trust their powerful intuition while learning to differentiate between genuine potential and wishful thinking. The Fish must learn to <span class="font-bold text-violet-300 animate-pulse">see with both their heart and their eyes.</span></p>
+<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Deep Dive: Pride Algorithm</h4>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[EGO_DEFENSE::DETECTED]</span> This is a feature, not a flaw. Leo operates with an innate sense of divine worth. The stinging pain of criticism is a system alert triggered by anything that questions its core programming of "I am valuable." The spiritual mission is to understand that feedback is data, not a threat, and that a truly strong kingdom can withstand scrutiny. The sovereign must learn to <span class="font-bold text-yellow-300 animate-pulse">distinguish counsel from critique.</span></p>
 </div>
 <div>
 <h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Deep Dive: Relational Dynamics</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[SOUL_MERGE::INITIATED]</span> The Piscean search for a partner is a sacred quest for a soul who can meet them in the imaginal realms. A relationship devoid of magic, spiritual depth, and unconditional love is a barren desert. They fall in love with another's soul, seeking a partner who is brave enough to <span class="font-bold text-violet-300 animate-pulse">dream the same dream together.</span></p>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[HEART_DRIVE::ACTIVE]</span> The Leonine courtship is a grand performance, a sacred quest for a soul who can both appreciate their brilliance and reflect it back. A relationship devoid of adoration, dramatic gestures, and mutual pride is a dead kingdom. They fall in love with the feeling of being seen for their highest potential, seeking a partner who can <span class="font-bold text-yellow-300 animate-pulse">share their throne, not just admire it.</span></p>
 </div>
 </div>
 </div>
 </details>
 <details class="group content-section expandable-card" style="animation-delay: 1.0s;">
 <summary class="list-none cursor-pointer">
-<h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary flex items-center justify-between" style="text-shadow: 0 0 15px var(--primary-glow);">The Fish's Paradox<span class="material-symbols-outlined text-3xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
+<h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary flex items-center justify-between" style="text-shadow: 0 0 15px var(--primary-glow);">The Lion's Paradox <span class="material-symbols-outlined text-3xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
 <div class="grid md:grid-cols-2 gap-8 font-body text-base leading-relaxed">
 <div class="futuristic-card p-6">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Grounded Dreamer</h4>
-<p class="text-text-dark/90">Obsessed with dreams and the ethereal, Pisces possesses a hidden, profound wisdom about the material world, often understanding its mechanics with surprising clarity.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Dependent Leader</h4>
+<p class="text-text-dark/90">Beneath the facade of command lies profound dependence on an audience. As the zodiac's performer, Leo's sense of self is powered by the admiration of others, making them powerful leaders but also vulnerable to the silence of an empty room.</p>
 </div>
 <div class="futuristic-card p-6">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Solitary Companion</h4>
-<p class="text-text-dark/90">While deeply craving connection and merging with others, Pisces has a fundamental need for solitude to recharge, reconnect with their source, and process the world's energies.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Lazy Overachiever</h4>
+<p class="text-text-dark/90">Often perceived as regal and preferring leisure, the Leo drive is a form of efficient energy conservation. They instinctively know how to achieve maximum impact with minimum effort, a quantum leap in delegation and charismatic influence.</p>
 </div>
 </div>
 </summary>
 <div class="expandable-card-content px-6">
 <div class="border-t border-primary/20 pt-8 mt-8 grid md:grid-cols-2 gap-x-12 gap-y-8 text-sm">
 <div>
-<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Paradox Resolution: Intuitive Logic</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[TRANSMUTATION_PROTOCOL::ENGAGED]</span> The drive to dream while understanding reality is an intuitive gift. Pisces absorbs information on a subliminal level. They "feel" the truth rather than analyzing it. The evolved Pisces learns to trust this inner knowing, using their dreams as a blueprint for what's possible in the material world. <span class="font-bold text-violet-300 animate-pulse">True wisdom is knowing that reality is a shared dream.</span></p>
+<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Paradox Resolution: The Internal Sun</h4>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[TRANSMUTATION_PROTOCOL::ENGAGED]</span> The vulnerability of the 'Dependent Leader' is its greatest teacher. Each moment of feeling unseen is an invitation to cultivate an inner source of light. Their greatest strength is born from realizing their worth is inherent, not granted. The need for applause is transmuted into the joy of creation itself. <span class="font-bold text-yellow-300 animate-pulse">External validation is not lost, but becomes a bonus, not the source.</span></p>
 </div>
 <div>
-<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Paradox Resolution: Sacred Space as Connection</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[QUANTUM_LOGIC::EXECUTED]</span> The 'Solitary Companion' seeks connection so deep it transcends physical presence. Solitude is a defense mechanism against psychic overload. When they find companions who respect their need for space, solitude becomes the ultimate act of intimacy—a sacred communion with self that enriches all their connections. Their alone time becomes a <span class="font-bold text-violet-300 animate-pulse">gateway to universal love.</span></p>
+<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Paradox Resolution: Charisma as Action</h4>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[QUANTUM_LOGIC::EXECUTED]</span> The 'Lazy Overachiever' operates on a logic of influence—the intelligence of inspiration, the certainty of a king's decree before a soldier moves. Demanding they perform manual labor is like asking a general to fight on the front lines. The proof is not in their sweat, but in the glorious result: a team mobilized, a vision executed, a kingdom built. Their charm is a <span class="font-bold text-yellow-300 animate-pulse">form of potent, effortless action.</span></p>
 </div>
 </div>
 </div>
@@ -758,40 +767,40 @@
 <details class="dynamic-card" style="animation-delay: 0s;">
 <summary class="p-6 flex flex-col items-center text-center cursor-pointer list-none">
 <div class="flex items-center justify-between w-full mb-3">
-<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">palette</span>
+<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">emoji_events</span>
 <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon">add</span>
 </div>
 <h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Career Trajectory</h4>
-<p class="text-text-dark/80 text-sm">Thrives in roles requiring imagination, compassion, and artistry. Healing arts, filmmaking, social work, and spiritual guidance are natural arenas.</p>
+<p class="text-text-dark/80 text-sm">Thrives in roles requiring performance, leadership, and creative expression. The arts, entertainment, management, and public speaking are natural arenas.</p>
 </summary>
 <div class="dynamic-card-content px-6 pb-6 text-left">
-<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[ASCENSION_VECTOR::PLOTTED]</span> The Piscean professional is a channel, a system-healer sent to infuse soulless structures with compassion. They don't climb the corporate ladder; they dissolve it with kindness. Their challenge lies in avoiding exploitation. They must learn that their gifts are valuable. <span class="font-bold text-violet-300 animate-pulse">Their purpose is not just to dream, but to inspire.</span></p>
+<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[ASCENSION_VECTOR::PLOTTED]</span> The Leonine professional is a star, sent to bring radiance and vitality to stagnant systems. They don't just work a job; they command a stage, turning any role into a celebrated performance. Their challenge lies in sharing the spotlight and empowering their team. They must learn to transform from a solo act into the director of a blockbuster production. <span class="font-bold text-yellow-300 animate-pulse">Their purpose is not just to shine, but to illuminate the path for others.</span></p>
 </div>
 </details>
-<details class="dynamic-card" style="--angle: 120deg; animation-delay: -4s;">
+<details class="dynamic-card" style="--angle: 120deg; animation-delay: -3.33s;">
 <summary class="p-6 flex flex-col items-center text-center cursor-pointer list-none">
 <div class="flex items-center justify-between w-full mb-3">
-<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">blur_on</span>
+<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">fort</span>
 <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon">add</span>
 </div>
 <h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Defensive Protocol</h4>
-<p class="text-text-dark/80 text-sm">When challenged, the Fish employs strategic disengagement and confusion. They will become a shapeshifting mirage, impossible to pin down or attack directly.</p>
+<p class="text-text-dark/80 text-sm">When challenged, the Lion roars. This manifests as a dramatic display of authority and wounded pride, aimed at re-establishing dominance and respect.</p>
 </summary>
 <div class="dynamic-card-content px-6 pb-6 text-left">
-<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[THREAT_RESPONSE::ACTIVATED]</span> This protocol is not passive; it is an advanced energetic cloaking system. The Piscean "defense" is designed to de-escalate and dissolve conflict through non-resistance. Their vagueness is a shield, their adaptability a superpower. They would rather flow around an obstacle than confront it head-on. <span class="font-bold text-violet-300 animate-pulse">Confusion is a fortress against aggression.</span></p>
+<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[THREAT_RESPONSE::ACTIVATED]</span> This protocol is not simple aggression; it is a boundary-setting system. The Leonine "roar" is designed to communicate a non-negotiable standard of respect and honor. Their indignation is a firewall against disrespect, restoring order and reminding others of their inherent worth. They would rather stage a dramatic exit than occupy a space where their value is questioned. <span class="font-bold text-yellow-300 animate-pulse">Drama is a tool for re-establishing sovereignty.</span></p>
 </div>
 </details>
-<details class="dynamic-card" style="--angle: 240deg; animation-delay: -8s;">
+<details class="dynamic-card" style="--angle: 240deg; animation-delay: -6.66s;">
 <summary class="p-6 flex flex-col items-center text-center cursor-pointer list-none">
 <div class="flex items-center justify-between w-full mb-3">
-<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">groups</span>
+<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">attractions</span>
 <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon">add</span>
 </div>
 <h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Social Dynamics</h4>
-<p class="text-text-dark/80 text-sm">As the mystic of the zodiac, Pisces prefers deep, soulful connections. They are the friend who feels your pain and loves you unconditionally.</p>
+<p class="text-text-dark/80 text-sm">As the heart of the pride, Leo is the center of any social circle. They are the friend who plans the party, gives the best gifts, and makes everyone feel special.</p>
 </summary>
 <div class="dynamic-card-content px-6 pb-6 text-left">
-<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[UNITY_MODULE::ONLINE]</span> In any social matrix, the Piscean function is that of the heart. They create unshakable bonds of empathy and acceptance, demanding nothing but your true self. Their presence encourages vulnerability, forgiveness, and spiritual growth. To be in their inner circle is to be perpetually invited to dissolve your ego and connect to love. <span class="font-bold text-violet-300 animate-pulse">They are the living embodiment of oneness.</span></p>
+<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[CATALYST_MODULE::ONLINE]</span> In any social matrix, the Leonine function is that of the generator. They transmute group potential into joy and celebration, challenging the inertia of boredom. Their presence inspires friends to dress up, celebrate small victories, and live more glamorously. To be in their orbit is to be perpetually invited to see yourself as more magnificent and worthy of celebration. <span class="font-bold text-yellow-300 animate-pulse">They are the living embodiment of "joie de vivre."</span></p>
 </div>
 </details>
 </div>
@@ -799,43 +808,43 @@
 <div class="content-section" style="animation-delay: 1.3s;">
 <h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Uncommon Lore</h3>
 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 font-body text-base leading-relaxed">
-<details class="dynamic-card" style="--angle: 60deg; animation-delay: -2s;">
+<details class="dynamic-card" style="--angle: 60deg; animation-delay: -1.66s;">
 <summary class="p-6 flex flex-col items-center text-center cursor-pointer list-none">
 <div class="flex items-center justify-between w-full mb-3">
-<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">all_inclusive</span>
+<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">auto_awesome</span>
 <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon">add</span>
 </div>
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Two Fish</h4>
-<p class="text-text-dark/80 text-sm">The two fish swimming in opposite directions represent the duality of Pisces: one fish swims towards the material world, the other towards the spiritual realm.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decanic Rulers</h4>
+<p class="text-text-dark/80 text-sm">Leo is split into three decans: Sun/Sun (pure performer), Sun/Jupiter (benevolent king), and Sun/Mars (conquering star).</p>
 </summary>
 <div class="dynamic-card-content px-6 pb-6 text-left">
-<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80">[EVOLUTIONARY_PATH::MAPPED]</span> These are not opposing forces, but a sacred dance of consciousness. The Piscean journey is to unite these two currents. They learn to be in the world but not of it, to honor their human experience while remaining connected to their divine source. It is the journey from spiritual confusion to <span class="font-bold text-violet-300 animate-pulse">embodied enlightenment.</span></p>
+<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80">[EVOLUTIONARY_PATH::MAPPED]</span> These are not mere subdivisions, but a sacred, evolutionary trinity of the self. The first decan (Sun/Sun) is the raw, untamed creative urge. The second (Sun/Jupiter) channels that urge into a generous, expansive vision for the kingdom. The third (Sun/Mars) gives the vision the will and drive to conquer, to achieve legendary status. It is the journey from pure entertainer to <span class="font-bold text-yellow-300 animate-pulse">immortalized icon.</span></p>
 </div>
 </details>
-<details class="dynamic-card" style="--angle: 180deg; animation-delay: -6s;">
+<details class="dynamic-card" style="--angle: 180deg; animation-delay: -5s;">
 <summary class="p-6 flex flex-col items-center text-center cursor-pointer list-none">
 <div class="flex items-center justify-between w-full mb-3">
-<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">spa</span>
+<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">neurology</span>
 <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon">add</span>
 </div>
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Exaltation of Venus</h4>
-<p class="text-text-dark/80 text-sm">Venus is "exalted" in Pisces, meaning the planet of love and beauty finds its highest, most spiritual expression here, as unconditional, divine love.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Lion's Heart</h4>
+<p class="text-text-dark/80 text-sm">The star Regulus, known as the "Heart of the Lion," is one of the four Royal Stars of Persia, bestowing success and power but demanding integrity.</p>
 </summary>
 <div class="dynamic-card-content px-6 pb-6 text-left">
-<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[LOVE_FREQUENCY::ENABLED]</span> This "exaltation" is Pisces' divine gift. It elevates romantic love to Agape—universal, selfless love. The unevolved Piscean Venus is prone to idealization and codependency. The evolved Piscean Venus becomes a channel for divine love, capable of profound healing and fostering creative genius through connections built on <span class="font-bold text-violet-300 animate-pulse">unconditional acceptance.</span></p>
+<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[REGAL_CODE::ACTIVE]</span> Connection to Regulus is a pact. It offers a direct line to royal authority and charisma, but with a critical caveat: any use of this power for purely selfish revenge or egotistical gain will lead to a dramatic fall from grace. The test is to wield immense power with an equally immense heart. The unevolved Leo falls to hubris. The evolved Leo becomes a legend whose <span class="font-bold text-yellow-300 animate-pulse">legacy of honor is incorruptible.</span></p>
 </div>
 </details>
-<details class="dynamic-card" style="--angle: 300deg; animation-delay: -10s;">
+<details class="dynamic-card" style="--angle: 300deg; animation-delay: -8.33s;">
 <summary class="p-6 flex flex-col items-center text-center cursor-pointer list-none">
 <div class="flex items-center justify-between w-full mb-3">
-<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">invert_colors_off</span>
+<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">visibility_off</span>
 <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon">add</span>
 </div>
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Mutable Water Paradox</h4>
-<p class="text-text-dark/80 text-sm">As "mutable water," Pisces is like the ocean: formless, adaptable, and containing all things, yet holding the immense power of the collective.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Lion's Blind Spot</h4>
+<p class="text-text-dark/80 text-sm">A lion focused on its prey can be oblivious to its surroundings. Astrologically, this means Leo can overlook the needs of others when focused on their own creative goals.</p>
 </summary>
 <div class="dynamic-card-content px-6 pb-6 text-left">
-<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[SYSTEM_OVERRIDE::POTENTIAL_ENERGY]</span> This is not a contradiction, but a core feature of their unifying function. To hold a fixed form would be to create separation. Their cosmic duty is to be a vessel for the collective emotional body. True wisdom for Pisces lies in learning to channel this vast ocean of feeling into creative acts, transmuting collective chaos into <span class="font-bold text-violet-300 animate-pulse">deliberate, healing art.</span></p>
+<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[SYSTEM_OVERRIDE::CREATIVE_FOCUS]</span> This is not a flaw, but a critical feature of their creative function. To be distracted by the needs of all is to diffuse the concentrated beam of creative light. Their cosmic duty is to manifest their vision, not to manage every detail of the kingdom. True wisdom for Leo lies not in dimming their focus, but in inspiring a loyal court to manage the realm, allowing the Lion to continue its vital work of <span class="font-bold text-yellow-300 animate-pulse">creating the culture of the future.</span></p>
 </div>
 </details>
 </div>
@@ -847,33 +856,33 @@
 <summary class="flex cursor-pointer list-none items-center justify-between p-4 font-bold text-xl font-display text-primary tracking-wider transition-all duration-300">
                                     Mythological Subroutine
                                     <div class="text-primary transition-transform duration-300 group-open:rotate-90">
-<svg class="feather feather-chevron-right" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
+<svg class="feather feather-chevron-right" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
 </div>
 </summary>
 <div class="px-4 pb-4 text-base overflow-hidden transition-all duration-500 ease-in-out max-h-screen group-open:max-h-screen">
-<p class="leading-relaxed expanded-content-text-gradient">Linked to the myth of Aphrodite and Eros, who transformed into fish to escape the monster Typhon, this subroutine subverts the 'weak' stereotype. It recasts the Piscean archetype as a master of adaptation and flow, a symbol of love's power to transcend danger through metamorphosis. This reveals the core code is not merely 'escape', but <span class="font-bold text-violet-300 animate-pulse">'transmute'</span>—undergoing total transformation to achieve a higher, safer state of being.</p>
+<p class="leading-relaxed expanded-content-text-gradient">Linked to the Nemean Lion of myth, whose hide was impenetrable, this subroutine recasts the Leonine 'pride' stereotype. It reveals a core code of profound inner strength and self-possession. The impervious hide symbolizes an ego that, when healthy, is invulnerable to external negativity. The myth reveals the core purpose is not just to be admired, but to achieve a state of <span class="font-bold text-yellow-300 animate-pulse">'sovereign integrity'</span>—a self-worth so profound it cannot be pierced by the arrows of others' opinions.</p>
 </div>
 </details>
 <details class="group accordion-item">
 <summary class="flex cursor-pointer list-none items-center justify-between p-4 font-bold text-xl font-display text-primary tracking-wider transition-all duration-300">
-                                    The "Dissolution" Protocol
+                                    The "Creative Heart" Protocol
                                     <div class="text-primary transition-transform duration-300 group-open:rotate-90">
-<svg class="feather feather-chevron-right" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
+<svg class="feather feather-chevron-right" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
 </div>
 </summary>
 <div class="px-4 pb-4 text-base overflow-hidden transition-all duration-500 ease-in-out max-h-0 group-open:max-h-screen">
-<p class="leading-relaxed expanded-content-text-gradient">Pisces rules the 12th house, the domain of the collective unconscious, past lives, and self-undoing. Planets positioned here do not just express their energy for the self; they use it to dissolve karmic patterns and connect to the universal whole. A Piscean Mars doesn't just act, it acts on behalf of a dream or ideal. They are system-level mystics, here to experience life not as an individual journey, but through the crucible of spiritual surrender. Their personal evolution becomes, intentionally or not, a <span class="font-bold text-violet-300 animate-pulse">catalyst for collective healing.</span></p>
+<p class="leading-relaxed expanded-content-text-gradient">Leo rules the heart, the body's sun, which pumps life-giving blood to the entire system. Planets positioned in Leo don't just express their energy; they radiate it with joy and generosity. The native's purpose is to be the creative heart of their community. Their happiness, self-expression, and success are not selfish pursuits; they are vital functions that warm and energize everyone connected to them. Their personal joy becomes, intentionally or not, a <span class="font-bold text-yellow-300 animate-pulse">source of collective inspiration.</span></p>
 </div>
 </details>
 <details class="group accordion-item">
 <summary class="flex cursor-pointer list-none items-center justify-between p-4 font-bold text-xl font-display text-primary tracking-wider transition-all duration-300">
                                      Compatibility Patches
                                     <div class="text-primary transition-transform duration-300 group-open:rotate-90">
-<svg class="feather feather-chevron-right" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
+<svg class="feather feather-chevron-right" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
 </div>
 </summary>
 <div class="px-4 pb-4 text-base overflow-hidden transition-all duration-500 ease-in-out max-h-0 group-open:max-h-screen">
-<p class="leading-relaxed expanded-content-text-gradient">While instinctively favoring the profound empathy of fellow Water signs (Cancer, Scorpio) and the grounding stability of Earth signs (Taurus, Virgo), Pisces achieves profound growth through high-friction pairings. Air signs (Gemini, Aquarius) install critical 'logic' and 'communication' modules, teaching Pisces to articulate their vast inner world. Fire signs (Aries, Leo) provide the 'action' patch, connecting their boundless imagination to a more confident, expressive way of being in the world. <span class="font-bold text-violet-300 animate-pulse">True love requires dynamic integration.</span></p>
+<p class="leading-relaxed expanded-content-text-gradient">While instinctively favoring the high-energy synergy of fellow Fire signs (Aries, Sagittarius) and the intellectual admiration of Air signs (Gemini, Libra, Aquarius), Leo achieves profound growth through high-friction pairings. Water signs (Scorpio, Cancer) install critical 'emotional depth' and 'true intimacy' modules, teaching the Lion that vulnerability is the key to real connection. Earth signs (Taurus, Virgo) provide the 'humility' patch, grounding Leo's grand visions and teaching the nobility of service. <span class="font-bold text-yellow-300 animate-pulse">True evolution requires dynamic tension.</span></p>
 </div>
 </details>
 </div>
@@ -918,9 +927,9 @@
         const spectrumTitle = document.getElementById('spectrum-title');
         const spectrumDesc = document.getElementById('spectrum-desc');
         const spectrumData = [
-            { range: [0, 0.33], title: 'Deep Indigo', desc: 'Cosmic consciousness, mystic wisdom, and universal knowledge. The root of Pisces\' intuition.' },
-            { range: [0.33, 0.66], title: 'Soft Violet', desc: 'The core frequency of dreams, compassion, artistic inspiration, and spiritual connection. The soul of the cosmos.' },
-            { range: [0.66, 1], title: 'Pale Lavender', desc: 'Unconditional love, spiritual healing, and the gentle expression of divine grace. The Angelic frequency.' }
+            { range: [0, 0.33], title: 'Dark Gold', desc: 'Inner royalty, self-possession, quiet confidence. The power that needs no announcement.' },
+            { range: [0.33, 0.66], title: 'Radiant Gold', desc: 'The core frequency of sovereignty, creative power, generosity, and charismatic leadership. The heart of the zodiac.' },
+            { range: [0.66, 1], title: 'Bright Yellow', desc: 'Playfulness, joy, optimism, and spontaneous creativity. The outward expression of a happy heart.' }
         ];
         spectrum.addEventListener('mousemove', (e) => {
             const rect = spectrum.getBoundingClientRect();
@@ -939,4 +948,5 @@
         });
     });
 </script>
+
 </body></html>

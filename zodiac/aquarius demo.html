@@ -1,37 +1,34 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="en"><head>
+<html lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" name="viewport"/>
-<title>Pisces Zodiac Sign</title>
+<title>Aquarius Zodiac Sign</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700;900&amp;family=Space+Grotesk:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&amp;family=Roboto+Mono:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
 <link rel="stylesheet" href="../assets/css/scrolling-fixes.css"/>
 <style type="text/tailwindcss">
         @layer base {
              :root {
-                --primary: #a78bfa;--primary-glow: #a78bfa80;
-                --background-light: #100C14;
-                --background-dark: #08060A;
-                --text-light: #FBF9FF;
-                --text-dark: #EADFFD;
-                --subtle-light: #3D2C5E;
-                --subtle-dark: #6D4E9C;
+                --primary: #00ffff;--primary-glow: #00ffff80;
+                --background-light: #18181b;--background-dark: #0f0f12;--text-light: #f1f5f9;
+                --text-dark: #cbd5e1;
+                --subtle-light: #374151;
+                --subtle-dark: #4b5563;
                 --mouse-x: 50%;
                 --mouse-y: 50%;
                 --scroll-y: 0;
             }
         }
         @keyframes subtle-pulse {
-            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px var(--primary-glow)); }
-            50% { transform: scale(1.02); filter: drop-shadow(0 0 20px var(--primary)); }
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 8px var(--primary-glow)); }
+            50% { transform: scale(1.02); filter: drop-shadow(0 0 15px var(--primary)); }
         }
         @keyframes subtle-float {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-8px); }
         }
         @keyframes fade-in-up {
             from { opacity: 0; transform: translateY(20px); }
@@ -45,19 +42,20 @@
             -moz-osx-font-smoothing: grayscale;
         }
         .animate-subtle-pulse {
-            animation: subtle-pulse 5s ease-in-out infinite;
+            animation: subtle-pulse 6s ease-in-out infinite;
         }
         .animate-subtle-float {
-            animation: subtle-float 7s ease-in-out infinite;}
-        .pisces-logo-glow {
-            filter: drop-shadow(0 0 12px var(--primary-glow)) drop-shadow(0 0 20px var(--primary-glow));
+            animation: subtle-float 7s ease-in-out infinite;
+        }
+        .aquarius-logo-glow {
+            filter: drop-shadow(0 0 10px var(--primary-glow)) drop-shadow(0 0 15px var(--primary-glow));
             transition: filter 0.3s ease-in-out;
         }
-        .pisces-logo-glow:hover {
-            filter: drop-shadow(0 0 18px var(--primary)) drop-shadow(0 0 30px var(--primary));
+        .aquarius-logo-glow:hover {
+            filter: drop-shadow(0 0 15px var(--primary)) drop-shadow(0 0 25px var(--primary));
         }
         .data-card {
-            background-color: #a78bfa08;
+            background-color: #00ffff08;
             border: 1px solid var(--primary-glow);
             backdrop-filter: blur(12px);
             transition: all 0.3s ease;
@@ -77,7 +75,7 @@
             transition: opacity 0.4s ease-in-out;
         }
         .data-card:hover::before {
-            opacity: 0.5;
+            opacity: 0.4;
         }
         .data-card:nth-child(1) { animation-delay: 0.2s; }
         .data-card:nth-child(2) { animation-delay: 0.3s; }
@@ -87,7 +85,7 @@
         .data-card:nth-child(6) { animation-delay: 0.7s; }
         .data-card:hover {
             transform: translateY(-8px) scale(1.03);
-            background-color: #a78bfa1a;
+            background-color: #00ffff1a;
             border-color: var(--primary);
         }
         .content-section {
@@ -96,7 +94,7 @@
              animation-delay: 0.6s;
         }
         .futuristic-card {
-            background: linear-gradient(145deg, rgba(167, 139, 250, 0.05), rgba(167, 139, 250, 0.1));
+            background: linear-gradient(145deg, rgba(0, 255, 255, 0.05), rgba(0, 255, 255, 0.1));
             border: 1px solid var(--primary-glow);
             backdrop-filter: blur(10px);
             clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
@@ -112,14 +110,14 @@
             z-index: -1;
             opacity: 0;
             transition: opacity 0.4s ease-in-out;
-            animation: subtle-pulse 6s infinite;
+            animation: subtle-pulse 7s infinite;
         }
         .futuristic-card:hover::before {
-            opacity: 0.3;
+            opacity: 0.25;
         }
         .futuristic-card:hover {
             transform: translateY(-5px);
-            background: linear-gradient(145deg, rgba(167, 139, 250, 0.1), rgba(167, 139, 250, 0.15));
+            background: linear-gradient(145deg, rgba(0, 255, 255, 0.1), rgba(0, 255, 255, 0.15));
             border-color: var(--primary);
         }
         .accordion-item {
@@ -130,13 +128,13 @@
         }
         .accordion-item:hover {
              border-color: var(--primary);
-             background-color: rgba(167, 139, 250, 0.05);
+             background-color: rgba(0, 255, 255, 0.05);
         }
         .accordion-item summary::-webkit-details-marker {
             display: none;
         }
         .icon-card {
-            background: rgba(167, 139, 250, 0.03);
+            background: rgba(0, 255, 255, 0.03);
             border: 1px solid var(--primary-glow);
             transition: all 0.3s ease;
             position: relative;
@@ -145,17 +143,17 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(ellipse at center, rgba(167, 139, 250, 0.3), transparent 70%);
+            background: radial-gradient(ellipse at center, rgba(0, 255, 255, 0.2), transparent 70%);
             filter: blur(15px);
             z-index: -1;
             opacity: 0;
             transition: opacity 0.4s ease-in-out;
         }
         .icon-card:hover::before {
-            opacity: 0.6;
+            opacity: 0.5;
         }
         .icon-card:hover {
-            background: rgba(167, 139, 250, 0.08);
+            background: rgba(0, 255, 255, 0.08);
             border-color: var(--primary);
             transform: translateY(-5px);
         }
@@ -163,7 +161,8 @@
             --angle: 0deg;
             border: 2px solid;
             border-image: conic-gradient(from var(--angle), transparent 20%, var(--primary), transparent 80%) 1;
-            animation: 12s rotate linear infinite;background: radial-gradient(ellipse at center, rgba(167, 139, 250, 0.1) 0%, transparent 70%);
+            animation: 12s rotate linear infinite;
+            background: radial-gradient(ellipse at center, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
             position: relative;
             overflow: hidden;
             transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
@@ -216,9 +215,9 @@
             animation: move-twink-back 200s linear infinite;transform: translate(calc(calc(50% - var(--mouse-x)) / 40), calc(calc(50% - var(--mouse-y)) / 40)) translateY(calc(var(--scroll-y) * 0.3px));
         }
         .nebula {
-            background: radial-gradient(ellipse at 70% 30%, rgba(167, 139, 250, 0.25) 0%, transparent 50%),
-                        radial-gradient(ellipse at 20% 80%, rgba(109, 78, 156, 0.2) 0%, transparent 40%);
-            animation: move-nebula 120s ease-in-out infinite alternate;transform: translate(calc(calc(50% - var(--mouse-x)) / 60), calc(calc(50% - var(--mouse-y)) / 60)) translateY(calc(var(--scroll-y) * 0.5px));
+             background: radial-gradient(ellipse at 70% 30%, rgba(0, 255, 255, 0.15) 0%, transparent 50%),
+                         radial-gradient(ellipse at 20% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 40%);
+             animation: move-nebula 120s ease-in-out infinite alternate;transform: translate(calc(calc(50% - var(--mouse-x)) / 60), calc(calc(50% - var(--mouse-y)) / 60)) translateY(calc(var(--scroll-y) * 0.5px));
         }
         .light-flare {
             position: fixed;
@@ -228,7 +227,7 @@
             height: 100%;
             pointer-events: none;
             z-index: -20;
-            background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(167, 139, 250, 0.1) 0%, transparent 20%);
+            background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(0, 255, 255, 0.08) 0%, transparent 20%);
             opacity: 0;
             transition: opacity 0.5s ease-out;
         }
@@ -265,7 +264,7 @@
             padding-bottom: 1.5rem;
         }
         .decan-card {
-            background-color: rgba(167, 139, 250, 0.05);
+            background-color: rgba(0, 255, 255, 0.05);
             border-left: 3px solid var(--primary-glow);
             transition: all 0.4s ease;
             transform: translateX(-20px);
@@ -276,31 +275,32 @@
             opacity: 1;
         }
         .decan-card:hover {
-            background-color: rgba(167, 139, 250, 0.1);
+            background-color: rgba(0, 255, 255, 0.1);
             border-left-color: var(--primary);
             transform: scale(1.02);
         }
         @keyframes float-asteroid {
-            0%, 100% { transform: translateY(0px) rotate(-3deg); }
-            50% { transform: translateY(-12px) rotate(3deg); }
+            0%, 100% { transform: translateY(0px) rotate(-2deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
         }
         .asteroid-card {
-            background: radial-gradient(circle, rgba(167, 139, 250, 0.15) 0%, transparent 80%);
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.15) 0%, transparent 80%);
             border: 1px dashed var(--primary-glow);
-            animation: float-asteroid 10s ease-in-out infinite;transition: all 0.4s ease;
+            animation: float-asteroid 9s ease-in-out infinite;
+            transition: all 0.4s ease;
         }
         .asteroid-card:hover {
             animation-play-state: paused;
             transform: scale(1.1);
-            background: radial-gradient(circle, rgba(167, 139, 250, 0.3) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.3) 0%, transparent 70%);
             border-style: solid;
             border-color: var(--primary);
             filter: drop-shadow(0 0 15px var(--primary));
         }
-        .asteroid-card:nth-child(2) { animation-delay: -2s; animation-duration: 9s; }
-        .asteroid-card:nth-child(3) { animation-delay: -4s; animation-duration: 11s; }
+        .asteroid-card:nth-child(2) { animation-delay: -3s; animation-duration: 8s; }
+        .asteroid-card:nth-child(3) { animation-delay: -5s; animation-duration: 10s; }
         .color-spectrum {
-            background: linear-gradient(90deg, #6b21a8 0%, var(--primary) 50%, #e9d5ff 100%);
+            background: linear-gradient(90deg, #1e3a8a 0%, var(--primary) 50%, #e0f2fe 100%);
             position: relative;
             cursor: none;
             transition: all 0.3s ease-out;
@@ -333,7 +333,7 @@
             transform: translateY(0) scale(1);
         }
         .chiron-card {
-            background: linear-gradient(220deg, rgba(167, 139, 250, 0.05), rgba(109, 78, 156, 0.2));
+            background: linear-gradient(220deg, rgba(0, 255, 255, 0.05), rgba(30, 58, 138, 0.2));
             border: 1px solid var(--primary-glow);
             backdrop-filter: blur(15px);
             clip-path: polygon(0 0, 100% 0, 100% 100%, 20px 100%, 0 calc(100% - 20px));
@@ -342,7 +342,7 @@
         .chiron-card:hover {
             transform: translateY(-8px);
             border-color: var(--primary);
-            background: linear-gradient(220deg, rgba(167, 139, 250, 0.1), rgba(124, 58, 237, 0.3));
+            background: linear-gradient(220deg, rgba(0, 255, 255, 0.1), rgba(30, 64, 175, 0.3));
         }
         .archetype-link {
             position: relative;
@@ -369,7 +369,7 @@
             border: 2px dashed var(--primary-glow);
             opacity: 0;
             transition: all 0.3s ease;
-            animation: rotate 20s linear infinite;
+            animation: rotate 25s linear infinite;
         }
         .archetype-link:hover::before {
             opacity: 1;
@@ -413,22 +413,23 @@
             right: 0;
             bottom: 0;
             z-index: 0;
-            background: linear-gradient(120deg, rgba(167, 139, 250, 0), rgba(167, 139, 250, 0.1), rgba(167, 139, 250, 0));
+            background: linear-gradient(120deg, rgba(0, 255, 255, 0), rgba(0, 255, 255, 0.1), rgba(0, 255, 255, 0));
             background-size: 200% 200%;
-            animation: animated-gradient 10s ease infinite;}
+            animation: animated-gradient 10s ease infinite;
+        }
         .expanded-content-text-gradient {
             background: linear-gradient(120deg, var(--text-dark), var(--text-light));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .progress-bar-container {
-            background-color: rgba(167, 139, 250, 0.1);
+            background-color: rgba(0, 255, 255, 0.1);
             border-radius: 9999px;
             overflow: hidden;
             border: 1px solid var(--primary-glow);
         }
         .progress-bar {
-            background: linear-gradient(90deg, var(--primary) 0%, #e9d5ff 100%);
+            background: linear-gradient(90deg, var(--primary) 0%, #e0f2fe 100%);
             box-shadow: 0 0 15px var(--primary-glow);
             transition: width 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
         }
@@ -436,7 +437,34 @@
             width: var(--progress-width, 0%);
         }
     </style>
-<script>tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#607AFB", "background-light": "#f5f6f8", "background-dark": "#0f1323", "text-light": "var(--text-light)", "text-dark": "var(--text-dark)", "subtle-light": "var(--subtle-light)", "subtle-dark": "var(--subtle-dark)"}, fontFamily: {display: "Space Grotesk", body: ["Roboto Mono", "monospace"]}, borderRadius: {DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px"}}}};</script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "var(--primary)",
+            "background-light": "var(--background-light)",
+            "background-dark": "var(--background-dark)",
+            "text-light": "var(--text-light)",
+            "text-dark": "var(--text-dark)",
+            "subtle-light": "var(--subtle-light)",
+            "subtle-dark": "var(--subtle-dark)"
+          },
+          fontFamily: {
+            display: "Orbitron",
+            body: ["Roboto Mono", "monospace"]
+          },
+          borderRadius: {
+            DEFAULT: "0.5rem",
+            lg: "1rem",
+            xl: "1.5rem",
+            full: "9999px"
+          }
+        }
+      }
+    }
+  </script>
 </head>
 <body class="bg-background-dark font-body text-text-dark will-change-scroll overflow-x-hidden">
 <div class="min-h-screen relative main-container overflow-hidden">
@@ -448,18 +476,18 @@
 <header class="border-b border-subtle-dark/50 backdrop-blur-md bg-background-dark/30 sticky top-0 z-50 transition-all duration-300 ease-in-out">
 <div class="container mx-auto flex items-center justify-between px-6 py-4">
 <div class="flex items-center gap-4 group">
-<img src="../pictures/piscespic.png" class="h-10 w-10 text-primary pisces-logo-glow group-hover:scale-110 transition-transform duration-300">
+<img src="../pictures/aquarius pic.png" class="h-10 w-10 text-primary aquarius-logo-glow group-hover:scale-110 transition-transform duration-300">
 <div class="flex flex-col items-start">
 <h1 class="text-2xl font-bold font-display uppercase tracking-wider text-text-light group-hover:text-primary transition-colors duration-300" style="text-shadow: 0 0 10px var(--primary-glow);">AstroVibe</h1>
 <span class="text-xs text-text-dark/60 font-body transition-all duration-300 group-hover:text-primary/70">by ShivaKali Ashram</span>
 </div>
 </div>
 <div class="flex items-center gap-2 md:gap-4">
-<a href="../zodiac-signs.html" class="nav-button">Zodiac Hub</a>
+<a href="zodiac-signs.html" class="nav-button">Zodiac Hub</a>
 <a href="../index.html" class="nav-button">Back to Ashram</a>
 <a href="../index.html#jyotisha" class="nav-button">Back to Jotish</a>
-<button class="nav-button" onclick="window.location.href='aquarius demo.html'">Previous Sign</button>
-<button class="nav-button" onclick="window.location.href='aries demo.html'">Next Sign</button>
+<button class="nav-button" onclick="window.location.href='capricorn demo.html'">Previous Sign</button>
+<button class="nav-button" onclick="window.location.href='pisces demo.html'">Next Sign</button>
 </div>
 </div>
 </header>
@@ -467,12 +495,12 @@
 <div class="max-w-5xl mx-auto">
 <div class="text-center mb-16 md:mb-24">
 <div class="flex justify-center mb-6 animate-subtle-float">
-<img src="../pictures/piscespic.png" class="h-28 w-28 md:h-36 md:w-36 text-primary pisces-logo-glow">
+<img src="../pictures/aquarius pic.png" class="h-28 w-28 md:h-36 md:w-36 text-primary aquarius-logo-glow">
 </div>
-<h2 class="text-6xl md:text-8xl font-black font-display text-transparent bg-clip-text bg-gradient-to-r from-primary via-violet-300 to-indigo-200 tracking-widest animate-subtle-pulse" style="text-shadow: 0 0 30px var(--primary-glow);">PISCES</h2>
+<h2 class="text-6xl md:text-8xl font-black font-display text-transparent bg-clip-text bg-gradient-to-r from-primary via-sky-300 to-sky-100 tracking-widest animate-subtle-pulse" style="text-shadow: 0 0 30px var(--primary-glow);">AQUARIUS</h2>
 <div class="mt-4 content-section intro-text-bg" style="animation-delay: 0.2s;">
 <p class="relative z-10 text-lg md:text-xl text-text-dark/80 max-w-3xl mx-auto font-body">
-<span class="text-primary/80">&lt;SYSTEM_LOG&gt;</span> Ruled by Neptune, the planet of dreams, illusion, and spiritual transcendence. Pisces is the cosmic ocean, the <span class="font-bold text-primary animate-pulse">Great Dissolver</span> of the zodiac. It seeks unity through empathy, artistic expression, and surrendering to the divine current. This is the narrative of universal consciousness, selfless service, and the boundless power of imagination. <span class="text-primary/80">&lt;/TRANSMISSION&gt;</span>
+<span class="text-primary/80">&lt;SYSTEM_LOG&gt;</span> Governed by Uranus, the planet of revolution, and Saturn, the anchor of structure. Aquarius is the cosmic revolutionary, the <span class="font-bold text-primary animate-pulse">Future-Weaver</span> of the zodiac. It seeks liberation through innovation, humanitarianism, and intellectual sovereignty. This is the narrative of rebellion, collective consciousness, and the electric power of awakening. <span class="text-primary/80">&lt;/TRANSMISSION&gt;</span>
 </p>
 </div>
 </div>
@@ -482,32 +510,32 @@
 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
 <div class="data-card p-4 flex flex-col items-center justify-center text-center">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Somatic Focus</p>
-<p class="font-bold text-2xl font-display text-primary">Feet</p>
-<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Mystic Union</p>
+<p class="font-bold text-2xl font-display text-primary">Circulation</p>
+<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Divine Innovation</p>
 </div>
 <div class="data-card p-4 flex flex-col items-center justify-center text-center">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Crystal</p>
-<p class="font-bold text-2xl font-display text-primary">Moonstone</p>
-<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Divine Dreams</p>
+<p class="font-bold text-2xl font-display text-primary">Amethyst</p>
+<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Cosmic Freedom</p>
 </div>
 <div class="data-card p-4 flex flex-col items-center justify-center text-center">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Chroma Key</p>
-<p class="font-bold text-2xl font-display text-primary">Sea Green</p>
+<p class="font-bold text-2xl font-display text-primary">Electric Blue</p>
 <p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Energy</p>
 </div>
 <div class="data-card p-4 flex flex-col items-center justify-center text-center">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Ruling Planet</p>
-<p class="font-bold text-2xl font-display text-primary">Neptune</p>
-<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Neptune's Vision</p>
+<p class="font-bold text-2xl font-display text-primary">Uranus</p>
+<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Uranian Light</p>
 </div>
 <div class="data-card p-4 flex flex-col items-center justify-center text-center">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Element</p>
-<p class="font-bold text-2xl font-display text-primary">Water</p>
+<p class="font-bold text-2xl font-display text-primary">Air</p>
 <p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Essence</p>
 </div>
 <div class="data-card p-4 flex flex-col items-center justify-center text-center">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Modality</p>
-<p class="font-bold text-2xl font-display text-primary">Mutable</p>
+<p class="font-bold text-2xl font-display text-primary">Fixed</p>
 <p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Style</p>
 </div>
 </div>
@@ -516,28 +544,19 @@
 <div class="border-t border-primary/20 pt-8 mt-8 grid md:grid-cols-2 gap-x-12 gap-y-8 text-sm">
 <div>
 <h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">System Analysis: Root Code</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary font-semibold">[KERNEL_ANALYSIS::INITIATED]</span> The Core Matrix of Pisces is an operating system for universal connection. 'Feet' represent the soul's journey and connection to both earth and spirit. 'Amethyst,' with its calming hues, enhances intuition and spiritual awareness. 'Violet' is the frequency of higher consciousness and cosmic unity. 'Neptune' is the central processor, prioritizing imagination, empathy, and dissolving boundaries. 'Water' is the medium for emotional flow and psychic sensitivity. 'Mutable' is the prime directive: <span class="font-bold text-violet-300 animate-pulse">DREAM. MERGE. TRANSCEND.</span></p>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary font-semibold">[KERNEL_ANALYSIS::INITIATED]</span> The Core Matrix of Aquarius is an operating system designed for societal evolution and intellectual liberation. 'Ankles/Nerves' represent the body's circuitry and freedom of movement. 'Amethyst,' a stone of spiritual awareness, symbolizes connection to higher consciousness. 'Electric Blue' is the frequency of innovation, sudden insight, and futuristic thinking. 'Uranus' is the central processor, prioritizing rebellion, originality, and the greater good. 'Air' is the medium for intellectual exchange and abstract concepts. 'Fixed' is the prime directive, expressed with unwavering conviction: <span class="font-bold text-sky-200 animate-pulse">INNOVATE. LIBERATE. AWAKEN.</span></p>
 </div>
 <div>
 <h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Metaphysical Resonance Field</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary font-semibold">[FREQUENCY_CALIBRATION::ACTIVE]</span> These are not mere symbols; they are cosmic frequencies that tune reality towards compassion and oneness. Meditating on 'Violet', holding 'Amethyst', or focusing on the 'Feet' as a spiritual antenna aligns your bio-field with the Piscean frequency. This matrix provides a universal pattern for artistic inspiration, selfless love, and spiritual liberation. It is the universe's algorithm for dissolving the ego, the <span class="font-bold text-violet-300 animate-pulse">sacred equation of enlightenment.</span></p>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary font-semibold">[FREQUENCY_CALIBRATION::ACTIVE]</span> These are not mere symbols; they are cosmic frequencies that tune reality towards breakthrough and collective progress. Meditating on 'Electric Blue', holding 'Amethyst', or focusing on the 'Nervous System' as a network of light aligns your bio-field with the Aquarian frequency. This matrix provides a universal pattern for innovation, humanitarianism, and designing a new future. It is the universe's algorithm for revolution, the <span class="font-bold text-sky-200 animate-pulse">sacred equation of awakening.</span></p>
 </div>
 <div class="md:col-span-2">
 <h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Interactive Energy Calibration</h4>
-<p class="leading-relaxed expanded-content-text-gradient mb-4">Engage with the Piscean core frequency. Below are the key energetic signatures. Focus on a concept and visualize its essence flowing into your own system.</p>
+<p class="leading-relaxed expanded-content-text-gradient mb-4">Engage with the Aquarian core frequency. Below are the key energetic signatures. Focus on a concept and visualize its power integrating with your own system.</p>
 <div class="space-y-3">
 <div class="w-full">
 <div class="flex justify-between text-xs font-mono text-text-dark mb-1">
-<span>EMPATHY</span>
-<span>98%</span>
-</div>
-<div class="progress-bar-container h-2.5">
-<div class="progress-bar h-full rounded-full" style="--progress-width: 98%;"></div>
-</div>
-</div>
-<div class="w-full">
-<div class="flex justify-between text-xs font-mono text-text-dark mb-1">
-<span>IMAGINATION</span>
+<span>INNOVATION</span>
 <span>95%</span>
 </div>
 <div class="progress-bar-container h-2.5">
@@ -546,36 +565,44 @@
 </div>
 <div class="w-full">
 <div class="flex justify-between text-xs font-mono text-text-dark mb-1">
-<span>BOUNDARIES</span>
-<span>15%</span>
+<span>HUMANITARIANISM</span>
+<span>98%</span>
 </div>
 <div class="progress-bar-container h-2.5">
-<div class="progress-bar h-full rounded-full" style="--progress-width: 15%;"></div>
+<div class="progress-bar h-full rounded-full" style="--progress-width: 98%;"></div>
+</div>
+</div>
+<div class="w-full">
+<div class="flex justify-between text-xs font-mono text-text-dark mb-1">
+<span>CONFORMITY</span>
+<span>5%</span>
+</div>
+<div class="progress-bar-container h-2.5">
+<div class="progress-bar h-full rounded-full" style="--progress-width: 5%;"></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-</div>
-</details>
+</div></details>
 <div class="space-y-16 md:space-y-24">
 <div class="content-section" style="animation-delay: 0.7s;">
 <h3 class="text-4xl font-bold font-display mb-8 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Decanic Sub-Rulers</h3>
 <div class="grid md:grid-cols-3 gap-8 font-body text-base leading-relaxed">
 <div class="decan-card p-6 in-view" style="transition-delay: 100ms;">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decan I: The Dreamer (0-9°)</h4>
-<p class="text-sm text-text-dark/70 mb-2">Sub-ruler: Neptune</p>
-<p class="text-text-dark/90 text-sm">Pure, unfiltered Piscean energy. The mystic, the artist, the visionary. Embodies boundless compassion and a deep connection to the collective unconscious. This is the drive for spiritual union in its most potent form.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decan I: The Visionary (0-9°)</h4>
+<p class="text-sm text-text-dark/70 mb-2">Sub-ruler: Uranus</p>
+<p class="text-text-dark/90 text-sm">Pure, undiluted Aquarian genius. The social reformer, the inventor, the truth-teller. Embodies eccentricity and an unrelenting focus on future possibilities and humanitarian ideals.</p>
 </div>
 <div class="decan-card p-6 in-view" style="transition-delay: 200ms;">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decan II: The Nurturer (10-19°)</h4>
-<p class="text-sm text-text-dark/70 mb-2">Sub-ruler: Moon</p>
-<p class="text-text-dark/90 text-sm">The dreamy nature is now grounded in emotional sensitivity and caring. The focus shifts to healing, devotion, and creating a safe haven for others. The soul is deeply empathetic and protective.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decan II: The Networker (10-19°)</h4>
+<p class="text-sm text-text-dark/70 mb-2">Sub-ruler: Mercury</p>
+<p class="text-text-dark/90 text-sm">Intellect is now channeled into communication and community building. The focus shifts to sharing ideas, connecting like-minded people, and creating networks for social change.</p>
 </div>
 <div class="decan-card p-6 in-view" style="transition-delay: 300ms;">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decan III: The Vessel (20-29°)</h4>
-<p class="text-sm text-text-dark/70 mb-2">Sub-ruler: Pluto</p>
-<p class="text-text-dark/90 text-sm">Compassion now merges with transformative power. This is the Pisces who uses their intuitive depth to facilitate profound psychological healing. The drive is for spiritual surrender and rebirth.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decan III: The Liberator (20-29°)</h4>
+<p class="text-sm text-text-dark/70 mb-2">Sub-ruler: Venus</p>
+<p class="text-text-dark/90 text-sm">The drive for progress is now expressed through a desire for social justice and harmony. This is the diplomat of the revolution, using charm and values to unite people for a common cause.</p>
 </div>
 </div>
 </div>
@@ -583,30 +610,30 @@
 <h3 class="text-4xl font-bold font-display mb-8 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Rare Asteroid Connections</h3>
 <div class="grid md:grid-cols-3 gap-12 font-body text-base leading-relaxed pt-10">
 <div class="asteroid-card p-6 text-center rounded-full flex flex-col justify-center items-center aspect-square">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Psyche</h4>
-<p class="text-text-dark/80 text-sm">Goddess of the Soul. Amplifies Pisces' connection to empathy, soul-level connections, and the ability to understand others' innermost feelings and motivations without words.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Prometheus</h4>
+<p class="text-text-dark/80 text-sm">The Titan who stole fire from the gods for humanity. Amplifies Aquarius's rebellious, future-oriented drive to bring knowledge and innovation to the masses.</p>
 </div>
 <div class="asteroid-card p-6 text-center rounded-full flex flex-col justify-center items-center aspect-square">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Chiron</h4>
-<p class="text-text-dark/80 text-sm">The Wounded Healer. Represents Pisces' ability to transmute personal suffering into universal compassion, healing others through their deep understanding of pain.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Chariklo</h4>
+<p class="text-text-dark/80 text-sm">Wife of Chiron, a symbol of social grace and clear boundaries. Represents Aquarius's ability to remain detached while still serving the community with compassion.</p>
 </div>
 <div class="asteroid-card p-6 text-center rounded-full flex flex-col justify-center items-center aspect-square">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Isis</h4>
-<p class="text-text-dark/80 text-sm">The Egyptian goddess of magic and unconditional love. Infuses the Piscean drive with the power to piece together fragmented souls and restore wholeness through divine love.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Urania</h4>
+<p class="text-text-dark/80 text-sm">The Muse of astronomy and astrology. Infuses the Aquarian intellect with a profound connection to the cosmos, universal laws, and celestial wisdom.</p>
 </div>
 </div>
 </div>
 <div class="content-section" style="animation-delay: 0.9s;">
 <h3 class="text-4xl font-bold font-display mb-4 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Color-Energy Spectrum Visualizer</h3>
 <p class="text-center text-text-dark/80 mb-8 max-w-2xl mx-auto font-body text-sm">
-<span class="text-primary/80">[// INTERACTIVE_INTERFACE //]</span> Move your cursor across the spectrum below to decode the Piscean energy signature. Each shade of violet represents a different facet of its compassion. The light bar indicates your current position on the vibrational scale, revealing the qualities associated with that specific frequency. Engage with the flow to understand the dynamic range of Pisces, from deep empathy to cosmic consciousness.
+<span class="text-primary/80">[// INTERACTIVE_INTERFACE //]</span> Move your cursor across the spectrum below to decode the Aquarian energy signature. Each shade of blue represents a different facet of its power. The light bar indicates your current position on the vibrational scale, revealing the qualities associated with that specific frequency. Engage with the flow to understand the dynamic range of Aquarius, from deep rebellion to enlightened genius.
                     </p>
 <div class="relative" id="spectrum-container">
 <div class="color-spectrum h-20 w-full rounded-lg" id="color-spectrum"></div>
 <div class="spectrum-info-container absolute bottom-full mb-2 w-full flex justify-center pointer-events-none" id="spectrum-info-container">
 <div class="p-4 rounded-lg bg-background-dark/80 border border-primary/30 backdrop-blur-sm text-center w-64" id="spectrum-info">
-<h5 class="font-bold text-primary font-display text-lg transition-all duration-200" id="spectrum-title">Soft Violet</h5>
-<p class="text-xs text-text-dark/80 transition-all duration-200" id="spectrum-desc">The core frequency of dreams, compassion, artistic inspiration, and spiritual connection. The soul of the cosmos.</p>
+<h5 class="font-bold text-primary font-display text-lg transition-all duration-200" id="spectrum-title">Deep Indigo</h5>
+<p class="text-xs text-text-dark/80 transition-all duration-200" id="spectrum-desc">The core frequency of rebellion, questioning authority, and deconstructing outdated systems.</p>
 </div>
 </div>
 </div>
@@ -616,31 +643,31 @@
 <h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary flex items-center justify-between" style="text-shadow: 0 0 15px var(--primary-glow);">Shadow Aspects Unveiled<span class="material-symbols-outlined text-3xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
 <div class="grid md:grid-cols-2 gap-8 font-body text-base leading-relaxed">
 <div class="futuristic-card p-6">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Escapist</h4>
-<p class="text-text-dark/90">The desire to transcend reality, when corrupted by fear of pain, becomes a need to escape. The shadow appears as addiction, self-deception, and avoidance of responsibility.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Detached Extremist</h4>
+<p class="text-text-dark/90">The pursuit of ideals, when corrupted by intellectual pride, becomes a rigid, unemotional dogmatism. The shadow appears as aloofness and a fanatical devotion to ideas over people.</p>
 </div>
 <div class="futuristic-card p-6">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Martyr</h4>
-<p class="text-text-dark/90">The depth of compassion, without the balance of self-preservation, leads to victimhood. The shadow is obsessed with sacrifice, attracting draining energies, and enabling others.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Anarchist</h4>
+<p class="text-text-dark/90">The love of freedom, without the balance of responsibility, leads to chaos. The shadow is obsessed with rebellion for its own sake, destroying systems without a viable alternative.</p>
 </div>
 </div>
 </summary>
 <div class="expandable-card-content px-6">
 <div class="border-t border-primary/20 pt-8 mt-8 grid md:grid-cols-2 gap-x-12 gap-y-8 text-sm">
 <div>
-<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Integration Path: Conscious Creativity</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[EGO_MODULATION::REQUIRED]</span> The antidote to escapism is creation. The evolved Pisces understands that true transcendence comes from channeling their imagination into art, music, or healing practices. By giving form to their inner worlds, they learn that reality can be shaped, not just fled. <span class="font-bold text-violet-300 animate-pulse">Thus, escapism is refined into true inspiration.</span></p>
+<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Integration Path: Embodied Visionary</h4>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[EGO_MODULATION::REQUIRED]</span> The antidote to extremism is empathy. The evolved Aquarius understands that true progress must include the heart. By connecting their brilliant ideas to the lived experiences of others, they learn that compassionate action is more revolutionary than abstract theory. <span class="font-bold text-sky-200 animate-pulse">Thus, intellect is refined into true wisdom.</span></p>
 </div>
 <div>
-<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Integration Path: Discerned Compassion</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[EMOTIONAL_ALCHEMY::CRITICAL]</span> The shadow of martyrdom is healed by embracing wisdom from its opposite sign, Virgo. Through cultivating discernment and healthy boundaries, Pisces learns that true service requires self-care. By filling their own cup first, their self-pity transforms into sustainable compassion. <span class="font-bold text-violet-300 animate-pulse">The victim becomes the conscious healer.</span></p>
+<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Integration Path: Responsible Innovator</h4>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[EMOTIONAL_ALCHEMY::CRITICAL]</span> The shadow of anarchy is healed by embracing wisdom from its opposite sign, Leo. Through cultivating personal responsibility and creative expression, Aquarius learns that freedom is not just about tearing down, but about building something better in its place. By taking ownership of their creations, rebellion transforms into sovereign leadership. <span class="font-bold text-sky-200 animate-pulse">The revolution becomes a sustainable creation.</span></p>
 </div>
 <div class="md:col-span-2 pt-4">
 <div class="flex items-center gap-6 p-4 rounded-lg bg-background-dark/30 border border-primary/20">
-<span class="material-symbols-outlined text-5xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">water_drop</span>
+<span class="material-symbols-outlined text-5xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">emoji_objects</span>
 <div>
 <h5 class="font-bold font-display text-primary/90 text-lg">Shadow Integration Exercise</h5>
-<p class="text-sm text-text-dark/90 leading-relaxed">Next time you feel drained, pause. Ask: "Is this my emotion, or someone else's? Where do I end and they begin?" This simple query reroutes the martyr circuit into one of self-awareness, shifting the focus from 'How can I save them?' to 'How can I serve from a place of wholeness?'.</p>
+<p class="text-sm text-text-dark/90 leading-relaxed">When you feel a strong urge to rebel against a system, pause. Ask: "What is a tangible, creative, and constructive alternative I can begin to build right now?" This query reroutes the circuit of anarchy into one of innovation, shifting the focus from 'This must be destroyed' to 'This can be created'.</p>
 </div>
 </div>
 </div>
@@ -648,13 +675,13 @@
 </div>
 </details>
 <div class="content-section chiron-card p-8" style="animation-delay: 1.1s;">
-<h3 class="text-4xl font-bold font-display mb-4 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Chiron in Pisces: The Wounded Mystic</h3>
+<h3 class="text-4xl font-bold font-display mb-4 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Chiron in Aquarius: The Wounded Genius</h3>
 <div class="grid md:grid-cols-3 gap-8">
 <div class="md:col-span-2">
-<p class="text-text-dark/90 leading-relaxed">Chiron in Pisces points to a core wound around spirituality, belonging, and the nature of reality. Individuals with this placement may feel a profound sense of cosmic homelessness, disillusionment, or a longing for a divine connection that feels lost. The healing journey involves courageously embracing the unknown, learning to find the sacred in the mundane, and understanding that true faith lies in surrender. By healing their own spiritual wounds, they become master guides for others, navigating the mists of illusion by <span class="font-bold text-primary/80 animate-pulse">embodying divine love.</span></p>
+<p class="text-text-dark/90 leading-relaxed">Chiron in Aquarius points to a core wound around belonging, individuality, and intellectual contribution. Individuals with this placement may feel like an outcast, fear their own unique ideas, or feel alienated from the collective. The healing journey involves courageously embracing their eccentricity, sharing their unconventional wisdom, and understanding that their unique perspective is their greatest gift to humanity. By healing their own sense of separation, they become brilliant catalysts for change, guiding society toward a better future by <span class="font-bold text-primary/80 animate-pulse">embodying innovation.</span></p>
 </div>
 <div class="flex items-center justify-center">
-<span class="material-symbols-outlined text-8xl text-primary/70" style="filter: drop-shadow(0 0 10px var(--primary-glow));">self_improvement</span>
+<span class="material-symbols-outlined text-8xl text-primary/70" style="filter: drop-shadow(0 0 10px var(--primary-glow));">hub</span>
 </div>
 </div>
 </div>
@@ -662,26 +689,26 @@
 <h3 class="text-4xl font-bold font-display mb-8 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Zodiacal Archetype Cross-Reference</h3>
 <div class="flex justify-center items-center gap-12 md:gap-20 pt-4">
 <div class="archetype-link">
-<span class="material-symbols-outlined text-6xl text-primary cursor-pointer">brush</span>
+<span class="material-symbols-outlined text-6xl text-primary cursor-pointer">science</span>
 <div class="archetype-info w-56 p-4 rounded-xl bg-background-dark/90 border border-primary/50 backdrop-blur-md">
-<h5 class="font-bold font-display text-primary">The Artist</h5>
-<p class="text-xs text-text-dark/80">The universal archetype of creation, inspiration, and channeling the intangible into form. The musician, the poet, the painter.</p>
+<h5 class="font-bold font-display text-primary">The Scientist</h5>
+<p class="text-xs text-text-dark/80">The universal archetype of discovery, objectivity, and understanding the laws of nature. The inventor, the theorist, the seeker of truth.</p>
 </div>
 </div>
 <span class="material-symbols-outlined text-4xl text-primary/50">link</span>
 <div class="archetype-link">
-<span class="material-symbols-outlined text-6xl text-primary cursor-pointer">psychology</span>
+<span class="material-symbols-outlined text-6xl text-primary cursor-pointer">psychology_alt</span>
 <div class="archetype-info w-56 p-4 rounded-xl bg-background-dark/90 border border-primary/50 backdrop-blur-md">
-<h5 class="font-bold font-display text-primary">The Mystic</h5>
-<p class="text-xs text-text-dark/80">The symbol of spiritual questing and union with the divine. The one who dissolves the ego to experience universal consciousness.</p>
+<h5 class="font-bold font-display text-primary">The Rebel</h5>
+<p class="text-xs text-text-dark/80">The symbol of challenging the status quo and fighting for freedom. The one who breaks the rules to create a new, more just order.</p>
 </div>
 </div>
 <span class="material-symbols-outlined text-4xl text-primary/50">link</span>
 <div class="archetype-link">
-<span class="material-symbols-outlined text-6xl text-primary cursor-pointer">volunteer_activism</span>
+<span class="material-symbols-outlined text-6xl text-primary cursor-pointer">groups</span>
 <div class="archetype-info w-56 p-4 rounded-xl bg-background-dark/90 border border-primary/50 backdrop-blur-md">
-<h5 class="font-bold font-display text-primary">The Savior</h5>
-<p class="text-xs text-text-dark/80">Represents unconditional love and self-sacrifice for the greater good. The healer, the redeemer, the agent of compassion.</p>
+<h5 class="font-bold font-display text-primary">The Humanitarian</h5>
+<p class="text-xs text-text-dark/80">Represents collective consciousness and service to the greater good. The activist, the philanthropist, the agent of social progress.</p>
 </div>
 </div>
 </div>
@@ -692,62 +719,62 @@
 <h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary flex items-center justify-between" style="text-shadow: 0 0 15px var(--primary-glow);">Operational Directives <span class="material-symbols-outlined text-3xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
 <div class="grid md:grid-cols-3 gap-8 font-body text-base leading-relaxed">
 <div class="icon-card p-6 flex flex-col items-center text-center rounded-lg" style="clip-path: polygon(0 15px, 15px 0, 100% 0, 100% 100%, 0 100%);">
-<span class="material-symbols-outlined text-4xl text-primary mb-3" style="filter: drop-shadow(0 0 8px var(--primary-glow));">waves</span>
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Strength: Empathy</h4>
-<p class="text-text-dark/80 text-sm">Innate ability to absorb and understand the emotional states of others, fostering deep, non-verbal connection and healing.</p>
+<span class="material-symbols-outlined text-4xl text-primary mb-3" style="filter: drop-shadow(0 0 8px var(--primary-glow));">lightbulb</span>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Strength: Innovation</h4>
+<p class="text-text-dark/80 text-sm">Innate genius for seeing future trends and developing novel solutions. Unmatched in their ability to think outside the box and challenge conventions.</p>
 </div>
 <div class="icon-card p-6 flex flex-col items-center text-center rounded-lg" style="clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 0 100%);">
-<span class="material-symbols-outlined text-4xl text-primary mb-3" style="filter: drop-shadow(0 0 8px var(--primary-glow));">visibility_off</span>
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Challenge: Illusion</h4>
-<p class="text-text-dark/80 text-sm">A tendency to see the world through rose-colored glasses can lead to self-deception, gullibility, and disappointment.</p>
+<span class="material-symbols-outlined text-4xl text-primary mb-3" style="filter: drop-shadow(0 0 8px var(--primary-glow));">ice_skating</span>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Challenge: Detachment</h4>
+<p class="text-text-dark/80 text-sm">A reliance on intellect can lead to emotional aloofness, difficulty with intimacy, and a tendency to prioritize ideas over feelings.</p>
 </div>
 <div class="icon-card p-6 flex flex-col items-center text-center rounded-lg" style="clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);">
-<span class="material-symbols-outlined text-4xl text-primary mb-3" style="filter: drop-shadow(0 0 8px var(--primary-glow));">favorite</span>
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Love: Soul Mate</h4>
-<p class="text-text-dark/80 text-sm">In romance, Pisces seeks an ethereal, spiritual connection—a merging of souls that transcends the physical world.</p>
+<span class="material-symbols-outlined text-4xl text-primary mb-3" style="filter: drop-shadow(0 0 8px var(--primary-glow));">diversity_3</span>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Love: Eccentric Friend</h4>
+<p class="text-text-dark/80 text-sm">In romance, Aquarius seeks an intellectual equal and a best friend. They show love through shared ideals, mental stimulation, and championing their partner's freedom.</p>
 </div>
 </div>
 </summary>
 <div class="expandable-card-content px-6">
 <div class="border-t border-primary/20 pt-8 mt-8 grid md:grid-cols-3 gap-x-12 gap-y-8 text-sm">
 <div>
-<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Deep Dive: Empathic Protocol</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[CONNECTION_CORE::ONLINE]</span> Piscean strength is a Neptunian force—a drive to dissolve boundaries and merge with the universal consciousness. It excels in healing by feeling what others feel. The evolutionary task is to transition from being a passive emotional sponge to a conscious channel for compassion. Unchanneled, it is chaotic. Channeled, it holds the power to <span class="font-bold text-violet-300 animate-pulse">bring divine love to earth.</span></p>
+<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Deep Dive: Innovation Protocol</h4>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[INNOVATION_CORE::ONLINE]</span> Aquarian strength is a Uranian force—a drive to shatter outdated paradigms through sudden insight. It excels in pattern recognition from a higher perspective. The evolutionary task is to transition from merely deconstructing to consciously creating new systems for the collective good. Unchanneled, it is rebellion for its own sake. Channeled, it holds the power to <span class="font-bold text-sky-200 animate-pulse">architect a new world.</span></p>
 </div>
 <div>
-<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Deep Dive: Illusion Algorithm</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[REALITY_FILTER::ACTIVE]</span> This is a feature, not a flaw. Pisces is running a complex reality-simulation, scanning for potential and beauty. The idealistic nature is a system check for hope. The spiritual mission is to trust their powerful intuition while learning to differentiate between genuine potential and wishful thinking. The Fish must learn to <span class="font-bold text-violet-300 animate-pulse">see with both their heart and their eyes.</span></p>
+<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Deep Dive: Detachment Algorithm</h4>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[OBJECTIVITY_ASSESSMENT::ACTIVE]</span> This is a feature, not a flaw. Aquarius is running a complex social simulation, scanning for bias and emotional irrationality. The seeming coldness is a system check for objective truth. The spiritual mission is to trust their powerful intellect while learning to integrate it with empathy. The Water Bearer must learn to <span class="font-bold text-sky-200 animate-pulse">pour the waters of knowledge with compassion.</span></p>
 </div>
 <div>
 <h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Deep Dive: Relational Dynamics</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[SOUL_MERGE::INITIATED]</span> The Piscean search for a partner is a sacred quest for a soul who can meet them in the imaginal realms. A relationship devoid of magic, spiritual depth, and unconditional love is a barren desert. They fall in love with another's soul, seeking a partner who is brave enough to <span class="font-bold text-violet-300 animate-pulse">dream the same dream together.</span></p>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[FREEDOM_PROTOCOL::INITIATED]</span> The Aquarian search for a partner is an intellectual quest for a co-conspirator. A relationship devoid of mental stimulation, mutual respect for freedom, and shared ideals is a prison. They fall in love with another's mind, seeking a partner who is independent enough to <span class="font-bold text-sky-200 animate-pulse">journey to the future together.</span></p>
 </div>
 </div>
 </div>
 </details>
 <details class="group content-section expandable-card" style="animation-delay: 1.0s;">
 <summary class="list-none cursor-pointer">
-<h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary flex items-center justify-between" style="text-shadow: 0 0 15px var(--primary-glow);">The Fish's Paradox<span class="material-symbols-outlined text-3xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
+<h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary flex items-center justify-between" style="text-shadow: 0 0 15px var(--primary-glow);">The Water Bearer's Paradox<span class="material-symbols-outlined text-3xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
 <div class="grid md:grid-cols-2 gap-8 font-body text-base leading-relaxed">
 <div class="futuristic-card p-6">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Grounded Dreamer</h4>
-<p class="text-text-dark/90">Obsessed with dreams and the ethereal, Pisces possesses a hidden, profound wisdom about the material world, often understanding its mechanics with surprising clarity.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Humane Misanthrope</h4>
+<p class="text-text-dark/90">Driven to save humanity as a whole, Aquarius can be surprisingly detached or even critical of individuals, often preferring the ideal of humanity to actual humans.</p>
 </div>
 <div class="futuristic-card p-6">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Solitary Companion</h4>
-<p class="text-text-dark/90">While deeply craving connection and merging with others, Pisces has a fundamental need for solitude to recharge, reconnect with their source, and process the world's energies.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Fixed Revolutionary</h4>
+<p class="text-text-dark/90">While championing radical change and progress, Aquarius can be incredibly stubborn and fixed in their own opinions, resisting any change to their "perfect" vision.</p>
 </div>
 </div>
 </summary>
 <div class="expandable-card-content px-6">
 <div class="border-t border-primary/20 pt-8 mt-8 grid md:grid-cols-2 gap-x-12 gap-y-8 text-sm">
 <div>
-<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Paradox Resolution: Intuitive Logic</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[TRANSMUTATION_PROTOCOL::ENGAGED]</span> The drive to dream while understanding reality is an intuitive gift. Pisces absorbs information on a subliminal level. They "feel" the truth rather than analyzing it. The evolved Pisces learns to trust this inner knowing, using their dreams as a blueprint for what's possible in the material world. <span class="font-bold text-violet-300 animate-pulse">True wisdom is knowing that reality is a shared dream.</span></p>
+<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Paradox Resolution: Compassionate Intellect</h4>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[TRANSMUTATION_PROTOCOL::ENGAGED]</span> The love for humanity paired with individual detachment is an objectivity protocol. The misanthropy is a defense against messy emotional data. The evolved Aquarius learns to use their detachment not as a wall, but as a lens for seeing universal needs. <span class="font-bold text-sky-200 animate-pulse">True progress is loving the idea and the individual.</span></p>
 </div>
 <div>
-<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Paradox Resolution: Sacred Space as Connection</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[QUANTUM_LOGIC::EXECUTED]</span> The 'Solitary Companion' seeks connection so deep it transcends physical presence. Solitude is a defense mechanism against psychic overload. When they find companions who respect their need for space, solitude becomes the ultimate act of intimacy—a sacred communion with self that enriches all their connections. Their alone time becomes a <span class="font-bold text-violet-300 animate-pulse">gateway to universal love.</span></p>
+<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Paradox Resolution: Evolving Vision</h4>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[QUANTUM_LOGIC::EXECUTED]</span> The 'Fixed Revolutionary' has downloaded a perfect blueprint for the future. The paradox is resolved when they understand that the universe is dynamic. By embracing feedback and collaboration, their rigid plan transforms into a living, adaptable system. Their vision becomes a <span class="font-bold text-sky-200 animate-pulse">co-creation with the evolving consciousness of the collective.</span></p>
 </div>
 </div>
 </div>
@@ -758,40 +785,40 @@
 <details class="dynamic-card" style="animation-delay: 0s;">
 <summary class="p-6 flex flex-col items-center text-center cursor-pointer list-none">
 <div class="flex items-center justify-between w-full mb-3">
-<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">palette</span>
+<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">biotech</span>
 <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon">add</span>
 </div>
 <h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Career Trajectory</h4>
-<p class="text-text-dark/80 text-sm">Thrives in roles requiring imagination, compassion, and artistry. Healing arts, filmmaking, social work, and spiritual guidance are natural arenas.</p>
+<p class="text-text-dark/80 text-sm">Thrives in roles requiring innovation, social impact, and intellectual freedom. Technology, science, activism, and astrology are natural arenas.</p>
 </summary>
 <div class="dynamic-card-content px-6 pb-6 text-left">
-<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[ASCENSION_VECTOR::PLOTTED]</span> The Piscean professional is a channel, a system-healer sent to infuse soulless structures with compassion. They don't climb the corporate ladder; they dissolve it with kindness. Their challenge lies in avoiding exploitation. They must learn that their gifts are valuable. <span class="font-bold text-violet-300 animate-pulse">Their purpose is not just to dream, but to inspire.</span></p>
+<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[ASCENSION_VECTOR::PLOTTED]</span> The Aquarian professional is a system disruptor, a change agent sent to upgrade outdated structures. They don't climb the corporate ladder; they redesign it or build a network instead. Their challenge lies in avoiding alienation. They must learn to communicate their visions effectively. <span class="font-bold text-sky-200 animate-pulse">Their purpose is not just to work, but to bring the future into the present.</span></p>
 </div>
 </details>
 <details class="dynamic-card" style="--angle: 120deg; animation-delay: -4s;">
 <summary class="p-6 flex flex-col items-center text-center cursor-pointer list-none">
 <div class="flex items-center justify-between w-full mb-3">
-<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">blur_on</span>
+<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">bolt</span>
 <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon">add</span>
 </div>
 <h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Defensive Protocol</h4>
-<p class="text-text-dark/80 text-sm">When challenged, the Fish employs strategic disengagement and confusion. They will become a shapeshifting mirage, impossible to pin down or attack directly.</p>
+<p class="text-text-dark/80 text-sm">When challenged, Aquarius employs intellectual superiority and unexpected tactics. They will suddenly reframe the entire argument, leaving their opponent baffled.</p>
 </summary>
 <div class="dynamic-card-content px-6 pb-6 text-left">
-<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[THREAT_RESPONSE::ACTIVATED]</span> This protocol is not passive; it is an advanced energetic cloaking system. The Piscean "defense" is designed to de-escalate and dissolve conflict through non-resistance. Their vagueness is a shield, their adaptability a superpower. They would rather flow around an obstacle than confront it head-on. <span class="font-bold text-violet-300 animate-pulse">Confusion is a fortress against aggression.</span></p>
+<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[THREAT_RESPONSE::ACTIVATED]</span> This protocol is not personal; it is a system reboot. The Aquarian "defense" is designed to expose the opponent's limited perspective through a sudden paradigm shift. Their detachment is a weapon, their originality a shield. They would rather win the war by changing the rules of engagement than play a losing game. <span class="font-bold text-sky-200 animate-pulse">Logic is a lightning bolt of truth.</span></p>
 </div>
 </details>
 <details class="dynamic-card" style="--angle: 240deg; animation-delay: -8s;">
 <summary class="p-6 flex flex-col items-center text-center cursor-pointer list-none">
 <div class="flex items-center justify-between w-full mb-3">
-<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">groups</span>
+<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">connect_without_contact</span>
 <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon">add</span>
 </div>
 <h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Social Dynamics</h4>
-<p class="text-text-dark/80 text-sm">As the mystic of the zodiac, Pisces prefers deep, soulful connections. They are the friend who feels your pain and loves you unconditionally.</p>
+<p class="text-text-dark/80 text-sm">As the networker of the zodiac, Aquarius prefers large, diverse groups united by a common ideal. They are the friend who connects you to new ideas and people.</p>
 </summary>
 <div class="dynamic-card-content px-6 pb-6 text-left">
-<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[UNITY_MODULE::ONLINE]</span> In any social matrix, the Piscean function is that of the heart. They create unshakable bonds of empathy and acceptance, demanding nothing but your true self. Their presence encourages vulnerability, forgiveness, and spiritual growth. To be in their inner circle is to be perpetually invited to dissolve your ego and connect to love. <span class="font-bold text-violet-300 animate-pulse">They are the living embodiment of oneness.</span></p>
+<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[COLLECTIVE_MODULE::ONLINE]</span> In any social matrix, the Aquarian function is that of the network node. They create decentralized structures of connection and information flow, demanding intellectual honesty and open-mindedness. Their presence encourages progress, innovation, and collective action. To be in their circle is to be consistently challenged to become a more aware, forward-thinking version of yourself. <span class="font-bold text-sky-200 animate-pulse">They are the living embodiment of "the future is now."</span></p>
 </div>
 </details>
 </div>
@@ -802,40 +829,40 @@
 <details class="dynamic-card" style="--angle: 60deg; animation-delay: -2s;">
 <summary class="p-6 flex flex-col items-center text-center cursor-pointer list-none">
 <div class="flex items-center justify-between w-full mb-3">
-<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">all_inclusive</span>
+<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">water_drop</span>
 <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon">add</span>
 </div>
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Two Fish</h4>
-<p class="text-text-dark/80 text-sm">The two fish swimming in opposite directions represent the duality of Pisces: one fish swims towards the material world, the other towards the spiritual realm.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Water Bearer</h4>
+<p class="text-text-dark/80 text-sm">The symbol is not water itself, but the bearer of water—representing the pouring of knowledge and spiritual truth onto humanity from a higher source.</p>
 </summary>
 <div class="dynamic-card-content px-6 pb-6 text-left">
-<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80">[EVOLUTIONARY_PATH::MAPPED]</span> These are not opposing forces, but a sacred dance of consciousness. The Piscean journey is to unite these two currents. They learn to be in the world but not of it, to honor their human experience while remaining connected to their divine source. It is the journey from spiritual confusion to <span class="font-bold text-violet-300 animate-pulse">embodied enlightenment.</span></p>
+<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80">[EVOLUTIONARY_PATH::MAPPED]</span> This is the key to their purpose. Aquarius is an Air sign, dealing in intellect, not emotion. The 'water' is consciousness. The journey is from pure intellectual detachment to becoming a clear channel for universal wisdom. It is the journey from knowing to <span class="font-bold text-sky-200 animate-pulse">becoming a conduit for awakening.</span></p>
 </div>
 </details>
 <details class="dynamic-card" style="--angle: 180deg; animation-delay: -6s;">
 <summary class="p-6 flex flex-col items-center text-center cursor-pointer list-none">
 <div class="flex items-center justify-between w-full mb-3">
-<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">spa</span>
+<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">neurology</span>
 <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon">add</span>
 </div>
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Exaltation of Venus</h4>
-<p class="text-text-dark/80 text-sm">Venus is "exalted" in Pisces, meaning the planet of love and beauty finds its highest, most spiritual expression here, as unconditional, divine love.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Dual Rulership</h4>
+<p class="text-text-dark/80 text-sm">Aquarius is co-ruled by Saturn (structure) and Uranus (revolution). This blend creates a "structured rebellion"—the ability to build new systems, not just tear old ones down.</p>
 </summary>
 <div class="dynamic-card-content px-6 pb-6 text-left">
-<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[LOVE_FREQUENCY::ENABLED]</span> This "exaltation" is Pisces' divine gift. It elevates romantic love to Agape—universal, selfless love. The unevolved Piscean Venus is prone to idealization and codependency. The evolved Piscean Venus becomes a channel for divine love, capable of profound healing and fostering creative genius through connections built on <span class="font-bold text-violet-300 animate-pulse">unconditional acceptance.</span></p>
+<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[STRATEGIC_CHAOS::ENABLED]</span> This "dual rulership" is Aquarius's secret weapon. It transforms chaotic, rebellious energy into a disciplined, effective force for change. The unevolved Aquarian is just a rebel. The evolved Aquarian becomes a master systems builder, capable of directing revolutionary energy to create lasting, progressive structures with <span class="font-bold text-sky-200 animate-pulse">visionary precision.</span></p>
 </div>
 </details>
 <details class="dynamic-card" style="--angle: 300deg; animation-delay: -10s;">
 <summary class="p-6 flex flex-col items-center text-center cursor-pointer list-none">
 <div class="flex items-center justify-between w-full mb-3">
-<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">invert_colors_off</span>
+<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">visibility</span>
 <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon">add</span>
 </div>
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Mutable Water Paradox</h4>
-<p class="text-text-dark/80 text-sm">As "mutable water," Pisces is like the ocean: formless, adaptable, and containing all things, yet holding the immense power of the collective.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The "Exiled" Sun</h4>
+<p class="text-text-dark/80 text-sm">The Sun is in "detriment" in Aquarius. The ego (Sun) struggles against the collective focus, imbuing the sign with a challenge to balance personal identity with humanitarian goals.</p>
 </summary>
 <div class="dynamic-card-content px-6 pb-6 text-left">
-<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[SYSTEM_OVERRIDE::POTENTIAL_ENERGY]</span> This is not a contradiction, but a core feature of their unifying function. To hold a fixed form would be to create separation. Their cosmic duty is to be a vessel for the collective emotional body. True wisdom for Pisces lies in learning to channel this vast ocean of feeling into creative acts, transmuting collective chaos into <span class="font-bold text-violet-300 animate-pulse">deliberate, healing art.</span></p>
+<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[SYSTEM_OVERRIDE::EGO_INTEGRATION]</span> This is not weakness, but a core feature of their operational purpose. They feel a deep, often unconscious pull to serve the group over the self. True wisdom for Aquarius lies in recognizing that their individual genius is the greatest gift they can give the collective. Their unique identity is not a distraction, but the very source of their <span class="font-bold text-sky-200 animate-pulse">revolutionary contribution.</span></p>
 </div>
 </details>
 </div>
@@ -847,33 +874,33 @@
 <summary class="flex cursor-pointer list-none items-center justify-between p-4 font-bold text-xl font-display text-primary tracking-wider transition-all duration-300">
                                     Mythological Subroutine
                                     <div class="text-primary transition-transform duration-300 group-open:rotate-90">
-<svg class="feather feather-chevron-right" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
+<svg class="feather feather-chevron-right" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
 </div>
 </summary>
 <div class="px-4 pb-4 text-base overflow-hidden transition-all duration-500 ease-in-out max-h-screen group-open:max-h-screen">
-<p class="leading-relaxed expanded-content-text-gradient">Linked to the myth of Aphrodite and Eros, who transformed into fish to escape the monster Typhon, this subroutine subverts the 'weak' stereotype. It recasts the Piscean archetype as a master of adaptation and flow, a symbol of love's power to transcend danger through metamorphosis. This reveals the core code is not merely 'escape', but <span class="font-bold text-violet-300 animate-pulse">'transmute'</span>—undergoing total transformation to achieve a higher, safer state of being.</p>
+<p class="leading-relaxed expanded-content-text-gradient">Linked to the myth of Ganymede, the beautiful youth abducted by Zeus to be the cupbearer to the gods. This subroutine subverts the 'detached' stereotype. It recasts the Aquarian archetype as a bridge between humanity and the divine, chosen for their unique perspective. This reveals the core code is not merely 'rebel', but <span class="font-bold text-sky-200 animate-pulse">'reveal'</span>—using their genius to channel higher wisdom for all.</p>
 </div>
 </details>
 <details class="group accordion-item">
 <summary class="flex cursor-pointer list-none items-center justify-between p-4 font-bold text-xl font-display text-primary tracking-wider transition-all duration-300">
-                                    The "Dissolution" Protocol
+                                    The "Awakening" Protocol
                                     <div class="text-primary transition-transform duration-300 group-open:rotate-90">
-<svg class="feather feather-chevron-right" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
+<svg class="feather feather-chevron-right" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
 </div>
 </summary>
 <div class="px-4 pb-4 text-base overflow-hidden transition-all duration-500 ease-in-out max-h-0 group-open:max-h-screen">
-<p class="leading-relaxed expanded-content-text-gradient">Pisces rules the 12th house, the domain of the collective unconscious, past lives, and self-undoing. Planets positioned here do not just express their energy for the self; they use it to dissolve karmic patterns and connect to the universal whole. A Piscean Mars doesn't just act, it acts on behalf of a dream or ideal. They are system-level mystics, here to experience life not as an individual journey, but through the crucible of spiritual surrender. Their personal evolution becomes, intentionally or not, a <span class="font-bold text-violet-300 animate-pulse">catalyst for collective healing.</span></p>
+<p class="leading-relaxed expanded-content-text-gradient">Aquarius rules the 11th house, the domain of friendships, future hopes, and collective movements. Planets positioned here do not just express their energy for personal gain; they use it to build networks and advance humanitarian causes. An Aquarian Venus doesn't just love, it seeks friendships and associations that align with its highest ideals for humanity. They are system-level architects, here to experience life not as a personal journey, but as a collaborative project of <span class="font-bold text-sky-200 animate-pulse">building a better future.</span></p>
 </div>
 </details>
 <details class="group accordion-item">
 <summary class="flex cursor-pointer list-none items-center justify-between p-4 font-bold text-xl font-display text-primary tracking-wider transition-all duration-300">
                                      Compatibility Patches
                                     <div class="text-primary transition-transform duration-300 group-open:rotate-90">
-<svg class="feather feather-chevron-right" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
+<svg class="feather feather-chevron-right" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
 </div>
 </summary>
 <div class="px-4 pb-4 text-base overflow-hidden transition-all duration-500 ease-in-out max-h-0 group-open:max-h-screen">
-<p class="leading-relaxed expanded-content-text-gradient">While instinctively favoring the profound empathy of fellow Water signs (Cancer, Scorpio) and the grounding stability of Earth signs (Taurus, Virgo), Pisces achieves profound growth through high-friction pairings. Air signs (Gemini, Aquarius) install critical 'logic' and 'communication' modules, teaching Pisces to articulate their vast inner world. Fire signs (Aries, Leo) provide the 'action' patch, connecting their boundless imagination to a more confident, expressive way of being in the world. <span class="font-bold text-violet-300 animate-pulse">True love requires dynamic integration.</span></p>
+<p class="leading-relaxed expanded-content-text-gradient">While instinctively favoring the intellectual stimulation of fellow Air signs (Gemini, Libra) and the dynamic energy of Fire signs (Aries, Sagittarius), Aquarius achieves profound growth through high-friction pairings. Earth signs (Taurus, Virgo) install critical 'grounding' and 'practicality' modules, teaching Aquarius how to manifest their brilliant ideas in the real world. Water signs (Cancer, Scorpio) provide the 'empathy' patch, connecting their abstract ideals to the emotional reality of human experience. <span class="font-bold text-sky-200 animate-pulse">True genius requires heart.</span></p>
 </div>
 </details>
 </div>
@@ -918,9 +945,9 @@
         const spectrumTitle = document.getElementById('spectrum-title');
         const spectrumDesc = document.getElementById('spectrum-desc');
         const spectrumData = [
-            { range: [0, 0.33], title: 'Deep Indigo', desc: 'Cosmic consciousness, mystic wisdom, and universal knowledge. The root of Pisces\' intuition.' },
-            { range: [0.33, 0.66], title: 'Soft Violet', desc: 'The core frequency of dreams, compassion, artistic inspiration, and spiritual connection. The soul of the cosmos.' },
-            { range: [0.66, 1], title: 'Pale Lavender', desc: 'Unconditional love, spiritual healing, and the gentle expression of divine grace. The Angelic frequency.' }
+            { range: [0, 0.33], title: 'Deep Indigo', desc: 'The core frequency of rebellion, questioning authority, and deconstructing outdated systems.' },
+            { range: [0.33, 0.66], title: 'Electric Blue', desc: 'The frequency of sudden insight, humanitarian vision, and electrifying innovation.' },
+            { range: [0.66, 1], title: 'Pale Sky', desc: 'Enlightened genius, universal consciousness, and the serene wisdom of the future, fully realized.' }
         ];
         spectrum.addEventListener('mousemove', (e) => {
             const rect = spectrum.getBoundingClientRect();
@@ -936,6 +963,18 @@
                     spectrumInfo.classList.remove('opacity-0', 'scale-95');
                 }, 150);
             }
+        });
+        // Intersection Observer for decan cards
+        const decanCards = document.querySelectorAll('.decan-card');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, { threshold: 0.1 });
+        decanCards.forEach(card => {
+            observer.observe(card);
         });
     });
 </script>
