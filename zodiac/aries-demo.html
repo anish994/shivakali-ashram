@@ -97,7 +97,6 @@
         .aries-logo-glow:hover {
             filter: drop-shadow(0 0 18px var(--primary)) drop-shadow(0 0 30px var(--primary));
         }
-        .data-card {
             background-color: #ff1a1a08;
             border: 1px solid var(--primary-glow);
             backdrop-filter: blur(12px);
@@ -294,11 +293,12 @@
         .expandable-card[open] .expand-icon {
             transform: rotate(45deg);
         }
-        .expandable-card-content {
+.expandable-card-content {
             overflow: hidden;
             transition: max-height 0.7s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.5s ease, padding 0.5s ease;
             max-height: 0;
             opacity: 0;
+            width: 100%;
         }
         .expandable-card[open] > .expandable-card-content {
             max-height: 1000px;
@@ -596,7 +596,7 @@
         }
 
         /* Extra small devices optimization */
-        @media (max-width: 480px) {
+@media (max-width: 480px) {
             h2 {
                 font-size: 2.5rem !important;
             }
@@ -607,6 +607,19 @@
 
             .data-card {
                 padding: 0.75rem !important;
+            }
+
+            .expandable-card-content {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+
+            .data-card p.font-bold {
+                font-size: 1.25rem !important;
+            }
+
+            .data-card p.text-xs {
+                font-size: 0.65rem !important;
             }
 
             /* Stack navigation buttons vertically */
@@ -640,27 +653,27 @@
 <div class="container mx-auto px-4 py-4">
 <!-- Mobile Header -->
 <div class="md:hidden">
-<div class="flex items-center justify-between">
+<div class="flex items-center justify-between p-2">
 <div class="flex items-center gap-3 group">
-<img src="../pictures/aries pic .png" class="h-8 w-8 text-primary aries-logo-glow group-hover:scale-110 transition-transform duration-300">
+<img src="../pictures/aries-pic.png" class="h-10 w-10 text-primary aries-logo-glow" alt="Aries Logo">
 <div class="flex flex-col items-start">
 <h1 class="text-xl font-bold font-display uppercase tracking-wider text-text-light group-hover:text-primary transition-colors duration-300" style="text-shadow: 0 0 10px var(--primary-glow);">AstroVibe</h1>
 <span class="text-xs text-text-dark/60 font-body transition-all duration-300 group-hover:text-primary/70">by ShivaKali Ashram</span>
 </div>
 </div>
-<button class="text-primary" id="mobile-menu-button" aria-label="Open navigation menu">
+<button class="text-primary p-3 hover:bg-primary/10 rounded-lg transition-colors duration-300" id="mobile-menu-button" aria-label="Open navigation menu">
 <span class="material-symbols-outlined text-3xl">menu</span>
 </button>
 </div>
 <!-- Mobile Navigation Menu -->
-<div class="hidden py-4 space-y-2" id="mobile-menu">
-<div class="flex flex-col gap-2">
-<a href="zodiac-signs.html" class="nav-button w-full text-center">Zodiac Hub</a>
-<a href="../index.html" class="nav-button w-full text-center">Back to Ashram</a>
-<a href="../index.html#jyotisha" class="nav-button w-full text-center">Back to Jotish</a>
-<div class="flex gap-2 mt-2">
-<button class="nav-button flex-1" onclick="window.location.href='pisces demo.html'">Previous Sign</button>
-<button class="nav-button flex-1" onclick="window.location.href='taurus demo.html'">Next Sign</button>
+<div class="hidden py-4 px-4 space-y-3" id="mobile-menu">
+<div class="flex flex-col gap-3">
+<a href="zodiac-signs.html" class="nav-button w-full text-center text-base py-4 px-6">Zodiac Hub</a>
+<a href="../index.html" class="nav-button w-full text-center text-base py-4 px-6">Back to Ashram</a>
+<a href="../index.html#jyotisha" class="nav-button w-full text-center text-base py-4 px-6">Back to Jotish</a>
+<div class="flex gap-3 mt-3">
+<button class="nav-button flex-1 text-base py-4 px-4" onclick="window.location.href='pisces-demo.html'">Previous Sign</button>
+<button class="nav-button flex-1 text-base py-4 px-4" onclick="window.location.href='taurus-demo.html'">Next Sign</button>
 </div>
 </div>
 </div>
@@ -669,7 +682,7 @@
 <!-- Desktop Header -->
 <div class="hidden md:flex items-center justify-between">
 <div class="flex items-center gap-4 group">
-<img src="../pictures/aries pic .png" class="h-10 w-10 text-primary aries-logo-glow group-hover:scale-110 transition-transform duration-300">
+<img src="../pictures/aries-pic.png" class="h-10 w-10 text-primary aries-logo-glow group-hover:scale-110 transition-transform duration-300">
 <div class="flex flex-col items-start">
 <h1 class="text-2xl font-bold font-display uppercase tracking-wider text-text-light group-hover:text-primary transition-colors duration-300" style="text-shadow: 0 0 10px var(--primary-glow);">AstroVibe</h1>
 <span class="text-xs text-text-dark/60 font-body transition-all duration-300 group-hover:text-primary/70">by ShivaKali Ashram</span>
@@ -700,15 +713,15 @@
 </div>
 <details class="group content-section expandable-card mb-12 md:mb-20" style="animation-delay: 0.4s;">
 <summary class="list-none cursor-pointer">
-<h3 class="text-3xl font-bold font-display mb-8 text-center text-primary uppercase tracking-[0.2em] flex items-center justify-center gap-4" style="text-shadow: 0 0 10px var(--primary-glow);">Core Matrix <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
-<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-<div class="data-card p-4 flex flex-col items-center justify-center text-center energy-flow">
+<h3 class="text-2xl sm:text-3xl font-bold font-display mb-6 sm:mb-8 text-center text-primary uppercase tracking-[0.2em] flex items-center justify-center gap-4" style="text-shadow: 0 0 10px var(--primary-glow);">Core Matrix <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
+<div class="data-card p-3 sm:p-4 flex flex-col items-center justify-center text-center energy-flow">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Sacred Gateway</p>
 <p class="font-bold text-2xl font-display text-primary">Head</p>
 <p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Crown Chakra Nexus</p>
 <p class="text-xs text-text-dark/50 mt-2">Portal of Divine Will</p>
 </div>
-<div class="data-card p-4 flex flex-col items-center justify-center text-center">
+<div class="data-card p-3 sm:p-4 flex flex-col items-center justify-center text-center">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Crystalline Matrix</p>
 <p class="font-bold text-2xl font-display text-primary">Diamond</p>
 <p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Unbreakable Spirit</p>
@@ -740,8 +753,8 @@
 </div>
 </div>
 </summary>
-<div class="expandable-card-content px-8">
-<div class="border-t border-primary/20 pt-8 mt-8 grid md:grid-cols-2 gap-x-12 gap-y-8 text-sm">
+<div class="expandable-card-content px-4 sm:px-8">
+<div class="border-t border-primary/20 pt-6 sm:pt-8 mt-6 sm:mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-x-12 sm:gap-y-8 text-sm">
 <div>
 <h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">System Analysis: Root Code</h4>
 <p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary font-semibold">[KERNEL_ANALYSIS::INITIATED]</span> The Core Matrix is more than data; it's the fundamental operating system of the Aries archetype. 'Head' signifies the command center, processing reality through a high-speed, instinctual HUD. 'Diamond,' forged in cosmic crucibles, symbolizes an unbreakable will designed for high-pressure breakthrough. 'Red' is the raw energy signature, the very fuel of kinetic action. 'Mars' acts as the central processor, prioritizing conflict-resolution and decisive assertion. 'Fire' is the engine, transmuting will into unstoppable kinetic force. 'Cardinal' is the prime directive, hard-coded into its being: <span class="font-bold text-red-400 animate-pulse">INITIATE. CREATE. ADVANCE.</span></p>
