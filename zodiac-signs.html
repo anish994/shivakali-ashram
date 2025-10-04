@@ -3,7 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+           .zodiac-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            padding: 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 768px) {
+            .zodiac-grid {
+                grid-template-columns: 1fr;
+                padding: 0.5rem;
+            }
+        } http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <meta name="description" content="Master Zodiac Sign Archetypes - Complete system for understanding cosmic personality patterns">
@@ -24,17 +38,46 @@
     <style>
         /* ♈ ZODIAC SIGNS PORTAL STYLES */
         
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            html {
+                font-size: 14px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            html {
+                font-size: 12px;
+            }
+        }
+        
+        /* Touch Device Optimization */
+        @media (hover: none) {
+            * {
+                cursor: default !important;
+            }
+            
+            [onclick] {
+                cursor: pointer !important;
+            }
+        }
+        
         body {
             background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #21262d 100%);
             overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            -webkit-text-size-adjust: 100%;
         }
         
         /* PORTAL HEADER */
         .portal-header {
             background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(78, 205, 196, 0.05) 100%);
             border-bottom: 1px solid rgba(255, 107, 107, 0.3);
-            padding: 2rem 0;
+            padding: 1rem 0;
             position: relative;
+            margin-bottom: 1rem;
         }
         
         .portal-header::before {
@@ -142,15 +185,16 @@
         /* MISSION BRIEFING */
         .mission-briefing {
             text-align: center;
-            margin-bottom: 4rem;
-            padding: 3rem;
+            margin: 1rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
             background: linear-gradient(135deg, rgba(255, 107, 107, 0.05) 0%, rgba(0, 0, 0, 0.3) 100%);
-            border-radius: 25px;
+            border-radius: 15px;
             border: 1px solid rgba(255, 107, 107, 0.2);
         }
         
         .mission-title {
-            font-size: 2.5rem;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
             font-weight: 700;
             color: #FF6B6B;
             margin: 0 0 1rem 0;
@@ -158,18 +202,37 @@
         }
         
         .mission-description {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 4vw, 1.2rem);
             color: rgba(255, 255, 255, 0.9);
             line-height: 1.6;
             max-width: 800px;
-            margin: 0 auto 2rem auto;
+            margin: 0 auto 1.5rem auto;
+            padding: 0 1rem;
         }
         
         .mission-stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+            padding: 0 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .mission-briefing {
+                margin: 0.5rem;
+                padding: 1rem;
+            }
+            
+            .mission-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .mission-stats {
+                grid-template-columns: 1fr;
+            }
         }
         
         .stat-item {
