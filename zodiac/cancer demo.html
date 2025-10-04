@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+
+<html class="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" name="viewport"/>
+<title>Cancer Zodiac Sign</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;900&amp;family=Plus+Jakarta+Sans:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/scrolling-fixes.css"/>
+<style type="text/tailwindcss">
+        @layer base {
+             :root {
+                --primary: #C0C0C0;
+                --primary-glow: #c0c0c080;
+                --background-light: #020C1A;
+                --background-dark: #00040D;
+                --text-light: #E8F0FD;
+                --text-dark: #D6E4FF;
+                --subtle-light: #0A244D;
+                --subtle-dark: #144880;--mouse-x: 50%;
+                --mouse-y: 50%;
+                --scroll-y: 0;
+            }
+        }
+        @keyframes subtle-pulse {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px var(--primary-glow)); }
+            50% { transform: scale(1.02); filter: drop-shadow(0 0 20px var(--primary)); }
+        }
+        @keyframes subtle-float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
+        body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .animate-subtle-pulse {
+            animation: subtle-pulse 5s ease-in-out infinite;
+        }
+        .animate-subtle-float {
+            animation: subtle-float 6s ease-in-out infinite;
+        }
+        .cancer-logo-glow {
+            filter: drop-shadow(0 0 12px var(--primary-glow)) drop-shadow(0 0 20px var(--primary-glow));
+            transition: filter 0.3s ease-in-out;
+        }
+        .cancer-logo-glow:hover {
+            filter: drop-shadow(0 0 18px var(--primary)) drop-shadow(0 0 30px var(--primary));
+        }
+        .data-card {
+            background-color: #c0c0c008;
+            border: 1px solid var(--primary-glow);
+            backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+            animation: fade-in-up 0.5s ease-out forwards;
+            opacity: 0;
+            clip-path: polygon(15% 0, 100% 0, 100% 85%, 85% 100%, 0 100%, 0 15%);
+            position: relative;
+        }
+        .data-card::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            filter: blur(20px);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+        }
+        .data-card:hover::before {
+            opacity: 0.5;
+        }
+        .data-card:nth-child(1) { animation-delay: 0.2s; }
+        .data-card:nth-child(2) { animation-delay: 0.3s; }
+        .data-card:nth-child(3) { animation-delay: 0.4s; }
+        .data-card:nth-child(4) { animation-delay: 0.5s; }
+        .data-card:nth-child(5) { animation-delay: 0.6s; }
+        .data-card:nth-child(6) { animation-delay: 0.7s; }
+        .data-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            background-color: #c0c0c01a;
+            border-color: var(--primary);
+        }
+        .content-section {
+             animation: fade-in-up 0.6s ease-out forwards;
+             opacity: 0;
+             animation-delay: 0.6s;
+        }
+        .futuristic-card {
+            background: linear-gradient(145deg, rgba(192, 192, 192, 0.05), rgba(192, 192, 192, 0.1));
+            border: 1px solid var(--primary-glow);
+            backdrop-filter: blur(10px);
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .futuristic-card::before {
+            content: '';
+            position: absolute;
+            top: -1px; left: -1px; right: -1px; bottom: -1px;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 60%);
+            filter: blur(25px);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+            animation: subtle-pulse 6s infinite;
+        }
+        .futuristic-card:hover::before {
+            opacity: 0.3;
+        }
+        .futuristic-card:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(145deg, rgba(192, 192, 192, 0.1), rgba(192, 192, 192, 0.15));
+            border-color: var(--primary);
+        }
+        .accordion-item {
+            background-color: transparent;
+            border: 1px solid var(--primary-glow);
+            transition: all 0.3s ease;
+            clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 0 100%);
+        }
+        .accordion-item:hover {
+             border-color: var(--primary);
+             background-color: rgba(192,192,192,0.05);
+        }
+        .accordion-item summary::-webkit-details-marker {
+            display: none;
+        }
+        .icon-card {
+            background: rgba(192, 192, 192, 0.03);
+            border: 1px solid var(--primary-glow);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .icon-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(192, 192, 192, 0.3), transparent 70%);
+            filter: blur(15px);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+        }
+        .icon-card:hover::before {
+            opacity: 0.6;
+        }
+        .icon-card:hover {
+            background: rgba(192, 192, 192, 0.08);
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+        .dynamic-card {
+            --angle: 0deg;
+            border: 2px solid;
+            border-image: conic-gradient(from var(--angle), transparent 20%, var(--primary), transparent 80%) 1;
+            animation: 10s rotate linear infinite;
+            background: radial-gradient(ellipse at center, rgba(192, 192, 192, 0.1) 0%, transparent 70%);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+        .dynamic-card summary::-webkit-details-marker {
+            display: none;
+        }
+        .dynamic-card .expand-icon {
+            transition: transform 0.4s ease;
+        }
+        .dynamic-card[open] .expand-icon {
+            transform: rotate(45deg);
+        }
+        .dynamic-card-content {
+            overflow: hidden;
+            transition: max-height 0.7s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.5s ease;
+            max-height: 0;
+            opacity: 0;
+        }
+        .dynamic-card[open] .dynamic-card-content {
+            max-height: 1000px;opacity: 1;
+        }
+        @keyframes rotate {
+            to { --angle: 360deg; }
+        }
+        @property --angle {
+            syntax: '<angle>';
+            initial-value: 0deg;
+            inherits: false;
+        }
+        .stars {
+            background-image:
+                radial-gradient(1px 1px at 20px 30px, #fff, transparent),
+                radial-gradient(1px 1px at 40px 70px, #fff, transparent),
+                radial-gradient(1px 1px at 50px 160px, #ddd, transparent),
+                radial-gradient(1.5px 1.5px at 100px 40px, #fff, transparent),
+                radial-gradient(2px 2px at 200px 150px, #fff, transparent),
+                radial-gradient(1.5px 1.5px at 160px 120px, #ddd, transparent);
+            background-size: 250px 250px;transform: translateY(calc(var(--scroll-y) * 0.1px));
+        }
+        .stars-2 {
+            background-image:
+                radial-gradient(1.5px 1.5px at 10px 50px, #fff, transparent),
+                radial-gradient(1.5px 1.5px at 90px 30px, #fff, transparent),
+                radial-gradient(1px 1px at 150px 100px, #ddd, transparent),
+                radial-gradient(2px 2px at 220px 80px, #fff, transparent),
+                radial-gradient(2.5px 2.5px at 300px 180px, #fff, transparent),
+                radial-gradient(1px 1px at 180px 150px, #ddd, transparent);
+            background-size: 400px 400px;
+            animation: move-twink-back 200s linear infinite;transform: translate(calc(calc(50% - var(--mouse-x)) / 40), calc(calc(50% - var(--mouse-y)) / 40)) translateY(calc(var(--scroll-y) * 0.3px));
+        }
+        .nebula {
+            background: radial-gradient(ellipse at 70% 30%, rgba(192, 192, 192, 0.25) 0%, transparent 50%),
+                        radial-gradient(ellipse at 20% 80%, rgba(192, 192, 192, 0.2) 0%, transparent 40%);
+            animation: move-nebula 120s ease-in-out infinite alternate;transform: translate(calc(calc(50% - var(--mouse-x)) / 60), calc(calc(50% - var(--mouse-y)) / 60)) translateY(calc(var(--scroll-y) * 0.5px));
+        }
+        .light-flare {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -20;
+            background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(192, 192, 192, 0.1) 0%, transparent 20%);
+            opacity: 0;
+            transition: opacity 0.5s ease-out;
+        }
+        body:hover .light-flare {
+            opacity: 1;
+        }
+        @keyframes move-twink-back {
+            from {background-position:0 0;}
+            to {background-position:-10000px 5000px;}
+        }
+        @keyframes move-nebula {
+            from {background-position: 0% 0%, 0% 0%;}
+            to {background-position: -100% 50%, 100% -50%;}
+        }
+        .expandable-card summary::-webkit-details-marker {
+            display: none;
+        }
+        .expandable-card .expand-icon {
+            transition: transform 0.4s ease;
+        }
+        .expandable-card[open] .expand-icon {
+            transform: rotate(45deg);
+        }
+        .expandable-card-content {
+            overflow: hidden;
+            transition: max-height 0.7s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.5s ease, padding 0.5s ease;
+            max-height: 0;
+            opacity: 0;
+        }
+        .expandable-card[open] > .expandable-card-content {
+            max-height: 1000px;
+            opacity: 1;
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+        }.decan-card {
+            background-color: rgba(192,192,192,0.05);
+            border-left: 3px solid var(--primary-glow);
+            transition: all 0.4s ease;
+            transform: translateX(-20px);
+            opacity: 0;
+        }
+        .decan-card.in-view {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        .decan-card:hover {
+            background-color: rgba(192,192,192,0.1);
+            border-left-color: var(--primary);
+            transform: scale(1.02);
+        }
+        @keyframes float-asteroid {
+            0%, 100% { transform: translateY(0px) rotate(-5deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+        }
+        .asteroid-card {
+            background: radial-gradient(circle, rgba(192,192,192,0.15) 0%, transparent 80%);
+            border: 1px dashed var(--primary-glow);
+            animation: float-asteroid 8s ease-in-out infinite;
+            transition: all 0.4s ease;
+        }
+        .asteroid-card:hover {
+            animation-play-state: paused;
+            transform: scale(1.1);
+            background: radial-gradient(circle, rgba(192,192,192,0.3) 0%, transparent 70%);
+            border-style: solid;
+            border-color: var(--primary);
+            filter: drop-shadow(0 0 15px var(--primary));
+        }
+        .asteroid-card:nth-child(2) { animation-delay: -2s; animation-duration: 7s; }
+        .asteroid-card:nth-child(3) { animation-delay: -4s; animation-duration: 9s; }
+        .color-spectrum {
+            background: linear-gradient(90deg, #6c757d 0%, var(--primary) 50%, #f8f9fa 100%);
+            position: relative;
+            cursor: none;
+            transition: all 0.3s ease-out;
+            --spectrum-pos: 50%;
+            overflow: hidden;
+        }
+        .color-spectrum::before {
+            content: '';
+            position: absolute;
+            top: 0; left: var(--spectrum-pos);
+            width: 4px;
+            height: 100%;
+            background: white;
+            transform: translateX(-50%);
+            filter: blur(2px) drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
+            opacity: 0.8;
+            transition: left 0.2s ease-out;
+        }
+        .color-spectrum:hover {
+            transform: scaleY(1.05);
+            filter: drop-shadow(0 0 20px var(--primary-glow));
+        }
+        .spectrum-info-container {
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            transform: translateY(10px) scale(0.95);
+            opacity: 0;
+        }
+        .color-spectrum:hover .spectrum-info-container {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        .chiron-card {
+            background: linear-gradient(220deg, rgba(192, 192, 192, 0.05), rgba(10, 20, 80, 0.2));
+            border: 1px solid var(--primary-glow);
+            backdrop-filter: blur(15px);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+            transition: all 0.4s ease;
+        }
+        .chiron-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            background: linear-gradient(220deg, rgba(192, 192, 192, 0.1), rgba(15, 30, 100, 0.3));
+        }
+        .archetype-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .archetype-link .archetype-info {
+            position: absolute;
+            bottom: 110%;
+            left: 50%;
+            transform: translateX(-50%) scale(0.9);
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+            pointer-events: none;
+        }
+        .archetype-link:hover .archetype-info {
+            opacity: 1;
+            transform: translateX(-50%) scale(1);
+        }
+        .archetype-link::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 2px dashed var(--primary-glow);
+            opacity: 0;
+            transition: all 0.3s ease;
+            animation: rotate 20s linear infinite;
+        }
+        .archetype-link:hover::before {
+            opacity: 1;
+        }
+        .nav-button {
+            background-color: transparent;
+            border: 1px solid var(--primary-glow);
+            color: var(--text-dark);
+            padding: 8px 16px;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            clip-path: polygon(10% 0, 100% 0, 100% 80%, 90% 100%, 0 100%, 0 20%);
+        }
+        .nav-button:hover {
+            background-color: var(--primary-glow);
+            color: var(--text-light);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            filter: drop-shadow(0 0 8px var(--primary-glow));
+        }
+        @keyframes animated-gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .intro-text-bg {
+            position: relative;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        .intro-text-bg::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            background: linear-gradient(120deg, rgba(192, 192, 192, 0), rgba(192, 192, 192, 0.1), rgba(192, 192, 192, 0));
+            background-size: 200% 200%;
+            animation: animated-gradient 8s ease infinite;
+        }
+        .expanded-content-text-gradient {
+            background: linear-gradient(120deg, var(--text-dark), var(--text-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .progress-bar-container {
+            background-color: rgba(192,192,192,0.1);
+            border-radius: 9999px;
+            overflow: hidden;
+            border: 1px solid var(--primary-glow);
+        }
+        .progress-bar {
+            background: linear-gradient(90deg, var(--primary) 0%, #e9ecef 100%);
+            box-shadow: 0 0 15px var(--primary-glow);
+            transition: width 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+        .expandable-card[open] .progress-bar {
+            width: var(--progress-width, 0%);
+        }
+    </style>
+<script>tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#607AFB", "background-light": "#f5f6f8", "background-dark": "#0f1323", "text-light": "var(--text-light)", "text-dark": "var(--text-dark)", "subtle-light": "var(--subtle-light)", "subtle-dark": "var(--subtle-dark)"}, fontFamily: {display: "Plus Jakarta Sans", body: ["Roboto Mono", "monospace"]}, borderRadius: {DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px"}}}};</script>
+</head>
+<body class="bg-background-dark font-body text-text-dark will-change-scroll">
+<div class="min-h-screen relative main-container overflow-hidden">
+<div class="absolute inset-0 bg-background-dark -z-50"></div>
+<div class="stars absolute inset-0 opacity-80 -z-40 transition-transform duration-300 ease-out"></div>
+<div class="stars-2 absolute inset-0 opacity-60 -z-30 transition-transform duration-300 ease-out"></div>
+<div class="nebula absolute inset-0 opacity-70 -z-20 transition-transform duration-300 ease-out"></div>
+<div class="light-flare"></div>
+<header class="border-b border-subtle-dark/50 backdrop-blur-md bg-background-dark/30 sticky top-0 z-50 transition-all duration-300 ease-in-out">
+<div class="container mx-auto flex items-center justify-between px-6 py-4">
+<div class="flex items-center gap-4 group">
+<img src="../pictures/cancer pic.png" class="h-10 w-10 text-primary cancer-logo-glow group-hover:scale-110 transition-transform duration-300">
+<div class="flex flex-col items-start">
+<h1 class="text-2xl font-bold font-display uppercase tracking-wider text-text-light group-hover:text-primary transition-colors duration-300" style="text-shadow: 0 0 10px var(--primary-glow);">AstroVibe</h1>
+<span class="text-xs text-text-dark/60 font-body transition-all duration-300 group-hover:text-primary/70">by ShivaKali Ashram</span>
+</div>
+</div>
+<div class="flex items-center gap-2 md:gap-4">
+<a href="zodiac-signs.html" class="nav-button">Zodiac Hub</a>
+<a href="../index.html" class="nav-button">Back to Ashram</a>
+<a href="../index.html#jyotisha" class="nav-button">Back to Jotish</a>
+<button class="nav-button" onclick="window.location.href='gemini demo.html'">Previous Sign</button>
+<button class="nav-button" onclick="window.location.href='leo demo.html'">Next Sign</button>
+</div>
+</div>
+</header>
+<main class="container mx-auto px-6 py-12 md:py-20 relative z-10">
+<div class="max-w-5xl mx-auto">
+<div class="text-center mb-16 md:mb-24">
+<div class="flex justify-center mb-6 animate-subtle-float">
+<img src="../pictures/cancer pic.png" class="h-28 w-28 md:h-36 md:w-36 text-primary cancer-logo-glow">
+</div>
+<h2 class="text-6xl md:text-8xl font-black font-display text-transparent bg-clip-text bg-gradient-to-r from-primary via-gray-300 to-gray-400 tracking-widest animate-subtle-pulse" style="text-shadow: 0 0 30px var(--primary-glow);">CANCER</h2>
+<div class="mt-4 content-section intro-text-bg" style="animation-delay: 0.2s;">
+<p class="relative z-10 text-lg md:text-xl text-text-dark/80 max-w-3xl mx-auto font-body">
+<span class="text-primary/80">&lt;SYSTEM_LOG&gt;</span> Ruled by Mars, the planet of raw energy, conflict, and drive. Aries is the primal spark of creation, the <span class="font-bold text-primary animate-pulse">Big Bang</span> of the zodiac. It forges paths with relentless courage and a blazing spirit. This is the narrative of leadership, impulse, and the unfiltered genesis of action. <span class="text-primary/80">&lt;/TRANSMISSION&gt;</span>
+</p>
+</div>
+</div>
+<details class="group content-section expandable-card mb-12 md:mb-20" style="animation-delay: 0.4s;">
+<summary class="list-none cursor-pointer">
+<h3 class="text-3xl font-bold font-display mb-8 text-center text-primary uppercase tracking-[0.2em] flex items-center justify-center gap-4" style="text-shadow: 0 0 10px var(--primary-glow);">Core Matrix <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+<div class="data-card p-4 flex flex-col items-center justify-center text-center">
+<p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Somatic Focus</p>
+<p class="font-bold text-2xl font-display text-primary">Head</p>
+<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Drive</p>
+</div>
+<div class="data-card p-4 flex flex-col items-center justify-center text-center">
+<p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Crystal</p>
+<p class="font-bold text-2xl font-display text-primary">Diamond</p>
+<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Will</p>
+</div>
+<div class="data-card p-4 flex flex-col items-center justify-center text-center">
+<p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Chroma Key</p>
+<p class="font-bold text-2xl font-display text-primary">Silver</p>
+<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Energy</p>
+</div>
+<div class="data-card p-4 flex flex-col items-center justify-center text-center">
+<p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Ruling Planet</p>
+<p class="font-bold text-2xl font-display text-primary">Mars</p>
+<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Action</p>
+</div>
+<div class="data-card p-4 flex flex-col items-center justify-center text-center">
+<p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Element</p>
+<p class="font-bold text-2xl font-display text-primary">Fire</p>
+<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Passion</p>
+</div>
+<div class="data-card p-4 flex flex-col items-center justify-center text-center">
+<p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Modality</p>
+<p class="font-bold text-2xl font-display text-primary">Cardinal</p>
+<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Initiative</p>
+</div>
+</div>
+</summary>
+<div class="expandable-card-content px-8">
+<div class="border-t border-primary/20 pt-8 mt-8 grid md:grid-cols-2 gap-x-12 gap-y-8 text-sm">
+<div>
+<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">System Analysis: Root Code</h4>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary font-semibold">[KERNEL_ANALYSIS::INITIATED]</span> The Core Matrix is more than data; it's the fundamental operating system of the Aries archetype. 'Head' signifies the command center, processing reality through a high-speed, instinctual HUD. 'Diamond,' forged in cosmic crucibles, symbolizes an unbreakable will designed for high-pressure breakthrough. 'Red' is the raw energy signature, the very fuel of kinetic action. 'Mars' acts as the central processor, prioritizing conflict-resolution and decisive assertion. 'Fire' is the engine, transmuting will into unstoppable kinetic force. 'Cardinal' is the prime directive, hard-coded into its being: <span class="font-bold text-gray-400 animate-pulse">INITIATE. CREATE. ADVANCE.</span></p>
+</div>
+<div>
+<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Metaphysical Resonance Field</h4>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary font-semibold">[FREQUENCY_CALIBRATION::ACTIVE]</span> These are not mere symbols; they are cosmic tuning forks emitting a distinct vibrational signature. Immersing oneself in the 'Silver' spectrum, aligning with a Diamond's crystalline structure, or channeling vital energy to the 'Head' during meditation amplifies the Arien frequency in your own bio-field. This matrix is a universal pattern for genesis, a blueprint accessible to any soul seeking to embody courage, leadership, and the untamed power of new beginnings. It is the universe's ignition key, the <span class="font-bold text-gray-400 animate-pulse">primal command for existence itself.</span></p>
+</div>
+<div class="md:col-span-2">
+<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Interactive Energy Calibration</h4>
+<p class="leading-relaxed expanded-content-text-gradient mb-4">Engage with the Arien core frequency. Below are the key energetic signatures. Focus on a concept and visualize its power integrating with your own system.</p>
+<div class="space-y-3">
+<div class="w-full">
+<div class="flex justify-between text-xs font-mono text-text-dark mb-1">
+<span>WILLPOWER</span>
+<span>85%</span>
+</div>
+<div class="progress-bar-container h-2.5">
+<div class="progress-bar h-full rounded-full" style="--progress-width: 85%;"></div>
+</div>
+</div>
+<div class="w-full">
+<div class="flex justify-between text-xs font-mono text-text-dark mb-1">
+<span>LEADERSHIP</span>
+<span>95%</span>
+</div>
+<div class="progress-bar-container h-2.5">
+<div class="progress-bar h-full rounded-full" style="--progress-width: 95%;"></div>
+</div>
+</div>
+<div class="w-full">
+<div class="flex justify-between text-xs font-mono text-text-dark mb-1">
+<span>STRATEGIC PATIENCE</span>
+<span>30%</span>
+</div>
+<div class="progress-bar-container h-2.5">
+<div class="progress-bar h-full rounded-full" style="--progress-width: 30%;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</details>
+<div class="space-y-16 md:space-y-24">
+<div class="content-section" style="animation-delay: 0.7s;">
+<h3 class="text-4xl font-bold font-display mb-8 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Decanic Sub-Rulers</h3>
+<div class="grid md:grid-cols-3 gap-8 font-body text-base leading-relaxed">
+<div class="decan-card p-6 in-view" style="transition-delay: 100ms;">
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decan I: The Warrior (0-9°)</h4>
+<p class="text-sm text-text-dark/70 mb-2">Sub-ruler: Mars</p>
+<p class="text-text-dark/90 text-sm">Pure, unfiltered Arien energy. The initiator, the fighter, the raw impulse. Embodies courage and a direct, confrontational style. This is the spark in its most primal, potent form.</p>
+</div>
+<div class="decan-card p-6 in-view" style="transition-delay: 200ms;">
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decan II: The Leader (10-19°)</h4>
+<p class="text-sm text-text-dark/70 mb-2">Sub-ruler: The Sun</p>
+<p class="text-text-dark/90 text-sm">The impulse is now channeled into a stable, radiant identity. The focus shifts from pure action to leadership and creative self-expression. The ego is strong, charismatic, and purposeful.</p>
+</div>
+<div class="decan-card p-6 in-view" style="transition-delay: 300ms;">
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decan III: The Pioneer (20-29°)</h4>
+<p class="text-sm text-text-dark/70 mb-2">Sub-ruler: Jupiter</p>
+<p class="text-text-dark/90 text-sm">Action is now fueled by vision and a desire for expansion. This is the adventurous Arien, seeking new frontiers, philosophies, and ways of being. The drive is for discovery and optimistic growth.</p>
+</div>
+</div>
+</div>
+<div class="content-section" style="animation-delay: 0.8s;">
+<h3 class="text-4xl font-bold font-display mb-8 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Rare Asteroid Connections</h3>
+<div class="grid md:grid-cols-3 gap-12 font-body text-base leading-relaxed pt-10">
+<div class="asteroid-card p-6 text-center rounded-full flex flex-col justify-center items-center aspect-square">
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Eris</h4>
+<p class="text-text-dark/80 text-sm">The warrior goddess of discord, amplifying Aries' disruptive, truth-telling nature. Challenges the status quo and reveals inconvenient truths through necessary conflict.</p>
+</div>
+<div class="asteroid-card p-6 text-center rounded-full flex flex-col justify-center items-center aspect-square">
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Pallas Athene</h4>
+<p class="text-text-dark/80 text-sm">The strategist. Infuses the Arien impulse with tactical wisdom, channeling raw power into strategic action. The warrior's mind, seeing the pattern in the chaos.</p>
+</div>
+<div class="asteroid-card p-6 text-center rounded-full flex flex-col justify-center items-center aspect-square">
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Hidalgo</h4>
+<p class="text-text-dark/80 text-sm">The relentless quester. Represents the pioneering spirit, the willingness to defy norms and journey into the unknown to uphold a personal code of honor and belief.</p>
+</div>
+</div>
+</div>
+<div class="content-section" style="animation-delay: 0.9s;">
+<h3 class="text-4xl font-bold font-display mb-4 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Color-Energy Spectrum Visualizer</h3>
+<p class="text-center text-text-dark/80 mb-8 max-w-2xl mx-auto font-body text-sm">
+<span class="text-primary/80">[// INTERACTIVE_INTERFACE //]</span> Move your cursor across the spectrum below to decode the Cancerian energy signature. Each shade of silver represents a different facet of its power. The light bar indicates your current position on the vibrational scale, revealing the qualities associated with that specific frequency. Engage with the flow to understand the dynamic range of Cancer, from primal instinct to nurturing compassion.
+                    </p>
+<div class="relative" id="spectrum-container">
+<div class="color-spectrum h-20 w-full rounded-lg" id="color-spectrum"></div>
+<div class="spectrum-info-container absolute bottom-full mb-2 w-full flex justify-center pointer-events-none" id="spectrum-info-container">
+<div class="p-4 rounded-lg bg-background-dark/80 border border-primary/30 backdrop-blur-sm text-center w-64" id="spectrum-info">
+<h5 class="font-bold text-primary font-display text-lg transition-all duration-200" id="spectrum-title">Flowing Silver</h5>
+<p class="text-xs text-text-dark/80 transition-all duration-200" id="spectrum-desc">The core frequency of emotion, intuition, protection, and deep connection. The heart of the zodiac.</p>
+</div>
+</div>
+</div>
+</div>
+<details class="group content-section expandable-card" style="animation-delay: 1.0s;">
+<summary class="list-none cursor-pointer">
+<h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary flex items-center justify-between" style="text-shadow: 0 0 15px var(--primary-glow);">Shadow Aspects Unveiled<span class="material-symbols-outlined text-3xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
+<div class="grid md:grid-cols-2 gap-8 font-body text-base leading-relaxed">
+<div class="futuristic-card p-6">
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Tyrant</h4>
+<p class="text-text-dark/90">When the drive for leadership is corrupted by insecurity, it becomes a need to dominate. The shadow appears as bullying, arrogance, and an inability to consider other perspectives.</p>
+</div>
+<div class="futuristic-card p-6">
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Burnout</h4>
+<p class="text-text-dark/90">The endless forward momentum, without respecting cycles of rest, leads to system collapse. The shadow is a flash-in-the-pan, starting projects with explosive energy but lacking the stamina to finish.</p>
+</div>
+</div>
+</summary>
+<div class="expandable-card-content px-6">
+<div class="border-t border-primary/20 pt-8 mt-8 grid md:grid-cols-2 gap-x-12 gap-y-8 text-sm">
+<div>
+<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Integration Path: Conscious Leadership</h4>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[EGO_MODULATION::REQUIRED]</span> The antidote to tyranny is service. The evolved Aries understands that true strength lies not in overpowering others, but in empowering them. Their force becomes a shield for the vulnerable, their fire a beacon for the lost. By championing a cause greater than their own ego, domination sublimates into a noble, protective instinct. <span class="font-bold text-gray-400 animate-pulse">Thus, raw power is refined into true authority.</span></p>
+</div>
+<div>
+<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Integration Path: Sustainable Fire</h4>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[ENERGY_MANAGEMENT::CRITICAL]</span> The shadow of burnout is healed by embracing wisdom from its opposite sign, Libra. Through partnership and diplomacy, Aries learns that a shared flame burns longer and brighter. By learning the value of pause, reflection, and collaboration, the wildfire transforms into a life-giving hearth. <span class="font-bold text-gray-400 animate-pulse">The explosive sprint evolves into a victorious marathon.</span></p>
+</div>
+<div class="md:col-span-2 pt-4">
+<div class="flex items-center gap-6 p-4 rounded-lg bg-background-dark/30 border border-primary/20">
+<span class="material-symbols-outlined text-5xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">model_training</span>
+<div>
+<h5 class="font-bold font-display text-primary/90 text-lg">Shadow Integration Exercise</h5>
+<p class="text-sm text-text-dark/90 leading-relaxed">Next time you feel the surge of impatience, pause. Ask: "Is this my fire to burn alone, or can this flame warm others?" This simple query reroutes the impulsive circuit into a collaborative one, shifting the focus from 'I must win' to 'We must succeed'.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</details>
+<div class="content-section chiron-card p-8" style="animation-delay: 1.1s;">
+<h3 class="text-4xl font-bold font-display mb-4 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Chiron in Aries: The Wounded Warrior</h3>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="md:col-span-2">
+<p class="text-text-dark/90 leading-relaxed">Chiron, the "Wounded Healer," points to our deepest core wound. In Aries, this is the wound of the right to exist, of identity, and of personal will. Individuals with this placement may feel a profound lack of self-worth, a fear of asserting themselves, or a sense of being invisible. The healing journey involves courageously forging an identity, fighting for one's own existence, and learning that their survival and self-assertion is a gift to the world. By healing their own wound of being, they become master healers for others who struggle to claim their place, teaching courage by <span class="font-bold text-primary/80 animate-pulse">embodying it.</span></p>
+</div>
+<div class="flex items-center justify-center">
+<span class="material-symbols-outlined text-8xl text-primary/70" style="filter: drop-shadow(0 0 10px var(--primary-glow));">nightlight</span>
+</div>
+</div>
+</div>
+<div class="content-section text-center" style="animation-delay: 1.2s;">
+<h3 class="text-4xl font-bold font-display mb-8 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Zodiacal Archetype Cross-Reference</h3>
+<div class="flex justify-center items-center gap-12 md:gap-20 pt-4">
+<div class="archetype-link">
+<span class="material-symbols-outlined text-6xl text-primary cursor-pointer">military_tech</span>
+<div class="archetype-info w-56 p-4 rounded-xl bg-background-dark/90 border border-primary/50 backdrop-blur-md">
+<h5 class="font-bold font-display text-primary">The Warrior</h5>
+<p class="text-xs text-text-dark/80">The universal archetype of courage, action, and conflict. Found in figures like Ares (Greek), Mars (Roman), and the knight-errant.</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-4xl text-primary/50">link</span>
+<div class="archetype-link">
+<span class="material-symbols-outlined text-6xl text-primary cursor-pointer">bolt</span>
+<div class="archetype-info w-56 p-4 rounded-xl bg-background-dark/90 border border-primary/50 backdrop-blur-md">
+<h5 class="font-bold font-display text-primary">The Pioneer</h5>
+<p class="text-xs text-text-dark/80">The trailblazer who ventures into the unknown. The explorer, the inventor, the one who dares to go first.</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-4xl text-primary/50">link</span>
+<div class="archetype-link">
+<span class="material-symbols-outlined text-6xl text-primary cursor-pointer">child_care</span>
+<div class="archetype-info w-56 p-4 rounded-xl bg-background-dark/90 border border-primary/50 backdrop-blur-md">
+<h5 class="font-bold font-display text-primary">The Divine Child</h5>
+<p class="text-xs text-text-dark/80">Represents pure potential, new beginnings, and the innocence that allows for fearless action. The birth of a new cycle.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-16">
+<details class="group content-section expandable-card" style="animation-delay: 0.8s;">
+<summary class="list-none cursor-pointer">
+<h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary flex items-center justify-between" style="text-shadow: 0 0 15px var(--primary-glow);">Operational Directives <span class="material-symbols-outlined text-3xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
+<div class="grid md:grid-cols-3 gap-8 font-body text-base leading-relaxed">
+<div class="icon-card p-6 flex flex-col items-center text-center rounded-lg" style="clip-path: polygon(0 15px, 15px 0, 100% 0, 100% 100%, 0 100%);">
+<span class="material-symbols-outlined text-4xl text-primary mb-3" style="filter: drop-shadow(0 0 8px var(--primary-glow));">water_drop</span>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Strength: Raw Power</h4>
+<p class="text-text-dark/80 text-sm">Unfiltered energy for initiating projects, overcoming obstacles, and inspiring action. The first spark that ignites the flame.</p>
+</div>
+<div class="icon-card p-6 flex flex-col items-center text-center rounded-lg" style="clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 0 100%);">
+<span class="material-symbols-outlined text-4xl text-primary mb-3" style="filter: drop-shadow(0 0 8px var(--primary-glow));">error</span>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Challenge: Impatience</h4>
+<p class="text-text-dark/80 text-sm">A desire for immediate results can lead to frustration and a tendency to abandon projects that require long-term cultivation.</p>
+</div>
+<div class="icon-card p-6 flex flex-col items-center text-center rounded-lg" style="clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);">
+<span class="material-symbols-outlined text-4xl text-primary mb-3" style="filter: drop-shadow(0 0 8px var(--primary-glow));">favorite</span>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Love: Passionate Pursuit</h4>
+<p class="text-text-dark/80 text-sm">In romance, Aries is a direct and enthusiastic pursuer, valuing honesty and excitement in a partner who can match their energy.</p>
+</div>
+</div>
+</summary>
+<div class="expandable-card-content px-6">
+<div class="border-t border-primary/20 pt-8 mt-8 grid md:grid-cols-3 gap-x-12 gap-y-8 text-sm">
+<div>
+<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Deep Dive: Power Protocol</h4>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[POWER_CORE::ONLINE]</span> Arien strength is a volcanic, promethean force—a raw, creative fire erupting from the soul's core. It excels in crisis by bypassing analytical paralysis and acting on pure, divine instinct. The evolutionary task is to transition from being a vessel for this fire to becoming its conscious, masterful conduit. Unchanneled, it leads to destruction. Channeled, it holds the power to <span class="font-bold text-gray-400 animate-pulse">forge new realities.</span></p>
+</div>
+<div>
+<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Deep Dive: Impatience Algorithm</h4>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[TEMPORAL_FLUX::DETECTED]</span> This is a feature, not a flaw. Aries operates on a quantum timeline where intention and manifestation are meant to be instantaneous. The maddening frustration of "waiting" is a system error triggered by interfacing with linear, 3D time. The spiritual mission is to understand that linear processes—the patient grind of reality—give the explosive spark its lasting form. The spark must learn to <span class="font-bold text-gray-400 animate-pulse">honor the vessel it ignites.</span></p>
+</div>
+<div>
+<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Deep Dive: Relational Dynamics</h4>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[HEART_DRIVE::ACTIVE]</span> The Arien pursuit is not a hunt, but a sacred quest for a soul who can both withstand their radiant intensity and sharpen their spirit. A relationship devoid of passionate debate, fiery reconciliations, and mutual challenge is a dead zone. They fall in love with the reflection of their own untapped potential in another's eyes, seeking a partner who can <span class="font-bold text-gray-400 animate-pulse">meet their fire with an equal flame.</span></p>
+</div>
+</div>
+</div>
+</details>
+<details class="group content-section expandable-card" style="animation-delay: 1.0s;">
+<summary class="list-none cursor-pointer">
+<h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary flex items-center justify-between" style="text-shadow: 0 0 15px var(--primary-glow);">The Crab's Paradox <span class="material-symbols-outlined text-3xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
+<div class="grid md:grid-cols-2 gap-8 font-body text-base leading-relaxed">
+<div class="futuristic-card p-6">
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Fearless Child</h4>
+<p class="text-text-dark/90">Beneath the armor of confidence lies profound innocence. As the zodiac's genesis, Aries views existence with untainted trust, making them powerful initiators but also vulnerable to betrayals that shatter their optimistic worldview.</p>
+</div>
+<div class="futuristic-card p-6">
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Impulsive Strategist</h4>
+<p class="text-text-dark/90">Often dismissed as mere impulsivity, the Arien drive is a form of high-speed strategic processing. They instinctively compute risk versus reward, identifying the most direct path to victory—a quantum leap in tactical decision-making.</p>
+</div>
+</div>
+</summary>
+<div class="expandable-card-content px-6">
+<div class="border-t border-primary/20 pt-8 mt-8 grid md:grid-cols-2 gap-x-12 gap-y-8 text-sm">
+<div>
+<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Paradox Resolution: The Sacred Wound</h4>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[TRANSMUTATION_PROTOCOL::ENGAGED]</span> The vulnerability of the 'Fearless Child' is its ultimate power source. Each betrayal and shattered illusion is a crucible, forging the raw iron of innocence into the tempered steel of wisdom. Their greatest strength is born from their deepest wounds, transmuting the lead of pain into the gold of resilience. The scar tissue becomes the armor, each mark a testament to battles won. <span class="font-bold text-gray-400 animate-pulse">Innocence is not lost, but fortified into wisdom.</span></p>
+</div>
+<div>
+<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Paradox Resolution: Instinct as Intelligence</h4>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[QUANTUM_LOGIC::EXECUTED]</span> The 'Impulsive Strategist' operates on a logic that precedes thought—the intelligence of the body, the certainty of a lightning strike before thunder is heard. Demanding a linear explanation for their actions is like asking a supernova to justify its explosion. The proof is not in the process, but in the glorious result: a new reality forged, a path cleared, a future created. Their instinct is a <span class="font-bold text-gray-400 animate-pulse">direct line to universal truth.</span></p>
+</div>
+</div>
+</div>
+</details>
+<div class="content-section" style="animation-delay: 1.2s;">
+<h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Dynamic Signatures</h3>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 font-body text-base leading-relaxed">
+<details class="dynamic-card" style="animation-delay: 0s;">
+<summary class="p-6 flex flex-col items-center text-center cursor-pointer list-none">
+<div class="flex items-center justify-between w-full mb-3">
+<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">rocket_launch</span>
+<span class="material-symbols-outlined text-2xl text-primary/70 expand-icon">add</span>
+</div>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Career Trajectory</h4>
+<p class="text-text-dark/80 text-sm">Thrives in roles requiring leadership, innovation, and quick decisions. Entrepreneurship, emergency services, and competitive sports are natural arenas.</p>
+</summary>
+<div class="dynamic-card-content px-6 pb-6 text-left">
+<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[ASCENSION_VECTOR::PLOTTED]</span> The Arien professional is a catalyst, a system-shaker sent to shatter stagnant ecosystems. They do not climb the corporate ladder; they build a new one, or a rocket ship to bypass it entirely. Their challenge lies in channeling explosive, project-launching energy into sustainable, long-term ventures. They must learn to transform a meteor’s brilliant, momentary flash into a star’s enduring, generative light. <span class="font-bold text-gray-400 animate-pulse">Their purpose is not just to start, but to inspire what lasts.</span></p>
+</div>
+</details>
+<details class="dynamic-card" style="--angle: 120deg; animation-delay: -3.33s;">
+<summary class="p-6 flex flex-col items-center text-center cursor-pointer list-none">
+<div class="flex items-center justify-between w-full mb-3">
+<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">shield</span>
+<span class="material-symbols-outlined text-2xl text-primary/70 expand-icon">add</span>
+</div>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Defensive Protocol</h4>
+<p class="text-text-dark/80 text-sm">When challenged, the Ram lowers its horns. This manifests as direct confrontation, an overwhelming offense aimed at resolving conflict with speed and finality.</p>
+</summary>
+<div class="dynamic-card-content px-6 pb-6 text-left">
+<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[THREAT_RESPONSE::ACTIVATED]</span> This protocol is not simple aggression; it is a truth-seeking missile system. The Arien "attack" is designed to incinerate ambiguity, deceit, and passive-aggression to expose the absolute core of a conflict. Their confrontation is a purification by fire, restoring integrity and clarity, even if the process is brutal. They would rather face a painful, cleansing truth than exist in a comfortable, septic lie. <span class="font-bold text-gray-400 animate-pulse">Conflict is a crucible for forging clarity.</span></p>
+</div>
+</details>
+<details class="dynamic-card" style="--angle: 240deg; animation-delay: -6.66s;">
+<summary class="p-6 flex flex-col items-center text-center cursor-pointer list-none">
+<div class="flex items-center justify-between w-full mb-3">
+<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">groups</span>
+<span class="material-symbols-outlined text-2xl text-primary/70 expand-icon">add</span>
+</div>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Social Dynamics</h4>
+<p class="text-text-dark/80 text-sm">As leader of the pack, Aries gravitates to the center. They are the friend who suggests the adventure, starts the party, and motivates the group into action.</p>
+</summary>
+<div class="dynamic-card-content px-6 pb-6 text-left">
+<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[CATALYST_MODULE::ONLINE]</span> In any social matrix, the Arien's function is that of the catalyst. They transmute the group's potential energy into vibrant, kinetic experience, challenging the inertia of complacency. Their presence pushes friends to face fears, demand a raise, book the flight, start the business. To be in their orbit is to be perpetually invited to become a more courageous, authentic version of yourself. <span class="font-bold text-gray-400 animate-pulse">They are the living embodiment of "carpe diem."</span></p>
+</div>
+</details>
+</div>
+</div>
+<div class="content-section" style="animation-delay: 1.3s;">
+<h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Uncommon Lore</h3>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 font-body text-base leading-relaxed">
+<details class="dynamic-card" style="--angle: 60deg; animation-delay: -1.66s;">
+<summary class="p-6 flex flex-col items-center text-center cursor-pointer list-none">
+<div class="flex items-center justify-between w-full mb-3">
+<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">flare</span>
+<span class="material-symbols-outlined text-2xl text-primary/70 expand-icon">add</span>
+</div>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decanic Rulers</h4>
+<p class="text-text-dark/80 text-sm">Aries is split into three decans: Mars/Mars (pure warrior), Mars/Sun (charismatic leader), and Mars/Jupiter (adventurous pioneer).</p>
+</summary>
+<div class="dynamic-card-content px-6 pb-6 text-left">
+<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80">[EVOLUTIONARY_PATH::MAPPED]</span> These are not mere subdivisions, but a sacred, evolutionary trinity of the soul. The first decan (Mars/Mars) is the raw, untamed impulse. The second (Mars/Sun) channels that impulse into a coherent, radiant identity. The third (Mars/Jupiter) transcends personal ambition to expand horizons for the collective, seeking new worlds of thought, philosophy, and experience for all. It is the journey from pure warrior to <span class="font-bold text-gray-400 animate-pulse">visionary trailblazer.</span></p>
+</div>
+</details>
+<details class="dynamic-card" style="--angle: 180deg; animation-delay: -5s;">
+<summary class="p-6 flex flex-col items-center text-center cursor-pointer list-none">
+<div class="flex items-center justify-between w-full mb-3">
+<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">psychology</span>
+<span class="material-symbols-outlined text-2xl text-primary/70 expand-icon">add</span>
+</div>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Exaltation of the Sun</h4>
+<p class="text-text-dark/80 text-sm">The Sun is "exalted" in Aries, meaning ego and life force find their most powerful expression here—a stellar engine at maximum output.</p>
+</summary>
+<div class="dynamic-card-content px-6 pb-6 text-left">
+<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[SOLAR_FLARE::WARNING]</span> This exaltation is a double-edged celestial sword. It bestows supernatural confidence and vitality, but also presents the ultimate test: to wield immense personal power without being consumed by it. The unevolved Arien Sun manifests as tyranny and unchecked ego. The evolved Arien Sun becomes a lighthouse, a beacon of unwavering purpose that guides others through darkness, inspiring them with its own <span class="font-bold text-gray-400 animate-pulse">incorruptible flame.</span></p>
+</div>
+</details>
+<details class="dynamic-card" style="--angle: 300deg; animation-delay: -8.33s;">
+<summary class="p-6 flex flex-col items-center text-center cursor-pointer list-none">
+<div class="flex items-center justify-between w-full mb-3">
+<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">brightness_alert</span>
+<span class="material-symbols-outlined text-2xl text-primary/70 expand-icon">add</span>
+</div>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Ram's Blind Spot</h4>
+<p class="text-text-dark/80 text-sm">A ram's blind spot is directly behind it. Astrologically, this means Aries can overlook consequences—a "charge first, check damage later" system.</p>
+</summary>
+<div class="dynamic-card-content px-6 pb-6 text-left">
+<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[SYSTEM_OVERRIDE::FORWARD_MOMENTUM]</span> This is not a flaw, but a critical feature of their pioneering function. To hesitate, to over-analyze the past, is to lose the divine spark of the present moment. Their cosmic duty is to initiate, not to manage the aftermath. True wisdom for Aries lies not in slowing their charge, but in assembling a trusted team to handle the fallout, allowing the Ram to continue its vital work on the front lines of creation. <span class="font-bold text-gray-400 animate-pulse">Their focus is always the next horizon.</span></p>
+</div>
+</details>
+</div>
+</div>
+<div class="content-section" style="animation-delay: 1.4s;">
+<h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Beyond The Code</h3>
+<div class="space-y-4 font-body">
+<details class="group accordion-item" open="">
+<summary class="flex cursor-pointer list-none items-center justify-between p-4 font-bold text-xl font-display text-primary tracking-wider transition-all duration-300">
+                                    Mythological Subroutine
+                                    <div class="text-primary transition-transform duration-300 group-open:rotate-90">
+<svg class="feather feather-chevron-right" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
+</div>
+</summary>
+<div class="px-4 pb-4 text-base overflow-hidden transition-all duration-500 ease-in-out max-h-screen group-open:max-h-screen">
+<p class="leading-relaxed expanded-content-text-gradient">Linked to Chrysomallos, the golden-fleeced ram of myth, this subroutine subverts the simplistic 'aggressor' stereotype. It recasts the Arien archetype as a heroic rescuer, a symbol of divine intervention, and the courage required for high-stakes missions. This reveals the core code is not merely 'attack', but <span class="font-bold text-gray-400 animate-pulse">'breakthrough'</span>—shattering obstacles to achieve salvation for oneself and others. The fleece represents a prize that is not just won, but is transformative in its own right, a mantle of leadership and sacred authority.</p>
+</div>
+</details>
+<details class="group accordion-item">
+<summary class="flex cursor-pointer list-none items-center justify-between p-4 font-bold text-xl font-display text-primary tracking-wider transition-all duration-300">
+                                    The "Aries Point" Protocol
+                                    <div class="text-primary transition-transform duration-300 group-open:rotate-90">
+<svg class="feather feather-chevron-right" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
+</div>
+</summary>
+<div class="px-4 pb-4 text-base overflow-hidden transition-all duration-500 ease-in-out max-h-0 group-open:max-h-screen">
+<p class="leading-relaxed expanded-content-text-gradient">0° Aries is the vernal equinox, the absolute genesis point of the entire zodiacal matrix. Planets positioned here do not just express their energy; they broadcast it on a global frequency. Actions taken by these natives often have unforeseen, widespread public impact, rippling across the collective consciousness. They are system-level initiators, here to spark change not just in their own lives, but on a mass scale. Their personal journey becomes, intentionally or not, a <span class="font-bold text-gray-400 animate-pulse">catalyst for planetary awakening.</span></p>
+</div>
+</details>
+<details class="group accordion-item">
+<summary class="flex cursor-pointer list-none items-center justify-between p-4 font-bold text-xl font-display text-primary tracking-wider transition-all duration-300">
+                                     Compatibility Patches
+                                    <div class="text-primary transition-transform duration-300 group-open:rotate-90">
+<svg class="feather feather-chevron-right" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
+</div>
+</summary>
+<div class="px-4 pb-4 text-base overflow-hidden transition-all duration-500 ease-in-out max-h-0 group-open:max-h-screen">
+<p class="leading-relaxed expanded-content-text-gradient">While instinctively favoring the high-energy synergy of fellow Fire signs (Leo, Sagittarius) and the intellectual stimulation of Air signs (Gemini, Libra, Aquarius), Aries achieves profound growth through high-friction pairings. Water signs (Cancer, Pisces) install critical 'emotional depth' and 'empathy' modules, teaching the Ram that vulnerability is a superpower. Earth signs (Capricorn, Taurus) provide the 'structural integrity' patch, grounding Arien ambition and manifesting their brilliant ideas into lasting, tangible legacies. <span class="font-bold text-gray-400 animate-pulse">True evolution requires dynamic tension.</span></p>
+</div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="bg-background-dark/80 text-text-dark/60 mt-20 py-10 px-6 font-body backdrop-blur-sm border-t border-subtle-dark/30">
+<div class="container mx-auto text-center">
+<p class="tracking-widest">© 1489 ShivaKali Ashram all rights reserved</p>
+<p class="text-sm mt-2 text-primary/50 tracking-wider">&gt;&gt; FOR_GROWTH_AND_KNOWLEDGE_PURPOSE &lt;&lt;</p>
+</div>
+</footer>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let scrollY = window.scrollY;
+        const updateStyles = () => {
+            document.documentElement.style.setProperty('--mouse-x', `${mouseX}px`);
+            document.documentElement.style.setProperty('--mouse-y', `${mouseY}px`);
+            document.documentElement.style.setProperty('--scroll-y', scrollY);
+        };
+        const handleMouseMove = (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            window.requestAnimationFrame(updateStyles);
+        };
+        const handleScroll = () => {
+            scrollY = window.scrollY;
+            window.requestAnimationFrame(updateStyles);
+        };
+        document.addEventListener('mousemove', handleMouseMove);
+        document.addEventListener('scroll', handleScroll);
+        // Initial call
+        updateStyles();
+        // Spectrum Visualizer Logic
+        const spectrum = document.getElementById('color-spectrum');
+        const spectrumInfo = document.getElementById('spectrum-info');
+        const spectrumTitle = document.getElementById('spectrum-title');
+        const spectrumDesc = document.getElementById('spectrum-desc');
+        const spectrumData = [
+            { range: [0, 0.33], title: 'Deep Silver', desc: 'Intuitive depths, psychic currents, protective instincts.' },
+            { range: [0.33, 0.66], title: 'Flowing Silver', desc: 'The core frequency of emotion, care, and nurturing connection. The heart of the zodiac.' },
+            { range: [0.66, 1], title: 'Moonlit Glow', desc: 'Compassion, empathy, and the gentle expression of love and memory.' }
+        ];
+        spectrum.addEventListener('mousemove', (e) => {
+            const rect = spectrum.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const percentage = x / rect.width;
+            spectrum.style.setProperty('--spectrum-pos', `${percentage * 100}%`);
+            const data = spectrumData.find(d => percentage >= d.range[0] && percentage < d.range[1]);
+            if (data && spectrumTitle.innerText !== data.title) {
+                spectrumInfo.classList.add('opacity-0', 'scale-95');
+                setTimeout(() => {
+                    spectrumTitle.innerText = data.title;
+                    spectrumDesc.innerText = data.desc;
+                    spectrumInfo.classList.remove('opacity-0', 'scale-95');
+                }, 150);
+            }
+        });
+    });
+</script>
+</body></html>
