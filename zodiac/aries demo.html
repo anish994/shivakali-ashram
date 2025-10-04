@@ -14,15 +14,50 @@
              :root {
                 --primary: #FF1A1A;
                 --primary-glow: #ff1a1a80;
+                --primary-intense: #FF0000;
+                --primary-subtle: #FF4D4D;
+                --primary-deep: #CC0000;
                 --background-light: #1A0202;
                 --background-dark: #0D0000;
                 --text-light: #FDE8E8;
                 --text-dark: #FFD6D6;
                 --subtle-light: #4D0A0A;
-                --subtle-dark: #801414;--mouse-x: 50%;
+                --subtle-dark: #801414;
+                --cosmic-red: #FF0033;
+                --mystic-red: #FF3366;
+                --mouse-x: 50%;
                 --mouse-y: 50%;
                 --scroll-y: 0;
+                --energy-pulse: 0;
             }
+        }
+        @keyframes mystic-pulse {
+            0%, 100% { 
+                filter: drop-shadow(0 0 15px var(--primary-glow)) 
+                        drop-shadow(0 0 30px var(--cosmic-red));
+            }
+            50% { 
+                filter: drop-shadow(0 0 25px var(--primary)) 
+                        drop-shadow(0 0 50px var(--mystic-red));
+            }
+        }
+        @keyframes energy-flow {
+            0% { transform: translateY(0) scale(1); opacity: 0.8; }
+            50% { transform: translateY(-15px) scale(1.05); opacity: 1; }
+            100% { transform: translateY(0) scale(1); opacity: 0.8; }
+        }
+        @keyframes cosmic-rotation {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .mystic-glow {
+            animation: mystic-pulse 4s infinite;
+        }
+        .energy-flow {
+            animation: energy-flow 6s infinite;
+        }
+        .cosmic-spin {
+            animation: cosmic-rotation 20s linear infinite;
         }
         @keyframes subtle-pulse {
             0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px var(--primary-glow)); }
@@ -477,10 +512,10 @@
 <div class="flex justify-center mb-6 animate-subtle-float">
 <img src="../pictures/aries pic .png" class="h-28 w-28 md:h-36 md:w-36 aries-logo-glow" alt="Aries Zodiac Sign">
 </div>
-<h2 class="text-6xl md:text-8xl font-black font-display text-transparent bg-clip-text bg-gradient-to-r from-primary via-red-400 to-red-300 tracking-widest animate-subtle-pulse" style="text-shadow: 0 0 30px var(--primary-glow);">ARIES</h2>
+<h2 class="text-6xl md:text-8xl font-black font-display text-transparent bg-clip-text bg-gradient-to-r from-primary via-cosmic-red to-mystic-red tracking-widest mystic-glow" style="text-shadow: 0 0 30px var(--primary-glow);">ARIES</h2>
 <div class="mt-4 content-section intro-text-bg" style="animation-delay: 0.2s;">
 <p class="relative z-10 text-lg md:text-xl text-text-dark/80 max-w-3xl mx-auto font-body">
-<span class="text-primary/80">&lt;SYSTEM_LOG&gt;</span> Ruled by Mars, the planet of raw energy, conflict, and drive. Aries is the primal spark of creation, the <span class="font-bold text-primary animate-pulse">Big Bang</span> of the zodiac. It forges paths with relentless courage and a blazing spirit. This is the narrative of leadership, impulse, and the unfiltered genesis of action. <span class="text-primary/80">&lt;/TRANSMISSION&gt;</span>
+<span class="text-primary/80">&lt;COSMIC_TRANSMISSION_INITIALIZED&gt;</span> Governed by Mars, the Celestial Warrior, Aries emerges as the primordial flame of consciousness itself. Beyond mere zodiacal beginning, it is the <span class="font-bold text-primary animate-pulse">Divine Spark</span> that ignited the cosmic dance of creation. This is where raw potential crystallizes into unstoppable force, where the universe's first thought became its first deed. Through Aries flows the sacred fire of leadership, the electric current of divine will, and the untamed power of pure becoming. Each Aries soul carries within them a fragment of that original cosmic explosion, a direct connection to the moment when darkness first shattered into light. <span class="text-primary/80">&lt;TRANSMISSION_ENCRYPTED::SACRED_FLAME_PROTOCOL&gt;</span>
 </p>
 </div>
 </div>
@@ -488,35 +523,41 @@
 <summary class="list-none cursor-pointer">
 <h3 class="text-3xl font-bold font-display mb-8 text-center text-primary uppercase tracking-[0.2em] flex items-center justify-center gap-4" style="text-shadow: 0 0 10px var(--primary-glow);">Core Matrix <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-<div class="data-card p-4 flex flex-col items-center justify-center text-center">
-<p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Somatic Focus</p>
+<div class="data-card p-4 flex flex-col items-center justify-center text-center energy-flow">
+<p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Sacred Gateway</p>
 <p class="font-bold text-2xl font-display text-primary">Head</p>
-<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Drive</p>
+<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Crown Chakra Nexus</p>
+<p class="text-xs text-text-dark/50 mt-2">Portal of Divine Will</p>
 </div>
 <div class="data-card p-4 flex flex-col items-center justify-center text-center">
-<p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Crystal</p>
+<p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Crystalline Matrix</p>
 <p class="font-bold text-2xl font-display text-primary">Diamond</p>
-<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Will</p>
+<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Unbreakable Spirit</p>
+<p class="text-xs text-text-dark/50 mt-2">Cosmic Pressure Point</p>
 </div>
 <div class="data-card p-4 flex flex-col items-center justify-center text-center">
-<p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Chroma Key</p>
+<p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Light Code</p>
 <p class="font-bold text-2xl font-display text-primary">Red</p>
-<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Energy</p>
+<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Primal Force</p>
+<p class="text-xs text-text-dark/50 mt-2">First Ray Frequency</p>
 </div>
 <div class="data-card p-4 flex flex-col items-center justify-center text-center">
-<p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Ruling Planet</p>
+<p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Celestial Guardian</p>
 <p class="font-bold text-2xl font-display text-primary">Mars</p>
-<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Action</p>
+<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Divine Warrior</p>
+<p class="text-xs text-text-dark/50 mt-2">Cosmic Activator</p>
 </div>
 <div class="data-card p-4 flex flex-col items-center justify-center text-center">
-<p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Element</p>
+<p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Primordial Force</p>
 <p class="font-bold text-2xl font-display text-primary">Fire</p>
-<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Passion</p>
+<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Sacred Flame</p>
+<p class="text-xs text-text-dark/50 mt-2">Eternal Catalyst</p>
 </div>
 <div class="data-card p-4 flex flex-col items-center justify-center text-center">
-<p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Modality</p>
+<p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Divine Pattern</p>
 <p class="font-bold text-2xl font-display text-primary">Cardinal</p>
-<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Initiative</p>
+<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Genesis Point</p>
+<p class="text-xs text-text-dark/50 mt-2">Creation's Pulse</p>
 </div>
 </div>
 </summary>
@@ -571,19 +612,22 @@
 <h3 class="text-4xl font-bold font-display mb-8 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Decanic Sub-Rulers</h3>
 <div class="grid md:grid-cols-3 gap-8 font-body text-base leading-relaxed">
 <div class="decan-card p-6 in-view" style="transition-delay: 100ms;">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decan I: The Warrior (0-9°)</h4>
-<p class="text-sm text-text-dark/70 mb-2">Sub-ruler: Mars</p>
-<p class="text-text-dark/90 text-sm">Pure, unfiltered Arien energy. The initiator, the fighter, the raw impulse. Embodies courage and a direct, confrontational style. This is the spark in its most primal, potent form.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decan I: The Divine Warrior (0-9°)</h4>
+<p class="text-sm text-text-dark/70 mb-2">Celestial Guardian: Mars in Pure Form</p>
+<p class="text-text-dark/90 text-sm">Here dwells the primordial fire in its rawest expression - the cosmic forge where spirit first ignites into matter. Those born under this decan carry the pure Martian frequency, embodying the archetype of the Sacred Warrior. Their presence acts as a catalyst, breaking through spiritual and material barriers with the force of divine lightning. They are the cosmic match that ignites new realities into being.</p>
+<p class="text-xs text-primary/70 mt-2">&lt;ACTIVATION_CODE: DIVINE_WARRIOR_PROTOCOL&gt;</p>
 </div>
 <div class="decan-card p-6 in-view" style="transition-delay: 200ms;">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decan II: The Leader (10-19°)</h4>
-<p class="text-sm text-text-dark/70 mb-2">Sub-ruler: The Sun</p>
-<p class="text-text-dark/90 text-sm">The impulse is now channeled into a stable, radiant identity. The focus shifts from pure action to leadership and creative self-expression. The ego is strong, charismatic, and purposeful.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decan II: The Solar Commander (10-19°)</h4>
+<p class="text-sm text-text-dark/70 mb-2">Celestial Guardian: The Solar Logos</p>
+<p class="text-text-dark/90 text-sm">Mars meets the Sun in sacred union, tempering raw power with divine purpose. These souls are cosmic architects, wielding the dual flames of will and wisdom. Their leadership transcends mere authority - they become living channels of solar consciousness, radiating a light that both illuminates and transforms. Through them, the warrior's sword becomes a beacon of truth.</p>
+<p class="text-xs text-primary/70 mt-2">&lt;ACTIVATION_CODE: SOLAR_SOVEREIGN_MATRIX&gt;</p>
 </div>
 <div class="decan-card p-6 in-view" style="transition-delay: 300ms;">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decan III: The Pioneer (20-29°)</h4>
-<p class="text-sm text-text-dark/70 mb-2">Sub-ruler: Jupiter</p>
-<p class="text-text-dark/90 text-sm">Action is now fueled by vision and a desire for expansion. This is the adventurous Arien, seeking new frontiers, philosophies, and ways of being. The drive is for discovery and optimistic growth.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decan III: The Cosmic Pioneer (20-29°)</h4>
+<p class="text-sm text-text-dark/70 mb-2">Celestial Guardian: Jupiter the Expander</p>
+<p class="text-text-dark/90 text-sm">The final evolution of Aries force - where martial power meets Jupiter's cosmic wisdom. These initiates are spiritual pathfinders, quantum leap specialists who break through dimensional barriers. Their mission transcends personal glory - they are cosmic bridge-builders, forging connections between realms of possibility. Each action ripples through the multiverse, opening new pathways for collective evolution.</p>
+<p class="text-xs text-primary/70 mt-2">&lt;ACTIVATION_CODE: QUANTUM_PATHFINDER_SEQUENCE&gt;</p>
 </div>
 </div>
 </div>
@@ -670,7 +714,7 @@
 <h3 class="text-4xl font-bold font-display mb-8 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Zodiacal Archetype Cross-Reference</h3>
 <div class="flex justify-center items-center gap-12 md:gap-20 pt-4">
 <div class="archetype-link">
-<span class="material-symbols-outlined text-6xl text-primary cursor-pointer">military_tech</span>
+<span class="material-symbols-outlined text-6xl text-primary cursor-pointer cosmic-spin">military_tech</span>
 <div class="archetype-info w-56 p-4 rounded-xl bg-background-dark/90 border border-primary/50 backdrop-blur-md">
 <h5 class="font-bold font-display text-primary">The Warrior</h5>
 <p class="text-xs text-text-dark/80">The universal archetype of courage, action, and conflict. Found in figures like Ares (Greek), Mars (Roman), and the knight-errant.</p>
