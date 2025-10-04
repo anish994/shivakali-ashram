@@ -478,6 +478,76 @@
         .expandable-card[open] .progress-bar {
             width: var(--progress-width, 0%);
         }
+
+        /* Mobile performance optimizations */
+        @media (max-width: 768px) {
+            /* Disable expensive backdrop filters and heavy drop-shadows on mobile */
+            .data-card, .futuristic-card, .icon-card, .chiron-card, .progress-bar-container {
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+                filter: none !important;
+            }
+
+            /* Reduce or remove glow animations and filter transitions */
+            .mystic-glow, .aries-logo-glow {
+                animation: none !important;
+                filter: none !important;
+                transition: transform 0.2s ease !important;
+            }
+
+            .energy-flow, .cosmic-spin, .animate-subtle-pulse, .animate-subtle-float {
+                animation: none !important;
+            }
+
+            /* Simplify card hover effects to use transform only (no filters) */
+            .data-card:hover, .icon-card:hover, .futuristic-card:hover, .chiron-card:hover {
+                transform: translateY(-4px) scale(1.01) !important;
+                background-color: rgba(255,26,26,0.06) !important;
+                border-color: var(--primary) !important;
+                box-shadow: none !important;
+            }
+
+            /* Remove heavy blurred pseudo-elements */
+            .data-card::before, .futuristic-card::before, .icon-card::before {
+                opacity: 0 !important;
+                filter: none !important;
+                background: transparent !important;
+            }
+
+            /* Reduce background animation work and parallax transforms */
+            .stars, .stars-2, .nebula {
+                animation: none !important;
+                transform: none !important;
+                background-size: auto !important;
+            }
+
+            /* Hide full-screen light flare to avoid repaints */
+            .light-flare { display: none !important; }
+
+            /* Reduce asteroid/card floating to simple transform on hover only */
+            .asteroid-card { animation: none !important; }
+            .asteroid-card:hover { transform: scale(1.03) !important; }
+
+            /* Remove large drop-shadows on progress bars and spectrum */
+            .progress-bar, .color-spectrum::before { box-shadow: none !important; filter: none !important; }
+
+            /* Disable rotating decorations */
+            .archetype-link::before { animation: none !important; opacity: 0.6 !important; }
+
+            /* Slightly reduce font-sizes for small screens */
+            h2 { font-size: 3rem !important; }
+            .text-lg { font-size: 0.95rem !important; }
+
+            /* Reduce transition durations to make interactions feel snappier */
+            * { transition-duration: 150ms !important; }
+        }
+
+        /* Honor user's reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+            .light-flare { display: none !important; }
+            .stars, .nebula, .stars-2, .asteroid-card { animation: none !important; }
+        }
     </style>
 <script>tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#EA2831", "background-light": "#f8f6f6", "background-dark": "#211111", "text-light": "var(--text-light)", "text-dark": "var(--text-dark)", "subtle-light": "var(--subtle-light)", "subtle-dark": "var(--subtle-dark)"}, fontFamily: {display: "Space Grotesk", body: ["Roboto Mono", "monospace"]}, borderRadius: {DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px"}}}};</script>
 </head>
