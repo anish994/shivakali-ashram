@@ -8,8 +8,83 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&amp;family=Roboto+Mono:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-<link rel="stylesheet" href="assets/css/scrolling-fixes.css"/>
+<link rel="stylesheet" href="../assets/css/scrolling-fixes.css"/>
 <style type="text/tailwindcss">
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            html {
+                font-size: 14px;
+                -webkit-text-size-adjust: 100%;
+            }
+            
+            .data-card {
+                padding: 1rem !important;
+                margin: 0.5rem !important;
+            }
+            
+            .grid-cols-1 {
+                grid-template-columns: 1fr !important;
+            }
+            
+            .p-4 {
+                padding: 0.75rem !important;
+            }
+            
+            .m-4 {
+                margin: 0.75rem !important;
+            }
+            
+            .gap-8 {
+                gap: 1rem !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            html {
+                font-size: 12px;
+            }
+            
+            .data-card {
+                padding: 0.75rem !important;
+            }
+            
+            .text-2xl {
+                font-size: 1.5rem !important;
+            }
+            
+            .p-4 {
+                padding: 0.5rem !important;
+            }
+        }
+        
+        /* Touch Device Optimization */
+        @media (hover: none) {
+            * {
+                cursor: default !important;
+            }
+            
+            [onclick] {
+                cursor: pointer !important;
+                -webkit-tap-highlight-color: transparent;
+            }
+            
+            .hover\:scale-105:hover {
+                transform: none !important;
+            }
+            
+            .hover\:shadow-lg:hover {
+                box-shadow: none !important;
+            }
+        }
+        
+        /* Safe Area Insets */
+        @supports(padding: max(0px)) {
+            body {
+                padding-left: max(0.5rem, env(safe-area-inset-left));
+                padding-right: max(0.5rem, env(safe-area-inset-right));
+                padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+            }
+        }
         @layer base {
              :root {
                 --primary: #FF1A1A;
@@ -35,6 +110,7 @@
             0%, 100% { 
                 filter: drop-shadow(0 0 15px var(--primary-glow)) 
                         drop-shadow(0 0 30px var(--cosmic-red));
+                will-change: filter;
             }
             50% { 
                 filter: drop-shadow(0 0 25px var(--primary)) 
@@ -42,12 +118,12 @@
             }
         }
         @keyframes energy-flow {
-            0% { transform: translateY(0) scale(1); opacity: 0.8; }
-            50% { transform: translateY(-15px) scale(1.05); opacity: 1; }
+            0% { transform: translateY(0) scale(1); opacity: 0.8; will-change: transform, opacity; }
+            50% { transform: translateY(-10px) scale(1.03); opacity: 1; }
             100% { transform: translateY(0) scale(1); opacity: 0.8; }
         }
         @keyframes cosmic-rotation {
-            0% { transform: rotate(0deg); }
+            0% { transform: rotate(0deg); will-change: transform; }
             100% { transform: rotate(360deg); }
         }
         .mystic-glow {
@@ -462,6 +538,7 @@
         .expanded-content-text-gradient {
             background: linear-gradient(120deg, var(--text-dark), var(--text-light));
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .progress-bar-container {
@@ -523,7 +600,7 @@
 <summary class="list-none cursor-pointer">
 <h3 class="text-3xl font-bold font-display mb-8 text-center text-primary uppercase tracking-[0.2em] flex items-center justify-center gap-4" style="text-shadow: 0 0 10px var(--primary-glow);">Core Matrix <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-<div class="data-card p-4 flex flex-col items-center justify-center text-center energy-flow">
+<div class="data-card p-4 md:p-3 sm:p-2 flex flex-col items-center justify-center text-center energy-flow">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Sacred Gateway</p>
 <p class="font-bold text-2xl font-display text-primary">Head</p>
 <p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Crown Chakra Nexus</p>
