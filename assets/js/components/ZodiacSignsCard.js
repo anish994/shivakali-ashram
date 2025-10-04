@@ -148,7 +148,7 @@ class ZodiacSignsCard {
                             <span class="expand-text">Show More Details</span>
                             <span class="expand-icon">▼</span>
                         </button>
-                        <button class="dive-deeper-button" onclick="window.location.href='zodiac-signs.html'">
+                        <button class="dive-deeper-button" onclick="window.location.href='/zodiac-signs.html'">
                             <span class="button-icon">♈</span>
                             <span class="button-text">ENTER ZODIAC PORTAL</span>
                             <span class="button-arrow">»</span>
