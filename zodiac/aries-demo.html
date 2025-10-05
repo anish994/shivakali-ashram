@@ -1,95 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>Aries Zodiac Sign</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #0D0000 0%, #1A0202 50%, #0D0000 100%);
-            color: white;
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" name="viewport"/>
+<title>Aries Zodiac Sign</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&amp;family=Roboto+Mono:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/scrolling-fixes.css"/>
+<style type="text/tailwindcss">
+        @layer base {
+             :root {
+                --primary: #FF1A1A;
+                --primary-glow: #ff1a1a80;
+                --background-light: #1A0202;
+                --background-dark: #0D0000;
+                --text-light: #FDE8E8;
+                --text-dark: #FFD6D6;
+                --subtle-light: #4D0A0A;
+                --subtle-dark: #801414;
+                --mouse-x: 50%;
+                --mouse-y: 50%;
+                --scroll-y: 0;
+            }
+        }
+        html {
+            scroll-behavior: smooth;
             overflow-x: hidden;
+            max-width: 100vw;
+        }
+        body {
+            overflow-x: hidden;
+            max-width: 100vw;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        main {
-            flex-grow: 1;
-        }
-        .sun-particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-        .sun-particle {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: radial-gradient(circle, #FF1A1A 0%, #FF1A1A 100%);
-            border-radius: 50%;
-            animation: sunFloat 12s linear infinite;
-        }
-        @keyframes sunFloat {
-            0% { 
-                transform: translateY(100vh) rotate(0deg); 
-                opacity: 0; 
-            }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { 
-                transform: translateY(-10vh) rotate(360deg); 
-                opacity: 0; 
-            }
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
     </style>
+<script>tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#FF1A1A", "background-light": "#1A0202", "background-dark": "#0D0000", "text-light": "var(--text-light)", "text-dark": "var(--text-dark)", "subtle-light": "var(--subtle-light)", "subtle-dark": "var(--subtle-dark)"}, fontFamily: {display: "Orbitron", body: ["Roboto Mono", "monospace"]}, borderRadius: {DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px"}}}};</script>
 </head>
-<body>
-    <div class="sun-particles" id="sunParticles"></div>
-    <header style="padding: 1.5rem 0; border-bottom: 2px solid rgba(255, 26, 26, 0.3); position: sticky; top: 0; background: linear-gradient(135deg, rgba(255, 26, 26, 0.15) 0%, rgba(255, 26, 26, 0.1) 100%);">
-        <nav style="max-width: 1400px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between;">
-            <a href="../zodiac-signs.html" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; background: rgba(255, 26, 26, 0.2); border: 2px solid rgba(255, 26, 26, 0.4); border-radius: 25px; color: #FF1A1A; text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">
-                <span>←</span>
-                <span>Zodiac Hub</span>
-            </a>
-        </nav>
-    </header>
-    <main style="max-width: 1400px; margin: 0 auto; padding: 3rem 2rem; position: relative; z-index: 5;">
-        <div style="text-align: center; margin-bottom: 3rem;">
-            <img src="../pictures/ariespic.png" style="height: 120px; width: 120px; margin: 0 auto 1rem auto;">
-            <h1 style="font-size: 3rem; font-weight: 900; margin: 0 0 0.3rem 0; background: linear-gradient(135deg, #FF1A1A 0%, #FF6B6B 50%, #FF1A1A 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 2px 10px rgba(255, 26, 26, 0.3); text-transform: uppercase; letter-spacing: 1px;">ARIES</h1>
-            <h2 style="font-size: 1.3rem; color: rgba(255, 255, 255, 0.9); font-weight: 600; margin: 0;">The Ram</h2>
-        </div>
-        <p style="font-size: 1.3rem; line-height: 1.7; color: rgba(255, 255, 255, 0.9); margin-bottom: 2rem;">
-            Ruled by Mars, the planet of raw energy, conflict, and drive. Aries is the primal spark of creation, the Big Bang of the zodiac. It forges paths with relentless courage and a blazing spirit. This is the narrative of leadership, impulse, and the unfiltered genesis of action.
-        </p>
-    </main>
-    <footer style="text-align: center; padding: 2rem 0;">
-        <p style="color: rgba(255, 255, 255, 0.5); font-size: 0.9rem;">© 1489 ShivaKali Ashram all rights reserved</p>
-        <p style="color: rgba(255, 26, 26, 0.5); font-size: 0.8rem; margin-top: 0.5rem;">&gt;&gt; FOR_GROWTH_AND_KNOWLEDGE_PURPOSE &lt;&lt;</p>
-    </footer>
-    <script>
-        function createSunParticles() {
-            const container = document.getElementById('sunParticles');
-            const particleCount = 30;
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'sun-particle';
-                particle.style.left = Math.random() * 100 + 'vw';
-                particle.style.animationDelay = Math.random() * 12 + 's';
-                particle.style.animationDuration = (Math.random() * 8 + 8) + 's';
-                container.appendChild(particle);
-            }
-        }
-        document.addEventListener('DOMContentLoaded', function() {
-            createSunParticles();
-        });
-    </script>
-</body>
-</html>
+<body class="bg-background-dark font-body text-text-dark will-change-scroll">
+<div class="min-h-screen relative main-container overflow-hidden">
+<div class="absolute inset-0 bg-background-dark -z-50"></div>
+<header class="border-b border-subtle-dark/50 backdrop-blur-md bg-background-dark/30 sticky top-0 z-50 transition-all duration-300 ease-in-out">
+<div class="container mx-auto flex items-center justify-between px-6 py-4">
+<div class="flex items-center gap-4 group">
+<img src="../pictures/ariespic.png" class="h-10 w-10 text-primary aries-logo-glow group-hover:scale-110 transition-transform duration-300">
+<div class="flex flex-col items-start">
+<h1 class="text-2xl font-bold font-display uppercase tracking-wider text-text-light group-hover:text-primary transition-colors duration-300" style="text-shadow: 0 0 10px var(--primary-glow);">AstroVibe</h1>
+<span class="text-xs text-text-dark/60 font-body transition-all duration-300 group-hover:text-primary/70">by ShivaKali Ashram</span>
+</div>
+</div>
+<div class="flex items-center gap-2 md:gap-4">
+<a href="../zodiac-signs.html" class="nav-button">Zodiac Hub</a>
+<a href="../index.html" class="nav-button">Back to Ashram</a>
+<a href="../index.html#jyotisha" class="nav-button">Back to Jotish</a>
+<a href="pisces-demo.html" class="nav-button">Previous Sign</a>
+<a href="taurus-demo.html" class="nav-button">Next Sign</a>
+</div>
+</div>
+</header>
+<main class="container mx-auto px-6 py-12 md:py-20 relative z-10">
+<div class="max-w-5xl mx-auto">
+<div class="text-center mb-16 md:mb-24">
+<div class="flex justify-center mb-6">
+<img src="../pictures/ariespic.png" class="h-28 w-28 md:h-36 md:w-36 text-primary aries-logo-glow">
+</div>
+<h2 class="text-6xl md:text-8xl font-black font-display text-transparent bg-clip-text bg-gradient-to-r from-primary via-red-400 to-red-300 tracking-widest" style="text-shadow: 0 0 30px var(--primary-glow);">ARIES</h2>
+<div class="mt-4 content-section intro-text-bg">
+<p class="relative z-10 text-lg md:text-xl text-text-dark/80 max-w-3xl mx-auto font-body">
+<span class="text-primary/80">&lt;SYSTEM_LOG&gt;</span> Ruled by Mars, the planet of raw energy, conflict, and drive. Aries is the primal spark of creation, the <span class="font-bold text-primary">Big Bang</span> of the zodiac. It forges paths with relentless courage and a blazing spirit. This is the narrative of leadership, impulse, and the unfiltered genesis of action. <span class="text-primary/80">&lt;/TRANSMISSION&gt;</span>
+</p>
+</div>
+</div>
+</div>
+</main>
+<footer class="bg-background-dark/80 text-text-dark/60 mt-20 py-10 px-6 font-body border-t border-subtle-dark/30">
+<div class="container mx-auto text-center">
+<p class="tracking-widest">© 1489 ShivaKali Ashram all rights reserved</p>
+<p class="text-sm mt-2 text-primary/50 tracking-wider">&gt;&gt; FOR_GROWTH_AND_KNOWLEDGE_PURPOSE &lt;&lt;</p>
+</div>
+</footer>
+</div>
+</body></html>
