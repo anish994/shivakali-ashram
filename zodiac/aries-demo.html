@@ -12,6 +12,12 @@
             overflow-x: hidden;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main {
+            flex-grow: 1;
         }
         .sun-particles {
             position: fixed;
@@ -64,6 +70,10 @@
             Ruled by Mars, the planet of raw energy, conflict, and drive. Aries is the primal spark of creation, the Big Bang of the zodiac. It forges paths with relentless courage and a blazing spirit. This is the narrative of leadership, impulse, and the unfiltered genesis of action.
         </p>
     </main>
+    <footer style="text-align: center; padding: 2rem 0;">
+        <p style="color: rgba(255, 255, 255, 0.5); font-size: 0.9rem;">© 1489 ShivaKali Ashram all rights reserved</p>
+        <p style="color: rgba(255, 26, 26, 0.5); font-size: 0.8rem; margin-top: 0.5rem;">&gt;&gt; FOR_GROWTH_AND_KNOWLEDGE_PURPOSE &lt;&lt;</p>
+    </footer>
     <script>
         function createSunParticles() {
             const container = document.getElementById('sunParticles');
