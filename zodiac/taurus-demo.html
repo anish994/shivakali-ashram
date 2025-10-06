@@ -21,7 +21,7 @@ body {
     background: linear-gradient(135deg, #004d26, #008040, #004d26);
     color: #ffffff;
     font-family: 'Inter', sans-serif;
-    line-height: 1.6;
+    line-height: 1.8;
     overflow-x: hidden;
 }
 
@@ -90,74 +90,46 @@ body {
     animation: title-glow 4s ease-in-out infinite;
 }
 
-.data-card {
+.data-card, .decan-card, .futuristic-card, .icon-card, .dynamic-card, .asteroid-card {
     background: rgba(0, 255, 127, 0.05);
     border: 1px solid rgba(0, 255, 127, 0.2);
-    border-radius: 0.75rem;
-    padding: 1.5rem;
-    text-align: center;
+    border-radius: 1rem;
+    padding: 2rem;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
 }
 
-.data-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(transparent, rgba(0, 255, 127, 0.1), transparent 30%);
-    animation: rotate 4s linear infinite;
-}
-
-.data-card:hover {
-    box-shadow: 0 0 20px var(--primary-glow);
-    transform: translateY(-5px);
+.data-card:hover, .decan-card:hover, .futuristic-card:hover, .icon-card:hover, .dynamic-card:hover, .asteroid-card:hover {
+    box-shadow: 0 0 25px var(--primary-glow);
+    transform: translateY(-8px);
     border-color: var(--primary);
 }
 
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-h3 {
+.expandable-card {
+    border: 1px solid rgba(0, 255, 127, 0.2);
+    border-radius: 1rem;
+    background: rgba(0, 255, 127, 0.05);
     transition: all 0.3s ease;
-}
-
-h3:hover {
-    text-shadow: 0 0 10px var(--primary-glow);
-    transform: scale(1.05);
-}
-
-@keyframes content-breath {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.01);
-    }
-}
-
-.content-breath {
-    animation: content-breath 8s ease-in-out infinite;
 }
 
 .expandable-card:hover {
     border-color: var(--primary);
-    box-shadow: 0 0 20px var(--primary-glow);
+    box-shadow: 0 0 25px var(--primary-glow);
+}
+
+.expand-arrow {
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.group[open] .expand-arrow {
+    transform: rotate(180deg);
 }
 
 @keyframes text-pop-up {
     0% {
         opacity: 0;
-        transform: translateY(20px) scale(0.9);
+        transform: translateY(20px) scale(0.95);
     }
     100% {
         opacity: 1;
@@ -166,15 +138,15 @@ h3:hover {
 }
 
 .text-pop-up {
-    animation: text-pop-up 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: text-pop-up 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
-.expand-arrow {
-    transition: transform 0.3s ease;
+p.text-pop-up {
+    animation-delay: 0.2s;
 }
 
-.group[open] .expand-arrow {
-    transform: rotate(180deg);
+h4 + .text-pop-up {
+    animation-delay: 0.3s;
 }
 </style>
 <script>tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#00ff7f", "primary-glow": "#00ff7f80", "background-light": "#f0fff0", "background-dark": "#0a1a0a", "text-light": "#e0ffe0", "text-dark": "#c0ffc0", "subtle-light": "#008040", "subtle-dark": "#004d26"}, fontFamily: {display: "Orbitron", body: ["Roboto Mono", "monospace"]}, borderRadius: {DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px"}}}}};</script>
@@ -435,7 +407,7 @@ h3:hover {
 <div class="space-y-16">
 <details class="group content-section expandable-card" style="animation-delay: 0.8s;">
 <summary class="list-none cursor-pointer">
-<h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary flex items-center justify-between" style="text-shadow: 0 0 15px var(--primary-glow);">Operational Directives <span class="material-symbols-outlined text-3xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
+<h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary flex items-center justify-between" style="text-shadow: 0 0 15px var(--primary-glow);"><span class="material-symbols-outlined expand-arrow">expand_more</span></h3>
 <div class="grid md:grid-cols-3 gap-8 font-body text-base leading-relaxed">
 <div class="icon-card p-6 flex flex-col items-center text-center rounded-lg" style="clip-path: polygon(0 15px, 15px 0, 100% 0, 100% 100%, 0 100%);">
 <span class="material-symbols-outlined text-4xl text-primary mb-3" style="filter: drop-shadow(0 0 8px var(--primary-glow));">local_florist</span>
@@ -473,7 +445,7 @@ h3:hover {
 </details>
 <details class="group content-section expandable-card" style="animation-delay: 1.0s;">
 <summary class="list-none cursor-pointer">
-<h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary flex items-center justify-between" style="text-shadow: 0 0 15px var(--primary-glow);">The Bull's Paradox <span class="material-symbols-outlined text-3xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
+<h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary flex items-center justify-between" style="text-shadow: 0 0 15px var(--primary-glow);">The Bull's Paradox <span class="material-symbols-outlined expand-arrow">expand_more</span></h3>
 <div class="grid md:grid-cols-2 gap-8 font-body text-base leading-relaxed">
 <div class="futuristic-card p-6">
 <h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Fearless Child</h4>
@@ -504,8 +476,7 @@ h3:hover {
 <details class="dynamic-card" style="animation-delay: 0s;">
 <summary class="p-6 flex flex-col items-center text-center cursor-pointer list-none">
 <div class="flex items-center justify-between w-full mb-3">
-<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">spa</span>
-<span class="material-symbols-outlined text-2xl text-primary/70 expand-icon">add</span>
+<span class="material-symbols-outlined expand-arrow">expand_more</span>
 </div>
 <h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Career Trajectory</h4>
 <p class="text-text-dark/80 text-sm">Thrives in roles requiring leadership, innovation, and quick decisions. Entrepreneurship, emergency services, and competitive sports are natural arenas.</p>
@@ -734,11 +705,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    const expandIcons = document.querySelectorAll('.expand-icon');
+    const expandIcons = document.querySelectorAll('.expand-icon, .expand-arrow, .material-symbols-outlined');
     expandIcons.forEach(icon => {
-        icon.textContent = 'expand_more';
-        icon.classList.remove('expand-icon', 'text-2xl', 'text-3xl', 'text-primary/70', 'transition-transform', 'duration-400', 'group-open:rotate-45');
-        icon.classList.add('expand-arrow');
+        if (icon.textContent.trim() === 'add') {
+            icon.textContent = 'expand_more';
+            icon.classList.remove('expand-icon', 'text-2xl', 'text-3xl', 'text-primary/70', 'transition-transform', 'duration-400', 'group-open:rotate-45');
+            icon.classList.add('expand-arrow');
+        }
     });
 });
 </script>

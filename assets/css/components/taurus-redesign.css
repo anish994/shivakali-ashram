@@ -1,0 +1,15 @@
+/* Taurus Redesign */
+
+body {
+    background: linear-gradient(135deg, #0a180a, #102c10, #0a1a0a);
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+.main-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+}
