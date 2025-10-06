@@ -103,6 +103,24 @@ h3:hover {
     text-shadow: 0 0 10px var(--primary-glow);
     transform: scale(1.05);
 }
+
+@keyframes content-breath {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.01);
+    }
+}
+
+.content-breath {
+    animation: content-breath 8s ease-in-out infinite;
+}
+
+.expandable-card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 0 20px var(--primary-glow);
+}
 </style>
 <script>tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#00ff7f", "primary-glow": "#00ff7f80", "background-light": "#f0fff0", "background-dark": "#0a1a0a", "text-light": "#e0ffe0", "text-dark": "#c0ffc0", "subtle-light": "#008040", "subtle-dark": "#004d26"}, fontFamily: {display: "Orbitron", body: ["Roboto Mono", "monospace"]}, borderRadius: {DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px"}}}}};</script>
 </head>
@@ -651,6 +669,10 @@ function createParticles() {
 document.addEventListener('DOMContentLoaded', () => {
     createStars();
     createParticles();
+    const contentSections = document.querySelectorAll('.content-section');
+    contentSections.forEach(section => {
+        section.classList.add('content-breath');
+    });
 });
 </script>
 </body></html>
