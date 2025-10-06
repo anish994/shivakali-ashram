@@ -1,0 +1,50 @@
+/* Taurus Mobile Optimization */
+
+@media (max-width: 767px) {
+    .header-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header-container .group {
+        margin-bottom: 1rem;
+    }
+
+    .nav-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-button {
+        min-height: 44px;
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .main-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .md\:grid-cols-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .md\:grid-cols-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .lg\:grid-cols-6 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .expandable-card[open] > .expandable-card-content,
+    .dynamic-card[open] .dynamic-card-content,
+    .accordion-item.group[open] .accordion-content {
+        max-height: 5000px !important;
+    }
+}
