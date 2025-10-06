@@ -13,3 +13,45 @@ body {
     margin: 0 auto;
     padding: 5rem 2rem;
 }
+
+.accordion-content {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+details[open] .accordion-content {
+    max-height: 1000px; /* A large enough value */
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.archetype-item {
+    position: relative;
+}
+
+.archetype-icon {
+    list-style: none; /* Remove the default arrow */
+}
+
+.archetype-info {
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+    width: 224px; /* w-56 */
+    padding: 1rem; /* p-4 */
+    border-radius: 0.75rem; /* rounded-xl */
+    background: rgba(10, 26, 10, 0.9); /* bg-background-dark/90 */
+    border: 1px solid var(--primary-glow);
+    backdrop-filter: blur(10px);
+}
+
+details[open] .archetype-info {
+    opacity: 1;
+    pointer-events: auto;
+}

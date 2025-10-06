@@ -378,30 +378,36 @@ h4 + .text-pop-up {
 </div>
 <div class="content-section text-center" style="animation-delay: 1.2s;">
 <h3 class="text-4xl font-bold font-display mb-8 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Zodiacal Archetype Cross-Reference</h3>
-<div class="flex justify-center items-center gap-12 md:gap-20 pt-4">
-<div class="archetype-link">
-<span class="material-symbols-outlined text-6xl text-primary cursor-pointer">military_tech</span>
-<div class="archetype-info w-56 p-4 rounded-xl bg-background-dark/90 border border-primary/50 backdrop-blur-md">
-<h5 class="font-bold font-display text-primary">The Warrior</h5>
-<p class="text-xs text-text-dark/80">The universal archetype of courage, action, and conflict. Found in figures like Ares (Greek), Mars (Roman), and the knight-errant.</p>
-</div>
-</div>
-<span class="material-symbols-outlined text-4xl text-primary/50">link</span>
-<div class="archetype-link">
-<span class="material-symbols-outlined text-6xl text-primary cursor-pointer">bolt</span>
-<div class="archetype-info w-56 p-4 rounded-xl bg-background-dark/90 border border-primary/50 backdrop-blur-md">
-<h5 class="font-bold font-display text-primary">The Pioneer</h5>
-<p class="text-xs text-text-dark/80">The trailblazer who ventures into the unknown. The explorer, the inventor, the one who dares to go first.</p>
-</div>
-</div>
-<span class="material-symbols-outlined text-4xl text-primary/50">link</span>
-<div class="archetype-link">
-<span class="material-symbols-outlined text-6xl text-primary cursor-pointer">child_care</span>
-<div class="archetype-info w-56 p-4 rounded-xl bg-background-dark/90 border border-primary/50 backdrop-blur-md">
-<h5 class="font-bold font-display text-primary">The Divine Child</h5>
-<p class="text-xs text-text-dark/80">Represents pure potential, new beginnings, and the innocence that allows for fearless action. The birth of a new cycle.</p>
-</div>
-</div>
+<div class="flex justify-center items-center flex-wrap gap-12 md:gap-20 pt-4">
+    <details class="archetype-item">
+        <summary class="archetype-icon">
+            <span class="material-symbols-outlined text-6xl text-primary cursor-pointer">military_tech</span>
+        </summary>
+        <div class="archetype-info w-56 p-4 rounded-xl bg-background-dark/90 border border-primary/50 backdrop-blur-md">
+            <h5 class="font-bold font-display text-primary">The Warrior</h5>
+            <p class="text-xs text-text-dark/80">The universal archetype of courage, action, and conflict. Found in figures like Ares (Greek), Mars (Roman), and the knight-errant.</p>
+        </div>
+    </details>
+    <span class="material-symbols-outlined text-4xl text-primary/50">link</span>
+    <details class="archetype-item">
+        <summary class="archetype-icon">
+            <span class="material-symbols-outlined text-6xl text-primary cursor-pointer">bolt</span>
+        </summary>
+        <div class="archetype-info w-56 p-4 rounded-xl bg-background-dark/90 border border-primary/50 backdrop-blur-md">
+            <h5 class="font-bold font-display text-primary">The Pioneer</h5>
+            <p class="text-xs text-text-dark/80">The trailblazer who ventures into the unknown. The explorer, the inventor, the one who dares to go first.</p>
+        </div>
+    </details>
+    <span class="material-symbols-outlined text-4xl text-primary/50">link</span>
+    <details class="archetype-item">
+        <summary class="archetype-icon">
+            <span class="material-symbols-outlined text-6xl text-primary cursor-pointer">child_care</span>
+        </summary>
+        <div class="archetype-info w-56 p-4 rounded-xl bg-background-dark/90 border border-primary/50 backdrop-blur-md">
+            <h5 class="font-bold font-display text-primary">The Divine Child</h5>
+            <p class="text-xs text-text-dark/80">Represents pure potential, new beginnings, and the innocence that allows for fearless action. The birth of a new cycle.</p>
+        </div>
+    </details>
 </div>
 </div>
 <div class="space-y-16">
@@ -567,7 +573,7 @@ h4 + .text-pop-up {
 <svg class="feather feather-chevron-right" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
 </div>
 </summary>
-<div class="px-4 pb-4 text-base overflow-hidden transition-all duration-500 ease-in-out max-h-screen group-open:max-h-screen accordion-content">
+<div class="px-4 pb-4 text-base overflow-hidden transition-all duration-500 ease-in-out accordion-content">
 <p class="leading-relaxed expanded-content-text-gradient">Linked to Chrysomallos, the golden-fleeced ram of myth, this subroutine subverts the simplistic 'aggressor' stereotype. It recasts the Arien archetype as a heroic rescuer, a symbol of divine intervention, and the courage required for high-stakes missions. This reveals the core code is not merely 'attack', but <span class="font-bold text-green-400 animate-pulse">'breakthrough'</span>—shattering obstacles to achieve salvation for oneself and others. The fleece represents a prize that is not just won, but is transformative in its own right, a mantle of leadership and sacred authority.</p>
 </div>
 </details>
@@ -705,8 +711,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    const expandIcons = document.querySelectorAll('.expand-icon, .expand-arrow, .material-symbols-outlined');
-    expandIcons.forEach(icon => {
+    const summaryIcons = document.querySelectorAll('summary .material-symbols-outlined');
+    summaryIcons.forEach(icon => {
         if (icon.textContent.trim() === 'add') {
             icon.textContent = 'expand_more';
             icon.classList.remove('expand-icon', 'text-2xl', 'text-3xl', 'text-primary/70', 'transition-transform', 'duration-400', 'group-open:rotate-45');
