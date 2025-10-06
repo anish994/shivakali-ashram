@@ -53,7 +53,7 @@ body {
 
 .particle {
     position: absolute;
-    background: rgba(0, 255, 0, 0.5);
+    background: rgba(0, 255, 127, 0.5);
     border-radius: 50%;
     animation: particle-animation 10s infinite linear;
 }
@@ -68,8 +68,31 @@ body {
         opacity: 0;
     }
 }
+
+@keyframes title-glow {
+    0%, 100% { text-shadow: 0 0 20px var(--primary-glow), 0 0 40px var(--primary-glow); }
+    50% { text-shadow: 0 0 40px var(--primary), 0 0 80px var(--primary); }
+}
+
+.animate-title-glow {
+    animation: title-glow 4s ease-in-out infinite;
+}
+
+.data-card:hover {
+    box-shadow: 0 0 20px var(--primary-glow);
+    transform: translateY(-5px);
+}
+
+h3 {
+    transition: all 0.3s ease;
+}
+
+h3:hover {
+    text-shadow: 0 0 10px var(--primary-glow);
+    transform: scale(1.05);
+}
 </style>
-<script>tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#006400", "background-light": "#f6f8f6", "background-dark": "#112111", "text-light": "var(--text-light)", "text-dark": "var(--text-dark)", "subtle-light": "var(--subtle-light)", "subtle-dark": "var(--subtle-dark)"}, fontFamily: {display: "Orbitron", body: ["Roboto Mono", "monospace"]}, borderRadius: {DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px"}}}};</script>
+tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#00ff7f", "primary-glow": "#00ff7f80", "background-light": "#f0fff0", "background-dark": "#0a1a0a", "text-light": "#e0ffe0", "text-dark": "#c0ffc0", "subtle-light": "#008040", "subtle-dark": "#004d26"}, fontFamily: {display: "Orbitron", body: ["Roboto Mono", "monospace"]}, borderRadius: {DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px"}}}}};
 </head>
 <body class="bg-background-dark font-body text-text-dark">
 <div class="stellar-bg" id="stellarBg"></div>
@@ -98,7 +121,7 @@ body {
 <div class="flex justify-center mb-6 animate-subtle-float">
 <img src="../pictures/tauruspic.png" class="h-28 w-28 md:h-36 md:w-36 taurus-logo-glow" alt="Taurus Zodiac Sign">
 </div>
-<h2 class="text-6xl md:text-8xl font-black font-display text-transparent bg-clip-text bg-gradient-to-r from-primary via-green-400 to-green-300 tracking-widest animate-subtle-pulse" style="text-shadow: 0 0 30px var(--primary-glow);">TAURUS</h2>
+<h2 class="text-6xl md:text-8xl font-black font-display text-transparent bg-clip-text bg-gradient-to-r from-primary via-green-400 to-green-300 tracking-widest animate-title-glow">TAURUS</h2>
 <div class="mt-4 content-section intro-text-bg" style="animation-delay: 0.2s;">
 <p class="relative z-10 text-lg md:text-xl text-text-dark/80 max-w-3xl mx-auto font-body">
 <span class="text-primary/80">&lt;EARTH_FREQUENCY_DETECTED&gt;</span> Ruled by Venus, the celestial architect of form and beauty, Taurus manifests as the <span class="font-bold text-primary animate-pulse">Sacred Temple</span> of the zodiac. Here, cosmic energy crystallizes into matter, spirit anchors into form, and divine potential takes root in earthly soil. This is where ethereal dreams are forged into tangible reality through the sacred alchemy of patience and persistence. Taurus holds the keys to the material realm's deepest mysteries, understanding that true wealth flows from harmony with nature's rhythms and cycles. <span class="text-primary/80">&lt;TRANSMISSION_ENCRYPTED::EARTH_ANCHOR_PROTOCOL&gt;</span>
