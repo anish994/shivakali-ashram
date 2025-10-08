@@ -15,7 +15,7 @@
 <link href="../assets/css/components/quantum-interface.css" rel="stylesheet"/>
 <link href="../assets/css/components/premium-card.css" rel="stylesheet"/>
 <link href="../assets/css/components/polish.css" rel="stylesheet"/>
-<link href="../assets/css/components/taurus-mobile.css" rel="stylesheet"/>
+
 <style>
 body {
     background: linear-gradient(135deg, #004d26, #008040, #004d26);
@@ -148,8 +148,124 @@ p.text-pop-up {
 h4 + .text-pop-up {
     animation-delay: 0.3s;
 }
+@media (max-width: 768px) {
+    .stars {
+        transform: none !important; /* Disable parallax */
+    }
+    .stars-2, .light-flare {
+        display: none; /* Disable animated stars and mouse flare */
+    }
+    .nebula {
+        background: radial-gradient(ellipse at 70% 30%, rgba(0, 255, 127, 0.1) 0%, transparent 50%);
+        animation: none !important;
+        transform: none !important;
+    }
+    header .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    header .gap-2 {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-button {
+        padding: 6px 12px;
+        font-size: 11px;
+    }
+
+    .content-section h3 {
+        font-size: 2.5rem; 
+    }
+
+    .archetype-link span {
+        font-size: 2.5rem;
+    }
+
+    .gap-12 {
+        gap: 0.5rem;
+    }
+
+    .header-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header-container .group {
+        margin-bottom: 1rem;
+    }
+
+    .nav-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-button {
+        min-height: 44px;
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .main-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .md\:grid-cols-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .md\:grid-cols-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .lg\:grid-cols-6 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .expandable-card[open] > .expandable-card-content,
+    .dynamic-card[open] .dynamic-card-content,
+    .accordion-item.group[open] .accordion-content {
+        max-height: 5000px !important;
+    }
+}
 </style>
-<script>tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#00ff7f", "primary-glow": "#00ff7f80", "background-light": "#f0fff0", "background-dark": "#0a1a0a", "text-light": "#e0ffe0", "text-dark": "#c0ffc0", "subtle-light": "#008040", "subtle-dark": "#004d26"}, fontFamily: {display: "Orbitron", body: ["Roboto Mono", "monospace"]}, borderRadius: {DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px"}}}}};</script>
+<script>
+  window.tailwind = {
+    config: {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#00ff7f",
+            "primary-glow": "#00ff7f80",
+            "background-light": "#f0fff0",
+            "background-dark": "#0a1a0a",
+            "text-light": "#e0ffe0",
+            "text-dark": "#c0ffc0",
+            "subtle-light": "#008040",
+            "subtle-dark": "#004d26"
+          },
+          fontFamily: {
+            display: "Orbitron",
+            body: ["Roboto Mono", "monospace"]
+          },
+          borderRadius: {
+            DEFAULT: "0.5rem",
+            lg: "1rem",
+            xl: "1.5rem",
+            full: "9999px"
+          }
+        }
+      }
+    }
+  };
+</script>
 </head>
 <body class="h-full bg-background-dark font-body text-text-dark">
 <div class="stellar-bg" id="stellarBg"></div>
@@ -231,28 +347,19 @@ h4 + .text-pop-up {
 <div class="border-t border-primary/20 pt-8 mt-8 grid md:grid-cols-2 gap-x-12 gap-y-8 text-sm">
 <div>
 <h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">System Analysis: Root Code</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary font-semibold">[KERNEL_ANALYSIS::INITIATED]</span> The Core Matrix is more than data; it's the fundamental operating system of the Aries archetype. 'Head' signifies the command center, processing reality through a high-speed, instinctual HUD. 'Diamond,' forged in cosmic crucibles, symbolizes an unbreakable will designed for high-pressure breakthrough. 'Red' is the raw energy signature, the very fuel of kinetic action. 'Mars' acts as the central processor, prioritizing conflict-resolution and decisive assertion. 'Fire' is the engine, transmuting will into unstoppable kinetic force. 'Cardinal' is the prime directive, hard-coded into its being: <span class="font-bold text-green-400 animate-pulse">INITIATE. CREATE. ADVANCE.</span></p>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary font-semibold">[KERNEL_ANALYSIS::INITIATED]</span> The Core Matrix is the fundamental operating system of the Taurus archetype. 'Throat' is the gateway, expressing the voice of Gaia and manifesting intention into form. 'Emerald,' the crystal of growth, symbolizes the heart of nature and the power of patient cultivation. 'Green' is the color of life force, the pulse of abundance. 'Venus' is the architect, weaving beauty and harmony into the material world. 'Earth' is the sacred matter, the living temple. 'Fixed' is the directive, hard-coded for stability and endurance: <span class="font-bold text-green-400 animate-pulse">MANIFEST. CULTIVATE. PRESERVE.</span></p>
 </div>
 <div>
 <h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Metaphysical Resonance Field</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary font-semibold">[FREQUENCY_CALIBRATION::ACTIVE]</span> These are not mere symbols; they are cosmic tuning forks emitting a distinct vibrational signature. Immersing oneself in the 'Red' spectrum, aligning with a Diamond's crystalline structure, or channeling vital energy to the 'Head' during meditation amplifies the Arien frequency in your own bio-field. This matrix is a universal pattern for genesis, a blueprint accessible to any soul seeking to embody courage, leadership, and the untamed power of new beginnings. It is the universe's ignition key, the <span class="font-bold text-green-400 animate-pulse">primal command for existence itself.</span></p>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary font-semibold">[FREQUENCY_CALIBRATION::ACTIVE]</span> These are not just symbols; they are vibrational keys to grounded abundance. Immersing oneself in the 'Green' spectrum, meditating with Emerald, or focusing on the throat chakra amplifies the Taurean frequency in your bio-field. This matrix is a universal blueprint for manifestation, accessible to any soul seeking to embody patience, harmony, and the power of nature’s cycles. It is the universe’s <span class="font-bold text-green-400 animate-pulse">root protocol for materialization.</span></p>
 </div>
 <div class="md:col-span-2">
 <h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Interactive Energy Calibration</h4>
-<p class="leading-relaxed expanded-content-text-gradient mb-4">Engage with the Arien core frequency. Below are the key energetic signatures. Focus on a concept and visualize its power integrating with your own system.</p>
+<p class="leading-relaxed expanded-content-text-gradient mb-4">Engage with the Taurean core frequency. Below are the key energetic signatures. Focus on a concept and visualize its power integrating with your own system.</p>
 <div class="space-y-3">
 <div class="w-full">
 <div class="flex justify-between text-xs font-mono text-text-dark mb-1">
-<span>WILLPOWER</span>
-<span>85%</span>
-</div>
-<div class="progress-bar-container h-2.5">
-<div class="progress-bar h-full rounded-full" style="--progress-width: 85%;"></div>
-</div>
-</div>
-<div class="w-full">
-<div class="flex justify-between text-xs font-mono text-text-dark mb-1">
-<span>LEADERSHIP</span>
+<span>PATIENCE</span>
 <span>95%</span>
 </div>
 <div class="progress-bar-container h-2.5">
@@ -261,11 +368,20 @@ h4 + .text-pop-up {
 </div>
 <div class="w-full">
 <div class="flex justify-between text-xs font-mono text-text-dark mb-1">
-<span>STRATEGIC PATIENCE</span>
-<span>30%</span>
+<span>STABILITY</span>
+<span>90%</span>
 </div>
 <div class="progress-bar-container h-2.5">
-<div class="progress-bar h-full rounded-full" style="--progress-width: 30%;"></div>
+<div class="progress-bar h-full rounded-full" style="--progress-width: 90%;"></div>
+</div>
+</div>
+<div class="w-full">
+<div class="flex justify-between text-xs font-mono text-text-dark mb-1">
+<span>ADAPTABILITY</span>
+<span>40%</span>
+</div>
+<div class="progress-bar-container h-2.5">
+<div class="progress-bar h-full rounded-full" style="--progress-width: 40%;"></div>
 </div>
 </div>
 </div>
@@ -317,14 +433,14 @@ h4 + .text-pop-up {
 <div class="content-section" style="animation-delay: 0.9s;">
 <h3 class="text-4xl font-bold font-display mb-4 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Color-Energy Spectrum Visualizer</h3>
 <p class="text-center text-text-dark/80 mb-8 max-w-2xl mx-auto font-body text-sm">
-<span class="text-primary/80">[// INTERACTIVE_INTERFACE //]</span> Move your cursor across the spectrum below to decode the Arien energy signature. Each shade of red represents a different facet of its power. The light bar indicates your current position on the vibrational scale, revealing the qualities associated with that specific frequency. Engage with the flow to understand the dynamic range of Aries, from primal instinct to pioneering enthusiasm.
+<span class="text-primary/80">[// INTERACTIVE_INTERFACE //]</span> Move your cursor across the spectrum below to decode the Taurean energy signature. Each shade of green represents a different facet of its power. The light bar indicates your current position on the vibrational scale, revealing the qualities associated with that specific frequency. Engage with the flow to understand the dynamic range of Taurus, from grounded stability to flourishing abundance.
                     </p>
 <div class="relative" id="spectrum-container">
 <div class="color-spectrum h-20 w-full rounded-lg" id="color-spectrum"></div>
 <div class="spectrum-info-container absolute bottom-full mb-2 w-full flex justify-center pointer-events-none" id="spectrum-info-container">
 <div class="p-4 rounded-lg bg-background-dark/80 border border-primary/30 backdrop-blur-sm text-center w-64" id="spectrum-info">
 <h5 class="font-bold text-primary font-display text-lg transition-all duration-200" id="spectrum-title">Mystic Deep Green</h5>
-<p class="text-xs text-text-dark/80 transition-all duration-200" id="spectrum-desc">The core frequency of action, passion, courage, and direct leadership. The engine of the zodiac.</p>
+<p class="text-xs text-text-dark/80 transition-all duration-200" id="spectrum-desc">The core frequency of patience, harmony, and grounded abundance. The anchor of the zodiac.</p>
 </div>
 </div>
 </div>
@@ -636,7 +752,7 @@ h4 + .text-pop-up {
         const spectrumDesc = document.getElementById('spectrum-desc');
         const spectrumData = [
             { range: [0, 0.33], title: 'Deep Forest Green', desc: 'Primal stability, sensual connection, tenacious power. The untamed root of value.' },
-            { range: [0.33, 0.66], title: 'Mystic Deep Green', desc: 'The core frequency of security, pleasure, patience, and grounded presence. The anchor of the zodiac.' },
+            { range: [0.33, 0.66], title: 'Mystic Deep Green', desc: 'The core frequency of patience, harmony, and grounded abundance. The anchor of the zodiac.' },
             { range: [0.66, 1], title: 'Verdant Meadow', desc: 'Fertility, growth, and the peaceful spirit. The outward expression of material joy and abundance.' }
         ];
         spectrum.addEventListener('mousemove', (e) => {
