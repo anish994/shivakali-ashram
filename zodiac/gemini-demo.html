@@ -958,29 +958,46 @@
 </div>
 </footer>
 </div>
+<style>
+@media (max-width: 768px) {
+    .stars {
+        transform: none !important; /* Disable parallax */
+    }
+    .stars-2, .light-flare {
+        display: none; /* Disable animated stars and mouse flare */
+    }
+    .nebula {
+        background: radial-gradient(ellipse at 70% 30%, rgba(0, 191, 255, 0.1) 0%, transparent 50%);
+        animation: none !important;
+        transform: none !important;
+    }
+}
+</style>
 <script>
         document.addEventListener('DOMContentLoaded', () => {
-            let mouseX = window.innerWidth / 2;
-            let mouseY = window.innerHeight / 2;
-            let scrollY = window.scrollY;
-            const updateStyles = () => {
-                document.documentElement.style.setProperty('--mouse-x', `${mouseX}px`);
-                document.documentElement.style.setProperty('--mouse-y', `${mouseY}px`);
-                document.documentElement.style.setProperty('--scroll-y', scrollY);
-            };
-            const handleMouseMove = (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-                window.requestAnimationFrame(updateStyles);
-            };
-            const handleScroll = () => {
-                scrollY = window.scrollY;
-                window.requestAnimationFrame(updateStyles);
-            };
-            document.addEventListener('mousemove', handleMouseMove);
-            document.addEventListener('scroll', handleScroll);
-            // Initial call
-            updateStyles();
+            if (window.innerWidth > 768) {
+                let mouseX = window.innerWidth / 2;
+                let mouseY = window.innerHeight / 2;
+                let scrollY = window.scrollY;
+                const updateStyles = () => {
+                    document.documentElement.style.setProperty('--mouse-x', `${mouseX}px`);
+                    document.documentElement.style.setProperty('--mouse-y', `${mouseY}px`);
+                    document.documentElement.style.setProperty('--scroll-y', scrollY);
+                };
+                const handleMouseMove = (e) => {
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
+                    window.requestAnimationFrame(updateStyles);
+                };
+                const handleScroll = () => {
+                    scrollY = window.scrollY;
+                    window.requestAnimationFrame(updateStyles);
+                };
+                document.addEventListener('mousemove', handleMouseMove);
+                document.addEventListener('scroll', handleScroll);
+                // Initial call
+                updateStyles();
+            }
             // Spectrum Visualizer Logic
             const spectrum = document.getElementById('color-spectrum');
             const spectrumInfo = document.getElementById('spectrum-info');

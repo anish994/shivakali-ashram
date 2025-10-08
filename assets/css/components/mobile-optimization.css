@@ -597,3 +597,51 @@ body {
     /* Add padding instead of margin for larger touch area */
     padding: max(0.75rem, calc((44px - 1em) / 2));
 }
+/* ===================================
+   COSMIC BACKGROUND MOBILE OPTIMIZATION
+   ==================================== */
+
+@media (max-width: 768px) {
+    /* Simplify the main body background for performance */
+    body {
+        /* From multi-layer radial gradients to a simple linear gradient */
+        background: linear-gradient(135deg, var(--space-bg-deep) 0%, #1a1a2e 70%, #0f3460 100%);
+        /* background-attachment: fixed is a major performance killer on mobile. */
+        background-attachment: scroll;
+    }
+
+    /* Disable the expensive, animated star and dust pseudo-elements */
+    body::before,
+    body::after {
+        display: none;
+        /* Also explicitly stop any animations */
+        animation: none;
+    }
+
+    /* Reduce the intensity of backdrop filters, which are GPU-intensive */
+    .quantum-header,
+    .command-nav,
+    .mission-briefing,
+    .premium-consultation-card,
+    .category-cards-grid .category-card,
+    .consultation-modal .modal-content,
+    .footer {
+        /* Lower the blur radius to save GPU resources */
+        backdrop-filter: blur(5px);
+    }
+}
+
+@media (max-width: 480px) {
+    /* On very small screens, completely remove the blur for max performance */
+    .quantum-header,
+    .command-nav,
+    .mission-briefing,
+    .premium-consultation-card,
+    .category-cards-grid .category-card,
+    .consultation-modal .modal-content,
+    .footer {
+        backdrop-filter: none;
+        /* Add a fallback background color to maintain UI separation */
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+}
