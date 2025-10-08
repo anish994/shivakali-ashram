@@ -399,6 +399,17 @@
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
+            @media (max-width: 768px) {
+                header .gap-2 {
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+
+                .nav-button {
+                    padding: 6px 12px;
+                    font-size: 11px;
+                }
+            }
         .intro-text-bg {
             position: relative;
             padding: 1rem;
@@ -486,8 +497,8 @@
 <a href="../zodiac-signs.html" class="nav-button">Zodiac Hub</a>
 <a href="../index.html" class="nav-button">Back to Ashram</a>
 <a href="../index.html#jyotisha" class="nav-button">Back to Jotish</a>
-<button class="nav-button" onclick="window.location.href='capricorn-demo.html'">Previous Sign</button>
-<button class="nav-button" onclick="window.location.href='pisces-demo.html'">Next Sign</button>
+<a href="capricorn-demo.html" class="nav-button">Previous Sign</a>
+<a href="pisces-demo.html" class="nav-button">Next Sign</a>
 </div>
 </div>
 </header>
