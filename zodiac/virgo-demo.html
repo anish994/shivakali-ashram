@@ -25,6 +25,25 @@
                 --scroll-y: 0;
             }
         }
+        @media (max-width: 768px) {
+            body {
+                background: linear-gradient(135deg, #021A0A, #148034 60%, #021A0A 100%);
+            }
+            .virgo-logo-glow {
+                filter: drop-shadow(0 0 8px var(--primary-glow));
+            }
+            .data-card, .futuristic-card {
+                backdrop-filter: none !important;
+                box-shadow: 0 2px 12px 0 var(--primary-glow);
+            }
+            .data-card::before, .futuristic-card::before {
+                display: none !important;
+            }
+            .content-section {
+                animation: none !important;
+                opacity: 1 !important;
+            }
+        }
         @keyframes subtle-pulse {
             0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px var(--primary-glow)); }
             50% { transform: scale(1.02); filter: drop-shadow(0 0 20px var(--primary)); }
