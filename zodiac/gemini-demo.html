@@ -482,6 +482,7 @@
         .expanded-content-text-gradient {
             background: linear-gradient(120deg, var(--text-dark), var(--text-light));
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .progress-bar-container {
@@ -541,7 +542,7 @@
 </div>
 <details class="group content-section expandable-card mb-12 md:mb-20" style="animation-delay: 0.4s;">
 <summary class="list-none cursor-pointer">
-<h3 class="text-3xl font-bold font-display mb-8 text-center text-primary uppercase tracking-[0.2em] flex items-center justify-center gap-4" style="text-shadow: 0 0 10px var(--primary-glow);">Core Matrix <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
+<h3 class="text-3xl font-bold font-display mb-8 text-center text-primary uppercase tracking-[0.2em] flex items-center justify-center gap-4" style="text-shadow: 0 0 10px var(--primary-glow);">Core Matrix <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-180">expand_more</span></h3>
 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
 <div class="data-card p-4 flex flex-col items-center justify-center text-center">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Somatic Focus</p>
@@ -676,7 +677,7 @@
 </div>
 <details class="group content-section expandable-card" style="animation-delay: 1.0s;">
 <summary class="list-none cursor-pointer">
-<h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary flex items-center justify-between" style="text-shadow: 0 0 15px var(--primary-glow);">Shadow Aspects Unveiled<span class="material-symbols-outlined text-3xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
+<h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary flex items-center justify-between" style="text-shadow: 0 0 15px var(--primary-glow);">Shadow Aspects Unveiled<span class="material-symbols-outlined text-3xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-180">expand_more</span></h3>
 <div class="grid md:grid-cols-2 gap-8 font-body text-base leading-relaxed">
 <div class="futuristic-card p-6">
 <h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Trickster</h4>
@@ -722,37 +723,35 @@
 </div>
 </div>
 <div class="content-section text-center" style="animation-delay: 1.2s;">
-<h3 class="text-4xl font-bold font-display mb-8 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Zodiacal Archetype Cross-Reference</h3>
-<div class="flex justify-center items-center gap-12 md:gap-20 pt-4">
-<div class="archetype-link">
-<span class="material-symbols-outlined text-6xl text-primary cursor-pointer">cast</span>
-<div class="archetype-info w-56 p-4 rounded-xl bg-background-dark/90 border border-primary/50 backdrop-blur-md">
-<h5 class="font-bold font-display text-primary">The Messenger</h5>
-<p class="text-xs text-text-dark/80">The universal archetype of communication, intellect, and connection. Found in figures like Hermes (Greek) and Mercury (Roman).</p>
-</div>
-</div>
-<span class="material-symbols-outlined text-4xl text-primary/50">link</span>
-<div class="archetype-link">
-<span class="material-symbols-outlined text-6xl text-primary cursor-pointer">psychology</span>
-<div class="archetype-info w-56 p-4 rounded-xl bg-background-dark/90 border border-primary/50 backdrop-blur-md">
-<h5 class="font-bold font-display text-primary">The Storyteller</h5>
-<p class="text-xs text-text-dark/80">The weaver of narratives who connects the tribe. The journalist, the teacher, the one who makes sense of chaos through words.</p>
-</div>
-</div>
-<span class="material-symbols-outlined text-4xl text-primary/50">link</span>
-<div class="archetype-link">
-<span class="material-symbols-outlined text-6xl text-primary cursor-pointer">hub</span>
-<div class="archetype-info w-56 p-4 rounded-xl bg-background-dark/90 border border-primary/50 backdrop-blur-md">
-<h5 class="font-bold font-display text-primary">The Eternal Student</h5>
-<p class="text-xs text-text-dark/80">Represents pure curiosity, adaptability, and the joy of learning. The beginner's mind that sees infinite possibilities.</p>
-</div>
-</div>
+<h3 class="text-3xl font-bold font-display mb-4 border-b-2 border-primary/50 pb-2 text-primary" style="text-shadow: 0 0 10px var(--primary-glow);">Zodiacal Archetype Cross-Reference</h3>
+<div class="flex flex-col md:flex-row justify-center items-stretch gap-4 md:gap-8 pt-2">
+    <div class="archetype-link flex flex-row md:flex-col items-center md:items-start gap-2 md:gap-0 p-2 w-full md:w-1/3">
+        <span class="material-symbols-outlined text-4xl md:text-5xl text-primary">cast</span>
+        <div class="archetype-info flex-1 p-2 rounded-xl bg-background-dark/90 border border-primary/50 backdrop-blur-md">
+            <h5 class="font-bold font-display text-primary text-base md:text-lg mb-1">The Messenger</h5>
+            <p class="text-xs text-text-dark/80 leading-tight">Communication, intellect, connection. Hermes (Greek), Mercury (Roman).</p>
+        </div>
+    </div>
+    <div class="archetype-link flex flex-row md:flex-col items-center md:items-start gap-2 md:gap-0 p-2 w-full md:w-1/3">
+        <span class="material-symbols-outlined text-4xl md:text-5xl text-primary">psychology</span>
+        <div class="archetype-info flex-1 p-2 rounded-xl bg-background-dark/90 border border-primary/50 backdrop-blur-md">
+            <h5 class="font-bold font-display text-primary text-base md:text-lg mb-1">The Storyteller</h5>
+            <p class="text-xs text-text-dark/80 leading-tight">Weaver of narratives, journalist, teacher. Makes sense of chaos through words.</p>
+        </div>
+    </div>
+    <div class="archetype-link flex flex-row md:flex-col items-center md:items-start gap-2 md:gap-0 p-2 w-full md:w-1/3">
+        <span class="material-symbols-outlined text-4xl md:text-5xl text-primary">hub</span>
+        <div class="archetype-info flex-1 p-2 rounded-xl bg-background-dark/90 border border-primary/50 backdrop-blur-md">
+            <h5 class="font-bold font-display text-primary text-base md:text-lg mb-1">The Eternal Student</h5>
+            <p class="text-xs text-text-dark/80 leading-tight">Curiosity, adaptability, joy of learning. Beginner's mind, infinite possibilities.</p>
+        </div>
+    </div>
 </div>
 </div>
 <div class="space-y-16">
 <details class="group content-section expandable-card" style="animation-delay: 0.8s;">
 <summary class="list-none cursor-pointer">
-<h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary flex items-center justify-between" style="text-shadow: 0 0 15px var(--primary-glow);">Operational Directives <span class="material-symbols-outlined text-3xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
+<h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary flex items-center justify-between" style="text-shadow: 0 0 15px var(--primary-glow);">Operational Directives <span class="material-symbols-outlined text-3xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-180">expand_more</span></h3>
 <div class="grid md:grid-cols-3 gap-8 font-body text-base leading-relaxed">
 <div class="icon-card p-6 flex flex-col items-center text-center rounded-lg" style="clip-path: polygon(0 15px, 15px 0, 100% 0, 100% 100%, 0 100%);">
 <span class="material-symbols-outlined text-4xl text-primary mb-3" style="filter: drop-shadow(0 0 8px var(--primary-glow));">wifi_tethering</span>
@@ -790,7 +789,7 @@
 </details>
 <details class="group content-section expandable-card" style="animation-delay: 1.0s;">
 <summary class="list-none cursor-pointer">
-<h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary flex items-center justify-between" style="text-shadow: 0 0 15px var(--primary-glow);">The Twins' Paradox <span class="material-symbols-outlined text-3xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
+<h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary flex items-center justify-between" style="text-shadow: 0 0 15px var(--primary-glow);">The Twins' Paradox <span class="material-symbols-outlined text-3xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-180">expand_more</span></h3>
 <div class="grid md:grid-cols-2 gap-8 font-body text-base leading-relaxed">
 <div class="futuristic-card p-6">
 <h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Wise Fool</h4>
@@ -821,8 +820,7 @@
 <details class="dynamic-card" style="animation-delay: 0s;">
 <summary class="p-6 flex flex-col items-center text-center cursor-pointer list-none">
 <div class="flex items-center justify-between w-full mb-3">
-<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">lan</span>
-<span class="material-symbols-outlined text-2xl text-primary/70 expand-icon">add</span>
+<span class="material-symbols-outlined text-2xl text-primary/70 expand-icon">expand_more</span>
 </div>
 <h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Career Trajectory</h4>
 <p class="text-text-dark/80 text-sm">Thrives in roles requiring communication, data synthesis, and adaptability. Media, teaching, sales, and technology are natural arenas.</p>
@@ -834,9 +832,7 @@
 <details class="dynamic-card" style="--angle: 120deg; animation-delay: -3.33s;">
 <summary class="p-6 flex flex-col items-center text-center cursor-pointer list-none">
 <div class="flex items-center justify-between w-full mb-3">
-<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">swap_horiz</span>
-<span class="material-symbols-outlined text-2xl text-primary/70 expand-icon">add</span>
-</div>
+<span class="material-symbols-outlined text-2xl text-primary/70 expand-icon">expand_more</span></div>
 <h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Defensive Protocol</h4>
 <p class="text-text-dark/80 text-sm">When challenged, the Twins pivot. This manifests as witty deflection, intellectual debate, or a sudden change of subject to disarm the conflict.</p>
 </summary>
@@ -991,11 +987,11 @@
     }
 
     .archetype-link span {
-        font-size: 4rem;
+        font-size: 2.5rem;
     }
 
     .gap-12 {
-        gap: 2rem;
+        gap: 0.5rem;
     }
 }
 </style>
