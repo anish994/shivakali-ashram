@@ -139,6 +139,11 @@ class KnowledgeRenderer {
             if (!category) {
                 throw new Error(`Category '${categoryId}' not found`);
             }
+            // If category has a direct URL, navigate there instead of loading subcategories
+            if (category.directUrl) {
+                window.location.href = category.directUrl;
+                return;
+            }
             this.currentCategory = category;
             this.showLoadingState();
             await this.renderSubCategoryGrid(category);
@@ -260,13 +265,21 @@ class KnowledgeRenderer {
         if (exploreButton) {
             exploreButton.addEventListener('click', (e) => {
                 e.preventDefault();
-                this.loadCategory(category.id);
+                if (category.directUrl) {
+                    window.location.href = category.directUrl;
+                } else {
+                    this.loadCategory(category.id);
+                }
             });
         }
 
         card.addEventListener('click', (e) => {
             if (!e.target.closest('.explore-button')) {
-                this.loadCategory(category.id);
+                if (category.directUrl) {
+                    window.location.href = category.directUrl;
+                } else {
+                    this.loadCategory(category.id);
+                }
             }
         });
     }
