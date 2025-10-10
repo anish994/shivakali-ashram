@@ -134,6 +134,13 @@ class CategoryCard {
     navigateToCategory() {
         console.log(`Loading sub-categories for: ${this.data.id}`);
         
+        // Check if this category has a direct URL (like tantra/index.html)
+        if (this.data.directUrl) {
+            console.log(`Direct URL found: ${this.data.directUrl}`);
+            window.location.href = this.data.directUrl;
+            return;
+        }
+        
         // Trigger sub-category display
         if (window.SubCategoryDisplay && typeof window.SubCategoryDisplay.handleCategoryClick === 'function') {
             window.SubCategoryDisplay.handleCategoryClick(this.data.id, this.data);
