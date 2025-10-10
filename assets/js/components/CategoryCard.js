@@ -136,7 +136,7 @@ class CategoryCard {
         
         // Check if this category has a direct URL (like tantra/index.html)
         if (this.data.directUrl) {
-            console.log(`Direct URL found: ${this.data.directUrl}`);
+            console.log(`Navigating to direct URL: ${this.data.directUrl}`);
             window.location.href = this.data.directUrl;
             return;
         }
