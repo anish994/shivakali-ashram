@@ -3,6 +3,19 @@
  */
 
 class KnowledgeRenderer {
+    constructor() {
+        this.config = null;
+        this.loadConfig();
+    }
+
+    async loadConfig() {
+        try {
+            const response = await fetch('/assets/js/config/knowledge-categories.json');
+            this.config = await response.json();
+        } catch (error) {
+            console.error('Failed to load knowledge categories config:', error);
+        }
+    }
     constructor(contentLoader) {
         this.contentLoader = contentLoader;
         this.currentCategory = null;

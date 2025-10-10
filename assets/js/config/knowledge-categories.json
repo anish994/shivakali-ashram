@@ -1,0 +1,19 @@
+{
+    "categories": [
+        {
+            "id": "tantra",
+            "name": "Tantra Sciences",
+            "icon": "🔥",
+            "subtitle": "Sacred Energy Work",
+            "directUrl": "tantra/index.html",
+            "description": "⚡ UNLEASH NEURAL SUPREMACY: Bio-energetic field manipulation through advanced vibrational technologies. Master chakric voltage systems, deploy sonic frequency weapons (mantras), and architect reality through geometric consciousness engineering."
+        },
+        {
+            "id": "jyotisha",
+            "name": "Jyotish Mastery",
+            "icon": "🌟",
+            "subtitle": "Vedic Astrology",
+            "description": "Master advanced predictive algorithms and reality projection through ancient astral sciences."
+        }
+    ]
+}

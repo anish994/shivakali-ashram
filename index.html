@@ -470,5 +470,22 @@
     
     <!-- Main Application Script -->
     <script src="assets/js/app.js"></script>
+    
+    <!-- Defensive card click handler -->
+    <script>
+        // Belt-and-suspenders fallback for Tantra card
+        document.addEventListener('click', function(e) {
+            const tantraCard = e.target.closest('[data-category="tantra"]');
+            if (tantraCard) {
+                e.preventDefault();
+                window.location.href = 'tantra/index.html';
+            }
+        });
+
+        // Backup hash navigation
+        if (window.location.hash === '#category-tantra') {
+            window.location.href = 'tantra/index.html';
+        }
+    </script>
 </body>
 </html>
