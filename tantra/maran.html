@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <title>☠️ Maran - Historical Documentation [EDUCATIONAL ONLY]</title>
+    
+    <!-- Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nosifer&family=Creepster&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Maran Theme - Death/Void/Black Hole */
+        :root {
+            --maran-void: #000000;
+            --maran-death: #1a0000;
+            --maran-blood: #660000;
+            --maran-bone: #e8e8d0;
+            --maran-shadow: #0a0000;
+            --maran-crimson: #8b0000;
+            --text-primary: #ffffff;
+            --text-death: #ff0000;
+            --text-warning: #ff6600;
+            --glow-death: rgba(139, 0, 0, 0.9);
+            --glow-blood: rgba(255, 0, 0, 0.7);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--maran-void);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        /* Death Progress Bar */
+        #death-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--maran-blood), var(--text-death), var(--maran-crimson));
+            box-shadow: 0 0 30px var(--glow-death);
+            z-index: 10000;
+            transition: width 0.1s ease;
+        }
+
+        /* Void Background */
+        .page-container {
+            position: relative;
+            min-height: 100vh;
+            will-change: scroll-position;
+        }
+
+        .void-layer {
+            position: fixed;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 50% 50%, rgba(26, 0, 0, 0.8) 0%, transparent 60%),
+                radial-gradient(circle at 80% 20%, rgba(139, 0, 0, 0.3) 0%, transparent 40%),
+                linear-gradient(to bottom, var(--maran-death) 0%, var(--maran-void) 100%),
+                url('../pictures/tantra demo page.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            filter: brightness(0.2) saturate(0.5) contrast(1.5);
+            z-index: 1;
+        }
+
+        /* Death Pattern Layer */
+        .death-layer {
+            position: fixed;
+            inset: 0;
+            background: 
+                repeating-linear-gradient(0deg,
+                    transparent,
+                    transparent 50px,
+                    rgba(139, 0, 0, 0.02) 50px,
+                    rgba(139, 0, 0, 0.02) 51px
+                );
+            border: 5px solid rgba(139, 0, 0, 0.4);
+            box-shadow: 
+                inset 0 0 150px rgba(0, 0, 0, 0.9),
+                inset 0 0 80px rgba(139, 0, 0, 0.3);
+            z-index: 2;
+        }
+
+        .content-layer {
+            position: relative;
+            z-index: 3;
+            padding: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Death Badge */
+        .death-badge {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, var(--maran-blood), var(--maran-shadow));
+            border: 4px solid var(--maran-crimson);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 
+                0 0 50px var(--glow-death),
+                inset 0 0 30px rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            touch-action: manipulation;
+        }
+        
+        .death-badge:hover {
+            transform: scale(1.15);
+            box-shadow: 0 0 80px var(--glow-blood);
+        }
+        
+        .death-badge-icon {
+            font-size: 2.8rem;
+            filter: drop-shadow(0 0 20px rgba(255, 0, 0, 1));
+            margin-bottom: -5px;
+        }
+        
+        .death-badge-text {
+            font-family: 'Creepster', cursive;
+            font-size: 0.55rem;
+            font-weight: 700;
+            color: var(--text-death);
+            text-align: center;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px var(--glow-death);
+        }
+
+        /* Navigation */
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.8rem;
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.2), rgba(26, 0, 0, 0.9));
+            border: 2px solid rgba(139, 0, 0, 0.6);
+            border-radius: 12px;
+            color: var(--text-death);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 25px rgba(139, 0, 0, 0.3);
+            min-height: 48px;
+        }
+
+        .nav-button:hover {
+            border-color: var(--text-death);
+            box-shadow: 0 0 50px var(--glow-blood);
+            transform: translateY(-3px);
+        }
+
+        /* MEGA WARNING HEADER */
+        .mega-warning {
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.2), rgba(139, 0, 0, 0.3));
+            border: 5px solid var(--text-death);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin: 2rem 0 3rem;
+            text-align: center;
+            box-shadow: 0 0 60px rgba(255, 0, 0, 0.5);
+            animation: warningPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes warningPulse {
+            0%, 100% { box-shadow: 0 0 60px rgba(255, 0, 0, 0.5); }
+            50% { box-shadow: 0 0 100px rgba(255, 0, 0, 0.8); }
+        }
+
+        .mega-warning h1 {
+            font-family: 'Creepster', cursive;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--text-death);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 30px rgba(255, 0, 0, 1);
+        }
+
+        .mega-warning p {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            line-height: 1.9;
+            margin-bottom: 1rem;
+            color: var(--text-warning);
+        }
+
+        /* Header */
+        .header-section {
+            text-align: center;
+            padding: 3rem 1rem 4rem;
+            margin: 0 -1rem 3rem;
+            background: linear-gradient(180deg, rgba(139, 0, 0, 0.15) 0%, transparent 100%);
+            border-bottom: 4px solid rgba(139, 0, 0, 0.6);
+            position: relative;
+        }
+
+        .main-title {
+            font-family: 'Nosifer', cursive;
+            font-size: clamp(3rem, 7vw, 5rem);
+            font-weight: 900;
+            color: var(--text-death);
+            margin: 0 0 1rem;
+            letter-spacing: 10px;
+            text-shadow: 
+                0 0 40px rgba(255, 0, 0, 1),
+                0 0 80px var(--glow-death),
+                4px 4px 0 rgba(0, 0, 0, 0.8);
+        }
+
+        .subtitle {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+            font-weight: 400;
+            color: var(--maran-bone);
+            margin: 0.75rem 0 2rem;
+            letter-spacing: 4px;
+            text-shadow: 0 0 20px var(--glow-death);
+        }
+
+        .intro-text {
+            max-width: 900px;
+            margin: 2.5rem auto;
+            font-size: clamp(1.05rem, 2.5vw, 1.2rem);
+            color: var(--text-primary);
+            line-height: 2;
+            padding: 0 1.5rem;
+        }
+
+        /* Academic Notice */
+        .academic-notice {
+            background: linear-gradient(135deg, rgba(26, 0, 0, 0.95), rgba(10, 0, 0, 0.98));
+            border: 3px solid var(--maran-crimson);
+            border-left-width: 10px;
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            box-shadow: 0 0 50px rgba(139, 0, 0, 0.4);
+        }
+
+        .academic-notice h2 {
+            font-family: 'Creepster', cursive;
+            font-size: 2rem;
+            color: var(--text-warning);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 20px var(--glow-death);
+        }
+
+        .academic-notice p {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Historical Documentation Tabs */
+        .historical-tabs {
+            margin: 4rem 0;
+        }
+
+        .tab-nav {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tab-btn {
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, rgba(26, 0, 0, 0.8), rgba(10, 0, 0, 0.9));
+            border: 2px solid rgba(139, 0, 0, 0.5);
+            border-radius: 10px;
+            color: rgba(255, 255, 255, 0.7);
+            font-family: 'Creepster', cursive;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-height: 48px;
+        }
+
+        .tab-btn:hover,
+        .tab-btn.active {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.5), rgba(26, 0, 0, 0.8));
+            border-color: var(--text-death);
+            color: var(--text-death);
+            box-shadow: 0 0 40px var(--glow-death);
+        }
+
+        .tab-panel {
+            display: none;
+            background: linear-gradient(135deg, rgba(10, 0, 0, 0.98), rgba(26, 0, 0, 0.95));
+            border: 3px solid rgba(139, 0, 0, 0.6);
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 0 80px rgba(139, 0, 0, 0.5);
+        }
+
+        .tab-panel.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Documentation Lists */
+        .doc-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .doc-item {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.1), rgba(26, 0, 0, 0.15));
+            border-left: 6px solid var(--maran-blood);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 12px 12px 0;
+            transition: all 0.3s ease;
+        }
+
+        .doc-item:hover {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.2), rgba(26, 0, 0, 0.25));
+            border-left-width: 12px;
+            border-color: var(--text-death);
+            transform: translateX(15px);
+            box-shadow: 0 0 40px var(--glow-death);
+        }
+
+        .doc-item strong {
+            color: var(--text-death);
+            font-size: 1.2rem;
+            text-shadow: 0 0 15px var(--glow-death);
+        }
+
+        /* Warning Boxes */
+        .death-warning {
+            background: linear-gradient(90deg, rgba(139, 0, 0, 0.4), rgba(26, 0, 0, 0.3));
+            border: 4px solid var(--text-death);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2.5rem 0;
+            box-shadow: 0 0 60px rgba(255, 0, 0, 0.5);
+        }
+
+        .death-warning h4 {
+            color: var(--text-death);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-shadow: 0 0 20px var(--glow-death);
+        }
+
+        /* Historical Mantra Box */
+        .historical-mantra {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.99), rgba(10, 0, 0, 0.98));
+            border: 5px solid var(--maran-crimson);
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin: 2.5rem 0;
+            text-align: center;
+            box-shadow: 
+                0 0 80px rgba(139, 0, 0, 0.7),
+                inset 0 0 60px rgba(0, 0, 0, 0.9);
+            position: relative;
+            user-select: none;
+        }
+
+        .historical-mantra::before {
+            content: '⚠️';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3rem;
+            background: var(--maran-void);
+            padding: 0 20px;
+            filter: drop-shadow(0 0 25px rgba(255, 0, 0, 1));
+        }
+
+        .mantra-disclaimer {
+            color: var(--text-warning);
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 15px var(--glow-death);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .mantra-text {
+            font-family: 'Creepster', cursive;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-death);
+            letter-spacing: 3px;
+            text-shadow: 0 0 30px var(--glow-blood);
+            margin: 1.5rem 0;
+            filter: blur(3px);
+            transition: filter 0.3s ease;
+        }
+
+        .mantra-text:hover {
+            filter: blur(0px);
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 5rem;
+            padding: 3rem 2rem;
+            background: linear-gradient(180deg, transparent, rgba(139, 0, 0, 0.1));
+            border-top: 4px solid rgba(139, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .footer-brand {
+            font-family: 'Creepster', cursive;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-death);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 40px var(--glow-death);
+        }
+
+        .footer-tagline {
+            font-size: 1rem;
+            color: var(--maran-bone);
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .footer-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--text-death);
+            text-shadow: 0 0 20px var(--glow-death);
+        }
+
+        .footer-divider {
+            width: 60%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--maran-crimson), transparent);
+            margin: 2rem auto;
+            box-shadow: 0 0 20px var(--glow-death);
+        }
+
+        .footer-copyright {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-legal {
+            margin-top: 1.5rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.2), rgba(26, 0, 0, 0.15));
+            border: 3px solid rgba(139, 0, 0, 0.5);
+            border-radius: 12px;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+        }
+
+        /* Mobile Optimizations */
+        @media (max-width: 640px) {
+            .content-layer { padding: 0.5rem; }
+            .death-badge { 
+                width: 70px; 
+                height: 70px; 
+                top: 15px; 
+                right: 15px;
+                min-width: 70px;
+                min-height: 70px;
+            }
+            .death-badge-icon { font-size: 2rem; }
+            .death-badge-text { font-size: 0.5rem; }
+            .header-section { padding: 2rem 0.75rem 2.5rem; }
+            .mega-warning { padding: 2rem 1.5rem; }
+            .academic-notice { padding: 2rem 1.5rem; }
+            .tab-nav { flex-direction: column; }
+            .tab-btn { width: 100%; }
+            .nav-button { font-size: 0.9rem; padding: 0.75rem 1.5rem; }
+            .doc-item { padding: 1.25rem; }
+            .death-warning { padding: 1.5rem; }
+            .historical-mantra { padding: 2rem 1.5rem; }
+            .death-layer { border-width: 2px; }
+        }
+
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .content-layer { max-width: 900px; }
+        }
+    </style>
+</head>
+<body>
+    <div id="death-progress"></div>
+    
+    <div class="page-container">
+        <div class="void-layer"></div>
+        <div class="death-layer"></div>
+        
+        <div class="death-badge" onclick="console.log('☠️ HISTORICAL DOCUMENTATION ACCESS ☠️')">
+            <div class="death-badge-icon">☠️</div>
+            <div class="death-badge-text">MARAN</div>
+        </div>
+        
+        <div class="content-layer">
+            <div class="nav-buttons">
+                <a href="index.html" class="nav-button">
+                    <span>←</span>
+                    <span>Back to Tantra Sciences</span>
+                </a>
+                <a href="../index.html" class="nav-button">
+                    <span>🏠</span>
+                    <span>Ashram Home</span>
+                </a>
+            </div>
+
+            <!-- MEGA WARNING SECTION -->
+            <div class="mega-warning">
+                <h1>⚠️ EXTREME CONTENT WARNING ⚠️</h1>
+                <p>
+                    <strong>THIS DOCUMENT CONTAINS HISTORICAL INFORMATION ABOUT LETHAL PRACTICES.</strong>
+                </p>
+                <p>
+                    The techniques documented below describe ancient methods allegedly designed to cause physical harm or death. 
+                    These practices are <strong>ILLEGAL</strong> in all modern jurisdictions, violate fundamental human rights, 
+                    and contradict all ethical spiritual practices.
+                </p>
+                <p style="color: var(--text-death); font-size: 1.4rem; font-weight: 700;">
+                    THIS INFORMATION IS PRESERVED FOR <u>HISTORICAL</u>, <u>ANTHROPOLOGICAL</u>, 
+                    AND <u>ACADEMIC STUDY ONLY</u>.
+                </p>
+                <p>
+                    <strong>ATTEMPTING ANY OF THESE PRACTICES IS:</strong><br>
+                    • Illegal (murder/attempted murder)<br>
+                    • Morally reprehensible<br>
+                    • Spiritually catastrophic<br>
+                    • Psychologically damaging<br>
+                </p>
+                <p style="font-size: 1.1rem; color: var(--text-warning);">
+                    By continuing, you acknowledge this is academic documentation of historically prohibited knowledge, 
+                    NOT operational instructions. All practical application is strictly forbidden.
+                </p>
+            </div>
+
+            <header class="header-section">
+                <h1 class="main-title">MARAN</h1>
+                <p class="subtitle">Historical Documentation of Death Rituals [ACADEMIC STUDY]</p>
+                <p class="intro-text">
+                    Maran represents the absolute extreme of tantric technology - techniques historically 
+                    documented as intended to cause physical death or severe harm to targets. Unlike other tantric 
+                    practices which work with influence, attraction, or displacement, Maran allegedly operates with 
+                    the specific intent of <strong>ending life</strong>. These practices have been universally 
+                    condemned by ethical spiritual traditions, outlawed by civil society, and carry catastrophic 
+                    karmic consequences according to traditional texts. This documentation exists solely for 
+                    understanding the historical scope of tantric literature, not for application.
+                </p>
+            </header>
+
+            <!-- Academic Positioning Notice -->
+            <div class="academic-notice">
+                <h2>📚 ACADEMIC POSITIONING STATEMENT</h2>
+                <p>
+                    The ShivaKali Ashram maintains this documentation under the same principle as academic institutions 
+                    that preserve historical records of violence, warfare, torture, and other dark aspects of human history. 
+                    Universities maintain libraries with texts on chemical weapons, biological warfare, and historical 
+                    atrocities - not to encourage their use, but to ensure comprehensive understanding of human capabilities 
+                    and history.
+                </p>
+                <p>
+                    Similarly, this Maran documentation represents:
+                </p>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="margin: 0.5rem 0;">✓ <strong>Historical Preservation:</strong> Accurate recording of practices described in ancient texts</li>
+                    <li style="margin: 0.5rem 0;">✓ <strong>Anthropological Study:</strong> Understanding belief systems across cultures and time periods</li>
+                    <li style="margin: 0.5rem 0;">✓ <strong>Ethical Analysis:</strong> Examining why certain practices were forbidden and condemned</li>
+                    <li style="margin: 0.5rem 0;">✓ <strong>Spiritual Cautionary Tales:</strong> Demonstrating the extremes human consciousness can explore</li>
+                </ul>
+                <p style="color: var(--text-death); font-weight: 700; font-size: 1.2rem; margin-top: 1.5rem;">
+                    <strong>THIS IS NOT OPERATIONAL KNOWLEDGE. THIS IS HISTORICAL RECORD.</strong>
+                </p>
+                <p>
+                    Just as a history professor teaching about historical genocides is not encouraging genocide, 
+                    this documentation of Maran practices is not encouraging their use. It is acknowledging they 
+                    existed in historical tantric literature while making crystal clear they violate modern law, 
+                    ethics, and spiritual principles.
+                </p>
+            </div>
+
+            <!-- Historical Documentation Tabs -->
+            <div class="historical-tabs">
+                <div class="tab-nav">
+                    <button class="tab-btn active" onclick="switchHistoricalTab(event, 'theory')">📖 Historical Theory</button>
+                    <button class="tab-btn" onclick="switchHistoricalTab(event, 'texts')">📜 Ancient Text References</button>
+                    <button class="tab-btn" onclick="switchHistoricalTab(event, 'ethics')">⚖️ Ethical Analysis</button>
+                    <button class="tab-btn" onclick="switchHistoricalTab(event, 'karma')">☠️ Karmic Consequences</button>
+                    <button class="tab-btn" onclick="switchHistoricalTab(event, 'modern')">🚫 Modern Context</button>
+                </div>
+
+                <!-- Tab 1: Historical Theory -->
+                <div id="theory" class="tab-panel active">
+                    <h2 style="color: var(--text-death); font-family: 'Creepster', cursive; margin-bottom: 2rem;">THEORETICAL FRAMEWORK (HISTORICAL DOCUMENTATION)</h2>
+                    
+                    <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 2rem;">
+                        According to historical tantric texts (primarily Vamachara/"left-hand" traditions), Maran was considered 
+                        the ultimate and most forbidden application of consciousness technology. Where Vashikaran attracts, 
+                        Uchchatan displaces, Stambhan freezes, and Vidveshan separates, Maran allegedly operated with the intent 
+                        to <strong>terminate life force</strong> at the energetic level.
+                    </p>
+
+                    <h3 style="color: var(--text-warning); margin: 2rem 0 1rem;">Alleged Mechanisms (Historical Claims)</h3>
+                    <ul class="doc-list">
+                        <li class="doc-item">
+                            <strong>Prana Severance Theory:</strong> Historical texts claimed practitioners could sever the connection 
+                            between physical body and vital energy (prana), allegedly causing the life force to disconnect from material form. 
+                            Modern perspective: This reflects ancient understanding of death as energy separation rather than understanding 
+                            of biological processes.
+                        </li>
+                        <li class="doc-item">
+                            <strong>Karmic Acceleration:</strong> Some texts described "accelerating negative karma" to manifest fatal 
+                            outcomes prematurely. This was essentially claiming to manipulate destiny/fate patterns to bring death earlier 
+                            than naturally scheduled. Modern interpretation: Reflects belief in predetermined death timing that could be manipulated.
+                        </li>
+                        <li class="doc-item">
+                            <strong>Consciousness Shock:</strong> Descriptions of creating such severe energetic disruption in target's 
+                            consciousness field that physical body enters fatal shock state. Historical texts compared this to "reality 
+                            rejection" where body/consciousness cannot maintain coherence.
+                        </li>
+                        <li class="doc-item">
+                            <strong>Entity Invocation:</strong> Perhaps most controversially, texts described invoking death deities or 
+                            malevolent entities and "directing" them toward targets. This reflects animistic worldviews where death itself 
+                            was personified as a force that could be negotiated with or commanded.
+                        </li>
+                    </ul>
+
+                    <div class="death-warning">
+                        <h4>☠️ HISTORICAL REALITY CHECK</h4>
+                        <p>
+                            No credible evidence exists that any of these mechanisms actually function as described. Historical accounts 
+                            of "successful" Maran are indistinguishable from coincidental deaths, natural causes, or confirmation bias. 
+                            Many documented "Maran masters" died young themselves (often violently), suggesting either karmic backfire or 
+                            simply dangerous lifestyles associated with occult extremism. The practices themselves are forbidden precisely 
+                            because they represent consciousness turned toward destruction rather than creation - violating fundamental 
+                            spiritual principles regardless of whether they "work" in a material sense.
+                        </p>
+                    </div>
+
+                    <h3 style="color: var(--text-warning); margin: 2rem 0 1rem;">Why These Practices Were Forbidden</h3>
+                    <ul class="doc-list">
+                        <li class="doc-item">
+                            <strong>Violation of Fundamental Dharma:</strong> All major spiritual traditions recognize sanctity of life. 
+                            Maran violated this core principle absolutely, placing practitioners outside spiritual community entirely.
+                        </li>
+                        <li class="doc-item">
+                            <strong>Karmic Catastrophe:</strong> Taking life deliberately was understood to create the heaviest possible 
+                            karmic debt - one requiring multiple lifetimes to balance, often through experiencing violent deaths oneself repeatedly.
+                        </li>
+                        <li class="doc-item">
+                            <strong>Consciousness Corruption:</strong> The mental state required to genuinely wish death upon another was 
+                            recognized as fundamentally corrupting to one's own consciousness. You become what you practice - practicing 
+                            death makes you death.
+                        </li>
+                        <li class="doc-item">
+                            <strong>Social Danger:</strong> Communities could not function if members possessed and used death magic. 
+                            Maran practitioners were often expelled, executed, or forced into isolation for community safety.
+                        </li>
+                    </ul>
+
+                    <div class="historical-mantra">
+                        <p class="mantra-disclaimer">⚠️ HISTORICAL TEXT EXAMPLE - BLURRED FOR EDUCATIONAL CONTEXT ONLY ⚠️</p>
+                        <div class="mantra-text">
+                            ॐ क्रीं कालिकायै महामारणम्<br>
+                            [Text Intentionally Obscured]<br>
+                            प्राण निरोधय निरोधय<br>
+                            [Historical Documentation Only]
+                        </div>
+                        <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-top: 1rem; font-style: italic;">
+                            Example from historical Vamachara texts - presented in blurred/incomplete form as this is academic documentation, 
+                            not operational instruction. Complete versions exist only in restricted academic collections and are never published publicly.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Tab 2: Ancient Text References -->
+                <div id="texts" class="tab-panel">
+                    <h2 style="color: var(--text-death); font-family: 'Creepster', cursive; margin-bottom: 2rem;">ANCIENT TEXT REFERENCES</h2>
+                    
+                    <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 2rem;">
+                        References to Maran practices appear in various historical texts, though often in fragmentary, 
+                        coded, or deliberately obscured form. Scholars debate whether these represented actual practices, 
+                        metaphorical teachings, or tests of spiritual discernment.
+                    </p>
+
+                    <h3 style="color: var(--text-warning); margin: 2rem 0 1rem;">Primary Historical Sources</h3>
+                    <ul class="doc-list">
+                        <li class="doc-item">
+                            <strong>Mantra Mahodadhi (1588 CE):</strong> Sanskrit text by Mahidhara containing one of the most 
+                            comprehensive collections of tantric mantras. Contains brief mentions of "maran prayoga" (death applications) 
+                            but with explicit warnings and incomplete instructions, suggesting documentation rather than instruction.
+                        </li>
+                        <li class="doc-item">
+                            <strong>Tantra-Sara:</strong> Medieval tantric encyclopedia with sections on Shat-Karma (six actions), 
+                            listing Maran as the sixth and most extreme. Notable that text emphasizes this is "knowledge of what exists, 
+                            not encouragement of what should be done."
+                        </li>
+                        <li class="doc-item">
+                            <strong>Rudra Yamala Tantra:</strong> Ancient text associated with Shiva worship. Contains cryptic references 
+                            to death rituals but written in "twilight language" (sandhya bhasha) requiring guru transmission to interpret - 
+                            deliberate obscurity suggesting practices were kept from general knowledge.
+                        </li>
+                        <li class="doc-item">
+                            <strong>Kali Tantra Texts:</strong> Various texts associated with Kali worship occasionally reference maran 
+                            practices in context of warfare or protection of dharma. Important context: these were describing defensive/warfare 
+                            applications during medieval periods of constant conflict, not personal vendetta uses.
+                        </li>
+                    </ul>
+
+                    <h3 style="color: var(--text-warning); margin: 2rem 0 1rem;">Scholarly Interpretation</h3>
+                    <ul class="doc-list">
+                        <li class="doc-item">
+                            <strong>Metaphorical Reading:</strong> Many modern scholars interpret Maran descriptions as metaphors for 
+                            "killing" the ego, destroying negative patterns, or death of delusion rather than literal physical death practices.
+                        </li>
+                        <li class="doc-item">
+                            <strong>Historical Context:</strong> Medieval period when many texts were written involved constant warfare, 
+                            invasions, political violence. Maran references may reflect attempts to understand/control death in violent times 
+                            rather than spiritual practices per se.
+                        </li>
+                        <li class="doc-item">
+                            <strong>Test of Discernment:</strong> Some traditions suggest Maran knowledge was deliberately included in texts 
+                            to test students - those attracted to death magic revealed themselves as unfit for genuine spiritual training.
+                        </li>
+                        <li class="doc-item">
+                            <strong>Social Control:</strong> References to death curses may have functioned as social enforcement mechanisms - 
+                            belief that curses existed deterred antisocial behavior even if curses didn't actually work.
+                        </li>
+                    </ul>
+
+                    <div class="death-warning">
+                        <h4>📚 ACADEMIC ACCESS NOTE</h4>
+                        <p>
+                            Complete, unredacted versions of historical Maran texts are restricted to academic researchers with institutional 
+                            affiliation and legitimate scholarly purpose. Major libraries (British Library, Library of Congress, major university 
+                            special collections) maintain these texts in restricted access sections. This restriction reflects recognition that 
+                            while historical preservation is important, unrestricted public access to detailed death ritual instructions serves 
+                            no legitimate educational purpose and poses potential harm.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Tab 3: Ethical Analysis -->
+                <div id="ethics" class="tab-panel">
+                    <h2 style="color: var(--text-death); font-family: 'Creepster', cursive; margin-bottom: 2rem;">ETHICAL ANALYSIS & MORAL PHILOSOPHY</h2>
+                    
+                    <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 2rem;">
+                        From both traditional spiritual perspectives and modern ethical frameworks, Maran represents absolute 
+                        moral transgression. Understanding WHY these practices are condemned provides insight into fundamental 
+                        ethical principles across cultures and time periods.
+                    </p>
+
+                    <h3 style="color: var(--text-warning); margin: 2rem 0 1rem;">Universal Ethical Condemnation</h3>
+                    <ul class="doc-list">
+                        <li class="doc-item">
+                            <strong>Hindu Ethics (Dharma):</strong> Ahimsa (non-harm) is foundational principle across Hindu traditions. 
+                            Maran violates this absolutely. Even texts that document Maran practices emphasize they violate dharma and 
+                            should never be used. The Bhagavad Gita's teachings on righteous action explicitly prohibit killing except 
+                            in specific warfare/defense contexts, and even then with heavy karmic weight.
+                        </li>
+                        <li class="doc-item">
+                            <strong>Buddhist Perspective:</strong> First Precept explicitly prohibits taking life. Buddhist philosophy 
+                            recognizes intention (cetana) as primary karmic factor - intending death for another being creates the 
+                            heaviest possible negative karma regardless of whether death actually occurs. Maran practices would represent 
+                            ultimate violation of compassion (karuna).
+                        </li>
+                        <li class="doc-item">
+                            <strong>Western Philosophy:</strong> Kantian ethics: treating humans as means to ends rather than ends in 
+                            themselves - ultimate violation. Utilitarian ethics: causing death creates maximum suffering for target plus 
+                            cascading harm to their family/community. Virtue ethics: practicing death magic corrupts practitioner's character 
+                            fundamentally. Rights-based ethics: violates fundamental right to life.
+                        </li>
+                        <li class="doc-item">
+                            <strong>Modern Legal Framework:</strong> Attempting to harm or kill someone, even through occult means, constitutes 
+                            conspiracy to commit murder in most jurisdictions. The intent alone is criminal regardless of method's efficacy.
+                        </li>
+                    </ul>
+
+                    <h3 style="color: var(--text-warning); margin: 2rem 0 1rem;">Attempted Justifications (Historical Claims) & Their Refutation</h3>
+                    <ul class="doc-list">
+                        <li class="doc-item">
+                            <strong>Claim: "Protection of dharma"</strong><br>
+                            Refutation: Authentic dharma protection operates through lawful means. If someone genuinely threatens dharma, 
+                            proper response is through legal authorities, social ostracism, or defensive measures - not assassination through 
+                            occult means. Historical texts that mention Maran in warfare contexts were documenting chaotic medieval periods, 
+                            not establishing ethical precedent.
+                        </li>
+                        <li class="doc-item">
+                            <strong>Claim: "Karmic justice"</strong><br>
+                            Refutation: Karma operates through natural universal law, not through human intervention. Attempting to "execute 
+                            karma" on someone else's behalf is itself a karmic violation - you're not karma's enforcer, you're creating new 
+                            negative karma for yourself. Traditional texts emphasize: observe karma, don't try to administrate it.
+                        </li>
+                        <li class="doc-item">
+                            <strong>Claim: "Target deserves death"</strong><br>
+                            Refutation: Who determines deservingness? This logic has justified every genocide and mass killing in history. 
+                            Even if target committed terrible acts, appropriate response is justice through legitimate legal/social systems, 
+                            not vigilante death magic. Concentration of judgment and execution power in individual consciousness is foundation 
+                            of tyranny.
+                        </li>
+                        <li class="doc-item">
+                            <strong>Claim: "Spiritual advancement through taboo breaking"</strong><br>
+                            Refutation: Some left-hand tantra claimed transgressing normal boundaries led to enlightenment. This was 
+                            catastrophic misunderstanding - breaking ethical boundaries doesn't transcend them, it corrupts consciousness. 
+                            Authentic enlightenment traditions emphasize this distinction: transcendence involves including and integrating 
+                            boundaries consciously, not destroying them recklessly.
+                        </li>
+                    </ul>
+
+                    <div class="death-warning">
+                        <h4>⚖️ THE ETHICAL BOTTOM LINE</h4>
+                        <p style="font-size: 1.1rem; line-height: 1.8;">
+                            There exists NO ethical framework - traditional or modern, Eastern or Western, religious or secular - that 
+                            justifies Maran practices. The universal condemnation across diverse philosophical traditions suggests this 
+                            isn't cultural relativism but recognition of fundamental moral truth: <strong>deliberately causing death of 
+                            sentient beings for personal purposes is absolutely wrong.</strong>
+                        </p>
+                        <p style="font-size: 1.1rem; line-height: 1.8; margin-top: 1rem;">
+                            Even in self-defense scenarios where causing death might be legally/morally justified, this involves immediate 
+                            physical threat requiring immediate physical response. Maran involves premeditated, calculated intent to kill 
+                            through ritual means - this is murder/attempted murder, full stop. The occult methodology doesn't change the 
+                            ethical or legal reality.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Tab 4: Karmic Consequences -->
+                <div id="karma" class="tab-panel">
+                    <h2 style="color: var(--text-death); font-family: 'Creepster', cursive; margin-bottom: 2rem;">KARMIC CONSEQUENCES (TRADITIONAL TEACHINGS)</h2>
+                    
+                    <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 2rem;">
+                        Traditional texts that document Maran practices invariably include extensive warnings about karmic consequences. 
+                        These warnings were so severe they functioned as primary deterrent against practice use.
+                    </p>
+
+                    <h3 style="color: var(--text-warning); margin: 2rem 0 1rem;">Immediate Consequences (Traditional Claims)</h3>
+                    <ul class="doc-list">
+                        <li class="doc-item">
+                            <strong>Consciousness Corruption:</strong> Texts describe practitioners experiencing progressive personality 
+                            disintegration. As you repeatedly visualize/intend death, you embody death consciousness. Reports of paranoia, 
+                            inability to form relationships, seeing death everywhere, psychotic breaks. Whether karmic or psychological, 
+                            the outcome is catastrophic mental health deterioration.
+                        </li>
+                        <li class="doc-item">
+                            <strong>Social Isolation:</strong> Historical Maran practitioners were expelled from spiritual communities, 
+                            shunned by society, forced into isolation. This wasn't just moral judgment - people genuinely feared proximity 
+                            to death magicians could "contaminate" them. Practitioners often ended up completely alone, suspicious of everyone.
+                        </li>
+                        <li class="doc-item">
+                            <strong>Health Deterioration:</strong> Multiple historical accounts describe Maran practitioners experiencing 
+                            rapid physical decline - unexplained illnesses, premature aging, physical deformities. Traditional explanation: 
+                            death energy infects practitioner's own body. Modern interpretation: extreme stress from living with murder intent 
+                            manifests as stress-related health catastrophes.
+                        </li>
+                        <li class="doc-item">
+                            <strong>Violent Death:</strong> Statistical pattern across historical accounts: Maran practitioners died violently 
+                            and young with remarkable frequency. Traditional texts: karmic backfire. Alternative explanation: lifestyle of 
+                            paranoia, social exile, and association with violent people leads to violent outcomes naturally.
+                        </li>
+                    </ul>
+
+                    <h3 style="color: var(--text-warning); margin: 2rem 0 1rem;">Long-term Karmic Debt (Traditional Doctrine)</h3>
+                    <ul class="doc-list">
+                        <li class="doc-item">
+                            <strong>Multi-lifetime Repayment:</strong> Traditional teaching: deliberately causing death creates karmic debt 
+                            lasting many incarnations. Not metaphorical - specific doctrine states killer experiences being killed repeatedly 
+                            in subsequent lives until debt is balanced. Some texts specify exact numbers (100 times killed for each death caused).
+                        </li>
+                        <li class="doc-item">
+                            <strong>Naraka (Hell Realm) Duration:</strong> Buddhist/Hindu cosmology includes hell realms for specific karma types. 
+                            Deliberate killing sends consciousness to most severe naraka realms for extended periods before any possibility of 
+                            human rebirth. Duration described as cosmic time scales - millions of years of suffering.
+                        </li>
+                        <li class="doc-item">
+                            <strong>Spiritual Regression:</strong> Texts describe not just suffering but consciousness regression - moving backward 
+                            on evolutionary path. After experiencing hell realms, rebirth as lower animals for many lifetimes before regaining 
+                            human consciousness. Essentially undoing spiritual progress accumulated over vast time.
+                        </li>
+                        <li class="doc-item">
+                            <strong>Enlightenment Impossibility:</strong> Traditional doctrine: carrying murder karma makes liberation impossible 
+                            in that lifetime. Must first experience full karmic consequences, then rebuild spiritual foundation from scratch. 
+                            Texts describe this as "closing the door to freedom for countless ages."
+                        </li>
+                    </ul>
+
+                    <h3 style="color: var(--text-warning); margin: 2rem 0 1rem;">Documented Historical Cases</h3>
+                    <ul class="doc-list">
+                        <li class="doc-item">
+                            <strong>Medieval Tantric Cults:</strong> Several historical records document tantric cults engaging in extreme 
+                            practices including alleged human sacrifice and death magic. Pattern: short-term power/influence followed by 
+                            catastrophic collapse - members killed by authorities, died in internal conflicts, or disappeared into madness. 
+                            No long-term "successful" Maran practitioners documented.
+                        </li>
+                        <li class="doc-item">
+                            <strong>Aghori Traditions:</strong> Aghori sadhus (ascetics who transcend taboos through engagement) sometimes 
+                            incorporate death imagery and practice in cremation grounds. Crucial distinction: traditional Aghoris work with 
+                            NATURAL death to transcend death fear - they do not cause death. Those who crossed into active Maran were expelled 
+                            or killed by Aghori communities themselves.
+                        </li>
+                        <li class="doc-item">
+                            <strong>Colonial Era Documentation:</strong> British colonial records occasionally reference "death curse" practitioners 
+                            in India. Typical pattern: locals feared certain individuals as death magicians, often elderly individuals living in 
+                            isolation on community margins. These individuals universally lived in poverty, illness, and social exile - hardly 
+                            suggesting their practices brought any benefit.
+                        </li>
+                    </ul>
+
+                    <div class="death-warning" style="border-color: var(--text-death); box-shadow: 0 0 70px rgba(255, 0, 0, 0.6);">
+                        <h4>☠️ THE KARMIC MATHEMATICS</h4>
+                        <p style="font-size: 1.15rem; line-height: 1.9;">
+                            Traditional teachings suggest there is NO SCENARIO where Maran practices result in net positive outcome for practitioner. 
+                            Even if target "deserves" death, even if motivations feel justified, even if techniques work as described - the karmic 
+                            cost to practitioner's consciousness exceeds any possible benefit by orders of magnitude.
+                        </p>
+                        <p style="font-size: 1.15rem; line-height: 1.9; margin-top: 1rem;">
+                            This is why authentic gurus universally refuse to teach Maran - not because knowledge should be suppressed, but because 
+                            teaching it would be spiritually harmful to student. The knowledge itself corrupts consciousness of those who seek it 
+                            for application rather than understanding.
+                        </p>
+                        <p style="font-size: 1.2rem; line-height: 1.9; margin-top: 1rem; color: var(--text-death); font-weight: 700;">
+                            Even reading this documentation with intent to apply rather than study begins karmic contamination process according 
+                            to traditional teachings.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Tab 5: Modern Context -->
+                <div id="modern" class="tab-panel">
+                    <h2 style="color: var(--text-death); font-family: 'Creepster', cursive; margin-bottom: 2rem;">MODERN LEGAL & SOCIAL CONTEXT</h2>
+                    
+                    <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 2rem;">
+                        In contemporary society, Maran practices intersect with legal, psychological, and social realities that make their 
+                        documentation and discussion complex. This section addresses modern context comprehensively.
+                    </p>
+
+                    <h3 style="color: var(--text-warning); margin: 2rem 0 1rem;">Legal Reality</h3>
+                    <ul class="doc-list">
+                        <li class="doc-item">
+                            <strong>Criminal Conspiracy:</strong> In most jurisdictions, deliberately attempting to harm or kill someone - 
+                            even through occult means - can constitute conspiracy to commit murder or assault. The fact that method is non-physical 
+                            doesn't eliminate criminal intent. Courts have convicted individuals for death threats/curses when accompanied by 
+                            evidence of malicious intent.
+                        </li>
+                        <li class="doc-item">
+                            <strong>Psychological Harm:</strong> If target becomes aware of death curse and experiences psychological distress, 
+                            practitioner could face harassment, threatening, or intentional infliction of emotional distress charges. The harm 
+                            is real even if mechanism is believed rather than physical.
+                        </li>
+                        <li class="doc-item">
+                            <strong>Hate Crime Enhancement:</strong> If Maran practices target someone based on protected characteristics 
+                            (race, religion, etc.), could result in hate crime charges with enhanced penalties.
+                        </li>
+                        <li class="doc-item">
+                            <strong>Academic Exception:</strong> Legitimate scholarly study, academic research, and historical documentation 
+                            (like this page) are protected activities. Key distinction: documentation FOR study versus documentation FOR practice. 
+                            Intent and context matter legally.
+                        </li>
+                    </ul>
+
+                    <h3 style="color: var(--text-warning); margin: 2rem 0 1rem;">Psychological Perspective</h3>
+                    <ul class="doc-list">
+                        <li class="doc-item">
+                            <strong>Magical Thinking:</strong> Modern psychology recognizes belief in one's ability to cause death through ritual 
+                            as form of magical thinking - cognitive distortion where causal relationships are imagined without evidence. This 
+                            can indicate or lead to psychological disorders including delusions of grandeur or paranoid ideation.
+                        </li>
+                        <li class="doc-item">
+                            <strong>Anger Management:</strong> Seeking death magic typically indicates extreme anger/rage that needs psychological 
+                            intervention, not magical solution. Healthy processing involves therapy, conflict resolution, or legal recourse - 
+                            not ritual harm.
+                        </li>
+                        <li class="doc-item">
+                            <strong>Nocebo Effect:</strong> If target learns of death curse and believes it, can experience psychosomatic symptoms 
+                            or health deterioration through nocebo effect (negative placebo). This demonstrates BELIEF causes harm, not magic itself. 
+                            Making someone believe they're cursed is psychological warfare, not spiritual practice.
+                        </li>
+                        <li class="doc-item">
+                            <strong>Practitioner Mental Health:</strong> Repeatedly visualizing/intending death toward another person is 
+                            psychologically damaging to practitioner regardless of spiritual beliefs. Therapeutic consensus: harboring murder 
+                            fantasies, even if ritualized, indicates need for mental health intervention.
+                        </li>
+                    </ul>
+
+                    <h3 style="color: var(--text-warning); margin: 2rem 0 1rem;">Why This Documentation Exists</h3>
+                    <ul class="doc-list">
+                        <li class="doc-item">
+                            <strong>Historical Completeness:</strong> ShivaKali Ashram documents full spectrum of tantric knowledge for educational 
+                            completeness. Omitting Maran while covering Vashikaran, Uchchatan, Stambhan, and Vidveshan would create false impression 
+                            that tantra has no dark extremes. Historical honesty requires acknowledging full scope.
+                        </li>
+                        <li class="doc-item">
+                            <strong>Ethical Education:</strong> Understanding why certain practices are forbidden strengthens ethical foundation. 
+                            Students who understand the darkness make more conscious choice toward light. Comprehensive ethics education includes 
+                            understanding what NOT to do and why.
+                        </li>
+                        <li class="doc-item">
+                            <strong>Comparative Religion:</strong> Scholars studying cross-cultural approaches to death, violence, and spirituality 
+                            benefit from access to comprehensive documentation. Maran practices provide insight into how some traditions attempted 
+                            to ritualize and control death.
+                        </li>
+                        <li class="doc-item">
+                            <strong>Karmic Deterrent:</strong> Paradoxically, full documentation of karmic consequences may deter practice more 
+                            effectively than simple prohibition. When potential practitioners understand complete cost, rational self-interest 
+                            discourages pursuit.
+                        </li>
+                    </ul>
+
+                    <div class="death-warning">
+                        <h4>🚫 ABSOLUTE PROHIBITION STATEMENT</h4>
+                        <p style="font-size: 1.2rem; line-height: 1.9; font-weight: 700;">
+                            The ShivaKali Ashram explicitly prohibits practical application of Maran techniques under ANY circumstances.
+                        </p>
+                        <p style="font-size: 1.1rem; line-height: 1.9; margin-top: 1rem;">
+                            This documentation exists for:<br>
+                            ✓ Historical understanding<br>
+                            ✓ Academic research<br>
+                            ✓ Ethical education<br>
+                            ✓ Anthropological study<br>
+                            ✓ Comparative religion<br>
+                            ✓ Spiritual caution tales
+                        </p>
+                        <p style="font-size: 1.1rem; line-height: 1.9; margin-top: 1rem;">
+                            This documentation does NOT exist for:<br>
+                            ✗ Operational practice<br>
+                            ✗ Practical application<br>
+                            ✗ Instructional guidance<br>
+                            ✗ Ritual implementation
+                        </p>
+                        <p style="font-size: 1.15rem; line-height: 1.9; margin-top: 1.5rem; color: var(--text-death);">
+                            Anyone seeking to apply Maran practices should instead seek immediate mental health support, legal counsel 
+                            if threatened, or conflict resolution resources. There are NO legitimate circumstances where death magic 
+                            is appropriate response to life problems.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="footer-brand">TANTRIC PROTOCOL ONLINE</div>
+                <div class="footer-tagline">Historical Documentation Archive • ShivaKali Ashram</div>
+                
+                <div class="footer-links">
+                    <a href="index.html" class="footer-link">Core Powers</a>
+                    <a href="vashikaran.html" class="footer-link">Vashikaran</a>
+                    <a href="uchchatan.html" class="footer-link">Uchchatan</a>
+                    <a href="stambhan.html" class="footer-link">Stambhan</a>
+                    <a href="vidveshan.html" class="footer-link">Vidveshan</a>
+                    <a href="../index.html" class="footer-link">Ashram Home</a>
+                </div>
+                
+                <div class="footer-divider"></div>
+                
+                <div class="footer-copyright">
+                    © 1489 ShivaKali Ashram • Historical Documentation Archive
+                </div>
+                
+                <div class="footer-legal">
+                    <strong>☠️ LEGAL & ETHICAL DISCLAIMER ☠️</strong><br><br>
+                    This document represents HISTORICAL and ACADEMIC documentation of practices described in ancient tantric texts. 
+                    The information is preserved for scholarly research, anthropological study, comparative religion, and ethical education purposes ONLY.<br><br>
+                    
+                    <strong>ABSOLUTE PROHIBITIONS:</strong><br>
+                    • Any practical application of documented techniques is STRICTLY FORBIDDEN<br>
+                    • These practices are ILLEGAL (murder/conspiracy) in all jurisdictions<br>
+                    • Attempting these practices violates fundamental human rights and spiritual ethics<br>
+                    • The ShivaKali Ashram condemns any use of this knowledge for harm<br><br>
+                    
+                    This documentation exists under the same principle as academic preservation of historical warfare, torture, or violence documentation - 
+                    to ensure comprehensive understanding of human history and capabilities, NOT to encourage replication.<br><br>
+                    
+                    By accessing this page, you acknowledge:<br>
+                    1. This is educational/historical documentation, not operational instruction<br>
+                    2. All practical application is absolutely prohibited<br>
+                    3. You accept full legal and karmic responsibility for any misuse<br>
+                    4. The ashram bears no responsibility for actions taken based on this information<br><br>
+                    
+                    <strong>IF YOU ARE EXPERIENCING THOUGHTS OF HARM:</strong> Contact mental health crisis services immediately. 
+                    National Suicide Prevention Lifeline: 988 (US). Crisis Text Line: Text HOME to 741741.
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Death Progress Bar
+        window.addEventListener('scroll', function() {
+            const progress = document.getElementById('death-progress');
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = (window.scrollY / scrollHeight) * 100;
+            progress.style.width = scrolled + '%';
+        });
+
+        // Tab Switching
+        function switchHistoricalTab(event, tabId) {
+            const tabs = document.querySelectorAll('.tab-panel');
+            const buttons = document.querySelectorAll('.tab-btn');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+            
+            console.log('📚 HISTORICAL DOCUMENTATION SECTION ACCESSED: ' + tabId.toUpperCase());
+        }
+
+        // Badge Click
+        let deathClicks = 0;
+        document.querySelector('.death-badge').addEventListener('click', function() {
+            deathClicks++;
+            if (deathClicks === 7) {
+                console.log('☠️💀 MARAN HISTORICAL ARCHIVE WARNING 💀☠️\n\n' +
+                           '⚠️ You have accessed the historical documentation archive.\n' +
+                           '⚠️ This knowledge is preserved for STUDY ONLY.\n' +
+                           '⚠️ Any practical application is PROHIBITED.\n' +
+                           '⚠️ Legal consequences: Murder/conspiracy charges\n' +
+                           '⚠️ Karmic consequences: Multi-lifetime debt\n\n' +
+                           'This documentation exists to ensure complete historical understanding,\n' +
+                           'not to encourage practice. True wisdom is knowing what exists\n' +
+                           'without needing to engage with it.');
+                deathClicks = 0;
+            }
+        });
+
+        // Entrance Warning
+        window.addEventListener('load', function() {
+            console.log('☠️ MARAN HISTORICAL DOCUMENTATION ACCESSED ☠️\n' +
+                       'EDUCATIONAL ARCHIVE ONLY\n' +
+                       'ALL PRACTICAL APPLICATION STRICTLY FORBIDDEN\n\n' +
+                       '⚠️ This page documents historical practices that are:\n' +
+                       '• Illegal (murder/conspiracy)\n' +
+                       '• Ethically condemned universally\n' +
+                       '• Spiritually catastrophic\n' +
+                       '• Psychologically damaging\n\n' +
+                       'Academic study only. No exceptions.');
+        });
+
+        // Keyboard Easter Egg
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'm' || e.key === 'M') {
+                console.log('☠️ MARAN WISDOM REVEALED ☠️\n\n' +
+                           'The greatest power is choosing NOT to harm.\n' +
+                           'True mastery is understanding death magic exists\n' +
+                           'and consciously rejecting it.\n\n' +
+                           'Every tradition that documented these practices\n' +
+                           'also documented their prohibition.\n\n' +
+                           'Knowledge of darkness serves to illuminate\n' +
+                           'the conscious choice for light.');
+            }
+        });
+    </script>
+</body>
+</html>

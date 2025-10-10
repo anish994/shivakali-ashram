@@ -1,0 +1,1930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <title>🛡️ Stambhan - Force Immobilization Protocol</title>
+    
+    <!-- Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Stambhan Theme - Silver/Steel/Metallic Immobilization */
+        :root {
+            --stambhan-deep: #000000;
+            --stambhan-steel: #C0C0C0;
+            --stambhan-silver: #E8E8E8;
+            --stambhan-metal: #7D7D7D;
+            --stambhan-white: #FFFFFF;
+            --stambhan-ice: #B0E0E6;
+            --stambhan-lock: #4A4A4A;
+            --text-primary: #ffffff;
+            --text-silver: #E8E8E8;
+            --glow-silver: rgba(232, 232, 232, 0.8);
+            --glow-metal: rgba(192, 192, 192, 0.6);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--stambhan-deep);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        /* Scroll Progress Bar - Silver Theme */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--stambhan-silver), var(--stambhan-steel), var(--stambhan-white));
+            box-shadow: 0 0 15px var(--glow-silver);
+            z-index: 10000;
+            transition: width 0.1s ease;
+        }
+
+        /* 3-Layer Background - Metallic Steel */
+        .page-container {
+            position: relative;
+            min-height: 100vh;
+            will-change: scroll-position;
+        }
+
+        .background-layer {
+            position: fixed;
+            inset: 0;
+            background: 
+                linear-gradient(to bottom,
+                    rgba(20, 20, 25, 0.7) 0%,
+                    rgba(0, 0, 0, 0.9) 100%
+                ),
+                url('../pictures/tantra demo page.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            filter: brightness(0.6) saturate(0.3) contrast(1.3);
+            z-index: 1;
+            animation: metalBreathing 30s ease-in-out infinite;
+        }
+        
+        @keyframes metalBreathing {
+            0%, 100% { filter: brightness(0.6) saturate(0.3) contrast(1.3); }
+            50% { filter: brightness(0.7) saturate(0.4) contrast(1.4); }
+        }
+
+        /* Steel Grid Pattern Layer */
+        .pattern-layer {
+            position: fixed;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 40% 30%, rgba(192, 192, 192, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 60% 70%, rgba(232, 232, 232, 0.12) 0%, transparent 50%),
+                repeating-linear-gradient(0deg,
+                    transparent,
+                    transparent 4px,
+                    rgba(192, 192, 192, 0.02) 4px,
+                    rgba(192, 192, 192, 0.02) 8px
+                ),
+                repeating-linear-gradient(90deg,
+                    transparent,
+                    transparent 4px,
+                    rgba(192, 192, 192, 0.02) 4px,
+                    rgba(192, 192, 192, 0.02) 8px
+                );
+            border: 3px solid rgba(192, 192, 192, 0.3);
+            box-shadow: 
+                inset 0 0 80px rgba(192, 192, 192, 0.15),
+                inset 0 0 40px rgba(255, 255, 255, 0.1);
+            z-index: 2;
+            animation: steelShimmer 25s ease-in-out infinite;
+        }
+        
+        @keyframes steelShimmer {
+            0%, 100% { 
+                border-color: rgba(192, 192, 192, 0.3);
+                box-shadow: inset 0 0 80px rgba(192, 192, 192, 0.15);
+            }
+            50% { 
+                border-color: rgba(232, 232, 232, 0.5);
+                box-shadow: inset 0 0 100px rgba(255, 255, 255, 0.2);
+            }
+        }
+
+        .content-layer {
+            position: relative;
+            z-index: 3;
+            padding: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-content {
+            will-change: max-height;
+            backface-visibility: hidden;
+            transform: translateZ(0);
+        }
+
+        /* Metallic Brand Badge */
+        .brand-badge {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, var(--stambhan-metal), var(--stambhan-lock));
+            border: 3px solid var(--stambhan-silver);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 
+                0 0 30px rgba(192, 192, 192, 0.5),
+                0 0 50px rgba(255, 255, 255, 0.3),
+                inset 0 0 20px rgba(232, 232, 232, 0.2);
+            z-index: 1000;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: badgeLock 10s ease-in-out infinite;
+        }
+        
+        .brand-badge:hover {
+            transform: scale(1.12);
+            box-shadow: 
+                0 0 50px rgba(192, 192, 192, 0.7),
+                0 0 80px rgba(255, 255, 255, 0.5),
+                inset 0 0 30px rgba(232, 232, 232, 0.4);
+        }
+        
+        @keyframes badgeLock {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-3deg); }
+            75% { transform: rotate(3deg); }
+        }
+        
+        .brand-badge-icon {
+            font-size: 2.8rem;
+            filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.9));
+            margin-bottom: -5px;
+        }
+        
+        .brand-badge-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.55rem;
+            font-weight: 700;
+            color: var(--stambhan-silver);
+            text-align: center;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(232, 232, 232, 0.8);
+        }
+
+        /* Navigation */
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.8rem;
+            background: linear-gradient(135deg, rgba(192, 192, 192, 0.12), rgba(125, 125, 125, 0.12));
+            border: 2px solid rgba(192, 192, 192, 0.4);
+            border-radius: 12px;
+            color: var(--stambhan-silver);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(192, 192, 192, 0.2);
+        }
+
+        .nav-button:hover {
+            border-color: var(--stambhan-white);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+            transform: translateY(-3px);
+        }
+
+        /* Metallic Header */
+        .header-section {
+            text-align: center;
+            padding: 3rem 1rem 4rem;
+            margin: 0 -1rem 3rem;
+            background: linear-gradient(180deg,
+                rgba(192, 192, 192, 0.10) 0%,
+                rgba(125, 125, 125, 0.08) 50%,
+                transparent 100%
+            );
+            border-bottom: 2px solid rgba(192, 192, 192, 0.4);
+            position: relative;
+        }
+        
+        .header-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--stambhan-silver), transparent);
+            box-shadow: 0 0 20px var(--glow-silver);
+        }
+
+        .main-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(3rem, 7vw, 5rem);
+            font-weight: 900;
+            color: var(--stambhan-silver);
+            margin: 0 0 1rem;
+            letter-spacing: 5px;
+            text-shadow: 
+                0 0 25px rgba(232, 232, 232, 0.9),
+                0 0 50px rgba(192, 192, 192, 0.6),
+                0 0 75px rgba(255, 255, 255, 0.3);
+        }
+
+        .subtitle {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+            font-weight: 300;
+            color: var(--text-silver);
+            margin: 0.75rem 0 2rem;
+            letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(192, 192, 192, 0.5);
+        }
+
+        .intro-text {
+            max-width: 900px;
+            margin: 2.5rem auto;
+            font-size: clamp(1.05rem, 2.5vw, 1.2rem);
+            color: var(--text-primary);
+            line-height: 2;
+            padding: 0 1.5rem;
+        }
+
+        /* Locked Introduction Section */
+        .locked-intro-section {
+            margin: 3rem 0;
+            background: linear-gradient(135deg, rgba(192, 192, 192, 0.08), rgba(20, 20, 25, 0.9));
+            border: 3px solid rgba(192, 192, 192, 0.4);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 0 40px rgba(192, 192, 192, 0.2);
+        }
+
+        .lock-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid rgba(192, 192, 192, 0.3);
+        }
+
+        .lock-icon {
+            font-size: 3rem;
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8));
+        }
+
+        .lock-header h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            color: var(--stambhan-silver);
+            text-shadow: 0 0 20px rgba(232, 232, 232, 0.6);
+        }
+
+        .intro-content p {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        /* Crystalline Grid Layout */
+        .crystal-grid-section {
+            margin: 4rem 0;
+        }
+
+        .grid-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
+            text-align: center;
+            color: var(--stambhan-silver);
+            margin-bottom: 2.5rem;
+            text-shadow: 0 0 25px rgba(232, 232, 232, 0.7);
+        }
+
+        .crystal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .crystal-card {
+            background: linear-gradient(135deg, rgba(192, 192, 192, 0.1), rgba(74, 74, 74, 0.1));
+            border: 2px solid rgba(192, 192, 192, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 0 20px rgba(192, 192, 192, 0.1);
+            opacity: 0.7;
+        }
+
+        .crystal-card:hover {
+            opacity: 1;
+            border-color: var(--stambhan-white);
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+            transform: translateY(-8px) scale(1.02);
+        }
+
+        .crystal-card.activated {
+            opacity: 1;
+            background: linear-gradient(135deg, rgba(192, 192, 192, 0.2), rgba(125, 125, 125, 0.15));
+            border-color: var(--stambhan-silver);
+            box-shadow: 0 0 50px var(--glow-silver);
+        }
+
+        .crystal-icon {
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6));
+        }
+
+        .crystal-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            color: var(--stambhan-steel);
+            text-align: center;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 12px rgba(192, 192, 192, 0.5);
+        }
+
+        .crystal-description {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.85);
+            text-align: center;
+        }
+
+        /* Steel Warning Bar */
+        .steel-warning-bar {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background: linear-gradient(90deg, rgba(192, 192, 192, 0.15), rgba(74, 74, 74, 0.12));
+            border: 3px solid rgba(192, 192, 192, 0.5);
+            border-left-width: 8px;
+            border-radius: 12px;
+            padding: 1.8rem 2rem;
+            margin: 3rem 0;
+            box-shadow: 0 0 30px rgba(192, 192, 192, 0.2);
+        }
+
+        .warning-icon {
+            font-size: 2.5rem;
+            filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.8));
+            flex-shrink: 0;
+        }
+
+        .warning-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+        }
+
+        .warning-text strong {
+            color: var(--stambhan-silver);
+            text-shadow: 0 0 10px rgba(232, 232, 232, 0.6);
+        }
+
+        /* Vault Section */
+        .vault-section {
+            margin: 4rem 0;
+        }
+
+        .vault-door {
+            background: linear-gradient(135deg, rgba(125, 125, 125, 0.15), rgba(74, 74, 74, 0.15));
+            border: 4px solid rgba(192, 192, 192, 0.4);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 0 30px rgba(192, 192, 192, 0.15);
+        }
+
+        .vault-door:hover {
+            border-color: var(--stambhan-white);
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.3);
+            transform: scale(1.02);
+        }
+
+        .vault-door.unlocked {
+            border-color: var(--stambhan-silver);
+            box-shadow: 0 0 60px var(--glow-silver);
+        }
+
+        .vault-lock {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.9));
+            animation: lockPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes lockPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .vault-door h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
+            color: var(--stambhan-silver);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 20px rgba(232, 232, 232, 0.7);
+        }
+
+        .vault-subtitle {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-style: italic;
+        }
+
+        .vault-contents {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s ease;
+            margin-top: 2rem;
+        }
+
+        .vault-contents.unlocked {
+            max-height: 5000px;
+        }
+
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .material-card {
+            background: linear-gradient(135deg, rgba(192, 192, 192, 0.08), rgba(20, 20, 25, 0.9));
+            border: 2px solid rgba(192, 192, 192, 0.3);
+            border-radius: 12px;
+            padding: 1.8rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .material-card:hover {
+            border-color: var(--stambhan-silver);
+            box-shadow: 0 0 30px rgba(192, 192, 192, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .material-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6));
+        }
+
+        .material-card h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            color: var(--stambhan-steel);
+            margin-bottom: 0.8rem;
+            text-shadow: 0 0 10px rgba(192, 192, 192, 0.5);
+        }
+
+        .material-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .mantra-vault {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(20, 20, 25, 0.9));
+            border: 3px solid var(--stambhan-steel);
+            border-radius: 15px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 
+                0 0 40px rgba(192, 192, 192, 0.4),
+                inset 0 0 30px rgba(192, 192, 192, 0.15);
+            position: relative;
+        }
+
+        .mantra-lock-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.9));
+        }
+
+        .mantra-vault h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.6rem;
+            color: var(--stambhan-silver);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 20px rgba(232, 232, 232, 0.7);
+        }
+
+        .mantra-translation {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+            margin-top: 1.5rem;
+            font-style: italic;
+        }
+
+        /* Collapsible Sections - Keep for remaining sections */
+        .section-container {
+            margin: 3rem 0;
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, rgba(192, 192, 192, 0.12), rgba(125, 125, 125, 0.10));
+            border: 2px solid rgba(192, 192, 192, 0.4);
+            border-radius: 15px;
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 0 20px rgba(192, 192, 192, 0.15);
+        }
+
+        .section-header:hover {
+            border-color: var(--stambhan-white);
+            box-shadow: 0 0 35px rgba(255, 255, 255, 0.3);
+            transform: translateX(5px);
+        }
+
+        .section-header.active {
+            background: linear-gradient(135deg, rgba(192, 192, 192, 0.20), rgba(125, 125, 125, 0.15));
+            border-color: var(--stambhan-silver);
+            box-shadow: 0 0 40px var(--glow-silver);
+        }
+
+        .section-title-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--stambhan-silver);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-shadow: 0 0 15px rgba(232, 232, 232, 0.6);
+        }
+
+        .toggle-icon {
+            font-size: 1.5rem;
+            color: var(--stambhan-steel);
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 0 8px rgba(192, 192, 192, 0.5));
+        }
+
+        .section-header.active .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .section-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            background: linear-gradient(135deg, rgba(20, 20, 25, 0.7), rgba(0, 0, 0, 0.9));
+            border: 2px solid transparent;
+            border-radius: 0 0 15px 15px;
+            margin-top: -10px;
+        }
+
+        .section-content.active {
+            max-height: 8000px;
+            border-color: rgba(192, 192, 192, 0.2);
+            padding: 2rem;
+        }
+
+        /* Content Styling - Metallic Theme */
+        .content-block {
+            margin: 2rem 0;
+        }
+
+        .content-block h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: var(--stambhan-steel);
+            margin-bottom: 1rem;
+            text-shadow: 0 0 15px rgba(192, 192, 192, 0.5);
+        }
+
+        .content-block p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Instruction List - Steel Locks */
+        .instruction-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .instruction-item {
+            background: linear-gradient(135deg, rgba(192, 192, 192, 0.06), rgba(125, 125, 125, 0.04));
+            border-left: 4px solid var(--stambhan-steel);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 0 12px 12px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 12px rgba(192, 192, 192, 0.1);
+        }
+
+        .instruction-item:hover {
+            background: linear-gradient(135deg, rgba(192, 192, 192, 0.12), rgba(125, 125, 125, 0.08));
+            border-left-width: 8px;
+            border-color: var(--stambhan-silver);
+            transform: translateX(10px);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+        }
+
+        .instruction-item strong {
+            color: var(--stambhan-silver);
+            font-size: 1.2rem;
+            text-shadow: 0 0 12px rgba(232, 232, 232, 0.5);
+        }
+
+        /* Sacred Mantra Box - Steel Vault */
+        .mantra-box {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(20, 20, 25, 0.9));
+            border: 3px solid var(--stambhan-steel);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+            box-shadow: 
+                0 0 30px rgba(192, 192, 192, 0.4),
+                inset 0 0 25px rgba(192, 192, 192, 0.15);
+            position: relative;
+            user-select: none;
+        }
+
+        .mantra-box::before {
+            content: '🔒';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            background: var(--stambhan-deep);
+            padding: 0 15px;
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.9));
+        }
+
+        .mantra-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--stambhan-silver);
+            letter-spacing: 3px;
+            text-shadow: 0 0 20px rgba(232, 232, 232, 0.7);
+            margin: 1rem 0;
+        }
+
+        /* Warning Box - Steel Alert */
+        .warning-box {
+            background: linear-gradient(135deg, rgba(192, 192, 192, 0.12), rgba(74, 74, 74, 0.10));
+            border: 2px solid rgba(192, 192, 192, 0.4);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 0 25px rgba(192, 192, 192, 0.2);
+        }
+
+        .warning-box h4 {
+            color: var(--stambhan-silver);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-shadow: 0 0 12px rgba(232, 232, 232, 0.6);
+        }
+
+        /* Footer - Steel Signature */
+        .footer {
+            margin-top: 5rem;
+            padding: 3rem 2rem;
+            background: linear-gradient(180deg, transparent, rgba(192, 192, 192, 0.05));
+            border-top: 2px solid rgba(192, 192, 192, 0.3);
+            text-align: center;
+        }
+
+        .footer-brand {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--stambhan-silver);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 25px rgba(232, 232, 232, 0.8);
+        }
+
+        .footer-tagline {
+            font-size: 1rem;
+            color: var(--text-silver);
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .footer-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--stambhan-silver);
+            text-shadow: 0 0 12px rgba(232, 232, 232, 0.8);
+        }
+
+        .footer-divider {
+            width: 60%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--stambhan-steel), transparent);
+            margin: 2rem auto;
+            box-shadow: 0 0 12px var(--glow-silver);
+            position: relative;
+        }
+
+        .footer-divider::before,
+        .footer-divider::after {
+            content: '🛡️';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9));
+        }
+
+        .footer-divider::before { left: -20px; }
+        .footer-divider::after { right: -20px; }
+
+        .footer-copyright {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-rights {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(192, 192, 192, 0.08), rgba(125, 125, 125, 0.05));
+            border: 1px solid rgba(192, 192, 192, 0.3);
+            border-radius: 12px;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+        }
+
+        /* Mobile Optimizations */
+        @media (max-width: 640px) {
+            .content-layer { padding: 0.5rem; }
+            .brand-badge { 
+                width: 70px; 
+                height: 70px; 
+                top: 15px; 
+                right: 15px;
+                touch-action: manipulation;
+                min-width: 70px;
+                min-height: 70px;
+            }
+            .brand-badge-icon { font-size: 2rem; }
+            .brand-badge-text { font-size: 0.5rem; }
+            .header-section { padding: 2rem 0.75rem 2.5rem; }
+            .section-title-text { font-size: 1.3rem; }
+            .section-header { padding: 1.25rem 1.5rem; min-height: 60px; }
+            .pattern-layer { border-width: 2px; }
+            .nav-button { padding: 0.75rem 1.5rem; font-size: 0.9rem; min-height: 48px; }
+            .instruction-item { padding: 1.25rem; font-size: 1rem; }
+            .content-block h3 { font-size: 1.3rem; }
+            .content-block p { font-size: 1rem; }
+            
+            /* Disable heavy animations on mobile */
+            .background-layer { animation: none !important; }
+            .pattern-layer { animation: none !important; }
+            .brand-badge { animation: none !important; }
+        }
+        
+        /* Tablet Optimizations */
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .content-layer { max-width: 900px; }
+            .section-title-text { font-size: 1.6rem; }
+            .instruction-item { font-size: 1.05rem; }
+        }
+    </style>
+</head>
+<body>
+    <div id="scroll-progress"></div>
+    
+    <div class="page-container">
+        <div class="background-layer"></div>
+        <div class="pattern-layer"></div>
+        
+        <div class="brand-badge" onclick="console.log('🛡️ IMMOBILIZATION PROTOCOL ACTIVE 🛡️')">
+            <div class="brand-badge-icon">🛡️</div>
+            <div class="brand-badge-text">STAMBHAN</div>
+        </div>
+        
+        <div class="content-layer">
+            <div class="nav-buttons">
+                <a href="index.html" class="nav-button">
+                    <span>←</span>
+                    <span>Back to Tantra Sciences</span>
+                </a>
+                <a href="../index.html" class="nav-button">
+                    <span>🏠</span>
+                    <span>Ashram Home</span>
+                </a>
+            </div>
+
+            <header class="header-section">
+                <h1 class="main-title">STAMBHAN</h1>
+                <p class="subtitle">Force Immobilization & Pattern Stabilization Technology</p>
+                <p class="intro-text">
+                    Master the sacred science of absolute immobilization and energetic paralysis. 
+                    Stambhan represents the crystalline force of tantric technology - designed to freeze 
+                    unwanted patterns, lock hostile energies in place, and create impenetrable barriers 
+                    against chaos. This is not passive defense; this is conscious crystallization - 
+                    the power to stop time itself within your reality field.
+                </p>
+            </header>
+
+            <!-- Locked Introduction Section - Always Visible -->
+            <div class="locked-intro-section">
+                <div class="lock-header">
+                    <div class="lock-icon">🔒</div>
+                    <h2>THE SCIENCE OF ABSOLUTE STILLNESS</h2>
+                </div>
+                <div class="intro-content">
+                    <p>
+                        Unlike Vashikaran's magnetic pull or Uchchatan's explosive expulsion, Stambhan operates on principles of 
+                        <strong>crystalline paralysis</strong> and <strong>energetic freezing</strong>. 
+                        It doesn't attract or repel - it STOPS. It transforms fluid chaos into frozen structure, 
+                        making mobile threats completely immobile.
+                    </p>
+                    <p>
+                        This technology works by inserting <strong>anti-motion frequencies</strong> into target patterns, 
+                        essentially creating "time停 zones" where normal flow and movement become impossible. 
+                        Think of it as reality cryogenics - preserving threats in suspended animation.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Crystalline Grid Layout - 4 Core Mechanics -->
+            <div class="crystal-grid-section">
+                <h2 class="grid-title">⚡ QUANTUM IMMOBILIZATION MECHANICS ⚡</h2>
+                <div class="crystal-grid">
+                    <div class="crystal-card" onclick="activateCrystal(this)">
+                        <div class="crystal-icon">❄️</div>
+                        <h3>Pattern Crystallization</h3>
+                        <div class="crystal-description">
+                            Transforms fluid energy patterns into rigid crystalline structures that cannot adapt, change, or move. 
+                            Like freezing water into ice - same substance, zero mobility.
+                        </div>
+                    </div>
+                    <div class="crystal-card" onclick="activateCrystal(this)">
+                        <div class="crystal-icon">⏱️</div>
+                        <h3>Time Dilation Field</h3>
+                        <div class="crystal-description">
+                            Creates localized "time slow zones" around targets where their ability to act, think, or respond becomes 
+                            extremely delayed. You move at normal speed; they move in slow motion.
+                        </div>
+                    </div>
+                    <div class="crystal-card" onclick="activateCrystal(this)">
+                        <div class="crystal-icon">🧠</div>
+                        <h3>Will Paralysis</h3>
+                        <div class="crystal-description">
+                            Targets the consciousness level - not just physical actions but decision-making capacity itself becomes frozen. 
+                            They literally cannot decide to act against you.
+                        </div>
+                    </div>
+                    <div class="crystal-card" onclick="activateCrystal(this)">
+                        <div class="crystal-icon">🛡️</div>
+                        <h3>Energetic Lock Creation</h3>
+                        <div class="crystal-description">
+                            Builds impenetrable barriers around your reality field that hostile forces cannot penetrate, 
+                            like invisible steel walls at the consciousness level.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Critical Warning - Steel Bar Style -->
+            <div class="steel-warning-bar">
+                <div class="warning-icon">⚠️</div>
+                <div class="warning-text">
+                    <strong>CRITICAL IMMOBILIZATION WARNING:</strong> Stambhan is reality surgery at its most precise. 
+                    While less aggressive than Uchchatan, improper immobilization can freeze beneficial patterns along with negative ones. 
+                    You must target with laser precision. Think of it as selective time-stop - freeze only what needs freezing.
+                </div>
+            </div>
+
+            <!-- Ritual Protocol - Vault Style Locked Section -->
+            <div class="vault-section">
+                <div class="vault-door" onclick="unlockVault(this)">
+                    <div class="vault-lock">🔐</div>
+                    <h2>IMMOBILIZATION RITUAL PROTOCOL</h2>
+                    <p class="vault-subtitle">Click to unlock sacred crystallization technology</p>
+                </div>
+                <div class="vault-contents">
+                    <div class="materials-grid">
+                        <div class="material-card">
+                            <div class="material-icon">🌾</div>
+                            <h4>White Mustard Seeds</h4>
+                            <p>Primary immobilization conductor - represents crystalline structure that locks patterns in place.</p>
+                        </div>
+                        <div class="material-card">
+                            <div class="material-icon">🧂</div>
+                            <h4>Black Pepper + Salt</h4>
+                            <p>Creates binding matrix that freezes energy movement.</p>
+                        </div>
+                        <div class="material-card">
+                            <div class="material-icon">🔩</div>
+                            <h4>Iron Nails (7)</h4>
+                            <p>Symbolic anchors that pin down hostile forces.</p>
+                        </div>
+                        <div class="material-card">
+                            <div class="material-icon">🧵</div>
+                            <h4>White Thread/Cloth</h4>
+                            <p>Represents purity of immobilization - stopping without destruction.</p>
+                        </div>
+                    </div>
+
+                    <div class="mantra-vault">
+                        <div class="mantra-lock-icon">🔒</div>
+                        <h3>SACRED IMMOBILIZATION MANTRA</h3>
+                        <div class="mantra-text">
+                            ॐ ह्रीं बगलामुखि<br>
+                            [Target Name] स्तम्भय स्तम्भय<br>
+                            वाचं मुखं कर्म स्तम्भय<br>
+                            स्वाहा
+                        </div>
+                        <p class="mantra-translation">
+                            Translation: "Om Hreem Baglamukhi - [Target] Immobilize Immobilize - 
+                            Speech Action Thought Immobilize - Svaha"
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Energy Mechanics of Immobilization -->
+            <div class="section-container">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <div class="section-title-text">
+                        <span>⚡</span>
+                        <span>ENERGY MECHANICS OF IMMOBILIZATION</span>
+                    </div>
+                    <div class="toggle-icon">▼</div>
+                </div>
+                <div class="section-content">
+                    <div class="content-block">
+                        <h3>The Crystalline Frequency Matrix</h3>
+                        <p>
+                            Stambhan operates on a fundamentally different vibrational frequency than other tantric technologies. 
+                            While Vashikaran resonates at <strong>432 Hz (magnetic attraction)</strong> and Uchchatan pulses at 
+                            <strong>963 Hz (disruptive expulsion)</strong>, Stambhan crystallizes at <strong>108 Hz - the stillness frequency</strong>.
+                        </p>
+                        <p>
+                            This low, grounding frequency creates what physicists might call a "zero-point field" - a region of space-time 
+                            where motion potential drops to absolute minimum. It's not the absence of energy; it's energy in perfect, 
+                            unmoving equilibrium. Like a perfectly balanced scale that refuses to tip in any direction.
+                        </p>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Three Layers of Immobilization</h3>
+                        <ul class="instruction-list">
+                            <li class="instruction-item">
+                                <strong>Physical Layer (Sthula Stambhan):</strong> Affects gross material reality - literal physical 
+                                paralysis, inability to move limbs, frozen vocal cords. The target's body simply stops responding 
+                                to conscious command. Used in extreme self-defense scenarios or to halt violent actions.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Mental Layer (Sukshma Stambhan):</strong> Crystallizes thought patterns - decision paralysis, 
+                                cognitive freeze, inability to formulate plans against you. They can move physically but cannot 
+                                organize hostile thoughts. Like freezing someone's mental operating system mid-process.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Karmic Layer (Karana Stambhan):</strong> Locks deeper destiny patterns - prevents karmic momentum 
+                                from manifesting negative outcomes. This is the deepest level - stopping harmful fate patterns before 
+                                they crystallize into reality. Used to freeze inherited curses or generational negative patterns.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>The Steel Chain Visualization Technique</h3>
+                        <p>
+                            Advanced practitioners develop the "Steel Chain Vision" - the ability to perceive energetic movement 
+                            patterns and insert crystallization points with surgical precision. Here's the technique:
+                        </p>
+                        <ul class="instruction-list">
+                            <li class="instruction-item">
+                                <strong>Step 1 - Pattern Recognition:</strong> Close your eyes and visualize the target as a field 
+                                of moving energy. See their thoughts as light streams, emotions as color waves, actions as flowing rivers. 
+                                Observe the natural movement patterns without judgment.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Step 2 - Crystallization Point Identification:</strong> Within this flowing field, identify 
+                                the key "junction points" - places where multiple energy streams intersect. These are like circuit breakers 
+                                in an electrical system. One point controls many pathways.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Step 3 - Steel Chain Insertion:</strong> Visualize inserting thin, silvery chains into these 
+                                junction points. See them wrapping around the energy flows, not cutting or destroying them, but 
+                                simply preventing movement. Like tying rope around flowing water - the water wants to move but physically cannot.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Step 4 - Lock Activation:</strong> Chant the core mantra and visualize each chain developing 
+                                a crystalline padlock. Hear the distinct CLICK sound as each lock engages. This auditory component 
+                                is crucial - the subconscious mind recognizes lock sounds as finality.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="warning-box">
+                        <h4>⚡ ENERGY MECHANICS WARNING</h4>
+                        <p>
+                            The crystallization process draws heavily on YOUR energy reserves during implementation. 
+                            Inexperienced practitioners often freeze targets successfully but exhaust themselves in the process. 
+                            Build your energetic stamina gradually. Start with small immobilizations (stopping spam calls, freezing 
+                            minor conflicts) before attempting major pattern locks.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4: Practical Applications & Targeting Protocols -->
+            <div class="section-container">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <div class="section-title-text">
+                        <span>🎯</span>
+                        <span>PRACTICAL APPLICATIONS & TARGETING</span>
+                    </div>
+                    <div class="toggle-icon">▼</div>
+                </div>
+                <div class="section-content">
+                    <div class="content-block">
+                        <h3>Strategic Immobilization Scenarios</h3>
+                        <p>
+                            Unlike Vashikaran (which establishes ongoing influence) or Uchchatan (which permanently removes), 
+                            Stambhan is your <strong>tactical pause button</strong> - use it when you need immediate halt 
+                            of hostile action without permanent consequences.
+                        </p>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Legal & Professional Applications</h3>
+                        <ul class="instruction-list">
+                            <li class="instruction-item">
+                                <strong>Freeze Hostile Litigation:</strong> When facing lawsuits or legal attacks, immobilize 
+                                the opposing party's ability to take aggressive action. They maintain their position but cannot 
+                                advance their attack. Creates negotiation space without destroying relationships.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Stop Workplace Sabotage:</strong> Identify colleagues undermining your work and freeze 
+                                their capacity to interfere. They remain in their position but lose the ability to act against you. 
+                                Different from Uchchatan which would remove them - this simply neutralizes the threat.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Halt Business Competition:</strong> During critical periods (product launches, contract 
+                                negotiations), temporarily freeze competitors' ability to counter your moves. Not permanent suppression - 
+                                just tactical timing advantage when you need it most.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Immobilize Gossip/Rumors:</strong> Stop negative information spread before it gains momentum. 
+                                Freeze the tongue of rumor-spreaders - they literally find themselves unable to speak about you. 
+                                Temporary social media paralysis can also be achieved through proper ritual.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Personal Protection Applications</h3>
+                        <ul class="instruction-list">
+                            <li class="instruction-item">
+                                <strong>Emergency Self-Defense:</strong> In physical confrontation scenarios, mental Stambhan 
+                                can freeze an attacker's aggression impulse for crucial escape seconds. They physically stop mid-action, 
+                                experiencing decision paralysis. Many practitioners report attackers literally freezing with raised fist, 
+                                unable to complete the strike.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Stop Stalking/Harassment:</strong> Create an immobilization field around your personal space 
+                                where obsessive individuals lose their fixation compulsion. They maintain awareness but cannot act on 
+                                the obsessive thoughts. More humane than Uchchatan's complete removal.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Freeze Addictive Patterns:</strong> Can be used on YOURSELF to break harmful habits. 
+                                Immobilize your own compulsive patterns - gambling urges, substance cravings, toxic relationship loops. 
+                                Creates a "pause" in the automatic behavior chain, giving conscious mind time to intervene.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Shield Against Energy Vampires:</strong> Prevent emotional parasites from draining your vitality. 
+                                They can be physically present but lose ability to tap your energy. Like invisible glass barrier - 
+                                they can see you but cannot touch your energetic resources.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Advanced Timing Protocols</h3>
+                        <p>
+                            <strong>Optimal Immobilization Windows:</strong> Stambhan works best during specific temporal patterns:
+                        </p>
+                        <ul class="instruction-list">
+                            <li class="instruction-item">
+                                <strong>Saturday (Shanivar):</strong> Day of Saturn - natural planetary alignment with restriction 
+                                and limitation energies. Maximum crystallization potency. Immobilizations performed on Saturdays 
+                                last 3x longer than other days.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Midnight Hour (00:00-01:00):</strong> The "frozen hour" when day transitions to day. 
+                                Time itself is in suspended state - perfect for immobilization rituals. This is when reality's 
+                                defensive mechanisms are at lowest alert.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>New Moon (Amavasya):</strong> When lunar light is absent, darkness itself provides 
+                                immobilization field. Hostile forces lose navigational capacity in the dark. Your stambhan rituals 
+                                gain automatic stealth during this phase.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Retrograde Periods:</strong> When planets move backward, they naturally create stasis energy. 
+                                Mercury retrograde (communication freeze), Mars retrograde (action paralysis), Saturn retrograde 
+                                (karmic pattern locks) - use planetary retrogrades as power multipliers.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="mantra-box">
+                        <p style="color: var(--stambhan-steel); font-size: 0.9rem; margin-bottom: 1rem;">
+                            ⏸️ EMERGENCY INSTANT FREEZE MANTRA ⏸️
+                        </p>
+                        <div class="mantra-text" style="font-size: 1.5rem;">
+                            ॐ ह्रीं क्लीं ह्रीं<br>
+                            स्तम्भनम् कुरु कुरु<br>
+                            स्वाहा
+                        </div>
+                        <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-top: 1rem;">
+                            "Om Hreem Kleem Hreem - Perform Immobilization Now Now - Svaha"<br>
+                            <em>(Use in emergency situations requiring immediate hostile pattern freeze)</em>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5: Advanced Barrier Construction Techniques -->
+            <div class="section-container">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <div class="section-title-text">
+                        <span>🧱</span>
+                        <span>ADVANCED BARRIER CONSTRUCTION</span>
+                    </div>
+                    <div class="toggle-icon">▼</div>
+                </div>
+                <div class="section-content">
+                    <div class="content-block">
+                        <h3>The Crystalline Shield Architecture</h3>
+                        <p>
+                            Beyond freezing specific targets, Stambhan's ultimate evolution is <strong>proactive barrier creation</strong> - 
+                            building impenetrable force fields that prevent hostile energies from ever reaching you. This is defensive 
+                            immobilization at its finest.
+                        </p>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Five-Layer Shield Construction Protocol</h3>
+                        <ul class="instruction-list">
+                            <li class="instruction-item">
+                                <strong>Layer 1 - Physical Boundary (Bhuta Kavach):</strong> Create a 3-foot radius crystalline sphere 
+                                around your physical body. Visualize diamond-hard transparent shell. This blocks physical intrusions, 
+                                unwanted touch, aggressive body language impacts. People will unconsciously maintain distance from you.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Layer 2 - Emotional Firewall (Bhava Kavach):</strong> At 6-foot radius, construct a silver mesh 
+                                that filters emotional projectiles. Others' anger, jealousy, anxiety bounce off instead of penetrating 
+                                your field. You feel their emotions but they cannot stick to you. Like water on lotus leaves.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Layer 3 - Mental Defense Grid (Manas Kavach):</strong> At 12-foot radius, establish thought-form 
+                                barriers that freeze incoming negative thoughts before they reach your consciousness. Curses, evil eye, 
+                                jealous thoughts crystallize at this boundary and fall away harmlessly.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Layer 4 - Energy Vampire Lock (Prana Kavach):</strong> At 30-foot radius, create an energetic 
+                                one-way membrane. Your vitality can flow outward (for genuine connections) but others cannot drain you. 
+                                Energy vampires will feel physically uncomfortable in your presence and naturally leave.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Layer 5 - Karmic Pattern Shield (Karma Kavach):</strong> At 108-foot radius, establish a destiny-level 
+                                barrier that freezes negative karmic patterns before they manifest. This is advanced mastery - you're literally 
+                                stopping bad fate before it crystallizes into events. Accidents avoid you, hostile opportunities never arise.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>The Daily Shield Maintenance Ritual</h3>
+                        <p>
+                            Building shields is not one-time work - they require daily reinforcement, especially in hostile environments. 
+                            Here's the 5-minute morning protocol:
+                        </p>
+                        <ul class="instruction-list">
+                            <li class="instruction-item">
+                                <strong>Morning Crystallization (5 AM - 6 AM):</strong> Upon waking, before checking phone or speaking, 
+                                spend 5 minutes sitting still. Visualize each of the five shield layers activating in sequence from inner to outer. 
+                                Hear the distinct CLICK sound as each layer locks into place. Feel the stillness surrounding you.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Quick Refresh Protocol (Every 4 Hours):</strong> Throughout the day, take 30-second breaks to 
+                                mentally "check" your shields. Visualize them - if any layer looks dim or cracked, reinforce it with 
+                                focused breath and intention. Three deep breaths while visualizing repair is usually sufficient.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Evening Shield Report (Before Sleep):</strong> Before bed, review the day and identify any moments 
+                                where shields were tested. Did someone's anger penetrate? Did a curse get through? Note the specific layer 
+                                that failed and reinforce it with extra visualization. Your subconscious will strengthen it overnight.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Location-Based Barrier Casting</h3>
+                        <p>
+                            Beyond personal shields, you can <strong>crystallize entire spaces</strong> - home, office, vehicle. 
+                            These location-bound barriers protect everyone inside them:
+                        </p>
+                        <ul class="instruction-list">
+                            <li class="instruction-item">
+                                <strong>Home Protection Ritual:</strong> Walk the perimeter of your property at midnight on Saturday. 
+                                At each corner, bury a small iron nail while chanting the core mantra 11 times. Visualize silver walls 
+                                rising from these anchor points, creating an impenetrable dome over your entire home. 
+                                Hostile energies will freeze at your property line.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Office/Workspace Shielding:</strong> Place white mustard seeds in the four corners of your office. 
+                                Visualize connecting them with silver threads to form a protective square. Workplace drama, office politics, 
+                                backstabbing attempts will freeze before reaching your desk. Colleagues will unconsciously avoid bringing 
+                                negative energy into your space.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Vehicle Protection Field:</strong> Keep a small piece of iron (can be just a nail) in your car's 
+                                glove compartment. Touch it before driving and visualize a crystalline sphere surrounding the entire vehicle. 
+                                This has been reported to prevent accidents, aggressive drivers naturally avoid you, road rage incidents 
+                                dissolve before reaching you.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="warning-box">
+                        <h4>🧱 BARRIER CONSTRUCTION WARNING</h4>
+                        <p>
+                            Overly aggressive barrier construction can isolate you from positive connections too. If you build walls 
+                            too thick, even love and opportunity cannot penetrate. The art is selective permeability - like a cell membrane 
+                            that allows nutrients in while keeping toxins out. Start with thinner barriers and strengthen only the specific 
+                            layers being attacked. Quality over quantity in shield construction.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 6: Ethical Considerations & Karmic Mechanics -->
+            <div class="section-container">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <div class="section-title-text">
+                        <span>⚖️</span>
+                        <span>ETHICAL FRAMEWORK & KARMIC IMPLICATIONS</span>
+                    </div>
+                    <div class="toggle-icon">▼</div>
+                </div>
+                <div class="section-content">
+                    <div class="content-block">
+                        <h3>The Paradox of Immobilization Ethics</h3>
+                        <p>
+                            Stambhan occupies an interesting ethical space - it's less aggressive than Uchchatan (which destroys) 
+                            and less invasive than Vashikaran (which controls), yet it still <strong>removes free will temporarily</strong>. 
+                            This creates unique karmic implications that practitioners must understand deeply.
+                        </p>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>When Immobilization is Karmically Justified</h3>
+                        <ul class="instruction-list">
+                            <li class="instruction-item">
+                                <strong>Clear & Present Danger:</strong> When someone is actively attempting to harm you, your family, 
+                                or innocent parties, freezing their capacity to act is not just permitted but karmically appropriate. 
+                                This is the tantric equivalent of self-defense law - proportional response to immediate threat.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Protection of the Vulnerable:</strong> Freezing abusers, predators, or those exploiting power 
+                                imbalances is ethically sound. You're not punishing them (that's Uchchatan's domain) - you're simply 
+                                stopping their capacity to harm while they still exist in their position. Think of it as a cosmic restraining order.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Temporary Tactical Need:</strong> During critical life transitions (job interviews, important meetings, 
+                                vulnerable moments), temporarily freezing competitive or hostile forces is acceptable IF you release the 
+                                immobilization after the critical period passes. Time-limited stambhan carries minimal karmic weight.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Preventing Greater Harm:</strong> If you can foresee that someone's actions will hurt multiple people 
+                                (including themselves), freezing their destructive pattern early is ethically positive. Like stopping someone 
+                                from drunk driving - you're preventing harm to all parties involved.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>When Immobilization Creates Karmic Debt</h3>
+                        <ul class="instruction-list">
+                            <li class="instruction-item">
+                                <strong>Competitive Suppression:</strong> Freezing competitors simply to ensure your success (when no actual 
+                                harm is involved) creates karmic debt. You're removing their opportunity to succeed fairly. This is like cheating - 
+                                the universe will eventually balance this through opportunity removal from YOUR life.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Ego-Driven Control:</strong> Using stambhan because someone's success makes you feel inferior, or freezing 
+                                people who simply disagree with you, is karmic poison. The intent is the key - if you're acting from wounded ego 
+                                rather than genuine protection, the technique backfires energetically.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Permanent Immobilization:</strong> Stambhan is meant to be temporary - like hitting pause, not destroying 
+                                the player. If you freeze someone indefinitely without periodic review and potential release, you're essentially 
+                                trapping them in energetic prison. This creates severe karmic consequences - you'll eventually find yourself 
+                                trapped in rigid life patterns.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Freezing Natural Justice:</strong> If someone genuinely wronged you and is facing natural consequences 
+                                (legal punishment, social accountability, karmic return), freezing those natural justice mechanisms to prolong 
+                                their suffering is ethically corrupt. Let natural law complete its cycle - don't interfere.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>The Karmic Bank Account Model</h3>
+                        <p>
+                            Think of stambhan karma like a bank account. Each justified immobilization deposits positive karma (you prevented harm). 
+                            Each ego-driven freeze withdraws karma. Your karmic balance determines how effectively your future stambhan attempts work:
+                        </p>
+                        <ul class="instruction-list">
+                            <li class="instruction-item">
+                                <strong>Positive Balance (Karmic Credit):</strong> When you've used stambhan primarily for protection and justice, 
+                                the universe supports your work. Your immobilizations activate quickly, last longer, require less energy. 
+                                You're working WITH natural law.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Neutral Balance (Karmic Zero):</strong> Mix of justified and questionable uses. Your stambhan works but 
+                                requires maximum effort and energy. No cosmic support or resistance - purely dependent on your technical skill. 
+                                Most practitioners operate at this level.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Negative Balance (Karmic Debt):</strong> Primarily ego-driven or harmful uses. Your stambhan attempts 
+                                start failing, backfiring, or affecting YOU instead of the target. The universe actively resists your immobilization 
+                                efforts. You may find yourself frozen in your own life - stuck job, frozen relationships, immobile progress. 
+                                This is stambhan karma reflecting back.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="mantra-box">
+                        <p style="color: var(--stambhan-steel); font-size: 0.9rem; margin-bottom: 1rem;">
+                            ⚖️ KARMIC PURIFICATION & INTENT CLARIFICATION MANTRA ⚖️
+                        </p>
+                        <div class="mantra-text" style="font-size: 1.4rem;">
+                            ॐ तत् सत्<br>
+                            धर्मेण स्तम्भनम्<br>
+                            सर्व मङ्गलम्
+                        </div>
+                        <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-top: 1rem;">
+                            "Om Tat Sat - Immobilization Through Righteousness - All Auspiciousness"<br>
+                            <em>(Chant before any stambhan ritual to purify intent and ensure karmic alignment)</em>
+                        </p>
+                    </div>
+
+                    <div class="warning-box">
+                        <h4>⚖️ CRITICAL KARMIC TRUTH</h4>
+                        <p>
+                            The universe doesn't judge your techniques - it judges your intent. You can technically perform perfect stambhan 
+                            rituals, but if your heart is filled with petty revenge or ego-driven control needs, the karmic consequences manifest 
+                            regardless. <strong>Clean your intent before cleaning your ritual space.</strong> Meditate on your TRUE motivations. 
+                            If you discover ego at the root, either transform the intent or don't perform the ritual. Honest self-assessment 
+                            prevents decades of karmic cleanup.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 7: Troubleshooting & Counter-Immobilization -->
+            <div class="section-container">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <div class="section-title-text">
+                        <span>🔧</span>
+                        <span>TROUBLESHOOTING & DEFENSIVE PROTOCOLS</span>
+                    </div>
+                    <div class="toggle-icon">▼</div>
+                </div>
+                <div class="section-content">
+                    <div class="content-block">
+                        <h3>When Your Stambhan Doesn't Work</h3>
+                        <p>
+                            Even skilled practitioners face failed immobilizations. Understanding WHY a stambhan failed is more valuable 
+                            than the technique itself. Here are the most common failure patterns and their solutions:
+                        </p>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Failure Pattern Analysis</h3>
+                        <ul class="instruction-list">
+                            <li class="instruction-item">
+                                <strong>Target Has Superior Protection:</strong> If your target practices stronger defensive tantra or has 
+                                powerful spiritual backing (guru protection, deity worship, active shielding), your stambhan may bounce off 
+                                their shields. <strong>Solution:</strong> Don't attack directly. Use indirect immobilization - freeze the 
+                                circumstances around them rather than them directly. Crystallize their opportunities, not their will.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Your Energy Reserves Too Low:</strong> Stambhan is energetically expensive. If you're exhausted, 
+                                stressed, or depleted, your crystallization attempts lack power. <strong>Solution:</strong> Build your prana reserves 
+                                before attempting serious immobilization. 7 days of brahmacharya (sexual energy conservation) + deep breathing exercises 
+                                + early sleep = 10x power increase.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Conflicting Intent:</strong> If part of you actually WANTS the target to succeed (hidden admiration, 
+                                lingering love, unconscious guilt), your conscious stambhan and subconscious desire cancel each other. 
+                                <strong>Solution:</strong> Resolve internal conflict first. Journal deeply about your TRUE feelings. You cannot 
+                                freeze someone you secretly want mobile.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Wrong Timing/Technique:</strong> Not all stambhan approaches work on all targets. Verbal immobilization 
+                                (freezing speech) doesn't work on someone attacking through actions. Physical stambhan doesn't affect online enemies. 
+                                <strong>Solution:</strong> Match technique to threat vector. Study your target's primary attack method and freeze THAT specifically.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Target Has Nothing to Lose:</strong> Stambhan works by creating fear of consequence - the paralysis of decision. 
+                                But if target is already at rock bottom or genuinely doesn't fear consequences, there's nothing to freeze. 
+                                <strong>Solution:</strong> Switch to Uchchatan (removal) instead. Stambhan won't work on those with no stake in the game.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Detecting If YOU'VE Been Immobilized</h3>
+                        <p>
+                            Stambhan is often invisible to the victim. You might be under active immobilization and not realize it. 
+                            Here are the telltale signs:
+                        </p>
+                        <ul class="instruction-list">
+                            <li class="instruction-item">
+                                <strong>Chronic Procrastination on Key Tasks:</strong> You have ideas, plans, motivation... but cannot execute. 
+                                Every time you try to act, sudden inexplicable exhaustion or distraction. This is classic mental stambhan - 
+                                your action capacity is frozen.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Opportunities That "Almost" Happen:</strong> Job offers that disappear at last minute, relationships 
+                                that never quite materialize, deals that fall apart inexplicably. This suggests someone is freezing your success 
+                                patterns right before manifestation. Environmental stambhan at work.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Physical Sensation of "Stuck":</strong> Feeling literally heavy, dense, unable to move freely. 
+                                Your body feels like moving through thick invisible gel. This is gross-level stambhan affecting your physical energy field.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Repeated "Freezing" in Social Situations:</strong> You plan to speak/act but find yourself tongue-tied, 
+                                frozen, unable to execute in the moment. Afterwards you think "why didn't I just say/do that?" This suggests 
+                                someone froze your expression specifically in competitive/social contexts.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Counter-Immobilization: Breaking Free From Stambhan</h3>
+                        <p>
+                            If you detect active stambhan on yourself, immediate action required. The longer you remain frozen, 
+                            the harder to break free. Here's the emergency protocol:
+                        </p>
+                        <ul class="instruction-list">
+                            <li class="instruction-item">
+                                <strong>The Heat Protocol:</strong> Stambhan is cold/crystalline energy. Counter it with heat. Take extremely hot 
+                                showers while visualizing ice melting off your body. Eat spicy foods. Do vigorous exercise until sweating heavily. 
+                                The physical heat generates energetic heat that melts immobilization. 21 days of intense heat exposure breaks most stambhan.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Movement-Based Breaking:</strong> Stambhan requires stillness to maintain. Force yourself into constant movement - 
+                                dance wildly, shake your entire body vigorously for 15 minutes daily, do random spontaneous actions. The more unpredictable 
+                                your movement, the harder to maintain a freeze on you. Frozen patterns cannot track chaotic motion.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Solar Energy Absorption:</strong> Stand in direct sunlight for 20 minutes daily (early morning best). 
+                                Visualize golden solar fire burning through silver chains around you. Sun energy is natural stambhan destroyer - 
+                                it's the ultimate "movement" energy. Stambhan cannot survive in direct solar consciousness.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Counter-Mantra Practice:</strong> Use the Maha Mrityunjaya Mantra (life-force restorer) 108 times daily. 
+                                This ancient technology specifically breaks death/paralysis/stillness patterns. Alternative: any Mars-related mantra 
+                                (Mangal mantras) as Mars is the action planet that naturally opposes Saturn's restriction.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Social Network Activation:</strong> Stambhan works best on isolated targets. Immediately reach out to friends, 
+                                family, colleagues - reactivate your social connections. The more people actively thinking about you positively, 
+                                the harder to maintain an immobilization field. Group consciousness breaks individual freezing.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="mantra-box">
+                        <p style="color: var(--stambhan-steel); font-size: 0.9rem; margin-bottom: 1rem;">
+                            🔥 STAMBHAN BREAKING EMERGENCY MANTRA 🔥
+                        </p>
+                        <div class="mantra-text" style="font-size: 1.5rem;">
+                            ॐ त्र्यम्बकं यजामहे<br>
+                            सुगन्धिं पुष्टिवर्धनम्<br>
+                            उर्वारुकमिव बन्धनान्<br>
+                            मृत्योर्मुक्षीय मामृतात्
+                        </div>
+                        <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-top: 1rem;">
+                            Maha Mrityunjaya Mantra - "Like a cucumber freed from its binding, liberate me from death/paralysis"<br>
+                            <em>(108 repetitions daily until mobility fully restored)</em>
+                        </p>
+                    </div>
+
+                    <div class="warning-box">
+                        <h4>🔧 CRITICAL TROUBLESHOOTING NOTE</h4>
+                        <p>
+                            If you've tried everything and stambhan persists, consider that it might not be external attack but 
+                            <strong>self-imposed paralysis</strong> from trauma, depression, or unconscious self-sabotage. Many people blame 
+                            tantric attacks when the real freeze comes from within. Professional therapy + tantric clearing works best for these cases. 
+                            Don't waste years fighting external enemies when the real battle is internal.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 8: Mastery Levels & Advancement Path -->
+            <div class="section-container">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <div class="section-title-text">
+                        <span>🏆</span>
+                        <span>MASTERY LEVELS & ADVANCEMENT PATH</span>
+                    </div>
+                    <div class="toggle-icon">▼</div>
+                </div>
+                <div class="section-content">
+                    <div class="content-block">
+                        <h3>The Seven Gates of Stambhan Mastery</h3>
+                        <p>
+                            Unlike other tantric technologies that can be rushed, Stambhan requires progressive development through 
+                            distinct mastery levels. Attempting advanced immobilization before mastering basics leads to energetic burnout 
+                            or technique failure. Here's the proper progression path:
+                        </p>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Level 1: Novice Crystallizer (0-6 Months Practice)</h3>
+                        <p><strong>Capabilities at This Level:</strong></p>
+                        <ul class="instruction-list">
+                            <li class="instruction-item">
+                                <strong>Object Immobilization:</strong> Freeze small physical objects temporarily. Make a coin unable to roll, 
+                                stop a spinning top without touching it, prevent a door from opening. This builds your crystallization awareness 
+                                and energetic projection capacity without dealing with complex consciousness targets.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Minor Social Freezing:</strong> Stop unwanted phone calls, freeze spam/promotional messages, prevent 
+                                minor annoyances. Small-scale immobilizations with minimal karmic weight. Perfect practice ground.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Personal Habit Interruption:</strong> Use self-directed stambhan to freeze your own compulsive patterns. 
+                                Freeze the urge to check social media, stop automatic snacking, interrupt anxiety spirals. Learning to freeze yourself 
+                                teaches the mechanics safely.
+                            </li>
+                        </ul>
+                        <p><strong>Advancement Requirement:</strong> Successfully freeze 108 small targets (objects or minor patterns) with clear, 
+                        measurable results before attempting Level 2. Keep a stambhan journal documenting each success.</p>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Level 2: Apprentice Freezer (6 Months - 2 Years)</h3>
+                        <p><strong>Capabilities at This Level:</strong></p>
+                        <ul class="instruction-list">
+                            <li class="instruction-item">
+                                <strong>Individual Action Freezing:</strong> Immobilize specific actions of specific people for short periods. 
+                                Stop someone from gossiping about you for a week, freeze a colleague's ability to interrupt you during presentations, 
+                                prevent an aggressor from physical violence temporarily. Single-target, single-action precision work.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Basic Shielding:</strong> Construct and maintain 3-layer personal shields (physical, emotional, mental). 
+                                Basic protection that prevents most casual attacks and energy drains. Not yet mastery-level but functional defense.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Environmental Stabilization:</strong> Freeze chaotic environments temporarily - calm a tense meeting room, 
+                                create stillness in crowded spaces, stop escalating arguments around you. Affecting atmosphere rather than individuals.
+                            </li>
+                        </ul>
+                        <p><strong>Advancement Requirement:</strong> Maintain consistent shielding for 90 consecutive days without breaks, 
+                        and successfully freeze 21 individual human actions with documented outcomes. Pass the "hostile encounter test" - 
+                        freeze aggression in a real-world confrontation without physical conflict.</p>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Level 3: Journeyman Paralyst (2-5 Years)</h3>
+                        <p><strong>Capabilities at This Level:</strong></p>
+                        <ul class="instruction-list">
+                            <li class="instruction-item">
+                                <strong>Multi-Target Immobilization:</strong> Freeze groups simultaneously - stop an entire hostile team's ability 
+                                to coordinate against you, immobilize office politics networks, crystallize group gossip patterns. Affecting multiple 
+                                consciousness streams at once.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Extended Duration Freezing:</strong> Maintain immobilizations for months rather than hours/days. Long-term 
+                                pattern crystallization that doesn't require constant reinforcement. The target remains frozen until you consciously release them.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Selective Aspect Freezing:</strong> Freeze ONLY specific aspects of a person (their anger toward you but not 
+                                toward others, their ability to lie but not to tell truth, their greed but not legitimate ambition). Surgical precision 
+                                in personality immobilization.
+                            </li>
+                        </ul>
+                        <p><strong>Advancement Requirement:</strong> Successfully maintain 5-layer shielding continuously for 1 year. Freeze 7 complex 
+                        targets (powerful individuals with spiritual protection) with measurable success. Demonstrate ability to precisely freeze one 
+                        personality trait while leaving others mobile.</p>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Level 4: Adept Crystallizer (5-10 Years)</h3>
+                        <p><strong>Capabilities at This Level:</strong></p>
+                        <ul class="instruction-list">
+                            <li class="instruction-item">
+                                <strong>Institutional Freezing:</strong> Immobilize entire organizations' capacity to act against you. Stop a corporation's 
+                                legal department from filing suit, freeze a government agency's investigation progress, crystallize a competitor's entire 
+                                strategic planning. Affecting organizational consciousness, not just individuals.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Karmic Pattern Immobilization:</strong> Freeze negative destiny patterns before they manifest. Stop inherited 
+                                family curses from activating, immobilize past-life negative karma from crystallizing, prevent astrological negative transits 
+                                from affecting you. Working at causal level beyond material manifestation.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Contagious Immobilization:</strong> Your personal stillness field becomes so powerful that simply being near you 
+                                calms/freezes chaos. Hostile people automatically become peaceful in your presence without active technique application. 
+                                Your mere existence is immobilizing influence.
+                            </li>
+                        </ul>
+                        <p><strong>Advancement Requirement:</strong> Freeze an institutional threat successfully (documented outcome). Demonstrate three 
+                        instances of karmic pattern crystallization with clear before/after results. Maintain such powerful shielding that 10 independent 
+                        people report feeling unusual calm/stillness when near you.</p>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Level 5: Master of Stillness (10-20 Years)</h3>
+                        <p><strong>Capabilities at This Level:</strong></p>
+                        <ul class="instruction-list">
+                            <li class="instruction-item">
+                                <strong>Reality Pausing:</strong> Create localized "time停 bubbles" where normal cause-effect flow suspends. Everything 
+                                inside the bubble freezes including thoughts, emotions, physical processes. Like hitting cosmic pause button on a specific 
+                                region of space-time. Duration: minutes to hours.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Consciousness Stasis:</strong> Place targets in complete consciousness suspension - not sleep, not unconsciousness, 
+                                but frozen awareness. They remain technically awake but cannot process thoughts or make decisions. Used for extreme situations 
+                                requiring total immobilization without physical harm.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Defensive Autonomy:</strong> Your immobilization systems operate automatically without conscious activation. Threats 
+                                freeze themselves upon forming hostile intent toward you. Your energetic field has "learned" to crystallize danger independently. 
+                                Protection without effort.
+                            </li>
+                        </ul>
+                        <p><strong>Advancement Requirement:</strong> Demonstrate reality pausing with multiple witnesses (5+ people experience time anomaly). 
+                        Place 3 separate individuals in consciousness stasis with their informed consent (ethical demonstration). Have documented evidence 
+                        of 20+ instances where threats automatically dissolved without your conscious intervention.</p>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Level 6: Grandmaster Paralyst (20-40 Years)</h3>
+                        <p><strong>Capabilities at This Level:</strong></p>
+                        <ul class="instruction-list">
+                            <li class="instruction-item">
+                                <strong>Mass Immobilization:</strong> Freeze entire cities' aggressive energy during riots/conflicts. Stop thousands of 
+                                people's hostile patterns simultaneously through pure consciousness projection. This is the level where individual practice 
+                                becomes service to collective humanity.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Historical Pattern Freezing:</strong> Immobilize ancient negative patterns that have been active for centuries. 
+                                Stop generational trauma cycles, freeze racial/religious hatred patterns, crystallize institutional corruption that spans 
+                                decades. Working with collective unconscious immobilization.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Teaching Through Stillness:</strong> You can initiate others into stambhan consciousness through touch or presence 
+                                alone. No ritual needed - your energetic signature carries immobilization knowledge that transfers to students automatically. 
+                                Living transmission of the crystallization principle.
+                            </li>
+                        </ul>
+                        <p><strong>Advancement Requirement:</strong> Documented evidence of affecting mass consciousness (hundreds/thousands experiencing 
+                        sudden calm during chaos with your intervention). Successfully freeze and heal a multi-generational trauma pattern with measurable 
+                        family/community outcome. Initiate 10 students who demonstrate Level 2 capabilities within months of your contact.</p>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Level 7: Living Stillness (40+ Years / Lifetime Achievement)</h3>
+                        <p><strong>Capabilities at This Level:</strong></p>
+                        <ul class="instruction-list">
+                            <li class="instruction-item">
+                                <strong>Embodied Immobilization:</strong> You ARE stambhan. Your physical body becomes a walking crystallization field. 
+                                Chaos cannot exist in your presence. Violence stops, hatred dissolves, fear freezes not through technique but through your 
+                                mere existence. You've become the living principle of stillness.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Death Pattern Mastery:</strong> You can freeze your own aging/death process, extending life through conscious 
+                                immobilization of cellular decay. Multiple historical accounts of Stambhan masters living 150+ years through this technology. 
+                                The ultimate self-directed crystallization.
+                            </li>
+                            <li class="instruction-item">
+                                <strong>Reality Architect:</strong> You don't just freeze negative patterns - you design new reality frameworks where negative 
+                                patterns cannot exist. Creating zones of permanent peace, regions where violence is physically impossible, spaces where lies 
+                                automatically freeze in the speaker's throat. You're editing reality's code at fundamental level.
+                            </li>
+                        </ul>
+                        <p><strong>Recognition:</strong> This level cannot be self-proclaimed. It's recognized by seeing clear evidence of your existence 
+                        altering regional/global consciousness patterns over decades. Your students become grandmasters. Your presence creates permanent 
+                        zones of stillness. You're remembered as a historical force of peace/crystallization long after physical death.</p>
+                    </div>
+
+                    <div class="warning-box">
+                        <h4>🏆 CRITICAL MASTERY TRUTH</h4>
+                        <p>
+                            These levels are not ego achievements - they're service benchmarks. Each level represents increased capacity to prevent suffering 
+                            and create peace. The moment you use advanced stambhan for petty ego battles, you DROP levels immediately. Mastery in tantric 
+                            technology is not a certificate you earn and keep - it's a living relationship with consciousness that demands constant integrity. 
+                            Many "masters" have fallen to Level 1 through single ego-driven action. Stay humble, stay pure, stay in service.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="footer-brand">TANTRIC PROTOCOL ONLINE</div>
+                <div class="footer-tagline">Advanced Consciousness Technologies • ShivaKali Ashram</div>
+                
+                <div class="footer-links">
+                    <a href="index.html" class="footer-link">Core Powers</a>
+                    <a href="vashikaran.html" class="footer-link">Vashikaran</a>
+                    <a href="uchchatan.html" class="footer-link">Uchchatan</a>
+                    <a href="../index.html" class="footer-link">Ashram Home</a>
+                </div>
+                
+                <div class="footer-divider"></div>
+                
+                <div class="footer-copyright">
+                    © 1489 ShivaKali Ashram • Force Immobilization Technologies • Acharya Anish
+                </div>
+                
+                <div class="footer-rights">
+                    <strong>🛡️ IMMOBILIZATION TECHNOLOGY NOTICE 🛡️</strong><br>
+                    This knowledge represents 5000+ years of refined tantric immobilization science. 
+                    These techniques are provided for spiritual evolution and consciousness mastery ONLY. 
+                    Misuse for control, manipulation, or ego gratification creates severe karmic consequences. 
+                    You accept full responsibility for all immobilization rituals performed. 
+                    The ShivaKali Ashram provides knowledge; you provide wisdom in its application.
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Scroll Progress Bar
+        window.addEventListener('scroll', function() {
+            const scrollProgress = document.getElementById('scroll-progress');
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = (window.scrollY / scrollHeight) * 100;
+            scrollProgress.style.width = scrolled + '%';
+        });
+
+        // Activate Crystal Cards
+        function activateCrystal(card) {
+            card.classList.toggle('activated');
+            if (card.classList.contains('activated')) {
+                console.log('❄️ CRYSTAL MECHANISM ACTIVATED ❄️');
+            }
+        }
+
+        // Unlock Vault
+        function unlockVault(door) {
+            const contents = door.nextElementSibling;
+            door.classList.toggle('unlocked');
+            contents.classList.toggle('unlocked');
+            
+            if (door.classList.contains('unlocked')) {
+                const lock = door.querySelector('.vault-lock');
+                lock.textContent = '🔓';
+                console.log('🔐 VAULT UNLOCKED - SACRED PROTOCOLS ACCESSIBLE 🔐');
+            } else {
+                const lock = door.querySelector('.vault-lock');
+                lock.textContent = '🔐';
+            }
+        }
+
+        // Toggle Collapsible Sections
+        function toggleSection(header) {
+            const content = header.nextElementSibling;
+            const allHeaders = document.querySelectorAll('.section-header');
+            const allContents = document.querySelectorAll('.section-content');
+            
+            allHeaders.forEach(h => {
+                if (h !== header) h.classList.remove('active');
+            });
+            allContents.forEach(c => {
+                if (c !== content) c.classList.remove('active');
+            });
+            
+            header.classList.toggle('active');
+            content.classList.toggle('active');
+            
+            if (header.classList.contains('active')) {
+                console.log('🛡️ IMMOBILIZATION SECTION ACTIVATED 🛡️');
+            }
+        }
+
+        // Disable right-click on mantra boxes
+        document.querySelectorAll('.mantra-box').forEach(box => {
+            box.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                console.log('🔒 Sacred Knowledge Protected');
+            });
+        });
+
+        // Brand badge easter egg
+        let badgeClicks = 0;
+        document.querySelector('.brand-badge').addEventListener('click', function() {
+            badgeClicks++;
+            if (badgeClicks === 7) {
+                console.log('🛡️⚙️ STAMBHAN MASTER PROTOCOL UNLOCKED ⚙️🛡️\n\n' +
+                           '❄️ Reality Crystallization Systems: ONLINE\n' +
+                           '🔒 Pattern Immobilization Engine: ACTIVE\n' +
+                           '⚙️ Time Dilation Field Generator: CALIBRATED\n' +
+                           '🛡️ Absolute Defense Mode: ENABLED\n\n' +
+                           'You have accessed the hidden immobilization consciousness protocols.\n' +
+                           'All hostile patterns will now automatically freeze in your presence.');
+                badgeClicks = 0;
+            }
+        });
+
+        // Entrance animations
+        window.addEventListener('load', function() {
+            console.log('🛡️ STAMBHAN IMMOBILIZATION PROTOCOL INITIALIZED 🛡️\n' +
+                       'Pattern Crystallization Systems: ACTIVE\n' +
+                       'Reality Freezing Engine: CALIBRATED\n' +
+                       'Consciousness Lock Mode: READY');
+        });
+
+        // Keyboard shortcut - Press 'S' to reveal stambhan secrets
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 's' || e.key === 'S') {
+                console.log('🔒 STAMBHAN SECRET REVEALED 🔒\n\n' +
+                           'The true power of Stambhan lies not in stopping others,\n' +
+                           'but in achieving such inner stillness that chaos cannot touch you.\n\n' +
+                           'Master your own patterns first, and hostile forces freeze automatically.');
+            }
+        });
+    </script>
+</body>
+</html>

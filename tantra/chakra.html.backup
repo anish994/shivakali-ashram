@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <title>⚛️ CHAKRA TECHNOLOGIES - Seven Gates to Infinite Consciousness</title>
+    
+    <!-- Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Cinzel:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Chakra Technologies Theme - Cosmic Energy Centers */
+        :root {
+            --chakra-deep: #000000;
+            --chakra-cosmic: #1a1a2e;
+            --chakra-energy: #16213e;
+            --muladhara: #DC143C;
+            --svadhisthana: #FF8C00;
+            --manipura: #FFD700;
+            --anahata: #00C853;
+            --vishuddha: #2196F3;
+            --ajna: #673AB7;
+            --sahasrara: #E1BEE7;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --text-gold: #FFD700;
+            --glow-cosmic: rgba(103, 58, 183, 0.6);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--chakra-deep);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        /* Energy Progress Bar */
+        #energy-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 5px;
+            background: linear-gradient(90deg, 
+                var(--muladhara), 
+                var(--svadhisthana), 
+                var(--manipura),
+                var(--anahata),
+                var(--vishuddha),
+                var(--ajna),
+                var(--sahasrara)
+            );
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            z-index: 10000;
+            transition: width 0.1s ease;
+        }
+
+        /* Cosmic Background */
+        .page-container {
+            position: relative;
+            min-height: 100vh;
+        }
+
+        .void-layer {
+            position: fixed;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 50% 50%, rgba(103, 58, 183, 0.15) 0%, transparent 50%),
+                url('../pictures/tantra demo page.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            filter: brightness(0.4);
+            z-index: 1;
+        }
+
+        .stars-layer {
+            position: fixed;
+            inset: 0;
+            z-index: 2;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .content-layer {
+            position: relative;
+            z-index: 3;
+            padding: 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Navigation Buttons */
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            background: linear-gradient(135deg, rgba(103, 58, 183, 0.2), rgba(0, 0, 0, 0.4));
+            border: 2px solid rgba(103, 58, 183, 0.5);
+            border-radius: 12px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(103, 58, 183, 0.3);
+            min-height: 48px;
+            min-width: 48px;
+        }
+
+        .nav-button:hover {
+            background: linear-gradient(135deg, rgba(103, 58, 183, 0.4), rgba(0, 0, 0, 0.6));
+            border-color: var(--ajna);
+            box-shadow: 0 6px 25px rgba(103, 58, 183, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero-cosmic {
+            text-align: center;
+            padding: 4rem 1rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .cosmic-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--text-primary), var(--ajna), var(--text-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 80px rgba(103, 58, 183, 0.5);
+            margin-bottom: 1.5rem;
+            letter-spacing: 3px;
+            animation: titlePulse 6s ease-in-out infinite;
+        }
+
+        @keyframes titlePulse {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.3); }
+        }
+
+        .cosmic-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.8rem);
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .cosmic-intro {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            line-height: 1.8;
+            color: var(--text-secondary);
+            max-width: 900px;
+            margin: 0 auto 3rem;
+        }
+
+        /* Stats Display */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(103, 58, 183, 0.1), rgba(0, 0, 0, 0.4));
+            border: 2px solid rgba(103, 58, 183, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            border-color: var(--ajna);
+            box-shadow: 0 0 30px rgba(103, 58, 183, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--text-gold);
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Chakra Wheel */
+        .chakra-wheel-container {
+            max-width: 700px;
+            margin: 4rem auto;
+            position: relative;
+            aspect-ratio: 1;
+        }
+
+        .wheel-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, var(--chakra-cosmic), var(--chakra-deep));
+            border: 3px solid rgba(103, 58, 183, 0.5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            text-align: center;
+            font-size: 0.9rem;
+            z-index: 10;
+            box-shadow: 0 0 40px rgba(103, 58, 183, 0.4);
+        }
+
+        .chakra-point {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            border: 3px solid;
+            z-index: 5;
+            text-decoration: none;
+            color: white;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+        }
+
+        .chakra-point:hover {
+            transform: scale(1.3);
+            z-index: 100;
+        }
+
+        .chakra-name {
+            font-size: 0.8rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .chakra-mantra {
+            font-size: 0.7rem;
+            opacity: 0.9;
+        }
+
+        /* Chakra Grid */
+        .chakras-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .chakra-card {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(26, 26, 46, 0.6));
+            border: 2px solid rgba(103, 58, 183, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .chakra-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 5px;
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+
+        .chakra-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 10px 40px rgba(103, 58, 183, 0.4);
+        }
+
+        .chakra-card:hover::before {
+            width: 100%;
+            opacity: 0.1;
+        }
+
+        .chakra-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .chakra-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .chakra-title-group h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .chakra-title-group p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .chakra-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .chakra-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .meta-tag {
+            padding: 0.4rem 0.9rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chakra-location {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        /* Wisdom Section */
+        .wisdom-section {
+            margin: 4rem 0;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-primary);
+            text-shadow: 0 0 30px rgba(103, 58, 183, 0.5);
+        }
+
+        .wisdom-cards {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .wisdom-card {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(26, 26, 46, 0.7));
+            border: 2px solid rgba(103, 58, 183, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .wisdom-card:hover {
+            border-color: rgba(103, 58, 183, 0.6);
+            box-shadow: 0 5px 30px rgba(103, 58, 183, 0.3);
+        }
+
+        .wisdom-card.warning {
+            border-color: rgba(220, 20, 60, 0.4);
+        }
+
+        .wisdom-card.warning:hover {
+            border-color: rgba(220, 20, 60, 0.7);
+        }
+
+        .wisdom-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-gold);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .wisdom-card.warning .wisdom-title {
+            color: #ff6b6b;
+        }
+
+        .wisdom-text {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        .chakra-footer {
+            margin-top: 5rem;
+            padding: 3rem 2rem;
+            background: linear-gradient(180deg, transparent, rgba(103, 58, 183, 0.1));
+            border-top: 3px solid rgba(103, 58, 183, 0.3);
+            text-align: center;
+        }
+
+        .footer-brand {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--text-gold);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 30px rgba(103, 58, 183, 0.6);
+        }
+
+        .footer-tagline {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .footer-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--text-gold);
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+
+        .footer-divider {
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--ajna), 
+                var(--text-gold),
+                var(--ajna),
+                transparent
+            );
+            margin: 2rem auto;
+            box-shadow: 0 0 20px rgba(103, 58, 183, 0.4);
+        }
+
+        .footer-copyright {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {
+            .content-layer { padding: 0.5rem; }
+            .hero-cosmic { padding: 2rem 1rem; }
+            .nav-buttons { gap: 0.75rem; }
+            .nav-button { padding: 0.75rem 1.25rem; font-size: 0.9rem; }
+            .stats-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .chakra-wheel-container { max-width: 90vw; margin: 2rem auto; }
+            .wheel-center { width: 100px; height: 100px; font-size: 0.7rem; }
+            .chakra-point { width: 70px; height: 70px; }
+            .chakra-name { font-size: 0.65rem; }
+            .chakra-mantra { font-size: 0.55rem; }
+            .chakras-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .chakra-card { padding: 1.5rem; }
+            .wisdom-card { padding: 1.5rem; }
+            
+            /* Disable heavy animations on mobile */
+            .void-layer { animation: none !important; }
+            .cosmic-title { animation: none !important; }
+            .star { animation: none !important; }
+        }
+    </style>
+</head>
+<body>
+    <div id="energy-progress"></div>
+    
+    <div class="page-container">
+        <div class="void-layer"></div>
+        <div class="stars-layer" id="stars"></div>
+        
+        <div class="content-layer">
+            <!-- Navigation -->
+            <div class="nav-buttons">
+                <a href="index.html" class="nav-button">
+                    <span>←</span>
+                    <span>Back to Tantra Sciences</span>
+                </a>
+                <a href="../index.html" class="nav-button">
+                    <span>🏠</span>
+                    <span>Ashram Home</span>
+                </a>
+                <a href="kundalini.html" class="nav-button">
+                    <span>🐍</span>
+                    <span>Kundalini System</span>
+                </a>
+            </div>
+
+            <!-- Hero Section -->
+            <header class="hero-cosmic">
+                <h1 class="cosmic-title">CHAKRA TECHNOLOGIES</h1>
+                <p class="cosmic-subtitle">Ancient Tantric Wisdom Meets Consciousness Engineering</p>
+                <div class="cosmic-intro">
+                    Access rare esoteric knowledge from hidden tantric texts. Discover activation protocols, 
+                    advanced siddhis, and secret techniques preserved by masters across millennia. 
+                    <strong>This is not basic chakra information—this is the deep web of spiritual technology.</strong>
+                </div>
+
+                <!-- Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">7</div>
+                        <div class="stat-label">Energy Centers</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">108</div>
+                        <div class="stat-label">Day Protocols</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">72,000</div>
+                        <div class="stat-label">Nadis System</div>
+                    </div>
+                </div>
+
+                <!-- Chakra Wheel -->
+                <h2 style="font-family: 'Cinzel', serif; font-size: 2.5rem; margin-bottom: 2rem; color: var(--text-secondary);">
+                    The Cosmic Energy Wheel
+                </h2>
+                <div class="chakra-wheel-container" id="chakraWheel">
+                    <div class="wheel-center">
+                        COSMIC<br>ENERGY
+                    </div>
+                </div>
+                <p style="color: var(--text-secondary); margin-top: 2rem; font-size: 0.9rem;">
+                    Click any chakra to explore its mysteries
+                </p>
+            </header>
+
+            <!-- Section Title -->
+            <h2 class="section-title">Seven Gates to Infinite Consciousness</h2>
+
+            <!-- Chakra Cards Grid -->
+            <div class="chakras-grid" id="chakrasGrid"></div>
+
+            <!-- Wisdom Section -->
+            <section class="wisdom-section">
+                <h2 class="section-title">Essential Wisdom</h2>
+                <div class="wisdom-cards">
+                    <div class="wisdom-card warning">
+                        <h3 class="wisdom-title">
+                            <span>⚡</span>
+                            Kundalini Warning
+                        </h3>
+                        <p class="wisdom-text">
+                            Kundalini awakening without proper preparation can cause severe physical and psychological 
+                            disturbances. Always work with a qualified guru. The practices described here are for 
+                            informational purposes - forced activation is dangerous.
+                        </p>
+                    </div>
+
+                    <div class="wisdom-card">
+                        <h3 class="wisdom-title">
+                            <span>🧠</span>
+                            Integration Note
+                        </h3>
+                        <p class="wisdom-text">
+                            Chakra activation is not linear. Energy may open higher chakras before lower ones stabilize. 
+                            The goal is balanced activation of all centers, not just dramatic experiences.
+                        </p>
+                    </div>
+
+                    <div class="wisdom-card">
+                        <h3 class="wisdom-title">
+                            <span>✨</span>
+                            Secret Practice
+                        </h3>
+                        <p class="wisdom-text">
+                            The ultimate secret across all traditions: consistency matters more than intensity. 20 minutes 
+                            of daily practice for years surpasses 20 hours of occasional practice. The path is gradual 
+                            purification, not forceful rupture.
+                        </p>
+                    </div>
+
+                    <div class="wisdom-card">
+                        <h3 class="wisdom-title">
+                            <span>👁️</span>
+                            Siddhi Warning
+                        </h3>
+                        <p class="wisdom-text">
+                            Siddhis (powers) are byproducts of practice, not goals. Attachment to them creates new bondage. 
+                            True masters often hide their abilities.
+                        </p>
+                    </div>
+
+                    <div class="wisdom-card">
+                        <h3 class="wisdom-title">
+                            <span>👑</span>
+                            Guru Principle
+                        </h3>
+                        <p class="wisdom-text">
+                            While self-practice is valuable, transmission from an enlightened guru accelerates progress 
+                            exponentially. The guru's awakened energy field (Darshan Shakti) directly activates dormant 
+                            potentials.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="chakra-footer">
+                <div class="footer-brand">॥ CHAKRA TECHNOLOGIES ॥</div>
+                <div class="footer-tagline">Ancient Wisdom • Modern Interface • Consciousness Engineering</div>
+                
+                <div class="footer-divider"></div>
+                
+                <div style="max-width: 600px; margin: 0 auto 2rem; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">
+                    <p>
+                        This knowledge represents centuries of hidden tantric wisdom, preserved through secret lineages 
+                        and now accessible for the evolution of consciousness. Knowledge is power when wielded with 
+                        wisdom and ethical intent.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <a href="index.html" class="footer-link">Tantra Sciences</a>
+                    <span style="color: var(--ajna);">|</span>
+                    <a href="../index.html" class="footer-link">ShivaKali Ashram</a>
+                    <span style="color: var(--ajna);">|</span>
+                    <a href="kundalini.html" class="footer-link">Kundalini System</a>
+                    <span style="color: var(--ajna);">|</span>
+                    <a href="mailto:acharyaanish23@gmail.com" class="footer-link">Contact Acharya</a>
+                </div>
+
+                <div class="footer-divider"></div>
+
+                <div class="footer-copyright">
+                    © 1489 ShivaKali Ashram • Serpent Fire Technologies • Acharya Anish<br>
+                    <span style="color: var(--text-gold); font-size: 0.85rem; margin-top: 0.5rem; display: block;">
+                        For educational and spiritual development purposes only. Practice with qualified guidance.
+                    </span>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Chakra data from your mock.js
+        const chakrasData = [
+            {
+                id: 1,
+                name: "Muladhara",
+                commonName: "Root Chakra",
+                location: "Base of spine, perineum",
+                color: "#DC143C",
+                element: "Earth (Prithvi)",
+                mantra: "LAM",
+                frequency: "396 Hz",
+                petals: 4,
+                description: "The foundation of consciousness, Muladhara is the seat of Kundalini Shakti - the primal cosmic energy coiled 3.5 times at the base of the spine. This is where survival meets spirituality, where physical reality anchors ethereal potential.",
+                icon: "🔥"
+            },
+            {
+                id: 2,
+                name: "Svadhisthana",
+                commonName: "Sacral Chakra",
+                location: "Lower abdomen, sacrum",
+                color: "#FF8C00",
+                element: "Water (Apas)",
+                mantra: "VAM",
+                frequency: "417 Hz",
+                petals: 6,
+                description: "The realm of creative and sexual energy, Svadhisthana governs pleasure, procreation, and emotional fluidity. This is the seat of primordial desire and the birthplace of artistic genius.",
+                icon: "⚡"
+            },
+            {
+                id: 3,
+                name: "Manipura",
+                commonName: "Solar Plexus Chakra",
+                location: "Naval region, solar plexus",
+                color: "#FFD700",
+                element: "Fire (Agni)",
+                mantra: "RAM",
+                frequency: "528 Hz",
+                petals: 10,
+                description: "The power center of personal will and transformation. Manipura is the furnace of spiritual alchemy where raw experiences are converted into wisdom and personal power.",
+                icon: "✨"
+            },
+            {
+                id: 4,
+                name: "Anahata",
+                commonName: "Heart Chakra",
+                location: "Center of chest, cardiac plexus",
+                color: "#00C853",
+                element: "Air (Vayu)",
+                mantra: "YAM",
+                frequency: "639 Hz",
+                petals: 12,
+                description: "The bridge between lower and upper chakras, Anahata is where individual consciousness merges with universal love. The 'unstruck sound' (Anahata Nada) emanates from here - the cosmic vibration beyond physical causation.",
+                icon: "💚"
+            },
+            {
+                id: 5,
+                name: "Vishuddha",
+                commonName: "Throat Chakra",
+                location: "Throat, cervical plexus",
+                color: "#2196F3",
+                element: "Ether (Akasha)",
+                mantra: "HAM",
+                frequency: "741 Hz",
+                petals: 16,
+                description: "The purification center and gateway to higher consciousness. Vishuddha transforms poison into nectar and enables authentic expression of inner truth.",
+                icon: "💬"
+            },
+            {
+                id: 6,
+                name: "Ajna",
+                commonName: "Third Eye Chakra",
+                location: "Between eyebrows, pineal gland",
+                color: "#673AB7",
+                element: "Beyond elements (Manas)",
+                mantra: "OM",
+                frequency: "852 Hz",
+                petals: 2,
+                description: "The command center of intuition and inner vision. Ajna is where duality dissolves, granting perception beyond the five senses and access to subtle dimensions of reality.",
+                icon: "👁️"
+            },
+            {
+                id: 7,
+                name: "Sahasrara",
+                commonName: "Crown Chakra",
+                location: "Crown of head, beyond physical",
+                color: "#E1BEE7",
+                element: "Beyond elements (Pure Consciousness)",
+                mantra: "Silence",
+                frequency: "963 Hz",
+                petals: 1000,
+                description: "The gateway to infinite consciousness and spiritual liberation. Sahasrara is where individual drops merge with the cosmic ocean, where all seeking ends and pure being remains.",
+                icon: "👑"
+            }
+        ];
+
+        // Generate stars
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+
+        // Generate chakra wheel
+        const wheelContainer = document.getElementById('chakraWheel');
+        const wheelHtml = wheelContainer.innerHTML; // Keep center
+
+        chakrasData.forEach((chakra, index) => {
+            const angle = (index * 360 / chakrasData.length) - 90;
+            const radius = 45; // percentage
+            const x = Math.cos(angle * Math.PI / 180) * radius;
+            const y = Math.sin(angle * Math.PI / 180) * radius;
+
+            const point = document.createElement('a');
+            point.href = `#chakra-${chakra.id}`;
+            point.className = 'chakra-point';
+            point.style.left = `calc(50% + ${x}%)`;
+            point.style.top = `calc(50% + ${y}%)`;
+            point.style.transform = 'translate(-50%, -50%)';
+            point.style.backgroundColor = chakra.color;
+            point.style.borderColor = chakra.color;
+            point.style.boxShadow = `0 0 30px ${chakra.color}80`;
+            point.innerHTML = `
+                <div class="chakra-name">${chakra.name}</div>
+                <div class="chakra-mantra">${chakra.mantra}</div>
+            `;
+            wheelContainer.appendChild(point);
+        });
+
+        // Generate chakra cards
+        const cardsGrid = document.getElementById('chakrasGrid');
+        chakrasData.forEach(chakra => {
+            const card = document.createElement('a');
+            card.href = `#chakra-${chakra.id}`;
+            card.className = 'chakra-card';
+            card.id = `chakra-${chakra.id}`;
+            card.style.setProperty('--chakra-color', chakra.color);
+            
+            card.innerHTML = `
+                <div class="chakra-header">
+                    <div class="chakra-icon" style="background: ${chakra.color}20; color: ${chakra.color};">
+                        ${chakra.icon}
+                    </div>
+                    <div class="chakra-title-group">
+                        <h3>${chakra.name}</h3>
+                        <p>${chakra.commonName}</p>
+                    </div>
+                </div>
+                <p class="chakra-description">${chakra.description}</p>
+                <div class="chakra-meta">
+                    <span class="meta-tag">${chakra.element}</span>
+                    <span class="meta-tag">${chakra.mantra}</span>
+                    <span class="meta-tag">${chakra.petals} petals</span>
+                </div>
+                <p class="chakra-location">📍 Location: ${chakra.location}</p>
+            `;
+            
+            // Set card border color on before pseudo-element
+            card.style.setProperty('--before-bg', chakra.color);
+            card.querySelector('.chakra-card::before')?.style.setProperty('background', chakra.color);
+            
+            // Apply color to ::before via inline style workaround
+            const style = document.createElement('style');
+            style.textContent = `
+                .chakra-card[id="chakra-${chakra.id}"]::before {
+                    background: ${chakra.color};
+                }
+            `;
+            document.head.appendChild(style);
+            
+            cardsGrid.appendChild(card);
+        });
+
+        // Scroll progress
+        window.addEventListener('scroll', function() {
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollPercent = (scrollTop / (documentHeight - windowHeight)) * 100;
+            
+            document.getElementById('energy-progress').style.width = scrollPercent + '%';
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Console easter egg
+        console.log('%c⚛️ CHAKRA TECHNOLOGIES LOADED ⚛️', 'color: #673AB7; font-size: 20px; font-weight: bold;');
+        console.log('%cYou have accessed the seven gates of consciousness...', 'color: #FFD700; font-size: 14px;');
+        console.log('%c108 days of practice await. Begin your journey.', 'color: #00C853; font-size: 12px;');
+    </script>
+</body>
+</html>

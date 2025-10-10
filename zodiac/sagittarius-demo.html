@@ -450,6 +450,22 @@
             transform: translateY(-2px);
             filter: drop-shadow(0 0 8px var(--primary-glow));
         }
+        @media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    header .gap-2 {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-button {
+        padding: 6px 12px;
+        font-size: 11px;
+    }
+}
         @keyframes animated-gradient {
             0% {
                 background-position: 0% 50%;

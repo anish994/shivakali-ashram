@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <title>🐍 KUNDALINI SYSTEM - Serpent Fire Awakening Protocol</title>
+    
+    <!-- Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Cinzel:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Kundalini Theme - Serpent Fire / Rising Energy / Cosmic Spine */
+        :root {
+            --kund-deep: #0a0000;
+            --kund-fire: #FF4500;
+            --kund-gold: #FFD700;
+            --kund-serpent: #8B0000;
+            --kund-spine: #4B0082;
+            --kund-crown: #9400D3;
+            --kund-electric: #00FFFF;
+            --text-primary: #ffffff;
+            --text-fire: #FF6347;
+            --text-gold: #FFD700;
+            --glow-fire: rgba(255, 69, 0, 0.8);
+            --glow-electric: rgba(0, 255, 255, 0.6);
+            --glow-crown: rgba(148, 0, 211, 0.7);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--kund-deep);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        /* Serpent Energy Progress Bar */
+        #serpent-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 6px;
+            background: linear-gradient(90deg, 
+                var(--kund-serpent), 
+                var(--kund-fire), 
+                var(--kund-gold),
+                var(--kund-electric),
+                var(--kund-crown)
+            );
+            box-shadow: 0 0 30px var(--glow-fire);
+            z-index: 10000;
+            transition: width 0.1s ease;
+            animation: energyPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes energyPulse {
+            0%, 100% { box-shadow: 0 0 30px var(--glow-fire); }
+            50% { box-shadow: 0 0 50px var(--glow-crown); }
+        }
+
+        /* 3-Layer Background - Cosmic Spine */
+        .page-container {
+            position: relative;
+            min-height: 100vh;
+            will-change: scroll-position;
+        }
+
+        .void-layer {
+            position: fixed;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 50% 10%, rgba(255, 69, 0, 0.2) 0%, transparent 40%),
+                radial-gradient(circle at 50% 90%, rgba(148, 0, 211, 0.2) 0%, transparent 40%),
+                linear-gradient(180deg,
+                    rgba(10, 0, 0, 0.95) 0%,
+                    rgba(75, 0, 130, 0.3) 50%,
+                    rgba(10, 0, 0, 0.95) 100%
+                ),
+                url('../pictures/tantra demo page.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            filter: brightness(0.5) saturate(1.5) hue-rotate(30deg);
+            z-index: 1;
+            animation: cosmicBreathing 20s ease-in-out infinite;
+        }
+        
+        @keyframes cosmicBreathing {
+            0%, 100% { filter: brightness(0.5) saturate(1.5) hue-rotate(30deg); }
+            50% { filter: brightness(0.6) saturate(1.8) hue-rotate(35deg); }
+        }
+
+        /* Serpent Pattern Layer */
+        .serpent-layer {
+            position: fixed;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 50% 0%, rgba(255, 69, 0, 0.15) 0%, transparent 30%),
+                radial-gradient(circle at 50% 100%, rgba(148, 0, 211, 0.15) 0%, transparent 30%),
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 200px,
+                    rgba(255, 215, 0, 0.02) 200px,
+                    rgba(255, 215, 0, 0.02) 202px
+                );
+            border: 4px solid rgba(255, 69, 0, 0.4);
+            box-shadow: 
+                inset 0 0 100px rgba(255, 69, 0, 0.2),
+                inset 0 0 80px rgba(148, 0, 211, 0.15);
+            z-index: 2;
+            animation: serpentBorder 15s ease-in-out infinite;
+        }
+        
+        @keyframes serpentBorder {
+            0%, 100% { 
+                border-color: rgba(255, 69, 0, 0.4);
+                box-shadow: inset 0 0 100px rgba(255, 69, 0, 0.2);
+            }
+            50% { 
+                border-color: rgba(148, 0, 211, 0.6);
+                box-shadow: inset 0 0 120px rgba(148, 0, 211, 0.3);
+            }
+        }
+
+        .content-layer {
+            position: relative;
+            z-index: 3;
+            padding: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Serpent Fire Badge */
+        .serpent-badge {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, var(--kund-fire), var(--kund-serpent));
+            border: 4px solid var(--kund-gold);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 
+                0 0 40px var(--glow-fire),
+                0 0 60px var(--glow-crown),
+                inset 0 0 30px rgba(255, 215, 0, 0.3);
+            z-index: 1000;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: serpentBreath 6s ease-in-out infinite;
+        }
+        
+        .serpent-badge:hover {
+            transform: scale(1.15) rotate(360deg);
+            box-shadow: 
+                0 0 60px var(--glow-fire),
+                0 0 80px var(--glow-crown),
+                inset 0 0 40px rgba(255, 215, 0, 0.5);
+        }
+        
+        @keyframes serpentBreath {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            25% { transform: scale(1.05) rotate(-5deg); }
+            75% { transform: scale(1.05) rotate(5deg); }
+        }
+        
+        .serpent-badge-icon {
+            font-size: 2.8rem;
+            filter: drop-shadow(0 0 20px rgba(255, 69, 0, 1));
+            margin-bottom: -5px;
+            animation: serpentCoil 4s ease-in-out infinite;
+        }
+        
+        @keyframes serpentCoil {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(20deg); }
+        }
+        
+        .serpent-badge-text {
+            font-family: 'Cinzel', serif;
+            font-size: 0.55rem;
+            font-weight: 700;
+            color: var(--text-gold);
+            text-align: center;
+            letter-spacing: 1px;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.9);
+        }
+
+        /* Navigation */
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.8rem;
+            background: linear-gradient(135deg, rgba(255, 69, 0, 0.2), rgba(139, 0, 0, 0.3));
+            border: 2px solid rgba(255, 69, 0, 0.5);
+            border-radius: 12px;
+            color: var(--text-gold);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(255, 69, 0, 0.3);
+            min-height: 48px;
+        }
+
+        .nav-button:hover {
+            border-color: var(--kund-gold);
+            box-shadow: 0 0 40px var(--glow-fire);
+            transform: translateY(-3px);
+        }
+
+        /* EPIC HERO INTRODUCTION */
+        .hero-awakening {
+            text-align: center;
+            padding: 3rem 1rem 4rem;
+            margin: 0 -1rem 3rem;
+            background: linear-gradient(180deg,
+                rgba(255, 69, 0, 0.2) 0%,
+                transparent 100%
+            );
+            border-bottom: 4px solid rgba(255, 69, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-awakening::before {
+            content: '🐍';
+            position: absolute;
+            font-size: 20rem;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.05;
+            z-index: 0;
+            animation: serpentRise 30s ease-in-out infinite;
+        }
+
+        @keyframes serpentRise {
+            0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+            50% { transform: translate(-50%, -45%) rotate(180deg); }
+        }
+
+        .cosmic-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 900;
+            color: var(--text-gold);
+            margin: 0 0 1rem;
+            letter-spacing: 8px;
+            text-shadow: 
+                0 0 40px rgba(255, 69, 0, 1),
+                0 0 80px rgba(148, 0, 211, 0.8),
+                6px 6px 0 rgba(0, 0, 0, 0.9);
+            position: relative;
+            z-index: 1;
+            animation: titlePulse 4s ease-in-out infinite;
+        }
+
+        @keyframes titlePulse {
+            0%, 100% { 
+                text-shadow: 
+                    0 0 40px rgba(255, 69, 0, 1),
+                    0 0 80px rgba(148, 0, 211, 0.8),
+                    6px 6px 0 rgba(0, 0, 0, 0.9);
+            }
+            50% { 
+                text-shadow: 
+                    0 0 60px rgba(255, 69, 0, 1),
+                    0 0 100px rgba(148, 0, 211, 1),
+                    6px 6px 0 rgba(0, 0, 0, 0.9);
+            }
+        }
+
+        .power-subtitle {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.2rem, 4vw, 2rem);
+            font-weight: 700;
+            background: linear-gradient(90deg, 
+                var(--kund-fire), 
+                var(--kund-gold), 
+                var(--kund-electric),
+                var(--kund-crown)
+            );
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 1rem 0 2rem;
+            letter-spacing: 4px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .awakening-intro {
+            max-width: 900px;
+            margin: 2.5rem auto;
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            color: var(--text-primary);
+            line-height: 2;
+            padding: 0 1.5rem;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+            position: relative;
+            z-index: 1;
+        }
+
+        .awakening-intro strong {
+            color: var(--text-fire);
+            text-shadow: 0 0 15px var(--glow-fire);
+        }
+
+        /* WARNING NOTICE - ADVANCED PRACTICES */
+        .power-warning {
+            background: linear-gradient(135deg, 
+                rgba(255, 69, 0, 0.2), 
+                rgba(139, 0, 0, 0.3)
+            );
+            border: 4px solid var(--kund-fire);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            text-align: center;
+            box-shadow: 0 0 60px rgba(255, 69, 0, 0.5);
+            animation: warningFlicker 3s ease-in-out infinite;
+        }
+
+        @keyframes warningFlicker {
+            0%, 100% { border-color: var(--kund-fire); }
+            50% { border-color: var(--text-gold); }
+        }
+
+        .power-warning h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            color: var(--text-fire);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 30px var(--glow-fire);
+        }
+
+        .power-warning p {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        /* Chakra Spine Visualization */
+        .chakra-spine {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+            margin: 4rem 0;
+            padding: 3rem 1rem;
+            background: linear-gradient(180deg,
+                rgba(139, 0, 0, 0.1) 0%,
+                rgba(75, 0, 130, 0.1) 100%
+            );
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .chakra-spine::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: linear-gradient(180deg,
+                var(--kund-serpent),
+                var(--kund-fire),
+                var(--kund-gold),
+                var(--kund-electric),
+                var(--kund-spine),
+                var(--kund-crown)
+            );
+            box-shadow: 0 0 20px var(--glow-fire);
+            z-index: 0;
+        }
+
+        .chakra-point {
+            background: linear-gradient(135deg, 
+                rgba(255, 69, 0, 0.15), 
+                rgba(75, 0, 130, 0.15)
+            );
+            border: 3px solid var(--kund-fire);
+            border-radius: 15px;
+            padding: 2rem;
+            width: 90%;
+            max-width: 700px;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .chakra-point:hover {
+            border-color: var(--kund-gold);
+            box-shadow: 0 0 40px var(--glow-fire);
+            transform: scale(1.02);
+        }
+
+        .chakra-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .chakra-icon {
+            font-size: 3rem;
+            filter: drop-shadow(0 0 15px rgba(255, 69, 0, 0.8));
+        }
+
+        .chakra-info h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--text-gold);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 20px var(--glow-fire);
+        }
+
+        .chakra-info p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-style: italic;
+        }
+
+        .chakra-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+        }
+
+        /* Advanced Techniques Section */
+        .forbidden-section {
+            margin: 4rem 0;
+            padding: 3rem;
+            background: linear-gradient(135deg, 
+                rgba(10, 0, 0, 0.98), 
+                rgba(75, 0, 130, 0.95)
+            );
+            border: 4px solid var(--kund-serpent);
+            border-radius: 20px;
+            box-shadow: 0 0 80px rgba(255, 69, 0, 0.4);
+            position: relative;
+        }
+
+        .forbidden-section::before {
+            content: '⚠️';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3.5rem;
+            background: var(--kund-deep);
+            padding: 0 25px;
+            filter: drop-shadow(0 0 30px rgba(255, 69, 0, 1));
+        }
+
+        .forbidden-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: var(--text-fire);
+            text-align: center;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 30px var(--glow-fire);
+        }
+
+        .technique-grid {
+            display: grid;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .technique-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .technique-card {
+            background: linear-gradient(135deg, 
+                rgba(255, 69, 0, 0.08), 
+                rgba(139, 0, 0, 0.12)
+            );
+            border: 2px solid rgba(255, 69, 0, 0.4);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .technique-card:hover {
+            border-color: var(--kund-gold);
+            box-shadow: 0 0 35px rgba(255, 69, 0, 0.5);
+            transform: translateY(-5px);
+        }
+
+        .technique-card h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: var(--text-gold);
+            margin-bottom: 1rem;
+            text-shadow: 0 0 15px var(--glow-fire);
+        }
+
+        .technique-card p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Dark Web Exclusive Content */
+        .exclusive-content {
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.99), 
+                rgba(139, 0, 0, 0.95)
+            );
+            border: 5px solid var(--kund-fire);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 4rem 0;
+            box-shadow: 
+                0 0 100px rgba(255, 69, 0, 0.6),
+                inset 0 0 80px rgba(0, 0, 0, 0.9);
+            position: relative;
+        }
+
+        .exclusive-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .exclusive-header h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.8rem;
+            color: var(--text-fire);
+            margin-bottom: 1rem;
+            text-shadow: 0 0 40px var(--glow-fire);
+        }
+
+        .exclusive-header p {
+            font-size: 1.2rem;
+            color: var(--text-gold);
+            font-style: italic;
+        }
+
+        .secret-technique {
+            background: linear-gradient(135deg, 
+                rgba(255, 69, 0, 0.1), 
+                rgba(75, 0, 130, 0.1)
+            );
+            border-left: 6px solid var(--kund-gold);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 0 15px 15px 0;
+        }
+
+        .secret-technique h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.6rem;
+            color: var(--text-gold);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 20px var(--glow-fire);
+        }
+
+        .secret-technique p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .secret-technique ul {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .secret-technique li {
+            padding: 0.75rem 0 0.75rem 2rem;
+            position: relative;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .secret-technique li::before {
+            content: '🔥';
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+
+        /* Sacred Mantra Box */
+        .sacred-mantra {
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.99), 
+                rgba(75, 0, 130, 0.95)
+            );
+            border: 5px solid var(--kund-gold);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem 0;
+            text-align: center;
+            box-shadow: 
+                0 0 80px var(--glow-crown),
+                inset 0 0 60px rgba(148, 0, 211, 0.3);
+            position: relative;
+        }
+
+        .sacred-mantra::before {
+            content: '🕉️';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 4rem;
+            background: var(--kund-deep);
+            padding: 0 25px;
+            filter: drop-shadow(0 0 30px rgba(255, 215, 0, 1));
+        }
+
+        .mantra-text {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            font-weight: 700;
+            color: var(--text-gold);
+            letter-spacing: 4px;
+            text-shadow: 0 0 30px var(--glow-fire);
+            margin: 2rem 0;
+            line-height: 2;
+        }
+
+        .mantra-translation {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+            margin-top: 2rem;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 5rem;
+            padding: 3rem 2rem;
+            background: linear-gradient(180deg, transparent, rgba(255, 69, 0, 0.1));
+            border-top: 4px solid rgba(255, 69, 0, 0.5);
+            text-align: center;
+        }
+
+        .footer-brand {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--text-gold);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 40px var(--glow-fire);
+        }
+
+        .footer-tagline {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .footer-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--text-gold);
+            text-shadow: 0 0 20px var(--glow-fire);
+        }
+
+        .footer-divider {
+            width: 60%;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--kund-fire), 
+                var(--kund-gold),
+                var(--kund-fire),
+                transparent
+            );
+            margin: 2rem auto;
+            box-shadow: 0 0 25px var(--glow-fire);
+        }
+
+        .footer-copyright {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Mobile Optimizations */
+        @media (max-width: 640px) {
+            .content-layer { padding: 0.5rem; }
+            .serpent-badge { 
+                width: 70px; 
+                height: 70px; 
+                top: 15px; 
+                right: 15px;
+                min-width: 70px;
+                min-height: 70px;
+            }
+            .serpent-badge-icon { font-size: 2rem; }
+            .serpent-badge-text { font-size: 0.5rem; }
+            .hero-awakening { padding: 2rem 0.75rem 2.5rem; }
+            .hero-awakening::before { font-size: 10rem; }
+            .power-warning { padding: 2rem 1.5rem; }
+            .chakra-spine { gap: 2rem; padding: 2rem 0.5rem; }
+            .chakra-point { width: 95%; padding: 1.5rem; }
+            .chakra-header { flex-direction: column; text-align: center; }
+            .forbidden-section { padding: 2rem 1.5rem; }
+            .exclusive-content { padding: 2rem 1.5rem; }
+            .secret-technique { padding: 1.5rem; }
+            .sacred-mantra { padding: 2rem 1.5rem; }
+            .technique-grid { grid-template-columns: 1fr; }
+            .nav-button { font-size: 0.9rem; padding: 0.75rem 1.5rem; }
+            .serpent-layer { border-width: 2px; }
+            
+            /* Disable heavy animations on mobile */
+            .void-layer { animation: none !important; }
+            .serpent-layer { animation: none !important; }
+            .serpent-badge { animation: none !important; }
+            .serpent-badge-icon { animation: none !important; }
+            .hero-awakening::before { animation: none !important; }
+            .cosmic-title { animation: none !important; }
+        }
+
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .content-layer { max-width: 900px; }
+        }
+    </style>
+</head>
+<body>
+    <div id="serpent-progress"></div>
+    
+    <div class="page-container">
+        <div class="void-layer"></div>
+        <div class="serpent-layer"></div>
+        
+        <div class="serpent-badge" onclick="console.log('🐍 SERPENT FIRE AWAKENING 🐍')">
+            <div class="serpent-badge-icon">🐍</div>
+            <div class="serpent-badge-text">KUNDALINI</div>
+        </div>
+        
+        <div class="content-layer">
+            <div class="nav-buttons">
+                <a href="index.html" class="nav-button">
+                    <span>←</span>
+                    <span>Back to Tantra Sciences</span>
+                </a>
+                <a href="../index.html" class="nav-button">
+                    <span>🏠</span>
+                    <span>Ashram Home</span>
+                </a>
+            </div>
+
+            <!-- EPIC HERO AWAKENING -->
+            <header class="hero-awakening">
+                <h1 class="cosmic-title">KUNDALINI</h1>
+                <p class="power-subtitle">THE SERPENT FIRE • COSMIC SPINE ACTIVATION • ULTIMATE POWER AWAKENING</p>
+                <div class="awakening-intro">
+                    You stand at the threshold of the most <strong>powerful, dangerous, and transformative</strong> 
+                    force in human consciousness. Kundalini is not meditation - it is <strong>controlled detonation 
+                    of your energetic core</strong>. This is the serpent that sleeps coiled at the base of your spine, 
+                    holding 99% of your life force dormant. When awakened, it rises like <strong>liquid fire through 
+                    your nervous system</strong>, activating dormant DNA, exploding chakras open, and fundamentally 
+                    rewriting your consciousness at the quantum level. This knowledge has been <strong>hidden, 
+                    suppressed, and guarded</strong> for thousands of years. You're about to understand why.
+                </div>
+            </header>
+
+            <!-- ADVANCED PRACTICE WARNING -->
+            <div class="power-warning">
+                <h2>⚠️ ADVANCED PRACTITIONER WARNING ⚠️</h2>
+                <p>
+                    <strong>Kundalini awakening is NOT for beginners.</strong> Premature or improper activation 
+                    can cause: spontaneous full-body convulsions, uncontrollable energy surges, psychological 
+                    disintegration, permanent changes to perception and consciousness, physical damage to nervous 
+                    system, psychosis-like states that can last months or years.
+                </p>
+                <p>
+                    This page contains <strong>genuine esoteric techniques</strong> unavailable elsewhere. We document 
+                    the complete traditional methods including advanced and potentially dangerous practices. 
+                    <strong>Approach with extreme caution.</strong> If you've never worked with energy, chakras, 
+                    or pranayama - start there first. Kundalini is the <strong>final boss of consciousness work.</strong>
+                </p>
+                <p style="color: var(--text-fire); font-size: 1.2rem; font-weight: 700;">
+                    DO NOT attempt advanced practices without proper preparation. This is not symbolic - 
+                    this is REAL ENERGY that can physically harm you.
+                </p>
+            </div>
+
+            <!-- CHAKRA SPINE VISUALIZATION -->
+            <div class="chakra-spine">
+                <div class="chakra-point">
+                    <div class="chakra-header">
+                        <div class="chakra-icon">👑</div>
+                        <div class="chakra-info">
+                            <h3>SAHASRARA • Crown Chakra</h3>
+                            <p>Thousand-Petaled Lotus • Divine Unity • Pure Consciousness</p>
+                        </div>
+                    </div>
+                    <div class="chakra-content">
+                        The ultimate destination. When Kundalini reaches Crown, you experience <strong>Samadhi</strong> - 
+                        complete dissolution of ego, merger with infinite consciousness, direct perception of reality's 
+                        fundamental nature. This is not metaphor - practitioners report identical experiences across cultures 
+                        and centuries: dissolution of body boundaries, perception of all things as one consciousness, 
+                        timeless eternity in single moments.
+                    </div>
+                </div>
+
+                <div class="chakra-point">
+                    <div class="chakra-header">
+                        <div class="chakra-icon">🔮</div>
+                        <div class="chakra-info">
+                            <h3>AJNA • Third Eye Chakra</h3>
+                            <p>Command Center • Inner Vision • Psychic Perception</p>
+                        </div>
+                    </div>
+                    <div class="chakra-content">
+                        When Kundalini activates Ajna, the pineal gland floods with energy. Reports include: 
+                        <strong>visions with eyes closed</strong>, perception of energy fields around people/objects, 
+                        precognitive dreams that manifest, ability to "know" things without logical pathway, seeing geometric 
+                        patterns underlying reality. Traditional texts call this "opening the divine eye."
+                    </div>
+                </div>
+
+                <div class="chakra-point">
+                    <div class="chakra-header">
+                        <div class="chakra-icon">🎤</div>
+                        <div class="chakra-info">
+                            <h3>VISHUDDHA • Throat Chakra</h3>
+                            <p>Expression • Truth • Creative Power</p>
+                        </div>
+                    </div>
+                    <div class="chakra-content">
+                        Kundalini through throat unlocks <strong>Vak Siddhi</strong> - power of speech manifestation. 
+                        Words gain unusual power: what you say tends to manifest, people feel compelled to listen, 
+                        your voice carries unusual authority. Traditional yogis would take vows of silence after 
+                        throat activation to prevent accidental manifestation through casual speech.
+                    </div>
+                </div>
+
+                <div class="chakra-point">
+                    <div class="chakra-header">
+                        <div class="chakra-icon">💚</div>
+                        <div class="chakra-info">
+                            <h3>ANAHATA • Heart Chakra</h3>
+                            <p>Unconditional Love • Compassion • Emotional Alchemy</p>
+                        </div>
+                    </div>
+                    <div class="chakra-content">
+                        Heart activation can be <strong>overwhelming</strong>. Sudden ability to feel others' emotions 
+                        as your own, waves of unconditional love for strangers, spontaneous crying from beauty, 
+                        heart physically feeling like it's expanding. This is where many kundalini awakenings stall - 
+                        the emotional intensity is too much to process.
+                    </div>
+                </div>
+
+                <div class="chakra-point">
+                    <div class="chakra-header">
+                        <div class="chakra-icon">☀️</div>
+                        <div class="chakra-info">
+                            <h3>MANIPURA • Solar Plexus Chakra</h3>
+                            <p>Personal Power • Will • Transformation Fire</p>
+                        </div>
+                    </div>
+                    <div class="chakra-content">
+                        Solar plexus activation generates <strong>literal heat</strong>. Body temperature rises, 
+                        sweating even in cold rooms, feeling of fire in belly. This is Agni - digestive fire that 
+                        burns karma and transforms consciousness. Practitioners report ability to consciously direct 
+                        this fire to "burn through" psychological blocks.
+                    </div>
+                </div>
+
+                <div class="chakra-point">
+                    <div class="chakra-header">
+                        <div class="chakra-icon">🌊</div>
+                        <div class="chakra-info">
+                            <h3>SVADHISTHANA • Sacral Chakra</h3>
+                            <p>Creative Energy • Sexual Power • Emotional Flow</p>
+                        </div>
+                    </div>
+                    <div class="chakra-content">
+                        Sacral activation brings <strong>intense creativity and sexual energy</strong>. This is where 
+                        many get stuck - the energy is pleasurable and they don't want it to move higher. Traditional 
+                        practice: transmute sexual energy upward through breath and visualization rather than releasing 
+                        it physically. This builds the power needed for higher chakras.
+                    </div>
+                </div>
+
+                <div class="chakra-point">
+                    <div class="chakra-header">
+                        <div class="chakra-icon">🔥</div>
+                        <div class="chakra-info">
+                            <h3>MULADHARA • Root Chakra</h3>
+                            <p>Survival • Foundation • Serpent's Nest</p>
+                        </div>
+                    </div>
+                    <div class="chakra-content">
+                        This is where SHE sleeps - Kundalini Shakti coiled 3.5 times around the base of spine. 
+                        Activation feels like: <strong>electric shock at tailbone, intense heat rising from base of spine, 
+                        feeling of something alive moving inside you.</strong> Once awakened, there's no going back. 
+                        The serpent WILL rise - the only question is whether you're prepared for the journey.
+                    </div>
+                </div>
+            </div>
+
+            <!-- FORBIDDEN ADVANCED TECHNIQUES -->
+            <section class="forbidden-section">
+                <h2 class="forbidden-title">🔥 TRADITIONAL AWAKENING METHODS 🔥</h2>
+                <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem; color: rgba(255,255,255,0.9);">
+                    These are the <strong>actual techniques</strong> passed down through authentic lineages. 
+                    Not watered-down Western interpretations - the real practices that actually work.
+                </p>
+
+                <div class="technique-grid">
+                    <div class="technique-card">
+                        <h4>🌬️ BHASTRIKA PRANAYAMA (Bellows Breath)</h4>
+                        <p>
+                            <strong>The Nuclear Option.</strong> Rapid forceful breathing that supercharges nervous system. 
+                            Traditional method: 100+ rapid breaths building to explosive intensity, then complete retention 
+                            while visualizing fire rising from base chakra. Can trigger spontaneous Kundalini activation. 
+                            Warning: Can cause hyperventilation, fainting, or uncontrolled energy release.
+                        </p>
+                    </div>
+
+                    <div class="technique-card">
+                        <h4>🔒 MULA BANDHA (Root Lock)</h4>
+                        <p>
+                            <strong>Direct Pressure on Serpent's Nest.</strong> Rhythmic contraction of perineum combined 
+                            with breath retention. Traditional intensity: hold contraction for minutes while visualizing 
+                            squeezing energy upward. Advanced practitioners combine with sexual energy transmutation. 
+                            This physically compresses the nerve cluster where Kundalini rests.
+                        </p>
+                    </div>
+
+                    <div class="technique-card">
+                        <h4>🧘 SHAKTIPAT (Energy Transmission)</h4>
+                        <p>
+                            <strong>Instant Activation via Guru.</strong> Awakened master touches your forehead/spine 
+                            and transfers activated Kundalini directly. Most powerful but most dangerous method - you get 
+                            full awakening without gradual preparation. Many recipients experience psychotic breaks. 
+                            Traditional safeguard: years of preparation before receiving Shaktipat.
+                        </p>
+                    </div>
+
+                    <div class="technique-card">
+                        <h4>🐍 SERPENT VISUALIZATION</h4>
+                        <p>
+                            <strong>Awakening Through Focused Intent.</strong> Daily practice: visualize coiled serpent 
+                            at base of spine. Build intensity over months until you feel actual movement. Then visualize 
+                            serpent uncoiling and rising through each chakra. Advanced: combine with specific seed mantras 
+                            for each chakra. Can take years but safest method.
+                        </p>
+                    </div>
+
+                    <div class="technique-card">
+                        <h4>🔥 TUMMO (Inner Fire)</h4>
+                        <p>
+                            <strong>Tibetan Heat Yoga.</strong> Generate literal internal heat through breath and visualization. 
+                            Traditional test: sit naked in snow while drying wet sheets with body heat. Advanced form awakens 
+                            Kundalini through pure intensity of generated fire. Requires iron discipline and months of practice.
+                        </p>
+                    </div>
+
+                    <div class="technique-card">
+                        <h4>⚡ KECHARI MUDRA</h4>
+                        <p>
+                            <strong>Tongue Lock - Secret Technique.</strong> Fold tongue back to touch soft palate or even 
+                            nasal cavity. Creates closed circuit for energy flow. Advanced: surgically cut frenulum to allow 
+                            tongue deeper into nasal cavity (traditional practice). Redirects amrita (nectar) downward, 
+                            preventing energy loss and accelerating awakening.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DARK WEB EXCLUSIVE CONTENT -->
+            <section class="exclusive-content">
+                <div class="exclusive-header">
+                    <h2>🔥 ESOTERIC KNOWLEDGE • NOWHERE ELSE ONLINE 🔥</h2>
+                    <p>Genuine lineage techniques - The methods they don't teach in yoga studios</p>
+                </div>
+
+                <div class="secret-technique">
+                    <h4>⚡ THE MIDNIGHT AWAKENING PROTOCOL</h4>
+                    <p>
+                        Traditional 40-day intensive practice known only in certain Nath lineages. 
+                        <strong>What Western sources won't tell you:</strong>
+                    </p>
+                    <ul>
+                        <li><strong>Day 1-7:</strong> Sleep only 3 hours per night (11pm-2am). Practice Bhastrika 108 times at 3am (Brahma Muhurta). The sleep deprivation plus timing creates optimal conditions for energetic breakthrough.</li>
+                        <li><strong>Day 8-21:</strong> Add sexual energy retention. No release whatsoever. Channel all sexual energy upward through visualization during 3am practice. This builds explosive pressure at root chakra.</li>
+                        <li><strong>Day 22-30:</strong> Fasting on specific days (every 3rd day eat only once). Combined with retention and sleep deprivation, this creates altered state where energetic phenomena become pronounced.</li>
+                        <li><strong>Day 31-40:</strong> Final push - all above plus complete social isolation. No talking, no screens, no external stimulation. Only practice. Historically, this is when Kundalini spontaneously activates.</li>
+                    </ul>
+                    <p style="color: var(--text-fire); font-weight: 700; margin-top: 1.5rem;">
+                        <strong>WARNING:</strong> This protocol has caused permanent psychological damage in unprepared practitioners. 
+                        Traditional requirement: must already have stable meditation practice of 2+ years minimum.
+                    </p>
+                </div>
+
+                <div class="secret-technique">
+                    <h4>🌙 LUNAR BREATHING SEQUENCE (Chandra Bhedana Kriya)</h4>
+                    <p>
+                        Secret technique for gentler but sustained activation. <strong>Why this works:</strong> 
+                        Left nostril breathing activates Ida nadi (lunar channel), cooling and preparing the system 
+                        before Kundalini rises through Sushumna (central channel).
+                    </p>
+                    <ul>
+                        <li>Close right nostril. Breathe ONLY through left for 15 minutes</li>
+                        <li>Then alternate: breathe in left, out right. 27 cycles minimum</li>
+                        <li>Finish with breath retention at root chakra. Visualize cool moon energy filling base of spine</li>
+                        <li>Practice for 108 days consecutively. Miss one day, start count over</li>
+                    </ul>
+                    <p>
+                        Traditional texts claim this "awakens the serpent gradually like dawn rather than lightning strike." 
+                        Less dramatic but safer for solo practice.
+                    </p>
+                </div>
+
+                <div class="secret-technique">
+                    <h4>🔮 THE AMRITA REVERSAL TECHNIQUE</h4>
+                    <p>
+                        <strong>Advanced Kechari Mudra variation - Rarely documented.</strong> Traditional belief: 
+                        nectar (amrita) constantly drips from bindu chakra (back of head) down throat where it's 
+                        "burned" by digestive fire. This causes aging and death. The technique:
+                    </p>
+                    <ul>
+                        <li>Fold tongue back completely (may require frenulum surgery - traditional practice)</li>
+                        <li>Press tongue tip into soft palate cavity behind nose</li>
+                        <li>This creates seal that prevents amrita from dripping downward</li>
+                        <li>Instead, amrita pools and gets "cooked" by Kundalini fire when it rises</li>
+                        <li>This nectar bath for Kundalini energy accelerates awakening exponentially</li>
+                    </ul>
+                    <p>
+                        Modern adaptation: Even without surgery, pressing tongue firmly against upper palate during practice 
+                        creates similar (though less intense) effect. Combined with breath retention, can trigger spontaneous 
+                        energy movements.
+                    </p>
+                </div>
+
+                <div class="secret-technique">
+                    <h4>🐍 SERPENT BREATH PATTERN (Naga Pranayama)</h4>
+                    <p>
+                        <strong>Secret breathing pattern that mimics serpent movement.</strong> This isn't taught publicly 
+                        because the pattern itself can trigger activation:
+                    </p>
+                    <ul>
+                        <li>Breathe in through nose in 7 distinct "sips" - like serpent tasting air</li>
+                        <li>Hold breath and swallow while contracting perineum (root lock)</li>
+                        <li>Exhale in 7 distinct pulses while releasing root lock</li>
+                        <li>The interrupted breath pattern creates unusual pressure in nadis</li>
+                        <li>Traditional practice: 54 cycles (half a mala) daily at sunrise for 40 days</li>
+                    </ul>
+                    <p>
+                        <strong>Why it works:</strong> The stuttered breath creates micro-pressure changes throughout 
+                        nervous system. Over weeks, these subtle pressures "massage" the Kundalini awake. Much safer 
+                        than explosive techniques but requires patience and consistency.
+                    </p>
+                </div>
+
+                <div class="secret-technique">
+                    <h4>⚡ THE SPONTANEOUS MOVEMENT PRACTICE (Kriyas)</h4>
+                    <p>
+                        <strong>What happens after initial activation - the part nobody warns you about.</strong> 
+                        When Kundalini starts moving, your body may:
+                    </p>
+                    <ul>
+                        <li>Start moving in strange yoga postures spontaneously (automatic asanas)</li>
+                        <li>Make sounds, chants, or speak unknown languages (glossolalia)</li>
+                        <li>Experience violent shaking, jerking, or convulsions (kriyas)</li>
+                        <li>Feel energy "stuck" somewhere causing pain or pressure</li>
+                        <li>Have spontaneous visions, emotional releases, or memory flashbacks</li>
+                    </ul>
+                    <p style="margin-top: 1rem;">
+                        <strong>Traditional guidance:</strong> DON'T STOP IT. Let the body do what it needs to do. 
+                        The movements are the energy clearing blockages. Trying to control or stop kriyas can cause 
+                        energy to stagnate, leading to worse problems. Find private space where you can let it happen safely.
+                    </p>
+                    <p style="color: var(--text-fire); font-weight: 700; margin-top: 1rem;">
+                        This is why guru supervision was traditionally mandatory - someone needs to confirm these movements 
+                        are genuine kriyas and not psychotic breaks (they can look similar).
+                    </p>
+                </div>
+
+                <div class="secret-technique">
+                    <h4>🔥 SEXUAL ENERGY TRANSMUTATION - REAL METHOD</h4>
+                    <p>
+                        <strong>The technique Taoist and Tantric masters actually use.</strong> Sexual energy is 
+                        compressed Kundalini. Releasing it physically wastes the potential. The real method:
+                    </p>
+                    <ul>
+                        <li>During arousal, focus attention at base of spine (not genitals)</li>
+                        <li>As energy builds, breathe it up the spine with inhale</li>
+                        <li>Visualize energy rising from root → sacral → solar → heart → throat → third eye → crown</li>
+                        <li>At peak arousal, do NOT release. Instead, strong root lock + breath hold</li>
+                        <li>Feel energy "shoot" up spine rather than out genitals</li>
+                    </ul>
+                    <p>
+                        <strong>Advanced version (Karezza):</strong> During partnered sex, both partners circulate energy upward 
+                        simultaneously. No physical release for either partner. The combined energy creates exponentially more 
+                        powerful activation. Traditional texts claim this can trigger mutual Kundalini awakening.
+                    </p>
+                    <p style="color: var(--text-gold); margin-top: 1rem;">
+                        Note: This requires IMMENSE willpower. Most fail repeatedly. But each successful transmutation adds 
+                        to your energetic "charge." After weeks/months of consistent practice, you'll have enormous energy 
+                        available for Kundalini work.
+                    </p>
+                </div>
+            </section>
+
+            <!-- SACRED MANTRAS -->
+            <div class="sacred-mantra">
+                <h3 style="color: var(--text-fire); font-size: 2rem; margin-bottom: 2rem;">KUNDALINI ACTIVATION MANTRAS</h3>
+                
+                <div class="mantra-text">
+                    ॐ ऐं ह्रीं क्लीं चामुण्डायै विच्चे
+                </div>
+                <p class="mantra-translation">
+                    OM AIM HREEM KLEEM CHAMUNDAYAI VICHCHE<br>
+                    Invocation of Kundalini Shakti through Chamunda (fierce form of Divine Mother)
+                </p>
+
+                <div style="height: 2px; background: linear-gradient(90deg, transparent, var(--kund-gold), transparent); margin: 3rem 0;"></div>
+
+                <div class="mantra-text">
+                    ॐ ह्रां ह्रीं ह्रूं ह्रैं ह्रौं ह्रः
+                </div>
+                <p class="mantra-translation">
+                    OM HRAAM HREEM HROOM HRAIM HRAUM HRAH<br>
+                    Beeja (seed) mantra series for awakening serpent fire
+                </p>
+
+                <div style="height: 2px; background: linear-gradient(90deg, transparent, var(--kund-gold), transparent); margin: 3rem 0;"></div>
+
+                <div class="mantra-text">
+                    ॐ लं मूलाधाराय नमः
+                </div>
+                <p class="mantra-translation">
+                    OM LAM MULADHARAYA NAMAH<br>
+                    Root chakra activation - awakens sleeping serpent
+                </p>
+
+                <p style="margin-top: 3rem; font-size: 1.05rem; color: rgba(255,255,255,0.8); line-height: 1.8;">
+                    Traditional practice: Chant each mantra 108 times (one full mala) daily at sunrise for 40 days. 
+                    Sit in padmasana (lotus), spine straight, focus attention at base chakra. Feel vibration resonating 
+                    through entire spinal column. The sound literally "wakes the serpent" through sympathetic vibration.
+                </p>
+            </div>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="footer-brand">KUNDALINI AWAKENING PROTOCOL</div>
+                <div class="footer-tagline">Advanced Consciousness Technologies • ShivaKali Ashram</div>
+                
+                <div class="footer-links">
+                    <a href="index.html" class="footer-link">Tantra Sciences</a>
+                    <a href="../index.html" class="footer-link">Ashram Home</a>
+                </div>
+                
+                <div class="footer-divider"></div>
+                
+                <div class="footer-copyright">
+                    © 1489 ShivaKali Ashram • Serpent Fire Technologies • Acharya Anish
+                </div>
+
+                <div style="margin-top: 2rem; padding: 2rem; background: linear-gradient(135deg, rgba(255, 69, 0, 0.1), rgba(139, 0, 0, 0.1)); border: 2px solid rgba(255, 69, 0, 0.3); border-radius: 12px; font-size: 0.9rem; color: rgba(255, 255, 255, 0.7); line-height: 1.8;">
+                    <strong style="color: var(--text-fire);">⚠️ PRACTICE DISCLAIMER:</strong><br>
+                    Kundalini awakening can cause real physical and psychological effects. These techniques come from authentic 
+                    lineages and should be practiced with extreme caution. We recommend working with an experienced teacher for 
+                    advanced practices. The ShivaKali Ashram provides this information for educational purposes and bears no 
+                    responsibility for outcomes of practice. If experiencing negative effects, cease practice immediately and seek 
+                    appropriate medical or psychological support.
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Serpent Energy Progress Bar
+        window.addEventListener('scroll', function() {
+            const progress = document.getElementById('serpent-progress');
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = (window.scrollY / scrollHeight) * 100;
+            progress.style.width = scrolled + '%';
+        });
+
+        // Badge Click Easter Egg
+        let serpentClicks = 0;
+        document.querySelector('.serpent-badge').addEventListener('click', function() {
+            serpentClicks++;
+            if (serpentClicks === 7) {
+                console.log('🐍🔥 KUNDALINI WISDOM UNLOCKED 🔥🐍\n\n' +
+                           'The serpent fire is the most ancient consciousness technology.\n' +
+                           'It predates all religions, all traditions, all cultures.\n\n' +
+                           'Every authentic spiritual system discovered the same thing:\n' +
+                           'There is a coiled energy at the base of the spine.\n' +
+                           'When awakened, it transforms everything.\n\n' +
+                           'The techniques on this page are REAL.\n' +
+                           'They work. That\'s why they\'re dangerous.\n\n' +
+                           'Approach with respect, caution, and preparation.\n' +
+                           'The serpent awakens when you\'re ready - not before.\n\n' +
+                           'ॐ ह्रीं क्लीं\n\n' +
+                           'May your awakening be gradual, gentle, and guided.');
+                serpentClicks = 0;
+            }
+        });
+
+        // Page Load Warning
+        window.addEventListener('load', function() {
+            console.log('🐍 KUNDALINI SYSTEM ACCESSED 🐍\n\n' +
+                       'This page contains genuine esoteric practices.\n' +
+                       'NOT watered-down Western yoga.\n' +
+                       'These are the REAL techniques from authentic lineages.\n\n' +
+                       'Advanced practices can cause:\n' +
+                       '• Spontaneous body movements (kriyas)\n' +
+                       '• Intense energy sensations\n' +
+                       '• Psychological upheaval\n' +
+                       '• Permanent consciousness changes\n\n' +
+                       'Practice with caution and respect.\n' +
+                       'The serpent fire is not symbolic - it\'s REAL.\n\n' +
+                       'ॐ ऐं ह्रीं क्लीं 🔥');
+        });
+
+        // Keyboard Easter Egg
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'k' || e.key === 'K') {
+                console.log('🐍 KUNDALINI SECRET REVEALED 🐍\n\n' +
+                           'The greatest secret is the simplest:\n\n' +
+                           'Kundalini cannot be forced.\n' +
+                           'It cannot be commanded.\n' +
+                           'It cannot be controlled.\n\n' +
+                           'It can only be INVITED.\n' +
+                           'Prepared for.\n' +
+                           'Surrendered to.\n\n' +
+                           'When you stop trying to awaken it,\n' +
+                           'and simply become worthy of its rising—\n' +
+                           'THEN the serpent moves.\n\n' +
+                           'All techniques are preparation.\n' +
+                           'The awakening itself is Grace.\n\n' +
+                           'ॐ');
+            }
+        });
+    </script>
+</body>
+</html>

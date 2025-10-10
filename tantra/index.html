@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="description" content="Master advanced Tantric technologies for consciousness engineering and reality manipulation">
+    <meta name="keywords" content="tantra, consciousness, energy manipulation, kundalini, chakras, mantras, yantras">
+    <meta name="author" content="Acharya Anish">
+    
+    <title>🔥 Tantra Sciences - ShivaKali Ashram</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
+    
+    <!-- Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ShivaKali Ashram Tantra Theme */
+        :root {
+            --tantra-deep: #000000;
+            --tantra-layer: #0a0015;
+            --tantra-blood: #8B0000;
+            --tantra-gold: #FFD700;
+            --tantra-purple: #8B00FF;
+            --tantra-red: #DC143C;
+            --card-bg: rgba(26, 15, 31, 0.95);
+            --card-border: rgba(139, 0, 0, 0.3);
+            --text-primary: #ffffff;
+            --text-secondary: #b8b8ff;
+            --glow-purple: rgba(139, 0, 255, 0.6);
+            --glow-gold: rgba(255, 215, 0, 0.8);
+        }
+
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--tantra-deep);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* 3-Layer Background System */
+        .page-container {
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Layer 1: Deep Background with Image */
+        .background-layer {
+            position: fixed;
+            inset: 0;
+            background: 
+                linear-gradient(to bottom,
+                    rgba(10, 5, 16, 0.65) 0%,
+                    rgba(26, 15, 31, 0.60) 100%
+                ),
+                url('../pictures/tantra demo page.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            filter: brightness(1.4) saturate(1.6);
+            z-index: 1;
+            animation: subtleBreathing 25s ease-in-out infinite;
+        }
+        
+        @keyframes subtleBreathing {
+            0%, 100% { filter: brightness(1.4) saturate(1.6); }
+            50% { filter: brightness(1.6) saturate(1.8); }
+        }
+
+        /* Layer 2: Pattern Layer with Border */
+        .pattern-layer {
+            position: fixed;
+            inset: 0;
+            background: 
+                linear-gradient(45deg,
+                    transparent 45%,
+                    rgba(139, 0, 0, 0.08) 49%,
+                    rgba(139, 0, 0, 0.08) 51%,
+                    transparent 55%
+                ),
+                radial-gradient(circle at 50% 50%,
+                    rgba(139, 0, 0, 0.1) 0%,
+                    transparent 60%
+                );
+            background-size: 20px 20px, 100% 100%;
+            border: 3px solid rgba(139, 0, 255, 0.4);
+            box-shadow: 
+                inset 0 0 120px rgba(139, 0, 255, 0.2),
+                inset 0 0 60px rgba(255, 215, 0, 0.1);
+            z-index: 2;
+            animation: borderShimmer 20s ease-in-out infinite;
+        }
+        
+        @keyframes borderShimmer {
+            0%, 100% { border-color: rgba(139, 0, 255, 0.4); }
+            50% { border-color: rgba(255, 215, 0, 0.5); }
+        }
+
+        /* Layer 3: Content */
+        .content-layer {
+            position: relative;
+            z-index: 3;
+            padding: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Navigation */
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.8rem;
+            background: linear-gradient(135deg, rgba(139, 0, 255, 0.15), rgba(139, 0, 0, 0.15));
+            border: 2px solid rgba(139, 0, 255, 0.4);
+            border-radius: 12px;
+            color: var(--tantra-gold);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(139, 0, 255, 0.2);
+        }
+        
+        .nav-button:hover {
+            border-color: var(--tantra-gold);
+            box-shadow: 0 0 30px var(--glow-gold);
+            transform: translateY(-3px);
+        }
+
+        .nav-button:active {
+            transform: scale(0.97);
+        }
+
+        /* Enhanced Intro Section */
+        .intro-section {
+            text-align: center;
+            padding: 2rem 1rem 3rem;
+            margin: 0 -1rem 2rem;
+            background: linear-gradient(180deg,
+                rgba(139, 0, 0, 0.15) 0%,
+                transparent 100%
+            );
+            border-bottom: 1px solid rgba(139, 0, 0, 0.3);
+        }
+
+        .intro-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(3rem, 7vw, 5rem);
+            font-weight: 900;
+            color: var(--tantra-gold);
+            margin: 0 0 1rem;
+            letter-spacing: 5px;
+            text-shadow: 
+                0 0 30px rgba(255, 215, 0, 0.8),
+                0 0 60px rgba(139, 0, 255, 0.5),
+                0 0 90px rgba(220, 20, 60, 0.3);
+        }
+
+        .intro-subtitle {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+            font-weight: 300;
+            color: var(--text-secondary);
+            margin: 0.75rem 0 2rem;
+            letter-spacing: 2px;
+            text-shadow: 0 0 25px rgba(139, 0, 255, 0.5);
+        }
+
+        .intro-description {
+            max-width: 800px;
+            margin: 2rem auto;
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            color: var(--text-secondary);
+            line-height: 1.8;
+            padding: 0 1rem;
+        }
+
+        /* Statistics Grid */
+        .intro-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            max-width: 900px;
+            margin: 2rem auto 0;
+            padding: 0 1rem;
+        }
+
+        .stat-item {
+            background: linear-gradient(135deg, rgba(139, 0, 255, 0.15), rgba(139, 0, 0, 0.15));
+            border: 2px solid rgba(139, 0, 255, 0.4);
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            transition: all 0.4s ease;
+            box-shadow: 0 0 20px rgba(139, 0, 255, 0.2);
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px) scale(1.05);
+            border-color: var(--tantra-gold);
+            box-shadow: 0 0 35px var(--glow-gold);
+        }
+
+        .stat-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--tantra-gold);
+            display: block;
+            margin-bottom: 0.75rem;
+            text-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        /* Warning Banner */
+        .warning-banner {
+            background: linear-gradient(135deg,
+                rgba(139, 0, 0, 0.25) 0%,
+                rgba(0, 0, 0, 0.4) 100%
+            );
+            border: 2px solid rgba(220, 20, 60, 0.5);
+            border-radius: 16px;
+            padding: 2rem 2.5rem;
+            margin: 3rem auto;
+            max-width: 900px;
+            text-align: center;
+            box-shadow: 
+                0 0 30px rgba(220, 20, 60, 0.2),
+                inset 0 0 20px rgba(139, 0, 0, 0.2);
+        }
+
+        .warning-title {
+            color: var(--tantra-gold);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 0 0 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+        }
+
+        .warning-text {
+            color: var(--text-primary);
+            font-size: 1.05rem;
+            margin: 0;
+            line-height: 1.8;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.8rem, 4.5vw, 2.5rem);
+            font-weight: 700;
+            color: var(--tantra-gold);
+            margin: 4rem 0 2rem;
+            text-align: center;
+            text-shadow: 
+                0 0 30px rgba(255, 215, 0, 0.8),
+                0 0 50px rgba(139, 0, 255, 0.4);
+            letter-spacing: 2px;
+        }
+
+        /* Card Grid System */
+        .card-grid {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: 1fr;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 640px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .card-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Card Styles */
+        .tantra-card {
+            background: linear-gradient(135deg,
+                rgba(26, 15, 31, 0.98) 0%,
+                rgba(139, 0, 0, 0.15) 100%
+            );
+            border: 2px solid rgba(139, 0, 255, 0.4);
+            border-radius: 20px;
+            padding: 2rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 
+                0 8px 30px rgba(0, 0, 0, 0.4),
+                0 0 20px rgba(139, 0, 255, 0.2),
+                inset 0 0 25px rgba(139, 0, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tantra-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, var(--tantra-purple), var(--tantra-red), var(--tantra-gold));
+            border-radius: 20px;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.4s ease;
+        }
+
+        .tantra-card:hover {
+            border-color: rgba(255, 215, 0, 0.8);
+            box-shadow: 
+                0 12px 45px rgba(139, 0, 255, 0.4),
+                0 0 40px rgba(255, 215, 0, 0.4),
+                inset 0 0 35px rgba(139, 0, 255, 0.2);
+            transform: translateY(-8px) scale(1.03);
+        }
+        
+        .tantra-card:hover::before {
+            opacity: 0.25;
+        }
+
+        .tantra-card:active {
+            transform: translateY(-4px) scale(0.99);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.7));
+            transition: all 0.3s ease;
+        }
+        
+        .tantra-card:hover .card-icon {
+            transform: scale(1.15) rotate(10deg);
+            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 1));
+        }
+
+        .card-title-group {
+            flex: 1;
+        }
+
+        .card-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--tantra-gold);
+            margin: 0 0 0.35rem;
+            letter-spacing: 1px;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+            transition: all 0.3s ease;
+        }
+        
+        .tantra-card:hover .card-title {
+            color: #ffffff;
+            transform: scale(1.05);
+        }
+
+        .card-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .card-description {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            margin: 0 0 1rem;
+            line-height: 1.5;
+        }
+
+        .card-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, rgba(139, 0, 255, 0.15), rgba(139, 0, 0, 0.15));
+            border: 1px solid rgba(139, 0, 255, 0.4);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--tantra-gold);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 0 12px rgba(139, 0, 255, 0.2);
+        }
+
+        /* Status Badge */
+        .status-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(135deg, rgba(139, 0, 255, 0.2), rgba(139, 0, 0, 0.2));
+            border: 2px solid rgba(139, 0, 255, 0.5);
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--tantra-gold);
+            margin: 3rem auto;
+            width: fit-content;
+            box-shadow: 0 0 25px rgba(139, 0, 255, 0.3);
+            animation: statusPulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes statusPulse {
+            0%, 100% { 
+                box-shadow: 0 0 25px rgba(139, 0, 255, 0.3);
+                border-color: rgba(139, 0, 255, 0.5);
+            }
+            50% { 
+                box-shadow: 0 0 40px rgba(255, 215, 0, 0.5);
+                border-color: rgba(255, 215, 0, 0.6);
+            }
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--tantra-blood);
+            border-radius: 50%;
+            box-shadow: 0 0 12px rgba(139, 0, 0, 0.8);
+            animation: dotPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes dotPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        /* Footer - ShivaKali Ashram Branding */
+        .footer {
+            margin-top: 5rem;
+            padding: 3rem 2rem;
+            background: linear-gradient(180deg, transparent, rgba(139, 0, 255, 0.05));
+            border-top: 2px solid rgba(139, 0, 255, 0.3);
+            text-align: center;
+        }
+
+        .footer-brand {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--tantra-gold);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+        }
+
+        .footer-tagline {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+        }
+
+        .footer-divider {
+            width: 60%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--tantra-gold), transparent);
+            margin: 2rem auto;
+            box-shadow: 0 0 15px var(--glow-gold);
+            position: relative;
+        }
+
+        .footer-divider::before,
+        .footer-divider::after {
+            content: '🔥';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 1));
+        }
+
+        .footer-divider::before { left: -20px; }
+        .footer-divider::after { right: -20px; }
+
+        .footer-copyright {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 1.5rem;
+        }
+        
+        /* Maran Warning Card Special Styling */
+        .maran-warning-card {
+            border: 3px solid rgba(255, 0, 0, 0.5) !important;
+            background: linear-gradient(135deg, 
+                rgba(139, 0, 0, 0.15) 0%,
+                rgba(26, 15, 31, 0.95) 100%
+            ) !important;
+            box-shadow: 
+                0 0 30px rgba(255, 0, 0, 0.3),
+                inset 0 0 20px rgba(139, 0, 0, 0.2) !important;
+            animation: warningPulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes warningPulse {
+            0%, 100% { border-color: rgba(255, 0, 0, 0.5); }
+            50% { border-color: rgba(255, 0, 0, 0.8); }
+        }
+        
+        .maran-warning-card:hover {
+            border-color: rgba(255, 0, 0, 0.9) !important;
+            box-shadow: 
+                0 0 50px rgba(255, 0, 0, 0.5),
+                inset 0 0 30px rgba(139, 0, 0, 0.3) !important;
+            transform: translateY(-5px) !important;
+        }
+        /* Mobile Optimizations */
+        @media (max-width: 640px) {
+            .content-layer {
+                padding: 0.5rem;
+            }
+
+            .intro-section {
+                padding: 2rem 0.75rem 2.5rem;
+            }
+
+            .intro-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .tantra-card {
+                padding: 1.5rem;
+            }
+
+            .pattern-layer {
+                border-width: 2px;
+            }
+            
+            /* Disable heavy animations on mobile */
+            .background-layer { animation: none; }
+            .pattern-layer { animation: none; }
+            .stat-item { animation: none; }
+            .status-badge { animation: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <!-- Layer 1: Deep Background -->
+        <div class="background-layer"></div>
+        
+        <!-- Layer 2: Pattern Layer -->
+        <div class="pattern-layer"></div>
+        
+        <!-- Layer 3: Content -->
+        <div class="content-layer">
+            <!-- Navigation -->
+            <div class="nav-buttons">
+                <a href="../index.html" class="nav-button">
+                    <span>←</span>
+                    <span>Back to Ashram</span>
+                </a>
+            </div>
+
+            <!-- Enhanced Intro Section -->
+            <section class="intro-section">
+                <h1 class="intro-title">TANTRA SCIENCES</h1>
+                <p class="intro-subtitle">Advanced Consciousness Engineering & Reality Manipulation</p>
+                
+                <p class="intro-description">
+                    Access the forbidden realms of consciousness technology through ancient Tantric protocols. 
+                    Master advanced energy manipulation, reality engineering, and consciousness programming 
+                    through time-tested methodologies refined over 5000 years of esoteric practice.
+                </p>
+                
+                <div class="intro-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">5</span>
+                        <span class="stat-label">Core Powers</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">7</span>
+                        <span class="stat-label">Chakra Gates</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">108</span>
+                        <span class="stat-label">Sacred Techniques</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label">Reality Configurations</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Warning Banner -->
+            <div class="warning-banner">
+                <h3 class="warning-title">
+                    <span>⚠️</span>
+                    <span>CONSCIOUSNESS HAZARD WARNING</span>
+                </h3>
+                <p class="warning-text">
+                    These advanced Tantric technologies can permanently alter your consciousness and reality perception.
+                    Only proceed if you are prepared for irreversible spiritual transformation and complete reality restructuring.
+                </p>
+            </div>
+
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                <span>POWER SYSTEMS ACTIVE</span>
+            </div>
+
+            <!-- Core Powers Section -->
+            <section>
+                <h2 class="section-title">🔥 CORE POWER SYSTEMS</h2>
+                <div class="card-grid">
+                    <!-- Vashikaran -->
+                    <div class="tantra-card" onclick="location.href='vashikaran.html'">
+                        <div class="card-header">
+                            <span class="card-icon">🌀</span>
+                            <div class="card-title-group">
+                                <h3 class="card-title">Vashikaran</h3>
+                                <p class="card-subtitle">Consciousness Attraction</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Master the science of consciousness attraction and mental resonance. 
+                            Control thought patterns and influence reality through advanced energy manipulation.
+                        </p>
+                        <div class="card-status">INFLUENCE ACTIVE</div>
+                    </div>
+
+                    <!-- Uchchatan -->
+                    <div class="tantra-card" onclick="location.href='uchchatan.html'">
+                        <div class="card-header">
+                            <span class="card-icon">⚡</span>
+                            <div class="card-title-group">
+                                <h3 class="card-title">Uchchatan</h3>
+                                <p class="card-subtitle">Pattern Displacement</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Advanced energy displacement and pattern disruption technologies.
+                            Master the art of shifting reality configurations.
+                        </p>
+                        <div class="card-status">DISPLACEMENT READY</div>
+                    </div>
+
+                    <!-- Stambhan -->
+                    <div class="tantra-card" onclick="location.href='stambhan.html'">
+                        <div class="card-header">
+                            <span class="card-icon">🛡️</span>
+                            <div class="card-title-group">
+                                <h3 class="card-title">Stambhan</h3>
+                                <p class="card-subtitle">Force Immobilization</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Energy freezing and pattern stabilization technologies.
+                            Control the flow of forces and immobilize energy patterns.
+                        </p>
+                        <div class="card-status">CONTAINMENT ACTIVE</div>
+                    </div>
+
+                    <!-- Vidveshan -->
+                    <div class="tantra-card" onclick="location.href='vidveshan.html'">
+                        <div class="card-header">
+                            <span class="card-icon">⚔️</span>
+                            <div class="card-title-group">
+                                <h3 class="card-title">Vidveshan</h3>
+                                <p class="card-subtitle">Pattern Separation</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Advanced energy separation and bond dissolution technologies.
+                            Master the science of breaking energy connections.
+                        </p>
+                        <div class="card-status">SEPARATION READY</div>
+                    </div>
+
+                    <!-- Maran - HISTORICAL DOCUMENTATION WARNING -->
+                    <div class="tantra-card maran-warning-card" onclick="confirmMaranAccess()">
+                        <div class="card-header">
+                            <span class="card-icon" style="filter: drop-shadow(0 0 15px rgba(255, 0, 0, 1));">☠️</span>
+                            <div class="card-title-group">
+                                <h3 class="card-title" style="color: #ff0000;">Maran</h3>
+                                <p class="card-subtitle" style="color: #ff6600;">Historical Documentation [ACADEMIC]</p>
+                            </div>
+                        </div>
+                        <p class="card-description" style="line-height: 1.7;">
+                            <strong style="color: #ff0000;">⚠️ WARNING:</strong> Historical documentation of extreme practices. 
+                            Academic study only. <strong>Illegal and forbidden in all contexts.</strong> 
+                            Preserved for anthropological and ethical understanding.
+                        </p>
+                        <div class="card-status" style="background: linear-gradient(90deg, #8B0000, #ff0000); border-color: #ff0000;">
+                            ACADEMIC ARCHIVE ⚠️
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Energy Technologies Section -->
+            <section>
+                <h2 class="section-title">⚡ ENERGY TECHNOLOGIES</h2>
+                <div class="card-grid">
+                    <!-- Kundalini System -->
+                    <div class="tantra-card" onclick="location.href='kundalini.html'">
+                        <div class="card-header">
+                            <span class="card-icon">🐍</span>
+                            <div class="card-title-group">
+                                <h3 class="card-title">Kundalini System</h3>
+                                <p class="card-subtitle">Power Awakening</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Advanced kundalini awakening and management technologies.
+                            Master the serpent power and energy ascension.
+                        </p>
+                        <div class="card-status">POWER ACTIVE</div>
+                    </div>
+
+                    <!-- Chakra Technologies -->
+                    <div class="tantra-card" onclick="location.href='chakra.html'">
+                        <div class="card-header">
+                            <span class="card-icon">⚛️</span>
+                            <div class="card-title-group">
+                                <h3 class="card-title">Chakra Technologies</h3>
+                                <p class="card-subtitle">Seven Gates to Consciousness</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Access rare esoteric knowledge from hidden tantric texts. 7 energy centers, 108-day protocols, 72,000 nadis system - the deep web of spiritual technology.
+                        </p>
+                        <div class="card-status">GATES UNLOCKED</div>
+                    </div>
+
+                    <!-- Prana Engineering -->
+                    <div class="tantra-card" onclick="location.href='prana.html'">
+                        <div class="card-header">
+                            <span class="card-icon">💨</span>
+                            <div class="card-title-group">
+                                <h3 class="card-title">Prana Engineering</h3>
+                                <p class="card-subtitle">Life Force Control</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Advanced pranic energy manipulation and control systems.
+                            Master the science of life force engineering.
+                        </p>
+                        <div class="card-status">FORCE FLOWING</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sacred Technologies Section -->
+            <section>
+                <h2 class="section-title">🕉️ SACRED TECHNOLOGIES</h2>
+                <div class="card-grid">
+                    <!-- Mantra Science -->
+                    <div class="tantra-card" onclick="location.href='mantras.html'">
+                        <div class="card-header">
+                            <span class="card-icon">📿</span>
+                            <div class="card-title-group">
+                                <h3 class="card-title">Mantra Science</h3>
+                                <p class="card-subtitle">Sound Technologies</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Advanced sound vibration and consciousness programming.
+                            Master the science of reality manipulation through sound.
+                        </p>
+                        <div class="card-status">VIBRATION ACTIVE</div>
+                    </div>
+
+                    <!-- Yantra Engineering -->
+                    <div class="tantra-card" onclick="location.href='yantras.html'">
+                        <div class="card-header">
+                            <span class="card-icon">🔯</span>
+                            <div class="card-title-group">
+                                <h3 class="card-title">Yantra Engineering</h3>
+                                <p class="card-subtitle">Sacred Geometry</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Advanced geometric pattern and energy grid technologies.
+                            Master the science of reality structure through form.
+                        </p>
+                        <div class="card-status">PATTERNS ACTIVE</div>
+                    </div>
+
+                    <!-- Ritual Technologies -->
+                    <div class="tantra-card" onclick="location.href='rituals.html'">
+                        <div class="card-header">
+                            <span class="card-icon">🔥</span>
+                            <div class="card-title-group">
+                                <h3 class="card-title">Ritual Technologies</h3>
+                                <p class="card-subtitle">Sacred Protocols</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Advanced ritual engineering and power activation systems.
+                            Master the science of ceremonial consciousness technologies.
+                        </p>
+                        <div class="card-status">PROTOCOLS ACTIVE</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="footer-brand">SHIVAKALI ASHRAM</div>
+                <div class="footer-tagline">Advanced Consciousness Technologies • Tantric Sciences Division</div>
+                
+                <div class="footer-divider"></div>
+                
+                <div class="footer-copyright">
+                    © 1489 ShivaKali Ashram • All Consciousness Technologies Reserved • Acharya Anish
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+    <script>
+        // Simple card interaction enhancements
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.tantra-card:not(.maran-warning-card)');
+            
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    // Add visual feedback
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+        });
+        
+        // Maran access confirmation
+        function confirmMaranAccess() {
+            const confirmed = confirm(
+                "⚠️ ACADEMIC CONTENT WARNING ⚠️\n\n" +
+                "You are about to access historical documentation of extreme tantric practices.\n\n" +
+                "This content:\n" +
+                "• Documents illegal and forbidden practices\n" +
+                "• Is for academic/historical study ONLY\n" +
+                "• Contains information about practices that are morally reprehensible\n" +
+                "• Should NOT be applied in any context\n\n" +
+                "By clicking OK, you acknowledge this is educational documentation, not operational instruction.\n\n" +
+                "Do you wish to proceed to the academic archive?"
+            );
+            
+            if (confirmed) {
+                window.location.href = 'maran.html';
+            }
+        }
+    </script>
+</body>
+</html>

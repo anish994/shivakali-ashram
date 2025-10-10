@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <title>⚛️ CHAKRA TECHNOLOGIES - Seven Gates to Infinite Consciousness</title>
+    
+    <!-- Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Cinzel:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Chakra Technologies Theme - Cosmic Energy Centers */
+        :root {
+            --chakra-deep: #000000;
+            --chakra-cosmic: #1a1a2e;
+            --chakra-energy: #16213e;
+            --muladhara: #DC143C;
+            --svadhisthana: #FF8C00;
+            --manipura: #FFD700;
+            --anahata: #00C853;
+            --vishuddha: #2196F3;
+            --ajna: #673AB7;
+            --sahasrara: #E1BEE7;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --text-gold: #FFD700;
+            --glow-cosmic: rgba(103, 58, 183, 0.6);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--chakra-deep);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        /* Energy Progress Bar */
+        #energy-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 5px;
+            background: linear-gradient(90deg, 
+                var(--muladhara), 
+                var(--svadhisthana), 
+                var(--manipura),
+                var(--anahata),
+                var(--vishuddha),
+                var(--ajna),
+                var(--sahasrara)
+            );
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            z-index: 10000;
+            transition: width 0.1s ease;
+        }
+
+        /* Cosmic Background */
+        .page-container {
+            position: relative;
+            min-height: 100vh;
+        }
+
+        .void-layer {
+            position: fixed;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 50% 50%, rgba(103, 58, 183, 0.15) 0%, transparent 50%),
+                url('../pictures/tantra demo page.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            filter: brightness(0.4);
+            z-index: 1;
+        }
+
+        .stars-layer {
+            position: fixed;
+            inset: 0;
+            z-index: 2;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .content-layer {
+            position: relative;
+            z-index: 3;
+            padding: 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Navigation Buttons */
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            background: linear-gradient(135deg, rgba(103, 58, 183, 0.2), rgba(0, 0, 0, 0.4));
+            border: 2px solid rgba(103, 58, 183, 0.5);
+            border-radius: 12px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(103, 58, 183, 0.3);
+            min-height: 48px;
+            min-width: 48px;
+        }
+
+        .nav-button:hover {
+            background: linear-gradient(135deg, rgba(103, 58, 183, 0.4), rgba(0, 0, 0, 0.6));
+            border-color: var(--ajna);
+            box-shadow: 0 6px 25px rgba(103, 58, 183, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero-cosmic {
+            text-align: center;
+            padding: 4rem 1rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .cosmic-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--text-primary), var(--ajna), var(--text-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 80px rgba(103, 58, 183, 0.5);
+            margin-bottom: 1.5rem;
+            letter-spacing: 3px;
+            animation: titlePulse 6s ease-in-out infinite;
+        }
+
+        @keyframes titlePulse {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.3); }
+        }
+
+        .cosmic-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.8rem);
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .cosmic-intro {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            line-height: 1.8;
+            color: var(--text-secondary);
+            max-width: 900px;
+            margin: 0 auto 3rem;
+        }
+
+        /* Stats Display */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(103, 58, 183, 0.1), rgba(0, 0, 0, 0.4));
+            border: 2px solid rgba(103, 58, 183, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            border-color: var(--ajna);
+            box-shadow: 0 0 30px rgba(103, 58, 183, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--text-gold);
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Chakra Wheel */
+        .chakra-wheel-container {
+            max-width: 700px;
+            margin: 4rem auto;
+            position: relative;
+            aspect-ratio: 1;
+        }
+
+        .wheel-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, var(--chakra-cosmic), var(--chakra-deep));
+            border: 3px solid rgba(103, 58, 183, 0.5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            text-align: center;
+            font-size: 0.9rem;
+            z-index: 10;
+            box-shadow: 0 0 40px rgba(103, 58, 183, 0.4);
+        }
+
+        .chakra-point {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            border: 3px solid;
+            z-index: 5;
+            text-decoration: none;
+            color: white;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+        }
+
+        .chakra-point:hover {
+            transform: scale(1.3);
+            z-index: 100;
+        }
+
+        .chakra-name {
+            font-size: 0.8rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .chakra-mantra {
+            font-size: 0.7rem;
+            opacity: 0.9;
+        }
+
+        /* Chakra Grid */
+        .chakras-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .chakra-card {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(26, 26, 46, 0.6));
+            border: 2px solid rgba(103, 58, 183, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            /* GPU Acceleration for smooth animations */
+            will-change: transform, box-shadow, border-color;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            /* Smooth transitions - no jank */
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                        box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                        border-color 0.3s ease;
+        }
+
+        .chakra-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 5px;
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+
+        .chakra-card:hover {
+            transform: translateY(-8px) translateZ(0);
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 15px 50px rgba(103, 58, 183, 0.5),
+                        0 5px 20px rgba(103, 58, 183, 0.3);
+        }
+        
+        .chakra-card:active {
+            transform: translateY(-4px) translateZ(0);
+            transition: transform 0.1s ease;
+        }
+
+        .chakra-card:hover::before {
+            width: 100%;
+            opacity: 0.1;
+        }
+
+        .chakra-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .chakra-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            flex-shrink: 0;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform;
+        }
+        
+        .chakra-card:hover .chakra-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .chakra-title-group h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .chakra-title-group p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .chakra-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .chakra-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .meta-tag {
+            padding: 0.4rem 0.9rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chakra-location {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        /* Wisdom Section */
+        .wisdom-section {
+            margin: 4rem 0;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-primary);
+            text-shadow: 0 0 30px rgba(103, 58, 183, 0.5);
+        }
+
+        .wisdom-cards {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .wisdom-card {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(26, 26, 46, 0.7));
+            border: 2px solid rgba(103, 58, 183, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .wisdom-card:hover {
+            border-color: rgba(103, 58, 183, 0.6);
+            box-shadow: 0 5px 30px rgba(103, 58, 183, 0.3);
+        }
+
+        .wisdom-card.warning {
+            border-color: rgba(220, 20, 60, 0.4);
+        }
+
+        .wisdom-card.warning:hover {
+            border-color: rgba(220, 20, 60, 0.7);
+        }
+
+        .wisdom-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-gold);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .wisdom-card.warning .wisdom-title {
+            color: #ff6b6b;
+        }
+
+        .wisdom-text {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        .chakra-footer {
+            margin-top: 5rem;
+            padding: 3rem 2rem;
+            background: linear-gradient(180deg, transparent, rgba(103, 58, 183, 0.1));
+            border-top: 3px solid rgba(103, 58, 183, 0.3);
+            text-align: center;
+        }
+
+        .footer-brand {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--text-gold);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 30px rgba(103, 58, 183, 0.6);
+        }
+
+        .footer-tagline {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .footer-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--text-gold);
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+
+        .footer-divider {
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--ajna), 
+                var(--text-gold),
+                var(--ajna),
+                transparent
+            );
+            margin: 2rem auto;
+            box-shadow: 0 0 20px rgba(103, 58, 183, 0.4);
+        }
+
+        .footer-copyright {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Expandable Modal System - Dark Web Immersive Content */
+        .chakra-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 10000;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .chakra-modal-overlay.active {
+            display: block;
+            animation: fadeIn 0.4s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        
+        .chakra-modal {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            position: relative;
+            transform: translateY(30px);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .chakra-modal-overlay.active .chakra-modal {
+            transform: translateY(0);
+        }
+        
+        .modal-close {
+            position: sticky;
+            top: 1rem;
+            right: 1rem;
+            float: right;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.8), rgba(0, 0, 0, 0.9));
+            border: 2px solid rgba(255, 215, 0, 0.5);
+            border-radius: 50%;
+            color: var(--text-gold);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10001;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+        }
+        
+        .modal-close:hover {
+            transform: rotate(90deg) scale(1.1);
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.6);
+            border-color: var(--text-gold);
+        }
+        
+        .modal-content {
+            clear: both;
+            background: linear-gradient(135deg, rgba(10, 0, 0, 0.98), rgba(26, 15, 31, 0.95));
+            border: 3px solid rgba(139, 0, 255, 0.5);
+            border-radius: 25px;
+            padding: 3rem;
+            box-shadow: 
+                0 0 100px rgba(139, 0, 255, 0.4),
+                inset 0 0 80px rgba(0, 0, 0, 0.8);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .modal-content::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(139, 0, 255, 0.1) 0%, transparent 70%);
+            animation: modalPulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes modalPulse {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.5; }
+            50% { transform: scale(1.2) rotate(180deg); opacity: 0.8; }
+        }
+        
+        .modal-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .modal-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 30px currentColor);
+            animation: iconFloat 4s ease-in-out infinite;
+        }
+        
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .modal-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: var(--text-gold);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
+        }
+        
+        .modal-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .modal-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        
+        .modal-meta-item {
+            padding: 0.75rem 1.5rem;
+            background: rgba(139, 0, 255, 0.15);
+            border: 1px solid rgba(139, 0, 255, 0.4);
+            border-radius: 25px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        
+        .modal-section {
+            margin: 3rem 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .modal-section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            color: var(--text-gold);
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(139, 0, 255, 0.3);
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+        }
+        
+        .modal-text {
+            color: var(--text-secondary);
+            line-height: 1.9;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .protocol-phase {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+            border-left: 5px solid;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 0 15px 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .protocol-phase:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 30px rgba(139, 0, 255, 0.3);
+        }
+        
+        .protocol-phase h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--text-gold);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+        
+        .technique-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .technique-list li {
+            padding: 1rem 0 1rem 2.5rem;
+            position: relative;
+            border-bottom: 1px solid rgba(139, 0, 255, 0.2);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        
+        .technique-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .technique-list li::before {
+            content: '⚡';
+            position: absolute;
+            left: 0;
+            color: var(--text-gold);
+            font-size: 1.2rem;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.6));
+        }
+        
+        .blockage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .blockage-item {
+            background: rgba(139, 0, 0, 0.2);
+            border: 1px solid rgba(220, 20, 60, 0.4);
+            padding: 1rem;
+            border-radius: 10px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        .blockage-item::before {
+            content: '⚠️ ';
+            color: #ff6b6b;
+        }
+        
+        .secret-box {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(75, 0, 130, 0.3));
+            border: 3px solid rgba(255, 215, 0, 0.5);
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            box-shadow: 
+                0 0 60px rgba(255, 215, 0, 0.3),
+                inset 0 0 40px rgba(0, 0, 0, 0.8);
+            position: relative;
+        }
+        
+        .secret-box::before {
+            content: '🔒';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3rem;
+            background: var(--chakra-deep);
+            padding: 0 20px;
+            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
+        }
+        
+        .secret-box h4 {
+            color: var(--text-gold);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            text-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+        }
+        
+        .advanced-technique {
+            background: rgba(139, 0, 255, 0.1);
+            border: 1px solid rgba(139, 0, 255, 0.3);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 12px;
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+        
+        .expand-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 2rem;
+            background: linear-gradient(135deg, rgba(139, 0, 255, 0.3), rgba(139, 0, 0, 0.3));
+            border: 2px solid rgba(255, 215, 0, 0.5);
+            border-radius: 30px;
+            color: var(--text-gold);
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(139, 0, 255, 0.3);
+            margin-top: 1rem;
+        }
+        
+        .expand-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 35px rgba(255, 215, 0, 0.5);
+            border-color: var(--text-gold);
+        }
+
+        /* Mobile Optimizations - 100% Perfect Touch Experience */
+        @media (max-width: 768px) {
+            /* Spacing & Layout */
+            .content-layer { padding: 0.75rem; }
+            .hero-cosmic { padding: 2.5rem 1rem; }
+            .nav-buttons { 
+                gap: 0.75rem; 
+                justify-content: center;
+            }
+            .nav-button { 
+                padding: 0.875rem 1.5rem; 
+                font-size: 0.95rem;
+                /* Touch-friendly minimum size */
+                min-height: 48px;
+                min-width: 120px;
+            }
+            
+            /* Stats Grid */
+            .stats-grid { 
+                grid-template-columns: 1fr; 
+                gap: 1.25rem;
+                max-width: 350px;
+            }
+            
+            .stat-card {
+                padding: 1.75rem;
+            }
+            
+            /* Chakra Wheel - Touch Optimized */
+            .chakra-wheel-container { 
+                max-width: 95vw; 
+                margin: 2.5rem auto;
+                min-height: 400px;
+            }
+            .wheel-center { 
+                width: 110px; 
+                height: 110px; 
+                font-size: 0.75rem;
+                line-height: 1.4;
+            }
+            .chakra-point { 
+                width: 75px; 
+                height: 75px;
+                /* Touch-friendly */
+                min-width: 48px;
+                min-height: 48px;
+            }
+            .chakra-name { font-size: 0.7rem; }
+            .chakra-mantra { font-size: 0.6rem; }
+            
+            /* Chakra Cards - Perfect Touch */
+            .chakras-grid { 
+                grid-template-columns: 1fr; 
+                gap: 2rem;
+            }
+            .chakra-card { 
+                padding: 2rem 1.5rem;
+                /* Smooth touch interactions */
+                -webkit-tap-highlight-color: rgba(139, 0, 255, 0.2);
+            }
+            .chakra-card:active {
+                transform: translateY(-2px) translateZ(0);
+            }
+            
+            .chakra-icon {
+                width: 55px;
+                height: 55px;
+                font-size: 1.8rem;
+            }
+            
+            .chakra-header {
+                gap: 1.25rem;
+            }
+            
+            /* Wisdom Cards */
+            .wisdom-card { padding: 2rem 1.5rem; }
+            .wisdom-title { font-size: 1.2rem; }
+            
+            /* Modal System - Mobile Optimized */
+            .chakra-modal {
+                padding: 1rem;
+                margin: 1rem auto;
+            }
+            .modal-content {
+                padding: 2rem 1.5rem;
+            }
+            .modal-close {
+                top: 0.5rem;
+                right: 0.5rem;
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+            .modal-title {
+                font-size: 2.5rem;
+            }
+            .modal-icon {
+                font-size: 4rem;
+            }
+            .modal-section-title {
+                font-size: 1.6rem;
+            }
+            .protocol-phase {
+                padding: 1.5rem;
+                margin: 1.5rem 0;
+            }
+            .secret-box {
+                padding: 2rem 1.5rem;
+            }
+            .technique-list li {
+                padding: 0.875rem 0 0.875rem 2.25rem;
+                font-size: 0.95rem;
+            }
+            .blockage-grid {
+                grid-template-columns: 1fr;
+            }
+            .expand-button {
+                padding: 0.875rem 1.75rem;
+                font-size: 1rem;
+                width: 100%;
+                justify-content: center;
+            }
+            
+            /* Smooth Scrolling */
+            .chakra-modal-overlay {
+                scroll-behavior: smooth;
+            }
+            
+            /* Disable heavy animations on mobile for performance */
+            .void-layer { animation: none !important; }
+            .cosmic-title { animation: none !important; }
+            .star { animation: none !important; }
+            .modal-content::before { animation: none !important; }
+            .modal-icon { animation: none !important; }
+        }
+        
+        /* Tablet Optimizations */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .chakras-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .modal-content {
+                padding: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="energy-progress"></div>
+    
+    <div class="page-container">
+        <div class="void-layer"></div>
+        <div class="stars-layer" id="stars"></div>
+        
+        <div class="content-layer">
+            <!-- Navigation -->
+            <div class="nav-buttons">
+                <a href="index.html" class="nav-button">
+                    <span>←</span>
+                    <span>Back to Tantra Sciences</span>
+                </a>
+                <a href="../index.html" class="nav-button">
+                    <span>🏠</span>
+                    <span>Ashram Home</span>
+                </a>
+                <a href="kundalini.html" class="nav-button">
+                    <span>🐍</span>
+                    <span>Kundalini System</span>
+                </a>
+            </div>
+
+            <!-- Hero Section -->
+            <header class="hero-cosmic">
+                <h1 class="cosmic-title">CHAKRA TECHNOLOGIES</h1>
+                <p class="cosmic-subtitle">Ancient Tantric Wisdom Meets Consciousness Engineering</p>
+                <div class="cosmic-intro">
+                    Access rare esoteric knowledge from hidden tantric texts. Discover activation protocols, 
+                    advanced siddhis, and secret techniques preserved by masters across millennia. 
+                    <strong>This is not basic chakra information—this is the deep web of spiritual technology.</strong>
+                </div>
+
+                <!-- Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">7</div>
+                        <div class="stat-label">Energy Centers</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">108</div>
+                        <div class="stat-label">Day Protocols</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">72,000</div>
+                        <div class="stat-label">Nadis System</div>
+                    </div>
+                </div>
+
+                <!-- Chakra Wheel -->
+                <h2 style="font-family: 'Cinzel', serif; font-size: 2.5rem; margin-bottom: 2rem; color: var(--text-secondary);">
+                    The Cosmic Energy Wheel
+                </h2>
+                <div class="chakra-wheel-container" id="chakraWheel">
+                    <div class="wheel-center">
+                        COSMIC<br>ENERGY
+                    </div>
+                </div>
+                <p style="color: var(--text-secondary); margin-top: 2rem; font-size: 0.9rem;">
+                    Click any chakra to explore its mysteries
+                </p>
+            </header>
+
+            <!-- Section Title -->
+            <h2 class="section-title">Seven Gates to Infinite Consciousness</h2>
+
+            <!-- Chakra Cards Grid -->
+            <div class="chakras-grid" id="chakrasGrid"></div>
+
+            <!-- Wisdom Section -->
+            <section class="wisdom-section">
+                <h2 class="section-title">Essential Wisdom</h2>
+                <div class="wisdom-cards">
+                    <div class="wisdom-card warning">
+                        <h3 class="wisdom-title">
+                            <span>⚡</span>
+                            Kundalini Warning
+                        </h3>
+                        <p class="wisdom-text">
+                            Kundalini awakening without proper preparation can cause severe physical and psychological 
+                            disturbances. Always work with a qualified guru. The practices described here are for 
+                            informational purposes - forced activation is dangerous.
+                        </p>
+                    </div>
+
+                    <div class="wisdom-card">
+                        <h3 class="wisdom-title">
+                            <span>🧠</span>
+                            Integration Note
+                        </h3>
+                        <p class="wisdom-text">
+                            Chakra activation is not linear. Energy may open higher chakras before lower ones stabilize. 
+                            The goal is balanced activation of all centers, not just dramatic experiences.
+                        </p>
+                    </div>
+
+                    <div class="wisdom-card">
+                        <h3 class="wisdom-title">
+                            <span>✨</span>
+                            Secret Practice
+                        </h3>
+                        <p class="wisdom-text">
+                            The ultimate secret across all traditions: consistency matters more than intensity. 20 minutes 
+                            of daily practice for years surpasses 20 hours of occasional practice. The path is gradual 
+                            purification, not forceful rupture.
+                        </p>
+                    </div>
+
+                    <div class="wisdom-card">
+                        <h3 class="wisdom-title">
+                            <span>👁️</span>
+                            Siddhi Warning
+                        </h3>
+                        <p class="wisdom-text">
+                            Siddhis (powers) are byproducts of practice, not goals. Attachment to them creates new bondage. 
+                            True masters often hide their abilities.
+                        </p>
+                    </div>
+
+                    <div class="wisdom-card">
+                        <h3 class="wisdom-title">
+                            <span>👑</span>
+                            Guru Principle
+                        </h3>
+                        <p class="wisdom-text">
+                            While self-practice is valuable, transmission from an enlightened guru accelerates progress 
+                            exponentially. The guru's awakened energy field (Darshan Shakti) directly activates dormant 
+                            potentials.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="chakra-footer">
+                <div class="footer-brand">॥ CHAKRA TECHNOLOGIES ॥</div>
+                <div class="footer-tagline">Ancient Wisdom • Modern Interface • Consciousness Engineering</div>
+                
+                <div class="footer-divider"></div>
+                
+                <div style="max-width: 600px; margin: 0 auto 2rem; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">
+                    <p>
+                        This knowledge represents centuries of hidden tantric wisdom, preserved through secret lineages 
+                        and now accessible for the evolution of consciousness. Knowledge is power when wielded with 
+                        wisdom and ethical intent.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <a href="index.html" class="footer-link">Tantra Sciences</a>
+                    <span style="color: var(--ajna);">|</span>
+                    <a href="../index.html" class="footer-link">ShivaKali Ashram</a>
+                    <span style="color: var(--ajna);">|</span>
+                    <a href="kundalini.html" class="footer-link">Kundalini System</a>
+                    <span style="color: var(--ajna);">|</span>
+                    <a href="mailto:acharyaanish23@gmail.com" class="footer-link">Contact Acharya</a>
+                </div>
+
+                <div class="footer-divider"></div>
+
+                <div class="footer-copyright">
+                    © 1489 ShivaKali Ashram • Serpent Fire Technologies • Acharya Anish<br>
+                    <span style="color: var(--text-gold); font-size: 0.85rem; margin-top: 0.5rem; display: block;">
+                        For educational and spiritual development purposes only. Practice with qualified guidance.
+                    </span>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Modal Overlay for Expandable Chakra Content -->
+    <div class="chakra-modal-overlay" id="chakraModal">
+        <div class="chakra-modal">
+            <button class="modal-close" onclick="closeChakraModal()" aria-label="Close">×</button>
+            <div class="modal-content" id="modalContent">
+                <!-- Content will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Chakra Technologies Complete Interactive System -->
+    <script src="chakra-complete.js"></script>
+</body>
+</html>
