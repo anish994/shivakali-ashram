@@ -792,3 +792,10 @@ body {
         align-items: flex-start;
     }
 }
+
+/* Category Anchor Points */
+.category-anchor {
+    position: absolute;
+    top: -80px;
+    visibility: hidden;
+}
