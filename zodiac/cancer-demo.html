@@ -20,22 +20,13 @@
                 --text-light: #E8F0FD;
                 --text-dark: #D6E4FF;
                 --subtle-light: #0A244D;
-                --subtle-dark: #144880;--mouse-x: 50%;
-                --mouse-y: 50%;
-                --scroll-y: 0;
+                --subtle-dark: #144880;
             }
         }
-        @keyframes subtle-pulse {
-            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px var(--primary-glow)); }
-            50% { transform: scale(1.02); filter: drop-shadow(0 0 20px var(--primary)); }
-        }
-        @keyframes subtle-float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-        @keyframes fade-in-up {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Simple fade-in only - no complex animations */
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         html {
             scroll-behavior: smooth;
@@ -49,85 +40,60 @@
             padding: 0;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            /* Static Cancer logo background - mobile optimized */
+            background-image: url('../pictures/cancerpic.png');
+            background-size: contain;
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-color: var(--background-dark);
         }
-        .animate-subtle-pulse {
-            animation: subtle-pulse 5s ease-in-out infinite;
-        }
-        .animate-subtle-float {
-            animation: subtle-float 6s ease-in-out infinite;
-        }
+        /* Simplified cards - no animations */
         .cancer-logo-glow {
-            filter: drop-shadow(0 0 12px var(--primary-glow)) drop-shadow(0 0 20px var(--primary-glow));
-            transition: filter 0.3s ease-in-out;
-        }
-        .cancer-logo-glow:hover {
-            filter: drop-shadow(0 0 18px var(--primary)) drop-shadow(0 0 30px var(--primary));
+            filter: drop-shadow(0 0 12px var(--primary-glow));
         }
         .data-card {
             background-color: #c0c0c008;
             border: 1px solid var(--primary-glow);
             backdrop-filter: blur(12px);
-            transition: all 0.3s ease;
-            animation: fade-in-up 0.5s ease-out forwards;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            animation: fade-in 0.5s ease-out forwards;
             opacity: 0;
             clip-path: polygon(15% 0, 100% 0, 100% 85%, 85% 100%, 0 100%, 0 15%);
             position: relative;
         }
-        .data-card::before {
-            content: '';
-            position: absolute;
-            top: -2px; left: -2px; right: -2px; bottom: -2px;
-            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
-            filter: blur(20px);
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.4s ease-in-out;
-        }
-        .data-card:hover::before {
-            opacity: 0.5;
-        }
-        .data-card:nth-child(1) { animation-delay: 0.2s; }
-        .data-card:nth-child(2) { animation-delay: 0.3s; }
-        .data-card:nth-child(3) { animation-delay: 0.4s; }
-        .data-card:nth-child(4) { animation-delay: 0.5s; }
-        .data-card:nth-child(5) { animation-delay: 0.6s; }
-        .data-card:nth-child(6) { animation-delay: 0.7s; }
-        .data-card:hover {
-            transform: translateY(-8px) scale(1.03);
-            background-color: #c0c0c01a;
-            border-color: var(--primary);
+        .data-card:nth-child(1) { animation-delay: 0.1s; }
+        .data-card:nth-child(2) { animation-delay: 0.2s; }
+        .data-card:nth-child(3) { animation-delay: 0.3s; }
+        .data-card:nth-child(4) { animation-delay: 0.4s; }
+        .data-card:nth-child(5) { animation-delay: 0.5s; }
+        .data-card:nth-child(6) { animation-delay: 0.6s; }
+        @media (hover: hover) {
+            .data-card:hover {
+                transform: translateY(-4px);
+                background-color: #c0c0c01a;
+                border-color: var(--primary);
+            }
         }
         .content-section {
-             animation: fade-in-up 0.6s ease-out forwards;
+             animation: fade-in 0.6s ease-out forwards;
              opacity: 0;
-             animation-delay: 0.6s;
+             animation-delay: 0.4s;
         }
         .futuristic-card {
             background: linear-gradient(145deg, rgba(192, 192, 192, 0.05), rgba(192, 192, 192, 0.1));
             border: 1px solid var(--primary-glow);
             backdrop-filter: blur(10px);
             clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, background 0.3s ease;
             position: relative;
         }
-        .futuristic-card::before {
-            content: '';
-            position: absolute;
-            top: -1px; left: -1px; right: -1px; bottom: -1px;
-            background: radial-gradient(circle, var(--primary) 0%, transparent 60%);
-            filter: blur(25px);
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.4s ease-in-out;
-            animation: subtle-pulse 6s infinite;
-        }
-        .futuristic-card:hover::before {
-            opacity: 0.3;
-        }
-        .futuristic-card:hover {
-            transform: translateY(-5px);
-            background: linear-gradient(145deg, rgba(192, 192, 192, 0.1), rgba(192, 192, 192, 0.15));
-            border-color: var(--primary);
+        @media (hover: hover) {
+            .futuristic-card:hover {
+                transform: translateY(-3px);
+                background: linear-gradient(145deg, rgba(192, 192, 192, 0.1), rgba(192, 192, 192, 0.15));
+                border-color: var(--primary);
+            }
         }
         .accordion-item {
             background-color: transparent;
@@ -168,13 +134,11 @@
         }
         .dynamic-card {
             --angle: 0deg;
-            border: 2px solid;
-            border-image: conic-gradient(from var(--angle), transparent 20%, var(--primary), transparent 80%) 1;
-            animation: 10s rotate linear infinite;
+            border: 2px solid var(--primary-glow);
             background: radial-gradient(ellipse at center, rgba(192, 192, 192, 0.1) 0%, transparent 70%);
             position: relative;
             overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            transition: all 0.3s ease;
         }
         .dynamic-card summary::-webkit-details-marker {
             display: none;
@@ -493,10 +457,10 @@
 <main class="container mx-auto px-6 py-12 md:py-20 relative z-10">
 <div class="max-w-5xl mx-auto">
 <div class="text-center mb-16 md:mb-24">
-<div class="flex justify-center mb-6 animate-subtle-float">
-<img src="../pictures/cancerpic.png" class="h-28 w-28 md:h-36 md:w-36 text-primary cancer-logo-glow">
+<div class="flex justify-center mb-6">
+<img src="../pictures/cancerpic.png" class="h-28 w-28 md:h-36 md:w-36 text-primary cancer-logo-glow" alt="Cancer Zodiac Symbol">
 </div>
-<h2 class="text-6xl md:text-8xl font-black font-display text-transparent bg-clip-text bg-gradient-to-r from-primary via-gray-300 to-gray-400 tracking-widest animate-subtle-pulse" style="text-shadow: 0 0 30px var(--primary-glow);">CANCER</h2>
+<h2 class="text-6xl md:text-8xl font-black font-display text-transparent bg-clip-text bg-gradient-to-r from-primary via-gray-300 to-gray-400 tracking-widest" style="text-shadow: 0 0 30px var(--primary-glow); -webkit-background-clip: text; background-clip: text;">CANCER</h2>
 <div class="mt-4 content-section intro-text-bg" style="animation-delay: 0.2s;">
 <p class="relative z-10 text-lg md:text-xl text-text-dark/80 max-w-3xl mx-auto font-body">
 <span class="text-primary/80">&lt;LUNAR_MATRIX_ACTIVATING&gt;</span> Governed by the Moon, the cosmic mother, Cancer emerges as the <span class="font-bold text-primary animate-pulse">Celestial Nurturer</span> of the zodiac. Here, emotions flow like tides, pulling and pushing the waters of consciousness in eternal rhythm. Masters of psychic attunement, these souls create sanctuaries of safety in the cosmic ocean, weaving webs of emotional connection across time and space. Through their lens, reality becomes a flowing tapestry of feeling, revealing the nurturing nature of existence itself. <span class="text-primary/80">&lt;TRANSMISSION_ENCRYPTED::EMOTIONAL_WAVELENGTH&gt;</span>
@@ -918,28 +882,7 @@
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        let mouseX = window.innerWidth / 2;
-        let mouseY = window.innerHeight / 2;
-        let scrollY = window.scrollY;
-        const updateStyles = () => {
-            document.documentElement.style.setProperty('--mouse-x', `${mouseX}px`);
-            document.documentElement.style.setProperty('--mouse-y', `${mouseY}px`);
-            document.documentElement.style.setProperty('--scroll-y', scrollY);
-        };
-        const handleMouseMove = (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            window.requestAnimationFrame(updateStyles);
-        };
-        const handleScroll = () => {
-            scrollY = window.scrollY;
-            window.requestAnimationFrame(updateStyles);
-        };
-        document.addEventListener('mousemove', handleMouseMove);
-        document.addEventListener('scroll', handleScroll);
-        // Initial call
-        updateStyles();
-        // Spectrum Visualizer Logic
+        // Simplified for mobile - spectrum visualizer only
         const spectrum = document.getElementById('color-spectrum');
         const spectrumInfo = document.getElementById('spectrum-info');
         const spectrumTitle = document.getElementById('spectrum-title');
