@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tantra Mantra - The Cosmic Codex</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            color: #d6d3d1; /* stone-300 */
+        }
+        .font-cinzel {
+            font-family: 'Cinzel', serif;
+        }
+        #bg-video {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -100;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            filter: brightness(0.35) saturate(1.2);
+            opacity: 0.9;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: -50;
+            background: 
+                radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 50% 100%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
+                linear-gradient(180deg, rgba(28, 25, 23, 0.7) 0%, rgba(28, 25, 23, 0.3) 50%, rgba(28, 25, 23, 0.7) 100%);
+            pointer-events: none;
+        }
+        .nav-active {
+            color: #f59e0b; /* amber-500 */
+            border-bottom-color: #f59e0b;
+        }
+        .nav-inactive {
+             color: #a8a29e; /* stone-400 */
+             border-bottom-color: transparent;
+        }
+        .modal {
+            transition: opacity 0.3s ease;
+        }
+        .modal-content {
+            transition: transform 0.3s ease;
+        }
+        .codex-bg {
+            background-color: rgba(28, 25, 23, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+        .accordion-content {
+             transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+             overflow: hidden;
+        }
+        .chakra-node {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            position: absolute;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        .chakra-node.active {
+            box-shadow: 0 0 15px 5px var(--glow-color), 0 0 2px 1px var(--glow-color) inset;
+            transform: scale(1.1);
+            border-color: var(--glow-color);
+        }
+        .chakra-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            background-color: rgba(168, 162, 158, 0.3);
+            z-index: -1;
+        }
+        #resonance-tooltip {
+            position: absolute;
+            transform: translate(-50%, -110%);
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+        }
+        
+        @media (max-width: 640px) {
+            #bg-video {
+                filter: brightness(0.25) saturate(1.1);
+            }
+            
+            body::before {
+                background: 
+                    radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.15) 0%, transparent 50%),
+                    radial-gradient(circle at 50% 100%, rgba(168, 85, 247, 0.15) 0%, transparent 50%),
+                    linear-gradient(180deg, rgba(28, 25, 23, 0.85) 0%, rgba(28, 25, 23, 0.4) 50%, rgba(28, 25, 23, 0.85) 100%);
+            }
+        }
+    </style>
+</head>
+<body class="bg-stone-900">
+    <!-- Chosen Palette: Cosmic Dark & Gold -->
+    <!-- Application Structure Plan: A tab-based SPA structure is chosen for optimal usability. This design segments the dense project plan into four logical, high-level sections: a 'Dashboard' for an executive summary, a 'Mantra Library' for deep content exploration, an 'App Features' section for functional deep-dives, and 'The Journey' for project planning. This structure avoids a long, overwhelming scroll and allows users to quickly navigate to their area of interest. Key interactions include filterable lists for the mantra library, a modal-based detail view for individual mantras, and accordions for feature breakdowns. This approach turns a static document into an interactive, exploratory tool, making the complex information hierarchy easily digestible. -->
+    <!-- Visualization & Content Choices: The application uses a mix of interactive components to represent the report's content. GOAL: Organize/Explore -> METHOD: The Mantra Library uses a filterable grid and a modal for detailed views. INTERACTION: Users can filter by category and click to drill down into mantra specifics. JUSTIFICATION: This mirrors the proposed app's UX, making the plan tangible. GOAL: Inform/Compare -> METHOD: The "Sadhana Ledger" uses an interactive conceptual Resonance Map created with HTML/CSS to provide a more engaging and thematic way to visualize progress than charts. JUSTIFICATION: This aligns with the esoteric theme of a "Cosmic Codex". GOAL: Change/Organize -> METHOD: The User Journey is represented as a CSS Flexbox flowchart, and the Roadmap is in a three-column layout. JUSTIFICATION: This visual formatting makes process and timeline information easier to synthesize. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <video autoplay muted loop playsinline preload="auto" id="bg-video">
+        <source src="../pictures/mantra.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Top Navigation -->
+    <div class="fixed top-0 left-0 right-0 z-50 bg-stone-900/90 backdrop-blur-md border-b border-amber-500/30 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex items-center gap-2 text-amber-500 hover:text-amber-400 transition-colors">
+                    <span class="text-2xl">←</span>
+                    <span class="font-medium">Tantra Sciences</span>
+                </a>
+                <div class="flex items-center gap-4">
+                    <a href="../index.html" class="flex items-center gap-2 text-stone-300 hover:text-amber-500 transition-colors">
+                        <span class="text-xl">🏛</span>
+                        <span class="font-medium">Ashram</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Badge -->
+    <div class="fixed top-20 right-6 z-40">
+        <div class="w-20 h-20 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-lg border-4 border-amber-400 animate-pulse cursor-pointer hover:scale-110 transition-transform">
+            <span class="text-3xl">🕉️</span>
+        </div>
+    </div>
+
+    <div id="app-container" class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 pt-24">
+        
+        <header class="text-center mb-8">
+            <h1 class="text-4xl md:text-6xl font-cinzel font-bold text-amber-500 tracking-wider drop-shadow-lg">TANTRA MANTRA</h1>
+            <p class="text-xl text-stone-300 mt-3 font-light tracking-wide">The Cosmic Codex • Sound as Sacred Technology</p>
+            <p class="text-sm text-amber-500/70 mt-2">ShivaKali Ashram</p>
+        </header>
+
+        <nav class="sticky top-0 bg-stone-900/70 backdrop-blur-md z-20 mb-8 border-b border-amber-500/20">
+            <div class="flex justify-center items-center text-xs sm:text-base space-x-2 sm:space-x-8">
+                <button data-target="dashboard" class="nav-btn font-medium py-4 px-2 border-b-2 transition-colors duration-300 nav-active">Dashboard</button>
+                <button data-target="library" class="nav-btn font-medium py-4 px-2 border-b-2 transition-colors duration-300 nav-inactive">Mantra Library</button>
+                <button data-target="features" class="nav-btn font-medium py-4 px-2 border-b-2 transition-colors duration-300 nav-inactive">App Features</button>
+                <button data-target="journey" class="nav-btn font-medium py-4 px-2 border-b-2 transition-colors duration-300 nav-inactive">The Journey</button>
+            </div>
+        </nav>
+
+        <main id="content-container">
+            <section id="dashboard" class="content-section">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-2 codex-bg p-6 rounded-xl shadow-lg">
+                        <h2 class="text-2xl font-cinzel font-bold text-amber-500 mb-4">Vision Statement</h2>
+                        <p class="text-stone-300 leading-relaxed">To forge a sacred digital space—a codex of closely-guarded knowledge—that unveils the ancient, vibrational science of mantras. This application will serve as a key for dedicated seekers, empowering them to unlock and practice these profound tools for personal transformation, healing, and spiritual ascension.</p>
+                    </div>
+                    <div class="codex-bg p-6 rounded-xl shadow-lg">
+                        <h2 class="text-2xl font-cinzel font-bold text-amber-500 mb-4">Core Concepts</h2>
+                        <ul class="space-y-2 text-stone-300">
+                            <li class="flex items-start"><span class="text-amber-500 mr-2">✧</span>Mantras as Quantum Codes</li>
+                            <li class="flex items-start"><span class="text-amber-500 mr-2">✧</span>Sound as a Key to Consciousness</li>
+                            <li class="flex items-start"><span class="text-amber-500 mr-2">✧</span>Ancient Science, Modern Alchemy</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mt-8 codex-bg p-6 rounded-xl shadow-lg">
+                    <h2 class="text-2xl font-cinzel font-bold text-amber-500 mb-4 text-center">The Sadhana Ledger</h2>
+                    <p class="text-center text-stone-400 mb-6 max-w-2xl mx-auto"><span class="font-bold text-amber-500/80">Principle of Resonance:</span> This Codex does not store your data. It attunes to your energetic signature. Each practice you complete leaves a resonant trace, strengthening your connection to the knowledge within and slowly unveiling deeper truths.</p>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 mt-8">
+                        <div class="lg:col-span-2">
+                            <h3 class="font-cinzel text-xl text-amber-500/90 border-b border-amber-500/20 pb-2 mb-4">Log Energetic Trace</h3>
+                            <div class="space-y-4 text-sm">
+                                <div>
+                                    <label class="text-stone-400">Mantra Practiced:</label>
+                                    <p class="text-stone-200 font-semibold">Ego-Dissolving Void Chant</p>
+                                </div>
+                                <div>
+                                    <label class="text-stone-400">Repetitions (Counts):</label>
+                                    <p class="text-stone-200 font-semibold">21 (Mental)</p>
+                                </div>
+                                <div>
+                                    <label class="text-stone-400">Observations / Gnosis:</label>
+                                    <p class="text-stone-300 border border-amber-500/10 p-2 rounded-md bg-stone-900/40">Feeling of spaciousness between thoughts. The usual mental chatter was replaced by a low hum. A brief moment of seeing geometric patterns behind closed eyes.</p>
+                                </div>
+                                <div class="pt-4">
+                                     <div class="p-3 border border-red-500/30 bg-red-900/20 rounded-lg text-sm">
+                                        <h4 class="font-bold text-red-400">Warning: Sadhana Sequencing</h4>
+                                        <p class="text-stone-300 mt-1">Never follow a solar mantra (Surya) with a void chant (Shunyam) without a grounding period (Prithvi Beej). Doing so can destabilize the energy body and lead to pranic leakage.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-3">
+                            <h3 class="font-cinzel text-xl text-amber-500/90 border-b border-amber-500/20 pb-2 mb-4">Resonance Map</h3>
+                             <p class="text-center text-stone-400 text-sm mb-4">This map reflects your subtle body. As you practice, centers will resonate. Hover over a node to see its state.</p>
+                            <div class="flex justify-center items-center h-full">
+                                <div id="resonance-map-container" class="relative w-full max-w-[200px] h-[350px]">
+                                    <div class="chakra-line" style="top: 20px; height: 330px;"></div>
+                                    <div class="chakra-node active" data-title="Sahasrara (Crown)|State: Active|Governs: Gnosis, Union|Influenced by: Void & Shiva Mantras" style="top: 0; left: 50%; transform: translateX(-50%); background-color: #a855f7; --glow-color: #a855f7;"></div>
+                                    <div class="chakra-node" data-title="Ajna (Third Eye)|State: Dormant|Governs: Intuition, Sight|Influenced by: Akashic & Siddhi Mantras" style="top: 60px; left: 50%; transform: translateX(-50%); background-color: #6366f1; --glow-color: #6366f1;"></div>
+                                    <div class="chakra-node" data-title="Vishuddha (Throat)|State: Dormant|Governs: Expression, Truth|Influenced by: Shakti & Kavacha Mantras" style="top: 120px; left: 50%; transform: translateX(-50%); background-color: #3b82f6; --glow-color: #3b82f6;"></div>
+                                    <div class="chakra-node" data-title="Anahata (Heart)|State: Stirring|Governs: Compassion, Love|Influenced by: Tara & Bhakti Mantras" style="top: 180px; left: 50%; transform: translateX(-50%); background-color: #22c55e; --glow-color: #22c55e;"></div>
+                                    <div class="chakra-node active" data-title="Manipura (Solar)|State: Active|Governs: Willpower, Power|Influenced by: Planetary & Varaha Mantras" style="top: 240px; left: 50%; transform: translateX(-50%); background-color: #eab308; --glow-color: #eab308;"></div>
+                                    <div class="chakra-node" data-title="Svadhisthana (Sacral)|State: Dormant|Governs: Creativity, Desire|Influenced by: Yaksha & Apsara Mantras" style="top: 300px; left: 50%; transform: translateX(-50%); background-color: #f97316; --glow-color: #f97316;"></div>
+                                    <div class="chakra-node" data-title="Muladhara (Root)|State: Stable|Governs: Survival, Grounding|Influenced by: Ganesha & Elemental Mantras" style="top: 360px; left: 50%; transform: translateX(-50%); background-color: #ef4444; --glow-color: #ef4444;"></div>
+                                    <div id="resonance-tooltip" class="codex-bg p-3 rounded-lg text-xs w-48 text-center invisible opacity-0 pointer-events-none z-30"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="library" class="content-section hidden">
+                 <div class="codex-bg p-6 rounded-xl shadow-lg">
+                    <h2 class="text-3xl font-cinzel font-bold text-amber-500 mb-2 text-center">The Mantra Library</h2>
+                    <p class="text-center text-stone-400 mb-6">Explore the vast collection of mantras, filterable by their core purpose and energy.</p>
+                    <div class="flex flex-wrap justify-center gap-2 mb-8" id="mantra-filters">
+                        <button class="filter-btn bg-amber-600 text-white py-2 px-4 rounded-full text-sm">All</button>
+                    </div>
+                    <div id="mantra-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                    </div>
+                </div>
+            </section>
+            
+            <section id="features" class="content-section hidden">
+                <div class="codex-bg p-6 rounded-xl shadow-lg">
+                    <h2 class="text-3xl font-cinzel font-bold text-amber-500 mb-2 text-center">App Features Deep Dive</h2>
+                    <p class="text-center text-stone-400 mb-8">An overview of the app's core functional sections designed for learning and practice.</p>
+                    <div id="features-accordion" class="space-y-4">
+                    </div>
+                </div>
+            </section>
+
+            <section id="journey" class="content-section hidden">
+                 <div class="codex-bg p-6 rounded-xl shadow-lg mb-8">
+                    <h2 class="text-3xl font-cinzel font-bold text-amber-500 mb-2 text-center">The Seeker's Journey</h2>
+                    <p class="text-center text-stone-400 mb-8">Visualizing the intended user flow from discovery to daily habit.</p>
+                    <div id="user-journey-flow" class="flex flex-wrap items-stretch justify-center gap-4 text-center text-sm">
+                    </div>
+                </div>
+                <div class="codex-bg p-6 rounded-xl shadow-lg">
+                    <h2 class="text-3xl font-cinzel font-bold text-amber-500 mb-2 text-center">Development Roadmap</h2>
+                    <p class="text-center text-stone-400 mb-8">A phased approach to building and launching the application.</p>
+                    <div id="roadmap-phases" class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="mantra-modal" class="modal fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 opacity-0 pointer-events-none z-50">
+        <div class="modal-content codex-bg rounded-xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto transform scale-95">
+             <div class="sticky top-0 bg-stone-900/80 backdrop-blur-sm p-4 border-b border-amber-500/20 flex justify-between items-center z-10">
+                <h3 id="modal-title" class="text-2xl font-cinzel font-bold text-amber-500"></h3>
+                <button id="modal-close" class="text-stone-400 hover:text-white text-3xl font-bold leading-none">&times;</button>
+            </div>
+            <div id="modal-body" class="p-6">
+            </div>
+        </div>
+    </div>
+    
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    const mantraData = {
+        'Beej (Seed) Mantras': ['Chakra Beejas', 'Shakti Beejas', 'Elemental Beejas'],
+        'Deity Mantras': ['Ganesha Mantras', 'Shiva Mantras', 'Bhairava Mantras', 'Hayagriva Mantra', 'Varaha Mantra'],
+        'Shakti (Goddess) Mantras': ['Lakshmi Mantras', 'Kali Mantras', 'Bagalamukhi Mantra', 'Tara Mantra', 'Dhumavati Mantra', 'Chinnamasta Mantra'],
+        'Protective Kavachas': ['Narasimha Kavacha', 'Hanuman Kavacha', 'Devi Kavacha'],
+        'Planetary (Navagraha)': ['Shani Mantra', 'Rahu Mantra', 'Ketu Mantra'],
+        'Mantras for Siddhis': ['Karna Pishachini Mantra', 'Anima Siddhi Mantra', 'Trailokya Vijaya Mantra'],
+        'Karmic & Ancestral': ['Pitru Dosha Nivaran', 'Karmic Knot Release', 'Rina Mukti Mantra'],
+        'Yaksha & Gandharva': ['Kubera Mantra', 'Manibhadra Mantra', 'Apsara Attraction Mantra'],
+        'Akashic & Shadow': ['Mantra of Unveiling', 'Ego-Dissolving Void Chant'],
+    };
+
+    const mantraDetails = {
+        'Chakra Beejas': {
+            'Glyph': '⚙️',
+            'The Code': '<strong>LAM, VAM, RAM, YAM, HAM, OM.</strong><br>Single-syllable sounds that resonate with and activate the body\'s seven primary energy centers.',
+            'Resonance Field': 'The Sushumna Nadi (Central Energy Channel) and associated nerve plexuses.',
+            'The Method': 'Chanted individually while focusing on the corresponding chakra location. Repetitions of 108 are common.',
+            'Siddhi Potential': 'Energetic sensitivity, emotional balance, heightened self-awareness.',
+            'Psychic Risk': 'Minimal. Can cause temporary energy rushes or emotional releases if a chakra is severely blocked.'
+        },
+        'Shakti Beejas': {
+            'Glyph': '🔥',
+            'The Code': '<strong>HREEM, SHREEM, KLEEM.</strong><br>The primal feminine power of creation, condensed into seed sounds. These are activators for the divine feminine force (Shakti) within.',
+            'Resonance Field': 'The entire left side of the body (Ida Nadi), creative and intuitive faculties, the womb/sacral chakra, and the magnetic field of the aura.',
+            'The Method': 'Best chanted during the waxing moon. The practitioner must hold a specific mudra (Yoni Mudra) and visualize a blazing, creative fire at the base of the spine, rising with each repetition.',
+            'Siddhi Potential': 'Charisma, magnetic attraction, enhanced creativity, intuitive insights, and the power to influence the desires of others.',
+            'Psychic Risk': 'High. If practiced without a corresponding grounding Shiva mantra, it can lead to emotional volatility, hysteria, and uncontrollable desires. It awakens a force that demands respect and mastery.'
+        },
+        'Elemental Beejas': {
+            'Glyph': '🌍💨🔥💧🌌',
+            'The Code': '<strong>LAM (Earth), VAM (Water), RAM (Fire), YAM (Air), HAM (Ether).</strong><br>The vibrational essences of the five great elements. To chant them is to command the building blocks of reality itself.',
+            'Resonance Field': 'The elemental composition of the physical body and the corresponding layers of the subtle body (koshas).',
+            'The Method': 'This is a practice of elemental alchemy. It requires focused visualization of the element\'s qualities while chanting. For LAM, feel immense weight and stability. For YAM, feel formless, constant movement.',
+            'Siddhi Potential': 'Control over the body\'s elemental balance, weather sensitivity, enhanced physical resilience, ability to project elemental qualities into one\'s environment.',
+            'Psychic Risk': 'Moderate. Over-emphasis on one element can create severe imbalances in the body and mind. Too much RAM can lead to anger and burnout; too much VAM to depression and lethargy. Requires careful balancing.'
+        },
+        'Ganesha Mantras': {
+            'Glyph': '🐘',
+            'The Code': '<strong>"Om Gam Ganapataye Namaha."</strong><br><em>(Salutations to the Lord of Ganas)</em>. Invokes the Lord of Obstacles, who governs the doorways between realms.',
+            'Resonance Field': 'The Muladhara (Root) chakra, where all journeys begin. It also governs logic, intellect, and the structuring of perceived reality.',
+            'The Method': 'Chanted 108 times before any other significant mantra practice or life event. Visualize a massive, powerful elephant effortlessly clearing a dense jungle path that represents your problem.',
+            'Siddhi Potential': 'An uncanny ability to find solutions to complex problems, the removal of "bad luck" or persistent obstacles, enhanced memory and learning capacity.',
+            'Psychic Risk': 'Low. However, misuse (e.g., trying to create obstacles for others) is said to rebound with triple force. Ganesha removes obstacles from your path, he does not place them in others\'.'
+        },
+        'Shiva Mantras': {
+            'Glyph': '🔱',
+            'The Code': '<strong>"Om Namah Shivaya."</strong><br><em>(I bow to Shiva)</em>. Connects the chanter to the still, silent, transcendental consciousness that is the ground of all being.',
+            'Resonance Field': 'The Sahasrara (Crown) chakra, the pineal gland, and the state of deep, dreamless sleep (Sushupti) where the individual self ceases to be.',
+            'The Method': 'Best chanted in a quiet, isolated place, especially a graveyard or mountaintop. The gaze should be unfocused, turned inward. The goal is to become the silence between the chants.',
+            'Siddhi Potential': 'Absolute fearlessness, detachment from worldly outcomes, the ability to meditate for long periods without effort, and the eventual dissolution of the individual self into cosmic consciousness.',
+            'Psychic Risk': 'High. The ego will fight back violently against the dissolution this mantra brings. Can trigger profound existential crises and a feeling of disconnection from mundane reality if the practitioner is not ready to let go.'
+        },
+        'Hayagriva Mantra': {
+            'Glyph': '🐴',
+            'The Code': '<strong>"Om Vagishwaraya Vidmahe Hayagrivaya Dhimahi Tanno Hamsah Prachodayat."</strong><br>Invokes the horse-headed avatar of Vishnu, the ultimate repository of all cosmic knowledge.',
+            'Resonance Field': 'The Medha Nadi (channel of intellect), the hippocampus (memory center), and the throat chakra (for eloquent speech).',
+            'The Method': 'Chanted at sunrise, facing East. The practitioner should offer a single, unblemished flower before a book or symbol of knowledge. It is said to be most potent when learning a new, complex subject.',
+            'Siddhi Potential': 'Superhuman memory, unparalleled debating skills, mastery over any field of study, and the ability to find the root of any intellectual problem.',
+            'Psychic Risk': 'Low. The primary risk is intellectual arrogance (jnana-garva), which can become a significant spiritual obstacle if unchecked.'
+        },
+        'Varaha Mantra': {
+            'Glyph': '🐗',
+            'The Code': '<strong>"Om Namo Bhagavate Varaha Rupaya Bhur Bhuvah Swah Pataye Bhupatitvam Me Dehi Dadapaya Swaha."</strong><br>Calls upon the boar avatar of Vishnu to recover what is lost.',
+            'Resonance Field': 'The Earth element (Prithvi Tattva), the magnetic field of the planet, and the subconscious drive to protect one\'s territory and resources.',
+            'The Method': 'Chant while holding a small amount of soil from the property or place in question. Visualize a powerful boar digging and unearthing your lost object or opportunity. Best performed at dusk.',
+            'Siddhi Potential': 'Recovery of lost or stolen items, success in property disputes, the grounding of chaotic life situations, and a powerful sense of stability and security.',
+            'Psychic Risk': 'Moderate. Can amplify stubbornness and territorial aggression if the practitioner becomes too attached to the material outcomes.'
+        },
+        'Lakshmi Mantras': {
+            'Glyph': '💰',
+            'The Code': '<strong>"Om Shreem Mahalakshmyai Namaha."</strong><br>Invokes "Shri" - the principle of auspicious abundance in all its forms: health, love, beauty, flow, and spiritual light.',
+            'Resonance Field': 'The body\'s auric field, the flow of opportunity and synchronicity, and the heart\'s capacity to receive.',
+            'The Method': 'Must be practiced with an attitude of immense gratitude. Chanted on Fridays while holding a piece of clear quartz. An act of generosity on the day of practice is said to multiply the effect exponentially.',
+            'Siddhi Potential': 'The effortless attraction of resources, opportunities, and helpful people. An "aura" of beauty, grace, and fortune that others find compelling.',
+            'Psychic Risk': 'Moderate. Can easily lead to attachment, greed, and the fear of loss if the chanter\'s heart is not pure. It attracts wealth, but if the vessel is not strong, it also attracts the anxiety that comes with it.'
+        },
+        'Kali Mantras': {
+            'Glyph': '🩸',
+            'The Code': '<strong>"Om Kreem Kalikaye Namaha."</strong><br>The sound-form of the fierce goddess of Time, Death, and Radical Transformation. The seed "Kreem" is the sonic weapon that cuts through all illusions.',
+            'Resonance Field': 'The deepest layers of the subconscious mind, the flow of time (Kala), the electrical energy of the nervous system, and the energy of liberation through destruction.',
+            'The Method': 'Not for the timid. Traditionally practiced in charnel grounds. Requires a fierce and unwavering focus. Visualization involves seeing the goddess severing the head of your own ego.',
+            'Siddhi Potential': 'Instant destruction of negative habits and addictions, liberation from deep-seated fear, rapid and sometimes brutal spiritual progress, the ability to stand fearless in the face of chaos and death.',
+            'Psychic Risk': 'Very High. Kali represents untamed, raw, primordial power. She can burn through the practitioner\'s psychic circuits if they are not strong enough. Can bring about sudden, chaotic, and destructive changes in one\'s life as a means of purification.'
+        },
+        'Bagalamukhi Mantra': {
+            'Glyph': '🛑',
+            'The Code': '<strong>"Om Hleem Bagalamukhi Sarvadushtanam Vacham Mukham Padam Stambhaya Jihvam Kilaya Buddhim Vinashaya Hleem Om Swaha."</strong><br>The ultimate weapon to paralyze and silence one\'s enemies.',
+            'Resonance Field': 'The throat chakra (Vishuddha) of others, the power of speech (Vak), and the energetic field of conflict.',
+            'The Method': 'Chanted wearing yellow clothes, using a turmeric mala. The practitioner visualizes the target\'s speech and actions coming to a complete standstill.',
+            'Siddhi Potential': 'The power to stop arguments, win lawsuits, silence critics, and paralyze the actions of those who wish you harm. It is a formidable psychic weapon.',
+            'Psychic Risk': 'Very High. This is a weaponized mantra. Misuse for selfish or unjust reasons creates immense negative karma that rebounds upon the user, leading to loss of speech, social isolation, and paralysis in their own life.'
+        },
+        'Tara Mantra': {
+            'Glyph': '🌟',
+            'The Code': '<strong>"Om Tare Tuttare Ture Soha."</strong><br>The sound of the Goddess as the Saviouress, the one who guides souls across the ocean of suffering (samsara).',
+            'Resonance Field': 'The Heart Chakra (Anahata), the quality of compassion (Karuna), and the astral pathways.',
+            'The Method': 'Chanted with a genuine wish for the liberation of all beings. Visualization involves a green light emanating from your heart, extending to all sentient beings, easing their suffering.',
+            'Siddhi Potential': 'Development of profound empathy, the ability to calm and heal others with one\'s presence, guidance in dreams, and protection during travel (physical and astral).',
+            'Psychic Risk': 'Low. The main "risk" is the spontaneous development of compassion, which may lead to a radical shift in life priorities away from selfish concerns.'
+        },
+        'Dhumavati Mantra': {
+            'Glyph': '👵',
+            'The Code': '<strong>"Dhum Dhum Dhumavati Swaha."</strong><br>Invokes the Crone Goddess, the wisdom that comes from loss, disappointment, and letting go of all that is transient.',
+            'Resonance Field': 'The void (Shunya), the state of non-attachment, and the karmic imprints of loss and sorrow.',
+            'The Method': 'Practiced in desolate, ugly, or abandoned places. The practitioner should be unbathed and hungry to resonate with the goddess\'s energy. The goal is to embrace the discomfort and find the freedom within it.',
+            'Siddhi Potential': 'Complete immunity to disappointment and worldly loss. The ability to find wisdom in the most painful situations. Freedom from desire and attachment.',
+            'Psychic Risk': 'Very High. Can induce profound states of depression, poverty, and ugliness in one\'s life as a means of teaching detachment. This path embraces what others shun; one must be ready to lose everything.'
+        },
+        'Narasimha Kavacha': {
+            'Glyph': '🦁',
+            'The Code': '<strong>"Ugram Viram Maha Vishnum Jvalantam Sarvato Mukham Nrisimham Bhishanam Bhadram Mrityur Mrityum Namamy Aham."</strong><br>A divine armor (Kavacha) invoking the half-man, half-lion avatar of Vishnu.',
+            'Resonance Field': 'The auric field, the solar plexus (Manipura chakra), and the astral plane.',
+            'The Method': 'Recited with great force and devotion, especially at dusk. The practitioner visualizes themself being completely encased in a blazing armor of divine fire.',
+            'Siddhi Potential': 'Invincibility against psychic attacks, black magic, and negative entities. It creates a shield that burns anything that approaches with malicious intent. Instills unshakable courage.',
+            'Psychic Risk': 'Moderate. The ferocious energy, if not channeled correctly, can lead to outbursts of anger and aggression in the practitioner. It is a weapon and must be handled with care.'
+        },
+        'Hanuman Kavacha': {
+            'Glyph': '🐒',
+            'The Code': '<strong>"Om Namo Bhagavate Anjaneyaya Mahabalaya Swaha."</strong><br>An armor of pure devotion (Bhakti) and physical power, calling upon the great devotee Hanuman for strength and protection.',
+            'Resonance Field': 'The physical body (muscles and bones), the life-force (Prana), and the subconscious mind.',
+            'The Method': 'Chanted on Tuesdays or Saturdays while maintaining celibacy (Brahmacharya). Visualization involves seeing Hanuman as a vast, mountain-sized protector standing behind you.',
+            'Siddhi Potential': 'Immense physical strength and stamina, freedom from fear and phobias, protection from ghosts and lower spirits, and the ability to overcome seemingly impossible odds through sheer willpower.',
+            'Psychic Risk': 'Low. The only risk is the potential for arrogance in one\'s own strength. Requires humility and devotion to be effective.'
+        },
+        'Devi Kavacha': {
+            'Glyph': '🛡️',
+            'The Code': 'A lengthy hymn from the Chandi Path, beginning with <strong>"Om Namo Devyai Maha Devyai..."</strong><br>An invocation of the Divine Mother to protect every single part of the body.',
+            'Resonance Field': 'The entire physical and subtle body, creating a multi-layered divine shield.',
+            'The Method': 'Recited daily, preferably in the morning. The practitioner touches each part of their body as it is mentioned in the text, consciously invoking the presence of the specified goddess.',
+            'Siddhi Potential': 'Holistic protection from all forms of illness, accident, and misfortune. Creates a powerful feeling of being nurtured and cared for by the Divine Mother.',
+            'Psychic Risk': 'Minimal. It is a pure, loving form of protection.'
+        },
+        'Shani Mantra': {
+            'Glyph': '🪐',
+            'The Code': '<strong>"Om Sham Shanaye Namaha."</strong><br>The mantra to propitiate Saturn, the great cosmic judge, who delivers the fruits of our karma.',
+            'Resonance Field': 'The skeletal system, the nervous system, the concept of time, and the karmic ledger.',
+            'The Method': 'Chanted on Saturdays, especially during difficult Saturn transits (Sade Sati). Requires austerity, discipline, and acts of service, such as feeding the poor.',
+            'Siddhi Potential': 'The ability to endure hardship with grace, immense patience and discipline, and the mitigation of negative karmic effects. Saturn, when pleased, bestows longevity and authority.',
+            'Psychic Risk': 'High. If practiced with a resentful or impatient attitude, it can intensify feelings of frustration, delay, and depression. One cannot force Saturn; one can only surrender to his lessons.'
+        },
+        'Rahu Mantra': {
+            'Glyph': '🐉',
+            'The Code': '<strong>"Om Bhram Bhreem Bhroum Sah Rahave Namaha."</strong><br>A mantra to appease the northern lunar node, the shadow planet of materialism, obsession, and sudden change.',
+            'Resonance Field': 'The bio-electric field, the pineal gland, and the psychological drives for fame, power, and mass influence.',
+            'The Method': 'Chanted 18,000 times over 40 days, starting on a Saturday, after sunset. Offering black mustard oil and blue flowers is prescribed.',
+            'Siddhi Potential': 'Mass popularity, success in politics or mass media, sudden windfalls of wealth, proficiency with technology, development of psychic abilities.',
+            'Psychic Risk': 'High. Rahu is the master of illusion (Maya). The boons he grants can be traps, leading to scandal, addiction, paranoia, and a fall from grace as dramatic as the rise.'
+        },
+        'Ketu Mantra': {
+            'Glyph': '☄️',
+            'The Code': '<strong>"Om Sram Sreem Sroum Sah Ketave Namaha."</strong><br>To connect with the southern lunar node, the headless shadow planet of spirituality, liberation, and intuition.',
+            'Resonance Field': 'The subconscious mind, the crown chakra, the genetic code, and the realm of psychic phenomena.',
+            'The Method': 'Best performed in isolation. Requires introspection and a detachment from worldly desires. Meditation upon formlessness is a key component.',
+            'Siddhi Potential': 'Powerful intuition, clairvoyance, mastery of healing sciences, the ability to understand esoteric scriptures, and ultimately, Moksha (liberation).',
+            'Psychic Risk': 'High. Ketu is detachment. This mantra can cause a sudden loss of interest in worldly affairs, relationships, and responsibilities. It can lead to intense feelings of alienation and weirdness if the practitioner is not spiritually mature.'
+        },
+        'Karna Pishachini Mantra': {
+            'Glyph': '👂',
+            'The Code': 'A forbidden formula, not written here, to invoke a specific Yakshini who grants the power of clairaudience.',
+            'Resonance Field': 'The etheric body, the auditory nerves, and the astral plane that vibrates with sound and information.',
+            'The Method': 'Practiced in a graveyard or under a Banyan tree on a new moon night, for 41 days without break. Requires specific offerings and a vow of silence during the day.',
+            'Siddhi Potential': 'The ability to hear any conversation, anywhere in the world, by simply thinking of the person. Can be used to learn secrets and gain immense worldly advantage.',
+            'Psychic Risk': 'Extreme. The Pishachini is a demanding and jealous entity. Failure in the practice can lead to madness, deafness, or being perpetually haunted. The entity may demand servitude in exchange for the siddhi.'
+        },
+        'Anima Siddhi Mantra': {
+            'Glyph': '⚛️',
+            'The Code': 'A highly guarded yogic formula that attunes the practitioner\'s consciousness to the quantum level of reality, allowing them to manipulate their perceived size.',
+            'Resonance Field': 'The space between atoms (Akasha), the practitioner\'s morphogenetic field, and the observer effect in quantum mechanics.',
+            'The Method': 'An advanced practice of Trataka (focused gazing) on the tip of a needle, combined with a specific mental chant and breath retention (kumbhaka).',
+            'Siddhi Potential': 'The ability to become smaller than an atom, to enter solid objects, and to perceive the quantum reality directly. It is one of the eight classical Ashtasiddhis.',
+            'Psychic Risk': 'Extreme. This tampers with the fundamental laws of perception. A failed attempt can lead to a complete loss of bodily awareness and a psychotic break from consensual reality.'
+        },
+        'Trailokya Vijaya Mantra': {
+            'Glyph': '👑',
+            'The Code': 'The "Conqueror of the Three Worlds" mantra. A supreme formula that, when mastered, grants the practitioner influence over the physical, astral, and causal planes.',
+            'Resonance Field': 'The central core of the practitioner\'s will (Atma-Shakti), the connection between the three bodies (physical, astral, causal).',
+            'The Method': 'A year-long sadhana involving daily fire rituals, strict vows, and the chanting of the mantra over 100,000 times with unwavering concentration.',
+            'Siddhi Potential': 'The ability to command spirits from all three realms, to influence the minds of gods and men, and to shape reality according to one\'s will. It is the siddhi of absolute sovereignty.',
+            'Psychic Risk': 'Extreme. The amount of power this siddhi promises corrupts absolutely. The practitioner faces temptations from the most powerful beings in the cosmos. Failure at any stage leads to becoming a slave to the very forces one sought to control.'
+        },
+        'Rina Mukti Mantra': {
+            'Glyph': '💸',
+            'The Code': '<strong>"Om Angarakaya Namaha."</strong><br>Specifically invokes the fierce planet Mars (Angaraka) to destroy debt. This applies to both financial and karmic debts.',
+            'Resonance Field': 'The Manipura (Solar Plexus) chakra, which governs willpower and metabolic energy, and the karmic ledger related to give-and-take.',
+            'The Method': 'Chanted on Tuesdays. The practitioner should offer red lentils and jaggery to the poor. Visualization involves seeing all debts, represented as red threads, being burned away.',
+            'Siddhi Potential': 'Unexpected clearing of financial debts, resolution of old conflicts and obligations, and a feeling of immense relief and freedom from past burdens.',
+            'Psychic Risk': 'Moderate. Mars is a planet of aggression. If chanted with anger or a sense of victimhood, it can increase conflicts and arguments related to the debt rather than resolving it peacefully.'
+        },
+        'Manibhadra Mantra': {
+            'Glyph': '🏦',
+            'The Code': '<strong>"Om Namo Manibhadraya Kuberaya Yakshaya Mahate Namah."</strong><br>Calls upon the Yaksha King Manibhadra, a fierce and swift bestower of immense wealth, associated with speculation.',
+            'Resonance Field': 'The energy of risk, speculation, and networks of wealth. Connects to the elemental energies of treasure.',
+            'The Method': 'This is a high-risk, high-reward practice. Often involves chanting in a place of commerce or finance after midnight. Specific offerings are required.',
+            'Siddhi Potential': 'Massive, sudden gains in stock markets, lotteries, or gambling. The ability to perceive hidden opportunities for wealth that others miss.',
+            'Psychic Risk': 'Very High. Manibhadra is a fierce Yaksha, not a benevolent deity. The wealth he grants can be unstable and disappear as quickly as it came. He may demand offerings that cross moral lines. Failure to appease him can lead to total financial ruin.'
+        },
+        'Apsara Attraction Mantra': {
+            'Glyph': '💃',
+            'The Code': '<strong>"Om Hreem Rambha Apsaraya Swaha."</strong><br>Invokes the celestial nymphs to bestow supernatural charisma, artistic talent, and magnetic charm.',
+            'Resonance Field': 'The Svadhisthana (Sacral) chakra, the astral body, the aesthetic senses, and the sexual energy centers.',
+            'The Method': 'Chanted at night during a full moon, surrounded by pleasant fragrances. A vow of celibacy is often required during the practice period to accumulate the necessary Ojas (sexual energy).',
+            'Siddhi Potential': 'Overwhelming attractiveness and charm, mastery over artistic skills (music, dance), the ability to enchant and influence others.',
+            'Psychic Risk': 'High. These are powerful and fickle elemental beings, not servants. They can become obsessive and possessive, draining the practitioner of life-force (Ojas) and causing infatuation and delusion.'
+        },
+        'Bhairava Mantras': {
+            'Glyph': '💀',
+            'The Code': '<strong>"Om Hreem Bhairavaya Namaha."</strong><br>Invoke the fierce, protective, and time-dissolving aspect of Shiva.',
+            'Resonance Field': 'The subconscious mind, the root chakra (Muladhara), and the astral plane.',
+            'The Method': 'Best practiced at midnight or during a solar/lunar eclipse. Requires absolute fearlessness. Often involves offerings of black sesame seeds or coconut.',
+            'Siddhi Potential': 'Destruction of deep-seated fears and complexes, protection from negative entities, control over the fear of death.',
+            'Psychic Risk': 'High. Can invoke terrifying visions and nightmares as the subconscious is purged. Not for the faint of heart. May attract unwanted astral attention if done improperly.'
+        },
+        'Chinnamasta Mantra': {
+            'Glyph': '⚔️',
+            'The Code': '<strong>"Srim Hrim Klim Aim Vajra Vairochaniye Hum Hum Phat Swaha."</strong><br>A mantra invoking the self-decapitating goddess who symbolizes the transcendence of the ego.',
+            'Resonance Field': 'The Kundalini Shakti itself, the Ajna chakra (third eye), and the cycle of creation/destruction.',
+            'The Method': 'This is an extremely advanced practice. It is never undertaken without direct initiation from a qualified Guru.',
+            'Siddhi Potential': 'Rapid spiritual evolution, liberation from the ego, direct perception of reality without cognitive filters, control over life-force energy (prana).',
+            'Psychic Risk': 'Extreme. The symbolism is literal on a psychic level. Can cause a complete shattering of the ego structure, leading to madness if the practitioner is not prepared.'
+        },
+        'Pitru Dosha Nivaran': {
+            'Glyph': '🧬',
+            'The Code': '<strong>"Om Sarva Pitru Devata Bhyo Namaha."</strong><br>A set of sound formulas to resolve ancestral blockages and karmic debts passed down through the lineage.',
+            'Resonance Field': 'The morphogenetic field of the family line, genetic memory.',
+            'The Method': 'Requires a specific ritual performed during the new moon (Amavasya) or the annual Pitru Paksha period.',
+            'Siddhi Potential': 'Removal of persistent, unexplained obstacles in finances, health, and relationships. A sense of ancestral blessing and support.',
+            'Psychic Risk': 'Moderate. Can bring suppressed ancestral traumas to the surface. Must be done with respect and sincerity.'
+        },
+        'Kubera Mantra': {
+            'Glyph': '💎',
+            'The Code': '<strong>"Om Yakshaya Kuberaya Vaishravanaya Dhanadhanyadhipataye Dhanadhanyasamriddhim Me Dehi Dapaya Swaha."</strong><br>Invokes the treasurer of the gods for material and spiritual wealth.',
+            'Resonance Field': 'The magnetic field of the Earth, telluric currents, the flow of currency and opportunity.',
+            'The Method': 'Chanted facing North, after sunset. Visualizing a flow of golden coins is a common accompaniment. Keeping a Kubera Yantra is recommended.',
+            'Siddhi Potential': 'Unexpected financial gains, new sources of income, protection of existing wealth, discovery of treasures.',
+            'Psychic Risk': 'Low to Moderate. Can amplify greed if the practitioner\'s intention is not pure. Attracts both positive and mischievous elemental energies; a protection mantra is advised.'
+        },
+        'Mantra of Unveiling': {
+            'Glyph': '👁️‍🗨️',
+            'The Code': '<strong>अनावरणस्य मन्त्रः (Anāvaraṇasya Mantraḥ).</strong><br>A deeply esoteric chant whispered to tune the practitioner into the Akashic records. The mantra itself is not given publicly.',
+            'Resonance Field': 'The Pineal Gland, the Theta brainwave state, the fabric of spacetime itself.',
+            'The Method': 'Practice in total darkness and silence. Whisper, do not shout. Begin with 11 repetitions and slowly increase over months.',
+            'Siddhi Potential': 'Access to hidden knowledge, precognitive flashes, understanding of one\'s own and others\' past lives.',
+            'Psychic Risk': 'Very High. The psyche can be overwhelmed by the sheer volume of information. Can unveil truths one is not ready for, causing psychological distress.'
+        },
+        'Karmic Knot Release': {
+            'Glyph': '🪢',
+            'The Code': '<strong>"Om Granthi Bhedanaya Namaha."</strong><br>A vibrational key used to identify and dissolve deep-seated karmic knots (Granthis) in the subtle body.',
+            'Resonance Field': 'The causal body (Karana Sarira), where deep samskaras (impressions) are stored across lifetimes.',
+            'The Method': 'A deep meditative practice. The practitioner is guided to locate the knot energetically as a point of contraction, then the specific chant is applied mentally until a release is felt.',
+            'Siddhi Potential': 'Liberation from repeating negative life patterns, healing from deep-seated trauma, a profound sense of inner freedom.',
+            'Psychic Risk': 'High. Unraveling these knots can release intense suppressed emotions and memories from this and past lives. It must be undertaken with extreme emotional stability.'
+        },
+        'Ego-Dissolving Void Chant': {
+            'Glyph': '⚫',
+            'The Code': '<strong>"Śūnyam Sarvam."</strong><br><em>(All is Emptiness)</em>. Less an invocation and more a statement of ultimate reality, used to dismantle the ego structure.',
+            'Resonance Field': 'The Default Mode Network of the brain, the Sahasrara (Crown) chakra.',
+            'The Method': 'Chant mentally during meditation on the breath. The goal is not to gain anything, but to dissolve everything.',
+            'Siddhi Potential': 'Liberation from suffering (Nirvana), non-dual awareness, cessation of the cycle of rebirth.',
+            'Psychic Risk': 'Extreme. This is an advanced technique from non-dual Tantra. Can lead to feelings of derealization and depersonalization if the practitioner lacks a strong foundation.'
+        }
+    };
+
+    const featuresData = {
+        'The Science Hub (The Theory)': [
+            { title: 'Foundations of Vibration', content: 'Explore concepts like Cymatics (seeing sound create geometry), Vibrational Physics, and Sympathetic Resonance.' },
+            { title: 'Neuroscience of Enlightenment', content: 'Learn about Brainwave Entrainment, the impact of chanting on the Vagus Nerve, and review research on meditation\'s effects.' },
+            { title: 'Power of Sacred Language', content: 'Discover why Sanskrit is considered a precise vibrational language and deconstruct the universal sound of AUM.' },
+            { title: 'Consciousness & Reality', content: 'Delve into how intention shapes the quantum field and how mantras act as "spiritual software" to reprogram the subconscious.' }
+        ],
+        'The Practitioner\'s Portal (The Method)': [
+            { title: 'The Japa Counter (Mala Mode)', content: 'A minimalist and beautiful virtual mala for counting mantra repetitions. Features haptic feedback and customizable themes.' },
+            { title: 'Guided Meditations (Mantra Yoga)', content: 'A library of guided sessions combining mantras with breathwork and visualization, filterable by goal and duration.' },
+            { title: 'The Sadhana Ledger', content: 'Log your practices and observations, allowing the Codex to attune to your progress and reveal deeper layers of knowledge over time.' },
+            { title: 'Sankalpa Setting', content: 'A dedicated space to write and store your intention (Sankalpa) before each practice, amplifying its power.'}
+        ],
+        'The Alchemical Tools (Advanced Practice)': [
+             { title: 'Yantra Visualization Engine', content: 'Interactive, animated sacred geometry (Yantras) that correspond to specific mantras, used for deep meditation (Dharana).' },
+             { title: 'Ritual Builder', content: 'A tool to design and schedule multi-step practices combining mantras, mudras, and breathwork for specific outcomes.' },
+             { title: 'Tattvic Cycle Calendar', content: 'A calendar that shows the dominant elemental energies (Tattvas) for each hour, guiding you to the most potent times for specific types of practice.' },
+             { title: 'Svara Yoga Guide', content: 'An advanced guide to understanding which nostril is dominant (the Svara) and how to align your actions and mantra practice with this pranic flow for guaranteed success.'}
+        ]
+    };
+
+    const journeyData = [
+        { title: '1. Onboarding', text: 'An immersive entry into the world of vibrational reality.' },
+        { title: '2. Home Screen', text: 'A personalized dashboard with daily guidance and progress tracking.' },
+        { title: '3. Exploration', text: 'The seeker filters the library by need and chooses a mantra.' },
+        { title: '4. Deep Learning', text: 'Dives into the chosen mantra\'s codex entry to learn its science and method.' },
+        { title: '5. Embodied Practice', text: 'Uses the Japa Counter to complete a session of 108 repetitions.' },
+        { title: '6. Integration', text: 'Journals the experience post-session; stats are updated automatically.' },
+        { title: '7. Habit Formation', text: 'Receives a subtle prompt the next day to continue the practice.' }
+    ];
+
+    const roadmapData = {
+        'Phase 1 (Core Engine - MVP)': ['Build Mantra Library infrastructure', 'Populate with 30+ core mantras', 'Create high-fidelity Japa Counter', 'Include essential articles'],
+        'Phase 2 (User Engagement)': ['Implement user accounts & dashboard', 'Build Guided Meditations library', 'Introduce Journal & Sankalpa features', 'Expand library to 75+ mantras'],
+        'Phase 3 (Advanced Practice)': ['Build Ritual Builder & Calendars', 'Fully populate all content', 'Introduce Yantra Visualization Engine', 'Add Svara Yoga Guide'],
+    };
+
+    const navButtons = document.querySelectorAll('.nav-btn');
+    navButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const targetId = button.dataset.target;
+
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            document.getElementById(targetId).classList.remove('hidden');
+
+            navButtons.forEach(btn => {
+                btn.classList.remove('nav-active');
+                btn.classList.add('nav-inactive');
+            });
+            button.classList.add('nav-active');
+            button.classList.remove('nav-inactive');
+        });
+    });
+    
+    function initDashboard() {
+        const resonanceMap = document.getElementById('resonance-map-container');
+        const tooltip = document.getElementById('resonance-tooltip');
+
+        resonanceMap.addEventListener('mouseover', e => {
+            if (e.target.classList.contains('chakra-node')) {
+                const titleData = e.target.dataset.title.split('|');
+                tooltip.innerHTML = `
+                    <div class="font-bold font-cinzel text-amber-500">${titleData[0]}</div>
+                    <div class="text-stone-300 mt-1">${titleData[1]}</div>
+                    <div class="text-stone-400 text-xs mt-1">${titleData[2]}</div>
+                    <div class="text-stone-400 text-xs mt-1">${titleData[3]}</div>
+                `;
+                
+                tooltip.style.left = `${e.target.offsetLeft + e.target.offsetWidth / 2}px`;
+                tooltip.style.top = `${e.target.offsetTop}px`;
+
+                tooltip.classList.remove('invisible', 'opacity-0');
+            }
+        });
+
+        resonanceMap.addEventListener('mouseout', e => {
+            if (e.target.classList.contains('chakra-node')) {
+                tooltip.classList.add('invisible', 'opacity-0');
+            }
+        });
+    }
+
+    function initMantraLibrary() {
+        const filtersContainer = document.getElementById('mantra-filters');
+        const gridContainer = document.getElementById('mantra-grid');
+        const modal = document.getElementById('mantra-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalBody = document.getElementById('modal-body');
+        const modalClose = document.getElementById('modal-close');
+        
+        const advancedCats = ['Akashic & Shadow', 'Karmic & Ancestral', 'Yaksha & Gandharva', 'Mantras for Siddhis', 'Protective Kavachas', 'Planetary (Navagraha)'];
+
+        Object.keys(mantraData).forEach(cat => {
+            const btn = document.createElement('button');
+            const isAdvancedCat = advancedCats.includes(cat);
+            btn.className = `filter-btn border ${isAdvancedCat ? 'border-red-500 text-red-400 hover:bg-red-500 hover:text-white' : 'border-amber-600 text-amber-500 hover:bg-amber-600 hover:text-white'} py-2 px-4 rounded-full text-xs sm:text-sm transition-colors duration-200`;
+            btn.textContent = cat;
+            filtersContainer.appendChild(btn);
+        });
+
+        function populateGrid(filter = 'All') {
+            gridContainer.innerHTML = '';
+            let itemsToShow = (filter === 'All') ? [].concat(...Object.values(mantraData)) : mantraData[filter];
+            
+            itemsToShow.forEach(item => {
+                const details = mantraDetails[item];
+                const isAdvanced = details && (details['Psychic Risk'].toLowerCase().includes('high') || details['Psychic Risk'].toLowerCase().includes('extreme'));
+                const card = document.createElement('div');
+                card.className = `mantra-card codex-bg p-4 rounded-lg text-center cursor-pointer hover:border-amber-400 transition-all duration-300 flex flex-col justify-center items-center h-24 sm:h-28 ${isAdvanced ? 'border-red-500/50' : 'border-amber-500/20'}`;
+                card.innerHTML = `<span class="text-2xl">${details?.Glyph || '✧'}</span><span class="text-sm mt-1">${item}</span> ${isAdvanced ? '<span class="text-xs text-red-400 mt-1">[Advanced]</span>' : ''}`;
+                card.dataset.mantra = item;
+                gridContainer.appendChild(card);
+            });
+        }
+        
+        filtersContainer.addEventListener('click', e => {
+            if (e.target.classList.contains('filter-btn')) {
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('bg-amber-600', 'text-white', 'bg-red-500');
+                });
+                 const isAdvancedCat = advancedCats.includes(e.target.textContent);
+                if (isAdvancedCat) {
+                    e.target.classList.add('bg-red-500', 'text-white');
+                } else {
+                    e.target.classList.add('bg-amber-600', 'text-white');
+                }
+                populateGrid(e.target.textContent);
+            }
+        });
+
+        gridContainer.addEventListener('click', e => {
+            const card = e.target.closest('.mantra-card');
+            if (card) {
+                const mantraName = card.dataset.mantra;
+                const details = mantraDetails[mantraName] || Object.values(mantraDetails)[0];
+                
+                modalTitle.textContent = mantraName;
+                modalBody.innerHTML = `
+                    <div class="space-y-4">
+                        ${Object.entries(details).map(([key, value]) => {
+                             let riskClass = '';
+                             if (key === 'Psychic Risk') {
+                                 const risk = value.toLowerCase();
+                                 if(risk.includes('extreme') || risk.includes('very high')) riskClass = 'text-red-500 font-bold';
+                                 else if(risk.includes('high') || risk.includes('moderate')) riskClass = 'text-yellow-500';
+                             }
+                             const keyFormatted = key.replace('The ', '');
+                             return `
+                                <div class="border-b border-amber-500/10 pb-2">
+                                    <h4 class="font-semibold font-cinzel text-lg text-amber-500">${keyFormatted}</h4>
+                                    <p class="text-stone-300 mt-1 text-sm ${riskClass}">${value.replace(/!!/g, '')}</p>
+                                </div>`
+                        }).join('')}
+                    </div>
+                `;
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                modal.querySelector('.modal-content').classList.remove('scale-95');
+            }
+        });
+        
+        const closeModal = () => {
+             modal.classList.add('opacity-0', 'pointer-events-none');
+             modal.querySelector('.modal-content').classList.add('scale-95');
+        };
+
+        modalClose.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+        populateGrid();
+    }
+    
+    function initFeatures() {
+        const accordionContainer = document.getElementById('features-accordion');
+        accordionContainer.innerHTML = '';
+        Object.entries(featuresData).forEach(([title, items], index) => {
+            const featureDiv = document.createElement('div');
+            featureDiv.className = 'border border-amber-500/20 rounded-lg overflow-hidden';
+            let itemsHtml = items.map(item => `
+                <div class="codex-bg p-4 rounded-md border border-amber-500/10">
+                    <h4 class="font-bold text-stone-200">${item.title}</h4>
+                    <p class="text-stone-400 text-sm mt-1">${item.content}</p>
+                </div>
+            `).join('');
+
+            featureDiv.innerHTML = `
+                <button class="accordion-toggle w-full text-left p-4 bg-stone-800/50 hover:bg-amber-900/30 transition-colors duration-200 flex justify-between items-center">
+                    <span class="text-xl font-cinzel font-semibold text-amber-500">${title}</span>
+                    <span class="transform transition-transform duration-300 text-amber-600 text-2xl font-light">${index === 0 ? '−' : '+'}</span>
+                </button>
+                <div class="accordion-content grid grid-cols-1 md:grid-cols-2 gap-4" style="max-height: ${index === 0 ? '1000px' : '0px'}; padding: ${index === 0 ? '1rem' : '0 1rem'};">
+                    ${itemsHtml}
+                </div>
+            `;
+            accordionContainer.appendChild(featureDiv);
+        });
+
+        accordionContainer.addEventListener('click', e => {
+            const toggle = e.target.closest('.accordion-toggle');
+            if(toggle) {
+                const content = toggle.nextElementSibling;
+                const icon = toggle.querySelector('span:last-child');
+                const isOpen = content.style.maxHeight !== '0px';
+
+                document.querySelectorAll('.accordion-content').forEach(c => {
+                    c.style.maxHeight = '0px';
+                    c.style.padding = '0 1rem';
+                });
+                 document.querySelectorAll('.accordion-toggle span:last-child').forEach(i => i.textContent = '+');
+
+                if (!isOpen) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    content.style.padding = '1rem';
+                    icon.textContent = '−';
+                }
+            }
+        });
+    }
+
+    function initJourney() {
+        const journeyContainer = document.getElementById('user-journey-flow');
+        journeyContainer.innerHTML = '';
+        journeyData.forEach((item, index) => {
+            const stepDiv = document.createElement('div');
+            stepDiv.className = 'flex-1 p-3 codex-bg rounded-lg min-w-[150px] flex flex-col justify-center';
+            stepDiv.innerHTML = `
+                <h4 class="font-bold text-amber-500">${item.title}</h4>
+                <p class="text-stone-400">${item.text}</p>
+            `;
+            journeyContainer.appendChild(stepDiv);
+            if(index < journeyData.length - 1) {
+                const arrow = document.createElement('div');
+                arrow.className = 'text-2xl text-amber-500/50 self-center';
+                arrow.innerHTML = `&rarr;`;
+                journeyContainer.appendChild(arrow);
+            }
+        });
+
+        const roadmapContainer = document.getElementById('roadmap-phases');
+        roadmapContainer.innerHTML = '';
+        Object.entries(roadmapData).forEach(([phase, tasks]) => {
+            const phaseDiv = document.createElement('div');
+            phaseDiv.className = 'bg-stone-800/50 p-4 rounded-lg border border-amber-500/10';
+            phaseDiv.innerHTML = `
+                <h3 class="font-bold text-lg font-cinzel text-amber-500 border-b border-amber-500/20 pb-2 mb-3">${phase}</h3>
+                <ul class="space-y-2 text-stone-300">
+                    ${tasks.map(task => `<li class="flex items-start"><span class="${task.includes('✨') ? 'text-amber-500' : 'text-stone-400'} mr-2 mt-1">${task.includes('✨') ? '✨' : '✓'}</span><span>${task.replace('✨ ', '')}</span></li>`).join('')}
+                </ul>
+            `;
+            roadmapContainer.appendChild(phaseDiv);
+        });
+    }
+
+    initDashboard();
+    initMantraLibrary();
+    initFeatures();
+    initJourney();
+
+    // Video Handler - Mobile & Performance Optimization
+    (function() {
+        const video = document.getElementById('bg-video');
+        if (!video) return;
+        
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 640;
+        
+        if (isMobile) {
+            video.style.filter = 'brightness(0.25) saturate(1.1)';
+            
+            document.addEventListener('visibilitychange', () => {
+                document.hidden ? video.pause() : video.play().catch(() => {});
+            });
+            
+            let scrollTimeout;
+            window.addEventListener('scroll', () => {
+                clearTimeout(scrollTimeout);
+                video.pause();
+                scrollTimeout = setTimeout(() => video.play().catch(() => {}), 150);
+            }, { passive: true });
+        }
+        
+        video.addEventListener('loadeddata', () => {
+            video.play().catch(() => {});
+        });
+        
+        video.addEventListener('error', () => {
+            video.style.display = 'none';
+        });
+        
+        if ('getBattery' in navigator) {
+            navigator.getBattery().then(battery => {
+                if (battery.level < 0.2) video.pause();
+                battery.addEventListener('levelchange', function() {
+                    if (this.level < 0.2 && !video.paused) video.pause();
+                });
+            });
+        }
+        
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            video.pause();
+            video.style.display = 'none';
+        }
+    })();
+
+});
+</script>
+
+<!-- Footer -->
+<footer class="relative z-10 mt-16 border-t border-amber-500/30 bg-stone-900/90 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 py-12">
+        <div class="text-center">
+            <h3 class="text-3xl font-cinzel font-bold text-amber-500 mb-2">🕉️ MANTRA SCIENCE CODEX</h3>
+            <p class="text-lg text-stone-300 mb-6">Sacred Sound Technologies • ShivaKali Ashram</p>
+            
+            <div class="flex justify-center gap-8 mb-8">
+                <a href="index.html" class="px-6 py-3 bg-amber-600/20 hover:bg-amber-600/40 border-2 border-amber-500 rounded-lg text-amber-500 font-medium transition-all hover:scale-105">
+                    Tantra Sciences
+                </a>
+                <a href="../index.html" class="px-6 py-3 bg-stone-800/50 hover:bg-stone-700/50 border-2 border-stone-600 rounded-lg text-stone-300 hover:text-amber-500 font-medium transition-all hover:scale-105">
+                    Ashram Home
+                </a>
+            </div>
+            
+            <div class="h-1 w-3/4 mx-auto bg-gradient-to-r from-transparent via-amber-500 to-transparent mb-6"></div>
+            
+            <p class="text-stone-400 text-sm">
+                © 1489 ShivaKali Ashram • Vibrational Technologies • Acharya Anish
+            </p>
+            
+            <div class="mt-6 p-6 bg-amber-900/10 border border-amber-500/20 rounded-lg max-w-3xl mx-auto">
+                <p class="text-amber-500/80 font-bold mb-2">⚠️ PRACTICE ADVISORY:</p>
+                <p class="text-stone-400 text-sm leading-relaxed">
+                    Mantras are powerful vibrational tools that can produce profound effects on consciousness, 
+                    energy, and perception. These practices come from authentic tantric lineages and should be 
+                    approached with respect and proper guidance. Start slowly, observe your responses, and work 
+                    with experienced practitioners for advanced techniques. The ShivaKali Ashram provides this 
+                    knowledge for educational and spiritual development purposes.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
+
