@@ -1,0 +1,1895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <title>✨ Prana Engineering • Flow State Interface</title>
+    
+    <!-- Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Cinzel:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 🌊 Peaceful Flow Theme */
+        :root {
+            --flow-void: #000000;
+            --flow-deep: #0a0a0a;
+            --flow-cyan: #00ffff;
+            --flow-violet: #8a2be2;
+            --flow-gold: #ffd700;
+            --flow-green: #00ff88;
+            --flow-pink: #ff00ff;
+            
+            --text-light: #ffffff;
+            --text-glow: rgba(0, 255, 255, 0.9);
+            --text-soft: rgba(255, 255, 255, 0.8);
+            
+            --glow-cyan: rgba(0, 255, 255, 0.4);
+            --glow-violet: rgba(138, 43, 226, 0.3);
+            --glow-gold: rgba(255, 215, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--flow-void);
+            color: var(--text-light);
+            line-height: 1.8;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 🎬 Video Background */
+        .video-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .video-bg video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            filter: brightness(0.5) saturate(1.6) blur(0px);
+            opacity: 0.9;
+        }
+
+        /* ✨ Peaceful Overlay */
+        .peaceful-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 2;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(0, 255, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(138, 43, 226, 0.05) 0%, transparent 50%),
+                linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.6) 100%);
+            pointer-events: none;
+        }
+
+        /* 🌀 Flow Container */
+        .flow-container {
+            position: relative;
+            z-index: 3;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 15px;
+            overflow-x: hidden;
+        }
+
+        @media (min-width: 768px) {
+            .flow-container {
+                max-width: 900px;
+                padding: 20px;
+            }
+        }
+
+        /* 🎯 Progress Bar */
+        .flow-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--flow-cyan), var(--flow-violet), var(--flow-green));
+            transform: scaleX(0);
+            transform-origin: 0 0;
+            transition: transform 0.2s ease;
+            z-index: 1000;
+            box-shadow: 0 0 10px var(--glow-cyan);
+        }
+
+        /* 🌟 Header Section */
+        .flow-header {
+            text-align: center;
+            padding: 1.5rem 0.5rem 1rem;
+            animation: fadeIn 1.5s ease;
+        }
+
+        @media (min-width: 768px) {
+            .flow-header {
+                padding: 3rem 1rem 2rem;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .flow-badge {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            background: rgba(0, 255, 255, 0.1);
+            border: 1px solid var(--flow-cyan);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--flow-cyan);
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .flow-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2.5rem, 7vw, 4rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--flow-cyan), var(--flow-violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+        }
+
+        .flow-subtitle {
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            color: var(--text-soft);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        /* 🌟 Prana Badge */
+        .prana-badge {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, var(--flow-cyan), var(--flow-violet));
+            border: 3px solid var(--flow-gold);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 
+                0 0 40px var(--glow-cyan),
+                0 0 60px var(--glow-violet),
+                inset 0 0 30px rgba(255, 215, 0, 0.3);
+            z-index: 1000;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: pranaBreath 6s ease-in-out infinite;
+        }
+        
+        .prana-badge:hover {
+            transform: scale(1.15) rotate(360deg);
+            box-shadow: 
+                0 0 60px var(--glow-cyan),
+                0 0 80px var(--glow-violet),
+                inset 0 0 40px rgba(255, 215, 0, 0.5);
+        }
+        
+        @keyframes pranaBreath {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            25% { transform: scale(1.05) rotate(-5deg); }
+            75% { transform: scale(1.05) rotate(5deg); }
+        }
+        
+        .prana-badge-icon {
+            font-size: 2.8rem;
+            filter: drop-shadow(0 0 20px rgba(0, 255, 255, 1));
+            margin-bottom: -5px;
+            animation: pranaFlow 4s ease-in-out infinite;
+        }
+        
+        @keyframes pranaFlow {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(20deg); }
+        }
+        
+        .prana-badge-text {
+            font-family: 'Cinzel', serif;
+            font-size: 0.55rem;
+            font-weight: 700;
+            color: var(--flow-gold);
+            text-align: center;
+            letter-spacing: 1px;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.9);
+        }
+
+        /* Top Navigation */
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.5rem auto;
+            flex-wrap: wrap;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, 
+                rgba(0, 255, 255, 0.35) 0%,
+                rgba(138, 43, 226, 0.4) 100%
+            );
+            backdrop-filter: blur(15px);
+            border: 3px solid rgba(0, 255, 255, 0.8);
+            border-radius: 15px;
+            box-shadow: 
+                0 8px 40px rgba(0, 255, 255, 0.6),
+                inset 0 0 40px rgba(0, 255, 255, 0.3);
+            max-width: 800px;
+            position: relative;
+            z-index: 100;
+        }
+
+        .nav-link {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 1rem 1.8rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-family: 'Rajdhani', sans-serif;
+            background: rgba(0, 255, 255, 0.3);
+            border: 2px solid rgba(0, 255, 255, 0.8);
+            min-width: 150px;
+            justify-content: center;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 1);
+            cursor: pointer;
+            position: relative;
+            z-index: 101;
+        }
+
+        .nav-link:hover {
+            color: #ffffff;
+            background: linear-gradient(135deg,
+                rgba(0, 255, 255, 0.4) 0%,
+                rgba(138, 43, 226, 0.5) 100%
+            );
+            border-color: var(--flow-gold);
+            text-shadow: 0 0 20px rgba(0, 255, 255, 1);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 255, 255, 0.6);
+        }
+
+        .nav-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.8));
+        }
+
+        .nav-link:hover .nav-icon {
+            transform: scale(1.2);
+        }
+
+        .nav-separator {
+            width: 3px;
+            height: 2rem;
+            background: linear-gradient(to bottom,
+                transparent,
+                var(--flow-cyan),
+                var(--flow-gold),
+                transparent
+            );
+            opacity: 0.8;
+            border-radius: 3px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+        }
+        
+        .tantra-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, var(--flow-cyan), var(--flow-violet), var(--flow-gold));
+            border-radius: 20px;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.4s ease;
+        }
+
+        .tantra-card:hover {
+            border-color: var(--flow-gold);
+            box-shadow: 
+                0 12px 45px var(--glow-cyan),
+                0 0 40px var(--glow-violet),
+                inset 0 0 35px rgba(0, 255, 255, 0.2);
+            transform: translateY(-8px) scale(1.03);
+        }
+        
+        .tantra-card:hover::before {
+            opacity: 0.25;
+        }
+
+        .tantra-card:active {
+            transform: translateY(-4px) scale(0.99);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            filter: drop-shadow(0 0 12px var(--glow-cyan));
+            transition: all 0.3s ease;
+        }
+        
+        .tantra-card:hover .card-icon {
+            transform: scale(1.15) rotate(10deg);
+            filter: drop-shadow(0 0 20px var(--glow-cyan));
+        }
+
+        .card-title-group {
+            flex: 1;
+        }
+
+        .card-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--flow-gold);
+            margin: 0 0 0.35rem;
+            letter-spacing: 1px;
+            text-shadow: 0 0 15px var(--glow-cyan);
+            transition: all 0.3s ease;
+        }
+        
+        .tantra-card:hover .card-title {
+            color: #ffffff;
+            transform: scale(1.05);
+        }
+
+        .card-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-soft);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-description {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-soft);
+            margin: 1rem 0;
+        }
+
+        .card-status {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: linear-gradient(90deg, 
+                rgba(0, 255, 255, 0.1), 
+                rgba(138, 43, 226, 0.15)
+            );
+            border: 1px solid var(--flow-cyan);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--flow-cyan);
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+            margin-top: 1rem;
+        }
+
+        /* 📑 Tab Navigation */
+        .tab-nav {
+            display: flex;
+            gap: 0.5rem;
+            margin: 2rem 0 1.5rem;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            padding: 0 0.5rem;
+        }
+
+        .tab-nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tab-button {
+            flex: 0 0 auto;
+            padding: 0.8rem 1.5rem;
+            background: rgba(0, 255, 255, 0.05);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            border-radius: 25px;
+            color: var(--text-soft);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 500;
+        }
+
+        .tab-button.active {
+            background: linear-gradient(135deg, var(--flow-cyan), var(--flow-violet));
+            color: #000;
+            border-color: var(--flow-cyan);
+            box-shadow: 0 0 20px var(--glow-cyan);
+            font-weight: 600;
+        }
+
+            .tab-button:hover:not(.active) {
+                background: rgba(0, 255, 255, 0.1);
+                border-color: var(--flow-cyan);
+            }
+
+            /* Footer Styles */
+        /* 🌟 Beautiful Footer */
+        .footer {
+            margin-top: 5rem;
+            padding: 3rem 2rem;
+            text-align: center;
+            background: linear-gradient(180deg, 
+                rgba(0, 255, 255, 0.1),
+                rgba(138, 43, 226, 0.15)
+            );
+            backdrop-filter: blur(15px);
+            border-top: 3px solid rgba(0, 255, 255, 0.8);
+            position: relative;
+            z-index: 1000;
+            animation: footerGlow 3s ease-in-out infinite;
+            box-shadow: 0 -10px 40px rgba(0, 255, 255, 0.3);
+            margin-left: -15px;
+            margin-right: -15px;
+            width: calc(100% + 30px);
+        }
+
+        @keyframes footerGlow {
+            0%, 100% { box-shadow: 0 -10px 30px rgba(0, 255, 255, 0.2); }
+            50% { box-shadow: 0 -10px 40px rgba(0, 255, 255, 0.4); }
+        }
+
+        .footer-brand {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            text-shadow: 
+                0 0 50px rgba(0, 255, 255, 1),
+                0 0 30px rgba(0, 255, 255, 1),
+                0 2px 15px rgba(0, 255, 255, 0.8);
+            letter-spacing: 4px;
+            transform: scale(1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .footer-brand:hover {
+            transform: scale(1.05);
+            text-shadow: 
+                0 0 60px rgba(0, 255, 255, 1),
+                0 0 40px rgba(0, 255, 255, 1),
+                0 2px 20px rgba(0, 255, 255, 0.9);
+        }
+
+        .footer-tagline {
+            font-size: 1.3rem;
+            color: #ffffff;
+            margin-bottom: 2.5rem;
+            letter-spacing: 3px;
+            font-weight: 600;
+            text-shadow: 
+                0 0 30px rgba(0, 255, 255, 0.8),
+                0 0 20px rgba(0, 255, 255, 0.6),
+                0 2px 10px rgba(0, 0, 0, 0.5);
+            opacity: 0.95;
+        }
+
+            .footer-links {
+                display: flex;
+                gap: 2rem;
+                justify-content: center;
+                flex-wrap: wrap;
+                margin-bottom: 2.5rem;
+                padding: 1rem;
+            }
+
+            .footer-link {
+                color: rgba(255, 255, 255, 0.85);
+                text-decoration: none;
+                font-size: 1rem;
+                transition: all 0.3s ease;
+                cursor: pointer;
+                position: relative;
+                z-index: 101;
+            }
+
+            .footer-link:hover {
+                color: #ffffff;
+                text-shadow: 0 0 25px rgba(0, 255, 255, 1);
+                transform: translateY(-2px);
+            }
+
+            .footer-divider {
+                width: 60%;
+                height: 3px;
+                background: linear-gradient(90deg, 
+                    transparent, 
+                    var(--flow-cyan),
+                    var(--flow-gold),
+                    var(--flow-cyan),
+                    transparent
+                );
+                margin: 2rem auto;
+                box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
+            }
+
+            .footer-copyright {
+                font-size: 1rem;
+                color: rgba(255, 255, 255, 0.95);
+                font-weight: 500;
+            }
+
+        .disclaimer-box {
+            margin-top: 2.5rem;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, 
+                rgba(255, 0, 100, 0.15), 
+                rgba(138, 43, 226, 0.2)
+            );
+            backdrop-filter: blur(15px);
+            border: 3px solid rgba(255, 0, 100, 0.4);
+            border-radius: 15px;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.8;
+            box-shadow: 
+                0 10px 40px rgba(255, 0, 100, 0.2),
+                inset 0 0 30px rgba(255, 0, 100, 0.1);
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            animation: pulseWarning 4s ease-in-out infinite;
+        }
+
+        .disclaimer-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 150%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: skewX(-20deg);
+            animation: shine 6s infinite;
+        }
+
+        @keyframes pulseWarning {
+            0%, 100% { border-color: rgba(255, 0, 100, 0.4); box-shadow: 0 10px 40px rgba(255, 0, 100, 0.2); }
+            50% { border-color: rgba(255, 0, 100, 0.6); box-shadow: 0 10px 50px rgba(255, 0, 100, 0.3); }
+        }
+
+        @keyframes shine {
+            0% { left: -150%; }
+            50% { left: 150%; }
+            100% { left: 150%; }
+        }
+
+        .disclaimer-box strong {
+            display: block;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: rgb(255, 0, 100);
+            text-shadow: 0 0 20px rgba(255, 0, 100, 0.5);
+            letter-spacing: 2px;
+        }
+
+        /* 📂 Tab Content */
+        .tab-content {
+            display: none;
+            animation: fadeInTab 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeInTab {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 🌊 Flowing Section */
+        .flow-section {
+            margin: 3rem 0;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            color: var(--flow-cyan);
+            margin-bottom: 2rem;
+            text-align: center;
+            text-shadow: 0 0 20px var(--glow-cyan);
+        }
+
+        /* 💎 Content Blocks - Compact Style */
+        .content-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .flow-block {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.05), rgba(138, 43, 226, 0.08));
+            border-left: 3px solid var(--flow-cyan);
+            border-radius: 0 15px 15px 0;
+            padding: 1.5rem 1.2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .flow-block::before {
+            content: '';
+            position: absolute;
+            left: -100%;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .flow-block:hover::before {
+            left: 100%;
+        }
+
+        .flow-block h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            color: var(--flow-gold);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            cursor: pointer;
+        }
+
+        .flow-block p {
+            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+            line-height: 1.8;
+            color: var(--text-soft);
+            margin-bottom: 0.8rem;
+        }
+
+        .flow-block strong {
+            color: var(--flow-cyan);
+            font-weight: 600;
+        }
+
+        /* 🔥 Warning Blocks */
+        .warning-block {
+            background: linear-gradient(135deg, rgba(255, 0, 100, 0.1), rgba(138, 43, 226, 0.1));
+            border-left: 3px solid #ff0066;
+            border-radius: 0 15px 15px 0;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .warning-block h4 {
+            color: #ff0066;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* ⚡ Interactive Gesture Grid */
+        .gesture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .gesture-card {
+            background: rgba(0, 255, 255, 0.05);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .gesture-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--flow-cyan);
+            box-shadow: 0 10px 30px var(--glow-cyan);
+        }
+
+        .gesture-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .gesture-name {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--flow-gold);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .gesture-desc {
+            font-size: 0.95rem;
+            color: var(--text-soft);
+            line-height: 1.7;
+        }
+
+        /* 🌀 Technique List */
+        .technique-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .technique-list li {
+            padding: 0.8rem 1.2rem;
+            margin: 0.8rem 0;
+            background: rgba(0, 255, 255, 0.03);
+            border-left: 2px solid var(--flow-violet);
+            border-radius: 0 10px 10px 0;
+            position: relative;
+        }
+
+        .technique-list li::before {
+            content: '⚡';
+            position: absolute;
+            left: -1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .technique-list strong {
+            color: var(--flow-cyan);
+            display: block;
+            margin-bottom: 0.3rem;
+            font-size: 1rem;
+        }
+
+        .technique-list p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* 🎭 Dark Content Section */
+        .dark-section {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid rgba(255, 0, 255, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 3rem 0;
+            box-shadow: 0 0 40px rgba(255, 0, 255, 0.2);
+        }
+
+        .dark-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .dark-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            color: #ff00ff;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 30px rgba(255, 0, 255, 0.6);
+        }
+
+        /* 📱 Mobile Optimizations */
+        @media (max-width: 640px) {
+            .prana-badge {
+                width: 70px;
+                height: 70px;
+                top: 15px;
+                right: 15px;
+            }
+
+            .prana-badge-icon {
+                font-size: 2rem;
+            }
+
+            .prana-badge-text {
+                font-size: 0.5rem;
+            }
+
+            .content-layer {
+                padding: 0.5rem;
+            }
+
+            .card-grid {
+                gap: 0.8rem;
+            }
+
+            .tantra-card {
+                padding: 1.5rem;
+            }
+
+            .card-icon {
+                font-size: 2rem;
+            }
+
+            .card-title {
+                font-size: 1.3rem;
+            }
+
+            .card-description {
+                font-size: 0.9rem;
+                margin: 0.8rem 0;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 0.7rem;
+                padding: 1rem;
+                margin: 1rem 0.5rem;
+                width: auto;
+            }
+
+            .nav-link {
+                padding: 0.8rem 1rem;
+                font-size: 1rem;
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .nav-icon {
+                font-size: 1rem;
+            }
+
+            .nav-separator {
+                width: 100%;
+                height: 2px;
+                margin: 0.2rem 0;
+            }
+
+            .footer {
+                padding: 2rem 1rem;
+                margin-top: 4rem;
+            }
+
+            .footer-brand {
+                font-size: 1.6rem;
+            }
+
+            .footer-tagline {
+                font-size: 0.95rem;
+            }
+
+            .footer-links {
+                gap: 1.5rem;
+            }
+
+            .disclaimer-box {
+                padding: 1.5rem;
+                font-size: 0.85rem;
+                margin-top: 1.5rem;
+            }
+            .video-bg video {
+                filter: brightness(0.4) saturate(1.5) blur(0px);
+            }
+
+            .peaceful-overlay {
+                background: 
+                    radial-gradient(circle at 20% 30%, rgba(0, 255, 255, 0.08) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 70%, rgba(138, 43, 226, 0.08) 0%, transparent 50%),
+                    linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.7) 100%);
+            }
+
+            .flow-container {
+                padding: 10px;
+            }
+
+            .flow-header {
+                padding: 2rem 0.8rem 1rem;
+            }
+
+            .flow-section {
+                margin: 2rem 0;
+                padding: 0 0.5rem;
+            }
+
+            .section-title {
+                font-size: clamp(1.5rem, 5vw, 2rem);
+                margin-bottom: 1.5rem;
+            }
+
+            .flow-block {
+                padding: 1.2rem 1rem;
+            }
+
+            .dark-section {
+                padding: 1.5rem 1rem;
+                margin: 2rem 0;
+            }
+
+            .gesture-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .gesture-card {
+                padding: 1rem;
+            }
+
+            .gesture-icon {
+                font-size: 2.5rem;
+            }
+
+            .tab-nav {
+                gap: 0.4rem;
+                margin: 1.5rem 0 1rem;
+            }
+
+            .tab-button {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.85rem;
+            }
+
+            /* Disable heavy animations on mobile */
+            .flow-block:hover::before { left: -100%; }
+            .gesture-card:hover { transform: none; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="flow-progress"></div>
+
+    <!-- Prana Badge -->
+    <div class="prana-badge" onclick="console.log('🌬️ PRANA ENGINEERING INITIALIZED 🌬️')">
+        <div class="prana-badge-icon">🌬️</div>
+        <div class="prana-badge-text">PRANA</div>
+    </div>
+    
+    <!-- Navigation Links -->
+    <div class="nav-links">
+        <a href="index.html" class="nav-link">
+            <span class="nav-icon">←</span>
+            <span>Tantra Sciences</span>
+        </a>
+        <div class="nav-separator"></div>
+        <a href="../index.html" class="nav-link">
+            <span class="nav-icon">🏛</span>
+            <span>Ashram</span>
+        </a>
+        <div class="nav-separator"></div>
+        <a href="kundalini.html" class="nav-link">
+            <span class="nav-icon">🐍</span>
+            <span>Kundalini</span>
+        </a>
+        <div class="nav-separator"></div>
+        <a href="chakra.html" class="nav-link">
+            <span class="nav-icon">🔮</span>
+            <span>Chakras</span>
+        </a>
+    </div>
+
+    <!-- Video Background -->
+    <div class="video-bg">
+        <video id="pranaVideo" autoplay muted loop playsinline preload="auto">
+            <source src="../pictures/prana.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+    <!-- Peaceful Overlay -->
+    <div class="peaceful-overlay"></div>
+    
+    <!-- Main Flow Container -->
+    <div class="flow-container">
+        
+        <!-- Header -->
+        <header class="flow-header">
+            <div class="flow-badge">🌬️ Breath Engineering</div>
+            <h1 class="flow-title">Prana Engineering</h1>
+            <p class="flow-subtitle">
+                Master life force manipulation through authentic techniques. 
+                Tap into energy control, circulation, and consciousness expansion.
+            </p>
+            
+            <!-- Tab Navigation -->
+            <nav class="tab-nav">
+                <button class="tab-button active" data-tab="basics">✨ Basics</button>
+                <button class="tab-button" data-tab="breathing">🌬️ Breathing</button>
+                <button class="tab-button" data-tab="mudras">🙏 Mudras</button>
+                <button class="tab-button" data-tab="advanced">⚠️ Advanced</button>
+            </nav>
+        </header>
+
+        <!-- TAB 1: Basics -->
+        <section class="tab-content active" id="basics">
+            <h2 class="section-title">🌊 Understanding Prana</h2>
+            
+            <div class="content-flow">
+                <div class="flow-block">
+                    <h3>🌬️ What Is Prana?</h3>
+                    <p>
+                        Prana is the Sanskrit word for "life force" - the invisible energy that animates 
+                        all living things. In Chinese medicine it's called Chi, in Japanese Ki, in Hawaiian 
+                        Mana. Every culture has discovered the same thing: <strong>there is an energy that 
+                        flows through and around us</strong> that can be felt, manipulated, and directed.
+                    </p>
+                    <p>
+                        Modern science is beginning to catch up. Studies on bioelectricity, the human 
+                        biofield, and quantum biology are revealing what yogis have known for thousands 
+                        of years: <strong>consciousness and energy are intimately connected</strong>. When 
+                        you learn to control your breath, you learn to control your energy. When you control 
+                        your energy, you control your consciousness.
+                    </p>
+                </div>
+
+                <div class="flow-block">
+                    <h3>⚡ The Five Pranas (Vayus)</h3>
+                    <p>
+                        Traditional yogic science divides prana into five primary flows called Vayus 
+                        (winds). Understanding these is essential for advanced practice:
+                    </p>
+                    <ul class="technique-list">
+                        <li>
+                            <strong>Prana Vayu (Upward Flow)</strong>
+                            Located in the chest/heart area. Governs inhalation, sensory perception, and 
+                            intake of energy. When you feel "energized" or "inspired," this is prana vayu 
+                            activated. Controls the intake of food, water, air, and all impressions.
+                        </li>
+                        <li>
+                            <strong>Apana Vayu (Downward Flow)</strong>
+                            Located in the lower abdomen. Governs elimination and exhalation. Responsible 
+                            for releasing toxins, waste, negative emotions. <strong>Grounding energy.</strong> 
+                            When overactive causes anxiety. When deficient causes constipation and stagnation.
+                        </li>
+                        <li>
+                            <strong>Samana Vayu (Balancing Flow)</strong>
+                            Located in the navel area. Governs digestion and assimilation - both physical 
+                            food and mental experiences. The "fire" that transforms. <strong>When strong, 
+                            you can digest anything - food, emotions, experiences.</strong>
+                        </li>
+                        <li>
+                            <strong>Udana Vayu (Ascending Flow)</strong>
+                            Located in the throat. Governs speech, expression, and upward movement of energy. 
+                            Controls growth, effort, and self-expression. <strong>Advanced yogis use this to 
+                            project energy outward</strong> and even achieve phenomena like levitation.
+                        </li>
+                        <li>
+                            <strong>Vyana Vayu (Circulating Flow)</strong>
+                            Pervades the entire body. Governs circulation of blood, nutrients, and energy 
+                            throughout the system. When balanced, you feel unified and integrated. 
+                            <strong>Master this to create protective energy fields.</strong>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="flow-block">
+                    <h3>🧬 The Nadis - Energy Channels</h3>
+                    <p>
+                        Prana flows through 72,000 energy channels called nadis. Most are microscopic and 
+                        subtle, but three major channels are essential to know:
+                    </p>
+                    <p>
+                        <strong>Ida Nadi (Lunar Channel)</strong> - Left side of the spine. Cool, feminine, 
+                        receptive energy. Connected to the left nostril and right brain hemisphere. Activates 
+                        during calming, introspective states. <strong>Breathing primarily through the left 
+                        nostril activates Ida</strong> - useful for cooling the system, promoting sleep, and 
+                        enhancing creativity.
+                    </p>
+                    <p>
+                        <strong>Pingala Nadi (Solar Channel)</strong> - Right side of the spine. Hot, masculine, 
+                        active energy. Connected to the right nostril and left brain hemisphere. Activates 
+                        during activity and analytical thinking. <strong>Breathing through the right nostril 
+                        activates Pingala</strong> - useful for generating heat, increasing alertness, and 
+                        boosting physical energy.
+                    </p>
+                    <p>
+                        <strong>Sushumna Nadi (Central Channel)</strong> - The spine itself. When both Ida 
+                        and Pingala are balanced, energy can flow through Sushumna - the highway to higher 
+                        consciousness. <strong>This is where Kundalini rises.</strong> When Sushumna opens, 
+                        breathing becomes spontaneously balanced through both nostrils and meditation deepens 
+                        dramatically.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        </section>
+
+        <!-- TAB 2: Breathing Techniques -->
+        <section class="tab-content" id="breathing">
+            <h2 class="section-title">🌬️ Core Pranayama Techniques</h2>
+
+            <div class="content-flow">
+                <div class="flow-block">
+                    <h3>🫁 Nadi Shodhana - Channel Purification</h3>
+                    <p>
+                        <strong>Purpose:</strong> Balances left and right energy channels, calms the nervous 
+                        system, and prepares for deeper practices. This is the foundation technique that should 
+                        be mastered before advancing.
+                    </p>
+                    <p>
+                        <strong>Method:</strong> Sit comfortably with spine straight. Use right thumb to close 
+                        right nostril, inhale slowly through left for count of 4. Close left nostril with ring 
+                        finger, open right nostril, exhale for count of 4. Inhale right for 4, close right, 
+                        exhale left for 4. This is one cycle. Start with 5-10 minutes daily.
+                    </p>
+                    <p>
+                        <strong>Advanced Variation:</strong> Add retention (Kumbhaka). Inhale for 4, hold for 
+                        4, exhale for 4, hold empty for 4. Gradually extend to 4-16-8-4 ratio as capacity grows. 
+                        This builds massive energy reserves and activates dormant brain regions.
+                    </p>
+                    <div class="warning-block">
+                        <h4>⚠️ Warning:</h4>
+                        <p>
+                            Extended breath retention can cause dizziness, anxiety, or panic if done too 
+                            aggressively. <strong>Never force the breath.</strong> If you feel lightheaded, 
+                            return to normal breathing immediately. Build capacity gradually over months, not days.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flow-block">
+                    <h3>🔥 Kapalabhati - Skull Shining Breath</h3>
+                    <p>
+                        <strong>Purpose:</strong> Rapid cleansing technique that generates intense heat, 
+                        oxygenates blood, and activates the solar plexus energy center. Wakes up the entire 
+                        system. <strong>This is rocket fuel for your nervous system.</strong>
+                    </p>
+                    <p>
+                        <strong>Method:</strong> Sit with spine straight. Take deep breath in, then begin 
+                        rapid, forceful exhales through the nose by pumping the belly. Inhale happens passively. 
+                        Start with 30 pumps, rest, repeat 3 times. Advanced: 108 pumps × 3 rounds.
+                    </p>
+                    <p>
+                        <strong>What Actually Happens:</strong> The rapid breathing massively increases oxygen 
+                        in the blood while creating rhythmic pressure changes in the skull. This stimulates 
+                        the pineal gland and creates altered states. <strong>Many people report spontaneous 
+                        visions and energy surges.</strong> The heat generated can be felt physically in the 
+                        belly and spreading throughout the body.
+                    </p>
+                    <p>
+                        <strong>Advanced Secret:</strong> After completing a round of Kapalabhati, inhale 
+                        deeply, exhale completely, then hold the breath OUT while applying Mula Bandha (root 
+                        lock - perineum contraction) and Uddiyana Bandha (abdominal lock - pulling belly in 
+                        and up under ribcage). Hold as long as comfortable. <strong>This creates a vacuum that 
+                        literally sucks energy up the spine.</strong> Experienced practitioners can trigger 
+                        spontaneous Kundalini movements this way.
+                    </p>
+                    <div class="warning-block">
+                        <h4>⚠️ Serious Warning:</h4>
+                        <p>
+                            Do NOT practice Kapalabhati if you have: high blood pressure, heart conditions, 
+                            hernias, recent surgery, epilepsy, or are pregnant. Can cause hyperventilation 
+                            and loss of consciousness if done too aggressively. <strong>Always practice on 
+                            empty stomach.</strong> Start conservatively - 30 breaths is plenty for beginners.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flow-block">
+                    <h3>💨 Bhastrika - Bellows Breath</h3>
+                    <p>
+                        <strong>Purpose:</strong> The most powerful pranayama for Kundalini activation. 
+                        Generates massive amounts of internal heat and prana. <strong>This is the nuclear 
+                        option.</strong> Should only be practiced after mastering the previous techniques.
+                    </p>
+                    <p>
+                        <strong>Method:</strong> Similar to Kapalabhati but BOTH inhale and exhale are forceful 
+                        and equal. Rapid, deep breathing like a blacksmith's bellows - powerful in and out through 
+                        the nose. Start with 20 breaths, rest, repeat. Advanced: 50-100 breaths per round.
+                    </p>
+                    <p>
+                        <strong>The Experience:</strong> Within 30 seconds you'll feel intense energy building. 
+                        Body temperature rises noticeably. Hands and feet start tingling. Continue and you may 
+                        feel electric sensations moving up the spine. <strong>Many practitioners report seeing 
+                        lights, geometric patterns, or experiencing spontaneous kriyas (involuntary movements).</strong>
+                    </p>
+                    <p>
+                        <strong>Traditional Protocol:</strong> After a round of Bhastrika, inhale completely, 
+                        hold while visualizing fire rising from the base of the spine through each chakra. Hold 
+                        as long as comfortable while maintaining the visualization. Exhale slowly. <strong>This 
+                        is how yogis trigger deliberate Kundalini awakening.</strong> Not metaphorical - this 
+                        actually generates measurable heat and electromagnetic changes in the body.
+                    </p>
+                    <div class="warning-block">
+                        <h4>⚠️ EXTREME WARNING:</h4>
+                        <p>
+                            Bhastrika is NOT for beginners. Can cause: fainting, panic attacks, uncontrolled 
+                            energy releases, spontaneous Kundalini awakening without proper preparation. 
+                            <strong>Traditional requirement: minimum 6 months daily pranayama practice before 
+                            attempting.</strong> Never do this alone the first few times. Can trigger psychological 
+                            disturbances if system isn't ready. All the warnings for Kapalabhati apply 10x stronger.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flow-block">
+                    <h3>🐝 Bhramari - Bee Breath</h3>
+                    <p>
+                        <strong>Purpose:</strong> Creates specific sound vibrations that calm the nervous system 
+                        and activate the pineal gland. <strong>The secret weapon for instant meditation.</strong> 
+                        Opposite energy to Kapalabhati/Bhastrika - this soothes and centers.
+                    </p>
+                    <p>
+                        <strong>Method:</strong> Sit comfortably, close eyes. Place index fingers gently on the 
+                        cartilage of your ears (the tragus). Inhale deeply through nose, then exhale while making 
+                        a humming sound like a bee - "mmmmmmm". The sound should be steady and continuous throughout 
+                        the exhale. Feel the vibration in your skull. Repeat 5-10 times.
+                    </p>
+                    <p>
+                        <strong>What's Really Happening:</strong> The specific frequency of the humming (around 
+                        130 Hz when done correctly) creates vibrations that stimulate the vagus nerve and pineal 
+                        gland. <strong>This triggers immediate parasympathetic nervous system activation</strong> - 
+                        heart rate slows, blood pressure drops, mind quiets. Scientific studies show it reduces 
+                        cortisol and increases melatonin production instantly.
+                    </p>
+                    <p>
+                        <strong>Advanced Technique:</strong> After mastering the basic method, try Bhramari with 
+                        Shanmukhi Mudra (closing all seven gates): thumbs on ears, index fingers over eyes, middle 
+                        fingers on nose sides, ring fingers above lips, little fingers below lips. This creates 
+                        complete sensory withdrawal while doing the bee breath. <strong>Can trigger spontaneous 
+                        entry into deep meditative states (Pratyahara).</strong>
+                    </p>
+                </div>
+
+                <div class="flow-block">
+                    <h3>❄️ Sitali - Cooling Breath</h3>
+                    <p>
+                        <strong>Purpose:</strong> Rapidly cools the body and calms Pitta (fire element). Essential 
+                        for balancing hot practices like Bhastrika. <strong>Can literally lower body temperature 
+                        by several degrees.</strong>
+                    </p>
+                    <p>
+                        <strong>Method:</strong> Curl tongue into a tube (genetic ability - if you can't, just 
+                        purse lips into "O" shape). Inhale slowly through the curled tongue, feeling the cool air. 
+                        Close mouth, exhale through nose. Repeat 10-20 times. You'll feel cooling sensation 
+                        immediately.
+                    </p>
+                    <p>
+                        <strong>Traditional Use:</strong> Yogis in hot climates use this to regulate body 
+                        temperature. <strong>Also used to cool down after intense Kundalini practices</strong> 
+                        that generate too much heat. If you ever feel overheated, anxious, or experience 
+                        burning sensations from advanced pranayama, this is the antidote.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 3: Mudras -->
+        <section class="tab-content" id="mudras">
+            <h2 class="section-title">🙏 Sacred Mudras - Energy Seals</h2>
+
+            <p style="text-align: center; margin-bottom: 2rem; color: var(--text-soft);">
+                Mudras are hand positions that create specific energetic circuits in the body. 
+                Each finger connects to different elements and energy channels. <strong>These aren't 
+                symbolic - they create measurable changes in brain activity and energy flow.</strong>
+            </p>
+
+            <div class="gesture-grid">
+                <div class="gesture-card">
+                    <div class="gesture-icon">🙏</div>
+                    <div class="gesture-name">Anjali Mudra</div>
+                    <div class="gesture-desc">
+                        Prayer position. Balances left and right hemispheres. Creates circuit between 
+                        heart energy and mental energy. Universal greeting that shows peaceful intent.
+                    </div>
+                </div>
+
+                <div class="gesture-card">
+                    <div class="gesture-icon">👌</div>
+                    <div class="gesture-name">Gyan Mudra</div>
+                    <div class="gesture-desc">
+                        Thumb touches index finger. Most common meditation mudra. Connects individual 
+                        consciousness (index) with universal consciousness (thumb). Enhances concentration 
+                        and memory.
+                    </div>
+                </div>
+
+                <div class="gesture-card">
+                    <div class="gesture-icon">🤘</div>
+                    <div class="gesture-name">Shuni Mudra</div>
+                    <div class="gesture-desc">
+                        Thumb touches middle finger. Cultivates patience and discipline. Saturn finger 
+                        (middle) represents responsibility. Strengthens willpower and commitment to practice.
+                    </div>
+                </div>
+
+                <div class="gesture-card">
+                    <div class="gesture-icon">🤙</div>
+                    <div class="gesture-name">Surya Mudra</div>
+                    <div class="gesture-desc">
+                        Thumb touches ring finger (Sun finger). Generates heat and revitalizes energy. 
+                        Boosts metabolism and digestive fire. Use when feeling lethargic or cold.
+                    </div>
+                </div>
+
+                <div class="gesture-card">
+                    <div class="gesture-icon">🖖</div>
+                    <div class="gesture-name">Prana Mudra</div>
+                    <div class="gesture-desc">
+                        Thumb touches ring + little finger. Activates root chakra and boosts overall vitality. 
+                        <strong>Literally increases prana in the system.</strong> Can reduce fatigue within minutes.
+                    </div>
+                </div>
+
+                <div class="gesture-card">
+                    <div class="gesture-icon">☝️</div>
+                    <div class="gesture-name">Shuni Mudra (Extended)</div>
+                    <div class="gesture-desc">
+                        Index finger points up while other fingers curl. Channels energy upward through 
+                        crown chakra. Used in tantric practices for directing energy outward or upward.
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-flow" style="margin-top: 3rem;">
+                <div class="flow-block">
+                    <h3>🔮 Advanced Mudra Combinations</h3>
+                    <p>
+                        Once you've mastered the basic mudras, you can combine them with pranayama and 
+                        visualization for exponentially more powerful effects:
+                    </p>
+                    <ul class="technique-list">
+                        <li>
+                            <strong>Prana Mudra + Bhastrika</strong>
+                            Generate maximum vitality. Hold Prana Mudra while doing 50 rounds of Bhastrika. 
+                            <strong>Warning: Extremely energizing.</strong> Don't do this before bed unless 
+                            you want to stay awake all night. Used by yogis before long meditation sessions.
+                        </li>
+                        <li>
+                            <strong>Gyan Mudra + Nadi Shodhana</strong>
+                            Enhanced mental clarity and balance. The Gyan Mudra amplifies the balancing 
+                            effects of Nadi Shodhana. Perfect for studying or before important mental work.
+                        </li>
+                        <li>
+                            <strong>Anjali Mudra + Heart Breathing</strong>
+                            Hold hands in prayer at heart center. Breathe deeply, visualizing breath flowing 
+                            in and out of heart. <strong>Creates powerful coherent electromagnetic field</strong> 
+                            measurable by HeartMath devices. Generates feelings of love and connection.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        </section>
+
+        <!-- TAB 4: Advanced Techniques -->
+        <section class="tab-content" id="advanced">
+            <div class="dark-section">
+            <div class="dark-header">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">⚠️</div>
+                <h2 class="dark-title">Advanced Techniques • Restricted Access</h2>
+                <p style="color: rgba(255,255,255,0.7); font-size: 1.1rem;">
+                    The following methods are rarely taught publicly. They come from direct lineage transmission 
+                    and secret texts. <strong>Practice with extreme caution.</strong>
+                </p>
+            </div>
+
+            <div class="content-flow">
+                <div class="flow-block">
+                    <h3>🔥 Tummo - Inner Fire Meditation</h3>
+                    <p>
+                        The legendary Tibetan technique for generating extreme internal heat. <strong>Documented 
+                        practitioners have dried wet sheets with body heat in freezing temperatures.</strong> 
+                        This is real, measurable thermogenesis.
+                    </p>
+                    <p>
+                        <strong>Traditional Method:</strong> Sit in meditation. Visualize a small flame at the 
+                        navel, about 4 fingers below the belly button. Breathe in slowly, visualizing the breath 
+                        as cold air fanning the flame. Hold the breath, contract the pelvic floor (root lock), 
+                        and visualize the flame growing hotter and brighter. Exhale slowly, see the flame spreading 
+                        heat throughout the body. Repeat 9-21 times.
+                    </p>
+                    <p>
+                        <strong>Advanced Variation:</strong> Combine with vase breathing - on inhale, pull the 
+                        lower abdomen in slightly while expanding the chest (creates vase shape in torso). Hold 
+                        breath with both root lock and throat lock engaged. Visualize fire moving up the central 
+                        channel. <strong>Advanced practitioners can raise skin temperature by 10+ degrees Fahrenheit.</strong>
+                    </p>
+                    <p>
+                        <strong>Why It Works:</strong> The combination of visualization, breath retention, and 
+                        muscle locks creates actual metabolic changes. fMRI studies show increased activity in 
+                        thermoregulatory brain regions. <strong>You're literally reprogramming your autonomic 
+                        nervous system</strong> to generate heat on command.
+                    </p>
+                    <div class="warning-block">
+                        <h4>⚠️ WARNING:</h4>
+                        <p>
+                            Can cause uncomfortable heat sensations, sweating, and cardiovascular strain. Not for 
+                            those with heart conditions or high blood pressure. <strong>Start with 3-5 rounds maximum.</strong> 
+                            Traditional training takes months under supervision. Don't attempt marathon sessions alone.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flow-block">
+                    <h3>💀 Kechari Mudra - Tongue Lock</h3>
+                    <p>
+                        One of the most guarded secrets in yoga. Involves folding the tongue back to touch the 
+                        soft palate or even reaching into the nasal cavity. <strong>Creates closed energy circuit 
+                        that prevents prana from escaping.</strong>
+                    </p>
+                    <p>
+                        <strong>Beginner Practice:</strong> Simply fold tongue back as far as comfortable to touch 
+                        soft palate. Hold during meditation and pranayama. You'll notice saliva production increases 
+                        - this is the "nectar" (amrita) that yogis claim has rejuvenating properties.
+                    </p>
+                    <p>
+                        <strong>Advanced Practice:</strong> Traditional texts describe gradually cutting the 
+                        frenulum (the tissue connecting tongue to floor of mouth) to allow tongue to reach deeper. 
+                        <strong>Modern practitioners achieve similar results through daily stretching over months/years.</strong> 
+                        Spend 5-10 minutes daily gently pulling tongue back and up, gradually increasing range of motion.
+                    </p>
+                    <p>
+                        <strong>The Secret Purpose:</strong> According to tantric texts, there's a point at the 
+                        back of the nasal cavity that, when touched by the tongue, triggers the release of amrita - 
+                        a psychoactive secretion from the pineal gland. <strong>Practitioners report feeling 
+                        sustained energy, reduced need for sleep, and enhanced meditation depth.</strong> Modern 
+                        theory: stimulation of this area may trigger release of DMT and other endogenous compounds.
+                    </p>
+                </div>
+
+                <div class="flow-block">
+                    <h3>⚡ Vajroli Mudra - Sexual Energy Transmutation</h3>
+                    <p>
+                        The most controversial and powerful technique. <strong>Used to transmute sexual energy 
+                        into spiritual power.</strong> Requires discipline but yields enormous results.
+                    </p>
+                    <p>
+                        <strong>Foundation Practice:</strong> During states of arousal (solo or partnered), 
+                        instead of releasing energy outward, consciously draw it upward through breath and 
+                        intention. As energy builds in genital area, inhale deeply and visualize/feel the energy 
+                        rising up the spine to the crown of the head. Apply root lock to assist the upward flow.
+                    </p>
+                    <p>
+                        <strong>Advanced Method - Male:</strong> Actual Vajroli involves drawing liquid upward 
+                        through the urethra using specialized muscles (Ashwini Mudra - sphincter control). 
+                        <strong>Traditional training starts with drawing water up through a catheter,</strong> 
+                        gradually developing control. This is the technique Taoist masters used for sexual retention.
+                    </p>
+                    <p>
+                        <strong>Advanced Method - Female:</strong> Similar principle using vaginal muscles 
+                        (Mula Bandha and Ashwini Mudra together). <strong>Can be practiced with or without a partner.</strong> 
+                        The key is maintaining awareness at the base of the spine and actively drawing energy upward 
+                        rather than allowing it to dissipate outward.
+                    </p>
+                    <p>
+                        <strong>Why This Matters:</strong> Sexual energy is the most concentrated form of prana 
+                        in the body. <strong>When retained and sublimated, it becomes rocket fuel for spiritual 
+                        practice.</strong> Yogis claim this is the fastest path to Kundalini awakening. Modern 
+                        practitioners report: enhanced mental clarity, reduced sleep needs, increased motivation, 
+                        deeper meditation, and spontaneous energy experiences.
+                    </p>
+                    <p>
+                        <strong>Practical Application (Accessible Version):</strong> You don't need to master the 
+                        advanced physical technique to benefit. Simple method: commit to 30-day sexual energy 
+                        retention (no release). Channel the building energy through daily pranayama practice, 
+                        especially Bhastrika and Mula Bandha. <strong>You'll notice dramatic increase in vitality 
+                        and mental focus within 2 weeks.</strong> This is the secret behind "NoFap" benefits - 
+                        but yogis have been doing it for thousands of years with much more sophisticated methods.
+                    </p>
+                </div>
+
+                <div class="flow-block">
+                    <h3>🌀 Kriya Pranayama - Rapid Evolution Technique</h3>
+                    <p>
+                        Paramahansa Yogananda brought Kriya Yoga to the West, but kept the most powerful techniques 
+                        restricted. <strong>The actual Kriya Pranayama technique supposedly accelerates spiritual 
+                        evolution - traditional claim is that one year of Kriya practice equals one year of natural 
+                        spiritual evolution.</strong>
+                    </p>
+                    <p>
+                        <strong>Modified Kriya Method:</strong> Sit with straight spine. Inhale slowly while 
+                        mentally chanting "OM" and feeling energy rise from base of spine to the crown. Exhale 
+                        slowly while mentally chanting "OM" and feeling energy descend from crown to base. 
+                        <strong>The key is to actually FEEL the energy movement,</strong> not just visualize it. 
+                        Start with 12 repetitions, gradually building to 24, then 48.
+                    </p>
+                    <p>
+                        <strong>Full Traditional Technique:</strong> Involves specific movements of the head, 
+                        eyes, and tongue coordinated with breath and mental chanting. <strong>Usually requires 
+                        direct initiation from a qualified teacher</strong> because the exact timing and coordination 
+                        is crucial. The complete technique is said to create a powerful energetic pump that forces 
+                        prana through the sushumna nadi.
+                    </p>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-brand">PRANA ENGINEERING SYSTEM</div>
+            <div class="footer-tagline">Advanced Consciousness Technologies • ShivaKali Ashram</div>
+            
+            <div class="footer-links">
+                <a href="index.html" class="footer-link">Tantra Sciences</a>
+                <a href="../index.html" class="footer-link">Ashram Home</a>
+            </div>
+            
+            <div class="footer-divider"></div>
+            
+            <div class="footer-copyright">
+                © 1489 ShivaKali Ashram • Life Force Technologies • Acharya Anish
+            </div>
+
+            <div class="disclaimer-box">
+                <strong style="color: var(--flow-cyan);">⚠️ PRACTICE ADVISORY:</strong><br>
+                The pranayama and energy manipulation techniques described here can produce powerful physiological 
+                and psychological effects. These methods come from authentic yogic lineages and should be practiced 
+                with proper guidance. Start slowly, respect your limits, and work with qualified instruction. 
+                If you experience difficulty breathing, dizziness, or any adverse effects, return to normal 
+                breathing immediately.
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Progress bar
+        const progressBar = document.querySelector('.flow-progress');
+        window.addEventListener('scroll', () => {
+            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            progressBar.style.transform = `scaleX(${scrolled / 100})`;
+        });
+
+        // Video handler
+        (function() {
+            const video = document.getElementById('pranaVideo');
+            if (!video) return;
+            
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 640;
+            
+            if (isMobile) {
+                video.style.filter = 'brightness(0.2) saturate(1.3) blur(1px)';
+                
+                document.addEventListener('visibilitychange', () => {
+                    document.hidden ? video.pause() : video.play().catch(() => {});
+                });
+                
+                let scrollTimeout;
+                window.addEventListener('scroll', () => {
+                    clearTimeout(scrollTimeout);
+                    video.pause();
+                    scrollTimeout = setTimeout(() => video.play().catch(() => {}), 150);
+                }, { passive: true });
+            }
+            
+            video.addEventListener('loadeddata', () => {
+                video.play().catch(() => {});
+            });
+            
+            video.addEventListener('error', () => {
+                video.style.display = 'none';
+            });
+            
+            if ('getBattery' in navigator) {
+                navigator.getBattery().then(battery => {
+                    if (battery.level < 0.2) video.pause();
+                    battery.addEventListener('levelchange', function() {
+                        if (this.level < 0.2 && !video.paused) video.pause();
+                    });
+                });
+            }
+            
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                video.pause();
+                video.style.display = 'none';
+            }
+        })();
+
+        // Content Flow Footer
+        const footer = document.createElement('footer');
+        footer.classList.add('footer');
+        footer.style.position = 'relative';
+        footer.style.zIndex = '1000';
+        footer.innerHTML = `
+            <div class="footer-brand">🌬️ PRANA ENGINEERING SYSTEM</div>
+            <div class="footer-tagline">Advanced Consciousness Technologies • ShivaKali Ashram</div>
+            
+            <div class="footer-links">
+                <a href="index.html" class="footer-link">Tantra Sciences</a>
+                <a href="../index.html" class="footer-link">Ashram Home</a>
+            </div>
+            
+            <div class="footer-divider"></div>
+            
+            <div class="footer-copyright">
+                © 1489 ShivaKali Ashram • Life Force Technologies • Acharya Anish
+            </div>
+
+            <div class="disclaimer-box">
+                <strong style="color: var(--flow-cyan);">⚠️ PRACTICE ADVISORY:</strong><br>
+                The pranayama and energy manipulation techniques described here can produce powerful physiological 
+                and psychological effects. These methods come from authentic yogic lineages and should be practiced 
+                with proper guidance. Start slowly, respect your limits, and work with qualified instruction. 
+                If you experience difficulty breathing, dizziness, or any adverse effects, return to normal 
+                breathing immediately.
+            </div>
+        `;
+        document.querySelector('.flow-container').appendChild(footer);
+
+        /* Footer Styles */
+        .footer {
+            margin-top: 5rem;
+            padding: 3rem 2rem;
+            text-align: center;
+            background: linear-gradient(180deg, 
+                rgba(0, 255, 255, 0.1),
+                rgba(138, 43, 226, 0.15)
+            );
+            backdrop-filter: blur(15px);
+            border-top: 3px solid rgba(0, 255, 255, 0.8);
+            position: relative;
+            z-index: 1000;
+            animation: footerGlow 3s ease-in-out infinite;
+            box-shadow: 0 -10px 40px rgba(0, 255, 255, 0.3);
+            margin-left: -15px;
+            margin-right: -15px;
+            width: calc(100% + 30px);
+        }
+
+        .footer-brand {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            text-shadow: 
+                0 0 50px rgba(0, 255, 255, 1),
+                0 0 30px rgba(0, 255, 255, 1),
+                0 2px 15px rgba(0, 255, 255, 0.8);
+            letter-spacing: 4px;
+            transform: scale(1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .footer-brand:hover {
+            transform: scale(1.05);
+            text-shadow: 
+                0 0 60px rgba(0, 255, 255, 1),
+                0 0 40px rgba(0, 255, 255, 1),
+                0 2px 20px rgba(0, 255, 255, 0.9);
+        }
+
+        .footer-tagline {
+            font-size: 1.3rem;
+            color: #ffffff;
+            margin-bottom: 2.5rem;
+            letter-spacing: 3px;
+            font-weight: 600;
+            text-shadow: 
+                0 0 30px rgba(0, 255, 255, 0.8),
+                0 0 20px rgba(0, 255, 255, 0.6),
+                0 2px 10px rgba(0, 0, 0, 0.5);
+            opacity: 0.95;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+            padding: 1rem;
+        }
+
+        .footer-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            padding: 0.8rem 1.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            z-index: 101;
+            background: rgba(0, 255, 255, 0.1);
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            border-radius: 8px;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+        }
+
+        .footer-link:hover {
+            color: #ffffff;
+            text-shadow: 0 0 30px rgba(0, 255, 255, 1);
+            transform: translateY(-3px);
+            background: rgba(0, 255, 255, 0.2);
+            border-color: rgba(0, 255, 255, 0.8);
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
+        }
+
+        .footer-divider {
+            width: 60%;
+            height: 3px;
+            margin: 2rem auto;
+            background: linear-gradient(90deg,
+                transparent,
+                var(--flow-cyan),
+                var(--flow-gold),
+                var(--flow-cyan),
+                transparent
+            );
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
+            opacity: 0.8;
+        }
+
+        .footer-copyright {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+            font-weight: 500;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+        }
+
+        .disclaimer-box {
+            margin-top: 2.5rem;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, 
+                rgba(255, 0, 100, 0.15), 
+                rgba(138, 43, 226, 0.2)
+            );
+            backdrop-filter: blur(15px);
+            border: 3px solid rgba(255, 0, 100, 0.4);
+            border-radius: 15px;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.8;
+            box-shadow: 
+                0 10px 40px rgba(255, 0, 100, 0.2),
+                inset 0 0 30px rgba(255, 0, 100, 0.1);
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            animation: pulseWarning 4s ease-in-out infinite;
+        }
+
+        .disclaimer-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 150%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: skewX(-20deg);
+            animation: shine 6s infinite;
+        }
+
+        @keyframes pulseWarning {
+            0%, 100% { border-color: rgba(255, 0, 100, 0.4); box-shadow: 0 10px 40px rgba(255, 0, 100, 0.2); }
+            50% { border-color: rgba(255, 0, 100, 0.6); box-shadow: 0 10px 50px rgba(255, 0, 100, 0.3); }
+        }
+
+        @keyframes shine {
+            0% { left: -150%; }
+            50% { left: 150%; }
+            100% { left: 150%; }
+        }
+
+        .disclaimer-box strong {
+            display: block;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: rgb(255, 0, 100);
+            text-shadow: 0 0 20px rgba(255, 0, 100, 0.5);
+            letter-spacing: 2px;
+        }
+
+        /* Gesture card interactions */
+        document.querySelectorAll('.gesture-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.transform = 'scale(1.05)';
+                this.style.boxShadow = '0 15px 40px var(--glow-cyan)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                    this.style.boxShadow = '';
+                }, 300);
+            });
+        });
+
+        // Smooth scroll reveal for flow blocks
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.flow-block, .gesture-card').forEach(block => {
+            block.style.opacity = '0';
+            block.style.transform = 'translateY(20px)';
+            block.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(block);
+        });
+
+        // Tab switching system
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all tabs
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                button.classList.add('active');
+                const tabId = button.dataset.tab;
+                document.getElementById(tabId).classList.add('active');
+                
+                // Scroll to top smoothly
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                // Re-observe elements for fade-in
+                document.querySelectorAll(`#${tabId} .flow-block, #${tabId} .gesture-card`).forEach(block => {
+                    block.style.opacity = '0';
+                    block.style.transform = 'translateY(20px)';
+                    setTimeout(() => observer.observe(block), 100);
+                });
+            });
+        });
+
+        // Console easter egg
+        console.log('%c🌬️ PRANA ENGINEERING SYSTEM ACTIVE', 'color: #00ffff; font-size: 16px; font-weight: bold;');
+        console.log('%cThese techniques are real and produce measurable effects.', 'color: #ffffff; font-size: 12px;');
+        console.log('%cPractice with respect and caution. The breath is the bridge between body and mind.', 'color: #8a2be2; font-size: 12px;');
+    </script>
+</body>
+</html>
