@@ -13,10 +13,11 @@
         body {
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
-            color: #d6d3d1; /* stone-300 */
+            color: #fafaf9; /* stone-50 - brighter text */
         }
         .font-cinzel {
             font-family: 'Cinzel', serif;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 0 0 15px rgba(245, 158, 11, 0.3);
         }
         #bg-video {
             position: fixed;
@@ -54,19 +55,72 @@
         }
         .modal {
             transition: opacity 0.3s ease;
+            backdrop-filter: blur(8px);
         }
         .modal-content {
             transition: transform 0.3s ease;
+            background-color: rgba(28, 25, 23, 0.2) !important;
+            backdrop-filter: blur(25px) saturate(1.5);
+            border: 2px solid rgba(245, 158, 11, 0.7);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6),
+                        0 0 40px rgba(245, 158, 11, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+        
+        .modal-content h4 {
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95), 
+                         0 0 30px rgba(245, 158, 11, 0.8),
+                         0 0 15px rgba(245, 158, 11, 0.6);
+        }
+        
+        .modal-content p {
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95),
+                         0 0 15px rgba(0, 0, 0, 0.85),
+                         0 0 8px rgba(245, 158, 11, 0.25);
         }
         .codex-bg {
-            background-color: rgba(28, 25, 23, 0.65);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(245, 158, 11, 0.3);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            background-color: rgba(28, 25, 23, 0.25);
+            backdrop-filter: blur(20px) saturate(1.4);
+            border: 1px solid rgba(245, 158, 11, 0.6);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 
+                        0 0 30px rgba(245, 158, 11, 0.2),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        }
+        
+        .codex-bg h2,
+        .codex-bg h3,
+        .codex-bg h4 {
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95), 
+                         0 0 30px rgba(245, 158, 11, 0.7),
+                         0 0 15px rgba(245, 158, 11, 0.5);
+        }
+        
+        .codex-bg p,
+        .codex-bg li,
+        .codex-bg label {
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95),
+                         0 0 12px rgba(0, 0, 0, 0.8),
+                         0 0 6px rgba(245, 158, 11, 0.2);
         }
         .accordion-content {
              transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
              overflow: hidden;
+             background-color: rgba(28, 25, 23, 0.2);
+             backdrop-filter: blur(15px) saturate(1.3);
+        }
+        
+        .accordion-toggle {
+            background-color: rgba(28, 25, 23, 0.3) !important;
+            backdrop-filter: blur(18px) saturate(1.3);
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4),
+                        0 0 15px rgba(245, 158, 11, 0.15);
+        }
+        
+        .accordion-toggle:hover {
+            background-color: rgba(120, 53, 15, 0.25) !important;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5),
+                        0 0 20px rgba(245, 158, 11, 0.25);
         }
         .chakra-node {
             width: 40px;
@@ -115,7 +169,23 @@
             }
             
             .codex-bg {
-                background-color: rgba(28, 25, 23, 0.75);
+                background-color: rgba(28, 25, 23, 0.55);
+            }
+            
+            .codex-bg h2,
+            .codex-bg h3,
+            .codex-bg h4 {
+                text-shadow: 0 3px 15px rgba(0, 0, 0, 1), 
+                             0 0 35px rgba(245, 158, 11, 0.8),
+                             0 0 18px rgba(245, 158, 11, 0.6);
+            }
+            
+            .codex-bg p,
+            .codex-bg li,
+            .codex-bg label {
+                text-shadow: 0 2px 10px rgba(0, 0, 0, 1),
+                             0 0 15px rgba(0, 0, 0, 0.9),
+                             0 0 8px rgba(245, 158, 11, 0.3);
             }
         }
     </style>
@@ -132,7 +202,7 @@
     </video>
 
     <!-- Top Navigation -->
-    <div class="fixed top-0 left-0 right-0 z-50 bg-stone-900/70 backdrop-blur-lg border-b border-amber-500/40 shadow-2xl">
+    <div class="fixed top-0 left-0 right-0 z-50 bg-stone-900/40 backdrop-blur-xl border-b border-amber-500/60 shadow-2xl" style="box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(245, 158, 11, 0.2);">
         <div class="max-w-7xl mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
                 <a href="index.html" class="flex items-center gap-2 text-amber-500 hover:text-amber-400 transition-colors">
@@ -164,7 +234,7 @@
             <p class="text-sm text-amber-500/70 mt-2">ShivaKali Ashram</p>
         </header>
 
-        <nav class="sticky top-0 bg-stone-900/60 backdrop-blur-lg z-20 mb-8 border-b border-amber-500/30 shadow-lg">
+        <nav class="sticky top-0 bg-stone-900/30 backdrop-blur-xl z-20 mb-8 border-b border-amber-500/50 shadow-lg" style="box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4), 0 0 15px rgba(245, 158, 11, 0.15);">
             <div class="flex justify-center items-center text-xs sm:text-base space-x-2 sm:space-x-8">
                 <button data-target="dashboard" class="nav-btn font-medium py-4 px-2 border-b-2 transition-colors duration-300 nav-active">Dashboard</button>
                 <button data-target="library" class="nav-btn font-medium py-4 px-2 border-b-2 transition-colors duration-300 nav-inactive">Mantra Library</button>
@@ -862,11 +932,11 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <!-- Footer -->
-<footer class="relative z-10 mt-16 border-t border-amber-500/40 bg-stone-900/70 backdrop-blur-lg shadow-2xl">
+<footer class="relative z-10 mt-16 border-t border-amber-500/60 bg-stone-900/30 backdrop-blur-xl shadow-2xl" style="box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.5), 0 0 25px rgba(245, 158, 11, 0.2);">
     <div class="max-w-7xl mx-auto px-4 py-12">
         <div class="text-center">
-            <h3 class="text-3xl font-cinzel font-bold text-amber-500 mb-2">🕉️ MANTRA SCIENCE CODEX</h3>
-            <p class="text-lg text-stone-300 mb-6">Sacred Sound Technologies • ShivaKali Ashram</p>
+            <h3 class="text-3xl font-cinzel font-bold text-amber-500 mb-2" style="text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95), 0 0 30px rgba(245, 158, 11, 0.7), 0 0 15px rgba(245, 158, 11, 0.5);">🕉️ MANTRA SCIENCE CODEX</h3>
+            <p class="text-lg text-stone-300 mb-6" style="text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 0 12px rgba(0, 0, 0, 0.7);">Sacred Sound Technologies • ShivaKali Ashram</p>
             
             <div class="flex justify-center gap-8 mb-8">
                 <a href="index.html" class="px-6 py-3 bg-amber-600/20 hover:bg-amber-600/40 border-2 border-amber-500 rounded-lg text-amber-500 font-medium transition-all hover:scale-105">
@@ -883,7 +953,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 © 1489 ShivaKali Ashram • Vibrational Technologies • Acharya Anish
             </p>
             
-            <div class="mt-6 p-6 bg-amber-900/10 border border-amber-500/20 rounded-lg max-w-3xl mx-auto">
+            <div class="mt-6 p-6 bg-amber-900/5 border border-amber-500/30 rounded-lg max-w-3xl mx-auto" style="backdrop-filter: blur(15px); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 15px rgba(245, 158, 11, 0.1);">
                 <p class="text-amber-500/80 font-bold mb-2">⚠️ PRACTICE ADVISORY:</p>
                 <p class="text-stone-400 text-sm leading-relaxed">
                     Mantras are powerful vibrational tools that can produce profound effects on consciousness, 
