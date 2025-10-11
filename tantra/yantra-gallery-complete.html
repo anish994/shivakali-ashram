@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🕉️ Complete Yantra Gallery - 82 Sacred Geometries</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        :root {
+            --bg-color: #0B1120;
+            --surface-color: #1F2937;
+            --text-color: #fafaf9;
+            --subtle-text-color: #a8a29e;
+            --heading-font: 'Cinzel', serif;
+            --body-font: 'Inter', sans-serif;
+        }
+
+        body {
+            font-family: var(--body-font);
+            background: #0B1120;
+            color: var(--text-color);
+            scroll-behavior: smooth;
+        }
+        
+        /* Video Background */
+        #bg-video {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -100;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            filter: brightness(0.5) saturate(1.6) contrast(1.2);
+            opacity: 1;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: -50;
+            background: 
+                radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 100%, rgba(168, 85, 247, 0.15) 0%, transparent 50%),
+                linear-gradient(180deg, rgba(11, 17, 32, 0.4) 0%, rgba(11, 17, 32, 0.2) 50%, rgba(11, 17, 32, 0.4) 100%);
+            pointer-events: none;
+        }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-color); }
+        ::-webkit-scrollbar-thumb { background: var(--surface-color); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #4B5563; }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideIn {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .animate-fadeIn {
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        .animate-slideIn {
+            animation: slideIn 0.6s ease-out;
+        }
+        
+        .animate-pulse-slow {
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        /* Yantra Card Styles */
+        .yantra-card {
+            background: rgba(31, 41, 55, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .yantra-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(139, 92, 246, 0.5);
+            box-shadow: 0 10px 40px rgba(139, 92, 246, 0.3);
+        }
+        
+        /* Category Headers */
+        .category-header {
+            font-family: var(--heading-font);
+            background: linear-gradient(135deg, currentColor, rgba(255, 255, 255, 0.7));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Warning Styles */
+        .warning-card {
+            border-left-width: 4px;
+            background: rgba(220, 38, 38, 0.1);
+        }
+        
+        .danger-high {
+            border-color: #DC2626;
+        }
+        
+        .danger-extreme {
+            border-color: #991B1B;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* Back Button */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(31, 41, 55, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background: rgba(139, 92, 246, 0.3);
+            border-color: rgba(139, 92, 246, 0.6);
+            transform: translateX(-5px);
+        }
+        
+        /* Mobile Optimizations */
+        @media (max-width: 640px) {
+            .back-button {
+                top: 10px;
+                left: 10px;
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Video Background -->
+    <video id="bg-video" autoplay muted loop playsinline preload="auto">
+        <source src="../pictures/yantra.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <!-- Back Button -->
+    <a href="yantras.html" class="back-button">
+        ← Back to Yantra Engineering
+    </a>
+    
+    <!-- Main Content -->
+    <div class="min-h-screen pt-20 px-4 sm:px-6 md:px-8 pb-16">
+        <div class="max-w-7xl mx-auto">
+            
+            <!-- Header -->
+            <div class="text-center mb-12 sm:mb-16 animate-fadeIn">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6" style="font-family: var(--heading-font); background: linear-gradient(135deg, #8b5cf6, #ec4899, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                    🕉️ Complete Yantra Gallery
+                </h1>
+                <p class="text-lg sm:text-xl text-violet-300 max-w-3xl mx-auto mb-4">
+                    82+ Sacred Geometric Intelligence Systems Across All Traditions
+                </p>
+                <p class="text-sm sm:text-base text-gray-400 max-w-2xl mx-auto">
+                    From Vedic planetary yantras to fierce tantric forms - explore the complete spectrum of sacred geometry
+                </p>
+            </div>
+            
+            <!-- Quick Navigation -->
+            <div class="mb-12 flex flex-wrap justify-center gap-3 sm:gap-4 animate-slideIn">
+                <a href="#planetary" class="px-4 sm:px-6 py-2 rounded-lg bg-violet-500/20 border border-violet-500/30 hover:bg-violet-500/30 transition text-sm sm:text-base">🪐 Planetary (9)</a>
+                <a href="#deity" class="px-4 sm:px-6 py-2 rounded-lg bg-amber-500/20 border border-amber-500/30 hover:bg-amber-500/30 transition text-sm sm:text-base">🕉️ Deity (27)</a>
+                <a href="#specialized" class="px-4 sm:px-6 py-2 rounded-lg bg-pink-500/20 border border-pink-500/30 hover:bg-pink-500/30 transition text-sm sm:text-base">⚡ Specialized (17)</a>
+                <a href="#chakra" class="px-4 sm:px-6 py-2 rounded-lg bg-green-500/20 border border-green-500/30 hover:bg-green-500/30 transition text-sm sm:text-base">🌈 Chakra (7)</a>
+                <a href="#directional" class="px-4 sm:px-6 py-2 rounded-lg bg-blue-500/20 border border-blue-500/30 hover:bg-blue-500/30 transition text-sm sm:text-base">🧭 Directional (10)</a>
+                <a href="#master" class="px-4 sm:px-6 py-2 rounded-lg bg-yellow-500/20 border border-yellow-500/30 hover:bg-yellow-500/30 transition text-sm sm:text-base">👑 Master (5)</a>
+                <a href="#forbidden" class="px-4 sm:px-6 py-2 rounded-lg bg-red-500/20 border border-red-500/30 hover:bg-red-500/30 transition text-sm sm:text-base">⚠️ Forbidden (7)</a>
+            </div>
+
+<!-- PLANETARY YANTRAS (9) -->
+<section id="planetary" class="mb-16 animate-slideIn">
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 text-violet-400 category-header">
+        🪐 Navagraha - Nine Planetary Yantras
+    </h2>
+    <p class="text-gray-300 mb-8 text-sm sm:text-base">Balance cosmic forces and planetary influences with these celestial yantras</p>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        
+        <!-- Surya Yantra -->
+        <div class="yantra-card p-4 sm:p-6">
+            <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl sm:text-2xl font-bold text-orange-400">☀️ Surya Yantra</h3>
+                <span class="text-xs bg-orange-500/20 px-2 py-1 rounded">6x6 Grid</span>
+            </div>
+            <p class="text-sm text-gray-400 mb-2"><strong>Deity:</strong> Sun God (Surya)</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Leadership, vitality, success, health, government positions</p>
+            <p class="text-xs text-violet-300 mb-2"><strong>Mantra:</strong> Om Hraam Hreem Hraum Sah Suryaya Namah</p>
+            <p class="text-xs text-green-300 mb-2">✓ Boosts confidence, strengthens immunity, improves eyesight</p>
+            <p class="text-xs text-yellow-300">⚠️ May increase ego if misused</p>
+            <div class="mt-3 pt-3 border-t border-gray-700 text-xs text-gray-400">
+                <span class="bg-red-900/30 px-2 py-1 rounded">Gold/Copper</span>
+                <span class="ml-2 bg-orange-900/30 px-2 py-1 rounded">Red/Orange</span>
+            </div>
+        </div>
+
+        <!-- Chandra Yantra -->
+        <div class="yantra-card p-4 sm:p-6">
+            <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl sm:text-2xl font-bold text-gray-300">🌙 Chandra Yantra</h3>
+                <span class="text-xs bg-gray-500/20 px-2 py-1 rounded">9x9 Grid</span>
+            </div>
+            <p class="text-sm text-gray-400 mb-2"><strong>Deity:</strong> Moon God (Chandra)</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Emotional balance, mental peace, relationships, intuition</p>
+            <p class="text-xs text-violet-300 mb-2"><strong>Mantra:</strong> Om Shraam Shreem Shraum Sah Chandraaya Namah</p>
+            <p class="text-xs text-green-300 mb-2">✓ Calms anxiety, enhances creativity, improves sleep</p>
+            <p class="text-xs text-yellow-300">⚠️ May increase emotional sensitivity</p>
+            <div class="mt-3 pt-3 border-t border-gray-700 text-xs text-gray-400">
+                <span class="bg-gray-700 px-2 py-1 rounded">Silver</span>
+                <span class="ml-2 bg-gray-600 px-2 py-1 rounded">White/Silver</span>
+            </div>
+        </div>
+
+        <!-- Mangal Yantra -->
+        <div class="yantra-card p-4 sm:p-6">
+            <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl sm:text-2xl font-bold text-red-400">🔥 Mangal Yantra</h3>
+                <span class="text-xs bg-red-500/20 px-2 py-1 rounded">5x5 Grid</span>
+            </div>
+            <p class="text-sm text-gray-400 mb-2"><strong>Deity:</strong> Mars (Mangal/Kuja)</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Courage, strength, victory over enemies, property</p>
+            <p class="text-xs text-violet-300 mb-2"><strong>Mantra:</strong> Om Kraam Kreem Kraum Sah Bhaumaaya Namah</p>
+            <p class="text-xs text-green-300 mb-2">✓ Removes obstacles, gives courage, protects from accidents</p>
+            <p class="text-xs text-yellow-300">⚠️ May increase aggression, avoid during anger</p>
+            <div class="mt-3 pt-3 border-t border-gray-700 text-xs text-gray-400">
+                <span class="bg-orange-900/30 px-2 py-1 rounded">Copper/Gold</span>
+                <span class="ml-2 bg-red-900/30 px-2 py-1 rounded">Red</span>
+            </div>
+        </div>
+
+        <!-- Budh Yantra -->
+        <div class="yantra-card p-4 sm:p-6">
+            <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl sm:text-2xl font-bold text-green-400">💚 Budh Yantra</h3>
+                <span class="text-xs bg-green-500/20 px-2 py-1 rounded">4x4 Grid</span>
+            </div>
+            <p class="text-sm text-gray-400 mb-2"><strong>Deity:</strong> Mercury (Budha)</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Intelligence, communication, business, memory</p>
+            <p class="text-xs text-violet-300 mb-2"><strong>Mantra:</strong> Om Braam Breem Braum Sah Budhaaya Namah</p>
+            <p class="text-xs text-green-300 mb-2">✓ Sharpens intellect, improves speech, helps students</p>
+            <p class="text-xs text-yellow-300">⚠️ May cause overthinking</p>
+            <div class="mt-3 pt-3 border-t border-gray-700 text-xs text-gray-400">
+                <span class="bg-yellow-900/30 px-2 py-1 rounded">Bronze/Brass</span>
+                <span class="ml-2 bg-green-900/30 px-2 py-1 rounded">Green</span>
+            </div>
+        </div>
+
+        <!-- Guru Yantra -->
+        <div class="yantra-card p-4 sm:p-6">
+            <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl sm:text-2xl font-bold text-yellow-400">🟡 Guru Yantra</h3>
+                <span class="text-xs bg-yellow-500/20 px-2 py-1 rounded">3x3 Grid</span>
+            </div>
+            <p class="text-sm text-gray-400 mb-2"><strong>Deity:</strong> Jupiter (Brihaspati)</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Wisdom, wealth, spiritual growth, children</p>
+            <p class="text-xs text-violet-300 mb-2"><strong>Mantra:</strong> Om Graam Greem Graum Sah Gurave Namah</p>
+            <p class="text-xs text-green-300 mb-2">✓ Attracts prosperity, gives wisdom, brings good fortune</p>
+            <p class="text-xs text-green-400">✓ Most benevolent - no warnings</p>
+            <div class="mt-3 pt-3 border-t border-gray-700 text-xs text-gray-400">
+                <span class="bg-yellow-600 px-2 py-1 rounded">Gold</span>
+                <span class="ml-2 bg-yellow-700 px-2 py-1 rounded">Yellow</span>
+            </div>
+        </div>
+
+        <!-- Shukra Yantra -->
+        <div class="yantra-card p-4 sm:p-6">
+            <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl sm:text-2xl font-bold text-pink-400">💝 Shukra Yantra</h3>
+                <span class="text-xs bg-pink-500/20 px-2 py-1 rounded">6x6 Grid</span>
+            </div>
+            <p class="text-sm text-gray-400 mb-2"><strong>Deity:</strong> Venus (Shukra)</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Love, beauty, luxury, arts, marriage</p>
+            <p class="text-xs text-violet-300 mb-2"><strong>Mantra:</strong> Om Draam Dreem Draum Sah Shukraaya Namah</p>
+            <p class="text-xs text-green-300 mb-2">✓ Enhances charm, attracts partner, brings luxuries</p>
+            <p class="text-xs text-yellow-300">⚠️ May increase materialism</p>
+            <div class="mt-3 pt-3 border-t border-gray-700 text-xs text-gray-400">
+                <span class="bg-gray-700 px-2 py-1 rounded">Silver</span>
+                <span class="ml-2 bg-pink-900/30 px-2 py-1 rounded">White/Pink</span>
+            </div>
+        </div>
+
+        <!-- Shani Yantra -->
+        <div class="yantra-card p-4 sm:p-6">
+            <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl sm:text-2xl font-bold text-blue-900">🖤 Shani Yantra</h3>
+                <span class="text-xs bg-blue-900/40 px-2 py-1 rounded">3x3 Magic</span>
+            </div>
+            <p class="text-sm text-gray-400 mb-2"><strong>Deity:</strong> Saturn (Shani)</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Discipline, removing obstacles, karmic balance</p>
+            <p class="text-xs text-violet-300 mb-2"><strong>Mantra:</strong> Om Praam Preem Praum Sah Shanaischaraya Namah</p>
+            <p class="text-xs text-green-300 mb-2">✓ Removes Sade Sati effects, brings discipline, grants justice</p>
+            <p class="text-xs text-yellow-300">⚠️ Requires purity of intent, never use for harm</p>
+            <div class="mt-3 pt-3 border-t border-gray-700 text-xs text-gray-400">
+                <span class="bg-gray-800 px-2 py-1 rounded">Iron</span>
+                <span class="ml-2 bg-gray-900 px-2 py-1 rounded">Black/Blue</span>
+            </div>
+        </div>
+
+        <!-- Rahu Yantra -->
+        <div class="yantra-card p-4 sm:p-6">
+            <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl sm:text-2xl font-bold text-gray-500">🌫️ Rahu Yantra</h3>
+                <span class="text-xs bg-gray-600/20 px-2 py-1 rounded">4x4 Grid</span>
+            </div>
+            <p class="text-sm text-gray-400 mb-2"><strong>Deity:</strong> North Node (Rahu)</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Overcoming fears, material success, foreign connections</p>
+            <p class="text-xs text-violet-300 mb-2"><strong>Mantra:</strong> Om Bhraam Bhreem Bhraum Sah Raahave Namah</p>
+            <p class="text-xs text-green-300 mb-2">✓ Removes confusion, brings unexpected opportunities</p>
+            <p class="text-xs text-yellow-300">⚠️ May bring sudden changes - be prepared</p>
+            <div class="mt-3 pt-3 border-t border-gray-700 text-xs text-gray-400">
+                <span class="bg-gray-700 px-2 py-1 rounded">Lead/Silver</span>
+                <span class="ml-2 bg-gray-600 px-2 py-1 rounded">Smoky Grey</span>
+            </div>
+        </div>
+
+        <!-- Ketu Yantra -->
+        <div class="yantra-card p-4 sm:p-6">
+            <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl sm:text-2xl font-bold text-amber-700">🟤 Ketu Yantra</h3>
+                <span class="text-xs bg-amber-900/20 px-2 py-1 rounded">7x7 Grid</span>
+            </div>
+            <p class="text-sm text-gray-400 mb-2"><strong>Deity:</strong> South Node (Ketu)</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Spiritual liberation, moksha, psychic abilities</p>
+            <p class="text-xs text-violet-300 mb-2"><strong>Mantra:</strong> Om Sraam Sreem Sraum Sah Ketave Namah</p>
+            <p class="text-xs text-green-300 mb-2">✓ Enhances intuition, spiritual progress, grants moksha</p>
+            <p class="text-xs text-yellow-300">⚠️ May increase detachment from worldly matters</p>
+            <div class="mt-3 pt-3 border-t border-gray-700 text-xs text-gray-400">
+                <span class="bg-gray-600 px-2 py-1 rounded">Silver/Brass</span>
+                <span class="ml-2 bg-amber-900 px-2 py-1 rounded">Brown/Multi</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- DEITY YANTRAS (27) - I'll create a condensed version due to space -->
+<section id="deity" class="mb-16 animate-slideIn">
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 text-amber-400 category-header">
+        🕉️ Deity Yantras - Divine Geometric Forms
+    </h2>
+    <p class="text-gray-300 mb-8 text-sm sm:text-base">Connect with specific deities through their sacred geometric representations</p>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        
+        <!-- Sri Yantra -->
+        <div class="yantra-card p-4 sm:p-6 border-amber-500/40">
+            <div class="mb-3">
+                <h3 class="text-xl sm:text-2xl font-bold text-amber-300">👑 Sri Yantra</h3>
+                <p class="text-xs text-amber-200">Queen of All Yantras - Master Level</p>
+            </div>
+            <p class="text-sm text-gray-400 mb-2"><strong>Deity:</strong> Tripura Sundari / Lalita Devi</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Universal harmony, wealth, enlightenment, cosmic integration</p>
+            <p class="text-xs text-violet-300 mb-2">43 triangles (9 interlocking - 4 Shiva + 5 Shakti)</p>
+            <p class="text-xs text-green-300 mb-2">✓ Ultimate prosperity, spiritual enlightenment, fulfills ALL desires</p>
+            <div class="mt-3 pt-3 border-t border-amber-700 text-xs">
+                <span class="bg-amber-900/40 px-2 py-1 rounded">Gold/Silver/Crystal</span>
+                <p class="mt-2 text-yellow-300">⚠️ Requires proper Sri Vidya initiation</p>
+            </div>
+        </div>
+
+        <!-- Ganesha Yantra -->
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl sm:text-2xl font-bold text-orange-400 mb-3">🐘 Ganesha Yantra</h3>
+            <p class="text-sm text-gray-400 mb-2"><strong>Deity:</strong> Lord Ganesha (Vighnaharta)</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Removing obstacles, new beginnings, success, wisdom</p>
+            <p class="text-xs text-violet-300 mb-2"><strong>Mantra:</strong> Om Gam Ganapataye Namah</p>
+            <p class="text-xs text-green-300 mb-2">✓ Clears path for all endeavors, brings success, protects from negativity</p>
+            <p class="text-xs text-blue-300">📅 Best: Wednesdays, Ganesh Chaturthi</p>
+            <div class="mt-3 pt-3 border-t border-gray-700 text-xs text-gray-400">
+                <span class="bg-orange-900/30 px-2 py-1 rounded">Copper/Brass</span>
+            </div>
+        </div>
+
+        <!-- Mahamrityunjaya Yantra -->
+        <div class="yantra-card p-4 sm:p-6 border-blue-500/30">
+            <div class="mb-3">
+                <h3 class="text-xl sm:text-2xl font-bold text-blue-300">🛡️ Mahamrityunjaya Yantra</h3>
+                <p class="text-xs text-blue-200">Conqueror of Death - Ultimate Protection</p>
+            </div>
+            <p class="text-sm text-gray-400 mb-2"><strong>Deity:</strong> Lord Shiva (Conqueror of Death)</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Ultimate healing, protection from accidents, conquering death</p>
+            <p class="text-xs text-violet-300 mb-2">Om Tryambakam Yajamahe Sugandhim...</p>
+            <p class="text-xs text-green-300 mb-2">✓ Heals serious diseases, protects from untimely death</p>
+            <div class="mt-3 pt-3 border-t border-blue-700 text-xs">
+                <span class="bg-gray-700 px-2 py-1 rounded">Silver/Copper</span>
+                <p class="mt-2 text-yellow-300">⚠️ Use with proper guidance for serious matters</p>
+            </div>
+        </div>
+
+        <!-- Lakshmi Yantra -->
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl sm:text-2xl font-bold text-yellow-300 mb-3">💰 Lakshmi Yantra</h3>
+            <p class="text-sm text-gray-400 mb-2"><strong>Deity:</strong> Goddess Lakshmi (Maha Lakshmi)</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Wealth, prosperity, abundance, business success</p>
+            <p class="text-xs text-violet-300 mb-2"><strong>Mantra:</strong> Om Shreem Mahalakshmiyei Namah</p>
+            <p class="text-xs text-green-300 mb-2">✓ Attracts wealth, ensures business growth, grants luxuries</p>
+            <p class="text-xs text-blue-300">📅 Best: Friday | 📍 Placement: North/East facing inside</p>
+            <div class="mt-3 pt-3 border-t border-gray-700 text-xs text-gray-400">
+                <span class="bg-gray-700 px-2 py-1 rounded">Silver/Gold</span>
+                <span class="ml-2 bg-yellow-900/30 px-2 py-1 rounded">8/16 Petal Lotus</span>
+            </div>
+        </div>
+
+        <!-- Durga Yantra -->
+        <div class="yantra-card p-4 sm:p-6 border-red-500/30">
+            <h3 class="text-xl sm:text-2xl font-bold text-red-400 mb-3">⚔️ Durga Yantra</h3>
+            <p class="text-sm text-gray-400 mb-2"><strong>Deity:</strong> Goddess Durga (Shakti)</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Protection, victory over enemies, courage, removing black magic</p>
+            <p class="text-xs text-violet-300 mb-2"><strong>Mantra:</strong> Om Dum Durgayei Namah</p>
+            <p class="text-xs text-green-300 mb-2">✓ Ultimate protection, removes enemies, gives fearlessness, destroys evil</p>
+            <p class="text-xs text-blue-300">📅 Tuesday & Friday, especially during Navaratri</p>
+            <div class="mt-3 pt-3 border-t border-red-700 text-xs text-gray-400">
+                <span class="bg-orange-900/30 px-2 py-1 rounded">Copper/Silver</span>
+                <span class="ml-2 bg-red-900/40 px-2 py-1 rounded">20-Triangle</span>
+            </div>
+        </div>
+
+        <!-- Kali Yantra -->
+        <div class="yantra-card p-4 sm:p-6 border-purple-900/50 warning-card danger-high">
+            <div class="mb-3">
+                <h3 class="text-xl sm:text-2xl font-bold text-purple-300">🖤 Kali Yantra</h3>
+                <p class="text-xs text-purple-200">ADVANCED ONLY - Fierce Liberation</p>
+            </div>
+            <p class="text-sm text-gray-400 mb-2"><strong>Deity:</strong> Goddess Kali (Mahakali)</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Ego destruction, liberation, tantric power, time mastery</p>
+            <p class="text-xs text-violet-300 mb-2"><strong>Mantra:</strong> Om Kreem Kalikaye Namah</p>
+            <p class="text-xs text-green-300 mb-2">✓ Liberates from fear, destroys ego, grants tantric siddhis</p>
+            <div class="mt-3 pt-3 border-t border-purple-700 text-xs">
+                <span class="bg-gray-900 px-2 py-1 rounded">Black Stone/Iron</span>
+                <p class="mt-2 text-red-400 font-bold">⚠️ ADVANCED ONLY - Requires guru initiation, extremely powerful!</p>
+            </div>
+        </div>
+
+        <!-- Saraswati Yantra -->
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl sm:text-2xl font-bold text-white mb-3">📚 Saraswati Yantra</h3>
+            <p class="text-sm text-gray-400 mb-2"><strong>Deity:</strong> Goddess Saraswati</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Knowledge, learning, arts, creativity, music, speech</p>
+            <p class="text-xs text-violet-300 mb-2"><strong>Mantra:</strong> Om Aim Saraswatyei Namah</p>
+            <p class="text-xs text-green-300 mb-2">✓ Enhances learning, improves memory, mastery of arts, eloquent speech</p>
+            <p class="text-xs text-blue-300">💎 Ideal for: Students, teachers, artists, musicians, writers</p>
+            <div class="mt-3 pt-3 border-t border-gray-700 text-xs text-gray-400">
+                <span class="bg-gray-200 text-gray-800 px-2 py-1 rounded">White Marble/Silver</span>
+            </div>
+        </div>
+
+        <!-- Hanuman Yantra -->
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl sm:text-2xl font-bold text-orange-500 mb-3">💪 Hanuman Yantra</h3>
+            <p class="text-sm text-gray-400 mb-2"><strong>Deity:</strong> Lord Hanuman (Vajrang Bali)</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Strength, devotion, protection, courage, Mars afflictions</p>
+            <p class="text-xs text-violet-300 mb-2">Om Hanumate Namah / Om Ham Hanumate Rudratmakaya Hum Phat</p>
+            <p class="text-xs text-green-300 mb-2">✓ Physical strength, protection from evil spirits, cures Mars doshas</p>
+            <p class="text-xs text-blue-300">📅 Tuesday & Saturday</p>
+            <div class="mt-3 pt-3 border-t border-gray-700 text-xs text-gray-400">
+                <span class="bg-orange-900/30 px-2 py-1 rounded">Copper/Iron</span>
+            </div>
+        </div>
+
+        <!-- Kuber Yantra -->
+        <div class="yantra-card p-4 sm:p-6 border-yellow-600/40">
+            <h3 class="text-xl sm:text-2xl font-bold text-yellow-400 mb-3">🏦 Kuber Yantra</h3>
+            <p class="text-sm text-gray-400 mb-2"><strong>Deity:</strong> Lord Kubera (God of Wealth)</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Wealth accumulation, treasure, prosperity, abundance</p>
+            <p class="text-xs text-violet-300 mb-2">3x3 magic square (72 in all directions)</p>
+            <p class="text-xs text-green-300 mb-2">✓ Rapid wealth accumulation, business profits, financial stability</p>
+            <p class="text-xs text-blue-300">📍 Placement: North direction, cash box, safe</p>
+            <div class="mt-3 pt-3 border-t border-yellow-700 text-xs text-gray-400">
+                <span class="bg-orange-900/30 px-2 py-1 rounded">Copper/Silver</span>
+                <p class="mt-2 text-green-400">⭐ One of the most popular yantras for wealth!</p>
+            </div>
+        </div>
+
+        <!-- Shiva Yantra -->
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl font-bold text-blue-400 mb-3">🔱 Shiva Yantra</h3>
+            <p class="text-sm text-gray-400 mb-2"><strong>Deity:</strong> Lord Shiva (Mahadeva)</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Transformation, meditation, spiritual power, destroying ego</p>
+            <p class="text-xs text-violet-300 mb-2"><strong>Mantra:</strong> Om Namah Shivaya</p>
+            <p class="text-xs text-green-300 mb-2">✓ Deep meditation, spiritual awakening, destroys negative karma</p>
+            <p class="text-xs text-blue-300">🕉️ Best: Morning meditation during Brahma Muhurta</p>
+            <div class="mt-3 pt-3 border-t border-gray-700 text-xs text-gray-400">
+                <span class="bg-gray-700 px-2 py-1 rounded">Rudraksha/Crystal</span>
+                <span class="ml-2 bg-red-900/30 px-2 py-1 rounded">Fire Element</span>
+            </div>
+        </div>
+
+        <!-- Krishna Yantra -->
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl font-bold text-blue-300 mb-3">🌊 Krishna Yantra</h3>
+            <p class="text-sm text-gray-400 mb-2"><strong>Deity:</strong> Lord Krishna (Govinda)</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Love, devotion, spiritual joy, divine play</p>
+            <p class="text-xs text-violet-300 mb-2"><strong>Mantra:</strong> Om Kleem Krishnaya Namah</p>
+            <p class="text-xs text-green-300 mb-2">✓ Attracts love, spiritual joy, removes sadness, grants devotion</p>
+            <p class="text-xs text-blue-300">🎁 Offerings: Butter, peacock feathers, flute music</p>
+            <div class="mt-3 pt-3 border-t border-gray-700 text-xs text-gray-400">
+                <span class="bg-yellow-900/30 px-2 py-1 rounded">Gold/Brass</span>
+            </div>
+        </div>
+
+        <!-- Rama Yantra -->
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl font-bold text-blue-500 mb-3">🏹 Rama Yantra</h3>
+            <p class="text-sm text-gray-400 mb-2"><strong>Deity:</strong> Lord Rama (Maryada Purushottam)</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Righteousness, protection, family harmony, dharma</p>
+            <p class="text-xs text-violet-300 mb-2"><strong>Mantra:</strong> Om Ram Ramaya Namah</p>
+            <p class="text-xs text-green-300 mb-2">✓ Family peace, righteous path, protection, removes obstacles</p>
+            <p class="text-xs text-blue-300">💎 Ideal for: Family harmony and following dharma</p>
+            <div class="mt-3 pt-3 border-t border-gray-700 text-xs text-gray-400">
+                <span class="bg-yellow-900/30 px-2 py-1 rounded">Gold/Copper</span>
+            </div>
+        </div>
+
+        <!-- Vishnu Yantra -->
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl font-bold text-yellow-500 mb-3">💫 Vishnu Yantra</h3>
+            <p class="text-sm text-gray-400 mb-2"><strong>Deity:</strong> Lord Vishnu (Narayana)</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Preservation, balance, cosmic order, protection from evil</p>
+            <p class="text-xs text-violet-300 mb-2"><strong>Mantra:</strong> Om Namo Narayanaya</p>
+            <p class="text-xs text-green-300 mb-2">✓ Universal protection, maintains balance, ensures preservation</p>
+            <p class="text-xs text-blue-300">🔱 Symbols: Conch, Chakra, Mace, Lotus</p>
+            <div class="mt-3 pt-3 border-t border-gray-700 text-xs text-gray-400">
+                <span class="bg-yellow-600 px-2 py-1 rounded">Gold/Yellow Metal</span>
+            </div>
+        </div>
+
+        <!-- Baglamukhi Yantra -->
+        <div class="yantra-card p-4 sm:p-6 border-yellow-500/30">
+            <h3 class="text-xl font-bold text-yellow-300 mb-3">⚡ Baglamukhi Yantra</h3>
+            <p class="text-sm text-gray-400 mb-2"><strong>Deity:</strong> Goddess Baglamukhi (Pitambara)</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Victory over enemies, legal battles, stopping opponents</p>
+            <p class="text-xs text-green-300 mb-2">✓ Wins court cases, stops enemies, paralyzes opponents</p>
+            <p class="text-xs text-yellow-300 mb-2">⚠️ Use only for defense, never for attack</p>
+            <div class="mt-3 pt-3 border-t border-yellow-700 text-xs text-gray-400">
+                <span class="bg-yellow-600 px-2 py-1 rounded">Yellow Cloth/Gold</span>
+            </div>
+        </div>
+
+        <!-- Bhairav Yantra -->
+        <div class="yantra-card p-4 sm:p-6 warning-card danger-high">
+            <h3 class="text-xl font-bold text-purple-400 mb-3">⚫ Bhairav Yantra</h3>
+            <p class="text-sm text-gray-400 mb-2"><strong>Deity:</strong> Lord Bhairava (Fierce form of Shiva)</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Protection, tantric power, time mastery</p>
+            <p class="text-xs text-violet-300 mb-2"><strong>Mantra:</strong> Om Hreem Ksham Bhairavaya Namah</p>
+            <p class="text-xs text-green-300 mb-2">✓ Ultimate protection, controls time, grants tantric siddhis</p>
+            <p class="text-xs text-red-400 font-bold">⚠️ ADVANCED - Requires proper initiation</p>
+            <div class="mt-3 pt-3 border-t border-purple-700 text-xs text-gray-400">
+                <span class="bg-gray-900 px-2 py-1 rounded">Iron/Black Stone</span>
+            </div>
+        </div>
+
+        <!-- Dhanvantari Yantra -->
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl font-bold text-green-400 mb-3">🏥 Dhanvantari Yantra</h3>
+            <p class="text-sm text-gray-400 mb-2"><strong>Deity:</strong> Lord Dhanvantari (Divine Physician)</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Health, healing, medicine, curing diseases</p>
+            <p class="text-xs text-green-300 mb-2">✓ Cures diseases, helps medical practitioners, improves health</p>
+            <p class="text-xs text-blue-300">💎 Ideal for: Chronic illness, health workers, hospitals</p>
+            <p class="text-xs text-blue-300">📍 Northeast corner of house</p>
+            <div class="mt-3 pt-3 border-t border-gray-700 text-xs text-gray-400">
+                <span class="bg-gray-700 px-2 py-1 rounded">Silver/Copper</span>
+            </div>
+        </div>
+
+        <!-- Gayatri Yantra -->
+        <div class="yantra-card p-4 sm:p-6 border-orange-500/30">
+            <h3 class="text-xl font-bold text-orange-300 mb-3">☀️ Gayatri Yantra</h3>
+            <p class="text-sm text-gray-400 mb-2"><strong>Deity:</strong> Goddess Gayatri (Mother of Vedas)</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Enlightenment, wisdom, spiritual awakening, purification</p>
+            <p class="text-xs text-violet-300 mb-2">24-petal lotus (24 syllables of Gayatri)</p>
+            <p class="text-xs text-green-300 mb-2">✓ Spiritual enlightenment, mental clarity, removes sins, grants wisdom</p>
+            <p class="text-xs text-blue-300">🌅 Best: Sunrise meditation</p>
+            <div class="mt-3 pt-3 border-t border-orange-700 text-xs text-gray-400">
+                <span class="bg-yellow-900/30 px-2 py-1 rounded">Gold/Copper</span>
+                <p class="mt-2 text-yellow-400">⭐ Most sacred Vedic mantra in yantra form</p>
+            </div>
+        </div>
+
+        <!-- Kamakhya Yantra -->
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl font-bold text-red-500 mb-3">🔺 Kamakhya Yantra</h3>
+            <p class="text-sm text-gray-400 mb-2"><strong>Deity:</strong> Goddess Kamakhya (Tantric Shakti)</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Desire fulfillment, tantric power, fertility</p>
+            <p class="text-xs text-violet-300 mb-2">Yoni yantra base - triangular womb symbol</p>
+            <p class="text-xs text-green-300 mb-2">✓ Fulfills desires, tantric sadhana, grants fertility</p>
+            <p class="text-xs text-yellow-300">⚠️ Sacred tantra practice - requires respect</p>
+            <div class="mt-3 pt-3 border-t border-gray-700 text-xs text-gray-400">
+                <span class="bg-gray-700 px-2 py-1 rounded">Silver/Brass</span>
+                <span class="ml-2 bg-red-900/30 px-2 py-1 rounded">Kamakhya Temple, Assam</span>
+            </div>
+        </div>
+
+        <!-- Pratyangira Yantra -->
+        <div class="yantra-card p-4 sm:p-6 border-orange-600/40">
+            <h3 class="text-xl font-bold text-orange-500 mb-3">🦁 Pratyangira Yantra</h3>
+            <p class="text-sm text-gray-400 mb-2"><strong>Deity:</strong> Goddess Pratyangira (Lion-headed)</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Protection from black magic, removing curses</p>
+            <p class="text-xs text-violet-300 mb-2"><strong>Mantra:</strong> Om Ksham Hreem Kshem Pratyangira Swaha</p>
+            <p class="text-xs text-green-300 mb-2">✓ Removes black magic, protects from enemies, destroys evil spirits</p>
+            <div class="mt-3 pt-3 border-t border-orange-700 text-xs">
+                <span class="bg-orange-900/30 px-2 py-1 rounded">Copper/Iron</span>
+                <p class="mt-2 text-orange-400">⭐ Most powerful protection against occult attacks</p>
+            </div>
+        </div>
+
+        <!-- Tara Yantra -->
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl font-bold text-blue-400 mb-3">⭐ Tara Yantra</h3>
+            <p class="text-sm text-gray-400 mb-2"><strong>Deity:</strong> Goddess Tara (Ugra Tara)</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Compassion, protection, safe passage, overcoming obstacles</p>
+            <p class="text-xs text-violet-300 mb-2"><strong>Mantra:</strong> Om Taarey Tuttaarey Turey Soha</p>
+            <p class="text-xs text-green-300 mb-2">✓ Protection during travel, compassionate energy, spiritual progress</p>
+            <p class="text-xs text-blue-300">🌟 Buddhist-Hindu syncretic yantra</p>
+            <div class="mt-3 pt-3 border-t border-gray-700 text-xs text-gray-400">
+                <span class="bg-gray-700 px-2 py-1 rounded">Silver/Crystal</span>
+            </div>
+        </div>
+
+        <!-- Bhuvaneshwari Yantra -->
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl font-bold text-amber-400 mb-3">👸 Bhuvaneshwari Yantra</h3>
+            <p class="text-sm text-gray-400 mb-2"><strong>Deity:</strong> Goddess Bhuvaneshwari (Queen of Universe)</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Material prosperity, royal power, worldly success</p>
+            <p class="text-xs text-violet-300 mb-2"><strong>Mantra:</strong> Om Hreem Bhuvaneshwaryai Namah</p>
+            <p class="text-xs text-green-300 mb-2">✓ Grants dominion, material success, royal treatment</p>
+            <p class="text-xs text-blue-300">💎 Fourth Mahavidya</p>
+            <div class="mt-3 pt-3 border-t border-gray-700 text-xs text-gray-400">
+                <span class="bg-yellow-900/30 px-2 py-1 rounded">Gold/Copper</span>
+            </div>
+        </div>
+
+        <!-- Chinnamasta Yantra -->
+        <div class="yantra-card p-4 sm:p-6 warning-card danger-extreme">
+            <div class="mb-3">
+                <h3 class="text-xl font-bold text-red-400 mb-2">💀 Chinnamasta Yantra</h3>
+                <p class="text-xs text-red-300">EXTREMELY DANGEROUS - Guru Essential!</p>
+            </div>
+            <p class="text-sm text-gray-400 mb-2"><strong>Deity:</strong> Goddess Chinnamasta (Self-decapitated)</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Ego transcendence, kundalini awakening, self-sacrifice</p>
+            <p class="text-xs text-green-300 mb-2">✓ Ego death, kundalini activation, ultimate liberation</p>
+            <div class="bg-red-950/50 p-3 rounded-lg border-l-4 border-red-600 mt-3">
+                <p class="text-xs text-red-400 font-bold">⚠️ NOT FOR HOME WORSHIP - TEMPLE ONLY</p>
+                <p class="text-xs text-red-300 mt-1">One of the most dangerous yantras - expert tantric only</p>
+            </div>
+        </div>
+
+        <!-- Dhumavati Yantra -->
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl font-bold text-purple-400 mb-3">🌺 Dhumavati Yantra</h3>
+            <p class="text-sm text-gray-400 mb-2"><strong>Deity:</strong> Goddess Dhumavati (Widow Goddess)</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Detachment, removing misfortune, spiritual progress through hardship</p>
+            <p class="text-xs text-violet-300 mb-2"><strong>Mantra:</strong> Om Dhumavatyai Namah</p>
+            <p class="text-xs text-green-300 mb-2">✓ Overcomes poverty, removes misfortune, grants detachment</p>
+            <p class="text-xs text-blue-300">💎 Powerful for overcoming adversity</p>
+            <div class="mt-3 pt-3 border-t border-gray-700 text-xs text-gray-400">
+                <span class="bg-gray-900 px-2 py-1 rounded">Iron/Black Stone</span>
+            </div>
+        </div>
+
+        <!-- Matangi Yantra -->
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl font-bold text-blue-600 mb-3">🗡️ Matangi Yantra</h3>
+            <p class="text-sm text-gray-400 mb-2"><strong>Deity:</strong> Goddess Matangi (Tantric Saraswati)</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Speech power, music, arts, domination, attraction</p>
+            <p class="text-xs text-violet-300 mb-2"><strong>Mantra:</strong> Om Hreem Kleem Hum Matangai Phat Swaha</p>
+            <p class="text-xs text-green-300 mb-2">✓ Mastery of arts, powerful speech, attraction, control over others</p>
+            <div class="mt-3 pt-3 border-t border-gray-700 text-xs text-gray-400">
+                <span class="bg-green-900/30 px-2 py-1 rounded">Green Cloth/Emerald</span>
+            </div>
+        </div>
+
+        <!-- Bhairavi Yantra - This seems missing from the data, keeping generic -->
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl font-bold text-green-500 mb-3">🌿 Bhairavi Yantra</h3>
+            <p class="text-sm text-gray-400 mb-2"><strong>Deity:</strong> Goddess Bhairavi</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Removing obstacles, spiritual power</p>
+            <p class="text-xs text-green-300">✓ Mahavidya goddess of fierce transformation</p>
+        </div>
+
+        <!-- Kamala Yantra -->
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl font-bold text-pink-600 mb-3">💎 Kamala Yantra</h3>
+            <p class="text-sm text-gray-400 mb-2"><strong>Deity:</strong> Goddess Kamala (Lotus Goddess)</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Wealth, prosperity, royalty, spiritual and material abundance</p>
+            <p class="text-xs text-violet-300 mb-2">16-petal lotus structure</p>
+            <p class="text-xs text-green-300 mb-2">✓ Complete prosperity, royal treatment, spiritual wealth</p>
+            <p class="text-xs text-blue-300">💎 Tenth and final Mahavidya</p>
+            <div class="mt-3 pt-3 border-t border-gray-700 text-xs text-gray-400">
+                <span class="bg-yellow-900/30 px-2 py-1 rounded">Gold/Lotus Crystal</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- SPECIALIZED PURPOSE YANTRAS (17) -->
+<section id="specialized" class="mb-16 animate-slideIn">
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 text-pink-400 category-header">
+        ⚡ Specialized Purpose Yantras
+    </h2>
+    <p class="text-gray-300 mb-8 text-sm sm:text-base">Targeted solutions for specific life situations and goals</p>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl font-bold text-pink-300 mb-3">🏠 Vastu Yantra</h3>
+            <p class="text-sm mb-2"><strong>Purpose:</strong> Home harmony, correcting vastu doshas</p>
+            <p class="text-xs text-green-300 mb-2">✓ Balanced living space, removes defects, harmonizes home</p>
+            <p class="text-xs text-blue-300">📍 Center of house or each room</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl font-bold text-pink-300 mb-3">✅ Sarva Karya Siddhi</h3>
+            <p class="text-sm mb-2"><strong>Purpose:</strong> Success in all endeavors</p>
+            <p class="text-xs text-green-300 mb-2">✓ Universal success, completes stuck projects</p>
+            <p class="text-xs text-violet-300">Om Hreem Kleem Shreem</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl font-bold text-pink-300 mb-3">📈 Vyapar Vridhi Yantra</h3>
+            <p class="text-sm mb-2"><strong>Purpose:</strong> Business growth and expansion</p>
+            <p class="text-xs text-green-300 mb-2">✓ Trade prosperity, customer attraction</p>
+            <p class="text-xs text-blue-300">📅 Wednesday (Mercury day)</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl font-bold text-pink-300 mb-3">👶 Santana Gopala Yantra</h3>
+            <p class="text-sm mb-2"><strong>Purpose:</strong> Child conception, fertility</p>
+            <p class="text-xs text-green-300 mb-2">✓ Progeny blessing, healthy children</p>
+            <p class="text-xs text-violet-300">Baby Krishna yantra</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6 warning-card danger-high">
+            <h3 class="text-xl font-bold text-yellow-300 mb-3">🧲 Vashikaran Yantra</h3>
+            <p class="text-sm mb-2"><strong>Purpose:</strong> Attraction, influence (CAUTION)</p>
+            <p class="text-xs text-green-300 mb-2">✓ Magnetic personality, positive influence</p>
+            <p class="text-xs text-red-400">⚠️ Ethical use only - can backfire if misused</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl font-bold text-pink-300 mb-3">💝 Mohini Yantra</h3>
+            <p class="text-sm mb-2"><strong>Purpose:</strong> Enchantment, beauty, charm</p>
+            <p class="text-xs text-green-300 mb-2">✓ Irresistible appeal, enhances beauty, attracts love</p>
+            <p class="text-xs text-violet-300">Female form of Vishnu</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl font-bold text-pink-300 mb-3">🏥 Rog Nashak Yantra</h3>
+            <p class="text-sm mb-2"><strong>Purpose:</strong> Disease removal, health restoration</p>
+            <p class="text-xs text-green-300 mb-2">✓ Physical wellness, removes chronic disease</p>
+            <p class="text-xs text-blue-300">Keep under pillow or wear as amulet</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl font-bold text-pink-300 mb-3">🐍 Kalsarp Yantra</h3>
+            <p class="text-sm mb-2"><strong>Purpose:</strong> Neutralizing Kalsarp dosha</p>
+            <p class="text-xs text-green-300 mb-2">✓ Karmic clearing, removes snake-related fears</p>
+            <p class="text-xs text-blue-300">📅 Nag Panchami, Sundays</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl font-bold text-pink-300 mb-3">💍 Mangal Dosha Yantra</h3>
+            <p class="text-sm mb-2"><strong>Purpose:</strong> Marriage obstacles removal</p>
+            <p class="text-xs text-green-300 mb-2">✓ Marital harmony, removes delays</p>
+            <p class="text-xs text-blue-300">📅 Tuesday (Mars day)</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl font-bold text-pink-300 mb-3">🍀 Bhagya Samrajya Yantra</h3>
+            <p class="text-sm mb-2"><strong>Purpose:</strong> Fortune enhancement, luck</p>
+            <p class="text-xs text-green-300 mb-2">✓ Favorable fate, opens closed doors</p>
+            <p class="text-xs text-violet-300">Cosmic fortune grid</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl font-bold text-pink-300 mb-3">🛡️ Sarva Roga Nivaran</h3>
+            <p class="text-sm mb-2"><strong>Purpose:</strong> All disease protection</p>
+            <p class="text-xs text-green-300 mb-2">✓ Immunity boost, energetic health shield</p>
+            <p class="text-xs text-blue-300">Wear as pendant or keep in bedroom</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6 warning-card danger-extreme">
+            <h3 class="text-xl font-bold text-red-400 mb-3">⚠️ Uchatana Yantra</h3>
+            <p class="text-sm mb-2"><strong>Purpose:</strong> Removing unwanted people</p>
+            <p class="text-xs text-red-400 font-bold">⚠️ DANGEROUS - High karmic backlash!</p>
+            <p class="text-xs text-yellow-300">Use only as last resort</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl font-bold text-pink-300 mb-3">📚 Vidya Yantra</h3>
+            <p class="text-sm mb-2"><strong>Purpose:</strong> Education, academic success</p>
+            <p class="text-xs text-green-300 mb-2">✓ Intellectual brilliance, exam success</p>
+            <p class="text-xs text-blue-300">📍 Study desk, Northeast corner</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl font-bold text-pink-300 mb-3">🎉 Shubh Labh Yantra</h3>
+            <p class="text-sm mb-2"><strong>Purpose:</strong> Good fortune in business</p>
+            <p class="text-xs text-green-300 mb-2">✓ Profit maximization, auspicious gains</p>
+            <p class="text-xs text-violet-300">Ganesha + Lakshmi combined</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl font-bold text-pink-300 mb-3">💎 Siddh Kuber Yantra</h3>
+            <p class="text-sm mb-2"><strong>Purpose:</strong> Pre-energized wealth</p>
+            <p class="text-xs text-green-300 mb-2">✓ Rapid wealth attraction, treasure discovery</p>
+            <p class="text-xs text-yellow-400">⭐ More powerful than regular Kuber</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl font-bold text-pink-300 mb-3">🌸 Sampurna Maha Laxmi</h3>
+            <p class="text-sm mb-2"><strong>Purpose:</strong> Complete wealth (8 forms)</p>
+            <p class="text-xs text-green-300 mb-2">✓ All types of prosperity - Ashta Lakshmi</p>
+            <p class="text-xs text-blue-300">📅 Fridays, Diwali</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl font-bold text-pink-300 mb-3">🪐 Navgraha Yantra (Combined)</h3>
+            <p class="text-sm mb-2"><strong>Purpose:</strong> Balancing all 9 planets</p>
+            <p class="text-xs text-green-300 mb-2">✓ Complete astrological harmony</p>
+            <p class="text-xs text-violet-300">9-cell grid with all planets</p>
+        </div>
+        
+    </div>
+</section>
+
+<!-- CHAKRA YANTRAS (7) -->
+<section id="chakra" class="mb-16 animate-slideIn">
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 text-green-400 category-header">
+        🌈 Chakra Yantras - Seven Energy Centers
+    </h2>
+    <p class="text-gray-300 mb-8 text-sm sm:text-base">Balance your energy system from root to crown</p>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        
+        <div class="yantra-card p-4 sm:p-6 border-red-500/30">
+            <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl font-bold text-red-400">🔴 Muladhara</h3>
+                <span class="text-xs bg-red-500/20 px-2 py-1 rounded">Root</span>
+            </div>
+            <p class="text-sm text-gray-400 mb-2"><strong>Element:</strong> Earth (Prithvi)</p>
+            <p class="text-xs text-violet-300 mb-2"><strong>Bija:</strong> LAM | <strong>Petals:</strong> 4</p>
+            <p class="text-xs mb-2"><strong>Purpose:</strong> Grounding, survival, stability, security</p>
+            <p class="text-xs text-green-300">✓ Financial security, physical health, fear removal</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6 border-orange-500/30">
+            <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl font-bold text-orange-400">🟠 Svadhisthana</h3>
+                <span class="text-xs bg-orange-500/20 px-2 py-1 rounded">Sacral</span>
+            </div>
+            <p class="text-sm text-gray-400 mb-2"><strong>Element:</strong> Water (Jala)</p>
+            <p class="text-xs text-violet-300 mb-2"><strong>Bija:</strong> VAM | <strong>Petals:</strong> 6</p>
+            <p class="text-xs mb-2"><strong>Purpose:</strong> Creativity, sexuality, emotions</p>
+            <p class="text-xs text-green-300">✓ Emotional balance, creative flow, sexual health</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6 border-yellow-500/30">
+            <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl font-bold text-yellow-400">🟡 Manipura</h3>
+                <span class="text-xs bg-yellow-500/20 px-2 py-1 rounded">Solar Plexus</span>
+            </div>
+            <p class="text-sm text-gray-400 mb-2"><strong>Element:</strong> Fire (Agni)</p>
+            <p class="text-xs text-violet-300 mb-2"><strong>Bija:</strong> RAM | <strong>Petals:</strong> 10</p>
+            <p class="text-xs mb-2"><strong>Purpose:</strong> Power, confidence, willpower</p>
+            <p class="text-xs text-green-300">✓ Personal power, strong digestion, vitality</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6 border-green-500/30">
+            <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl font-bold text-green-400">🟢 Anahata</h3>
+                <span class="text-xs bg-green-500/20 px-2 py-1 rounded">Heart</span>
+            </div>
+            <p class="text-sm text-gray-400 mb-2"><strong>Element:</strong> Air (Vayu)</p>
+            <p class="text-xs text-violet-300 mb-2"><strong>Bija:</strong> YAM | <strong>Petals:</strong> 12</p>
+            <p class="text-xs mb-2"><strong>Purpose:</strong> Love, compassion, healing</p>
+            <p class="text-xs text-green-300">✓ Unconditional love, emotional healing</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6 border-blue-500/30">
+            <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl font-bold text-blue-400">🔵 Vishuddha</h3>
+                <span class="text-xs bg-blue-500/20 px-2 py-1 rounded">Throat</span>
+            </div>
+            <p class="text-sm text-gray-400 mb-2"><strong>Element:</strong> Ether/Space</p>
+            <p class="text-xs text-violet-300 mb-2"><strong>Bija:</strong> HAM | <strong>Petals:</strong> 16</p>
+            <p class="text-xs mb-2"><strong>Purpose:</strong> Communication, truth, expression</p>
+            <p class="text-xs text-green-300">✓ Clear communication, artistic expression</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6 border-indigo-500/30">
+            <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl font-bold text-indigo-400">🔮 Ajna</h3>
+                <span class="text-xs bg-indigo-500/20 px-2 py-1 rounded">Third Eye</span>
+            </div>
+            <p class="text-sm text-gray-400 mb-2"><strong>Element:</strong> Light (Mind)</p>
+            <p class="text-xs text-violet-300 mb-2"><strong>Bija:</strong> OM | <strong>Petals:</strong> 2</p>
+            <p class="text-xs mb-2"><strong>Purpose:</strong> Intuition, vision, wisdom</p>
+            <p class="text-xs text-green-300">✓ Intuition enhancement, psychic powers</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6 border-purple-500/30">
+            <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl font-bold text-purple-400">🟣 Sahasrara</h3>
+                <span class="text-xs bg-purple-500/20 px-2 py-1 rounded">Crown</span>
+            </div>
+            <p class="text-sm text-gray-400 mb-2"><strong>Element:</strong> Pure Consciousness</p>
+            <p class="text-xs text-violet-300 mb-2"><strong>Bija:</strong> Silence/OM | <strong>Petals:</strong> 1000</p>
+            <p class="text-xs mb-2"><strong>Purpose:</strong> Enlightenment, unity, transcendence</p>
+            <p class="text-xs text-green-300">✓ Spiritual enlightenment, cosmic consciousness</p>
+        </div>
+        
+    </div>
+</section>
+
+<!-- DIRECTIONAL GUARDIANS (10) -->
+<section id="directional" class="mb-16 animate-slideIn">
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 text-blue-400 category-header">
+        🧭 Directional Guardian Yantras - Dikpala
+    </h2>
+    <p class="text-gray-300 mb-8 text-sm sm:text-base">Protect all directions with divine guardians (essential for Vastu)</p>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl font-bold text-blue-300 mb-2">⬆️ Indra - East</h3>
+            <p class="text-xs text-violet-300 mb-2">King of Gods | Lightning/Thunder</p>
+            <p class="text-xs text-green-300">✓ Leadership, authority, royal power</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl font-bold text-red-400 mb-2">↗️ Agni - Southeast</h3>
+            <p class="text-xs text-violet-300 mb-2">Fire God | Purification</p>
+            <p class="text-xs text-green-300">✓ Digestive fire, transformation</p>
+            <p class="text-xs text-blue-300">🏠 Kitchen direction</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl font-bold text-gray-500 mb-2">⬇️ Yama - South</h3>
+            <p class="text-xs text-violet-300 mb-2">God of Death/Dharma</p>
+            <p class="text-xs text-green-300">✓ Justice, dharma protection</p>
+            <p class="text-xs text-yellow-300">⚠️ Inauspicious yet important</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl font-bold text-purple-900 mb-2">↙️ Nirrti - Southwest</h3>
+            <p class="text-xs text-violet-300 mb-2">Goddess of Destruction</p>
+            <p class="text-xs text-green-300">✓ Protection from evil</p>
+            <p class="text-xs text-blue-300">🏠 Master bedroom</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl font-bold text-blue-500 mb-2">⬅️ Varuna - West</h3>
+            <p class="text-xs text-violet-300 mb-2">Water God | Ocean</p>
+            <p class="text-xs text-green-300">✓ Emotional balance, intuition</p>
+            <p class="text-xs text-blue-300">🏠 Water bodies here</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl font-bold text-gray-400 mb-2">↖️ Vayu - Northwest</h3>
+            <p class="text-xs text-violet-300 mb-2">Wind God | Movement</p>
+            <p class="text-xs text-green-300">✓ Travel, change, communication</p>
+            <p class="text-xs text-blue-300">🏠 Guest room</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6 border-yellow-500/40">
+            <h3 class="text-xl font-bold text-yellow-400 mb-2">⬆️ Kubera - North</h3>
+            <p class="text-xs text-violet-300 mb-2">God of Wealth | Treasure</p>
+            <p class="text-xs text-green-300">✓ Financial prosperity, wealth</p>
+            <p class="text-xs text-blue-300">🏠 Most auspicious - treasury</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6 border-white/40">
+            <h3 class="text-xl font-bold text-white mb-2">↗️ Ishana - Northeast</h3>
+            <p class="text-xs text-violet-300 mb-2">Form of Shiva | Spirit</p>
+            <p class="text-xs text-green-300">✓ Spiritual enlightenment, clarity</p>
+            <p class="text-xs text-blue-300">🏠 Most sacred - meditation</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6 border-amber-500/30">
+            <h3 class="text-xl font-bold text-amber-400 mb-2">⭕ Brahma - Center</h3>
+            <p class="text-xs text-violet-300 mb-2">Creator God | Balance</p>
+            <p class="text-xs text-green-300">✓ Creative power, manifestation</p>
+            <p class="text-xs text-blue-300">🏠 Brahmasthan - keep empty</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6">
+            <h3 class="text-xl font-bold text-blue-600 mb-2">☁️ Ananta - Zenith</h3>
+            <p class="text-xs text-violet-300 mb-2">Infinite Serpent | Sky</p>
+            <p class="text-xs text-green-300">✓ Protection from above, cosmic blessings</p>
+        </div>
+        
+    </div>
+</section>
+
+<!-- MASTER YANTRAS (5) -->
+<section id="master" class="mb-16 animate-slideIn">
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 text-yellow-400 category-header">
+        👑 Master Yantras - Advanced Practice Only
+    </h2>
+    <p class="text-gray-300 mb-8 text-sm sm:text-base">The most powerful and complex yantras - require proper initiation</p>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        
+        <div class="yantra-card p-6 border-amber-500/50">
+            <div class="mb-4">
+                <h3 class="text-2xl font-bold text-amber-300 mb-2">👑 Sri Yantra (Meru 3D)</h3>
+                <p class="text-sm text-amber-200">ULTIMATE MASTER - Grandmaster Level</p>
+            </div>
+            <p class="text-sm mb-3"><strong>Structure:</strong> 43 triangles in 3D pyramid form</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Complete cosmic harmony, ultimate enlightenment</p>
+            <p class="text-xs text-violet-300 mb-3">9 interlocking triangles (4 Shiva + 5 Shakti) in 3D</p>
+            <p class="text-xs text-green-300 mb-3">✓ Everything - wealth, health, wisdom, liberation</p>
+            <div class="bg-amber-900/20 p-3 rounded-lg border-l-4 border-amber-500">
+                <p class="text-xs text-yellow-300 font-bold">⚠️ Requires lifetime practice & Sri Vidya initiation</p>
+                <p class="text-xs text-amber-200 mt-1">Most powerful yantra in existence</p>
+            </div>
+        </div>
+        
+        <div class="yantra-card p-6 border-purple-900/50 warning-card danger-extreme">
+            <div class="mb-4">
+                <h3 class="text-2xl font-bold text-purple-300 mb-2">🖤 Kali Yantra (Tantric Master)</h3>
+                <p class="text-sm text-purple-200">ULTIMATE LIBERATION - Tantric Expert Only</p>
+            </div>
+            <p class="text-sm mb-3"><strong>Structure:</strong> Fierce triangular with cremation symbolism</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Ego death, moksha, time transcendence</p>
+            <p class="text-xs text-green-300 mb-3">✓ Destroys all that is false</p>
+            <div class="bg-purple-900/30 p-3 rounded-lg border-l-4 border-red-600">
+                <p class="text-xs text-red-400 font-bold">⚠️ EXTREME DANGER - Incorrect practice causes psychological harm</p>
+                <p class="text-xs text-purple-200 mt-1">Guru initiation absolutely essential</p>
+            </div>
+        </div>
+        
+        <div class="yantra-card p-6 border-blue-500/40">
+            <div class="mb-4">
+                <h3 class="text-2xl font-bold text-blue-300 mb-2">🛡️ Mahamrityunjaya Complex</h3>
+                <p class="text-sm text-blue-200">ULTIMATE HEALING - Ritual Expert Level</p>
+            </div>
+            <p class="text-sm mb-3"><strong>Structure:</strong> Multi-layered protective healing matrix</p>
+            <p class="text-sm mb-3"><strong>Purpose:</strong> Conquering death, ultimate healing, longevity</p>
+            <p class="text-xs text-green-300 mb-3">✓ Most powerful healing yantra</p>
+            <div class="bg-blue-900/20 p-3 rounded-lg border-l-4 border-blue-500">
+                <p class="text-xs text-blue-300">For serious illness & life-threatening situations</p>
+                <p class="text-xs text-gray-300 mt-1">Full Mahamrityunjaya with Rudra mantras</p>
+            </div>
+        </div>
+        
+        <div class="yantra-card p-6">
+            <h3 class="text-xl font-bold text-orange-400 mb-3">👶 Batuk Bhairav Yantra</h3>
+            <p class="text-sm mb-2"><strong>Type:</strong> Child Bhairava - Fierce yet innocent</p>
+            <p class="text-xs text-green-300 mb-2">✓ Powerful protection especially for children</p>
+            <p class="text-xs text-yellow-300">⚠️ Requires specialized tantric knowledge</p>
+        </div>
+        
+        <div class="yantra-card p-6 border-pink-500/30">
+            <h3 class="text-xl font-bold text-pink-300 mb-3">🌸 Shodashi Yantra (16-Petaled)</h3>
+            <p class="text-sm mb-2"><strong>Type:</strong> 16-year-old Goddess - Beauty & power</p>
+            <p class="text-xs text-green-300 mb-2">✓ Grants all worldly and spiritual desires</p>
+            <p class="text-xs text-yellow-300">⚠️ Requires Sri Vidya initiation</p>
+        </div>
+        
+    </div>
+</section>
+
+<!-- FORBIDDEN YANTRAS (7) - EDUCATIONAL ONLY -->
+<section id="forbidden" class="mb-16 animate-slideIn">
+    <div class="bg-red-900/20 border-2 border-red-500/50 rounded-2xl p-6 sm:p-8 mb-8">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-red-400 category-header animate-pulse-slow">
+            ⚠️ Forbidden Yantras - EDUCATIONAL ONLY
+        </h2>
+        <div class="bg-red-950/50 p-4 rounded-lg mb-4">
+            <p class="text-red-300 font-bold mb-2">🚨 CRITICAL WARNING - READ BEFORE PROCEEDING 🚨</p>
+            <p class="text-sm text-gray-300">This section is for EDUCATIONAL AWARENESS ONLY. These practices are:</p>
+            <ul class="list-disc pl-6 text-sm text-gray-300 mt-2 space-y-1">
+                <li>FORBIDDEN by all authentic tantric traditions</li>
+                <li>Can cause SEVERE KARMIC CONSEQUENCES</li>
+                <li>May result in PSYCHOLOGICAL and PHYSICAL HARM</li>
+                <li>NEVER attempt without proper guru initiation</li>
+                <li>Mentioned only so you can RECOGNIZE and AVOID them</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        
+        <div class="yantra-card p-4 sm:p-6 warning-card danger-extreme">
+            <h3 class="text-xl font-bold text-red-400 mb-3">💀 Maran Yantra</h3>
+            <p class="text-sm mb-2"><strong>Purpose:</strong> Causing death/severe harm</p>
+            <p class="text-xs text-red-400 font-bold mb-2">⚠️ ABSOLUTELY PROHIBITED - EXTREME DANGER</p>
+            <p class="text-xs text-red-300">🚨 Instant destruction of practitioner's life</p>
+            <p class="text-xs text-yellow-300 mt-2">⚖️ Criminal offense in most contexts</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6 warning-card danger-high">
+            <h3 class="text-xl font-bold text-red-400 mb-3">🛑 Stambhan Yantra</h3>
+            <p class="text-sm mb-2"><strong>Purpose:</strong> Paralyzing enemies completely</p>
+            <p class="text-xs text-red-400 font-bold mb-2">⚠️ HIGH DANGER - Can backfire severely</p>
+            <p class="text-xs text-green-300">✓ Defense only, never for attack</p>
+            <p class="text-xs text-blue-300 mt-2">Baglamukhi yantra is safer alternative</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6 warning-card danger-high">
+            <h3 class="text-xl font-bold text-red-400 mb-3">😵‍💫 Mohan Yantra (Dark)</h3>
+            <p class="text-sm mb-2"><strong>Purpose:</strong> Hypnotic control, mind control</p>
+            <p class="text-xs text-red-400 font-bold mb-2">⚠️ Violates free will - Severe karmic debt</p>
+            <p class="text-xs text-blue-300">Use Mohini yantra for natural attraction instead</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6 warning-card danger-high">
+            <h3 class="text-xl font-bold text-yellow-400 mb-3">🧲 Akarshan (Forced)</h3>
+            <p class="text-sm mb-2"><strong>Purpose:</strong> Forcing attraction against will</p>
+            <p class="text-xs text-red-400 font-bold mb-2">⚠️ Free will violation - Karmic consequences</p>
+            <p class="text-xs text-blue-300">Krishna yantra for natural divine love instead</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6 warning-card danger-high">
+            <h3 class="text-xl font-bold text-red-400 mb-3">💔 Videshan Yantra</h3>
+            <p class="text-sm mb-2"><strong>Purpose:</strong> Breaking relationships, discord</p>
+            <p class="text-xs text-red-400 font-bold mb-2">⚠️ Severe karmic backlash</p>
+            <p class="text-xs text-yellow-300">⚖️ What you break will break around you</p>
+            <p class="text-xs text-blue-300 mt-2">ONLY for genuine abuse situations</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6 warning-card danger-extreme">
+            <h3 class="text-xl font-bold text-red-400 mb-3">💥 Uchatana (Extreme)</h3>
+            <p class="text-sm mb-2"><strong>Purpose:</strong> Violent banishment</p>
+            <p class="text-xs text-red-400 font-bold mb-2">⚠️ EXTREME - Tantric weapon</p>
+            <p class="text-xs text-blue-300">Durga yantra for protection is safer</p>
+            <p class="text-xs text-yellow-300 mt-2">Last resort only - guru guidance essential</p>
+        </div>
+        
+        <div class="yantra-card p-4 sm:p-6 warning-card danger-extreme">
+            <h3 class="text-xl font-bold text-red-400 mb-3">👻 Kritya Prayoga</h3>
+            <p class="text-sm mb-2"><strong>Purpose:</strong> Psychic attacks, creating entities</p>
+            <p class="text-xs text-red-400 font-bold mb-2">⚠️ EXTREME DANGER - Creates negative entities</p>
+            <p class="text-xs text-red-300">🚨 Entities often turn on the practitioner</p>
+            <p class="text-xs text-yellow-300 mt-2">Strictly forbidden - awareness only</p>
+        </div>
+        
+    </div>
+    
+    <div class="mt-8 bg-blue-900/20 border border-blue-500/30 rounded-xl p-6">
+        <h3 class="text-xl font-bold text-blue-300 mb-4">🛡️ Protection is Better Than Attack</h3>
+        <p class="text-sm text-gray-300 mb-4">
+            Instead of these dangerous practices, use protective yantras:
+        </p>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="bg-green-900/20 px-3 py-2 rounded text-center text-sm text-green-300">Durga Yantra</div>
+            <div class="bg-green-900/20 px-3 py-2 rounded text-center text-sm text-green-300">Hanuman Yantra</div>
+            <div class="bg-green-900/20 px-3 py-2 rounded text-center text-sm text-green-300">Pratyangira Yantra</div>
+            <div class="bg-green-900/20 px-3 py-2 rounded text-center text-sm text-green-300">Baglamukhi Yantra</div>
+        </div>
+    </div>
+</section>
+
+<!-- Final Summary -->
+<section class="mb-16 text-center py-12 px-4 bg-gradient-to-r from-violet-500/10 via-purple-500/10 to-pink-500/10 rounded-2xl border border-violet-500/30">
+    <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-violet-300">🕉️ Complete Gallery - 82 Sacred Yantras</h2>
+    <div class="flex flex-wrap justify-center gap-3 mb-6">
+        <span class="bg-violet-500/20 px-4 py-2 rounded-lg">🪐 9 Planetary</span>
+        <span class="bg-amber-500/20 px-4 py-2 rounded-lg">🕉️ 27 Deity</span>
+        <span class="bg-pink-500/20 px-4 py-2 rounded-lg">⚡ 17 Specialized</span>
+        <span class="bg-green-500/20 px-4 py-2 rounded-lg">🌈 7 Chakra</span>
+        <span class="bg-blue-500/20 px-4 py-2 rounded-lg">🧭 10 Directional</span>
+        <span class="bg-yellow-500/20 px-4 py-2 rounded-lg">👑 5 Master</span>
+        <span class="bg-red-500/20 px-4 py-2 rounded-lg">⚠️ 7 Forbidden</span>
+    </div>
+    <p class="text-gray-300 text-sm sm:text-base max-w-2xl mx-auto">
+        From beginner-friendly Ganesha yantra to master-level Sri Yantra - explore the complete spectrum of sacred geometry. Use wisely, respect traditions, and always seek proper guidance for advanced practices. 🙏
+    </p>
+</section>
+
+        </div>
+    </div>
+
+    <script>
+        // Mobile video optimization
+        const video = document.getElementById('bg-video');
+        if (video && window.innerWidth < 768) {
+            video.pause();
+            
+            let scrollTimer;
+            window.addEventListener('scroll', () => {
+                video.pause();
+                clearTimeout(scrollTimer);
+                scrollTimer = setTimeout(() => {
+                    if (window.scrollY < 100) video.play();
+                }, 500);
+            });
+        }
+        
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
