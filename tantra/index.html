@@ -61,24 +61,110 @@
         .background-layer {
             position: fixed;
             inset: 0;
-            background: 
-                linear-gradient(to bottom,
-                    rgba(10, 5, 16, 0.65) 0%,
-                    rgba(26, 15, 31, 0.60) 100%
-                ),
-                url('../pictures/tantra demo page.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            filter: brightness(1.4) saturate(1.6);
             z-index: 1;
-            animation: subtleBreathing 25s ease-in-out infinite;
+            overflow: hidden;
         }
         
-        @keyframes subtleBreathing {
-            0%, 100% { filter: brightness(1.4) saturate(1.6); }
-            50% { filter: brightness(1.6) saturate(1.8); }
+        #bg-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            filter: brightness(0.4) saturate(1.6);
+            object-fit: cover;
         }
+
+        /* Disclaimer System */
+        .disclaimer-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.97);
+            backdrop-filter: blur(10px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            transition: opacity 0.5s ease;
+        }
+
+        .disclaimer-box {
+            max-width: 800px;
+            background: rgba(13, 1, 33, 0.9);
+            border: 1px solid rgba(139, 0, 255, 0.4);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 0 50px rgba(139, 0, 255, 0.2);
+            text-align: center;
+        }
+
+        .disclaimer-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            color: var(--tantra-gold);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .warning-box {
+            background: rgba(139, 0, 0, 0.2);
+            border-left: 4px solid var(--tantra-blood);
+            padding: 1rem;
+            margin: 1rem 0;
+            text-align: left;
+            border-radius: 8px;
+        }
+
+        .disclaimer-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            padding: 1rem;
+            background: rgba(139, 0, 255, 0.1);
+            border-radius: 8px;
+        }
+
+        .disclaimer-checkbox input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .disclaimer-button {
+            background: linear-gradient(135deg, var(--tantra-purple), var(--tantra-blood));
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: all 0.3s ease;
+        }
+
+        .disclaimer-button.active {
+            opacity: 1;
+            box-shadow: 0 0 20px rgba(139, 0, 255, 0.4);
+        }
+
+        .disclaimer-button.active:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(139, 0, 255, 0.6);
+        }
+
+        .contact-info {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(139, 0, 255, 0.2);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        
 
         /* Layer 2: Pattern Layer with Border */
         .pattern-layer {
@@ -581,9 +667,44 @@
     </style>
 </head>
 <body>
+    <!-- Disclaimer Overlay -->
+    <div class="disclaimer-overlay" id="disclaimerOverlay">
+        <div class="disclaimer-box">
+            <h2 class="disclaimer-title">⚠️ SACRED WARNING ⚠️</h2>
+            
+            <div class="warning-box">
+                <p><strong>🔥 Critical Notice:</strong> The practices and technologies documented here carry significant spiritual, psychological, and energetic risks if performed without proper knowledge, preparation, and guidance.</p>
+            </div>
+            
+            <div class="warning-box">
+                <p><strong>🕉️ Ethical Statement:</strong> ShivaKali Ashram does not condone or support any harmful acts against any living being. Our mission is to heal, protect, and elevate consciousness.</p>
+            </div>
+            
+            <div class="warning-box">
+                <p><strong>💫 Protection & Healing:</strong> We offer assistance in dissolving and destroying harmful tantric effects. These cures CANNOT be undone by further harmful acts against the users.</p>
+            </div>
+
+            <div class="disclaimer-checkbox">
+                <input type="checkbox" id="disclaimerCheckbox">
+                <label for="disclaimerCheckbox">I understand these practices require proper guidance and accept full responsibility for my spiritual journey</label>
+            </div>
+
+            <button id="acceptDisclaimer" class="disclaimer-button">Enter Sacred Space</button>
+
+            <div class="contact-info">
+                <p>For spiritual assistance or harmful effects removal:<br>
+                <strong>Contact ShivaKali Ashram:</strong> acharyaanish23@gmail.com</p>
+            </div>
+        </div>
+    </div>
+
     <div class="page-container">
-        <!-- Layer 1: Deep Background -->
-        <div class="background-layer"></div>
+        <!-- Layer 1: Deep Background with Video -->
+        <div class="background-layer">
+            <video id="bg-video" autoplay muted loop playsinline>
+                <source src="../pictures/tantra page.mp4" type="video/mp4">
+            </video>
+        </div>
         
         <!-- Layer 2: Pattern Layer -->
         <div class="pattern-layer"></div>
@@ -858,6 +979,34 @@
     </div>
 
     <script>
+        // Disclaimer System
+        document.addEventListener('DOMContentLoaded', function() {
+            const disclaimerOverlay = document.getElementById('disclaimerOverlay');
+            const disclaimerCheckbox = document.getElementById('disclaimerCheckbox');
+            const acceptButton = document.getElementById('acceptDisclaimer');
+            
+            // Check if user has already accepted
+            if (localStorage.getItem('tantraDisclaimerAccepted')) {
+                disclaimerOverlay.style.display = 'none';
+            }
+
+            // Toggle button active state
+            disclaimerCheckbox.addEventListener('change', function() {
+                acceptButton.classList.toggle('active', this.checked);
+            });
+
+            // Handle acceptance
+            acceptButton.addEventListener('click', function() {
+                if (disclaimerCheckbox.checked) {
+                    disclaimerOverlay.style.opacity = '0';
+                    setTimeout(() => {
+                        disclaimerOverlay.style.display = 'none';
+                    }, 500);
+                    localStorage.setItem('tantraDisclaimerAccepted', 'true');
+                }
+            });
+        });
+
         // Simple card interaction enhancements
         document.addEventListener('DOMContentLoaded', function() {
             const cards = document.querySelectorAll('.tantra-card:not(.maran-warning-card)');
