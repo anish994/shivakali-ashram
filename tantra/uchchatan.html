@@ -43,6 +43,19 @@
             touch-action: manipulation;
         }
 
+        #bg-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            filter: brightness(0.4) saturate(1.6);
+            object-fit: cover;
+        }
+
         /* Scroll Progress Bar - Electric Theme */
         #scroll-progress {
             position: fixed;
@@ -65,18 +78,8 @@
         .background-layer {
             position: fixed;
             inset: 0;
-            background: 
-                linear-gradient(to bottom,
-                    rgba(0, 20, 40, 0.6) 0%,
-                    rgba(0, 0, 0, 0.8) 100%
-                ),
-                url('../pictures/tantra demo page.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            filter: brightness(0.8) saturate(1.5) hue-rotate(180deg);
             z-index: 1;
-            animation: stormPulse 15s ease-in-out infinite;
+            overflow: hidden;
         }
         
         @keyframes stormPulse {
@@ -629,7 +632,11 @@
     <div id="scroll-progress"></div>
     
     <div class="page-container">
-        <div class="background-layer"></div>
+        <div class="background-layer">
+            <video id="bg-video" autoplay muted loop playsinline>
+                <source src="../pictures/tantra page.mp4" type="video/mp4">
+            </video>
+        </div>
         <div class="pattern-layer"></div>
         
         <div class="brand-badge" onclick="console.log('⚡ DISPLACEMENT PROTOCOL ACTIVE ⚡')">

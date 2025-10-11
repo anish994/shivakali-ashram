@@ -46,6 +46,19 @@
             touch-action: manipulation;
         }
 
+        #bg-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            filter: brightness(0.25) saturate(0.6) contrast(1.4);
+            object-fit: cover;
+        }
+
         /* Death Progress Bar */
         #death-progress {
             position: fixed;
@@ -69,16 +82,8 @@
         .void-layer {
             position: fixed;
             inset: 0;
-            background: 
-                radial-gradient(circle at 50% 50%, rgba(26, 0, 0, 0.8) 0%, transparent 60%),
-                radial-gradient(circle at 80% 20%, rgba(139, 0, 0, 0.3) 0%, transparent 40%),
-                linear-gradient(to bottom, var(--maran-death) 0%, var(--maran-void) 100%),
-                url('../pictures/tantra demo page.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            filter: brightness(0.2) saturate(0.5) contrast(1.5);
             z-index: 1;
+            overflow: hidden;
         }
 
         /* Death Pattern Layer */
@@ -540,7 +545,11 @@
     <div id="death-progress"></div>
     
     <div class="page-container">
-        <div class="void-layer"></div>
+        <div class="void-layer">
+            <video id="bg-video" autoplay muted loop playsinline>
+                <source src="../pictures/tantra page.mp4" type="video/mp4">
+            </video>
+        </div>
         <div class="death-layer"></div>
         
         <div class="death-badge" onclick="console.log('☠️ HISTORICAL DOCUMENTATION ACCESS ☠️')">
