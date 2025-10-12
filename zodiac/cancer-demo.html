@@ -23,6 +23,19 @@
                 --subtle-dark: #144880;
             }
         }
+        @media (max-width: 768px) {
+            .data-card, .futuristic-card {
+                backdrop-filter: none !important;
+                box-shadow: 0 2px 12px 0 var(--primary-glow);
+            }
+            .data-card::before, .futuristic-card::before {
+                display: none !important;
+            }
+            .content-section {
+                animation: none !important;
+                opacity: 1 !important;
+            }
+        }
         /* Simple fade-in only - no complex animations */
         @keyframes fade-in {
             from { opacity: 0; }

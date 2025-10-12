@@ -26,6 +26,19 @@
                 --scroll-y: 0;
             }
         }
+        @media (max-width: 768px) {
+            .data-card, .futuristic-card {
+                backdrop-filter: none !important;
+                box-shadow: 0 2px 12px 0 var(--primary-glow);
+            }
+            .data-card::before, .futuristic-card::before {
+                display: none !important;
+            }
+            .content-section {
+                animation: none !important;
+                opacity: 1 !important;
+            }
+        }
         @keyframes subtle-pulse {
             0%,
             100% {
