@@ -533,7 +533,7 @@
 <body class="bg-background-dark font-body text-text-dark will-change-scroll">
 <!-- Video Background -->
 <div class="fixed inset-0 w-full h-full -z-50 overflow-hidden">
-    <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-100">
+    <video autoplay loop muted playsinline webkit-playsinline preload="auto" data-background-video class="absolute inset-0 w-full h-full object-cover opacity-50">
         <source src="../pictures/gemini.mp4" type="video/mp4">
     </video>
     <div class="absolute inset-0 bg-gradient-to-b from-background-dark/60 via-background-dark/40 to-background-dark/70"></div>
@@ -1033,6 +1033,30 @@
 </style>
 <script>
         document.addEventListener('DOMContentLoaded', () => {
+            const backgroundVideo = document.querySelector('video[data-background-video]');
+            if (backgroundVideo) {
+                const enforceInlinePlayback = () => {
+                    backgroundVideo.setAttribute('playsinline', '');
+                    backgroundVideo.setAttribute('webkit-playsinline', '');
+                    backgroundVideo.muted = true;
+                };
+
+                const attemptPlayback = () => {
+                    enforceInlinePlayback();
+                    backgroundVideo.play().catch(() => {
+                        // iOS Safari often needs a second attempt after muting
+                        backgroundVideo.muted = true;
+                        backgroundVideo.play().catch(() => {});
+                    });
+                };
+
+                enforceInlinePlayback();
+                attemptPlayback();
+                backgroundVideo.addEventListener('pause', attemptPlayback);
+                backgroundVideo.addEventListener('stalled', attemptPlayback);
+                backgroundVideo.addEventListener('suspend', attemptPlayback);
+            }
+
             if (window.innerWidth > 768) {
                 let mouseX = window.innerWidth / 2;
                 let mouseY = window.innerHeight / 2;
