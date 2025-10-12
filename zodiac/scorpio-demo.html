@@ -303,28 +303,50 @@
         .asteroid-card:nth-child(2) { animation-delay: -2s; animation-duration: 7s; }
         .asteroid-card:nth-child(3) { animation-delay: -4s; animation-duration: 9s; }
         .color-spectrum {
-            background: linear-gradient(90deg, #4D0000 0%, var(--primary) 50%, #FF6347 100%);
+            background: linear-gradient(90deg, 
+                #2d0a1f 0%,      /* Shadow depths */
+                #4a0e36 20%,     /* Deep investigation */
+                #6b1347 40%,     /* Alchemical death core */
+                #8b1856 60%,     /* Phoenix transformation */
+                #a61d63 80%,     /* Empowered rebirth */
+                #c72270 100%     /* Sovereign mastery */
+            );
             position: relative;
-            cursor: none;
+            cursor: crosshair;
             transition: all 0.3s ease-out;
             --spectrum-pos: 50%;
             overflow: hidden;
+            box-shadow: inset 0 0 30px rgba(139,0,0,0.3);
         }
         .color-spectrum::before {
             content: '';
             position: absolute;
             top: 0; left: var(--spectrum-pos);
-            width: 4px;
+            width: 3px;
             height: 100%;
-            background: white;
+            background: linear-gradient(180deg, transparent, var(--primary), transparent);
             transform: translateX(-50%);
-            filter: blur(2px) drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
-            opacity: 0.8;
-            transition: left 0.2s ease-out;
+            filter: blur(1px) drop-shadow(0 0 8px var(--primary)) drop-shadow(0 0 15px white);
+            opacity: 1;
+            transition: left 0.15s ease-out;
+        }
+        .color-spectrum::after {
+            content: '';
+            position: absolute;
+            top: 50%; left: var(--spectrum-pos);
+            width: 12px;
+            height: 12px;
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px var(--primary), 0 0 20px white;
+            transition: left 0.15s ease-out;
         }
         .color-spectrum:hover {
-            transform: scaleY(1.05);
-            filter: drop-shadow(0 0 20px var(--primary-glow));
+            transform: scaleY(1.08);
+            filter: drop-shadow(0 0 25px var(--primary-glow));
+            box-shadow: inset 0 0 40px rgba(139,0,0,0.5);
         }
         .spectrum-info-container {
             transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
@@ -482,36 +504,36 @@
 </div>
 <details class="group content-section expandable-card mb-12 md:mb-20" style="animation-delay: 0.4s;">
 <summary class="list-none cursor-pointer">
-<h3 class="text-3xl font-bold font-display mb-8 text-center text-primary uppercase tracking-[0.2em] flex items-center justify-center gap-4" style="text-shadow: 0 0 10px var(--primary-glow);">Core Matrix <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
-<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-<div class="data-card p-4 flex flex-col items-center justify-center text-center">
+<h3 class="text-xl md:text-3xl font-bold font-display mb-8 text-center text-primary uppercase tracking-[0.2em] flex items-center justify-center gap-4" style="text-shadow: 0 0 10px var(--primary-glow);">Core Matrix <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+<div class="data-card p-4 flex flex-col items-center justify-center text-center min-h-[120px]">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Somatic Focus</p>
-<p class="font-bold text-2xl font-display text-primary">Genitals</p>
+<p class="font-bold text-lg md:text-2xl font-display text-primary">Genitals</p>
 <p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Power</p>
 </div>
-<div class="data-card p-4 flex flex-col items-center justify-center text-center">
+<div class="data-card p-4 flex flex-col items-center justify-center text-center min-h-[120px]">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Crystal</p>
-<p class="font-bold text-2xl font-display text-primary">Obsidian</p>
+<p class="font-bold text-lg md:text-2xl font-display text-primary">Obsidian</p>
 <p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Protection</p>
 </div>
-<div class="data-card p-4 flex flex-col items-center justify-center text-center">
+<div class="data-card p-4 flex flex-col items-center justify-center text-center min-h-[120px]">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Chroma Key</p>
-<p class="font-bold text-2xl font-display text-primary">Deep Red</p>
+<p class="font-bold text-lg md:text-2xl font-display text-primary">Deep Red</p>
 <p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Intensity</p>
 </div>
-<div class="data-card p-4 flex flex-col items-center justify-center text-center">
+<div class="data-card p-4 flex flex-col items-center justify-center text-center min-h-[120px]">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Ruling Planet</p>
-<p class="font-bold text-2xl font-display text-primary">Pluto</p>
+<p class="font-bold text-lg md:text-2xl font-display text-primary">Pluto</p>
 <p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Rebirth</p>
 </div>
-<div class="data-card p-4 flex flex-col items-center justify-center text-center">
+<div class="data-card p-4 flex flex-col items-center justify-center text-center min-h-[120px]">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Element</p>
-<p class="font-bold text-2xl font-display text-primary">Water</p>
+<p class="font-bold text-lg md:text-2xl font-display text-primary">Water</p>
 <p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Emotion</p>
 </div>
-<div class="data-card p-4 flex flex-col items-center justify-center text-center">
+<div class="data-card p-4 flex flex-col items-center justify-center text-center min-h-[120px]">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Modality</p>
-<p class="font-bold text-2xl font-display text-primary">Fixed</p>
+<p class="font-bold text-lg md:text-2xl font-display text-primary">Fixed</p>
 <p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Resolve</p>
 </div>
 </div>
@@ -601,16 +623,44 @@
 </div>
 </div>
 <div class="content-section" style="animation-delay: 0.9s;">
-<h3 class="text-4xl font-bold font-display mb-4 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Color-Energy Spectrum Visualizer</h3>
-<p class="text-center text-text-dark/80 mb-8 max-w-2xl mx-auto font-body text-sm">
-<span class="text-primary/80">[// INTERACTIVE_INTERFACE //]</span> Move your cursor across the spectrum below to decode the Scorpionic energy signature. Each shade of red represents a different facet of its power. The light bar indicates your current position on the vibrational scale, revealing the qualities associated with that specific frequency. Engage with the flow to understand the dynamic range of Scorpio, from deep crimson to fiery scarlet.
+<h3 class="text-2xl md:text-4xl font-bold font-display mb-4 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Transformational Power Spectrum</h3>
+<p class="text-center text-text-dark/80 mb-8 max-w-3xl mx-auto font-body text-sm leading-relaxed">
+<span class="text-primary/80">[// SCORPIO_METAMORPHOSIS_MAP //]</span> Dive into Scorpio's multi-layered transformational intelligence. This spectrum reveals the sacred journey from shadow work through alchemical death to phoenix rebirth. Each zone represents a distinct frequency of Plutonian power and its practical applications for profound personal transformation. Move across the spectrum to discover how Scorpio's fixed water intensity manifests at different depths of consciousness.
                     </p>
-<div class="relative" id="spectrum-container">
-<div class="color-spectrum h-20 w-full rounded-lg" id="color-spectrum"></div>
-<div class="spectrum-info-container absolute bottom-full mb-2 w-full flex justify-center pointer-events-none" id="spectrum-info-container">
-<div class="p-4 rounded-lg bg-background-dark/80 border border-primary/30 backdrop-blur-sm text-center w-64" id="spectrum-info">
-<h5 class="font-bold text-primary font-display text-lg transition-all duration-200" id="spectrum-title">Deep Purple</h5>
-<p class="text-xs text-text-dark/80 transition-all duration-200" id="spectrum-desc">The core frequency of mystery, power, intuition, and transformative energy. The soul of the zodiac.</p>
+<div class="relative mb-8" id="spectrum-container">
+<div class="color-spectrum h-24 md:h-28 w-full rounded-lg shadow-lg" id="color-spectrum"></div>
+<div class="spectrum-info-container absolute bottom-full mb-4 w-full flex justify-center pointer-events-none" id="spectrum-info-container">
+<div class="p-4 md:p-6 rounded-lg bg-background-dark/95 border-2 border-primary/50 backdrop-blur-md shadow-xl text-center max-w-md mx-4" id="spectrum-info">
+<h5 class="font-bold text-primary font-display text-xl md:text-2xl mb-2 transition-all duration-200" id="spectrum-title">Alchemical Death</h5>
+<p class="text-sm md:text-base text-text-dark/90 mb-3 transition-all duration-200 leading-relaxed" id="spectrum-desc">The core frequency of releasing what no longer serves.</p>
+<div class="text-xs md:text-sm text-primary/70 font-mono border-t border-primary/30 pt-3" id="spectrum-practical">
+<strong class="text-primary">Practical Application:</strong> <span id="spectrum-action">Let go of one limiting belief holding you back</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Pluto Transformation Cycles -->
+<div class="mt-6 p-4 bg-background-dark/50 border border-primary/30 rounded-lg">
+<div class="flex items-center justify-between mb-3">
+<h4 class="font-bold text-primary font-display text-lg">Pluto Transformation Phases</h4>
+<span class="material-symbols-outlined text-primary" id="pluto-icon">autorenew</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+<div class="text-center p-3 bg-background-dark/30 rounded border border-primary/20">
+<div class="text-primary/70 font-mono text-xs mb-1">DEPTH</div>
+<div class="font-bold text-text-dark">Shadow Integration</div>
+</div>
+<div class="text-center p-3 bg-background-dark/30 rounded border border-primary/20">
+<div class="text-primary/70 font-mono text-xs mb-1">DEATH</div>
+<div class="font-bold text-text-dark">Ego Dissolution</div>
+</div>
+<div class="text-center p-3 bg-background-dark/30 rounded border border-primary/20">
+<div class="text-primary/70 font-mono text-xs mb-1">REBIRTH</div>
+<div class="font-bold text-text-dark">Phoenix Rising</div>
+</div>
+<div class="text-center p-3 bg-background-dark/30 rounded border border-primary/20">
+<div class="text-primary/70 font-mono text-xs mb-1">POWER</div>
+<div class="font-bold text-text-dark">Sovereign Mastery</div>
 </div>
 </div>
 </div>
@@ -916,27 +966,90 @@
         document.addEventListener('scroll', handleScroll);
         // Initial call
         updateStyles();
-        // Spectrum Visualizer Logic
+        // Enhanced Transformational Power Spectrum Visualizer
         const spectrum = document.getElementById('color-spectrum');
         const spectrumInfo = document.getElementById('spectrum-info');
         const spectrumTitle = document.getElementById('spectrum-title');
         const spectrumDesc = document.getElementById('spectrum-desc');
+        const spectrumAction = document.getElementById('spectrum-action');
+        const plutoIcon = document.getElementById('pluto-icon');
+        
         const spectrumData = [
-            { range: [0, 0.33], title: 'Deep Maroon', desc: 'Primal power, intensity, and the mysteries of the underworld.' },
-            { range: [0.33, 0.66], title: 'Blood Red', desc: 'The core frequency of transformation, passion, and unwavering resolve.' },
-            { range: [0.66, 1], title: 'Crimson', desc: 'Regeneration, ambition, and the fiery spirit of the Phoenix.' }
+            { 
+                range: [0, 0.2], 
+                title: 'Shadow Depths', 
+                desc: 'The foundation of transformation - confronting what you hide, facing the darkness within, integrating the rejected parts of self.',
+                action: 'Journal about a fear or shadow trait you usually avoid',
+                icon: 'nightlight'
+            },
+            { 
+                range: [0.2, 0.4], 
+                title: 'Deep Investigation', 
+                desc: 'The detective mind - excavating truth, penetrating beneath surfaces, uncovering hidden motivations and secrets.',
+                action: 'Investigate the root cause of a recurring pattern in your life',
+                icon: 'search'
+            },
+            { 
+                range: [0.4, 0.6], 
+                title: 'Alchemical Death', 
+                desc: 'The core Scorpionic process - ego dissolution, releasing attachments, dying to old identities to be reborn anew.',
+                action: 'Let go of one limiting belief holding you back',
+                icon: 'autorenew'
+            },
+            { 
+                range: [0.6, 0.8], 
+                title: 'Phoenix Transformation', 
+                desc: 'The metamorphosis - rising from ashes, radical reinvention, becoming something entirely new through crisis.',
+                action: 'Transform a past wound into wisdom and strength',
+                icon: 'local_fire_department'
+            },
+            { 
+                range: [0.8, 1], 
+                title: 'Sovereign Mastery', 
+                desc: 'The highest expression - complete self-mastery, wielding power with wisdom, healing others through your transformation.',
+                action: 'Use your power to empower someone else today',
+                icon: 'emoji_events'
+            }
         ];
+        
         spectrum.addEventListener('mousemove', (e) => {
             const rect = spectrum.getBoundingClientRect();
             const x = e.clientX - rect.left;
-            const percentage = x / rect.width;
+            const percentage = Math.max(0, Math.min(1, x / rect.width));
             spectrum.style.setProperty('--spectrum-pos', `${percentage * 100}%`);
+            
             const data = spectrumData.find(d => percentage >= d.range[0] && percentage < d.range[1]);
             if (data && spectrumTitle.innerText !== data.title) {
                 spectrumInfo.classList.add('opacity-0', 'scale-95');
                 setTimeout(() => {
                     spectrumTitle.innerText = data.title;
                     spectrumDesc.innerText = data.desc;
+                    spectrumAction.innerText = data.action;
+                    plutoIcon.innerText = data.icon;
+                    spectrumInfo.classList.remove('opacity-0', 'scale-95');
+                }, 150);
+            }
+        });
+        
+        // Touch support for mobile
+        spectrum.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const rect = spectrum.getBoundingClientRect();
+            const x = touch.clientX - rect.left;
+            const percentage = Math.max(0, Math.min(1, x / rect.width));
+            spectrum.style.setProperty('--spectrum-pos', `${percentage * 100}%`);
+            
+            const data = spectrumData.find(d => percentage >= d.range[0] && percentage < d.range[1]);
+            if (data && spectrumTitle.innerText !== data.title) {
+                spectrumTitle.innerText = data.title;
+                spectrumDesc.innerText = data.desc;
+                spectrumAction.innerText = data.action;
+                plutoIcon.innerText = data.icon;
+            }
+        });
+    });
+</script>
                     spectrumInfo.classList.remove('opacity-0', 'scale-95');
                 }, 150);
             }
