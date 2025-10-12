@@ -358,28 +358,51 @@
         .asteroid-card:nth-child(2) { animation-delay: -2s; animation-duration: 9s; }
         .asteroid-card:nth-child(3) { animation-delay: -4s; animation-duration: 11s; }
         .color-spectrum {
-            background: linear-gradient(90deg, #6b21a8 0%, var(--primary) 50%, #e9d5ff 100%);
+            background: linear-gradient(90deg, 
+                #4c1d95 0%,      /* Deep empathic waters */
+                #6b21a8 20%,     /* Creative imagination */
+                #8b5cf6 40%,     /* Spiritual awakening */
+                #a78bfa 60%,     /* Mystical healing */
+                #c4b5fd 80%,     /* Cosmic consciousness */
+                #e9d5ff 100%     /* Divine unity */
+            );
             position: relative;
-            cursor: none;
+            cursor: crosshair;
             transition: all 0.3s ease-out;
             --spectrum-pos: 50%;
             overflow: hidden;
+            box-shadow: inset 0 0 30px rgba(139,92,246,0.3);
         }
         .color-spectrum::before {
             content: '';
             position: absolute;
             top: 0; left: var(--spectrum-pos);
-            width: 4px;
+            width: 3px;
             height: 100%;
-            background: white;
+            background: linear-gradient(180deg, transparent, var(--primary), transparent);
             transform: translateX(-50%);
-            filter: blur(2px) drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
-            opacity: 0.8;
-            transition: left 0.2s ease-out;
+            filter: blur(1px) drop-shadow(0 0 8px var(--primary)) drop-shadow(0 0 15px white);
+            opacity: 1;
+            transition: left 0.15s ease-out;
+        }
+        .color-spectrum::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: var(--spectrum-pos);
+            width: 12px;
+            height: 12px;
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px var(--primary), 0 0 20px white;
+            transition: left 0.15s ease-out;
         }
         .color-spectrum:hover {
-            transform: scaleY(1.05);
-            filter: drop-shadow(0 0 20px var(--primary-glow));
+            transform: scaleY(1.08);
+            filter: drop-shadow(0 0 25px var(--primary-glow));
+            box-shadow: inset 0 0 40px rgba(139,92,246,0.5);
         }
         .spectrum-info-container {
             transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
@@ -536,36 +559,36 @@
 </div>
 <details class="group content-section expandable-card mb-12 md:mb-20" style="animation-delay: 0.4s;">
 <summary class="list-none cursor-pointer">
-<h3 class="text-3xl font-bold font-display mb-8 text-center text-primary uppercase tracking-[0.2em] flex items-center justify-center gap-4" style="text-shadow: 0 0 10px var(--primary-glow);">Core Matrix <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
-<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-<div class="data-card p-4 flex flex-col items-center justify-center text-center">
+<h3 class="text-xl md:text-3xl font-bold font-display mb-8 text-center text-primary uppercase tracking-[0.2em] flex items-center justify-center gap-4" style="text-shadow: 0 0 10px var(--primary-glow);">Core Matrix <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+<div class="data-card p-4 flex flex-col items-center justify-center text-center min-h-[120px]">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Somatic Focus</p>
-<p class="font-bold text-2xl font-display text-primary">Feet</p>
+<p class="font-bold text-lg md:text-2xl font-display text-primary">Feet</p>
 <p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Mystic Union</p>
 </div>
-<div class="data-card p-4 flex flex-col items-center justify-center text-center">
+<div class="data-card p-4 flex flex-col items-center justify-center text-center min-h-[120px]">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Crystal</p>
-<p class="font-bold text-2xl font-display text-primary">Moonstone</p>
+<p class="font-bold text-lg md:text-2xl font-display text-primary">Moonstone</p>
 <p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Divine Dreams</p>
 </div>
-<div class="data-card p-4 flex flex-col items-center justify-center text-center">
+<div class="data-card p-4 flex flex-col items-center justify-center text-center min-h-[120px]">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Chroma Key</p>
-<p class="font-bold text-2xl font-display text-primary">Sea Green</p>
+<p class="font-bold text-lg md:text-2xl font-display text-primary">Sea Green</p>
 <p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Energy</p>
 </div>
-<div class="data-card p-4 flex flex-col items-center justify-center text-center">
+<div class="data-card p-4 flex flex-col items-center justify-center text-center min-h-[120px]">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Ruling Planet</p>
-<p class="font-bold text-2xl font-display text-primary">Neptune</p>
+<p class="font-bold text-lg md:text-2xl font-display text-primary">Neptune</p>
 <p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Neptune's Vision</p>
 </div>
-<div class="data-card p-4 flex flex-col items-center justify-center text-center">
+<div class="data-card p-4 flex flex-col items-center justify-center text-center min-h-[120px]">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Element</p>
-<p class="font-bold text-2xl font-display text-primary">Water</p>
+<p class="font-bold text-lg md:text-2xl font-display text-primary">Water</p>
 <p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Essence</p>
 </div>
-<div class="data-card p-4 flex flex-col items-center justify-center text-center">
+<div class="data-card p-4 flex flex-col items-center justify-center text-center min-h-[120px]">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Modality</p>
-<p class="font-bold text-2xl font-display text-primary">Mutable</p>
+<p class="font-bold text-lg md:text-2xl font-display text-primary">Mutable</p>
 <p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Style</p>
 </div>
 </div>
@@ -655,16 +678,46 @@
 </div>
 </div>
 <div class="content-section" style="animation-delay: 0.9s;">
-<h3 class="text-4xl font-bold font-display mb-4 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Color-Energy Spectrum Visualizer</h3>
+<h3 class="text-4xl font-bold font-display mb-4 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Compassion & Transcendence Spectrum</h3>
 <p class="text-center text-text-dark/80 mb-8 max-w-2xl mx-auto font-body text-sm">
-<span class="text-primary/80">[// INTERACTIVE_INTERFACE //]</span> Move your cursor across the spectrum below to decode the Piscean energy signature. Each shade of violet represents a different facet of its compassion. The light bar indicates your current position on the vibrational scale, revealing the qualities associated with that specific frequency. Engage with the flow to understand the dynamic range of Pisces, from deep empathy to cosmic consciousness.
+<span class="text-primary/80">[// NEPTUNE_MYSTICAL_INTERFACE //]</span> Move your cursor across the spectrum to explore Pisces's path from deep empathy to cosmic unity. Each zone reveals a stage of Neptunian awakening, transforming sensitivity into divine transcendence.
                     </p>
 <div class="relative" id="spectrum-container">
 <div class="color-spectrum h-20 w-full rounded-lg" id="color-spectrum"></div>
 <div class="spectrum-info-container absolute bottom-full mb-2 w-full flex justify-center pointer-events-none" id="spectrum-info-container">
-<div class="p-4 rounded-lg bg-background-dark/80 border border-primary/30 backdrop-blur-sm text-center w-64" id="spectrum-info">
-<h5 class="font-bold text-primary font-display text-lg transition-all duration-200" id="spectrum-title">Soft Violet</h5>
-<p class="text-xs text-text-dark/80 transition-all duration-200" id="spectrum-desc">The core frequency of dreams, compassion, artistic inspiration, and spiritual connection. The soul of the cosmos.</p>
+<div class="p-4 rounded-lg bg-background-dark/80 border border-primary/30 backdrop-blur-sm text-center w-80" id="spectrum-info">
+<div class="flex items-center justify-center gap-3 mb-2">
+<span class="material-symbols-outlined text-3xl text-primary" id="neptune-icon">water_drop</span>
+<h5 class="font-bold text-primary font-display text-lg transition-all duration-200" id="spectrum-title">Deep Empathy</h5>
+</div>
+<p class="text-xs text-text-dark/80 transition-all duration-200" id="spectrum-desc">Feel another's emotions deeply—practice compassionate listening without trying to fix.</p>
+</div>
+</div>
+</div>
+
+<!-- Neptune Mystical Principles -->
+<div class="mt-12 p-6 bg-background-dark/30 rounded-xl border border-primary/20">
+<h4 class="text-xl font-bold text-primary mb-4 font-display text-center">Neptune Mystical Principles</h4>
+<div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+<div class="text-center p-3 bg-background-dark/30 rounded border border-primary/20">
+<div class="text-primary/70 font-mono text-xs mb-1">EMPATHY</div>
+<div class="font-bold text-text-dark">Feel Deeply</div>
+</div>
+<div class="text-center p-3 bg-background-dark/30 rounded border border-primary/20">
+<div class="text-primary/70 font-mono text-xs mb-1">CREATIVITY</div>
+<div class="font-bold text-text-dark">Channel Dreams</div>
+</div>
+<div class="text-center p-3 bg-background-dark/30 rounded border border-primary/20">
+<div class="text-primary/70 font-mono text-xs mb-1">SPIRITUALITY</div>
+<div class="font-bold text-text-dark">Meditate Daily</div>
+</div>
+<div class="text-center p-3 bg-background-dark/30 rounded border border-primary/20">
+<div class="text-primary/70 font-mono text-xs mb-1">HEALING</div>
+<div class="font-bold text-text-dark">Transform Pain</div>
+</div>
+<div class="text-center p-3 bg-background-dark/30 rounded border border-primary/20">
+<div class="text-primary/70 font-mono text-xs mb-1">UNITY</div>
+<div class="font-bold text-text-dark">Dissolve Boundaries</div>
 </div>
 </div>
 </div>
@@ -975,15 +1028,37 @@
         const spectrumInfo = document.getElementById('spectrum-info');
         const spectrumTitle = document.getElementById('spectrum-title');
         const spectrumDesc = document.getElementById('spectrum-desc');
-        const spectrumData = [
-            { range: [0, 0.33], title: 'Deep Indigo', desc: 'Cosmic consciousness, mystic wisdom, and universal knowledge. The root of Pisces\' intuition.' },
-            { range: [0.33, 0.66], title: 'Soft Violet', desc: 'The core frequency of dreams, compassion, artistic inspiration, and spiritual connection. The soul of the cosmos.' },
-            { range: [0.66, 1], title: 'Pale Lavender', desc: 'Unconditional love, spiritual healing, and the gentle expression of divine grace. The Angelic frequency.' }
-        ];
-        spectrum.addEventListener('mousemove', (e) => {
+        const neptuneIcon = document.getElementById('neptune-icon');
+        const spectrumData = [{
+            range: [0, 0.20],
+            title: 'Deep Empathy',
+            desc: 'Feel another\'s emotions deeply—practice compassionate listening without trying to fix.',
+            icon: 'water_drop'
+        }, {
+            range: [0.20, 0.40],
+            title: 'Creative Expression',
+            desc: 'Create art from your dreams—paint, write, or compose to channel your inner world.',
+            icon: 'palette'
+        }, {
+            range: [0.40, 0.60],
+            title: 'Spiritual Practice',
+            desc: 'Meditate or pray daily—connect to the divine through stillness and surrender.',
+            icon: 'self_improvement'
+        }, {
+            range: [0.60, 0.80],
+            title: 'Mystical Healing',
+            desc: 'Practice energy healing or reiki—become a vessel for divine healing power.',
+            icon: 'healing'
+        }, {
+            range: [0.80, 1],
+            title: 'Cosmic Unity',
+            desc: 'Dissolve all boundaries—experience oneness with all beings and the universe.',
+            icon: 'blur_on'
+        }];
+        const handleSpectrumInteraction = (clientX) => {
             const rect = spectrum.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const percentage = x / rect.width;
+            const x = clientX - rect.left;
+            const percentage = Math.max(0, Math.min(1, x / rect.width));
             spectrum.style.setProperty('--spectrum-pos', `${percentage * 100}%`);
             const data = spectrumData.find(d => percentage >= d.range[0] && percentage < d.range[1]);
             if (data && spectrumTitle.innerText !== data.title) {
@@ -991,8 +1066,16 @@
                 setTimeout(() => {
                     spectrumTitle.innerText = data.title;
                     spectrumDesc.innerText = data.desc;
+                    neptuneIcon.innerText = data.icon;
                     spectrumInfo.classList.remove('opacity-0', 'scale-95');
                 }, 150);
+            }
+        };
+        spectrum.addEventListener('mousemove', (e) => handleSpectrumInteraction(e.clientX));
+        spectrum.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+            if (e.touches.length > 0) {
+                handleSpectrumInteraction(e.touches[0].clientX);
             }
         });
     });
