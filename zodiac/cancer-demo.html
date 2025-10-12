@@ -15,8 +15,8 @@
              :root {
                 --primary: #C0C0C0;
                 --primary-glow: #c0c0c080;
-                --background-light: #020C1A;
-                --background-dark: #00040D;
+                --background-light: #01060D;
+                --background-dark: #000207;
                 --text-light: #E8F0FD;
                 --text-dark: #D6E4FF;
                 --subtle-light: #0A244D;
@@ -461,10 +461,43 @@
         .expandable-card[open] .progress-bar {
             width: var(--progress-width, 0%);
         }
+
+        /* Video Background Styling */
+        video {
+            filter: brightness(1.0) contrast(1.3);
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            video {
+                opacity: 0.30 !important;
+                filter: brightness(0.9) contrast(1.2);
+            }
+            .stars {
+                transform: none !important;
+            }
+            .stars-2, .light-flare {
+                display: none;
+            }
+            .nebula {
+                background: radial-gradient(ellipse at 70% 30%, rgba(192, 192, 192, 0.1) 0%, transparent 50%);
+                animation: none !important;
+                transform: none !important;
+            }
+        }
     </style>
 <script>tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#607AFB", "background-light": "#f5f6f8", "background-dark": "#0f1323", "text-light": "var(--text-light)", "text-dark": "var(--text-dark)", "subtle-light": "var(--subtle-light)", "subtle-dark": "var(--subtle-dark)"}, fontFamily: {display: "Plus Jakarta Sans", body: ["Roboto Mono", "monospace"]}, borderRadius: {DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px"}}}};</script>
 </head>
 <body class="bg-background-dark font-body text-text-dark will-change-scroll">
+<!-- Video Background -->
+<div class="fixed inset-0 w-full h-full -z-50 overflow-hidden">
+    <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-50">
+        <source src="../pictures/cancer.mp4" type="video/mp4">
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-b from-background-dark/60 via-background-dark/40 to-background-dark/70"></div>
+    <div class="absolute inset-0 bg-background-dark/20"></div>
+</div>
+<!-- End Video Background -->
 <div class="min-h-screen relative main-container overflow-hidden">
 <div class="absolute inset-0 bg-background-dark -z-50"></div>
 <div class="stars absolute inset-0 opacity-80 -z-40 transition-transform duration-300 ease-out"></div>

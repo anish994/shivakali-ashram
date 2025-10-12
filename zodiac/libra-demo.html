@@ -15,8 +15,8 @@
              :root {
                 --primary: #FFB6C1;
                 --primary-glow: #ffb6c180;
-                --background-light: #1A0D15;
-                --background-dark: #0D0008;
+                --background-light: #0D0708;
+                --background-dark: #070004;
                 --text-light: #FCEFF2;
                 --text-dark: #FFE0E6;
                 --subtle-light: #4D2636;
@@ -462,10 +462,43 @@
         .expandable-card[open] .progress-bar {
             width: var(--progress-width, 0%);
         }
+
+        /* Video Background Styling */
+        video {
+            filter: brightness(1.0) contrast(1.3);
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            video {
+                opacity: 0.30 !important;
+                filter: brightness(0.9) contrast(1.2);
+            }
+            .stars {
+                transform: none !important;
+            }
+            .stars-2, .light-flare {
+                display: none;
+            }
+            .nebula {
+                background: radial-gradient(ellipse at 70% 30%, rgba(255, 182, 193, 0.1) 0%, transparent 50%);
+                animation: none !important;
+                transform: none !important;
+            }
+        }
     </style>
 <script>tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#65bbe4", "background-light": "#f6f7f8", "background-dark": "#121c20", "text-light": "var(--text-light)", "text-dark": "var(--text-dark)", "subtle-light": "var(--subtle-light)", "subtle-dark": "var(--subtle-dark)"}, fontFamily: {display: "Space Grotesk", body: ["Roboto Mono", "monospace"]}, borderRadius: {DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px"}}}};</script>
 </head>
 <body class="bg-background-dark font-body text-text-dark will-change-scroll overflow-x-hidden">
+<!-- Video Background -->
+<div class="fixed inset-0 w-full h-full -z-50 overflow-hidden">
+    <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-50">
+        <source src="../pictures/libra.mp4" type="video/mp4">
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-b from-background-dark/60 via-background-dark/40 to-background-dark/70"></div>
+    <div class="absolute inset-0 bg-background-dark/20"></div>
+</div>
+<!-- End Video Background -->
 <div class="min-h-screen relative main-container overflow-hidden">
 <div class="absolute inset-0 bg-background-dark -z-50"></div>
 <div class="stars absolute inset-0 opacity-80 -z-40 transition-transform duration-300 ease-out"></div>
