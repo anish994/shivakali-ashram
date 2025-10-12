@@ -308,28 +308,51 @@
         .asteroid-card:nth-child(2) { animation-delay: -2s; animation-duration: 7s; }
         .asteroid-card:nth-child(3) { animation-delay: -4s; animation-duration: 9s; }
         .color-spectrum {
-            background: linear-gradient(90deg, #b8860b 0%, var(--primary) 50%, #fffacd 100%);
+            background: linear-gradient(90deg, 
+                #b8860b 0%,      /* Creative play spark */
+                #d4a017 20%,     /* Confident self-expression */
+                #f4c430 40%,     /* Generous heart center */
+                #ffd700 60%,     /* Charismatic leadership */
+                #ffe135 80%,     /* Noble sovereignty */
+                #fffacd 100%     /* Radiant divine light */
+            );
             position: relative;
-            cursor: none;
+            cursor: crosshair;
             transition: all 0.3s ease-out;
             --spectrum-pos: 50%;
             overflow: hidden;
+            box-shadow: inset 0 0 30px rgba(255,215,0,0.3);
         }
         .color-spectrum::before {
             content: '';
             position: absolute;
             top: 0; left: var(--spectrum-pos);
-            width: 4px;
+            width: 3px;
             height: 100%;
-            background: white;
+            background: linear-gradient(180deg, transparent, var(--primary), transparent);
             transform: translateX(-50%);
-            filter: blur(2px) drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
-            opacity: 0.8;
-            transition: left 0.2s ease-out;
+            filter: blur(1px) drop-shadow(0 0 8px var(--primary)) drop-shadow(0 0 15px white);
+            opacity: 1;
+            transition: left 0.15s ease-out;
+        }
+        .color-spectrum::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: var(--spectrum-pos);
+            width: 12px;
+            height: 12px;
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px var(--primary), 0 0 20px white;
+            transition: left 0.15s ease-out;
         }
         .color-spectrum:hover {
-            transform: scaleY(1.05);
-            filter: drop-shadow(0 0 20px var(--primary-glow));
+            transform: scaleY(1.08);
+            filter: drop-shadow(0 0 25px var(--primary-glow));
+            box-shadow: inset 0 0 40px rgba(255,215,0,0.5);
         }
         .spectrum-info-container {
             transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
@@ -529,36 +552,36 @@
 </div>
 <details class="group content-section expandable-card mb-12 md:mb-20" style="animation-delay: 0.4s;">
 <summary class="list-none cursor-pointer">
-<h3 class="text-3xl font-bold font-display mb-8 text-center text-primary uppercase tracking-[0.2em] flex items-center justify-center gap-4" style="text-shadow: 0 0 10px var(--primary-glow);">Core Matrix <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
-<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-<div class="data-card p-4 flex flex-col items-center justify-center text-center">
+<h3 class="text-xl md:text-3xl font-bold font-display mb-8 text-center text-primary uppercase tracking-[0.2em] flex items-center justify-center gap-4" style="text-shadow: 0 0 10px var(--primary-glow);">Core Matrix <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+<div class="data-card p-4 flex flex-col items-center justify-center text-center min-h-[120px]">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Somatic Focus</p>
-<p class="font-bold text-2xl font-display text-primary">Heart</p>
+<p class="font-bold text-lg md:text-2xl font-display text-primary">Heart</p>
 <p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Royal Power</p>
 </div>
-<div class="data-card p-4 flex flex-col items-center justify-center text-center">
+<div class="data-card p-4 flex flex-col items-center justify-center text-center min-h-[120px]">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Crystal</p>
-<p class="font-bold text-2xl font-display text-primary">Ruby</p>
+<p class="font-bold text-lg md:text-2xl font-display text-primary">Ruby</p>
 <p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Divine Light</p>
 </div>
-<div class="data-card p-4 flex flex-col items-center justify-center text-center">
+<div class="data-card p-4 flex flex-col items-center justify-center text-center min-h-[120px]">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Chroma Key</p>
-<p class="font-bold text-2xl font-display text-primary">Gold</p>
+<p class="font-bold text-lg md:text-2xl font-display text-primary">Gold</p>
 <p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Energy</p>
 </div>
-<div class="data-card p-4 flex flex-col items-center justify-center text-center">
+<div class="data-card p-4 flex flex-col items-center justify-center text-center min-h-[120px]">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Ruling Planet</p>
-<p class="font-bold text-2xl font-display text-primary">Sun</p>
+<p class="font-bold text-lg md:text-2xl font-display text-primary">Sun</p>
 <p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Solar Force</p>
 </div>
-<div class="data-card p-4 flex flex-col items-center justify-center text-center">
+<div class="data-card p-4 flex flex-col items-center justify-center text-center min-h-[120px]">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Element</p>
-<p class="font-bold text-2xl font-display text-primary">Fire</p>
+<p class="font-bold text-lg md:text-2xl font-display text-primary">Fire</p>
 <p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Essence</p>
 </div>
-<div class="data-card p-4 flex flex-col items-center justify-center text-center">
+<div class="data-card p-4 flex flex-col items-center justify-center text-center min-h-[120px]">
 <p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Modality</p>
-<p class="font-bold text-2xl font-display text-primary">Fixed</p>
+<p class="font-bold text-lg md:text-2xl font-display text-primary">Fixed</p>
 <p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Style</p>
 </div>
 </div>
@@ -648,16 +671,46 @@
 </div>
 </div>
 <div class="content-section" style="animation-delay: 0.9s;">
-<h3 class="text-4xl font-bold font-display mb-4 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Color-Energy Spectrum Visualizer</h3>
+<h3 class="text-4xl font-bold font-display mb-4 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Radiance & Leadership Spectrum</h3>
 <p class="text-center text-text-dark/80 mb-8 max-w-2xl mx-auto font-body text-sm">
-<span class="text-primary/80">[// INTERACTIVE_INTERFACE //]</span> Move your cursor across the spectrum below to decode the Leonine energy signature. Each shade of gold represents a different facet of its power. The light bar indicates your current position on the vibrational scale, revealing the qualities associated with that specific frequency. Engage with the flow to understand the dynamic range of Leo, from playful creativity to noble sovereignty.
+<span class="text-primary/80">[// SOLAR_SOVEREIGNTY_INTERFACE //]</span> Move your cursor across the spectrum to explore Leo's path from playful creativity to noble leadership. Each zone reveals a stage of Solar empowerment, transforming self-expression into radiant sovereignty.
                     </p>
 <div class="relative" id="spectrum-container">
 <div class="color-spectrum h-20 w-full rounded-lg" id="color-spectrum"></div>
 <div class="spectrum-info-container absolute bottom-full mb-2 w-full flex justify-center pointer-events-none" id="spectrum-info-container">
-<div class="p-4 rounded-lg bg-background-dark/80 border border-primary/30 backdrop-blur-sm text-center w-64" id="spectrum-info">
-<h5 class="font-bold text-primary font-display text-lg transition-all duration-200" id="spectrum-title">Radiant Gold</h5>
-<p class="text-xs text-text-dark/80 transition-all duration-200" id="spectrum-desc">The core frequency of sovereignty, creative power, generosity, and charismatic leadership. The heart of the zodiac.</p>
+<div class="p-4 rounded-lg bg-background-dark/80 border border-primary/30 backdrop-blur-sm text-center w-80" id="spectrum-info">
+<div class="flex items-center justify-center gap-3 mb-2">
+<span class="material-symbols-outlined text-3xl text-primary" id="sun-icon">palette</span>
+<h5 class="font-bold text-primary font-display text-lg transition-all duration-200" id="spectrum-title">Creative Play</h5>
+</div>
+<p class="text-xs text-text-dark/80 transition-all duration-200" id="spectrum-desc">Create something just for joy—paint, dance, or play without judgment or outcome.</p>
+</div>
+</div>
+</div>
+
+<!-- Solar Leadership Principles -->
+<div class="mt-12 p-6 bg-background-dark/30 rounded-xl border border-primary/20">
+<h4 class="text-xl font-bold text-primary mb-4 font-display text-center">Solar Leadership Principles</h4>
+<div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+<div class="text-center p-3 bg-background-dark/30 rounded border border-primary/20">
+<div class="text-primary/70 font-mono text-xs mb-1">CREATIVITY</div>
+<div class="font-bold text-text-dark">Playful Expression</div>
+</div>
+<div class="text-center p-3 bg-background-dark/30 rounded border border-primary/20">
+<div class="text-primary/70 font-mono text-xs mb-1">CONFIDENCE</div>
+<div class="font-bold text-text-dark">Authentic Self</div>
+</div>
+<div class="text-center p-3 bg-background-dark/30 rounded border border-primary/20">
+<div class="text-primary/70 font-mono text-xs mb-1">GENEROSITY</div>
+<div class="font-bold text-text-dark">Magnanimous Heart</div>
+</div>
+<div class="text-center p-3 bg-background-dark/30 rounded border border-primary/20">
+<div class="text-primary/70 font-mono text-xs mb-1">LEADERSHIP</div>
+<div class="font-bold text-text-dark">Inspiring Others</div>
+</div>
+<div class="text-center p-3 bg-background-dark/30 rounded border border-primary/20">
+<div class="text-primary/70 font-mono text-xs mb-1">SOVEREIGNTY</div>
+<div class="font-bold text-text-dark">Noble Radiance</div>
 </div>
 </div>
 </div>
@@ -970,15 +1023,37 @@
         const spectrumInfo = document.getElementById('spectrum-info');
         const spectrumTitle = document.getElementById('spectrum-title');
         const spectrumDesc = document.getElementById('spectrum-desc');
-        const spectrumData = [
-            { range: [0, 0.33], title: 'Dark Gold', desc: 'Inner royalty, self-possession, quiet confidence. The power that needs no announcement.' },
-            { range: [0.33, 0.66], title: 'Radiant Gold', desc: 'The core frequency of sovereignty, creative power, generosity, and charismatic leadership. The heart of the zodiac.' },
-            { range: [0.66, 1], title: 'Bright Yellow', desc: 'Playfulness, joy, optimism, and spontaneous creativity. The outward expression of a happy heart.' }
-        ];
-        spectrum.addEventListener('mousemove', (e) => {
+        const sunIcon = document.getElementById('sun-icon');
+        const spectrumData = [{
+            range: [0, 0.20],
+            title: 'Creative Play',
+            desc: 'Create something just for joy—paint, dance, or play without judgment or outcome.',
+            icon: 'palette'
+        }, {
+            range: [0.20, 0.40],
+            title: 'Authentic Confidence',
+            desc: 'Express your true self boldly—share your gifts and opinions without apology.',
+            icon: 'star'
+        }, {
+            range: [0.40, 0.60],
+            title: 'Generous Heart',
+            desc: 'Give freely from your abundance—celebrate others\' success with genuine warmth.',
+            icon: 'favorite'
+        }, {
+            range: [0.60, 0.80],
+            title: 'Inspiring Leadership',
+            desc: 'Lead with charisma and courage—inspire others to shine through your example.',
+            icon: 'emoji_events'
+        }, {
+            range: [0.80, 1],
+            title: 'Noble Sovereignty',
+            desc: 'Embody regal presence—rule your domain with dignity, wisdom, and magnanimity.',
+            icon: 'military_tech'
+        }];
+        const handleSpectrumInteraction = (clientX) => {
             const rect = spectrum.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const percentage = x / rect.width;
+            const x = clientX - rect.left;
+            const percentage = Math.max(0, Math.min(1, x / rect.width));
             spectrum.style.setProperty('--spectrum-pos', `${percentage * 100}%`);
             const data = spectrumData.find(d => percentage >= d.range[0] && percentage < d.range[1]);
             if (data && spectrumTitle.innerText !== data.title) {
@@ -986,8 +1061,16 @@
                 setTimeout(() => {
                     spectrumTitle.innerText = data.title;
                     spectrumDesc.innerText = data.desc;
+                    sunIcon.innerText = data.icon;
                     spectrumInfo.classList.remove('opacity-0', 'scale-95');
                 }, 150);
+            }
+        };
+        spectrum.addEventListener('mousemove', (e) => handleSpectrumInteraction(e.clientX));
+        spectrum.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+            if (e.touches.length > 0) {
+                handleSpectrumInteraction(e.touches[0].clientX);
             }
         });
     });
