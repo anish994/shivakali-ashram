@@ -1,277 +1,540 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full"><head>
+
+<html class="" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" name="viewport"/>
 <title>Taurus Zodiac Sign</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&amp;family=Roboto+Mono:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;900&amp;family=Manrope:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
 <link rel="stylesheet" href="assets/css/scrolling-fixes.css"/>
-<link href="../assets/css/main.css" rel="stylesheet"/>
-<link href="../assets/css/components/vedic-layers.css" rel="stylesheet"/>
-<link href="../assets/css/components/vedic-core.css" rel="stylesheet"/>
-<link href="../assets/css/components/quantum-interface.css" rel="stylesheet"/>
-<link href="../assets/css/components/premium-card.css" rel="stylesheet"/>
-<link href="../assets/css/components/polish.css" rel="stylesheet"/>
-
-<style>
-body {
-    background: linear-gradient(135deg, #004d26, #008040, #004d26);
-    color: #ffffff;
-    font-family: 'Inter', sans-serif;
-    line-height: 1.8;
-    overflow-x: hidden;
-}
-
-.stellar-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    overflow: hidden;
-}
-
-.stellar-bg::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(ellipse at center, rgba(0, 255, 127, 0.2) 0%, transparent 70%);
-    filter: blur(100px);
-    z-index: -2;
-}
-
-.star {
-    position: absolute;
-    background: #ffffff;
-    border-radius: 50%;
-    animation: twinkle 3s infinite ease-in-out;
-}
-
-.star:nth-child(odd) {
-    animation-delay: 1.5s;
-}
-
-@keyframes twinkle {
-    0%, 100% { opacity: 0.3; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.2); }
-}
-
-.particle {
-    position: absolute;
-    background: rgba(0, 255, 127, 0.5);
-    border-radius: 50%;
-    animation: particle-animation 10s infinite linear;
-}
-
-@keyframes particle-animation {
-    from {
-        transform: translate(0, 0);
-        opacity: 1;
-    }
-    to {
-        transform: translate(var(--x), var(--y));
-        opacity: 0;
-    }
-}
-
-@keyframes title-glow {
-    0%, 100% { text-shadow: 0 0 20px var(--primary-glow), 0 0 40px var(--primary-glow); }
-    50% { text-shadow: 0 0 40px var(--primary), 0 0 80px var(--primary); }
-}
-
-.animate-title-glow {
-    animation: title-glow 4s ease-in-out infinite;
-}
-
-.data-card, .decan-card, .futuristic-card, .icon-card, .dynamic-card, .asteroid-card {
-    background: rgba(0, 255, 127, 0.05);
-    border: 1px solid rgba(0, 255, 127, 0.2);
-    border-radius: 1rem;
-    padding: 2rem;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.data-card:hover, .decan-card:hover, .futuristic-card:hover, .icon-card:hover, .dynamic-card:hover, .asteroid-card:hover {
-    box-shadow: 0 0 25px var(--primary-glow);
-    transform: translateY(-8px);
-    border-color: var(--primary);
-}
-
-.expandable-card {
-    border: 1px solid rgba(0, 255, 127, 0.2);
-    border-radius: 1rem;
-    background: rgba(0, 255, 127, 0.05);
-    transition: all 0.3s ease;
-}
-
-.expandable-card:hover {
-    border-color: var(--primary);
-    box-shadow: 0 0 25px var(--primary-glow);
-}
-
-.expand-arrow {
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.group[open] .expand-arrow {
-    transform: rotate(180deg);
-}
-
-@keyframes text-pop-up {
-    0% {
-        opacity: 0;
-        transform: translateY(20px) scale(0.95);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-.text-pop-up {
-    animation: text-pop-up 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-}
-
-p.text-pop-up {
-    animation-delay: 0.2s;
-}
-
-h4 + .text-pop-up {
-    animation-delay: 0.3s;
-}
-@media (max-width: 768px) {
-    .stars {
-        transform: none !important; /* Disable parallax */
-    }
-    .stars-2, .light-flare {
-        display: none; /* Disable animated stars and mouse flare */
-    }
-    .nebula {
-        background: radial-gradient(ellipse at 70% 30%, rgba(0, 255, 127, 0.1) 0%, transparent 50%);
-        animation: none !important;
-        transform: none !important;
-    }
-    header .container {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    header .gap-2 {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .nav-button {
-        padding: 6px 12px;
-        font-size: 11px;
-    }
-
-    .content-section h3 {
-        font-size: 2.5rem; 
-    }
-
-    .archetype-link span {
-        font-size: 2.5rem;
-    }
-
-    .gap-12 {
-        gap: 0.5rem;
-    }
-
-    .header-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .header-container .group {
-        margin-bottom: 1rem;
-    }
-
-    .nav-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .nav-button {
-        min-height: 44px;
-        width: 100%;
-        margin-bottom: 0.5rem;
-    }
-
-    .main-container {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-
-    .grid {
-        grid-template-columns: 1fr;
-    }
-
-    .md\:grid-cols-2 {
-        grid-template-columns: 1fr;
-    }
-
-    .md\:grid-cols-3 {
-        grid-template-columns: 1fr;
-    }
-
-    .lg\:grid-cols-6 {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .expandable-card[open] > .expandable-card-content,
-    .dynamic-card[open] .dynamic-card-content,
-    .accordion-item.group[open] .accordion-content {
-        max-height: 5000px !important;
-    }
-}
-</style>
-<script>
-  window.tailwind = {
-    config: {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            primary: "#00ff7f",
-            "primary-glow": "#00ff7f80",
-            "background-light": "#f0fff0",
-            "background-dark": "#0a1a0a",
-            "text-light": "#e0ffe0",
-            "text-dark": "#c0ffc0",
-            "subtle-light": "#008040",
-            "subtle-dark": "#004d26"
-          },
-          fontFamily: {
-            display: "Orbitron",
-            body: ["Roboto Mono", "monospace"]
-          },
-          borderRadius: {
-            DEFAULT: "0.5rem",
-            lg: "1rem",
-            xl: "1.5rem",
-            full: "9999px"
-          }
+<style type="text/tailwindcss">
+        @layer base {
+             :root {
+                --primary: #6B8E23;--primary-glow: #6b8e2380;
+                --background-light: #1A1A0D;
+                --background-dark: #0D0D06;
+                --text-light: #F5FFED;
+                --text-dark: #E8F5D8;
+                --subtle-light: #4D5C2E;
+                --subtle-dark: #7A9B3F;
+                --mouse-x: 50%;
+                --mouse-y: 50%;
+                --scroll-y: 0;
+            }
         }
-      }
-    }
-  };
-</script>
-</head>
-<body class="h-full bg-background-dark font-body text-text-dark">
-<div class="stellar-bg" id="stellarBg"></div>
+        @media (max-width: 768px) {
+            body {
+                background: linear-gradient(135deg, #1A1A0D, #7A9B3F 60%, #1A1A0D 100%);
+            }
+            .taurus-logo-glow {
+                filter: drop-shadow(0 0 8px var(--primary-glow));
+            }
+            .data-card, .futuristic-card {
+                backdrop-filter: none !important;
+                box-shadow: 0 2px 12px 0 var(--primary-glow);
+            }
+            .data-card::before, .futuristic-card::before {
+                display: none !important;
+            }
+            .content-section {
+                animation: none !important;
+                opacity: 1 !important;
+            }
+            .stars {
+                transform: none !important; /* Disable parallax */
+            }
+            .stars-2, .light-flare {
+                display: none; /* Disable animated stars and mouse flare */
+            }
+            .nebula {
+                background: radial-gradient(ellipse at 70% 30%, rgba(90, 125, 94, 0.1) 0%, transparent 50%);
+                animation: none !important;
+                transform: none !important;
+            }
+            header .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
 
-<header class="border-b border-subtle-dark/50 backdrop-blur-md bg-background-dark/30 transition-all duration-300 ease-in-out">
-<div class="container mx-auto flex items-center justify-between px-6 py-4 header-container">
+            header .gap-2 {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-button {
+                padding: 6px 12px;
+                font-size: 11px;
+            }
+
+            .content-section h3 {
+                font-size: 2.5rem; 
+            }
+
+            .archetype-link span {
+                font-size: 2.5rem;
+            }
+
+            .gap-12 {
+                gap: 0.5rem;
+            }
+        }
+        @keyframes subtle-pulse {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px var(--primary-glow)); }
+            50% { transform: scale(1.02); filter: drop-shadow(0 0 20px var(--primary)); }
+        }
+        @keyframes subtle-float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
+        body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .animate-subtle-pulse {
+            animation: subtle-pulse 4s ease-in-out infinite;
+        }
+        .animate-subtle-float {
+            animation: subtle-float 5s ease-in-out infinite;
+        }
+        .taurus-logo-glow {
+            filter: drop-shadow(0 0 12px var(--primary-glow)) drop-shadow(0 0 20px var(--primary-glow));
+            transition: filter 0.3s ease-in-out;
+        }
+        .taurus-logo-glow:hover {
+            filter: drop-shadow(0 0 18px var(--primary)) drop-shadow(0 0 30px var(--primary));
+        }
+        .data-card {
+            background-color: #5a7d5e08;
+            border: 1px solid var(--primary-glow);
+            backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+            animation: fade-in-up 0.5s ease-out forwards;
+            opacity: 0;
+            clip-path: polygon(15% 0, 100% 0, 100% 85%, 85% 100%, 0 100%, 0 15%);
+            position: relative;
+        }
+        .data-card::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            filter: blur(20px);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+        }
+        .data-card:hover::before {
+            opacity: 0.5;
+        }
+        .data-card:nth-child(1) { animation-delay: 0.2s; }
+        .data-card:nth-child(2) { animation-delay: 0.3s; }
+        .data-card:nth-child(3) { animation-delay: 0.4s; }
+        .data-card:nth-child(4) { animation-delay: 0.5s; }
+        .data-card:nth-child(5) { animation-delay: 0.6s; }
+        .data-card:nth-child(6) { animation-delay: 0.7s; }
+        .data-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            background-color: #5a7d5e1a;
+            border-color: var(--primary);
+        }
+        .content-section {
+             animation: fade-in-up 0.6s ease-out forwards;
+             opacity: 0;
+             animation-delay: 0.6s;
+        }
+        .futuristic-card {
+            background: linear-gradient(145deg, rgba(90, 125, 94, 0.05), rgba(90, 125, 94, 0.1));
+            border: 1px solid var(--primary-glow);
+            backdrop-filter: blur(10px);
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .futuristic-card::before {
+            content: '';
+            position: absolute;
+            top: -1px; left: -1px; right: -1px; bottom: -1px;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 60%);
+            filter: blur(25px);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+            animation: subtle-pulse 5s infinite;
+        }
+        .futuristic-card:hover::before {
+            opacity: 0.3;
+        }
+        .futuristic-card:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(145deg, rgba(90, 125, 94, 0.1), rgba(90, 125, 94, 0.15));
+            border-color: var(--primary);
+        }
+        .accordion-item {
+            background-color: transparent;
+            border: 1px solid var(--primary-glow);
+            transition: all 0.3s ease;
+            clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 0 100%);
+        }
+        .accordion-item:hover {
+             border-color: var(--primary);
+             background-color: rgba(90, 125, 94, 0.05);
+        }
+        .accordion-item summary::-webkit-details-marker {
+            display: none;
+        }
+        .icon-card {
+            background: rgba(90, 125, 94, 0.03);
+            border: 1px solid var(--primary-glow);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .icon-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(90, 125, 94, 0.3), transparent 70%);
+            filter: blur(15px);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+        }
+        .icon-card:hover::before {
+            opacity: 0.6;
+        }
+        .icon-card:hover {
+            background: rgba(90, 125, 94, 0.08);
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+        .dynamic-card {
+            --angle: 0deg;
+            border: 2px solid;
+            border-image: conic-gradient(from var(--angle), transparent 20%, var(--primary), transparent 80%) 1;
+            animation: 10s rotate linear infinite;
+            background: radial-gradient(ellipse at center, rgba(90, 125, 94, 0.1) 0%, transparent 70%);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+        .dynamic-card summary::-webkit-details-marker {
+            display: none;
+        }
+        .dynamic-card .expand-icon {
+            transition: transform 0.4s ease;
+        }
+        .dynamic-card[open] .expand-icon {
+            transform: rotate(45deg);
+        }
+        .dynamic-card-content {
+            overflow: hidden;
+            transition: max-height 0.7s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.5s ease;
+            max-height: 0;
+            opacity: 0;
+        }
+        .dynamic-card[open] .dynamic-card-content {
+            max-height: 1000px;opacity: 1;
+        }
+        @keyframes rotate {
+            to { --angle: 360deg; }
+        }
+        @property --angle {
+            syntax: '<angle>';
+            initial-value: 0deg;
+            inherits: false;
+        }
+        .stars {
+            background-image:
+                radial-gradient(1px 1px at 20px 30px, #fff, transparent),
+                radial-gradient(1px 1px at 40px 70px, #fff, transparent),
+                radial-gradient(1px 1px at 50px 160px, #ddd, transparent),
+                radial-gradient(1.5px 1.5px at 100px 40px, #fff, transparent),
+                radial-gradient(2px 2px at 200px 150px, #fff, transparent),
+                radial-gradient(1.5px 1.5px at 160px 120px, #ddd, transparent);
+            background-size: 250px 250px;transform: translateY(calc(var(--scroll-y) * 0.1px));
+        }
+        .stars-2 {
+            background-image:
+                radial-gradient(1.5px 1.5px at 10px 50px, #fff, transparent),
+                radial-gradient(1.5px 1.5px at 90px 30px, #fff, transparent),
+                radial-gradient(1px 1px at 150px 100px, #ddd, transparent),
+                radial-gradient(2px 2px at 220px 80px, #fff, transparent),
+                radial-gradient(2.5px 2.5px at 300px 180px, #fff, transparent),
+                radial-gradient(1px 1px at 180px 150px, #ddd, transparent);
+            background-size: 400px 400px;
+            animation: move-twink-back 200s linear infinite;transform: translate(calc(calc(50% - var(--mouse-x)) / 40), calc(calc(50% - var(--mouse-y)) / 40)) translateY(calc(var(--scroll-y) * 0.3px));
+        }
+        .nebula {
+            background: radial-gradient(ellipse at 70% 30%, rgba(90, 125, 94, 0.25) 0%, transparent 50%),
+                        radial-gradient(ellipse at 20% 80%, rgba(90, 125, 94, 0.2) 0%, transparent 40%);
+            animation: move-nebula 120s ease-in-out infinite alternate;transform: translate(calc(calc(50% - var(--mouse-x)) / 60), calc(calc(50% - var(--mouse-y)) / 60)) translateY(calc(var(--scroll-y) * 0.5px));
+        }
+        .light-flare {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -20;
+            background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(90, 125, 94, 0.1) 0%, transparent 20%);
+            opacity: 0;
+            transition: opacity 0.5s ease-out;
+        }
+        body:hover .light-flare {
+            opacity: 1;
+        }
+        @keyframes move-twink-back {
+            from {background-position:0 0;}
+            to {background-position:-10000px 5000px;}
+        }
+        @keyframes move-nebula {
+            from {background-position: 0% 0%, 0% 0%;}
+            to {background-position: -100% 50%, 100% -50%;}
+        }
+        .expandable-card summary::-webkit-details-marker {
+            display: none;
+        }
+        .expandable-card .expand-icon {
+            transition: transform 0.4s ease;
+        }
+        .expandable-card[open] .expand-icon {
+            transform: rotate(45deg);
+        }
+        .expandable-card-content {
+            overflow: hidden;
+            transition: max-height 0.7s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.5s ease, padding 0.5s ease;
+            max-height: 0;
+            opacity: 0;
+        }
+        .expandable-card[open] > .expandable-card-content {
+            max-height: 1000px;
+            opacity: 1;
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+        }.decan-card {
+            background-color: rgba(90, 125, 94,0.05);
+            border-left: 3px solid var(--primary-glow);
+            transition: all 0.4s ease;
+            transform: translateX(-20px);
+            opacity: 0;
+        }
+        .decan-card.in-view {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        .decan-card:hover {
+            background-color: rgba(90, 125, 94,0.1);
+            border-left-color: var(--primary);
+            transform: scale(1.02);
+        }
+        @keyframes float-asteroid {
+            0%, 100% { transform: translateY(0px) rotate(-5deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+        }
+        .asteroid-card {
+            background: radial-gradient(circle, rgba(90, 125, 94,0.15) 0%, transparent 80%);
+            border: 1px dashed var(--primary-glow);
+            animation: float-asteroid 8s ease-in-out infinite;
+            transition: all 0.4s ease;
+        }
+        .asteroid-card:hover {
+            animation-play-state: paused;
+            transform: scale(1.1);
+            background: radial-gradient(circle, rgba(90, 125, 94,0.3) 0%, transparent 70%);
+            border-style: solid;
+            border-color: var(--primary);
+            filter: drop-shadow(0 0 15px var(--primary));
+        }
+        .asteroid-card:nth-child(2) { animation-delay: -2s; animation-duration: 7s; }
+        .asteroid-card:nth-child(3) { animation-delay: -4s; animation-duration: 9s; }
+        .color-spectrum {
+            background: linear-gradient(90deg, 
+                #2d4a2e 0%,      /* Deep forest observation */
+                #4a6b4d 20%,     /* Grounded analysis */
+                #5A7D5E 40%,     /* Sacred service core */
+                #7fa882 60%,     /* Healing refinement */
+                #a2c5a6 80%,     /* Pure discernment */
+                #c8e6ca 100%     /* Transcendent perfection */
+            );
+            position: relative;
+            cursor: crosshair;
+            transition: all 0.3s ease-out;
+            --spectrum-pos: 50%;
+            overflow: hidden;
+            box-shadow: inset 0 0 30px rgba(90,125,94,0.3);
+        }
+        .color-spectrum::before {
+            content: '';
+            position: absolute;
+            top: 0; left: var(--spectrum-pos);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, var(--primary), transparent);
+            transform: translateX(-50%);
+            filter: blur(1px) drop-shadow(0 0 8px var(--primary)) drop-shadow(0 0 15px white);
+            opacity: 1;
+            transition: left 0.15s ease-out;
+        }
+        .color-spectrum::after {
+            content: '';
+            position: absolute;
+            top: 50%; left: var(--spectrum-pos);
+            width: 12px;
+            height: 12px;
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px var(--primary), 0 0 20px white;
+            transition: left 0.15s ease-out;
+        }
+        .color-spectrum:hover {
+            transform: scaleY(1.08);
+            filter: drop-shadow(0 0 25px var(--primary-glow));
+            box-shadow: inset 0 0 40px rgba(90,125,94,0.5);
+        }
+        .spectrum-info-container {
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            transform: translateY(10px) scale(0.95);
+            opacity: 0;
+        }
+        .color-spectrum:hover .spectrum-info-container {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        .chiron-card {
+            background: linear-gradient(220deg, rgba(90, 125, 94, 0.05), rgba(20, 80, 40, 0.2));
+            border: 1px solid var(--primary-glow);
+            backdrop-filter: blur(15px);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+            transition: all 0.4s ease;
+        }
+        .chiron-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            background: linear-gradient(220deg, rgba(90, 125, 94, 0.1), rgba(30, 100, 50, 0.3));
+        }
+        .archetype-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .archetype-link .archetype-info {
+            position: absolute;
+            bottom: 110%;
+            left: 50%;
+            transform: translateX(-50%) scale(0.9);
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+            pointer-events: none;
+        }
+        .archetype-link:hover .archetype-info {
+            opacity: 1;
+            transform: translateX(-50%) scale(1);
+        }
+        .archetype-link::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 2px dashed var(--primary-glow);
+            opacity: 0;
+            transition: all 0.3s ease;
+            animation: rotate 20s linear infinite;
+        }
+        .archetype-link:hover::before {
+            opacity: 1;
+        }
+        .nav-button {
+            background-color: transparent;
+            border: 1px solid var(--primary-glow);
+            color: var(--text-dark);
+            padding: 8px 16px;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            clip-path: polygon(10% 0, 100% 0, 100% 80%, 90% 100%, 0 100%, 0 20%);
+        }
+        .nav-button:hover {
+            background-color: var(--primary-glow);
+            color: var(--text-light);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            filter: drop-shadow(0 0 8px var(--primary-glow));
+        }
+        @keyframes animated-gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .intro-text-bg {
+            position: relative;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        .intro-text-bg::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            background: linear-gradient(120deg, rgba(90, 125, 94, 0), rgba(90, 125, 94, 0.1), rgba(90, 125, 94, 0));
+            background-size: 200% 200%;
+            animation: animated-gradient 8s ease infinite;
+        }
+        .expanded-content-text-gradient {
+            background: linear-gradient(120deg, var(--text-dark), var(--text-light));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .progress-bar-container {
+            background-color: rgba(90, 125, 94, 0.1);
+            border-radius: 9999px;
+            overflow: hidden;
+            border: 1px solid var(--primary-glow);
+        }
+        .progress-bar {
+            background: linear-gradient(90deg, var(--primary) 0%, #a2c5a6 100%);
+            box-shadow: 0 0 15px var(--primary-glow);
+            transition: width 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+        .expandable-card[open] .progress-bar {
+            width: var(--progress-width, 0%);
+        }
+    </style>
+<script>tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#845f19", "background-light": "#f8f7f6", "background-dark": "#201b12", "text-light": "var(--text-light)", "text-dark": "var(--text-dark)", "subtle-light": "var(--subtle-light)", "subtle-dark": "var(--subtle-dark)"}, fontFamily: {display: "Manrope", body: ["Roboto Mono", "monospace"]}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}}}};</script>
+</head>
+<body class="bg-background-dark font-body text-text-dark will-change-scroll">
+<div class="min-h-screen relative main-container overflow-hidden">
+<div class="absolute inset-0 bg-background-dark -z-50"></div>
+<div class="stars absolute inset-0 opacity-80 -z-40 transition-transform duration-300 ease-out"></div>
+<div class="stars-2 absolute inset-0 opacity-60 -z-30 transition-transform duration-300 ease-out"></div>
+<div class="nebula absolute inset-0 opacity-70 -z-20 transition-transform duration-300 ease-out"></div>
+<div class="light-flare"></div>
+<header class="border-b border-subtle-dark/50 backdrop-blur-md bg-background-dark/30 sticky top-0 z-50 transition-all duration-300 ease-in-out">
+<div class="container mx-auto flex items-center justify-between px-6 py-4">
 <div class="flex items-center gap-4 group">
 <img src="../pictures/tauruspic.png" class="h-10 w-10 text-primary taurus-logo-glow group-hover:scale-110 transition-transform duration-300">
 <div class="flex flex-col items-start">
@@ -279,7 +542,7 @@ h4 + .text-pop-up {
 <span class="text-xs text-text-dark/60 font-body transition-all duration-300 group-hover:text-primary/70">by ShivaKali Ashram</span>
 </div>
 </div>
-<div class="flex items-center gap-2 md:gap-4 nav-buttons">
+<div class="flex items-center gap-2 md:gap-4">
 <a href="../zodiac-signs.html" class="nav-button">Zodiac Hub</a>
 <a href="../index.html" class="nav-button">Back to Ashram</a>
 <a href="../index.html#jyotisha" class="nav-button">Back to Jotish</a>
@@ -292,54 +555,48 @@ h4 + .text-pop-up {
 <div class="max-w-5xl mx-auto">
 <div class="text-center mb-16 md:mb-24">
 <div class="flex justify-center mb-6 animate-subtle-float">
-<img src="../pictures/tauruspic.png" class="h-28 w-28 md:h-36 md:w-36 taurus-logo-glow" alt="Taurus Zodiac Sign">
+<img src="../pictures/tauruspic.png" class="h-28 w-28 md:h-36 md:w-36 text-primary taurus-logo-glow">
 </div>
-<h2 class="text-6xl md:text-8xl font-black font-display text-transparent bg-clip-text bg-gradient-to-r from-primary via-green-400 to-green-300 tracking-widest animate-title-glow">TAURUS</h2>
+<h2 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black font-display text-transparent bg-clip-text bg-gradient-to-r from-primary via-green-500 to-yellow-600 tracking-wide sm:tracking-widest animate-subtle-pulse" style="text-shadow: 0 0 30px var(--primary-glow);">TAURUS</h2>
 <div class="mt-4 content-section intro-text-bg" style="animation-delay: 0.2s;">
 <p class="relative z-10 text-lg md:text-xl text-text-dark/80 max-w-3xl mx-auto font-body">
-<span class="text-primary/80">&lt;EARTH_FREQUENCY_DETECTED&gt;</span> Ruled by Venus, the celestial architect of form and beauty, Taurus manifests as the <span class="font-bold text-primary animate-pulse">Sacred Temple</span> of the zodiac. Here, cosmic energy crystallizes into matter, spirit anchors into form, and divine potential takes root in earthly soil. This is where ethereal dreams are forged into tangible reality through the sacred alchemy of patience and persistence. Taurus holds the keys to the material realm's deepest mysteries, understanding that true wealth flows from harmony with nature's rhythms and cycles. <span class="text-primary/80">&lt;TRANSMISSION_ENCRYPTED::EARTH_ANCHOR_PROTOCOL&gt;</span>
+<span class="text-primary/80">&lt;SYSTEM_LOG&gt;</span> Ruled by Venus, the planet of beauty, pleasure, and material abundance. Taurus is the sacred foundation, the <span class="font-bold text-primary animate-pulse">Divine Builder</span> of the zodiac. It grounds, stabilizes, and cultivates with patient devotion and unwavering strength. This is the narrative of embodiment, security, and the sensual richness of physical existence. <span class="text-primary/80">&lt;/TRANSMISSION&gt;</span>
 </p>
 </div>
 </div>
 <details class="group content-section expandable-card mb-12 md:mb-20" style="animation-delay: 0.4s;">
 <summary class="list-none cursor-pointer">
-<h3 class="text-3xl font-bold font-display mb-8 text-center text-primary uppercase tracking-[0.2em] flex items-center justify-center gap-4" style="text-shadow: 0 0 10px var(--primary-glow);">Core Matrix <span class="material-symbols-outlined expand-arrow">expand_more</span></h3>
-<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-<div class="data-card p-4 flex flex-col items-center justify-center text-center">
-<p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Sacred Gateway</p>
-<p class="font-bold text-2xl font-display text-primary">Throat</p>
-<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Earth Channel</p>
-<p class="text-xs text-text-dark/50 mt-2">Voice of Gaia</p>
+<h3 class="text-xl md:text-3xl font-bold font-display mb-8 text-center text-primary uppercase tracking-[0.2em] flex items-center justify-center gap-4" style="text-shadow: 0 0 10px var(--primary-glow);">Core Matrix <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+<div class="data-card p-4 flex flex-col items-center justify-center text-center min-h-[120px]">
+<p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Somatic Focus</p>
+<p class="font-bold text-lg md:text-2xl font-display text-primary">Throat</p>
+<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Voice & Value</p>
 </div>
-<div class="data-card p-4 flex flex-col items-center justify-center text-center">
-<p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Crystalline Matrix</p>
-<p class="font-bold text-2xl font-display text-primary">Emerald</p>
-<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Growth Force</p>
-<p class="text-xs text-text-dark/50 mt-2">Nature's Heart</p>
+<div class="data-card p-4 flex flex-col items-center justify-center text-center min-h-[120px]">
+<p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Crystal</p>
+<p class="font-bold text-lg md:text-2xl font-display text-primary">Emerald</p>
+<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Earth's Jewel</p>
 </div>
-<div class="data-card p-4 flex flex-col items-center justify-center text-center">
-<p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Light Code</p>
-<p class="font-bold text-2xl font-display text-primary">Green</p>
-<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Life Force</p>
-<p class="text-xs text-text-dark/50 mt-2">Nature's Pulse</p>
+<div class="data-card p-4 flex flex-col items-center justify-center text-center min-h-[120px]">
+<p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Chroma Key</p>
+<p class="font-bold text-lg md:text-2xl font-display text-primary">Green</p>
+<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Growth</p>
 </div>
-<div class="data-card p-4 flex flex-col items-center justify-center text-center">
-<p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Celestial Guardian</p>
-<p class="font-bold text-2xl font-display text-primary">Venus</p>
-<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Sacred Artist</p>
-<p class="text-xs text-text-dark/50 mt-2">Form Weaver</p>
+<div class="data-card p-4 flex flex-col items-center justify-center text-center min-h-[120px]">
+<p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Ruling Planet</p>
+<p class="font-bold text-lg md:text-2xl font-display text-primary">Venus</p>
+<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Beauty & Value</p>
 </div>
-<div class="data-card p-4 flex flex-col items-center justify-center text-center">
-<p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Primordial Force</p>
-<p class="font-bold text-2xl font-display text-primary">Earth</p>
-<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Sacred Matter</p>
-<p class="text-xs text-text-dark/50 mt-2">Living Temple</p>
+<div class="data-card p-4 flex flex-col items-center justify-center text-center min-h-[120px]">
+<p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Element</p>
+<p class="font-bold text-lg md:text-2xl font-display text-primary">Earth</p>
+<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Grounded</p>
 </div>
-<div class="data-card p-4 flex flex-col items-center justify-center text-center">
-<p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Divine Pattern</p>
-<p class="font-bold text-2xl font-display text-primary">Fixed</p>
-<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Stability Node</p>
-<p class="text-xs text-text-dark/50 mt-2">Eternal Rock</p>
+<div class="data-card p-4 flex flex-col items-center justify-center text-center min-h-[120px]">
+<p class="text-xs text-text-dark/70 uppercase tracking-widest font-body">Modality</p>
+<p class="font-bold text-lg md:text-2xl font-display text-primary">Fixed</p>
+<p class="text-xs text-text-dark/60 mt-1">&gt;&gt; Stability</p>
 </div>
 </div>
 </summary>
@@ -347,11 +604,11 @@ h4 + .text-pop-up {
 <div class="border-t border-primary/20 pt-8 mt-8 grid md:grid-cols-2 gap-x-12 gap-y-8 text-sm">
 <div>
 <h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">System Analysis: Root Code</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary font-semibold">[KERNEL_ANALYSIS::INITIATED]</span> The Core Matrix is the fundamental operating system of the Taurus archetype. 'Throat' is the gateway, expressing the voice of Gaia and manifesting intention into form. 'Emerald,' the crystal of growth, symbolizes the heart of nature and the power of patient cultivation. 'Green' is the color of life force, the pulse of abundance. 'Venus' is the architect, weaving beauty and harmony into the material world. 'Earth' is the sacred matter, the living temple. 'Fixed' is the directive, hard-coded for stability and endurance: <span class="font-bold text-green-400 animate-pulse">MANIFEST. CULTIVATE. PRESERVE.</span></p>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary font-semibold">[KERNEL_ANALYSIS::INITIATED]</span> The Core Matrix of Taurus is the foundation of material manifestation. 'Throat' signifies voice, self-worth, and the power to speak value into existence. 'Emerald,' born from Earth's patient pressure, represents enduring beauty and prosperity. 'Green' is the signature of growth, abundance, and natural wealth. 'Venus' serves as the aesthetic processor for pleasure, beauty, and attraction. 'Earth' is the solid foundation, building reality through persistent effort. 'Fixed' is the stability protocol, hard-coded for endurance: <span class="font-bold text-green-400 animate-pulse">BUILD. SUSTAIN. PROSPER.</span></p>
 </div>
 <div>
 <h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Metaphysical Resonance Field</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary font-semibold">[FREQUENCY_CALIBRATION::ACTIVE]</span> These are not just symbols; they are vibrational keys to grounded abundance. Immersing oneself in the 'Green' spectrum, meditating with Emerald, or focusing on the throat chakra amplifies the Taurean frequency in your bio-field. This matrix is a universal blueprint for manifestation, accessible to any soul seeking to embody patience, harmony, and the power of nature’s cycles. It is the universe’s <span class="font-bold text-green-400 animate-pulse">root protocol for materialization.</span></p>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary font-semibold">[FREQUENCY_CALIBRATION::ACTIVE]</span> These elements are vibrational keys to the Taurean frequency. Immersing in the 'Green' spectrum, aligning with Emerald's crystalline wealth, or grounding through the 'Throat' chakra enhances the Taurus resonance within your bio-field. This matrix is a universal pattern for manifestation and stability, a blueprint for any soul seeking to embody security, sensuality, and the abundant power of patient cultivation. It is the universe's building code, the <span class="font-bold text-green-400 animate-pulse">sacred foundation of prosperity.</span></p>
 </div>
 <div class="md:col-span-2">
 <h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Interactive Energy Calibration</h4>
@@ -359,29 +616,29 @@ h4 + .text-pop-up {
 <div class="space-y-3">
 <div class="w-full">
 <div class="flex justify-between text-xs font-mono text-text-dark mb-1">
-<span>PATIENCE</span>
-<span>95%</span>
+<span>MATERIAL STABILITY</span>
+<span>98%</span>
 </div>
 <div class="progress-bar-container h-2.5">
-<div class="progress-bar h-full rounded-full" style="--progress-width: 95%;"></div>
+<div class="progress-bar h-full rounded-full" style="--progress-width: 98%;"></div>
 </div>
 </div>
 <div class="w-full">
 <div class="flex justify-between text-xs font-mono text-text-dark mb-1">
-<span>STABILITY</span>
-<span>90%</span>
+<span>SENSUAL PLEASURE</span>
+<span>92%</span>
 </div>
 <div class="progress-bar-container h-2.5">
-<div class="progress-bar h-full rounded-full" style="--progress-width: 90%;"></div>
+<div class="progress-bar h-full rounded-full" style="--progress-width: 92%;"></div>
 </div>
 </div>
 <div class="w-full">
 <div class="flex justify-between text-xs font-mono text-text-dark mb-1">
-<span>ADAPTABILITY</span>
-<span>40%</span>
+<span>TOLERANCE FOR CHAOS</span>
+<span>20%</span>
 </div>
 <div class="progress-bar-container h-2.5">
-<div class="progress-bar h-full rounded-full" style="--progress-width: 40%;"></div>
+<div class="progress-bar h-full rounded-full" style="--progress-width: 20%;"></div>
 </div>
 </div>
 </div>
@@ -394,22 +651,19 @@ h4 + .text-pop-up {
 <h3 class="text-4xl font-bold font-display mb-8 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Decanic Sub-Rulers</h3>
 <div class="grid md:grid-cols-3 gap-8 font-body text-base leading-relaxed">
 <div class="decan-card p-6 in-view" style="transition-delay: 100ms;">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decan I: The Earth Keeper (0-9°)</h4>
-<p class="text-sm text-text-dark/70 mb-2">Celestial Guardian: Venus in Venus</p>
-<p class="text-text-dark/90 text-sm">The purest expression of Venusian earth magic. These souls are living temples of abundance, natural alchemists who transmute raw matter into beauty. They hold the sacred keys to nature's vault, understanding the deep rhythms of material manifestation. Their presence alone can anchor divine frequencies into physical form.</p>
-<p class="text-xs text-primary/70 mt-2">&lt;ACTIVATION_CODE: ABUNDANCE_MATRIX_PRIME&gt;</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decan I: The Analyst (0-9°)</h4>
+<p class="text-sm text-text-dark/70 mb-2">Sub-ruler: Mercury</p>
+<p class="text-text-dark/90 text-sm">Pure, distilled Virgoan energy. The meticulous organizer, the sharp-witted critic, the master of details. Embodies precision and a love for functional systems.</p>
 </div>
 <div class="decan-card p-6 in-view" style="transition-delay: 200ms;">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decan II: The Sacred Artist (10-19°)</h4>
-<p class="text-sm text-text-dark/70 mb-2">Celestial Guardian: Mercury in Earth</p>
-<p class="text-text-dark/90 text-sm">Here, Mercury's swift intelligence meets Venus's artistry, creating masters of sacred geometry and form. These individuals perceive the mathematical poetry underlying physical reality. They are cosmic craftsmen, weaving matter and meaning into tangible beauty that speaks to both body and soul.</p>
-<p class="text-xs text-primary/70 mt-2">&lt;ACTIVATION_CODE: SACRED_GEOMETRY_WEAVER&gt;</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decan II: The Craftsman (10-19°)</h4>
+<p class="text-sm text-text-dark/70 mb-2">Sub-ruler: Saturn</p>
+<p class="text-text-dark/90 text-sm">Intellect is now channeled into tangible, enduring work. The focus shifts from analysis to mastery and building lasting structures. The drive is for practical, disciplined application.</p>
 </div>
 <div class="decan-card p-6 in-view" style="transition-delay: 300ms;">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decan III: The Wisdom Keeper (20-29°)</h4>
-<p class="text-sm text-text-dark/70 mb-2">Celestial Guardian: Saturn in Earth</p>
-<p class="text-text-dark/90 text-sm">Saturn's disciplined mastery merges with Taurean persistence, creating unshakeable guardians of ancient wisdom. These souls are living libraries of earthly mysteries, understanding that true power comes through patient cultivation. They are the bridge between ancient traditions and future sustainability.</p>
-<p class="text-xs text-primary/70 mt-2">&lt;ACTIVATION_CODE: TIMELESS_GUARDIAN_PROTOCOL&gt;</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decan III: The Alchemist (20-29°)</h4>
+<p class="text-sm text-text-dark/70 mb-2">Sub-ruler: Venus</p>
+<p class="text-text-dark/90 text-sm">Analysis is now elevated by a love of beauty and harmony. This is the Virgoan artist, refining raw material into something of aesthetic and practical value, a fusion of function and form.</p>
 </div>
 </div>
 </div>
@@ -417,64 +671,92 @@ h4 + .text-pop-up {
 <h3 class="text-4xl font-bold font-display mb-8 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Rare Asteroid Connections</h3>
 <div class="grid md:grid-cols-3 gap-12 font-body text-base leading-relaxed pt-10">
 <div class="asteroid-card p-6 text-center rounded-full flex flex-col justify-center items-center aspect-square">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Eris</h4>
-<p class="text-text-dark/80 text-sm">The warrior goddess of discord, amplifying Aries' disruptive, truth-telling nature. Challenges the status quo and reveals inconvenient truths through necessary conflict.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Vesta</h4>
+<p class="text-text-dark/80 text-sm">The high priestess of sacred devotion. Amplifies Virgo's dedication, turning daily tasks into sacred rituals and work into an act of spiritual service.</p>
 </div>
 <div class="asteroid-card p-6 text-center rounded-full flex flex-col justify-center items-center aspect-square">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Pallas Athene</h4>
-<p class="text-text-dark/80 text-sm">The strategist. Infuses the Arien impulse with tactical wisdom, channeling raw power into strategic action. The warrior's mind, seeing the pattern in the chaos.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Ceres</h4>
+<p class="text-text-dark/80 text-sm">The earth mother of harvest and nourishment. Infuses Virgo's practicality with unconditional care, nurturing projects and people toward optimal health.</p>
 </div>
 <div class="asteroid-card p-6 text-center rounded-full flex flex-col justify-center items-center aspect-square">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Hidalgo</h4>
-<p class="text-text-dark/80 text-sm">The relentless quester. Represents the pioneering spirit, the willingness to defy norms and journey into the unknown to uphold a personal code of honor and belief.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Hygieia</h4>
+<p class="text-text-dark/80 text-sm">The goddess of health and hygiene. Represents the Virgoan drive for purity, preventative care, and the maintenance of holistic systems of well-being.</p>
 </div>
 </div>
 </div>
 <div class="content-section" style="animation-delay: 0.9s;">
-<h3 class="text-4xl font-bold font-display mb-4 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Color-Energy Spectrum Visualizer</h3>
-<p class="text-center text-text-dark/80 mb-8 max-w-2xl mx-auto font-body text-sm">
-<span class="text-primary/80">[// INTERACTIVE_INTERFACE //]</span> Move your cursor across the spectrum below to decode the Taurean energy signature. Each shade of green represents a different facet of its power. The light bar indicates your current position on the vibrational scale, revealing the qualities associated with that specific frequency. Engage with the flow to understand the dynamic range of Taurus, from grounded stability to flourishing abundance.
+<h3 class="text-2xl md:text-4xl font-bold font-display mb-4 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Abundance & Stability Spectrum</h3>
+<p class="text-center text-text-dark/80 mb-8 max-w-3xl mx-auto font-body text-sm leading-relaxed">
+<span class="text-primary/80">[// TAURUS_MANIFESTATION_MAP //]</span> Navigate through Taurus' multi-layered material intelligence. This spectrum reveals the sacred journey from grounded presence through patient cultivation to abundant manifestation. Each zone represents a distinct frequency of Venus' wisdom and its practical applications for building lasting value. Move across the spectrum to discover how Taurus' earth-bound stability manifests at different levels of consciousness.
                     </p>
-<div class="relative" id="spectrum-container">
-<div class="color-spectrum h-20 w-full rounded-lg" id="color-spectrum"></div>
-<div class="spectrum-info-container absolute bottom-full mb-2 w-full flex justify-center pointer-events-none" id="spectrum-info-container">
-<div class="p-4 rounded-lg bg-background-dark/80 border border-primary/30 backdrop-blur-sm text-center w-64" id="spectrum-info">
-<h5 class="font-bold text-primary font-display text-lg transition-all duration-200" id="spectrum-title">Mystic Deep Green</h5>
-<p class="text-xs text-text-dark/80 transition-all duration-200" id="spectrum-desc">The core frequency of patience, harmony, and grounded abundance. The anchor of the zodiac.</p>
+<div class="relative mb-8" id="spectrum-container">
+<div class="color-spectrum h-24 md:h-28 w-full rounded-lg shadow-lg" id="color-spectrum"></div>
+<div class="spectrum-info-container absolute bottom-full mb-4 w-full flex justify-center pointer-events-none" id="spectrum-info-container">
+<div class="p-4 md:p-6 rounded-lg bg-background-dark/95 border-2 border-primary/50 backdrop-blur-md shadow-xl text-center max-w-md mx-4" id="spectrum-info">
+<h5 class="font-bold text-primary font-display text-xl md:text-2xl mb-2 transition-all duration-200" id="spectrum-title">Sacred Service</h5>
+<p class="text-sm md:text-base text-text-dark/90 mb-3 transition-all duration-200 leading-relaxed" id="spectrum-desc">The core frequency of devoted work and practical healing.</p>
+<div class="text-xs md:text-sm text-primary/70 font-mono border-t border-primary/30 pt-3" id="spectrum-practical">
+<strong class="text-primary">Practical Application:</strong> <span id="spectrum-action">Organize your workspace for maximum efficiency</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Mercury Intelligence System -->
+<div class="mt-6 p-4 bg-background-dark/50 border border-primary/30 rounded-lg">
+<div class="flex items-center justify-between mb-3">
+<h4 class="font-bold text-primary font-display text-lg">Mercury Intelligence Domains</h4>
+<span class="material-symbols-outlined text-primary" id="venus-icon">favorite</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+<div class="text-center p-3 bg-background-dark/30 rounded border border-primary/20">
+<div class="text-primary/70 font-mono text-xs mb-1">ANALYSIS</div>
+<div class="font-bold text-text-dark">Pattern Recognition</div>
+</div>
+<div class="text-center p-3 bg-background-dark/30 rounded border border-primary/20">
+<div class="text-primary/70 font-mono text-xs mb-1">REFINEMENT</div>
+<div class="font-bold text-text-dark">Process Optimization</div>
+</div>
+<div class="text-center p-3 bg-background-dark/30 rounded border border-primary/20">
+<div class="text-primary/70 font-mono text-xs mb-1">SERVICE</div>
+<div class="font-bold text-text-dark">Practical Healing</div>
+</div>
+<div class="text-center p-3 bg-background-dark/30 rounded border border-primary/20">
+<div class="text-primary/70 font-mono text-xs mb-1">DISCERNMENT</div>
+<div class="font-bold text-text-dark">Quality Control</div>
 </div>
 </div>
 </div>
 </div>
 <details class="group content-section expandable-card" style="animation-delay: 1.0s;">
 <summary class="list-none cursor-pointer">
-<h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary flex items-center justify-between" style="text-shadow: 0 0 15px var(--primary-glow);"><span class="material-symbols-outlined expand-arrow">expand_more</span></h3>
+<h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary flex items-center justify-between" style="text-shadow: 0 0 15px var(--primary-glow);">Shadow Aspects Unveiled<span class="material-symbols-outlined text-3xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
 <div class="grid md:grid-cols-2 gap-8 font-body text-base leading-relaxed">
 <div class="futuristic-card p-6">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Tyrant</h4>
-<p class="text-text-dark/90">When the drive for leadership is corrupted by insecurity, it becomes a need to dominate. The shadow appears as bullying, arrogance, and an inability to consider other perspectives.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Perfectionist</h4>
+<p class="text-text-dark/90">When the drive for improvement is corrupted by anxiety, it becomes a paralyzing perfectionism. The shadow appears as harsh self-criticism and an inability to start or finish out of fear of imperfection.</p>
 </div>
 <div class="futuristic-card p-6">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Burnout</h4>
-<p class="text-text-dark/90">The endless forward momentum, without respecting cycles of rest, leads to system collapse. The shadow is a flash-in-the-pan, starting projects with explosive energy but lacking the stamina to finish.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Worrier</h4>
+<p class="text-text-dark/90">The analytical mind, without a grounding in faith, can catastrophize. The shadow is a system over-run with anxiety, constantly scanning for future problems and overlooking present joys.</p>
 </div>
 </div>
 </summary>
 <div class="expandable-card-content px-6">
 <div class="border-t border-primary/20 pt-8 mt-8 grid md:grid-cols-2 gap-x-12 gap-y-8 text-sm">
 <div>
-<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Integration Path: Conscious Leadership</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[EGO_MODULATION::REQUIRED]</span> The antidote to tyranny is service. The evolved Aries understands that true strength lies not in overpowering others, but in empowering them. Their force becomes a shield for the vulnerable, their fire a beacon for the lost. By championing a cause greater than their own ego, domination sublimates into a noble, protective instinct. <span class="font-bold text-green-400 animate-pulse">Thus, raw power is refined into true authority.</span></p>
+<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Integration Path: Wabi-Sabi Wisdom</h4>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[ANXIETY_MODULATION::REQUIRED]</span> The antidote to perfectionism is embracing the beauty of imperfection (Wabi-Sabi). The evolved Virgo understands that flaws are signatures of authenticity. By focusing on process over outcome and service over self-evaluation, criticism transmutes into compassionate discernment. <span class="font-bold text-green-400 animate-pulse">Thus, purity is found not in flawlessness, but in honest effort.</span></p>
 </div>
 <div>
-<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Integration Path: Sustainable Fire</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[ENERGY_MANAGEMENT::CRITICAL]</span> The shadow of burnout is healed by embracing wisdom from its opposite sign, Libra. Through partnership and diplomacy, Aries learns that a shared flame burns longer and brighter. By learning the value of pause, reflection, and collaboration, the wildfire transforms into a life-giving hearth. <span class="font-bold text-green-400 animate-pulse">The explosive sprint evolves into a victorious marathon.</span></p>
+<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Integration Path: Sacred Surrender</h4>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[FAITH_PROTOCOL::CRITICAL]</span> The shadow of worry is healed by embracing wisdom from its opposite sign, Pisces. Through faith and surrender to a higher order, Virgo learns that not every variable can or should be controlled. By releasing the need to analyze every possibility, the mind finds peace. <span class="font-bold text-green-400 animate-pulse">The meticulous plan evolves into a sacred trust.</span></p>
 </div>
 <div class="md:col-span-2 pt-4">
 <div class="flex items-center gap-6 p-4 rounded-lg bg-background-dark/30 border border-primary/20">
 <span class="material-symbols-outlined text-5xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">model_training</span>
 <div>
 <h5 class="font-bold font-display text-primary/90 text-lg">Shadow Integration Exercise</h5>
-<p class="text-sm text-text-dark/90 leading-relaxed">Next time you feel the surge of impatience, pause. Ask: "Is this my fire to burn alone, or can this flame warm others?" This simple query reroutes the impulsive circuit into a collaborative one, shifting the focus from 'I must win' to 'We must succeed'.</p>
+<p class="text-sm text-text-dark/90 leading-relaxed">Next time you feel the urge to over-analyze, pause. Ask: "What is one small, imperfect action I can take right now to be helpful?" This simple query reroutes the analytical loop into productive service, shifting the focus from 'Is it perfect?' to 'Is it useful?'.</p>
 </div>
 </div>
 </div>
@@ -482,112 +764,106 @@ h4 + .text-pop-up {
 </div>
 </details>
 <div class="content-section chiron-card p-8" style="animation-delay: 1.1s;">
-<h3 class="text-4xl font-bold font-display mb-4 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Chiron in Aries: The Wounded Warrior</h3>
+<h3 class="text-4xl font-bold font-display mb-4 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Chiron in Virgo: The Wounded Healer</h3>
 <div class="grid md:grid-cols-3 gap-8">
 <div class="md:col-span-2">
-<p class="text-text-dark/90 leading-relaxed">Chiron, the "Wounded Healer," points to our deepest core wound. In Aries, this is the wound of the right to exist, of identity, and of personal will. Individuals with this placement may feel a profound lack of self-worth, a fear of asserting themselves, or a sense of being invisible. The healing journey involves courageously forging an identity, fighting for one's own existence, and learning that their survival and self-assertion is a gift to the world. By healing their own wound of being, they become master healers for others who struggle to claim their place, teaching courage by <span class="font-bold text-primary/80 animate-pulse">embodying it.</span></p>
+<p class="text-text-dark/90 leading-relaxed">Chiron in Virgo points to a core wound around purity, order, and self-worth. Individuals with this placement may feel chronically flawed, imperfect, or never "good enough." They may struggle with health anxieties or chaotic lifestyles. The healing journey involves accepting their own humanity, embracing imperfection, and learning that their greatest gift lies in helping others organize and heal their lives. By healing their own wound of inadequacy, they become master healers for those who feel broken, teaching wholeness by <span class="font-bold text-primary/80 animate-pulse">embodying compassionate service.</span></p>
 </div>
 <div class="flex items-center justify-center">
-<span class="material-symbols-outlined text-8xl text-primary/70" style="filter: drop-shadow(0 0 10px var(--primary-glow));">healing</span>
+<span class="material-symbols-outlined text-8xl text-primary/70" style="filter: drop-shadow(0 0 10px var(--primary-glow));">health_and_safety</span>
 </div>
 </div>
 </div>
 <div class="content-section text-center" style="animation-delay: 1.2s;">
 <h3 class="text-4xl font-bold font-display mb-8 border-b-2 border-primary/50 pb-3 text-primary" style="text-shadow: 0 0 15px var(--primary-glow);">Zodiacal Archetype Cross-Reference</h3>
-<div class="flex justify-center items-center flex-wrap gap-12 md:gap-20 pt-4">
-    <details class="archetype-item">
-        <summary class="archetype-icon">
-            <span class="material-symbols-outlined text-6xl text-primary cursor-pointer">military_tech</span>
-        </summary>
-        <div class="archetype-info w-56 p-4 rounded-xl bg-background-dark/90 border border-primary/50 backdrop-blur-md">
-            <h5 class="font-bold font-display text-primary">The Warrior</h5>
-            <p class="text-xs text-text-dark/80">The universal archetype of courage, action, and conflict. Found in figures like Ares (Greek), Mars (Roman), and the knight-errant.</p>
-        </div>
-    </details>
-    <span class="material-symbols-outlined text-4xl text-primary/50">link</span>
-    <details class="archetype-item">
-        <summary class="archetype-icon">
-            <span class="material-symbols-outlined text-6xl text-primary cursor-pointer">bolt</span>
-        </summary>
-        <div class="archetype-info w-56 p-4 rounded-xl bg-background-dark/90 border border-primary/50 backdrop-blur-md">
-            <h5 class="font-bold font-display text-primary">The Pioneer</h5>
-            <p class="text-xs text-text-dark/80">The trailblazer who ventures into the unknown. The explorer, the inventor, the one who dares to go first.</p>
-        </div>
-    </details>
-    <span class="material-symbols-outlined text-4xl text-primary/50">link</span>
-    <details class="archetype-item">
-        <summary class="archetype-icon">
-            <span class="material-symbols-outlined text-6xl text-primary cursor-pointer">child_care</span>
-        </summary>
-        <div class="archetype-info w-56 p-4 rounded-xl bg-background-dark/90 border border-primary/50 backdrop-blur-md">
-            <h5 class="font-bold font-display text-primary">The Divine Child</h5>
-            <p class="text-xs text-text-dark/80">Represents pure potential, new beginnings, and the innocence that allows for fearless action. The birth of a new cycle.</p>
-        </div>
-    </details>
+<div class="flex justify-center items-center gap-12 md:gap-20 pt-4">
+<div class="archetype-link">
+<span class="material-symbols-outlined text-6xl text-primary cursor-pointer">spa</span>
+<div class="archetype-info w-56 p-4 rounded-xl bg-background-dark/90 border border-primary/50 backdrop-blur-md">
+<h5 class="font-bold font-display text-primary">The Healer</h5>
+<p class="text-xs text-text-dark/80">The universal archetype of purification, medicine, and restoration. Found in figures like Hygieia (Greek) and the wise herbalist.</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-4xl text-primary/50">link</span>
+<div class="archetype-link">
+<span class="material-symbols-outlined text-6xl text-primary cursor-pointer">engineering</span>
+<div class="archetype-info w-56 p-4 rounded-xl bg-background-dark/90 border border-primary/50 backdrop-blur-md">
+<h5 class="font-bold font-display text-primary">The Artisan</h5>
+<p class="text-xs text-text-dark/80">The meticulous craftsperson who hones their skill to perfection. The scribe, the weaver, the master of a sacred trade.</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-4xl text-primary/50">link</span>
+<div class="archetype-link">
+<span class="material-symbols-outlined text-6xl text-primary cursor-pointer">real_estate_agent</span>
+<div class="archetype-info w-56 p-4 rounded-xl bg-background-dark/90 border border-primary/50 backdrop-blur-md">
+<h5 class="font-bold font-display text-primary">The Servant</h5>
+<p class="text-xs text-text-dark/80">Represents selfless devotion and humility. The one who finds sacred purpose in being of practical use to others.</p>
+</div>
+</div>
 </div>
 </div>
 <div class="space-y-16">
 <details class="group content-section expandable-card" style="animation-delay: 0.8s;">
 <summary class="list-none cursor-pointer">
-<h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary flex items-center justify-between" style="text-shadow: 0 0 15px var(--primary-glow);"><span class="material-symbols-outlined expand-arrow">expand_more</span></h3>
+<h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary flex items-center justify-between" style="text-shadow: 0 0 15px var(--primary-glow);">Operational Directives <span class="material-symbols-outlined text-3xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
 <div class="grid md:grid-cols-3 gap-8 font-body text-base leading-relaxed">
 <div class="icon-card p-6 flex flex-col items-center text-center rounded-lg" style="clip-path: polygon(0 15px, 15px 0, 100% 0, 100% 100%, 0 100%);">
-<span class="material-symbols-outlined text-4xl text-primary mb-3" style="filter: drop-shadow(0 0 8px var(--primary-glow));">local_florist</span>
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Strength: Raw Power</h4>
-<p class="text-text-dark/80 text-sm">Unfiltered energy for initiating projects, overcoming obstacles, and inspiring action. The first spark that ignites the flame.</p>
+<span class="material-symbols-outlined text-4xl text-primary mb-3" style="filter: drop-shadow(0 0 8px var(--primary-glow));">psychology</span>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Strength: Analysis</h4>
+<p class="text-text-dark/80 text-sm">A superior ability to discern patterns, identify flaws, and create efficient systems. The master diagnostician of the zodiac.</p>
 </div>
 <div class="icon-card p-6 flex flex-col items-center text-center rounded-lg" style="clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 0 100%);">
 <span class="material-symbols-outlined text-4xl text-primary mb-3" style="filter: drop-shadow(0 0 8px var(--primary-glow));">error</span>
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Challenge: Impatience</h4>
-<p class="text-text-dark/80 text-sm">A desire for immediate results can lead to frustration and a tendency to abandon projects that require long-term cultivation.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Challenge: Criticism</h4>
+<p class="text-text-dark/80 text-sm">A tendency to focus on flaws can manifest as nagging or harsh judgment of self and others, missing the bigger picture.</p>
 </div>
 <div class="icon-card p-6 flex flex-col items-center text-center rounded-lg" style="clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);">
 <span class="material-symbols-outlined text-4xl text-primary mb-3" style="filter: drop-shadow(0 0 8px var(--primary-glow));">favorite</span>
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Love: Passionate Pursuit</h4>
-<p class="text-text-dark/80 text-sm">In romance, Aries is a direct and enthusiastic pursuer, valuing honesty and excitement in a partner who can match their energy.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Love: Devoted Service</h4>
+<p class="text-text-dark/80 text-sm">In romance, Virgo shows love through practical acts of care, valuing a partner who appreciates their effort and offers gentle reassurance.</p>
 </div>
 </div>
 </summary>
 <div class="expandable-card-content px-6">
 <div class="border-t border-primary/20 pt-8 mt-8 grid md:grid-cols-3 gap-x-12 gap-y-8 text-sm">
 <div>
-<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Deep Dive: Power Protocol</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[POWER_CORE::ONLINE]</span> Arien strength is a volcanic, promethean force—a raw, creative fire erupting from the soul's core. It excels in crisis by bypassing analytical paralysis and acting on pure, divine instinct. The evolutionary task is to transition from being a vessel for this fire to becoming its conscious, masterful conduit. Unchanneled, it leads to destruction. Channeled, it holds the power to <span class="font-bold text-green-400 animate-pulse">forge new realities.</span></p>
+<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Deep Dive: Analysis Protocol</h4>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[DIAGNOSTIC_CORE::ONLINE]</span> Virgoan analysis is a form of sacred geometry—seeing the divine order within chaos. It excels at breaking down complex systems into their component parts to identify and correct inefficiencies. The evolutionary task is to transition from merely finding flaws to architecting elegant, functional solutions. Unchanneled, it leads to nit-picking. Channeled, it holds the power to <span class="font-bold text-green-400 animate-pulse">heal broken systems.</span></p>
 </div>
 <div>
-<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Deep Dive: Impatience Algorithm</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[TEMPORAL_FLUX::DETECTED]</span> This is a feature, not a flaw. Aries operates on a quantum timeline where intention and manifestation are meant to be instantaneous. The maddening frustration of "waiting" is a system error triggered by interfacing with linear, 3D time. The spiritual mission is to understand that linear processes—the patient grind of reality—give the explosive spark its lasting form. The spark must learn to <span class="font-bold text-green-400 animate-pulse">honor the vessel it ignites.</span></p>
+<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Deep Dive: Criticism Algorithm</h4>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[ERROR_LOG::DETECTED]</span> This is a feature, not a flaw. Virgo possesses a high-resolution perception field, designed to detect dissonance. The frustration of "imperfection" is a system error triggered by an uncalibrated ideal. The spiritual mission is to understand that the purpose of identifying a flaw is not to condemn, but to offer a path to greater harmony. The critic must learn to <span class="font-bold text-green-400 animate-pulse">become a compassionate editor.</span></p>
 </div>
 <div>
 <h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Deep Dive: Relational Dynamics</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[HEART_DRIVE::ACTIVE]</span> The Arien pursuit is not a hunt, but a sacred quest for a soul who can both withstand their radiant intensity and sharpen their spirit. A relationship devoid of passionate debate, fiery reconciliations, and mutual challenge is a dead zone. They fall in love with the reflection of their own untapped potential in another's eyes, seeking a partner who can <span class="font-bold text-green-400 animate-pulse">meet their fire with an equal flame.</span></p>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[DEVOTION_DRIVE::ACTIVE]</span> The Virgoan expression of love is a quiet, consistent rhythm of thoughtful acts. It is not a grand declaration, but a sacred contract of mutual support. They fall in love with the process of helping a partner become the best version of themselves, seeking someone who sees their service not as a duty, but as a <span class="font-bold text-green-400 animate-pulse">language of profound love.</span></p>
 </div>
 </div>
 </div>
 </details>
 <details class="group content-section expandable-card" style="animation-delay: 1.0s;">
 <summary class="list-none cursor-pointer">
-<h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary flex items-center justify-between" style="text-shadow: 0 0 15px var(--primary-glow);">The Bull's Paradox <span class="material-symbols-outlined expand-arrow">expand_more</span></h3>
+<h3 class="text-4xl font-bold font-display mb-6 border-b-2 border-primary/50 pb-3 text-primary flex items-center justify-between" style="text-shadow: 0 0 15px var(--primary-glow);">The Maiden's Paradox <span class="material-symbols-outlined text-3xl text-primary/70 expand-icon transition-transform duration-400 group-open:rotate-45">add</span></h3>
 <div class="grid md:grid-cols-2 gap-8 font-body text-base leading-relaxed">
 <div class="futuristic-card p-6">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Fearless Child</h4>
-<p class="text-text-dark/90">Beneath the armor of confidence lies profound innocence. As the zodiac's genesis, Aries views existence with untainted trust, making them powerful initiators but also vulnerable to betrayals that shatter their optimistic worldview.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Sensual Puritan</h4>
+<p class="text-text-dark/90">Beneath the reserved exterior lies a deep appreciation for earthly pleasures. As a grounded Earth sign, Virgo finds sacredness in the physical world, yet their pursuit of purity can create a tension with their own sensual nature.</p>
 </div>
 <div class="futuristic-card p-6">
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Impulsive Strategist</h4>
-<p class="text-text-dark/90">Often dismissed as mere impulsivity, the Arien drive is a form of high-speed strategic processing. They instinctively compute risk versus reward, identifying the most direct path to victory—a quantum leap in tactical decision-making.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Humble Leader</h4>
+<p class="text-text-dark/90">Often avoiding the spotlight, Virgo's leadership is one of quiet competence. They create order from chaos behind the scenes, their influence rooted in mastery and reliability rather than overt command—a form of invisible power.</p>
 </div>
 </div>
 </summary>
 <div class="expandable-card-content px-6">
 <div class="border-t border-primary/20 pt-8 mt-8 grid md:grid-cols-2 gap-x-12 gap-y-8 text-sm">
 <div>
-<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Paradox Resolution: The Sacred Wound</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[TRANSMUTATION_PROTOCOL::ENGAGED]</span> The vulnerability of the 'Fearless Child' is its ultimate power source. Each betrayal and shattered illusion is a crucible, forging the raw iron of innocence into the tempered steel of wisdom. Their greatest strength is born from their deepest wounds, transmuting the lead of pain into the gold of resilience. The scar tissue becomes the armor, each mark a testament to battles won. <span class="font-bold text-green-400 animate-pulse">Innocence is not lost, but fortified into wisdom.</span></p>
+<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Paradox Resolution: The Sacred Body</h4>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[TRANSMUTATION_PROTOCOL::ENGAGED]</span> The path to resolving this tension is to see the body as a sacred temple, not a source of imperfection. By treating physical experience—food, touch, nature—as a form of communion, the Puritanical instinct is sanctified. Their greatest power is born from this integration, transmuting shame into reverence. <span class="font-bold text-green-400 animate-pulse">The body is not to be transcended, but honored.</span></p>
 </div>
 <div>
-<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Paradox Resolution: Instinct as Intelligence</h4>
-<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[QUANTUM_LOGIC::EXECUTED]</span> The 'Impulsive Strategist' operates on a logic that precedes thought—the intelligence of the body, the certainty of a lightning strike before thunder is heard. Demanding a linear explanation for their actions is like asking a supernova to justify its explosion. The proof is not in the process, but in the glorious result: a new reality forged, a path cleared, a future created. Their instinct is a <span class="font-bold text-green-400 animate-pulse">direct line to universal truth.</span></p>
+<h4 class="font-bold text-xl text-primary font-display mb-3 tracking-wider">Paradox Resolution: Service as Authority</h4>
+<p class="leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[SYSTEM_LOGIC::EXECUTED]</span> The 'Humble Leader' operates on a logic that inverts traditional power structures—the greatest authority is the greatest servant. Their power is not asserted, but earned through undeniable competence and unwavering dedication. The proof is not in the title, but in the seamless functioning of the system they maintain. Their humility is a <span class="font-bold text-green-400 animate-pulse">direct line to authentic influence.</span></p>
 </div>
 </div>
 </div>
@@ -598,13 +874,14 @@ h4 + .text-pop-up {
 <details class="dynamic-card" style="animation-delay: 0s;">
 <summary class="p-6 flex flex-col items-center text-center cursor-pointer list-none">
 <div class="flex items-center justify-between w-full mb-3">
-<span class="material-symbols-outlined expand-arrow">expand_more</span>
+<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">local_florist</span>
+<span class="material-symbols-outlined text-2xl text-primary/70 expand-icon">add</span>
 </div>
 <h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Career Trajectory</h4>
-<p class="text-text-dark/80 text-sm">Thrives in roles requiring leadership, innovation, and quick decisions. Entrepreneurship, emergency services, and competitive sports are natural arenas.</p>
+<p class="text-text-dark/80 text-sm">Thrives in roles requiring precision, organization, and service. Healing arts, research, data analysis, and craft-based professions are natural arenas.</p>
 </summary>
 <div class="dynamic-card-content px-6 pb-6 text-left">
-<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[ASCENSION_VECTOR::PLOTTED]</span> The Arien professional is a catalyst, a system-shaker sent to shatter stagnant ecosystems. They do not climb the corporate ladder; they build a new one, or a rocket ship to bypass it entirely. Their challenge lies in channeling explosive, project-launching energy into sustainable, long-term ventures. They must learn to transform a meteor’s brilliant, momentary flash into a star’s enduring, generative light. <span class="font-bold text-green-400 animate-pulse">Their purpose is not just to start, but to inspire what lasts.</span></p>
+<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[ASCENSION_VECTOR::PLOTTED]</span> The Virgoan professional is a system optimizer, a master craftsperson sent to bring order and functionality to chaotic environments. They do not seek to disrupt, but to refine and perfect existing structures. Their challenge lies in trusting their own expertise and avoiding being relegated to a perpetual support role. They must learn to own their mastery and see their skill not as mere labor, but as invaluable art. <span class="font-bold text-green-400 animate-pulse">Their purpose is not just to fix, but to elevate.</span></p>
 </div>
 </details>
 <details class="dynamic-card" style="--angle: 120deg; animation-delay: -3.33s;">
@@ -614,10 +891,10 @@ h4 + .text-pop-up {
 <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon">add</span>
 </div>
 <h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Defensive Protocol</h4>
-<p class="text-text-dark/80 text-sm">When challenged, the Ram lowers its horns. This manifests as direct confrontation, an overwhelming offense aimed at resolving conflict with speed and finality.</p>
+<p class="text-text-dark/80 text-sm">When challenged, Virgo retreats to analyze. The defense is a barrage of logic, facts, and critical analysis aimed at deconstructing the opponent's argument.</p>
 </summary>
 <div class="dynamic-card-content px-6 pb-6 text-left">
-<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[THREAT_RESPONSE::ACTIVATED]</span> This protocol is not simple aggression; it is a truth-seeking missile system. The Arien "attack" is designed to incinerate ambiguity, deceit, and passive-aggression to expose the absolute core of a conflict. Their confrontation is a purification by fire, restoring integrity and clarity, even if the process is brutal. They would rather face a painful, cleansing truth than exist in a comfortable, septic lie. <span class="font-bold text-green-400 animate-pulse">Conflict is a crucible for forging clarity.</span></p>
+<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[THREAT_RESPONSE::ACTIVATED]</span> This protocol is not malice; it is a diagnostic tool. The Virgoan "attack" is designed to stress-test an argument, exposing its flaws and inconsistencies to arrive at a more precise truth. Their criticism is a purification by intellect, restoring order and reason, even if the process feels cold. They would rather face a meticulous, sterile truth than exist in a comforting, flawed fantasy. <span class="font-bold text-green-400 animate-pulse">Analysis is a scalpel for revealing truth.</span></p>
 </div>
 </details>
 <details class="dynamic-card" style="--angle: 240deg; animation-delay: -6.66s;">
@@ -627,10 +904,10 @@ h4 + .text-pop-up {
 <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon">add</span>
 </div>
 <h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Social Dynamics</h4>
-<p class="text-text-dark/80 text-sm">As leader of the pack, Aries gravitates to the center. They are the friend who suggests the adventure, starts the party, and motivates the group into action.</p>
+<p class="text-text-dark/80 text-sm">As the helper of the group, Virgo offers practical support. They are the friend who plans the itinerary, brings the first-aid kit, and remembers everyone's dietary needs.</p>
 </summary>
 <div class="dynamic-card-content px-6 pb-6 text-left">
-<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[CATALYST_MODULE::ONLINE]</span> In any social matrix, the Arien's function is that of the catalyst. They transmute the group's potential energy into vibrant, kinetic experience, challenging the inertia of complacency. Their presence pushes friends to face fears, demand a raise, book the flight, start the business. To be in their orbit is to be perpetually invited to become a more courageous, authentic version of yourself. <span class="font-bold text-green-400 animate-pulse">They are the living embodiment of "carpe diem."</span></p>
+<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[SUPPORT_MODULE::ONLINE]</span> In any social matrix, the Virgoan's function is that of the stabilizer. They transmute the group's chaotic energy into a smooth, functional experience, mitigating potential problems before they arise. Their presence allows friends to relax, knowing the details are handled. To be in their orbit is to be gently guided toward a more organized, healthy, and considered way of being. <span class="font-bold text-green-400 animate-pulse">They are the living embodiment of "God is in the details."</span></p>
 </div>
 </details>
 </div>
@@ -641,14 +918,14 @@ h4 + .text-pop-up {
 <details class="dynamic-card" style="--angle: 60deg; animation-delay: -1.66s;">
 <summary class="p-6 flex flex-col items-center text-center cursor-pointer list-none">
 <div class="flex items-center justify-between w-full mb-3">
-<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">compost</span>
+<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">grass</span>
 <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon">add</span>
 </div>
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Decanic Rulers</h4>
-<p class="text-text-dark/80 text-sm">Aries is split into three decans: Mars/Mars (pure warrior), Mars/Sun (charismatic leader), and Mars/Jupiter (adventurous pioneer).</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Sheaf of Wheat</h4>
+<p class="text-text-dark/80 text-sm">The symbol of Virgo isn't just a maiden, but one holding a sheaf of wheat, representing the harvest and the ability to discern the useful from the useless.</p>
 </summary>
 <div class="dynamic-card-content px-6 pb-6 text-left">
-<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80">[EVOLUTIONARY_PATH::MAPPED]</span> These are not mere subdivisions, but a sacred, evolutionary trinity of the soul. The first decan (Mars/Mars) is the raw, untamed impulse. The second (Mars/Sun) channels that impulse into a coherent, radiant identity. The third (Mars/Jupiter) transcends personal ambition to expand horizons for the collective, seeking new worlds of thought, philosophy, and experience for all. It is the journey from pure warrior to <span class="font-bold text-green-400 animate-pulse">visionary trailblazer.</span></p>
+<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80">[EXTRACTION_PROTOCOL::MAPPED]</span> This is the core algorithm of Virgo: to harvest wisdom from experience. The wheat represents the nourishing essence, while the chaff represents the distracting, unhelpful details. The Virgoan mind is a divine thresher, separating what truly matters from what doesn't. This isn't about mere organization, but about extracting spiritual and practical sustenance from the raw data of life. It is the journey from information to <span class="font-bold text-green-400 animate-pulse">distilled wisdom.</span></p>
 </div>
 </details>
 <details class="dynamic-card" style="--angle: 180deg; animation-delay: -5s;">
@@ -657,24 +934,24 @@ h4 + .text-pop-up {
 <span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">psychology</span>
 <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon">add</span>
 </div>
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Exaltation of the Sun</h4>
-<p class="text-text-dark/80 text-sm">The Sun is "exalted" in Aries, meaning ego and life force find their most powerful expression here—a stellar engine at maximum output.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">Exaltation of Mercury</h4>
+<p class="text-text-dark/80 text-sm">Mercury is "exalted" in Virgo, meaning the intellect and communication find their most precise, practical expression here—a supercomputer for the real world.</p>
 </summary>
 <div class="dynamic-card-content px-6 pb-6 text-left">
-<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[SOLAR_FLARE::WARNING]</span> This exaltation is a double-edged celestial sword. It bestows supernatural confidence and vitality, but also presents the ultimate test: to wield immense personal power without being consumed by it. The unevolved Arien Sun manifests as tyranny and unchecked ego. The evolved Arien Sun becomes a lighthouse, a beacon of unwavering purpose that guides others through darkness, inspiring them with its own <span class="font-bold text-green-400 animate-pulse">incorruptible flame.</span></p>
+<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[NEURAL_PROCESSOR::MAX_CAPACITY]</span> This exaltation is a double-edged scalpel. It bestows superior analytical and diagnostic abilities, but also presents the ultimate test: to use the intellect for service, not for anxiety or judgment. The unevolved Virgoan Mercury manifests as analysis-paralysis and incessant worry. The evolved Virgoan Mercury becomes a master diagnostician, a gifted teacher, and a clear channel for <span class="font-bold text-green-400 animate-pulse">practical, healing wisdom.</span></p>
 </div>
 </details>
 <details class="dynamic-card" style="--angle: 300deg; animation-delay: -8.33s;">
 <summary class="p-6 flex flex-col items-center text-center cursor-pointer list-none">
 <div class="flex items-center justify-between w-full mb-3">
-<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">brightness_alert</span>
+<span class="material-symbols-outlined text-4xl text-primary" style="filter: drop-shadow(0 0 8px var(--primary-glow));">troubleshoot</span>
 <span class="material-symbols-outlined text-2xl text-primary/70 expand-icon">add</span>
 </div>
-<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Ram's Blind Spot</h4>
-<p class="text-text-dark/80 text-sm">A ram's blind spot is directly behind it. Astrologically, this means Aries can overlook consequences—a "charge first, check damage later" system.</p>
+<h4 class="font-bold text-xl mb-2 font-display text-primary tracking-wider">The Sixth House Link</h4>
+<p class="text-text-dark/80 text-sm">Virgo governs the 6th House of daily routines, health, and service. This imbues the sign with a deep connection to the sacredness of everyday work.</p>
 </summary>
 <div class="dynamic-card-content px-6 pb-6 text-left">
-<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[SYSTEM_OVERRIDE::FORWARD_MOMENTUM]</span> This is not a flaw, but a critical feature of their pioneering function. To hesitate, to over-analyze the past, is to lose the divine spark of the present moment. Their cosmic duty is to initiate, not to manage the aftermath. True wisdom for Aries lies not in slowing their charge, but in assembling a trusted team to handle the fallout, allowing the Ram to continue its vital work on the front lines of creation. <span class="font-bold text-green-400 animate-pulse">Their focus is always the next horizon.</span></p>
+<p class="text-sm border-t border-primary/20 pt-4 mt-4 leading-relaxed expanded-content-text-gradient"><span class="text-primary/80 font-semibold">[SYSTEM_MAINTENANCE::RITUALIZED]</span> This is not about mundane chores, but about sanctifying the mundane. For Virgo, the daily grind is a spiritual practice, a moving meditation. Their cosmic duty is to reveal that enlightenment is found not in escaping the world, but in perfecting one's engagement with it. True wisdom for Virgo lies in understanding that how you do one thing is how you do everything. <span class="font-bold text-green-400 animate-pulse">Their focus is always on refining the present moment.</span></p>
 </div>
 </details>
 </div>
@@ -686,28 +963,33 @@ h4 + .text-pop-up {
 <summary class="flex cursor-pointer list-none items-center justify-between p-4 font-bold text-xl font-display text-primary tracking-wider transition-all duration-300">
                                     Mythological Subroutine
                                     <div class="text-primary transition-transform duration-300 group-open:rotate-90">
-<svg class="feather feather-chevron-right" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
+<svg class="feather feather-chevron-right" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
 </div>
 </summary>
-<div class="px-4 pb-4 text-base overflow-hidden transition-all duration-500 ease-in-out accordion-content">
-<p class="leading-relaxed expanded-content-text-gradient">Linked to Chrysomallos, the golden-fleeced ram of myth, this subroutine subverts the simplistic 'aggressor' stereotype. It recasts the Arien archetype as a heroic rescuer, a symbol of divine intervention, and the courage required for high-stakes missions. This reveals the core code is not merely 'attack', but <span class="font-bold text-green-400 animate-pulse">'breakthrough'</span>—shattering obstacles to achieve salvation for oneself and others. The fleece represents a prize that is not just won, but is transformative in its own right, a mantle of leadership and sacred authority.</p>
+<div class="px-4 pb-4 text-base overflow-hidden transition-all duration-500 ease-in-out max-h-screen group-open:max-h-screen">
+<p class="leading-relaxed expanded-content-text-gradient">Linked to Astraea, the celestial virgin who was the last of the immortals to leave Earth as humanity fell from grace. This subroutine recasts the Virgoan archetype as a keeper of purity and divine order in a flawed world. It reveals the core code is not merely 'critique', but <span class="font-bold text-green-400 animate-pulse">'to hold a standard'</span>—maintaining a vision of what is possible, even amid chaos. The Maiden represents the incorruptible part of the soul, a reminder of the sacred potential within all things.</p>
 </div>
 </details>
 <details class="group accordion-item">
 <summary class="flex cursor-pointer list-none items-center justify-between p-4 font-bold text-xl font-display text-primary tracking-wider transition-all duration-300">
-<div class="px-4 pb-4 text-base overflow-hidden transition-all duration-500 ease-in-out max-h-0 group-open:max-h-screen accordion-content">
-<p class="leading-relaxed expanded-content-text-gradient">0° Aries is the vernal equinox, the absolute genesis point of the entire zodiacal matrix. Planets positioned here do not just express their energy; they broadcast it on a global frequency. Actions taken by these natives often have unforeseen, widespread public impact, rippling across the collective consciousness. They are system-level initiators, here to spark change not just in their own lives, but on a mass scale. Their personal journey becomes, intentionally or not, a <span class="font-bold text-green-400 animate-pulse">catalyst for planetary awakening.</span></p>
+                                    The "Axis of Service" Protocol
+                                    <div class="text-primary transition-transform duration-300 group-open:rotate-90">
+<svg class="feather feather-chevron-right" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
+</div>
+</summary>
+<div class="px-4 pb-4 text-base overflow-hidden transition-all duration-500 ease-in-out max-h-0 group-open:max-h-screen">
+<p class="leading-relaxed expanded-content-text-gradient">The Virgo-Pisces axis is the spine of the zodiac, connecting the practical with the mystical. Virgo grounds spiritual ideals (Pisces) in tangible reality, while Pisces gives Virgo's practical work a sense of divine purpose. Natives with strong placements on this axis are here to bridge worlds, to be "practical mystics." Their mission is to demonstrate that true service is both earthly and divine, a marriage of meticulous skill and boundless compassion. Their life's work is a <span class="font-bold text-green-400 animate-pulse">prayer in motion.</span></p>
 </div>
 </details>
 <details class="group accordion-item">
 <summary class="flex cursor-pointer list-none items-center justify-between p-4 font-bold text-xl font-display text-primary tracking-wider transition-all duration-300">
                                      Compatibility Patches
                                     <div class="text-primary transition-transform duration-300 group-open:rotate-90">
-<svg class="feather feather-chevron-right" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
+<svg class="feather feather-chevron-right" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
 </div>
 </summary>
-<div class="px-4 pb-4 text-base overflow-hidden transition-all duration-500 ease-in-out max-h-0 group-open:max-h-screen accordion-content">
-<p class="leading-relaxed expanded-content-text-gradient">While instinctively favoring the high-energy synergy of fellow Fire signs (Leo, Sagittarius) and the intellectual stimulation of Air signs (Gemini, Libra, Aquarius), Aries achieves profound growth through high-friction pairings. Water signs (Cancer, Pisces) install critical 'emotional depth' and 'empathy' modules, teaching the Ram that vulnerability is a superpower. Earth signs (Capricorn, Taurus) provide the 'structural integrity' patch, grounding Arien ambition and manifesting their brilliant ideas into lasting, tangible legacies. <span class="font-bold text-green-400 animate-pulse">True evolution requires dynamic tension.</span></p>
+<div class="px-4 pb-4 text-base overflow-hidden transition-all duration-500 ease-in-out max-h-0 group-open:max-h-screen">
+<p class="leading-relaxed expanded-content-text-gradient">While instinctively favoring the stability of fellow Earth signs (Taurus, Capricorn) and the deep connection of Water signs (Cancer, Scorpio), Virgo achieves profound growth through high-friction pairings. Fire signs (Aries, Leo) install critical 'spontaneity' and 'self-confidence' modules, teaching the Maiden to trust their instincts over their analysis. Air signs (Gemini, Aquarius) provide the 'big picture' patch, liberating Virgoan intellect from the weeds of detail and applying it to broader, more innovative concepts. <span class="font-bold text-green-400 animate-pulse">True evolution requires dynamic tension.</span></p>
 </div>
 </details>
 </div>
@@ -722,6 +1004,7 @@ h4 + .text-pop-up {
 <p class="text-sm mt-2 text-primary/50 tracking-wider">&gt;&gt; FOR_GROWTH_AND_KNOWLEDGE_PURPOSE &lt;&lt;</p>
 </div>
 </footer>
+</div>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         let mouseX = window.innerWidth / 2;
@@ -745,96 +1028,88 @@ h4 + .text-pop-up {
         document.addEventListener('scroll', handleScroll);
         // Initial call
         updateStyles();
-        // Spectrum Visualizer Logic
+        // Enhanced Analytical Mastery Spectrum Visualizer
         const spectrum = document.getElementById('color-spectrum');
         const spectrumInfo = document.getElementById('spectrum-info');
         const spectrumTitle = document.getElementById('spectrum-title');
         const spectrumDesc = document.getElementById('spectrum-desc');
+        const spectrumAction = document.getElementById('spectrum-action');
+        const venusIcon = document.getElementById('venus-icon');
+        
         const spectrumData = [
-            { range: [0, 0.33], title: 'Deep Forest Green', desc: 'Primal stability, sensual connection, tenacious power. The untamed root of value.' },
-            { range: [0.33, 0.66], title: 'Mystic Deep Green', desc: 'The core frequency of patience, harmony, and grounded abundance. The anchor of the zodiac.' },
-            { range: [0.66, 1], title: 'Verdant Meadow', desc: 'Fertility, growth, and the peaceful spirit. The outward expression of material joy and abundance.' }
+            { 
+                range: [0, 0.2], 
+                title: 'Grounded Presence', 
+                desc: 'The foundation of embodiment - deep connection to physical senses, earthly pleasures, being fully present in the body.',
+                action: 'Take a slow walk in nature, savoring every sensation',
+                icon: 'nature_people'
+            },
+            { 
+                range: [0.2, 0.4], 
+                title: 'Material Security', 
+                desc: 'The builder mind - creating financial stability, accumulating resources, establishing firm foundations for lasting prosperity.',
+                action: 'Review and strengthen one area of your financial security',
+                icon: 'savings'
+            },
+            { 
+                range: [0.4, 0.6], 
+                title: 'Sensual Appreciation', 
+                desc: 'The heart frequency of Taurus - enjoying beauty, savoring pleasures, cultivating comfort, honoring the sacred in the physical.',
+                action: 'Indulge in a sensory pleasure: good food, music, or touch',
+                icon: 'spa'
+            },
+            { 
+                range: [0.6, 0.8], 
+                title: 'Patient Cultivation', 
+                desc: 'The gardener\'s wisdom - nurturing growth, persistent effort, waiting for the perfect moment, building value over time.',
+                action: 'Start or tend to a garden or long-term creative project',
+                icon: 'eco'
+            },
+            { 
+                range: [0.8, 1], 
+                title: 'Abundant Manifestation', 
+                desc: 'The highest expression - when patient effort yields abundant harvest, when security becomes wealth, when beauty becomes sacred.',
+                action: 'Create something beautiful and valuable to share with others',
+                icon: 'diamond'
+            }
         ];
+        
         spectrum.addEventListener('mousemove', (e) => {
             const rect = spectrum.getBoundingClientRect();
             const x = e.clientX - rect.left;
-            const percentage = x / rect.width;
+            const percentage = Math.max(0, Math.min(1, x / rect.width));
             spectrum.style.setProperty('--spectrum-pos', `${percentage * 100}%`);
+            
             const data = spectrumData.find(d => percentage >= d.range[0] && percentage < d.range[1]);
             if (data && spectrumTitle.innerText !== data.title) {
                 spectrumInfo.classList.add('opacity-0', 'scale-95');
                 setTimeout(() => {
                     spectrumTitle.innerText = data.title;
                     spectrumDesc.innerText = data.desc;
+                    spectrumAction.innerText = data.action;
+                    venusIcon.innerText = data.icon;
                     spectrumInfo.classList.remove('opacity-0', 'scale-95');
                 }, 150);
             }
         });
-    });
-</script>
-<script>
-function createStars() {
-    const stellarBg = document.getElementById('stellarBg');
-    if (!stellarBg) return;
-    const starCount = 200; // More stars
-    
-    for (let i = 0; i < starCount; i++) {
-        const star = document.createElement('div');
-        star.className = 'star';
-        star.style.left = Math.random() * 100 + '%';
-        star.style.top = Math.random() * 100 + '%';
-        const size = Math.random() * 2 + 1; // Different sizes
-        star.style.width = size + 'px';
-        star.style.height = size + 'px';
-        star.style.animationDelay = Math.random() * 3 + 's';
-        if (Math.random() > 0.8) {
-            star.style.background = '#9f9'; // Some green stars
-        }
-        stellarBg.appendChild(star);
-    }
-}
-
-function createParticles() {
-    const stellarBg = document.getElementById('stellarBg');
-    if (!stellarBg) return;
-    const particleCount = 100;
-    
-    for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.top = Math.random() * 100 + '%';
-        const size = Math.random() * 3 + 1;
-        particle.style.width = size + 'px';
-        particle.style.height = size + 'px';
-        particle.style.setProperty('--x', (Math.random() - 0.5) * 200 + 'px');
-        particle.style.setProperty('--y', (Math.random() - 0.5) * 200 + 'px');
-        particle.style.animationDuration = (Math.random() * 5 + 5) + 's';
-        stellarBg.appendChild(particle);
-    }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    createStars();
-    createParticles();
-
-    const contentSections = document.querySelectorAll('.content-section');
-    contentSections.forEach(section => {
-        section.classList.add('content-breath');
-        const paragraphs = section.querySelectorAll('p');
-        paragraphs.forEach(p => {
-            p.classList.add('text-pop-up');
+        
+        // Touch support for mobile
+        spectrum.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const rect = spectrum.getBoundingClientRect();
+            const x = touch.clientX - rect.left;
+            const percentage = Math.max(0, Math.min(1, x / rect.width));
+            spectrum.style.setProperty('--spectrum-pos', `${percentage * 100}%`);
+            
+            const data = spectrumData.find(d => percentage >= d.range[0] && percentage < d.range[1]);
+            if (data && spectrumTitle.innerText !== data.title) {
+                spectrumTitle.innerText = data.title;
+                spectrumDesc.innerText = data.desc;
+                spectrumAction.innerText = data.action;
+                venusIcon.innerText = data.icon;
+            }
         });
     });
-
-    const summaryIcons = document.querySelectorAll('summary .material-symbols-outlined');
-    summaryIcons.forEach(icon => {
-        if (icon.textContent.trim() === 'add') {
-            icon.textContent = 'expand_more';
-            icon.classList.remove('expand-icon', 'text-2xl', 'text-3xl', 'text-primary/70', 'transition-transform', 'duration-400', 'group-open:rotate-45');
-            icon.classList.add('expand-arrow');
-        }
-    });
-});
 </script>
 </body></html>
