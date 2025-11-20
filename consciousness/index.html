@@ -33,12 +33,65 @@
             overflow-x: hidden;
         }
 
+        /* 3-Layer Background System */
+        .page-container {
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Layer 1: Deep Background with Image */
+        .background-layer {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            overflow: hidden;
+        }
+        
+        #bg-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            filter: brightness(0.3) saturate(1.2) hue-rotate(180deg); /* Adjusted for Consciousness Teal vibe */
+            object-fit: cover;
+        }
+
+        /* Layer 2: Pattern Layer */
+        .pattern-layer {
+            position: fixed;
+            inset: 0;
+            background: 
+                linear-gradient(45deg,
+                    transparent 45%,
+                    rgba(78, 205, 196, 0.05) 49%,
+                    rgba(78, 205, 196, 0.05) 51%,
+                    transparent 55%
+                ),
+                radial-gradient(circle at 50% 50%,
+                    rgba(10, 14, 39, 0.4) 0%,
+                    transparent 60%
+                );
+            background-size: 30px 30px, 100% 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Layer 3: Content */
+        .content-layer {
+            position: relative;
+            z-index: 1;
+        }
+
         /* Header */
         .header {
             padding: 2rem;
             text-align: center;
             border-bottom: 1px solid rgba(78, 205, 196, 0.2);
-            background: rgba(10, 14, 39, 0.8);
+            background: rgba(10, 14, 39, 0.6); /* More transparent */
             backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
@@ -588,13 +641,27 @@
     </style>
 </head>
 <body>
-    <header class="header">
-        <a href="../index.html" class="nav-back">← Return to Ashram</a>
-        <h1 class="header-title">Consciousness Studies</h1>
-        <p class="header-subtitle">Neuro-Quantum State Mastery</p>
-    </header>
+    <div class="page-container">
+        <!-- Layer 1: Deep Background with Video -->
+        <div class="background-layer">
+            <video id="bg-video" autoplay muted loop playsinline>
+                <source src="../assets/video/consense.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+        <!-- Layer 2: Pattern Layer -->
+        <div class="pattern-layer"></div>
+        
+        <!-- Layer 3: Content -->
+        <div class="content-layer">
 
-    <div class="container">
+        <header class="header">
+            <a href="../index.html" class="nav-back">← Return to Ashram</a>
+            <h1 class="header-title">Consciousness Studies</h1>
+            <p class="header-subtitle">Neuro-Quantum State Mastery</p>
+        </header>
+
+        <div class="container">
         <section class="intro-section">
             <p class="intro-text">
                 A systematic exploration of consciousness—from foundational awareness practices to the dissolution of self. 
@@ -985,6 +1052,9 @@
         </div>
     </div>
 
+        </div> <!-- End content-layer -->
+    </div> <!-- End page-container -->
+
     <!-- Expanded Node View -->
     <div class="node-expanded" id="nodeExpanded">
         <div class="node-close" onclick="closeNode()">×</div>
@@ -1051,10 +1121,160 @@
                 'hypnagogia': 'Hypnagogic State',
                 'biofeedback': 'Biofeedback Loop',
                 'flow-state': 'Flow State Engineering',
-                'tummo': 'Tummo / Inner Fire',
-                'polyphasic': 'Polyphasic Sleep',
-                'fasting': 'Neuro-Fasting',
-                'isolation-tank': 'Sensory Deprivation'
+                'tummo': `
+                    <h2 class="expanded-title" style="color: #FFAD60;">Tummo / Inner Fire</h2>
+                    <div class="expanded-body">
+                        <p><strong>The Origins:</strong> An ancient Tibetan Vajrayana practice ("Tummo" means "Fierce Goddess of Heat") recently popularized and stripped of its ritual context by Wim Hof. It is the art of turning the body into a furnace. Monks use it to dry wet sheets wrapped around their naked bodies in sub-zero Himalayan temperatures.</p>
+                        
+                        <p><strong>The Mechanism:</strong> It combines controlled hyperventilation (to alkalize blood and spike adrenaline) with interoceptive visualization (focusing on a flame in the gut). This hacks the autonomic nervous system, forcing the hypothalamus to ramp up thermogenesis.</p>
+
+                        <h3>The Trauma Burn</h3>
+                        <p>Tummo isn't just for keeping warm. In the Tibetan tradition, the "psychic heat" is used to burn through karmic knots (samskaras) or trauma stored in the subtle body. The intensity of the energy generated forces the nervous system to purge stagnant emotional patterns.</p>
+
+                        <div class="meta-knowledge" style="border-color: rgba(255, 173, 96, 0.3);">
+                            <div class="meta-toggle" style="background: rgba(255, 173, 96, 0.05);">
+                                <span class="meta-label" style="color: #FFAD60;">🔥 THE PROTOCOL</span>
+                                <span class="meta-icon" style="color: #FFAD60;">▼</span>
+                            </div>
+                            <div class="meta-content">
+                                <div class="meta-inner">
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading" style="color: #FFAD60;">Phase 1: The Bellows</h4>
+                                        <p class="meta-text">
+                                            30-40 deep, circular breaths. Inhale fully, let go (don't push out). You are flooding the body with oxygen and blowing off CO2. You might feel lightheaded or tingling (tetany). This is the system waking up.
+                                        </p>
+                                    </div>
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading" style="color: #FFAD60;">Phase 2: The Retention (Kumbhaka)</h4>
+                                        <p class="meta-text">
+                                            On the last breath, exhale fully and HOLD. Stay empty. No air in lungs. Wait. The oxygen saturation is so high you can hold for 2-3 minutes easily. In this silence, the reptile brain scans for danger, finds none, and enters a deep stillness.
+                                        </p>
+                                    </div>
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading" style="color: #FFAD60;">Phase 3: The Recovery & Squeeze</h4>
+                                        <p class="meta-text">
+                                            When you gasp for air, inhale fully and HOLD. Squeeze the pelvic floor (Mula Bandha) and push the energy up to the head. This drives cerebrospinal fluid into the brain and creates the "flash" of heat/light.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                'polyphasic': `
+                    <h2 class="expanded-title" style="color: #FFAD60;">Polyphasic Sleep</h2>
+                    <div class="expanded-body">
+                        <p><strong>The Hack:</strong> "Monophasic" sleep (one 8-hour block) is a modern invention. Ancestral humans often slept in two blocks (Biphasic). Polyphasic sleep takes this to the extreme: hacking the sleep architecture to eliminate "light sleep" and dive straight into REM (Rapid Eye Movement) and SWS (Slow Wave Sleep).</p>
+                        
+                        <p><strong>The Uberman Protocol:</strong> The most famous and brutal schedule. 20 minutes of sleep every 4 hours. Total: 2 hours per day. That gives you 22 waking hours. You gain 20 years of conscious life over an average lifespan.</p>
+
+                        <h3>The Adaptation Hell</h3>
+                        <p>The brain defends its sleep debt aggressively. For the first 10-14 days (the "Zombie Phase"), you will experience microsleeps, hallucinations, and emotional crashes. You are fighting millions of years of circadian programming.</p>
+
+                        <div class="meta-knowledge" style="border-color: rgba(255, 173, 96, 0.3);">
+                            <div class="meta-toggle" style="background: rgba(255, 173, 96, 0.05);">
+                                <span class="meta-label" style="color: #FFAD60;">⏰ SCHEDULES</span>
+                                <span class="meta-icon" style="color: #FFAD60;">▼</span>
+                            </div>
+                            <div class="meta-content">
+                                <div class="meta-inner">
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading" style="color: #FFAD60;">Everyman 3 (E3)</h4>
+                                        <p class="meta-text">
+                                            More sustainable. Core sleep: 3 hours (e.g., 3am-6am). Plus 3 x 20-minute naps throughout the day. Total: 4 hours. High success rate.
+                                        </p>
+                                    </div>
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading" style="color: #FFAD60;">Dual Core</h4>
+                                        <p class="meta-text">
+                                            Two core sleeps (e.g., dusk and dawn) plus naps. Mimics pre-industrial "First Sleep" and "Second Sleep."
+                                        </p>
+                                    </div>
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading" style="color: #FFAD60;">Success Metric: SOREM</h4>
+                                        <p class="meta-text">
+                                            Sleep Onset REM. The goal is to hit REM sleep within 1-2 minutes of closing your eyes. Once your brain learns to do this, you can feel fully refreshed after a 20-minute nap.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                'fasting': `
+                    <h2 class="expanded-title" style="color: #FFAD60;">Neuro-Fasting</h2>
+                    <div class="expanded-body">
+                        <p><strong>Metabolic Switching:</strong> Digestion is the single most energy-intensive task your body performs. When you stop eating, that energy is reallocated to repair and cognition. After 16-24 hours, you deplete liver glycogen and switch to burning ketones.</p>
+                        
+                        <p><strong>Ketosis as a Psycho-Active State:</strong> Beta-hydroxybutyrate (the main ketone body) is not just a fuel; it's a signaling molecule. It crosses the blood-brain barrier and upregulates BDNF (Brain-Derived Neurotrophic Factor) - essentially "Miracle-Gro" for your neurons. It promotes neuroplasticity and protects against degeneration.</p>
+
+                        <h3>Autophagy: The Self-Eating</h3>
+                        <p>Around hour 24-48, Autophagy peaks. The body hunts down senescent (zombie) cells, damaged proteins, and viruses, and recycles them for parts. It is a cellular deep-clean. You are literally eating your own damage.</p>
+
+                        <div class="meta-knowledge" style="border-color: rgba(255, 173, 96, 0.3);">
+                            <div class="meta-toggle" style="background: rgba(255, 173, 96, 0.05);">
+                                <span class="meta-label" style="color: #FFAD60;">🧠 MENTAL STATES</span>
+                                <span class="meta-icon" style="color: #FFAD60;">▼</span>
+                            </div>
+                            <div class="meta-content">
+                                <div class="meta-inner">
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading" style="color: #FFAD60;">Hunter's Clarity</h4>
+                                        <p class="meta-text">
+                                            Evolutionarily, a hungry human needed to be smarter and faster to catch prey. A full human needs to sleep. Fasting triggers a state of "relaxed alertness"—norepinephrine increases, but so does cortisol. You feel sharp, light, and aggressive in your focus.
+                                        </p>
+                                    </div>
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading" style="color: #FFAD60;">The Spiritual Wall</h4>
+                                        <p class="meta-text">
+                                            Day 2 or 3 often brings an emotional purge. We use food to sedate emotions. Without that sedation, boredom, loneliness, and anxiety surface violently. Sitting through this without eating is a profound meditation practice.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                'isolation-tank': `
+                    <h2 class="expanded-title" style="color: #FFAD60;">Sensory Deprivation</h2>
+                    <div class="expanded-body">
+                        <p><strong>The Float Tank:</strong> 1,000 lbs of Epsom salt in skin-temperature water. You float effortlessly. No light. No sound. No touch (water matches skin temp). Gravity is neutralized.</p>
+                        
+                        <p><strong>The CPU Offload:</strong> The brain spends ~90% of its computational power monitoring gravity (vestibular system), light (visual cortex), and sound. In the tank, this 90% is suddenly freed up. It has nothing to process. So it turns inward.</p>
+
+                        <h3>The Thalamic Gate</h3>
+                        <p>The Thalamus acts as a gateway for sensory information reaching the cortex. In the tank, the lack of external input causes the Thalamus to stop gating. This allows signals from the limbic system (emotions) and the "subconscious" to flood the visual cortex. You start projecting your internal state onto the void.</p>
+
+                        <div class="meta-knowledge" style="border-color: rgba(255, 173, 96, 0.3);">
+                            <div class="meta-toggle" style="background: rgba(255, 173, 96, 0.05);">
+                                <span class="meta-label" style="color: #FFAD60;">🌊 DEPTH LEVELS</span>
+                                <span class="meta-icon" style="color: #FFAD60;">▼</span>
+                            </div>
+                            <div class="meta-content">
+                                <div class="meta-inner">
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading" style="color: #FFAD60;">Level 1: The Monkey Mind (0-20 mins)</h4>
+                                        <p class="meta-text">
+                                            Chaos. "Am I doing this right?" "My neck hurts." "I'm bored." The brain panics at the lack of input and chatters loudly to fill the silence.
+                                        </p>
+                                    </div>
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading" style="color: #FFAD60;">Level 2: The Theta Drop (20-45 mins)</h4>
+                                        <p class="meta-text">
+                                            You lose track of your body boundaries. You feel like a floating head, or just a point of consciousness. Brainwaves slow from Beta to Theta (the dream/meditation border).
+                                        </p>
+                                    </div>
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading" style="color: #FFAD60;">Level 3: The Void (45+ mins)</h4>
+                                        <p class="meta-text">
+                                            Total dissolution. You are not in a tank. You are nowhere. Visual hallucinations may occur. Profound insights bubble up without linear thought. This is the "Deep Work" zone for the psyche.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
             };
             return titles[nodeId] || 'Practice Node';
         }
