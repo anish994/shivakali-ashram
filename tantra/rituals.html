@@ -672,8 +672,145 @@
             font-size: 0.9rem;
         }
 
+        /* Codex Navigation System */
+        .codex-nav {
+            position: sticky;
+            top: 60px;
+            z-index: 90;
+            background: rgba(10, 8, 20, 0.98);
+            border-bottom: 2px solid rgba(139, 0, 255, 0.5);
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .codex-tabs {
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            padding: 0 2rem;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(139, 0, 255, 0.5) transparent;
+        }
+
+        .codex-tab {
+            flex-shrink: 0;
+            padding: 0.8rem 1.5rem;
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(139, 0, 255, 0.3);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .codex-tab:hover {
+            border-color: var(--tantra-gold);
+            color: var(--tantra-gold);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .codex-tab.active {
+            background: linear-gradient(135deg, rgba(139, 0, 255, 0.3), rgba(139, 0, 0, 0.3));
+            border-color: var(--tantra-gold);
+            color: var(--tantra-gold);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Codex Content Panels */
+        .codex-panel {
+            display: none;
+            opacity: 0;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        .codex-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Codex Entry Cards */
+        .codex-entry {
+            background: rgba(10, 8, 20, 0.8);
+            border: 2px solid rgba(139, 0, 255, 0.3);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .codex-entry:hover {
+            border-color: rgba(139, 0, 255, 0.6);
+            box-shadow: 0 0 20px rgba(139, 0, 255, 0.2);
+        }
+
+        .codex-entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            cursor: pointer;
+        }
+
+        .codex-entry-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            color: var(--tantra-gold);
+            text-shadow: 0 0 10px var(--glow-gold);
+        }
+
+        .codex-expand-icon {
+            font-size: 1.5rem;
+            color: var(--tantra-purple);
+            transition: transform 0.3s ease;
+        }
+
+        .codex-entry.expanded .codex-expand-icon {
+            transform: rotate(180deg);
+        }
+
+        .codex-entry-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .codex-entry.expanded .codex-entry-content {
+            max-height: 10000px;
+        }
+
         /* Mobile Optimizations */
         @media (max-width: 640px) {
+            .codex-nav {
+                top: 10px;
+                padding: 0.8rem 0;
+            }
+
+            .codex-tabs {
+                padding: 0 1rem;
+                gap: 0.3rem;
+            }
+
+            .codex-tab {
+                padding: 0.6rem 1rem;
+                font-size: 0.75rem;
+            }
+
+            .codex-entry {
+                padding: 1rem;
+            }
+
+            .codex-entry-title {
+                font-size: 1.1rem;
+            }
             .content-layer {
                 padding: 0.5rem;
             }
@@ -879,17 +1016,6 @@
                 Tantra hub = full map of sciences • This page = the <strong>ritual engine</strong> of that map.
             </p>
 
-            <!-- In-page Navigation -->
-            <div class="nav-buttons" style="margin-bottom: 2.5rem;">
-                <a href="#gateways" class="nav-button"><span>🌌</span><span>Gateways</span></a>
-                <a href="#mini-rituals" class="nav-button"><span>🟢</span><span>Mini</span></a>
-                <a href="#streams" class="nav-button"><span>🔥</span><span>Streams</span></a>
-                <a href="#prep" class="nav-button"><span>🧰</span><span>Prep</span></a>
-                <a href="#session" class="nav-button"><span>🕯️</span><span>Session</span></a>
-                <a href="#safety" class="nav-button"><span>🛡️</span><span>Safety</span></a>
-                <a href="#archive" class="nav-button"><span>☠️</span><span>Archive</span></a>
-                <a href="#contact" class="nav-button"><span>📧</span><span>Contact</span></a>
-            </div>
 
             <!-- Intro Section -->
             <section class="intro-section">
@@ -939,6 +1065,22 @@
                     </div>
                 </div>
             </section>
+
+            <!-- Codex Navigation -->
+            <div class="codex-nav">
+                <div class="codex-tabs">
+                    <div class="codex-tab active" onclick="switchCodexTab(event, 'quick-start')">🎯 Quick Start</div>
+                    <div class="codex-tab" onclick="switchCodexTab(event, 'gateways')">🌌 Five Gateways</div>
+                    <div class="codex-tab" onclick="switchCodexTab(event, 'signature-rituals')">🔥 Signature Rituals</div>
+                    <div class="codex-tab" onclick="switchCodexTab(event, 'preparation')">🧰 Preparation</div>
+                    <div class="codex-tab" onclick="switchCodexTab(event, 'session-guide')">🕯️ Session Guide</div>
+                    <div class="codex-tab" onclick="switchCodexTab(event, 'archive')">☠️ Dark Archive</div>
+                    <div class="codex-tab" onclick="switchCodexTab(event, 'safety')">🛡️ Safety & Counter</div>
+                </div>
+            </div>
+
+            <!-- Codex Panel: Quick Start (Mini Rituals) -->
+            <div id="quick-start" class="codex-panel active">
 
             <!-- Mini Rituals for Right Now -->
             <section id="mini-rituals">
@@ -1176,8 +1318,13 @@
                 </div>
             </section>
 
+            </div><!-- End Quick Start Panel -->
+
+            <!-- Codex Panel: Five Gateways -->
+            <div id="gateways" class="codex-panel">
+
             <!-- Ritual Gateways -->
-            <section id="gateways">
+            <section>
                 <h2 class="section-title">🌌 RITUAL GATEWAYS</h2>
                 <div class="card-grid">
                     <div class="tantra-card">
@@ -1735,8 +1882,13 @@
                 </div>
             </section>
 
+            </div><!-- End Gateways Panel -->
+
+            <!-- Codex Panel: Signature Rituals -->
+            <div id="signature-rituals" class="codex-panel">
+
             <!-- Signature Ritual Streams -->
-            <section id="streams">
+            <section>
                 <h2 class="section-title">🔥 SIGNATURE RITUAL STREAMS</h2>
                 <div class="card-grid">
                     <div class="tantra-card">
@@ -2237,8 +2389,13 @@
                 </div>
             </section>
 
+            </div><!-- End Signature Rituals Panel -->
+
+            <!-- Codex Panel: Preparation -->
+            <div id="preparation" class="codex-panel">
+
             <!-- Preparation Protocol -->
-            <section id="prep">
+            <section>
                 <h2 class="section-title">🧰 PREPARATION PROTOCOL</h2>
                 <div class="card-grid">
                     <div class="tantra-card">
@@ -2299,8 +2456,13 @@
                 </div>
             </section>
 
+            </div><!-- End Preparation Panel -->
+
+            <!-- Codex Panel: Session Guide -->
+            <div id="session-guide" class="codex-panel">
+
             <!-- How a Ritual Session Works -->
-            <section id="session">
+            <section>
                 <h2 class="section-title">🕯️ HOW A RITUAL SESSION WORKS</h2>
                 <div class="card-grid">
                     <div class="tantra-card">
@@ -2361,8 +2523,13 @@
                 </div>
             </section>
 
+            </div><!-- End Session Guide Panel -->
+
+            <!-- Codex Panel: Safety & Counter-Ritual -->
+            <div id="safety" class="codex-panel">
+
             <!-- Safety & Ethics -->
-            <section id="safety">
+            <section>
                 <h2 class="section-title">🛡️ SAFETY, ETHICS & BOUNDARIES</h2>
                 <div class="card-grid">
                     <div class="tantra-card">
@@ -2422,8 +2589,13 @@
                 </div>
             </section>
 
+            </div><!-- End Safety Panel -->
+
+            <!-- Codex Panel: Dark Archive -->
+            <div id="archive" class="codex-panel">
+
             <!-- Archive Rites & Forbidden Knowledge -->
-            <section id="archive">
+            <section>
                 <h2 class="section-title">☠️ ARCHIVE RITES & FORBIDDEN KNOWLEDGE</h2>
                 <div class="card-grid">
                     <div class="tantra-card">
@@ -2744,7 +2916,9 @@
                 </div>
             </section>
 
-            <!-- Call To Action -->
+            </div><!-- End Archive Panel -->
+
+            <!-- Call To Action (Outside Codex) -->
             <section id="contact">
                 <h2 class="section-title">🌺 STEP INTO THE TEMPLE</h2>
                 <p class="intro-description" style="margin-bottom: 2rem;">
@@ -2819,6 +2993,30 @@
                 setTimeout(() => {
                     toggle.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 }, 400);
+            }
+        }
+        
+        // Codex Tab Switching System
+        function switchCodexTab(event, tabId) {
+            // Remove active from all tabs
+            document.querySelectorAll('.codex-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active from all panels
+            document.querySelectorAll('.codex-panel').forEach(panel => {
+                panel.classList.remove('active');
+            });
+            
+            // Activate clicked tab
+            event.currentTarget.classList.add('active');
+            
+            // Activate corresponding panel
+            document.getElementById(tabId).classList.add('active');
+            
+            // Smooth scroll to top of codex navigation on mobile
+            if (window.innerWidth <= 640) {
+                document.querySelector('.codex-nav').scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         }
     </script>
