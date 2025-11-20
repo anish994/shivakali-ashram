@@ -13,6 +13,15 @@ class CategoryCard {
      * Create the card HTML element with beautiful styling
      */
     createElement() {
+        // Check for special card types
+        if (this.data.id === 'jyotish') {
+            return new JyotishCategoryCard(this.data).createElement();
+        } else if (this.data.id === 'interactive-tools') {
+            return new InteractiveToolsCategoryCard(this.data).createElement();
+        } else if (this.data.id === 'therapeutic') {
+            return new TherapeuticSystemsCategoryCard(this.data).createElement();
+        }
+
         const card = document.createElement('div');
         card.className = `category-card ${this.data.cardStyle}`;
         card.setAttribute('data-category-id', this.data.id);

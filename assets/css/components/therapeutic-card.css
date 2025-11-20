@@ -1,0 +1,268 @@
+/**
+ * therapeutic-card.css
+ * Special styling for Therapeutic Systems category card
+ * Bio-Sanctuary theme with futuristic medical HUD aesthetic
+ */
+
+.therapeutic-systems-card {
+    background: linear-gradient(135deg, #001a1f 0%, #003344 100%);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Background layers */
+.therapeutic-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+}
+
+.bio-gradient {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, 
+        rgba(0, 255, 255, 0.05) 0%, 
+        rgba(0, 150, 150, 0.08) 50%, 
+        rgba(0, 80, 100, 0.1) 100%
+    );
+    opacity: 0.8;
+    transition: opacity 0.4s ease;
+}
+
+.scanline-effect {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 255, 255, 0.03) 0px,
+        transparent 2px,
+        transparent 4px
+    );
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* Header */
+.therapeutic-systems-card .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.therapeutic-icon {
+    font-size: 3rem;
+    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5));
+}
+
+.card-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    color: rgba(0, 255, 255, 0.8);
+}
+
+.status-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #00ffff;
+    box-shadow: 0 0 10px #00ffff;
+    animation: pulse-status 2s infinite;
+}
+
+@keyframes pulse-status {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+/* Body */
+.therapeutic-systems-card .card-body {
+    position: relative;
+    z-index: 2;
+}
+
+.therapeutic-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #00ffff;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+.therapeutic-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(0, 30, 40, 0.5);
+    border: 1px solid rgba(0, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.stat-value {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #00ffff;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+}
+
+.stat-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    color: rgba(0, 255, 255, 0.6);
+    text-transform: uppercase;
+}
+
+.therapeutic-modules {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1.5rem 0;
+}
+
+.module-tag {
+    padding: 0.4rem 0.8rem;
+    background: rgba(0, 255, 255, 0.05);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 2px;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    color: rgba(0, 255, 255, 0.8);
+    font-family: 'Rajdhani', sans-serif;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.module-tag:hover {
+    background: rgba(0, 255, 255, 0.1);
+    border-color: rgba(0, 255, 255, 0.4);
+}
+
+/* Footer */
+.therapeutic-systems-card .card-footer {
+    position: relative;
+    z-index: 2;
+    margin-top: 2rem;
+}
+
+.therapeutic-btn {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    color: #00ffff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.therapeutic-btn:hover {
+    background: rgba(0, 255, 255, 0.2);
+    border-color: #00ffff;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.btn-arrow {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.therapeutic-btn:hover .btn-arrow {
+    transform: translateX(5px);
+}
+
+/* Card Glow Effect */
+.therapeutic-glow {
+    position: absolute;
+    top: -2px; left: -2px;
+    right: -2px; bottom: -2px;
+    background: linear-gradient(45deg, 
+        rgba(0, 255, 255, 0.2),
+        rgba(0, 150, 150, 0.1),
+        rgba(0, 255, 255, 0.2)
+    );
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.4s ease;
+    filter: blur(10px);
+}
+
+.therapeutic-systems-card:hover .therapeutic-glow {
+    opacity: 1;
+}
+
+/* Hover State */
+.therapeutic-systems-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(0, 255, 255, 0.6);
+    box-shadow: 0 15px 40px rgba(0, 255, 255, 0.2);
+}
+
+.therapeutic-systems-card:hover .bio-gradient {
+    opacity: 1;
+}
+
+/* Launch Animation */
+.therapeutic-systems-card.launching {
+    transform: scale(0.95);
+    opacity: 0.5;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .therapeutic-title {
+        font-size: 1.5rem;
+    }
+
+    .therapeutic-stats {
+        padding: 1rem;
+    }
+
+    .stat-value {
+        font-size: 1.5rem;
+    }
+
+    .stat-label {
+        font-size: 0.6rem;
+    }
+
+    .therapeutic-modules {
+        gap: 0.3rem;
+    }
+
+    .module-tag {
+        font-size: 0.6rem;
+        padding: 0.3rem 0.6rem;
+    }
+}
