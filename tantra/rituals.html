@@ -542,32 +542,278 @@
             color: var(--text-secondary);
         }
 
+        /* Collapsible Meta-Knowledge Sections */
+        .meta-knowledge {
+            margin-top: 1.5rem;
+            border-top: 1px solid rgba(139, 0, 255, 0.25);
+            padding-top: 1rem;
+        }
+
+        .meta-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.2), rgba(139, 0, 255, 0.15));
+            padding: 0.9rem 1.2rem;
+            border: 1px solid rgba(139, 0, 255, 0.4);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 0.8rem;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .meta-toggle:hover {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.35), rgba(139, 0, 255, 0.25));
+            border-color: var(--tantra-gold);
+            box-shadow: 0 0 20px rgba(139, 0, 255, 0.3);
+        }
+
+        .meta-toggle:active {
+            transform: scale(0.98);
+        }
+
+        .meta-label {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--tantra-gold);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .meta-icon {
+            font-size: 1.3rem;
+            transition: transform 0.3s ease;
+        }
+
+        .meta-toggle.active .meta-icon {
+            transform: rotate(180deg);
+        }
+
+        .meta-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+
+        .meta-content.active {
+            max-height: 5000px;
+            transition: max-height 0.6s ease-in;
+        }
+
+        .meta-inner {
+            padding: 1.2rem;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            border: 1px solid rgba(139, 0, 255, 0.2);
+        }
+
+        .meta-section {
+            margin-bottom: 1.2rem;
+        }
+
+        .meta-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .meta-heading {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--tantra-gold);
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .meta-text {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 0.8rem;
+        }
+
+        .meta-quote {
+            font-style: italic;
+            color: rgba(255, 215, 0, 0.9);
+            border-left: 3px solid var(--tantra-gold);
+            padding-left: 1rem;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .meta-quote cite {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-style: normal;
+        }
+
+        .sanskrit-term {
+            color: var(--tantra-purple);
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        .warning-inline {
+            background: rgba(139, 0, 0, 0.15);
+            border-left: 3px solid var(--tantra-blood);
+            padding: 0.8rem;
+            margin: 1rem 0;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
         /* Mobile Optimizations */
         @media (max-width: 640px) {
             .content-layer {
-                padding: 0.6rem;
+                padding: 0.5rem;
             }
 
             .intro-section {
-                padding: 2rem 0.75rem 2.5rem;
+                padding: 1.8rem 0.6rem 2.2rem;
+            }
+
+            .intro-title {
+                font-size: 2.2rem;
+                letter-spacing: 3px;
+            }
+
+            .intro-subtitle {
+                font-size: 1.1rem;
+                letter-spacing: 1px;
+            }
+
+            .intro-description {
+                font-size: 0.95rem;
+                padding: 0 0.5rem;
             }
 
             .intro-stats {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
+                gap: 0.8rem;
+                padding: 0 0.5rem;
+            }
+
+            .stat-item {
+                padding: 1.3rem 1rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .stat-label {
+                font-size: 0.8rem;
+                letter-spacing: 1px;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+                margin: 2.5rem 0 1.5rem;
+            }
+
+            .nav-buttons {
+                gap: 0.6rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .nav-button {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.9rem;
             }
 
             .tantra-card {
-                padding: 1.6rem;
+                padding: 1.3rem;
+            }
+
+            .card-icon {
+                font-size: 2rem;
+            }
+
+            .card-title {
+                font-size: 1.2rem;
+            }
+
+            .card-subtitle {
+                font-size: 0.85rem;
+            }
+
+            .card-description {
+                font-size: 0.9rem;
+            }
+
+            .ritual-list {
+                font-size: 0.85rem;
+                padding-left: 1rem;
+            }
+
+            .meta-toggle {
+                padding: 0.75rem 1rem;
+            }
+
+            .meta-label {
+                font-size: 0.9rem;
+                letter-spacing: 1px;
+            }
+
+            .meta-icon {
+                font-size: 1.1rem;
+            }
+
+            .meta-inner {
+                padding: 1rem;
+            }
+
+            .meta-heading {
+                font-size: 1rem;
+            }
+
+            .meta-text {
+                font-size: 0.9rem;
+            }
+
+            .meta-quote {
+                font-size: 0.9rem;
+                padding-left: 0.8rem;
             }
 
             .pattern-layer {
                 border-width: 2px;
             }
 
+            .footer {
+                padding: 2rem 1rem 1.5rem;
+            }
+
+            .footer-brand {
+                font-size: 1.5rem;
+            }
+
+            .footer-tagline {
+                font-size: 0.9rem;
+            }
+
             /* Disable heavy animations on mobile */
             .background-layer { animation: none; }
             .pattern-layer { animation: none; }
+            
+            /* Touch optimization */
+            .tantra-card:hover {
+                transform: none;
+            }
+            
+            .tantra-card:active {
+                transform: scale(0.98);
+            }
         }
     </style>
 </head>
@@ -711,6 +957,47 @@
                             Breathe in gently, hold for a beat, then sigh the air out as if you are fogging a mirror. While you do this, press the
                             space between your eyebrows with two fingers. Three minutes of this is often enough to cancel a panic spiral.
                         </p>
+                        
+                        <div class="meta-knowledge">
+                            <div class="meta-toggle" onclick="toggleMeta(this)">
+                                <span class="meta-label">🔮 META-KNOWLEDGE</span>
+                                <span class="meta-icon">▼</span>
+                            </div>
+                            <div class="meta-content">
+                                <div class="meta-inner">
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading">🌀 Why This Works: Nadi Science</h4>
+                                        <p class="meta-text">
+                                            The <span class="sanskrit-term">nāḍī</span> system is not metaphor—it is the electrical wiring of your subtle body. When trauma, stress or chronic cortisol floods the system, the <span class="sanskrit-term">iḍā</span> (left/moon channel) and <span class="sanskrit-term">piṅgalā</span> (right/sun channel) short-circuit. This creates the "buzzing chest" sensation most people mistake for anxiety disorder.
+                                        </p>
+                                        <p class="meta-text">
+                                            The eyebrow center—<span class="sanskrit-term">ājñā cakra</span>—is the junction box where these channels cross. Light pressure here while exhaling creates a manual override, forcing stuck prāṇa to discharge through the breath instead of looping in your chest.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading">📜 Ancient Teaching</h4>
+                                        <div class="meta-quote">
+                                            "When the breath is disturbed, the mind is disturbed. When the breath becomes steady, the mind becomes steady. The yogi attains fixity."<br>
+                                            <cite>— Haṭha Yoga Pradīpikā 2.2</cite>
+                                        </div>
+                                        <p class="meta-text">
+                                            Classical yoga texts understood that breath control (<span class="sanskrit-term">prāṇāyāma</span>) was never about "relaxation"—it was emergency shutdown protocol for a nervous system in fight-or-flight. The sigh-exhale you do here mimics the body's natural reset mechanism after crying or laughing intensely.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading">⚡ Advanced Application</h4>
+                                        <p class="meta-text">
+                                            For practitioners with consistent practice: after 21 days of daily 3-minute resets, your system learns the pattern. Eventually you can trigger the same calming response with just the eyebrow pressure and one conscious exhale—no three minutes needed. This is <span class="sanskrit-term">saṁskāra</span> formation: training your nervous system to have a shortcut key for peace.
+                                        </p>
+                                        <div class="warning-inline">
+                                            <strong>⚠️ Contraindication:</strong> If you have glaucoma or chronic sinus pressure, skip the eyebrow pressure and use only the breath pattern.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="tantra-card">
@@ -726,6 +1013,47 @@
                             thing you are willing to receive tomorrow. Then forget about it and wash your face, scroll, cook — normal life.
                             The point is to stitch ritual into the fabric of ordinary time, not only crisis.
                         </p>
+                        
+                        <div class="meta-knowledge">
+                            <div class="meta-toggle" onclick="toggleMeta(this)">
+                                <span class="meta-label">🔮 META-KNOWLEDGE</span>
+                                <span class="meta-icon">▼</span>
+                            </div>
+                            <div class="meta-content">
+                                <div class="meta-inner">
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading">🔥 Why Fire Listens: Agni as Witness</h4>
+                                        <p class="meta-text">
+                                            In Vedic cosmology, <span class="sanskrit-term">Agni</span> is not "the god of fire"—Agni IS fire, consciousness experiencing itself as transformation. When you speak to flame, you are not praying to an external deity. You are interfacing with the part of reality that metabolizes, digests, and transmutes. Fire has always been humanity's first processor.
+                                        </p>
+                                        <p class="meta-text">
+                                            The act of naming something to flame—then walking away—mirrors how the digestive fire in your belly works. You eat, your body extracts what it needs, and discards the rest without your conscious effort. This ritual trains the same process for emotional and mental content.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading">📜 Temple Lineage: The Smallest Homa</h4>
+                                        <div class="meta-quote">
+                                            "Even a small flame, fed with sincere intention, can carry prayers to the highest realms. The size of the fire matters less than the clarity of the offering."<br>
+                                            <cite>— Oral teaching from Kashi temple priests</cite>
+                                        </div>
+                                        <p class="meta-text">
+                                            This single-candle practice is a compressed version of <span class="sanskrit-term">homa</span> (fire ritual). In the full temple version, you would feed ghee and herbs into a large sacred fire while chanting specific mantras for hours. Here, the "offering" is your sentence, and the "ghee" is your breath carrying it. Same principle, apartment-compatible form.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading">⚡ Advanced Practice: Wax Reading</h4>
+                                        <p class="meta-text">
+                                            After 40 days of consistent practice, some practitioners notice patterns in how their tea light burns—does it burn clean, or does it smoke and sputter? Does wax pool evenly or create strange shapes? Traditional <span class="sanskrit-term">jyotish</span> and temple diagnostics teach that the way your offering is "received" by fire can show resistance in your own field.
+                                        </p>
+                                        <p class="meta-text">
+                                            A consistently struggling flame may indicate you need deeper clearing work before the simple practice can take root. This is not superstition—it is field-level feedback about whether your system is ready to release what you are naming.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="tantra-card">
@@ -741,6 +1069,50 @@
                             If you can, slide the action into a Jupiter or Venus hour for support, or a Sun hour for visibility.
                             No lamps, no mantras — just using the cosmic weather report instead of pretending it does not exist.
                         </p>
+                        
+                        <div class="meta-knowledge">
+                            <div class="meta-toggle" onclick="toggleMeta(this)">
+                                <span class="meta-label">🔮 META-KNOWLEDGE</span>
+                                <span class="meta-icon">▼</span>
+                            </div>
+                            <div class="meta-content">
+                                <div class="meta-inner">
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading">🌌 The Ancient Clock: Graha Horā</h4>
+                                        <p class="meta-text">
+                                            <span class="sanskrit-term">Graha horā</span> (planetary hours) comes from Hellenistic astrology via medieval Islamic scholars, then integrated into Indian <span class="sanskrit-term">jyotiṣa</span>. The system divides day and night into 12 unequal hours, each ruled by one of the seven classical planets. This is not superstition—it is recognition that solar radiation, electromagnetic fields, and gravitational rhythms genuinely fluctuate throughout the day.
+                                        </p>
+                                        <p class="meta-text">
+                                            Modern chronobiology confirms your body's hormones, neurotransmitters, and decision-making capacity shift in cycles. The ancients mapped these cycles to planetary archetypes because they had no microscopes—but the patterns they observed were real.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading">⚙️ Quick Reference: Hour Matching</h4>
+                                        <p class="meta-text">
+                                            <strong>☀️ Sun:</strong> Visibility, leadership, launching publicly<br>
+                                            <strong>🌙 Moon:</strong> Emotional conversations, nurturing, home matters<br>
+                                            <strong>🔴 Mars:</strong> Confrontation, competition, surgery, cutting ties<br>
+                                            <strong>🟢 Mercury:</strong> Writing, contracts, learning, tech work<br>
+                                            <strong>🔵 Jupiter:</strong> Expansion, legal matters, teaching, asking for support<br>
+                                            <strong>💚 Venus:</strong> Beauty, pleasure, partnerships, receiving gifts<br>
+                                            <strong>⚫ Saturn:</strong> Discipline, structure, endings, deep work requiring focus
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading">📊 Temple-Level Secret</h4>
+                                        <div class="meta-quote">
+                                            "A mediocre ritual done in the right hour succeeds. A powerful ritual done in the wrong hour fails."<br>
+                                            <cite>— Principle from tantric timing texts (Kāla Vidyā)</cite>
+                                        </div>
+                                        <p class="meta-text">
+                                            Serious temple work—especially <span class="sanskrit-term">homa</span>, deity invocation, or shadow rituals—is never done without checking the hour, <span class="sanskrit-term">tithi</span> (lunar day), and <span class="sanskrit-term">nakṣatra</span> (lunar mansion). Getting the timing right doesn't just improve results—it prevents unintended consequences. Even at the mini-practice level, this awareness protects you from pushing energy upstream.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="tantra-card">
@@ -756,6 +1128,50 @@
                             One palm on your chest, the other gently tapping the sternum. Whisper any heart mantra or simple line like "I am here".
                             A minute of this often saves you from messages that burn bridges you actually want to keep.
                         </p>
+                        
+                        <div class="meta-knowledge">
+                            <div class="meta-toggle" onclick="toggleMeta(this)">
+                                <span class="meta-label">🔮 META-KNOWLEDGE</span>
+                                <span class="meta-icon">▼</span>
+                            </div>
+                            <div class="meta-content">
+                                <div class="meta-inner">
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading">❤️ The Heart Lock: Anāhata Intelligence</h4>
+                                        <p class="meta-text">
+                                            <span class="sanskrit-term">Anāhata cakra</span>—the heart center—is where emotional reactivity gets encoded into your energy body. When someone triggers you and your chest tightens, that is not just a feeling. It is your heart-field locking down to protect itself from perceived threat, same way a computer goes into safe mode when it detects a virus.
+                                        </p>
+                                        <p class="meta-text">
+                                            The problem: once locked, your heart-mind cannot distinguish between "protect me from harm" and "prevent me from responding wisely." The sternum tap + mantra creates a manual interrupt—a way to signal your nervous system that you are safe enough to unlock without immediately reacting.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading">🎵 Why Sound Stabilizes</h4>
+                                        <div class="meta-quote">
+                                            "The heart hears what the mind refuses to understand. Speak to it directly."<br>
+                                            <cite>— Traditional Bhakti teaching</cite>
+                                        </div>
+                                        <p class="meta-text">
+                                            Whispering or sub-vocalizing engages your vagus nerve, which runs directly from your brainstem through your chest. When you combine gentle vocalization with rhythmic tapping, you are using the same mechanism that helps infants calm down when a parent pats their back and hums. This is not spiritual bypassing—it is accessing your mammalian co-regulation system, alone.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading">🔗 Mantras That Work Here</h4>
+                                        <p class="meta-text">
+                                            <strong>Simple (no tradition needed):</strong> "I am here" / "I am safe" / "This will pass"<br>
+                                            <strong>Tantric heart bija:</strong> <span class="sanskrit-term">YAM</span> (seed sound of anāhata)<br>
+                                            <strong>Devotional (Bhakti):</strong> <span class="sanskrit-term">Om Namah Shivaya</span> or any deity name you resonate with<br>
+                                            <strong>Non-dual (Advaita):</strong> <span class="sanskrit-term">So'ham</span> (I am That)
+                                        </p>
+                                        <div class="warning-inline">
+                                            <strong>⚠️ Important:</strong> If emotional overwhelm persists beyond a few minutes or becomes chronic, this technique is a bridge—not a replacement—for trauma therapy or skilled support.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -779,6 +1195,65 @@
                             Typical use: people with panic before presentations, chronic insomnia after burnout, or bodies that never feel fully "here".
                         </p>
                         <div class="card-status">GATE 01 • BODY</div>
+                        
+                        <div class="meta-knowledge">
+                            <div class="meta-toggle" onclick="toggleMeta(this)">
+                                <span class="meta-label">🔮 DEEPER KNOWLEDGE</span>
+                                <span class="meta-icon">▼</span>
+                            </div>
+                            <div class="meta-content">
+                                <div class="meta-inner">
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading">🧠 The Trauma-Body Contract</h4>
+                                        <p class="meta-text">
+                                            Most spiritual paths treat the body as vehicle or obstacle. Tantra treats it as <span class="sanskrit-term">deha-devatā</span>—the body-deity, the first temple. When unprocessed trauma lives in your tissues, no amount of meditation or mantra will dislodge it. You cannot transcend what you have not first inhabited.
+                                        </p>
+                                        <p class="meta-text">
+                                            This gateway exists because Western seekers often try to "go up" (into higher states) before they have "come down" (into their actual body). The result: spiritual bypassing, dissociation masquerading as enlightenment, and practitioners who can quote Vedanta but cannot feel their own feet on the ground.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading">🌬️ The Five Prāṇa Winds</h4>
+                                        <p class="meta-text">
+                                            Traditional yoga maps five primary <span class="sanskrit-term">vāyu</span> (winds/currents) in the body:<br><br>
+                                            <strong><span class="sanskrit-term">Prāṇa</span>:</strong> Inward/upward current (heart/lungs) — governs intake, inspiration, panic<br>
+                                            <strong><span class="sanskrit-term">Apāna</span>:</strong> Downward/outward current (lower belly) — governs elimination, grounding, letting go<br>
+                                            <strong><span class="sanskrit-term">Samāna</span>:</strong> Equalizing fire (navel) — digests food, emotions, experience<br>
+                                            <strong><span class="sanskrit-term">Udāna</span>:</strong> Ascending current (throat) — speech, expression, aspiration<br>
+                                            <strong><span class="sanskrit-term">Vyāna</span>:</strong> Distributive current (whole body) — circulation, integration, wholeness
+                                        </p>
+                                        <p class="meta-text">
+                                            When someone says "I feel stuck," they usually mean samāna is weak—unable to metabolize experience. "I can't speak my truth" = udāna blockage. "I'm floating, ungrounded" = apāna dysfunction. These are not metaphors; experienced practitioners can feel exactly which vāyu is compromised.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading">⚡ What "Grounding" Actually Means</h4>
+                                        <div class="meta-quote">
+                                            "The subtle body has roots. When they are severed, you float through life like a ghost. Reconnect the roots, and suddenly your thoughts turn into actions."<br>
+                                            <cite>— Teaching from Kāpālika lineages</cite>
+                                        </div>
+                                        <p class="meta-text">
+                                            "Grounding" in New Age circles often means vague barefoot walks or visualizations. In tantric body-tech, grounding is specific: re-establishing the downward current (<span class="sanskrit-term">apāna vāyu</span>) so your energy doesn't get stuck in your head, looping in anxiety or dissociation.
+                                        </p>
+                                        <p class="meta-text">
+                                            Signs you need serious grounding work: chronic insomnia, racing thoughts, feeling like you're "watching your life from outside," inability to finish projects, constant planning without action. These are not personality traits—they are energetic diagnoses.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading">🚫 Why Breath Can Harm</h4>
+                                        <div class="warning-inline">
+                                            <strong>⚠️ Traditional Warning:</strong> Advanced <span class="sanskrit-term">prāṇāyāma</span> (breath retention, forceful breathing) can destabilize people with unresolved trauma, dissociation, or weak nervous systems. Historically, these practices were taught only after years of foundational body work. If deep breathing makes you more anxious, not less—stop. Your system is telling you it's not ready.
+                                        </div>
+                                        <p class="meta-text">
+                                            The mini-practices on this page are safe for most people because they emphasize gentle, natural rhythms. Full tantric breathwork is a different beast entirely, and should only be learned from someone who understands nervous system capacity, not just ancient texts.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="tantra-card">
@@ -1273,6 +1748,23 @@
                 }
             });
         });
+        
+        // Meta-Knowledge Toggle System
+        function toggleMeta(element) {
+            const toggle = element;
+            const content = toggle.nextElementSibling;
+            
+            // Toggle active class
+            toggle.classList.toggle('active');
+            content.classList.toggle('active');
+            
+            // Smooth scroll into view on mobile when opening
+            if (content.classList.contains('active') && window.innerWidth <= 640) {
+                setTimeout(() => {
+                    toggle.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 400);
+            }
+        }
     </script>
 </body>
 </html>
