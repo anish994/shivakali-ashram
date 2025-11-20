@@ -73,8 +73,9 @@
       "folder": "therapeutic",
       "priority": 4,
       "cardStyle": "healing-green",
-      "subCategoryCount": 9,
-      "estimatedContent": "70+ rich cards"
+      "subCategoryCount": 4,
+      "estimatedContent": "16+ detailed protocols",
+      "directUrl": "therapeutics/theriputic homepage.html"
     },
     {
       "id": "character",
