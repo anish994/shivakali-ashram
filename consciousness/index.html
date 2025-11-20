@@ -581,14 +581,10 @@
                 font-size: 0.75rem;
             }
 
-            .node-expanded-content {
-                padding: 3rem 1.5rem;
+            .node-close {
+                top: 1rem;
+                right: 1rem;
             }
-
-            .expanded-title {
-                font-size: 2rem;
-            }
-        }
     </style>
 </head>
 <body>
@@ -1050,13 +1046,7 @@
                 'lucid-dreaming': 'Lucid Dreaming',
                 'memory-palace': 'Memory Architecture',
                 'pain-modulation': 'Pain Modulation',
-                'time-warp': 'Time Warping'
-            };
-            return titles[nodeId] || 'Practice Node';
-        }
-
-        function getNodeContent(nodeId) {
-            const content = {
+                'time-warp': 'Time Warping',
                 'synesthesia': 'Synesthesia',
                 'hypnagogia': 'Hypnagogic State',
                 'biofeedback': 'Biofeedback Loop',
@@ -1071,6 +1061,101 @@
 
         function getNodeContent(nodeId) {
             const content = {
+                'basic-meditation': `
+                    <h2 class="expanded-title">Basic Meditation</h2>
+                    <div class="expanded-body">
+                        <p>The foundation of all consciousness work. Before you can hack the system, you must learn to sit still and observe the operating system running. This is not about "clearing the mind"; it is about observing the noise without becoming the noise.</p>
+                        
+                        <p><strong>The Protocol:</strong> Sit. Straight spine. Close eyes. Focus on the sensation of breath at the nostrils. When the mind wanders (and it will), bring it back. That moment of bringing it back IS the rep. It is a bicep curl for your attention.</p>
+
+                        <h3>The Boredom Threshold</h3>
+                        <p>You will get bored. You will get agitated. This is the first gate. The brain screams for stimulation. By refusing to feed it, you are training the nervous system to down-regulate. You are reclaiming your dopamine receptors from the algorithm of modern life.</p>
+
+                        <div class="meta-knowledge">
+                            <div class="meta-toggle">
+                                <span class="meta-label">🧠 NEUROLOGY</span>
+                                <span class="meta-icon">▼</span>
+                            </div>
+                            <div class="meta-content">
+                                <div class="meta-inner">
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading">Default Mode Network (DMN)</h4>
+                                        <p class="meta-text">
+                                            The DMN is the brain network active when you are daydreaming, worrying, or thinking about "me." Meditation deactivates this network. You are literally taking the "Self" offline to save energy and increase clarity.
+                                        </p>
+                                    </div>
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading">The "Bad Meditator" Myth</h4>
+                                        <p class="meta-text">
+                                            "I can't meditate, my mind is too busy." That is like saying "I can't go to the gym, I'm too weak." The busy-ness IS the weight you are lifting. Noticing you are distracted is the success, not the failure.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3>Progression Protocol</h3>
+                        <p><strong>Level 1 (Stabilization):</strong> 5-10 minutes. You mostly think, but catch yourself occasionally.</p>
+                        <p><strong>Level 2 (Continuity):</strong> 20 minutes. You can stay with the breath for 10-20 cycles without forgetting.</p>
+                        <p><strong>Level 3 (Access):</strong> 45+ minutes. The breath becomes beautiful. The body disappears. You don't want to stop.</p>
+                    </div>
+                `,
+                'ego-dissolution': `
+                    <h2 class="expanded-title">Ego Dissolution</h2>
+                    <div class="expanded-body">
+                        <p>The Ego is a protective interface, a spacesuit for navigating social reality. But sometimes you need to take the suit off. Ego Dissolution is the deliberate collapse of the self-boundary. The distinction between "me" and "not-me" evaporates.</p>
+                        
+                        <p>This can be achieved through high-dose psychedelics, deep meditative states (Jhanas), or breathwork. It is terrifying to the ego, because the ego interprets this as death. To the consciousness, it is liberation.</p>
+
+                        <h3>The Oceanic Feeling</h3>
+                        <p>Freud called it the "oceanic feeling." The drop returns to the ocean. You realize that you were never a wave; you were always the water.</p>
+
+                        <div class="meta-knowledge">
+                            <div class="meta-toggle">
+                                <span class="meta-label">⚠️ PSYCHOLOGICAL SAFETY</span>
+                                <span class="meta-icon">▼</span>
+                            </div>
+                            <div class="meta-content">
+                                <div class="meta-inner">
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading">Warning: Depersonalization</h4>
+                                        <div class="warning-inline">
+                                            <strong>Grounding Required:</strong> If you dissolve the ego without a strong container, you can drift into depersonalization (feeling like a robot/ghost). Always follow dissolution with heavy physical activity (eating, lifting weights) to put the suit back on.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3>The Re-Entry</h3>
+                        <p>When the ego reforms, it is often looser, less sticky. You take your "story" less seriously. You realize it is just a costume you wear, not who you are.</p>
+                    </div>
+                `,
+                'void-states': `
+                    <h2 class="expanded-title">Void State Practice</h2>
+                    <div class="expanded-body">
+                        <p>Beyond visual hallucinations, beyond bliss, beyond even the sense of "being," lies the Void. In Buddhism, this is <em>Nirodha Samapatti</em> (Cessation). The brain stops rendering the world entirely.</p>
+                        
+                        <p>It is not "blackness" (which is a visual experience). It is the absence of experience. It is a system reboot. When you return from the Void, the world feels freshly rendered, high-definition, and devoid of suffering.</p>
+
+                        <div class="meta-knowledge">
+                            <div class="meta-toggle">
+                                <span class="meta-label">🌌 THE EVENT HORIZON</span>
+                                <span class="meta-icon">▼</span>
+                            </div>
+                            <div class="meta-content">
+                                <div class="meta-inner">
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading">The Blink-Out</h4>
+                                        <p class="meta-text">
+                                            Practitioners describe it as a gap in time. You were there, then you weren't, then you are back. But unlike sleep, you come back with profound clarity and often tears of relief.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `,
                 'ganzfeld': `
                     <h2 class="expanded-title" style="color: #FF6B6B;">The Ganzfeld Hack</h2>
                     <div class="expanded-body">
