@@ -3,604 +3,563 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Therapeutic Systems - Bio-Sanctuary</title>
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Therapeutic Systems - Bio-Sanctuary Interface</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <style>
         :root {
             /* Base Theme: Neutral/Waiting */
             --bio-primary: #64ffda;
             --bio-secondary: #48bcae;
             --bio-bg: #0a192f;
-            --bio-glass: rgba(10, 25, 47, 0.6);
+            --bio-glass: rgba(10, 25, 47, 0.7);
+            --bio-border: rgba(100, 255, 218, 0.3);
             --bio-text: #e6f1ff;
-            --bio-accent: #64ffda;
+            --scan-color: rgba(100, 255, 218, 0.1);
             
             /* Transition Speed */
-            --morph-speed: 0.8s;
+            --morph-speed: 0.6s;
         }
 
-        /* Ayurveda Theme */
+        /* Dynamic Theme Overrides */
         [data-theme="ayurveda"] {
-            --bio-primary: #ffd700; /* Gold */
-            --bio-secondary: #556b2f; /* Dark Olive */
-            --bio-bg: #1a1a00; /* Deep Organic */
-            --bio-glass: rgba(26, 26, 0, 0.6);
+            --bio-primary: #ffd700;
+            --bio-secondary: #a18e05;
+            --bio-bg: #1a1a00;
+            --bio-glass: rgba(26, 26, 0, 0.8);
+            --bio-border: rgba(255, 215, 0, 0.3);
             --bio-text: #fff8e1;
-            --bio-accent: #ffa500; /* Orange */
+            --scan-color: rgba(255, 215, 0, 0.1);
         }
 
-        /* Somatic Theme */
         [data-theme="somatic"] {
-            --bio-primary: #ff6b6b; /* Flesh/Muscle Pink */
-            --bio-secondary: #8b4513; /* Bone/Clay */
-            --bio-bg: #1a0f0f; /* Deep Earth/Flesh */
-            --bio-glass: rgba(26, 15, 15, 0.6);
+            --bio-primary: #ff6b6b;
+            --bio-secondary: #c0392b;
+            --bio-bg: #1a0f0f;
+            --bio-glass: rgba(40, 10, 10, 0.8);
+            --bio-border: rgba(255, 107, 107, 0.3);
             --bio-text: #ffe6e6;
-            --bio-accent: #ff4d4d;
+            --scan-color: rgba(255, 107, 107, 0.1);
         }
 
-        /* Vibrational Theme */
         [data-theme="vibration"] {
-            --bio-primary: #7b2cbf; /* Indigo */
-            --bio-secondary: #b5179e; /* Violet */
-            --bio-bg: #0f0518; /* Deep Void */
-            --bio-glass: rgba(15, 5, 24, 0.6);
+            --bio-primary: #d45eff;
+            --bio-secondary: #9b30ff;
+            --bio-bg: #12051c;
+            --bio-glass: rgba(30, 5, 40, 0.8);
+            --bio-border: rgba(212, 94, 255, 0.3);
             --bio-text: #f3e5f5;
-            --bio-accent: #4361ee; /* Electric Blue */
+            --scan-color: rgba(212, 94, 255, 0.1);
         }
 
-        /* Energy Theme */
         [data-theme="energy"] {
-            --bio-primary: #00ffff; /* Cyan */
-            --bio-secondary: #e0ffff; /* Light Cyan */
-            --bio-bg: #00111a; /* Deep Aether */
-            --bio-glass: rgba(0, 17, 26, 0.6);
+            --bio-primary: #00ffff;
+            --bio-secondary: #008b8b;
+            --bio-bg: #00151f;
+            --bio-glass: rgba(0, 25, 40, 0.8);
+            --bio-border: rgba(0, 255, 255, 0.3);
             --bio-text: #f0ffff;
-            --bio-accent: #fffacd; /* Lemon Chiffon */
+            --scan-color: rgba(0, 255, 255, 0.1);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Rajdhani', sans-serif;
             background-color: var(--bio-bg);
             color: var(--bio-text);
             overflow: hidden;
-            transition: background-color var(--morph-speed) ease;
             height: 100vh;
             width: 100vw;
+            transition: background-color var(--morph-speed) ease;
         }
 
-        /* Video Background */
+        /* --- Background Layers --- */
         #bg-video-layer {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            overflow: hidden;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -3;
         }
 
         #bg-video {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translateX(-50%) translateY(-50%);
-            filter: brightness(0.4) saturate(1.2) blur(3px);
+            top: 50%; left: 50%;
+            min-width: 100%; min-height: 100%;
+            transform: translate(-50%, -50%);
             object-fit: cover;
+            filter: brightness(0.3) saturate(0) contrast(1.2);
             transition: filter var(--morph-speed) ease;
         }
 
-        /* Color Overlay Layer */
-        #color-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+        /* Active filters for video */
+        [data-theme="ayurveda"] #bg-video { filter: brightness(0.4) saturate(1.2) sepia(1) hue-rotate(0deg); }
+        [data-theme="somatic"] #bg-video { filter: brightness(0.3) saturate(1.5) sepia(0.5) hue-rotate(-50deg); }
+        [data-theme="vibration"] #bg-video { filter: brightness(0.4) saturate(1.5) hue-rotate(220deg); }
+        [data-theme="energy"] #bg-video { filter: brightness(0.5) saturate(1.2) hue-rotate(150deg); }
+
+        /* CRT Scanline Overlay */
+        .scanlines {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.2));
+            background-size: 100% 4px;
             z-index: -1;
-            background: var(--bio-bg);
-            opacity: 0.7;
-            transition: background-color var(--morph-speed) ease;
-            mix-blend-mode: multiply;
+            pointer-events: none;
+            opacity: 0.6;
         }
 
-        /* Main HUD Layout */
+        /* --- HUD Container --- */
         .hud-container {
             display: grid;
-            grid-template-columns: 450px 1fr;
+            grid-template-columns: 400px 1fr;
             height: 100vh;
             position: relative;
-            z-index: 1;
+            z-index: 10;
         }
 
-        /* Left Panel: Navigation & Status */
+        /* --- Left Panel (Navigation) --- */
         .hud-left {
-            padding: 4rem 3rem;
-            border-right: 1px solid rgba(255, 255, 255, 0.08);
-            background: linear-gradient(90deg, var(--bio-glass) 0%, rgba(0,0,0,0) 100%);
+            background: var(--bio-glass);
+            border-right: 1px solid var(--bio-border);
+            backdrop-filter: blur(20px);
+            padding: 3rem;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            gap: 2rem;
-            transition: all var(--morph-speed) ease;
-            backdrop-filter: blur(10px);
+            justify-content: space-between;
+            position: relative;
+            transition: border-color var(--morph-speed) ease;
+        }
+
+        /* Decorative corners for HUD */
+        .hud-corner {
+            position: absolute;
+            width: 20px; height: 20px;
+            border: 2px solid var(--bio-primary);
+            transition: border-color var(--morph-speed) ease;
+        }
+        .tl { top: 20px; left: 20px; border-right: 0; border-bottom: 0; }
+        .bl { bottom: 20px; left: 20px; border-right: 0; border-top: 0; }
+        .tr { top: 20px; right: 20px; border-left: 0; border-bottom: 0; }
+        .br { bottom: 20px; right: 20px; border-left: 0; border-top: 0; }
+
+        .nav-header h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 4px;
+            color: var(--bio-secondary);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            opacity: 0.8;
         }
 
         .nav-menu {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 1rem;
         }
 
         .nav-item {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.4rem;
-            color: rgba(255,255,255,0.4);
+            position: relative;
+            padding: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(0,0,0,0.2);
             cursor: pointer;
-            transition: all 0.4s ease;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding-left: 1rem;
-            border-left: 2px solid transparent;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
         }
 
         .nav-item:hover, .nav-item.active {
-            color: var(--bio-primary);
-            padding-left: 2rem;
-            border-left-color: var(--bio-primary);
-            text-shadow: 0 0 15px var(--bio-primary);
+            background: rgba(255,255,255,0.05);
+            border-color: var(--bio-primary);
+            transform: translateX(10px);
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
         }
 
-        .nav-number {
-            font-size: 0.8rem;
-            font-family: 'Rajdhani', sans-serif;
-            opacity: 0.5;
-            letter-spacing: 2px;
+        .nav-item.active::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 4px;
+            background: var(--bio-primary);
+            box-shadow: 0 0 10px var(--bio-primary);
         }
 
-        .system-status {
-            font-family: 'Orbitron', sans-serif;
-        }
-
-        .status-header {
-            font-size: 0.8rem;
-            letter-spacing: 2px;
+        .nav-id {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.7rem;
             color: var(--bio-secondary);
             margin-bottom: 0.5rem;
+            display: block;
         }
 
-        .status-value {
-            font-size: 1.5rem;
-            color: var(--bio-primary);
-            text-shadow: 0 0 10px var(--bio-primary);
+        .nav-label {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            color: #fff;
+            letter-spacing: 1px;
+            font-weight: 500;
         }
 
-        .data-stream {
-            font-family: monospace;
+        /* System Diagnostics Block */
+        .sys-diag {
+            font-family: 'Share Tech Mono', monospace;
             font-size: 0.8rem;
             color: var(--bio-secondary);
-            opacity: 0.7;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1.5rem;
             line-height: 1.6;
         }
+        .sys-row {
+            display: flex;
+            justify-content: space-between;
+        }
+        .blink { animation: blink 1s infinite; }
+        @keyframes blink { 50% { opacity: 0; } }
 
-        /* Right Panel: Content Display */
+        /* --- Right Panel (Content) --- */
         .hud-right {
             padding: 6rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease;
+            position: relative;
         }
 
-        .hud-right.active {
+        .content-wrapper {
+            max-width: 800px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+        .content-wrapper.active {
             opacity: 1;
             transform: translateY(0);
         }
 
-        .module-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 4rem;
-            font-weight: 700;
-            color: var(--bio-primary);
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            line-height: 1;
-            text-shadow: 0 0 30px rgba(0,0,0,0.5);
-        }
-
-        .module-meta {
+        .active-header {
             display: flex;
-            gap: 3rem;
-            margin-bottom: 3rem;
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 1.1rem;
-            color: var(--bio-secondary);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 1.5rem;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
         }
 
-        .module-description {
-            font-size: 1.4rem;
-            margin-bottom: 4rem;
-            line-height: 1.6;
-            max-width: 800px;
-            color: var(--bio-text);
-            font-weight: 300;
-        }
-
-        .module-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            max-width: 1000px;
-        }
-
-        .module-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255,255,255,0.1);
-            padding: 1.5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .module-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 2px;
-            height: 100%;
-            background: var(--bio-primary);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .module-card:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: var(--bio-primary);
-            transform: translateY(-5px);
-        }
-
-        .module-card:hover::before {
-            opacity: 1;
-        }
-
-        .module-card h3 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            color: var(--bio-text);
-        }
-
-        .module-card p {
-            font-size: 0.9rem;
-            color: var(--bio-secondary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .back-nav {
-            position: absolute;
-            top: 2rem;
-            left: 2rem;
-            text-decoration: none;
-            color: var(--bio-primary);
+        .status-badge {
             border: 1px solid var(--bio-primary);
-            padding: 0.5rem 1rem;
-            font-family: 'Orbitron', sans-serif;
+            color: var(--bio-primary);
+            padding: 0.2rem 0.8rem;
             font-size: 0.8rem;
-            text-transform: uppercase;
+            font-family: 'Share Tech Mono', monospace;
             letter-spacing: 2px;
-            background: rgba(0,0,0,0.5);
-            transition: all 0.3s ease;
-            z-index: 100;
+            background: rgba(0,0,0,0.3);
         }
 
-        .back-nav:hover {
+        .main-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--bio-primary);
+            line-height: 0.9;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            text-shadow: 0 0 30px var(--scan-color);
+            position: relative;
+        }
+
+        .desc-text {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            margin-bottom: 3rem;
+            color: var(--bio-text);
+            max-width: 600px;
+            border-left: 2px solid var(--bio-secondary);
+            padding-left: 2rem;
+        }
+
+        .launch-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 3rem;
             background: var(--bio-primary);
             color: #000;
-            box-shadow: 0 0 20px var(--bio-primary);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+            transition: all 0.3s ease;
         }
 
-        /* Mobile Responsiveness */
+        .launch-btn:hover {
+            background: #fff;
+            box-shadow: 0 0 30px var(--bio-primary);
+            transform: scale(1.05);
+        }
+
+        .back-link {
+            position: absolute;
+            top: 2rem; right: 3rem;
+            color: var(--bio-secondary);
+            text-decoration: none;
+            font-family: 'Share Tech Mono', monospace;
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+        .back-link:hover {
+            background: var(--bio-primary);
+            color: #000;
+            border-color: var(--bio-primary);
+        }
+
+        /* --- Boot Sequence Overlay --- */
+        #boot-screen {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #000;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #64ffda;
+            font-family: 'Share Tech Mono', monospace;
+            flex-direction: column;
+        }
+        
+        .boot-text { font-size: 1.2rem; margin-bottom: 1rem; }
+        .loader-bar { width: 300px; height: 4px; background: #112240; position: relative; overflow: hidden; }
+        .loader-progress { position: absolute; top: 0; left: 0; height: 100%; width: 0%; background: #64ffda; transition: width 0.2s linear; }
+
+        /* --- Mobile Responsive --- */
         @media (max-width: 1024px) {
             .hud-container {
                 grid-template-columns: 1fr;
                 grid-template-rows: auto 1fr;
-                min-height: 100vh;
-                height: auto;
             }
-            
+
             .hud-left {
                 padding: 1rem;
+                border-right: none;
+                border-bottom: 1px solid var(--bio-border);
                 flex-direction: row;
                 align-items: center;
                 overflow-x: auto;
-                justify-content: flex-start;
                 gap: 1rem;
-                border-right: none;
-                border-bottom: 1px solid rgba(255,255,255,0.1);
                 background: rgba(10, 25, 47, 0.95);
-                backdrop-filter: blur(15px);
-                position: sticky;
-                top: 0;
-                z-index: 50;
                 white-space: nowrap;
-                -webkit-overflow-scrolling: touch;
             }
 
-            /* Hide scrollbar for clean look */
-            .hud-left::-webkit-scrollbar {
-                display: none;
-            }
-            .hud-left {
-                -ms-overflow-style: none;
-                scrollbar-width: none;
-            }
+            .hud-left::-webkit-scrollbar { display: none; }
+            
+            .nav-header, .sys-diag, .hud-corner { display: none; }
 
             .nav-menu {
                 flex-direction: row;
-                width: auto;
-                gap: 0.5rem;
+                gap: 1rem;
+                width: 100%;
             }
 
             .nav-item {
-                font-size: 0.9rem;
-                padding: 0.6rem 1.2rem;
-                border-left: none;
+                padding: 0.8rem 1.5rem;
+                min-width: 160px;
+                transform: none !important;
                 border: 1px solid rgba(255,255,255,0.1);
-                border-radius: 100px;
-                background: rgba(255,255,255,0.05);
-                white-space: nowrap;
             }
 
             .nav-item:hover, .nav-item.active {
-                padding-left: 1.2rem; /* Override desktop hover shift */
-                border-left: 1px solid var(--bio-primary); /* Reset border style */
+                background: rgba(255,255,255,0.1);
                 border-color: var(--bio-primary);
-                background: rgba(var(--bio-primary-rgb), 0.1);
-                color: var(--bio-primary);
-                text-shadow: none;
             }
-
-            .nav-number {
-                display: none; /* Hide numbers on mobile to save space */
-            }
-
-            .data-stream {
-                display: none; /* Hide stream on mobile */
-            }
-
+            
             .hud-right {
-                padding: 2rem 1.5rem 4rem;
-                opacity: 1; /* Ensure visible by default if needed or handle via JS */
-                transform: none;
+                padding: 2rem;
+                justify-content: flex-start;
+                padding-top: 4rem;
             }
 
-            .module-title {
-                font-size: 2.2rem;
-                word-wrap: break-word;
-            }
-
-            .module-meta {
-                gap: 1rem;
-                margin-bottom: 2rem;
-                font-size: 0.9rem;
-                flex-wrap: wrap;
-            }
-
-            .module-description {
-                font-size: 1rem;
-                margin-bottom: 2.5rem;
-            }
-
-            .module-grid {
-                grid-template-columns: 1fr; /* Stack cards */
-            }
-
-            .back-nav {
-                position: static;
-                display: block;
-                margin: 1rem;
-                text-align: center;
-                width: auto;
-            }
+            .main-title { font-size: 3rem; }
+            .desc-text { font-size: 1.1rem; border-left: none; padding-left: 0; }
+            .launch-btn { width: 100%; justify-content: center; }
+            .back-link { top: 1rem; right: 1rem; font-size: 0.8rem; }
         }
     </style>
 </head>
 <body>
 
-    <a href="../index.html" class="back-nav">Return to Base</a>
+    <!-- Boot Screen -->
+    <div id="boot-screen">
+        <div class="boot-text">INITIALIZING BIO-SANCTUARY PROTOCOLS...</div>
+        <div class="loader-bar"><div class="loader-progress" id="loader"></div></div>
+    </div>
 
-    <!-- Video Background -->
+    <!-- Visual Layers -->
+    <div class="scanlines"></div>
     <div id="bg-video-layer">
         <video id="bg-video" autoplay muted loop playsinline>
             <source src="../assets/video/consense.mp4" type="video/mp4">
         </video>
     </div>
-    <!-- Dynamic Color Tint -->
-    <div id="color-overlay"></div>
 
     <div class="hud-container">
-        <!-- Left: Navigation Menu -->
+        
+        <!-- Left Panel: Navigation -->
         <div class="hud-left">
+            <!-- Corners -->
+            <div class="hud-corner tl"></div>
+            <div class="hud-corner tr"></div>
+            <div class="hud-corner bl"></div>
+            <div class="hud-corner br"></div>
+
+            <div class="nav-header">
+                <h2>System Selection</h2>
+            </div>
+
             <div class="nav-menu">
-                <div class="nav-item" data-target="ayurveda">
-                    <span class="nav-number">01</span>
-                    <span>AYURVEDIC ALCHEMY</span>
+                <div class="nav-item active" data-target="ayurveda" onclick="selectSystem('ayurveda')">
+                    <span class="nav-id">SYS.01</span>
+                    <span class="nav-label">AYURVEDIC ALCHEMY</span>
                 </div>
-                <div class="nav-item" data-target="somatic">
-                    <span class="nav-number">02</span>
-                    <span>SOMATIC RELEASE</span>
+                <div class="nav-item" data-target="somatic" onclick="selectSystem('somatic')">
+                    <span class="nav-id">SYS.02</span>
+                    <span class="nav-label">SOMATIC RELEASE</span>
                 </div>
-                <div class="nav-item" data-target="vibration">
-                    <span class="nav-number">03</span>
-                    <span>VIBRATIONAL MEDICINE</span>
+                <div class="nav-item" data-target="vibration" onclick="selectSystem('vibration')">
+                    <span class="nav-id">SYS.03</span>
+                    <span class="nav-label">VIBRATIONAL MED.</span>
                 </div>
-                <div class="nav-item" data-target="energy">
-                    <span class="nav-number">04</span>
-                    <span>ENERGY HEALING</span>
+                <div class="nav-item" data-target="energy" onclick="selectSystem('energy')">
+                    <span class="nav-id">SYS.04</span>
+                    <span class="nav-label">ENERGY HEALING</span>
                 </div>
             </div>
 
-            <div class="data-stream" style="margin-top: 4rem;">
-                <p class="status-header">SYSTEM STATUS</p>
-                <p class="status-value" id="status-readout" style="font-size: 1.2rem;">STANDBY</p>
-                <p id="freq-readout" style="font-family: monospace; color: var(--bio-secondary); margin-top: 0.5rem;">Awaiting Selection...</p>
+            <div class="sys-diag">
+                <div class="sys-row">
+                    <span>STATUS:</span>
+                    <span style="color: var(--bio-primary)">ONLINE</span>
+                </div>
+                <div class="sys-row">
+                    <span>FREQ:</span>
+                    <span id="freq-val">7.83Hz</span>
+                </div>
+                <div class="sys-row">
+                    <span>SYNC:</span>
+                    <span class="blink">ACTIVE</span>
+                </div>
             </div>
         </div>
 
-        <!-- Right: Content Display -->
-        <div class="hud-right" id="content-panel">
-            <div class="module-meta">
-                <span id="meta-freq">-- Hz</span>
-                <span id="meta-element">--</span>
-                <span id="meta-status">INACTIVE</span>
-            </div>
+        <!-- Right Panel: Content -->
+        <div class="hud-right">
+            <a href="../index.html" class="back-link">// EXIT INTERFACE</a>
             
-            <h2 class="module-title" id="panel-title">Therapeutic<br>Systems</h2>
-            <p class="module-description" id="panel-desc">
-                Select a protocol from the navigation menu to initialize the bio-sanctuary environment. 
-                Access ancient wisdom integrated with futuristic somatic technology.
-            </p>
-            
-            <div class="module-grid" id="panel-grid">
-                <!-- Content injected via JS -->
+            <div class="content-wrapper active" id="content-area">
+                <div class="active-header">
+                    <span class="status-badge" id="sys-badge">SYS.01.ACTIVE</span>
+                    <span style="font-family: 'Share Tech Mono'; opacity: 0.6;">// ELEMENTAL MATRIX</span>
+                </div>
+
+                <h1 class="main-title" id="sys-title">AYURVEDIC<br>ALCHEMY</h1>
+                
+                <p class="desc-text" id="sys-desc">
+                    Diagnostic tools initialized. Analyze biological humors (Doshas) to reverse-engineer optimal metabolic states. 
+                    Access ancient elemental protocols for cellular rejuvenation.
+                </p>
+
+                <a href="ayurveda.html" class="launch-btn" id="sys-btn">
+                    <span>Initiate Protocol</span>
+                    <span style="font-size: 1.2rem;">→</span>
+                </a>
             </div>
         </div>
     </div>
 
     <script>
-        const body = document.body;
-        const statusReadout = document.getElementById('status-readout');
-        const freqReadout = document.getElementById('freq-readout');
-        const contentPanel = document.getElementById('content-panel');
-        const panelTitle = document.getElementById('panel-title');
-        const panelDesc = document.getElementById('panel-desc');
-        const panelGrid = document.getElementById('panel-grid');
-        
-        const metaFreq = document.getElementById('meta-freq');
-        const metaElement = document.getElementById('meta-element');
-        const metaStatus = document.getElementById('meta-status');
-
-        // System Data
+        // Data Structure
         const systems = {
-            'ayurveda': {
-                theme: 'ayurveda',
-                status: 'ELEMENTAL OPTIMIZATION',
-                freq: '7.83Hz',
-                element: 'EARTH / FIRE',
-                title: 'Ayurvedic Alchemy',
-                desc: 'Harmonize the biological humors (Doshas) through elemental science. Restore the sacred balance of Vata, Pitta, and Kapha using ancient metabolic protocols.',
-                link: 'ayurveda.html',
-                modules: [
-                    'Dosha Diagnosis', 'Sacred Herbology', 'Rasayana Protocol', 'Pranic Dietetics'
-                ]
+            ayurveda: {
+                title: "AYURVEDIC<br>ALCHEMY",
+                desc: "Diagnostic tools initialized. Analyze biological humors (Doshas) to reverse-engineer optimal metabolic states. Access ancient elemental protocols for cellular rejuvenation.",
+                link: "ayurveda.html",
+                freq: "7.83Hz",
+                badge: "SYS.01.ACTIVE"
             },
-            'somatic': {
-                theme: 'somatic',
-                status: 'STRUCTURAL INTEGRITY',
-                freq: '128Hz',
-                element: 'MATTER',
-                title: 'Somatic Release',
-                desc: 'Unlock trauma stored in the deep fascial network. Re-align the geometry of the physical vessel to allow unobstructed energy flow.',
-                link: 'somatic.html',
-                modules: [
-                    'Trauma Release', 'Myofascial Unwinding', 'Deep Grounding', 'Structural Alignment'
-                ]
+            somatic: {
+                title: "SOMATIC<br>RELEASE",
+                desc: "Structural integrity scan complete. Purge trauma stored in the fascial web through neurogenic tremors and myofascial unwinding. Reclaim your physical vessel.",
+                link: "somatic.html",
+                freq: "128Hz",
+                badge: "SYS.02.ACTIVE"
             },
-            'vibration': {
-                theme: 'vibration',
-                status: 'SONIC RESONANCE',
-                freq: '432Hz',
-                element: 'AETHER',
-                title: 'Vibrational Medicine',
-                desc: 'Restructure matter through sound codes. Utilize Nada Yoga, binaural beats, and cymatics to re-tune the cellular frequency.',
-                link: 'vibration.html',
-                modules: [
-                    'Binaural Entrainment', 'Mantra Therapy', 'Voice Activation', 'Rife Frequencies'
-                ]
+            vibration: {
+                title: "VIBRATIONAL<br>MEDICINE",
+                desc: "Acoustic architecture online. Reshape consciousness using binaural entrainment and cymatic frequencies. Tune the mind to higher geometric coherence.",
+                link: "vibration.html",
+                freq: "432Hz",
+                badge: "SYS.03.ACTIVE"
             },
-            'energy': {
-                theme: 'energy',
-                status: 'AURA COHERENCE',
-                freq: '963Hz',
-                element: 'LIGHT',
-                title: 'Energy Healing',
-                desc: 'Scan and cleanse the subtle electric body. Optimize pranic flow through the meridian system and crystallize the aura.',
-                link: 'energy.html',
-                modules: [
-                    'Pranic Scanning', 'Reiki Protocols', 'Marma Points', 'Crystal Grids'
-                ]
+            energy: {
+                title: "ENERGY<br>HEALING",
+                desc: "Subtle body interface ready. Clear meridian blockages and optimize pranic flow. Utilize crystal technologies to crystallize the auric field.",
+                link: "energy.html",
+                freq: "963Hz",
+                badge: "SYS.04.ACTIVE"
             }
         };
 
-        // Mobile Init
-        if (window.innerWidth <= 1024) {
-            activateSystem('ayurveda');
-        }
+        // Boot Sequence
+        window.onload = function() {
+            const bar = document.getElementById('loader');
+            let width = 0;
+            const interval = setInterval(() => {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    document.getElementById('boot-screen').style.opacity = '0';
+                    setTimeout(() => {
+                        document.getElementById('boot-screen').style.display = 'none';
+                    }, 500);
+                } else {
+                    width += Math.random() * 10;
+                    bar.style.width = width + '%';
+                }
+            }, 50);
+        };
 
-        // Interaction Logic
-        document.querySelectorAll('.nav-item').forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                // UI Feedback
-                document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
-                el.classList.add('active');
-                
-                const target = el.getAttribute('data-target');
-                activateSystem(target);
-            });
-        });
-
-        function activateSystem(key) {
-            const sys = systems[key];
-            if (!sys) return;
-
-            // Theme Shift
-            body.setAttribute('data-theme', sys.theme);
-
-            // Metrics Update
-            statusReadout.innerText = sys.status;
-            freqReadout.innerText = `RESONANCE: ${sys.freq}`;
+        // System Selection Logic
+        function selectSystem(key) {
+            const body = document.body;
+            const data = systems[key];
+            const content = document.getElementById('content-area');
             
-            metaFreq.innerText = sys.freq;
-            metaElement.innerText = sys.element;
-            metaStatus.innerText = 'ONLINE';
+            // Update Theme
+            body.setAttribute('data-theme', key);
 
-            // Content Panel Update
-            contentPanel.classList.remove('active');
-            
-            // Small delay for transition effect
+            // Update Active Nav
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+            document.querySelector(`[data-target="${key}"]`).classList.add('active');
+
+            // Update Diagnostics
+            document.getElementById('freq-val').innerText = data.freq;
+
+            // Animate Content Out
+            content.style.opacity = '0';
+            content.style.transform = 'translateY(20px)';
+
             setTimeout(() => {
-                panelTitle.innerText = sys.title;
-                panelDesc.innerText = sys.desc;
-                contentPanel.classList.add('active');
+                // Update Content
+                document.getElementById('sys-title').innerHTML = data.title;
+                document.getElementById('sys-desc').innerText = data.desc;
+                document.getElementById('sys-btn').href = data.link;
+                document.getElementById('sys-badge').innerText = data.badge;
 
-            // Populate Modules
-            panelGrid.innerHTML = sys.modules.map(mod => `
-                <div class="module-card" onclick="window.location.href='${sys.link}'">
-                    <h3>${mod}</h3>
-                    <p>ACCESS PROTOCOL ></p>
-                </div>
-            `).join('');
-            }, 100);
+                // Animate Content In
+                content.style.opacity = '1';
+                content.style.transform = 'translateY(0)';
+            }, 400);
+        }
+        
+        // Pre-select first option if on mobile to show content immediately
+        if(window.innerWidth <= 1024) {
+           // Optional: adjust initial state if needed
         }
     </script>
 </body>
