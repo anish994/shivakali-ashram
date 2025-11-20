@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="description" content="Ritual technologies of ShivaKali Ashram — ancient temple protocols fused with futuristic consciousness engineering.">
+    <meta name="keywords" content="rituals, tantra, shivakali ashram, fire rituals, puja, temple technologies, consciousness engineering">
+    <meta name="author" content="Acharya Anish">
+
+    <title>🔥 Ritual Technologies - ShivaKali Ashram</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
+
+    <!-- Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ShivaKali Ashram Tantra/Ritual Theme */
+        :root {
+            --tantra-deep: #000000;
+            --tantra-layer: #02020b;
+            --tantra-blood: #8B0000;
+            --tantra-gold: #FFD700;
+            --tantra-purple: #8B00FF;
+            --tantra-red: #DC143C;
+            --card-bg: rgba(10, 8, 20, 0.96);
+            --card-border: rgba(139, 0, 0, 0.3);
+            --text-primary: #ffffff;
+            --text-secondary: #cac6ff;
+            --glow-purple: rgba(139, 0, 255, 0.6);
+            --glow-gold: rgba(255, 215, 0, 0.85);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--tantra-deep);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .page-container {
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Layer 1: Deep Background with Ritual Video */
+        .background-layer {
+            position: fixed;
+            inset: 0;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        #bg-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            filter: brightness(0.45) saturate(1.7);
+            object-fit: cover;
+        }
+
+        /* Layer 2: Pattern Layer */
+        .pattern-layer {
+            position: fixed;
+            inset: 0;
+            background:
+                linear-gradient(45deg,
+                    transparent 45%,
+                    rgba(139, 0, 0, 0.09) 49%,
+                    rgba(139, 0, 0, 0.09) 51%,
+                    transparent 55%
+                ),
+                radial-gradient(circle at 50% 10%,
+                    rgba(139, 0, 255, 0.16) 0%,
+                    transparent 60%
+                );
+            background-size: 22px 22px, 100% 100%;
+            border: 3px solid rgba(139, 0, 255, 0.45);
+            box-shadow:
+                inset 0 0 140px rgba(139, 0, 255, 0.28),
+                inset 0 0 80px rgba(255, 215, 0, 0.18);
+            z-index: 2;
+            animation: borderShimmer 20s ease-in-out infinite;
+        }
+
+        @keyframes borderShimmer {
+            0%, 100% { border-color: rgba(139, 0, 255, 0.45); }
+            50% { border-color: rgba(255, 215, 0, 0.7); }
+        }
+
+        /* Layer 3: Content */
+        .content-layer {
+            position: relative;
+            z-index: 3;
+            padding: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Navigation Buttons */
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.8rem;
+            background: linear-gradient(135deg, rgba(139, 0, 255, 0.18), rgba(139, 0, 0, 0.18));
+            border: 2px solid rgba(139, 0, 255, 0.5);
+            border-radius: 12px;
+            color: var(--tantra-gold);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 18px rgba(139, 0, 255, 0.25);
+        }
+
+        .nav-button:hover {
+            border-color: var(--tantra-gold);
+            box-shadow: 0 0 32px var(--glow-gold);
+            transform: translateY(-3px);
+        }
+
+        .nav-button:active {
+            transform: scale(0.97);
+        }
+
+        /* Intro Section */
+        .intro-section {
+            text-align: center;
+            padding: 2.5rem 1rem 3rem;
+            margin: 0 -1rem 2.5rem;
+            background: linear-gradient(180deg,
+                rgba(15, 4, 40, 0.85) 0%,
+                rgba(0, 0, 0, 0.4) 75%,
+                transparent 100%
+            );
+            border-bottom: 1px solid rgba(139, 0, 0, 0.4);
+        }
+
+        .intro-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.7rem, 7vw, 4.6rem);
+            font-weight: 900;
+            color: var(--tantra-gold);
+            margin: 0 0 1rem;
+            letter-spacing: 5px;
+            text-shadow:
+                0 0 30px rgba(255, 215, 0, 0.85),
+                0 0 60px rgba(139, 0, 255, 0.55),
+                0 0 90px rgba(220, 20, 60, 0.4);
+        }
+
+        .intro-subtitle {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: clamp(1.2rem, 3.4vw, 1.9rem);
+            font-weight: 300;
+            color: var(--text-secondary);
+            margin: 0.75rem 0 2rem;
+            letter-spacing: 2px;
+            text-shadow: 0 0 26px rgba(139, 0, 255, 0.6);
+        }
+
+        .intro-description {
+            max-width: 820px;
+            margin: 1.5rem auto 0;
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            color: var(--text-secondary);
+            line-height: 1.8;
+            padding: 0 1rem;
+        }
+
+        .intro-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            max-width: 920px;
+            margin: 2.5rem auto 0;
+            padding: 0 1rem;
+        }
+
+        .stat-item {
+            background: linear-gradient(135deg,
+                rgba(139, 0, 255, 0.16),
+                rgba(139, 0, 0, 0.2)
+            );
+            border: 2px solid rgba(139, 0, 255, 0.5);
+            border-radius: 16px;
+            padding: 1.8rem 1.4rem;
+            box-shadow: 0 0 22px rgba(139, 0, 255, 0.25);
+            transition: all 0.35s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-6px) scale(1.04);
+            border-color: var(--tantra-gold);
+            box-shadow: 0 0 34px var(--glow-gold);
+        }
+
+        .stat-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: var(--tantra-gold);
+            display: block;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 26px rgba(255, 215, 0, 0.9);
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+            font-weight: 700;
+            color: var(--tantra-gold);
+            margin: 3.5rem 0 2rem;
+            text-align: center;
+            text-shadow:
+                0 0 30px rgba(255, 215, 0, 0.8),
+                0 0 50px rgba(139, 0, 255, 0.4);
+            letter-spacing: 2px;
+        }
+
+        /* Card Grid */
+        .card-grid {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: 1fr;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 640px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .card-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Ritual Cards */
+        .tantra-card {
+            background: linear-gradient(135deg,
+                rgba(10, 8, 20, 0.98) 0%,
+                rgba(139, 0, 0, 0.18) 100%
+            );
+            border: 2px solid rgba(139, 0, 255, 0.5);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow:
+                0 8px 30px rgba(0, 0, 0, 0.45),
+                0 0 22px rgba(139, 0, 255, 0.22),
+                inset 0 0 24px rgba(139, 0, 255, 0.12);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .tantra-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, var(--tantra-purple), var(--tantra-red), var(--tantra-gold));
+            border-radius: 20px;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.4s ease;
+        }
+
+        .tantra-card:hover {
+            border-color: rgba(255, 215, 0, 0.9);
+            box-shadow:
+                0 12px 45px rgba(139, 0, 255, 0.5),
+                0 0 44px rgba(255, 215, 0, 0.45),
+                inset 0 0 32px rgba(139, 0, 255, 0.22);
+            transform: translateY(-8px) scale(1.03);
+        }
+
+        .tantra-card:hover::before {
+            opacity: 0.25;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-icon {
+            font-size: 2.4rem;
+            filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.8));
+            transition: all 0.3s ease;
+        }
+
+        .tantra-card:hover .card-icon {
+            transform: scale(1.12) rotate(8deg);
+            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 1));
+        }
+
+        .card-title-group {
+            flex: 1;
+        }
+
+        .card-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--tantra-gold);
+            margin: 0 0 0.35rem;
+            letter-spacing: 1px;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+            transition: all 0.3s ease;
+        }
+
+        .tantra-card:hover .card-title {
+            color: #ffffff;
+            transform: scale(1.04);
+        }
+
+        .card-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .card-description {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            margin: 0 0 0.9rem;
+            line-height: 1.6;
+        }
+
+        .card-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, rgba(139, 0, 255, 0.18), rgba(139, 0, 0, 0.18));
+            border: 1px solid rgba(139, 0, 255, 0.5);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--tantra-gold);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 0 12px rgba(139, 0, 255, 0.25);
+        }
+
+        /* Ritual Lists inside cards */
+        .ritual-list {
+            margin: 0.6rem 0 0.4rem;
+            padding-left: 1.2rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .ritual-list li {
+            margin-bottom: 0.35rem;
+        }
+
+        .ritual-list li strong {
+            color: var(--tantra-gold);
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 4rem;
+            padding: 3rem 2rem 2rem;
+            background: linear-gradient(180deg, transparent, rgba(139, 0, 255, 0.08));
+            border-top: 2px solid rgba(139, 0, 255, 0.35);
+            text-align: center;
+        }
+
+        .footer-brand {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--tantra-gold);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.9);
+        }
+
+        .footer-tagline {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.8rem;
+            letter-spacing: 2px;
+        }
+
+        .footer-divider {
+            width: 60%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--tantra-gold), transparent);
+            margin: 1.8rem auto;
+            box-shadow: 0 0 15px var(--glow-gold);
+            position: relative;
+        }
+
+        .footer-divider::before,
+        .footer-divider::after {
+            content: '🔥';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 1));
+        }
+
+        .footer-divider::before { left: -20px; }
+        .footer-divider::after { right: -20px; }
+
+        .footer-copyright {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 1.2rem;
+        }
+
+        /* Disclaimer System */
+        .disclaimer-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.97);
+            backdrop-filter: blur(10px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            transition: opacity 0.5s ease;
+        }
+
+        .disclaimer-box {
+            max-width: 820px;
+            background: rgba(13, 1, 33, 0.9);
+            border: 1px solid rgba(139, 0, 255, 0.4);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 0 50px rgba(139, 0, 255, 0.25);
+            text-align: center;
+        }
+
+        .disclaimer-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            color: var(--tantra-gold);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+        }
+
+        .warning-box {
+            background: rgba(139, 0, 0, 0.22);
+            border-left: 4px solid var(--tantra-blood);
+            padding: 1rem;
+            margin: 1rem 0;
+            text-align: left;
+            border-radius: 8px;
+        }
+
+        .disclaimer-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            padding: 1rem;
+            background: rgba(139, 0, 255, 0.12);
+            border-radius: 8px;
+        }
+
+        .disclaimer-checkbox input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .disclaimer-button {
+            background: linear-gradient(135deg, var(--tantra-purple), var(--tantra-blood));
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: all 0.3s ease;
+        }
+
+        .disclaimer-button.active {
+            opacity: 1;
+            box-shadow: 0 0 20px rgba(139, 0, 255, 0.4);
+        }
+
+        .disclaimer-button.active:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(139, 0, 255, 0.6);
+        }
+
+        .contact-info {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(139, 0, 255, 0.25);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Optimizations */
+        @media (max-width: 640px) {
+            .content-layer {
+                padding: 0.6rem;
+            }
+
+            .intro-section {
+                padding: 2rem 0.75rem 2.5rem;
+            }
+
+            .intro-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .tantra-card {
+                padding: 1.6rem;
+            }
+
+            .pattern-layer {
+                border-width: 2px;
+            }
+
+            /* Disable heavy animations on mobile */
+            .background-layer { animation: none; }
+            .pattern-layer { animation: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Disclaimer Overlay -->
+    <div class="disclaimer-overlay" id="disclaimerOverlay">
+        <div class="disclaimer-box">
+            <h2 class="disclaimer-title">⚠️ SACRED RITUAL WARNING ⚠️</h2>
+
+            <div class="warning-box">
+                <p><strong>🔥 Critical Notice:</strong> The ritual technologies described here can strongly affect your energy, emotions, and life direction if practiced without proper guidance.</p>
+            </div>
+
+            <div class="warning-box">
+                <p><strong>🕉️ Ethical Statement:</strong> ShivaKali Ashram works only for healing, protection and evolution. We do <em>not</em> support harm, manipulation, or coercion of any being through ritual.</p>
+            </div>
+
+            <div class="warning-box">
+                <p><strong>💫 Protection & Healing:</strong> If you are suffering from harmful ritual effects or psychic attack, the Ashram focuses on <strong>neutralization and liberation</strong>, not retaliation.</p>
+            </div>
+
+            <div class="disclaimer-checkbox">
+                <input type="checkbox" id="disclaimerCheckbox">
+                <label for="disclaimerCheckbox">I understand these are advanced ritual technologies and accept full responsibility for how I engage with this knowledge.</label>
+            </div>
+
+            <button id="acceptDisclaimer" class="disclaimer-button">Enter the Ritual Temple</button>
+
+            <div class="contact-info">
+                <p>For direct ritual work, protection, or spiritual assistance:<br>
+                <strong>Contact ShivaKali Ashram:</strong> acharyaanish23@gmail.com</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-container">
+        <!-- Layer 1: Deep Background with Ritual Video -->
+        <div class="background-layer">
+            <video id="bg-video" autoplay muted loop playsinline>
+                <source src="../pictures/rituals.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <!-- Layer 2: Pattern Layer -->
+        <div class="pattern-layer"></div>
+
+        <!-- Layer 3: Content -->
+        <div class="content-layer">
+            <!-- Navigation -->
+            <div class="nav-buttons">
+                <a href="index.html" class="nav-button">
+                    <span>←</span>
+                    <span>Back to Tantra Sciences</span>
+                </a>
+                <a href="../index.html" class="nav-button">
+                    <span>🏛️</span>
+                    <span>Back to ShivaKali Ashram</span>
+                </a>
+            </div>
+
+            <!-- Small relationship note -->
+            <p style="text-align:center; font-size:0.9rem; color: var(--text-secondary); margin-bottom: 1.5rem; opacity: 0.9;">
+                Tantra hub = full map of sciences • This page = the <strong>ritual engine</strong> of that map.
+            </p>
+
+            <!-- In-page Navigation -->
+            <div class="nav-buttons" style="margin-bottom: 2.5rem;">
+                <a href="#gateways" class="nav-button"><span>🌌</span><span>Gateways</span></a>
+                <a href="#mini-rituals" class="nav-button"><span>🟢</span><span>Mini</span></a>
+                <a href="#streams" class="nav-button"><span>🔥</span><span>Streams</span></a>
+                <a href="#prep" class="nav-button"><span>🧰</span><span>Prep</span></a>
+                <a href="#session" class="nav-button"><span>🕯️</span><span>Session</span></a>
+                <a href="#safety" class="nav-button"><span>🛡️</span><span>Safety</span></a>
+                <a href="#archive" class="nav-button"><span>☠️</span><span>Archive</span></a>
+                <a href="#contact" class="nav-button"><span>📧</span><span>Contact</span></a>
+            </div>
+
+            <!-- Intro Section -->
+            <section class="intro-section">
+                <h1 class="intro-title">RITUAL TECHNOLOGIES</h1>
+                <p class="intro-subtitle">The house-temple between airport chaos and ancient gods</p>
+
+                <p class="intro-description">
+                    This is the ritual operating system of ShivaKali Ashram in Tegharia — a small, living temple running old Vedic code in the
+                    middle of modern Kolkata. Here, fire, mantra, breath, planets and offerings are not "ideas"; they are switches that really
+                    move things in people's lives.
+                    On this page you will find everything from tiny daily patches you can run in a noisy apartment, to heavy temple protocols
+                    that are only done inside the ashram, plus archive‑level knowledge that most books and websites either distort or hide.
+                </p>
+
+                <div class="intro-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">5</span>
+                        <span class="stat-label">RITUAL GATEWAYS</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">12+</span>
+                        <span class="stat-label">SIGNATURE RITES</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">DEPTH BANDS</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label">REALITY CONFIGS</span>
+                    </div>
+                </div>
+
+                <!-- Intensity Legend -->
+                <div class="intro-stats" style="margin-top: 1.5rem;">
+                    <div class="stat-item" style="padding: 1rem 1.2rem;">
+                        <span class="stat-number" style="font-size: 1.6rem;">🟢</span>
+                        <span class="stat-label">SELF-RUN • DAILY HACKS</span>
+                    </div>
+                    <div class="stat-item" style="padding: 1rem 1.2rem;">
+                        <span class="stat-number" style="font-size: 1.6rem;">🟠</span>
+                        <span class="stat-label">GUIDED • SHARED SPACE</span>
+                    </div>
+                    <div class="stat-item" style="padding: 1rem 1.2rem;">
+                        <span class="stat-number" style="font-size: 1.6rem;">🔴</span>
+                        <span class="stat-label">TEMPLE-ONLY • HEAVY WORK</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mini Rituals for Right Now -->
+            <section id="mini-rituals">
+                <h2 class="section-title">🟢 MINI RITUALS FOR RIGHT NOW</h2>
+                <div class="card-grid">
+                    <div class="tantra-card">
+                        <div class="card-header">
+                            <span class="card-icon">🌬️</span>
+                            <div class="card-title-group">
+                                <h3 class="card-title">3-Minute Nadi Reset</h3>
+                                <p class="card-subtitle">🟢 self-practice • nervous system</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            When your chest feels like it is buzzing and your thoughts are racing before a call, plant both feet on the floor.
+                            Breathe in gently, hold for a beat, then sigh the air out as if you are fogging a mirror. While you do this, press the
+                            space between your eyebrows with two fingers. Three minutes of this is often enough to cancel a panic spiral.
+                        </p>
+                    </div>
+
+                    <div class="tantra-card">
+                        <div class="card-header">
+                            <span class="card-icon">🕯️</span>
+                            <div class="card-title-group">
+                                <h3 class="card-title">One Candle, One Sentence</h3>
+                                <p class="card-subtitle">🟢 self-practice • focus & clearing</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            End the day by lighting a tea light near your bed or desk. Name one thing out loud you are done carrying today, or one
+                            thing you are willing to receive tomorrow. Then forget about it and wash your face, scroll, cook — normal life.
+                            The point is to stitch ritual into the fabric of ordinary time, not only crisis.
+                        </p>
+                    </div>
+
+                    <div class="tantra-card">
+                        <div class="card-header">
+                            <span class="card-icon">🪐</span>
+                            <div class="card-title-group">
+                                <h3 class="card-title">Planetary Hour Check</h3>
+                                <p class="card-subtitle">🟢 self-practice • better timing</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Before you hit "send" on a big mail or walk into a high‑stakes meeting, quickly check any planetary‑hour app.
+                            If you can, slide the action into a Jupiter or Venus hour for support, or a Sun hour for visibility.
+                            No lamps, no mantras — just using the cosmic weather report instead of pretending it does not exist.
+                        </p>
+                    </div>
+
+                    <div class="tantra-card">
+                        <div class="card-header">
+                            <span class="card-icon">📿</span>
+                            <div class="card-title-group">
+                                <h3 class="card-title">Heart Tap Mantra</h3>
+                                <p class="card-subtitle">🟢 self-practice • emotional reset</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            When emotion spikes and your fingers want to type a paragraph of rage, park the phone.
+                            One palm on your chest, the other gently tapping the sternum. Whisper any heart mantra or simple line like "I am here".
+                            A minute of this often saves you from messages that burn bridges you actually want to keep.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ritual Gateways -->
+            <section id="gateways">
+                <h2 class="section-title">🌌 RITUAL GATEWAYS</h2>
+                <div class="card-grid">
+                    <div class="tantra-card">
+                        <div class="card-header">
+                            <span class="card-icon">🌬️</span>
+                            <div class="card-title-group">
+                                <h3 class="card-title">Body & Breath Technologies</h3>
+                                <p class="card-subtitle">Nervous System & Grounding</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Somatic and pranic protocols that reset the body, calm trauma storms, and make your system strong enough to hold
+                            higher states of consciousness without frying.
+                            Even on normal days this translates to simple hacks like 3-minute breath resets before calls or grounding micro-movements between tasks.
+                            Typical use: people with panic before presentations, chronic insomnia after burnout, or bodies that never feel fully "here".
+                        </p>
+                        <div class="card-status">GATE 01 • BODY</div>
+                    </div>
+
+                    <div class="tantra-card">
+                        <div class="card-header">
+                            <span class="card-icon">📿</span>
+                            <div class="card-title-group">
+                                <h3 class="card-title">Mantra & Sound Fields</h3>
+                                <p class="card-subtitle">Vibration Architecture</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Seed sounds, bija mantras, and layered japa fields that reprogram your subtle body, harmonize relationships,
+                            and tune your mind to specific outcomes.
+                            In daily life this might look like a one-line mantra you whisper before sending a hard message or entering a difficult room.
+                            Typical use: heartbreak recovery, social anxiety, or clearing the "noise" in your own head before big decisions.
+                        </p>
+                        <div class="card-status">GATE 02 • SOUND</div>
+                    </div>
+
+                    <div class="tantra-card">
+                        <div class="card-header">
+                            <span class="card-icon">🔥</span>
+                            <div class="card-title-group">
+                                <h3 class="card-title">Fire & Offering Engines</h3>
+                                <p class="card-subtitle">Agni Intelligence</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Homam / havan style technologies where fire acts as a living processor, carrying your offerings and code-phrases
+                            into the subtle layers of reality.
+                            On a lighter level this can be as simple as a candle you feed with one sentence a night; on the deep end it becomes full temple-grade homam work.
+                            Typical use: house or business resets after heavy periods, closing old relationships, or anchoring long-term wealth work.
+                        </p>
+                        <div class="card-status">GATE 03 • FIRE</div>
+                    </div>
+
+                    <div class="tantra-card">
+                        <div class="card-header">
+                            <span class="card-icon">🪐</span>
+                            <div class="card-title-group">
+                                <h3 class="card-title">Space–Time & Planetary Rites</h3>
+                                <p class="card-subtitle">Astro-Temporal Alignment</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Rituals that plug directly into planetary hours, nakshatras, eclipses and transits — tuning your actions to the
+                            exact cosmic weather for maximum impact.
+                            Sometimes that is a full rite; sometimes it is as simple as scheduling a big conversation in a friendly planetary hour instead of a hostile one.
+                            Typical use: navigating Saturn returns, Sade Sati, Rahu/Ketu chaos phases, or critical career and relationship pivots.
+                        </p>
+                        <div class="card-status">GATE 04 • COSMOS</div>
+                    </div>
+
+                    <div class="tantra-card">
+                        <div class="card-header">
+                            <span class="card-icon">🕳️</span>
+                            <div class="card-title-group">
+                                <h3 class="card-title">Shadow, Death & Rebirth</h3>
+                                <p class="card-subtitle">Kali Gate Protocols</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Controlled descents into shadow, ancestral knots, and death-energy fields — for people who are truly ready to
+                            end old timelines and walk out as someone new.
+                            Historically this family of rites included destructive uses; at ShivaKali they are aimed at destroying patterns, not people.
+                            Typical use: divorce, leaving cult-like situations, ending addictive loops, or closing a life chapter that will not die on its own.
+                        </p>
+                        <div class="card-status">GATE 05 • VOID</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Signature Ritual Streams -->
+            <section id="streams">
+                <h2 class="section-title">🔥 SIGNATURE RITUAL STREAMS</h2>
+                <div class="card-grid">
+                    <div class="tantra-card">
+                        <div class="card-header">
+                            <span class="card-icon">🌿</span>
+                        <div class="card-title-group">
+                                <h3 class="card-title">Body & Breath Rituals</h3>
+                                <p class="card-subtitle">🟢/🟠 nervous system & trauma field</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            These protocols exist for people whose bodies forgot how to feel "baseline normal" — constant edge, no real rest,
+                            or a sense that leaving the house is a mission.
+                        </p>
+                        <ul class="ritual-list">
+                            <li><strong>Nadi Reset Ritual</strong> – breath plus pressure-map points to flush shock, panic and overdrive out of the nadis.</li>
+                            <li><strong>Shiva Spine Awakening</strong> – micro-movements and breath that switch your spine from collapsed to charged so energy can move cleanly.</li>
+                            <li><strong>Earth Body Sealing</strong> – grounding seal for people who float, dissociate or feel psychically leaky in crowds.</li>
+                        </ul>
+                        <p class="card-description" style="font-size: 0.85rem; opacity: 0.85; margin-top: 0.2rem;">
+                            Case fragments: used for founder burnout, chronic insomnia, and people whose bodies never feel fully safe anywhere.
+                        </p>
+                        <div class="card-status">BODY GATE • STABILIZE</div>
+                    </div>
+
+                    <div class="tantra-card">
+                        <div class="card-header">
+                            <span class="card-icon">🔔</span>
+                        <div class="card-title-group">
+                                <h3 class="card-title">Mantra & Sound Rituals</h3>
+                                <p class="card-subtitle">🟢/🟠 field programming through sound</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Here sound is not for vibes; it is used like a scalpel or a magnet. We build specific mantra fields that lean on a
+                            wound until it opens, or on a blessing until it locks into your system.
+                        </p>
+                        <ul class="ritual-list">
+                            <li><strong>Heart Resonance Japa</strong> – soft mantra loop for heartbreak, grief and thawing a heart that shut down.</li>
+                            <li><strong>Kali Mantra Fire Bath</strong> – chanting in front of flame to burn psychic residue, entity hooks and sticky emotions.</li>
+                            <li><strong>Field Harmonization Kirtan</strong> – small-circle sound vortex to soften tension in couples, families or teams.</li>
+                        </ul>
+                        <p class="card-description" style="font-size: 0.85rem; opacity: 0.85; margin-top: 0.2rem;">
+                            Case fragments: used for breakups, complicated family dinners, and teams stuck in blame loops.
+                        </p>
+                        <div class="card-status">SOUND GATE • PROGRAM</div>
+                    </div>
+
+                    <div class="tantra-card">
+                        <div class="card-header">
+                            <span class="card-icon">🔥</span>
+                        <div class="card-title-group">
+                        <h3 class="card-title">Agni Kriyā: Fire & Offering Rituals</h3>
+                        <p class="card-subtitle">🟠/🔴 Agni as cosmic processor</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            This stream bridges tiny apartment lamps and full homam smoke in the Tegharia temple. Fire is treated as an actual
+                            being with memory — once it "knows" your story, it keeps working on it long after the flames go dark.
+                        </p>
+                        <ul class="ritual-list">
+                            <li><strong>Agni Gateway Puja</strong> – core fire rite to reset a stuck chapter, clear heaviness and re-protect the home field.</li>
+                            <li><strong>Ancestral Liberation Fire</strong> – offerings and mantras for healing restless ancestors and repeating family patterns.</li>
+                            <li><strong>Wealth Current Homam</strong> – precision homam tuning work and money to Lakshmi / Jupiter flow instead of survival panic.</li>
+                        </ul>
+                        <p class="card-description" style="font-size: 0.85rem; opacity: 0.85; margin-top: 0.2rem;">
+                            Case fragments: used after divorces, house moves, sudden financial collapses, or when "nothing moves" for months.
+                        </p>
+                        <div class="card-status">FIRE GATE • TRANSMUTE</div>
+                    </div>
+
+                    <div class="tantra-card">
+                        <div class="card-header">
+                            <span class="card-icon">🪐</span>
+                        <div class="card-title-group">
+                        <h3 class="card-title">Graha Vidhi: Planetary & Destiny Rituals</h3>
+                                <p class="card-subtitle">🟠/🔴 Jyotish‑driven realignment</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            These rites are built from your real chart — dasha, transits, the exact knots in your graha story — not from a generic
+                            "Saturn remedy" list off the internet.
+                        </p>
+                        <ul class="ritual-list">
+                            <li><strong>Saturn Karma Unbinding Rite</strong> – multi-session Saturn work for chronic delay, shame, pressure and blocked progress.</li>
+                            <li><strong>Venus Magnetism Circuit</strong> – temple plus lifestyle ritual for attraction, beauty, pleasure and receiving.</li>
+                            <li><strong>Rahu–Ketu Corridor Clearing</strong> – for obsession loops, bizarre karmic patterns and feeling off-path in your own life.</li>
+                        </ul>
+                        <p class="card-description" style="font-size: 0.85rem; opacity: 0.85; margin-top: 0.2rem;">
+                            Case fragments: used during Sade Sati, Saturn returns, fame surges, and sudden "I don't recognise my own life" phases.
+                        </p>
+                        <div class="card-status">COSMIC GATE • ALIGN</div>
+                    </div>
+
+                    <div class="tantra-card">
+                        <div class="card-header">
+                            <span class="card-icon">🌑</span>
+                        <div class="card-title-group">
+                        <h3 class="card-title">Kāli Mārga: Shadow & Rebirth Rituals</h3>
+                                <p class="card-subtitle">🔴 Kali-grade transformations</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            This corridor is for when you know the old life is already dead but you keep walking its corpse. The work here is
+                            not pretty, not Instagrammable, and not for curiosity. It is for clean endings and raw, honest rebirths.
+                        </p>
+                        <ul class="ritual-list">
+                            <li><strong>Kali Shadow Descent</strong> – guided, contained journey into the parts you hide from so they stop running your life from the dark.</li>
+                            <li><strong>Death & Rebirth Corridor</strong> – symbolic death rite to consciously close an identity, contract or life phase.</li>
+                            <li><strong>Cord & Contract Burning</strong> – ceremony to end draining bonds with people, places or spirits and call your power back.</li>
+                        </ul>
+                        <p class="card-description" style="font-size: 0.85rem; opacity: 0.85; margin-top: 0.2rem;">
+                            Case fragments: used for leaving abusive dynamics, ending long-running addictions, and "I died but I am still alive" initiations.
+                        </p>
+                        <div class="card-status">VOID GATE • REBIRTH</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Preparation Protocol -->
+            <section id="prep">
+                <h2 class="section-title">🧰 PREPARATION PROTOCOL</h2>
+                <div class="card-grid">
+                    <div class="tantra-card">
+                        <div class="card-header">
+                            <span class="card-icon">📋</span>
+                            <div class="card-title-group">
+                                <h3 class="card-title">Before Any Deep Work</h3>
+                                <p class="card-subtitle">Basic system hygiene</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            Sleep, hydrate, eat something grounding. Avoid heavy intoxication for at least 24 hours. If your body is already
+                            overloaded, we start with stabilization before any big ritual engines.
+                        </p>
+                    </div>
+
+                    <div class="tantra-card">
+                        <div class="card-header">
+                            <span class="card-icon">🚪</span>
+                            <div class="card-title-group">
+                                <h3 class="card-title">Space Setup</h3>
+                                <p class="card-subtitle">Door closed, phone down</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            For self‑practice, choose a small, contained space. Switch your phone to silent, tell people you will be unavailable
+                            for a short window, and have water + a blanket nearby so landing is easy.
+                        </p>
+                    </div>
+
+                    <div class="tantra-card">
+                        <div class="card-header">
+                            <span class="card-icon">🧠</span>
+                            <div class="card-title-group">
+                                <h3 class="card-title">Mental Health Boundary</h3>
+                                <p class="card-subtitle">Ritual ≠ replacement for care</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            If you are in acute psychiatric crisis or actively suicidal, contact local emergency / professional support first.
+                            Ritual can support healing, but it is not a substitute for medical or psychiatric treatment.
+                        </p>
+                    </div>
+
+                    <div class="tantra-card">
+                        <div class="card-header">
+                            <span class="card-icon">⛔</span>
+                            <div class="card-title-group">
+                                <h3 class="card-title">Not a Fit If...</h3>
+                                <p class="card-subtitle">Wrong reasons, wrong timing</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            This path is not for entertainment, revenge or proving you are powerful. If you only want to harm others, bypass
+                            your own responsibility, or treat this like a magic show, ShivaKali Ashram is not the right temple for you.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- How a Ritual Session Works -->
+            <section id="session">
+                <h2 class="section-title">🕯️ HOW A RITUAL SESSION WORKS</h2>
+                <div class="card-grid">
+                    <div class="tantra-card">
+                        <div class="card-header">
+                            <span class="card-icon">👁️</span>
+                            <div class="card-title-group">
+                                <h3 class="card-title">01 • Field Scan</h3>
+                                <p class="card-subtitle">Listening beyond words</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            You talk like a normal human, not a "spiritual client". We listen for where the static actually lives — muscles, breath,
+                            story, ancestors, work, relationships, grahas — instead of treating the first symptom as the root.
+                        </p>
+                    </div>
+
+                    <div class="tantra-card">
+                        <div class="card-header">
+                            <span class="card-icon">🧬</span>
+                            <div class="card-title-group">
+                                <h3 class="card-title">02 • Protocol Design</h3>
+                                <p class="card-subtitle">Choosing the right technology</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            We then sketch an honest ritual map: what we will do in the temple, what you will do at home, how long it will take,
+                            and what it will probably cost you in time, money and effort. No mystery invoices, no vague promises.
+                        </p>
+                    </div>
+
+                    <div class="tantra-card">
+                        <div class="card-header">
+                            <span class="card-icon">✨</span>
+                            <div class="card-title-group">
+                                <h3 class="card-title">03 • The Rite Itself</h3>
+                                <p class="card-subtitle">Live or remote temple work</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            For some people this is one tight temple rite. For others it is a sequence: a homam at the ashram, plus specific home
+                            actions woven into work, family and sleep. The dosage matches the karma, not the drama.
+                        </p>
+                    </div>
+
+                    <div class="tantra-card">
+                        <div class="card-header">
+                            <span class="card-icon">🌱</span>
+                            <div class="card-title-group">
+                                <h3 class="card-title">04 • Integration & Aftercare</h3>
+                                <p class="card-subtitle">Making it stick</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            After the main rite we pay attention to ordinary days: what you eat, who you meet, what you say yes/no to. You get
+                            small, concrete instructions so the new pattern lands in your bank account, body and relationships — not only in your journal.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Safety & Ethics -->
+            <section id="safety">
+                <h2 class="section-title">🛡️ SAFETY, ETHICS & BOUNDARIES</h2>
+                <div class="card-grid">
+                    <div class="tantra-card">
+                        <div class="card-header">
+                            <span class="card-icon">🤍</span>
+                            <div class="card-title-group">
+                                <h3 class="card-title">Consent & Sovereignty</h3>
+                                <p class="card-subtitle">No guru games</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            All ritual work at ShivaKali Ashram is held in explicit consent. You keep full choice, full awareness, and the
+                            right to slow down or stop at any point. You can bring a trusted friend or partner to in‑person work if that helps you feel safer.
+                        </p>
+                    </div>
+
+                    <div class="tantra-card">
+                        <div class="card-header">
+                            <span class="card-icon">🌿</span>
+                            <div class="card-title-group">
+                                <h3 class="card-title">Nervous-System Safe</h3>
+                                <p class="card-subtitle">Trauma-aware ritual</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            We do not throw people into overwhelming states for theatrics. Power is paced according to your body, history,
+                            and capacity to integrate. If something feels too much, we down‑shift the protocol instead of pushing harder.</p>
+                    </div>
+
+                    <div class="tantra-card">
+                        <div class="card-header">
+                            <span class="card-icon">📜</span>
+                            <div class="card-title-group">
+                                <h3 class="card-title">Lineage & Integrity</h3>
+                                <p class="card-subtitle">Real temple bloodline</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            These technologies come from living Vedic / tantric lineages, not random internet mashups. The work is held with
+                            responsibility to tradition and to the people who trust it. If something is outside the lineage or feels off, we say so explicitly.
+                        </p>
+                    </div>
+
+                    <div class="tantra-card">
+                        <div class="card-header">
+                            <span class="card-icon">⚖️</span>
+                            <div class="card-title-group">
+                                <h3 class="card-title">Money, Sex & Power Rules</h3>
+                                <p class="card-subtitle">Non‑negotiable boundaries</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            No sexual contact is ever part of ritual work. Money agreements are clear and up‑front. No threats, dependency games
+                            or "guru" control tactics are tolerated — power is used to protect, not to trap.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Archive Rites & Forbidden Knowledge -->
+            <section id="archive">
+                <h2 class="section-title">☠️ ARCHIVE RITES & FORBIDDEN KNOWLEDGE</h2>
+                <div class="card-grid">
+                    <div class="tantra-card">
+                        <div class="card-header">
+                            <span class="card-icon">☠️</span>
+                            <div class="card-title-group">
+                                <h3 class="card-title">Archive: Destructive Lineages</h3>
+                                <p class="card-subtitle">Documented, not deployed</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            The tradition carries records of harsh rites — bindings, separations, sickness and even death‑aimed work. At ShivaKali
+                            these are preserved as maps only, so we understand what may have been done to someone and how to neutralize it. We do
+                            not teach or perform harm‑oriented rituals under any circumstance.
+                        </p>
+                        <ul class="ritual-list">
+                            <li>Signals something deeper might be active: repeating nightmares with the same symbols or figures.</li>
+                            <li>Sudden, irrational fear or heaviness only in specific spaces or around specific people.</li>
+                            <li>Multiple practitioners telling you independently that your field feels "bound" or unusually blocked.</li>
+                        </ul>
+                    </div>
+
+                    <div class="tantra-card">
+                        <div class="card-header">
+                            <span class="card-icon">🛡️</span>
+                            <div class="card-title-group">
+                                <h3 class="card-title">Counter‑Ritual & Unbinding Lab</h3>
+                                <p class="card-subtitle">For when things are really not normal</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            When someone is under heavy psychic or ritual pressure, we read the pattern, cross‑reference the archive, and design
+                            protection and unbinding work aimed at freeing — not retaliating. If you suspect this level of interference, write to
+                            <strong>acharyaanish23@gmail.com</strong> with the subject "Emergency Protection" and a clear description of what you are experiencing.
+                        </p>
+                    </div>
+
+                    <div class="tantra-card">
+                        <div class="card-header">
+                            <span class="card-icon">🕯️</span>
+                            <div class="card-title-group">
+                                <h3 class="card-title">Dark Web vs. Temple Web</h3>
+                                <p class="card-subtitle">Choosing your source</p>
+                            </div>
+                        </div>
+                        <p class="card-description">
+                            The internet is full of half‑true "occult" recipes with no lineage, no ethics and no aftercare. This page is the
+                            opposite: real temple knowledge, named honestly — including the scary parts — and pointed back toward healing,
+                            protection and sovereign power.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Call To Action -->
+            <section id="contact">
+                <h2 class="section-title">🌺 STEP INTO THE TEMPLE</h2>
+                <p class="intro-description" style="margin-bottom: 2rem;">
+                    If you feel one of these ritual technologies is meant for you, the next step is simple: reach out, and we will scan
+                    together what your field is truly asking for — whether online or in the physical ShivaKali Ashram space in Kolkata.
+                </p>
+                <div class="nav-buttons">
+                    <a href="mailto:acharyaanish23@gmail.com?subject=Ritual%20Work%20Inquiry" class="nav-button">
+                        <span>📧</span>
+                        <span>Email for Ritual Work</span>
+                    </a>
+                    <a href="../index.html#real-ashram" class="nav-button">
+                        <span>🏛️</span>
+                        <span>Visit the Real ShivaKali Ashram</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="footer-brand">SHIVAKALI ASHRAM</div>
+                <div class="footer-tagline">Ritual Technologies Division • Ancient Temple • Future Human</div>
+
+                <div class="footer-divider"></div>
+
+                <div class="footer-copyright">
+                    © 1489 ShivaKali Ashram • Tegharia Nishikanan, Kolkata • Acharya Anish
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+    <script>
+        // Disclaimer System (shared with other Tantra pages)
+        document.addEventListener('DOMContentLoaded', function() {
+            const disclaimerOverlay = document.getElementById('disclaimerOverlay');
+            const disclaimerCheckbox = document.getElementById('disclaimerCheckbox');
+            const acceptButton = document.getElementById('acceptDisclaimer');
+
+            // If already accepted on another Tantra page, hide immediately
+            if (localStorage.getItem('tantraDisclaimerAccepted')) {
+                disclaimerOverlay.style.display = 'none';
+            }
+
+            disclaimerCheckbox.addEventListener('change', function() {
+                acceptButton.classList.toggle('active', this.checked);
+            });
+
+            acceptButton.addEventListener('click', function() {
+                if (disclaimerCheckbox.checked) {
+                    disclaimerOverlay.style.opacity = '0';
+                    setTimeout(() => {
+                        disclaimerOverlay.style.display = 'none';
+                    }, 500);
+                    localStorage.setItem('tantraDisclaimerAccepted', 'true');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
