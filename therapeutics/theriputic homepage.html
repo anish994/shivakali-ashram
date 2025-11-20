@@ -11,12 +11,12 @@
             --bio-primary: #64ffda;
             --bio-secondary: #48bcae;
             --bio-bg: #0a192f;
-            --bio-glass: rgba(10, 25, 47, 0.7);
+            --bio-glass: rgba(10, 25, 47, 0.6);
             --bio-text: #e6f1ff;
             --bio-accent: #64ffda;
             
             /* Transition Speed */
-            --morph-speed: 0.6s;
+            --morph-speed: 0.8s;
         }
 
         /* Ayurveda Theme */
@@ -24,7 +24,7 @@
             --bio-primary: #ffd700; /* Gold */
             --bio-secondary: #556b2f; /* Dark Olive */
             --bio-bg: #1a1a00; /* Deep Organic */
-            --bio-glass: rgba(26, 26, 0, 0.7);
+            --bio-glass: rgba(26, 26, 0, 0.6);
             --bio-text: #fff8e1;
             --bio-accent: #ffa500; /* Orange */
         }
@@ -34,7 +34,7 @@
             --bio-primary: #ff6b6b; /* Flesh/Muscle Pink */
             --bio-secondary: #8b4513; /* Bone/Clay */
             --bio-bg: #1a0f0f; /* Deep Earth/Flesh */
-            --bio-glass: rgba(26, 15, 15, 0.7);
+            --bio-glass: rgba(26, 15, 15, 0.6);
             --bio-text: #ffe6e6;
             --bio-accent: #ff4d4d;
         }
@@ -44,7 +44,7 @@
             --bio-primary: #7b2cbf; /* Indigo */
             --bio-secondary: #b5179e; /* Violet */
             --bio-bg: #0f0518; /* Deep Void */
-            --bio-glass: rgba(15, 5, 24, 0.7);
+            --bio-glass: rgba(15, 5, 24, 0.6);
             --bio-text: #f3e5f5;
             --bio-accent: #4361ee; /* Electric Blue */
         }
@@ -54,7 +54,7 @@
             --bio-primary: #00ffff; /* Cyan */
             --bio-secondary: #e0ffff; /* Light Cyan */
             --bio-bg: #00111a; /* Deep Aether */
-            --bio-glass: rgba(0, 17, 26, 0.7);
+            --bio-glass: rgba(0, 17, 26, 0.6);
             --bio-text: #f0ffff;
             --bio-accent: #fffacd; /* Lemon Chiffon */
         }
@@ -75,40 +75,102 @@
             width: 100vw;
         }
 
-        /* Background Canvas */
-        #bio-canvas {
+        /* Video Background */
+        #bg-video-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        #bg-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            filter: brightness(0.4) saturate(1.2) blur(3px);
+            object-fit: cover;
+            transition: filter var(--morph-speed) ease;
+        }
+
+        /* Color Overlay Layer */
+        #color-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.4;
+            background: var(--bio-bg);
+            opacity: 0.7;
+            transition: background-color var(--morph-speed) ease;
+            mix-blend-mode: multiply;
         }
 
         /* Main HUD Layout */
         .hud-container {
             display: grid;
-            grid-template-columns: 300px 1fr 350px;
+            grid-template-columns: 450px 1fr;
             height: 100vh;
             position: relative;
             z-index: 1;
         }
 
-        /* Left Panel: Bio-Metrics & Status */
+        /* Left Panel: Navigation & Status */
         .hud-left {
-            padding: 2rem;
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 4rem 3rem;
+            border-right: 1px solid rgba(255, 255, 255, 0.08);
             background: linear-gradient(90deg, var(--bio-glass) 0%, rgba(0,0,0,0) 100%);
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
+            gap: 2rem;
             transition: all var(--morph-speed) ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .nav-item {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            color: rgba(255,255,255,0.4);
+            cursor: pointer;
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding-left: 1rem;
+            border-left: 2px solid transparent;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            color: var(--bio-primary);
+            padding-left: 2rem;
+            border-left-color: var(--bio-primary);
+            text-shadow: 0 0 15px var(--bio-primary);
+        }
+
+        .nav-number {
+            font-size: 0.8rem;
+            font-family: 'Rajdhani', sans-serif;
+            opacity: 0.5;
+            letter-spacing: 2px;
         }
 
         .system-status {
             font-family: 'Orbitron', sans-serif;
-            margin-bottom: 2rem;
         }
 
         .status-header {
@@ -132,128 +194,106 @@
             line-height: 1.6;
         }
 
-        /* Center Panel: The Body Map */
-        .hud-center {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .body-silhouette {
-            height: 80vh;
-            width: auto;
-            filter: drop-shadow(0 0 20px var(--bio-primary));
-            transition: all var(--morph-speed) ease;
-            position: relative;
-        }
-
-        /* SVG Styles for Body Map */
-        .body-svg {
-            height: 100%;
-            width: auto;
-            fill: none;
-            stroke: var(--bio-primary);
-            stroke-width: 1.5;
-            transition: stroke var(--morph-speed) ease;
-        }
-
-        .body-zone {
-            fill: transparent;
-            stroke: transparent;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .body-zone:hover {
-            fill: var(--bio-primary);
-            fill-opacity: 0.2;
-            stroke: var(--bio-accent);
-            stroke-width: 2;
-        }
-
-        /* Hotspots */
-        .hotspot {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--bio-primary);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: rgba(0,0,0,0.5);
-        }
-
-        .hotspot::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 6px;
-            height: 6px;
-            background: var(--bio-primary);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            box-shadow: 0 0 10px var(--bio-primary);
-        }
-
-        .hotspot:hover {
-            width: 30px;
-            height: 30px;
-            box-shadow: 0 0 20px var(--bio-primary);
-        }
-
-        /* Right Panel: Context Content */
+        /* Right Panel: Content Display */
         .hud-right {
-            padding: 2rem;
-            border-left: 1px solid rgba(255, 255, 255, 0.1);
-            background: linear-gradient(-90deg, var(--bio-glass) 0%, rgba(0,0,0,0) 100%);
-            transform: translateX(100%);
+            padding: 6rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             opacity: 0;
-            transition: all 0.5s ease;
-            overflow-y: auto;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
         }
 
         .hud-right.active {
-            transform: translateX(0);
             opacity: 1;
+            transform: translateY(0);
         }
 
         .module-title {
             font-family: 'Orbitron', sans-serif;
-            font-size: 2rem;
+            font-size: 4rem;
+            font-weight: 700;
             color: var(--bio-primary);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             text-transform: uppercase;
-            border-bottom: 2px solid var(--bio-secondary);
-            padding-bottom: 0.5rem;
+            line-height: 1;
+            text-shadow: 0 0 30px rgba(0,0,0,0.5);
+        }
+
+        .module-meta {
+            display: flex;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.1rem;
+            color: var(--bio-secondary);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 1.5rem;
         }
 
         .module-description {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
+            font-size: 1.4rem;
+            margin-bottom: 4rem;
             line-height: 1.6;
+            max-width: 800px;
+            color: var(--bio-text);
+            font-weight: 300;
         }
 
         .module-grid {
             display: grid;
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 1000px;
         }
 
         .module-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--bio-secondary);
-            padding: 1rem;
-            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 1.5rem;
             cursor: pointer;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: var(--bio-primary);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .module-card:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.08);
             border-color: var(--bio-primary);
-            box-shadow: 0 0 15px var(--bio-primary);
+            transform: translateY(-5px);
+        }
+
+        .module-card:hover::before {
+            opacity: 1;
+        }
+
+        .module-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--bio-text);
+        }
+
+        .module-card p {
+            font-size: 0.9rem;
+            color: var(--bio-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .back-nav {
@@ -280,27 +320,48 @@
         }
 
         /* Mobile Responsiveness */
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             .hud-container {
                 grid-template-columns: 1fr;
-                grid-template-rows: auto 1fr auto;
+                grid-template-rows: auto 1fr;
             }
             
             .hud-left {
-                height: auto;
-                padding: 1rem;
+                padding: 2rem;
+                flex-direction: row;
+                align-items: center;
+                overflow-x: auto;
+                justify-content: flex-start;
+                gap: 2rem;
                 border-right: none;
                 border-bottom: 1px solid rgba(255,255,255,0.1);
             }
 
+            .nav-menu {
+                flex-direction: row;
+                width: max-content;
+            }
+
+            .nav-item {
+                font-size: 1rem;
+                padding-left: 0;
+                border-left: none;
+                border-bottom: 2px solid transparent;
+                padding-bottom: 0.5rem;
+            }
+
+            .nav-item:hover, .nav-item.active {
+                padding-left: 0;
+                border-left: none;
+                border-bottom-color: var(--bio-primary);
+            }
+
             .hud-right {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                z-index: 50;
-                background: var(--bio-bg);
+                padding: 2rem;
+            }
+
+            .module-title {
+                font-size: 2.5rem;
             }
         }
     </style>
@@ -309,65 +370,57 @@
 
     <a href="../index.html" class="back-nav">Return to Base</a>
 
-    <canvas id="bio-canvas"></canvas>
+    <!-- Video Background -->
+    <div id="bg-video-layer">
+        <video id="bg-video" autoplay muted loop playsinline>
+            <source src="../assets/video/consense.mp4" type="video/mp4">
+        </video>
+    </div>
+    <!-- Dynamic Color Tint -->
+    <div id="color-overlay"></div>
 
     <div class="hud-container">
-        <!-- Left: Metrics -->
+        <!-- Left: Navigation Menu -->
         <div class="hud-left">
-            <div class="system-status">
-                <div class="status-header">BIO-SYSTEM STATUS</div>
-                <div class="status-value" id="status-readout">STANDBY</div>
+            <div class="nav-menu">
+                <div class="nav-item" data-target="ayurveda">
+                    <span class="nav-number">01</span>
+                    <span>AYURVEDIC ALCHEMY</span>
+                </div>
+                <div class="nav-item" data-target="somatic">
+                    <span class="nav-number">02</span>
+                    <span>SOMATIC RELEASE</span>
+                </div>
+                <div class="nav-item" data-target="vibration">
+                    <span class="nav-number">03</span>
+                    <span>VIBRATIONAL MEDICINE</span>
+                </div>
+                <div class="nav-item" data-target="energy">
+                    <span class="nav-number">04</span>
+                    <span>ENERGY HEALING</span>
+                </div>
+            </div>
+
+            <div class="data-stream" style="margin-top: 4rem;">
+                <p class="status-header">SYSTEM STATUS</p>
+                <p class="status-value" id="status-readout" style="font-size: 1.2rem;">STANDBY</p>
+                <p id="freq-readout" style="font-family: monospace; color: var(--bio-secondary); margin-top: 0.5rem;">Awaiting Selection...</p>
+            </div>
+        </div>
+
+        <!-- Right: Content Display -->
+        <div class="hud-right" id="content-panel">
+            <div class="module-meta">
+                <span id="meta-freq">-- Hz</span>
+                <span id="meta-element">--</span>
+                <span id="meta-status">INACTIVE</span>
             </div>
             
-            <div class="data-stream">
-                <p>> Initializing Bio-Scan...</p>
-                <p>> Calibrating Sensors...</p>
-                <p>> Awaiting User Input...</p>
-                <p id="active-stream">...</p>
-            </div>
-
-            <div class="system-status" style="margin-top: auto;">
-                <div class="status-header">ACTIVE FREQUENCY</div>
-                <div class="status-value" id="freq-readout">0 Hz</div>
-            </div>
-        </div>
-
-        <!-- Center: Body Map -->
-        <div class="hud-center">
-            <div class="body-silhouette">
-                <!-- Simplified SVG Body Outline -->
-                <svg class="body-svg" viewBox="0 0 300 600" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Head -->
-                    <path d="M150,50 C130,50 120,70 120,90 C120,110 130,120 150,120 C170,120 180,110 180,90 C180,70 170,50 150,50" class="body-outline"/>
-                    <!-- Torso -->
-                    <path d="M120,120 L100,140 L100,300 L120,350 L180,350 L200,300 L200,140 L180,120 Z" class="body-outline"/>
-                    <!-- Arms -->
-                    <path d="M100,140 L70,160 L60,280 L80,290 L100,180" class="body-outline"/>
-                    <path d="M200,140 L230,160 L240,280 L220,290 L200,180" class="body-outline"/>
-                    <!-- Legs -->
-                    <path d="M120,350 L110,550 L140,560 L145,400" class="body-outline"/>
-                    <path d="M180,350 L190,550 L160,560 L155,400" class="body-outline"/>
-                    
-                    <!-- Zones (Invisible Interaction Layers) -->
-                    <circle cx="150" cy="85" r="35" class="body-zone" data-target="vibration" /> <!-- Head -->
-                    <rect x="110" y="130" width="80" height="100" class="body-zone" data-target="energy" /> <!-- Chest/Heart -->
-                    <rect x="110" y="230" width="80" height="80" class="body-zone" data-target="ayurveda" /> <!-- Gut -->
-                    <rect x="60" y="160" width="40" height="300" class="body-zone" data-target="somatic" /> <!-- Limbs (Left) -->
-                    <rect x="200" y="160" width="40" height="300" class="body-zone" data-target="somatic" /> <!-- Limbs (Right) -->
-                </svg>
-
-                <!-- Hotspot Overlays -->
-                <div class="hotspot" style="top: 15%; left: 50%;" data-target="vibration"></div> <!-- Head -->
-                <div class="hotspot" style="top: 30%; left: 50%;" data-target="energy"></div> <!-- Heart -->
-                <div class="hotspot" style="top: 45%; left: 50%;" data-target="ayurveda"></div> <!-- Gut -->
-                <div class="hotspot" style="top: 60%; left: 20%;" data-target="somatic"></div> <!-- Limb -->
-            </div>
-        </div>
-
-        <!-- Right: Content Panel -->
-        <div class="hud-right" id="content-panel">
-            <h2 class="module-title" id="panel-title">Select System</h2>
-            <p class="module-description" id="panel-desc">Hover over the bio-frame to scan energetic systems.</p>
+            <h2 class="module-title" id="panel-title">Therapeutic<br>Systems</h2>
+            <p class="module-description" id="panel-desc">
+                Select a protocol from the navigation menu to initialize the bio-sanctuary environment. 
+                Access ancient wisdom integrated with futuristic somatic technology.
+            </p>
             
             <div class="module-grid" id="panel-grid">
                 <!-- Content injected via JS -->
@@ -379,30 +432,35 @@
         const body = document.body;
         const statusReadout = document.getElementById('status-readout');
         const freqReadout = document.getElementById('freq-readout');
-        const activeStream = document.getElementById('active-stream');
         const contentPanel = document.getElementById('content-panel');
         const panelTitle = document.getElementById('panel-title');
         const panelDesc = document.getElementById('panel-desc');
         const panelGrid = document.getElementById('panel-grid');
+        
+        const metaFreq = document.getElementById('meta-freq');
+        const metaElement = document.getElementById('meta-element');
+        const metaStatus = document.getElementById('meta-status');
 
         // System Data
         const systems = {
             'ayurveda': {
                 theme: 'ayurveda',
-                status: 'ELEMENTAL BALANCE',
-                freq: 'EARTH / 7.83Hz',
+                status: 'ELEMENTAL OPTIMIZATION',
+                freq: '7.83Hz',
+                element: 'EARTH / FIRE',
                 title: 'Ayurvedic Alchemy',
-                desc: 'Harmonizing the biological humors (Doshas) through elemental science. Restore balance to Vata, Pitta, and Kapha.',
+                desc: 'Harmonize the biological humors (Doshas) through elemental science. Restore the sacred balance of Vata, Pitta, and Kapha using ancient metabolic protocols.',
                 modules: [
-                    'Dosha Diagnosis', 'Sacred Herbology', 'Rasayana (Rejuvenation)', 'Pranic Dietetics'
+                    'Dosha Diagnosis', 'Sacred Herbology', 'Rasayana Protocol', 'Pranic Dietetics'
                 ]
             },
             'somatic': {
                 theme: 'somatic',
                 status: 'STRUCTURAL INTEGRITY',
-                freq: 'PHYSICAL / 128Hz',
+                freq: '128Hz',
+                element: 'MATTER',
                 title: 'Somatic Release',
-                desc: 'Unlocking trauma stored in the fascial network. Re-aligning the geometry of the physical vessel.',
+                desc: 'Unlock trauma stored in the deep fascial network. Re-align the geometry of the physical vessel to allow unobstructed energy flow.',
                 modules: [
                     'Trauma Release', 'Myofascial Unwinding', 'Deep Grounding', 'Structural Alignment'
                 ]
@@ -410,9 +468,10 @@
             'vibration': {
                 theme: 'vibration',
                 status: 'SONIC RESONANCE',
-                freq: 'AETHER / 432Hz',
+                freq: '432Hz',
+                element: 'AETHER',
                 title: 'Vibrational Medicine',
-                desc: 'Restructuring matter through sound codes. Nada Yoga and frequency modulation.',
+                desc: 'Restructure matter through sound codes. Utilize Nada Yoga, binaural beats, and cymatics to re-tune the cellular frequency.',
                 modules: [
                     'Binaural Entrainment', 'Mantra Therapy', 'Voice Activation', 'Rife Frequencies'
                 ]
@@ -420,9 +479,10 @@
             'energy': {
                 theme: 'energy',
                 status: 'AURA COHERENCE',
-                freq: 'PRANA / 963Hz',
+                freq: '963Hz',
+                element: 'LIGHT',
                 title: 'Energy Healing',
-                desc: 'Scanning and cleansing the subtle electric body. Pranic flow optimization.',
+                desc: 'Scan and cleanse the subtle electric body. Optimize pranic flow through the meridian system and crystallize the aura.',
                 modules: [
                     'Pranic Scanning', 'Reiki Protocols', 'Marma Points', 'Crystal Grids'
                 ]
@@ -430,8 +490,12 @@
         };
 
         // Interaction Logic
-        document.querySelectorAll('[data-target]').forEach(el => {
+        document.querySelectorAll('.nav-item').forEach(el => {
             el.addEventListener('mouseenter', () => {
+                // UI Feedback
+                document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+                el.classList.add('active');
+                
                 const target = el.getAttribute('data-target');
                 activateSystem(target);
             });
@@ -446,21 +510,29 @@
 
             // Metrics Update
             statusReadout.innerText = sys.status;
-            freqReadout.innerText = sys.freq;
-            activeStream.innerText = `> ${sys.title} Protocols Loading...`;
+            freqReadout.innerText = `RESONANCE: ${sys.freq}`;
+            
+            metaFreq.innerText = sys.freq;
+            metaElement.innerText = sys.element;
+            metaStatus.innerText = 'ONLINE';
 
             // Content Panel Update
-            panelTitle.innerText = sys.title;
-            panelDesc.innerText = sys.desc;
-            contentPanel.classList.add('active');
+            contentPanel.classList.remove('active');
+            
+            // Small delay for transition effect
+            setTimeout(() => {
+                panelTitle.innerText = sys.title;
+                panelDesc.innerText = sys.desc;
+                contentPanel.classList.add('active');
 
-            // Populate Modules
-            panelGrid.innerHTML = sys.modules.map(mod => `
-                <div class="module-card">
-                    <h3>${mod}</h3>
-                    <p style="font-size: 0.8rem; opacity: 0.7;">Access Protocol ></p>
-                </div>
-            `).join('');
+                // Populate Modules
+                panelGrid.innerHTML = sys.modules.map(mod => `
+                    <div class="module-card">
+                        <h3>${mod}</h3>
+                        <p>ACCESS PROTOCOL ></p>
+                    </div>
+                `).join('');
+            }, 100);
         }
     </script>
 </body>
