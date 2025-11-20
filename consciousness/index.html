@@ -291,6 +291,103 @@
             to { opacity: 1; }
         }
 
+        @keyframes neonPulse {
+            0% { box-shadow: 0 0 5px rgba(255, 107, 107, 0.2); }
+            50% { box-shadow: 0 0 20px rgba(255, 107, 107, 0.5); }
+            100% { box-shadow: 0 0 5px rgba(255, 107, 107, 0.2); }
+        }
+        
+        .consciousness-node[style*="#FF6B6B"]:hover {
+            animation: neonPulse 2s infinite;
+            border-color: #FF6B6B !important;
+            transform: translateY(-4px) scale(1.02);
+        }
+
+        /* Visual Aids */
+        .visual-aid-container {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            text-align: center;
+            border: 1px solid rgba(78, 205, 196, 0.2);
+        }
+
+        .breath-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--consciousness-primary), transparent);
+            margin: 0 auto;
+            animation: breathe 8s infinite ease-in-out;
+            box-shadow: 0 0 20px rgba(78, 205, 196, 0.3);
+        }
+
+        .breath-label {
+            margin-top: 1rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            color: var(--consciousness-primary);
+            animation: breatheText 8s infinite ease-in-out;
+        }
+
+        @keyframes breathe {
+            0% { transform: scale(0.8); opacity: 0.5; box-shadow: 0 0 10px rgba(78, 205, 196, 0.2); }
+            50% { transform: scale(1.5); opacity: 1; box-shadow: 0 0 40px rgba(78, 205, 196, 0.6); }
+            100% { transform: scale(0.8); opacity: 0.5; box-shadow: 0 0 10px rgba(78, 205, 196, 0.2); }
+        }
+
+        @keyframes breatheText {
+            0%, 100% { content: "EXHALE"; opacity: 0.5; }
+            50% { content: "INHALE"; opacity: 1; }
+        }
+
+        .ganzfeld-visual {
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(to bottom, #ff0000, #aa0000);
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+
+        .ganzfeld-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 1px,
+                rgba(0, 0, 0, 0.1) 1px,
+                rgba(0, 0, 0, 0.1) 2px
+            );
+            opacity: 0.3;
+        }
+
+        .synesthesia-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 5px;
+            max-width: 300px;
+            margin: 1rem auto;
+        }
+
+        .color-block {
+            aspect-ratio: 1;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: rgba(0,0,0,0.7);
+            font-size: 0.8rem;
+        }
+
         .node-expanded-content {
             max-width: 900px;
             margin: 0 auto;
@@ -778,6 +875,116 @@
                         <div class="intensity-bar" style="background: rgba(255, 107, 107, 0.1);"><div class="intensity-fill" style="width: 70%; background: #FF6B6B;"></div></div>
                     </div>
                 </div>
+
+                <div class="consciousness-node" data-node="synesthesia" style="border-color: rgba(255, 107, 107, 0.3);">
+                    <div class="node-header">
+                        <h3 class="node-title" style="color: #FF6B6B;">Synesthesia</h3>
+                        <span class="node-depth" style="border-color: rgba(255, 107, 107, 0.5); color: #FF6B6B;">Siddhi</span>
+                    </div>
+                    <p class="node-description">
+                        Cross-wiring sensory inputs. Taste color. See sound.
+                    </p>
+                    <div class="node-intensity">
+                        <div class="intensity-bar" style="background: rgba(255, 107, 107, 0.1);"><div class="intensity-fill" style="width: 65%; background: #FF6B6B;"></div></div>
+                    </div>
+                </div>
+
+                <div class="consciousness-node" data-node="hypnagogia" style="border-color: rgba(255, 107, 107, 0.3);">
+                    <div class="node-header">
+                        <h3 class="node-title" style="color: #FF6B6B;">Hypnagogia</h3>
+                        <span class="node-depth" style="border-color: rgba(255, 107, 107, 0.5); color: #FF6B6B;">Siddhi</span>
+                    </div>
+                    <p class="node-description">
+                        Surfing the twilight edge of sleep for creative downloads.
+                    </p>
+                    <div class="node-intensity">
+                        <div class="intensity-bar" style="background: rgba(255, 107, 107, 0.1);"><div class="intensity-fill" style="width: 50%; background: #FF6B6B;"></div></div>
+                    </div>
+                </div>
+
+                <div class="consciousness-node" data-node="biofeedback" style="border-color: rgba(255, 107, 107, 0.3);">
+                    <div class="node-header">
+                        <h3 class="node-title" style="color: #FF6B6B;">Biofeedback</h3>
+                        <span class="node-depth" style="border-color: rgba(255, 107, 107, 0.5); color: #FF6B6B;">Siddhi</span>
+                    </div>
+                    <p class="node-description">
+                        Manual override of heart rate and body temp.
+                    </p>
+                    <div class="node-intensity">
+                        <div class="intensity-bar" style="background: rgba(255, 107, 107, 0.1);"><div class="intensity-fill" style="width: 75%; background: #FF6B6B;"></div></div>
+                    </div>
+                </div>
+
+                <div class="consciousness-node" data-node="flow-state" style="border-color: rgba(255, 107, 107, 0.3);">
+                    <div class="node-header">
+                        <h3 class="node-title" style="color: #FF6B6B;">Flow State</h3>
+                        <span class="node-depth" style="border-color: rgba(255, 107, 107, 0.5); color: #FF6B6B;">Siddhi</span>
+                    </div>
+                    <p class="node-description">
+                        Transient Hypofrontality. The biology of "The Zone."
+                    </p>
+                    <div class="node-intensity">
+                        <div class="intensity-bar" style="background: rgba(255, 107, 107, 0.1);"><div class="intensity-fill" style="width: 85%; background: #FF6B6B;"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Somatic Engineering Cluster -->
+        <div class="node-cluster">
+            <h2 class="cluster-title" style="color: #FFAD60;">Somatic Engineering</h2>
+            <div class="nodes-grid">
+                <div class="consciousness-node" data-node="tummo" style="border-color: rgba(255, 173, 96, 0.3);">
+                    <div class="node-header">
+                        <h3 class="node-title" style="color: #FFAD60;">Tummo / Inner Fire</h3>
+                        <span class="node-depth" style="border-color: rgba(255, 173, 96, 0.5); color: #FFAD60;">Body Hack</span>
+                    </div>
+                    <p class="node-description">
+                        Wim Hof origins. Generate heat. Burn trauma.
+                    </p>
+                    <div class="node-intensity">
+                        <div class="intensity-bar" style="background: rgba(255, 173, 96, 0.1);"><div class="intensity-fill" style="width: 90%; background: #FFAD60;"></div></div>
+                    </div>
+                </div>
+
+                <div class="consciousness-node" data-node="polyphasic" style="border-color: rgba(255, 173, 96, 0.3);">
+                    <div class="node-header">
+                        <h3 class="node-title" style="color: #FFAD60;">Polyphasic Sleep</h3>
+                        <span class="node-depth" style="border-color: rgba(255, 173, 96, 0.5); color: #FFAD60;">Body Hack</span>
+                    </div>
+                    <p class="node-description">
+                        Uberman Protocol. 2 hours sleep per day. Infinite time.
+                    </p>
+                    <div class="node-intensity">
+                        <div class="intensity-bar" style="background: rgba(255, 173, 96, 0.1);"><div class="intensity-fill" style="width: 95%; background: #FFAD60;"></div></div>
+                    </div>
+                </div>
+
+                <div class="consciousness-node" data-node="fasting" style="border-color: rgba(255, 173, 96, 0.3);">
+                    <div class="node-header">
+                        <h3 class="node-title" style="color: #FFAD60;">Neuro-Fasting</h3>
+                        <span class="node-depth" style="border-color: rgba(255, 173, 96, 0.5); color: #FFAD60;">Body Hack</span>
+                    </div>
+                    <p class="node-description">
+                        Ketosis as a psycho-active state. BDNF upregulation.
+                    </p>
+                    <div class="node-intensity">
+                        <div class="intensity-bar" style="background: rgba(255, 173, 96, 0.1);"><div class="intensity-fill" style="width: 60%; background: #FFAD60;"></div></div>
+                    </div>
+                </div>
+
+                <div class="consciousness-node" data-node="isolation-tank" style="border-color: rgba(255, 173, 96, 0.3);">
+                    <div class="node-header">
+                        <h3 class="node-title" style="color: #FFAD60;">Sensory Deprivation</h3>
+                        <span class="node-depth" style="border-color: rgba(255, 173, 96, 0.5); color: #FFAD60;">Body Hack</span>
+                    </div>
+                    <p class="node-description">
+                        The Float Tank. Zero gravity. Zero signal. Pure mind.
+                    </p>
+                    <div class="node-intensity">
+                        <div class="intensity-bar" style="background: rgba(255, 173, 96, 0.1);"><div class="intensity-fill" style="width: 40%; background: #FFAD60;"></div></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -850,6 +1057,20 @@
 
         function getNodeContent(nodeId) {
             const content = {
+                'synesthesia': 'Synesthesia',
+                'hypnagogia': 'Hypnagogic State',
+                'biofeedback': 'Biofeedback Loop',
+                'flow-state': 'Flow State Engineering',
+                'tummo': 'Tummo / Inner Fire',
+                'polyphasic': 'Polyphasic Sleep',
+                'fasting': 'Neuro-Fasting',
+                'isolation-tank': 'Sensory Deprivation'
+            };
+            return titles[nodeId] || 'Practice Node';
+        }
+
+        function getNodeContent(nodeId) {
+            const content = {
                 'ganzfeld': `
                     <h2 class="expanded-title" style="color: #FF6B6B;">The Ganzfeld Hack</h2>
                     <div class="expanded-body">
@@ -859,8 +1080,8 @@
 
                         <h3>The Setup (Hardware Required)</h3>
                         <p><strong>1. Visual Field:</strong> Ping pong ball cut in half. Place one half over each eye. Tape them down. Or use a paper mask. The goal is a uniform field of view with no edges. Shine a red light (or phone screen with red image) directly at your face. You should see only a featureless red fog.</p>
-                        <p><strong>2. Auditory Field:</strong> Noise-canceling headphones playing "Pink Noise" or loud static. It must be featureless and constant. No music. No patterns.</p>
-                        <p><strong>3. Body:</strong> Lie completely still. Do not move.</p>
+                        <p><strong>2. Auditory Field:</strong> Noise-canceling headphones playing "Pink Noise" or loud static. It must have no rhythm, no pattern, no words. Just hiss.</p>
+                        <p><strong>3. Body:</strong> Lie completely still. Do not move. Proprioception (sense of body position) fades if you don't move.</p>
 
                         <div class="meta-knowledge" style="border-color: rgba(255, 107, 107, 0.3);">
                             <div class="meta-toggle" style="background: rgba(255, 107, 107, 0.05);">
@@ -948,29 +1169,6 @@
                         <p><strong>Fix 1: Spin.</strong> Spin your dream body around in circles. The sensation of motion forces the brain to load new visual data, locking you into the dream.</p>
                         <p><strong>Fix 2: Touch.</strong> Rub your dream hands together. Feel the texture of the dream floor. Engaging tactile senses stabilizes the render.</p>
                         <p><strong>Fix 3: Shout.</strong> Yell "CLARITY NOW!" to the dream. Surprisingly, the dream usually obeys and sharpens the resolution.</p>
-
-                        <div class="meta-knowledge" style="border-color: rgba(255, 107, 107, 0.3);">
-                            <div class="meta-toggle" style="background: rgba(255, 107, 107, 0.05);">
-                                <span class="meta-label" style="color: #FF6B6B;">🎯 SUCCESS METRICS</span>
-                                <span class="meta-icon" style="color: #FF6B6B;">▼</span>
-                            </div>
-                            <div class="meta-content">
-                                <div class="meta-inner">
-                                    <div class="meta-section">
-                                        <h4 class="meta-heading" style="color: #FF6B6B;">Levels of Lucidity</h4>
-                                        <p class="meta-text">
-                                            <strong>Level 1:</strong> "Oh, I'm dreaming." Then you immediately forget and follow the dream plot.
-                                        </p>
-                                        <p class="meta-text">
-                                            <strong>Level 2:</strong> You know you are dreaming and can make small choices, but the environment feels foggy.
-                                        </p>
-                                        <p class="meta-text">
-                                            <strong>Level 3:</strong> Hyper-real. clearer than waking life. You have full memory of your waking self. You can fly, spawn objects, and dissolve the world.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 `,
                 'memory-palace': `
@@ -1010,37 +1208,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <h3>Quick Hacks & Shortcuts</h3>
-                        <p><strong>The Body Palace:</strong> Don't have a building? Use your body. Feet, knees, hips, waist, chest, neck, head. 7 storage slots available instantly. Attach images to your own limbs.</p>
-                        
-                        <p><strong>The PAO System (Person-Action-Object):</strong> For numbers. 00-99. Each number is a person doing something to an object. 15 might be Einstein writing on a blackboard. 23 might be Michael Jordan dunking a ball. To remember 1523, you imagine Einstein dunking a ball.</p>
-
-                        <div class="meta-knowledge" style="border-color: rgba(255, 107, 107, 0.3);">
-                            <div class="meta-toggle" style="background: rgba(255, 107, 107, 0.05);">
-                                <span class="meta-label" style="color: #FF6B6B;">🎯 PROGRESSION SYSTEM</span>
-                                <span class="meta-icon" style="color: #FF6B6B;">▼</span>
-                            </div>
-                            <div class="meta-content">
-                                <div class="meta-inner">
-                                    <div class="meta-section">
-                                        <h4 class="meta-heading" style="color: #FF6B6B;">Storage Expansion</h4>
-                                        <p class="meta-text">
-                                            <strong>Level 1:</strong> One room (10 items). Useful for groceries.
-                                        </p>
-                                        <p class="meta-text">
-                                            <strong>Level 2:</strong> Your entire house (50 items). Useful for to-do lists/presentations.
-                                        </p>
-                                        <p class="meta-text">
-                                            <strong>Level 3:</strong> Your commute to work (100+ items). Street corners, shops, landmarks become slots.
-                                        </p>
-                                        <p class="meta-text">
-                                            <strong>Level 4:</strong> Virtual Palaces. Using video game maps (Call of Duty, Skyrim) as storage containers. Infinite capacity.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 `,
                 'pain-modulation': `
@@ -1051,7 +1218,6 @@
                         <p>You cannot turn off signal #1 (without drugs/nerve damage). But you CAN turn off signal #2. This is the "Pain Dial" technique used by chronic pain specialists and monks. You strip the emotional narrative from the physical sensation.</p>
 
                         <h3>The Objectification Protocol</h3>
-                        <p>Normally, you say "MY arm hurts." You merge with the pain. The protocol is to turn the pain into an object outside yourself.</p>
                         <p><strong>Step 1: Localization.</strong> Where exactly is the center? Trace the edges. Is it a point or a patch?</p>
                         <p><strong>Step 2: Deconstruction.</strong> Describe the sensation using only physics words. Is it hot? Cold? Pulsing? Sharp? Twisted? "It is burning" is better than "It hurts."</p>
                         <p><strong>Step 3: Visualization.</strong> Give it a shape and color. "It is a red, pulsing sphere, size of a golf ball." Now it is an object. You are the observer of the object.</p>
@@ -1073,34 +1239,6 @@
                                         </p>
                                         <p class="meta-text">
                                             <strong>The Result:</strong> Within 60 seconds, your brain will claim the rubber hand. If your friend hits the rubber hand with a hammer, you will flinch and feel "phantom pain." This proves your body map is software, not hardware. It can be rewritten.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <h3>Quick Hacks & Shortcuts</h3>
-                        <p><strong>The "Breathe Into It" Lie:</strong> Don't just breathe. Imagine the breath is a cool gas entering the pain point and expanding the space around the tight fibers. Create room for the sensation to exist.</p>
-                        
-                        <p><strong>Sensory Flooding:</strong> Pain signals travel on slow nerves (C-fibers). Touch/pressure travels on fast nerves (A-beta fibers). Rubbing a bumped shin works because the "rubbing" signal outruns the "pain" signal to the brain (Gate Control Theory). Overload the area with vibration or texture to mute the pain.</p>
-
-                        <div class="meta-knowledge" style="border-color: rgba(255, 107, 107, 0.3);">
-                            <div class="meta-toggle" style="background: rgba(255, 107, 107, 0.05);">
-                                <span class="meta-label" style="color: #FF6B6B;">🎯 PROGRESSION SYSTEM</span>
-                                <span class="meta-icon" style="color: #FF6B6B;">▼</span>
-                            </div>
-                            <div class="meta-content">
-                                <div class="meta-inner">
-                                    <div class="meta-section">
-                                        <h4 class="meta-heading" style="color: #FF6B6B;">Tolerance Tiers</h4>
-                                        <p class="meta-text">
-                                            <strong>Tier 1 - Cold Shower:</strong> Can you stand under freezing water for 60 seconds without gasping/tensing? This is the training ground.
-                                        </p>
-                                        <p class="meta-text">
-                                            <strong>Tier 2 - Static Holds:</strong> Holding a plank/squat until muscle failure. Watching the "burning" sensation without buying the "I can't" story.
-                                        </p>
-                                        <p class="meta-text">
-                                            <strong>Tier 3 - Dissociation:</strong> Being able to hold a conversation while in acute discomfort. The pain is there, but your attention is elsewhere.
                                         </p>
                                     </div>
                                 </div>
@@ -1137,45 +1275,148 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                `,
+                'synesthesia': `
+                    <h2 class="expanded-title" style="color: #FF6B6B;">Synesthesia</h2>
+                    <div class="expanded-body">
+                        <p>Synesthesia is a neurological condition where stimulation of one sensory pathway leads to involuntary stimulation of another. Hearing music and seeing colors. Tasting strawberries and feeling the shape of a triangle. Artists like Kandinsky and Pharrell Williams have this naturally.</p>
+                        
+                        <p>But you can induce it. By deliberately cross-wiring your sensory associations, you increase neural connectivity (neuroplasticity) and unlock new creative metaphors.</p>
 
-                        <h3>Quick Hacks & Shortcuts</h3>
-                        <p><strong>The Route Scramble:</strong> Never drive to work the same way twice. Brush your teeth with your left hand. Rearrange your furniture. Break the pattern match. This forces the brain to pay attention, expanding subjective time.</p>
-                        
-                        <p><strong>The "Impossible" Deadline:</strong> Give yourself 20 minutes to do a 2-hour task. The urgency forces you into a high-beta brainwave state. You enter "The Zone." Time outside the task disappears, but your processing speed inside the task skyrockets.</p>
-                        
-                        <p><strong>Saccadic Masking:</strong> Look at a clock with a second hand. Look away, then look back quickly. The first second will seem to hang for longer than a second. This is "Chronostasis." Your brain edits out the blurry motion of your eyes moving and fills the gap with the static image of the clock. You are literally seeing a fake reality generated to hide the edit.</p>
+                        <h3>The Cross-Wire Protocols</h3>
+                        <p><strong>1. Audio-Visual Mapping:</strong> Put on headphones. Close eyes. As you listen, do not just "hear." Ask: "What color is this bassline? What texture is the snare?" Force the brain to assign a visual value to an audio input. At first, you are guessing. Eventually, you are seeing.</p>
+                        <p><strong>2. Grapheme-Color Training:</strong> Assign colors to numbers. 1 is white. 2 is red. 3 is green. Visualize them in color every time you see them. This builds the associative bridge.</p>
 
                         <div class="meta-knowledge" style="border-color: rgba(255, 107, 107, 0.3);">
                             <div class="meta-toggle" style="background: rgba(255, 107, 107, 0.05);">
-                                <span class="meta-label" style="color: #FF6B6B;">🎯 PROGRESSION SYSTEM</span>
+                                <span class="meta-label" style="color: #FF6B6B;">🧠 THE HYPER-CONNECTED BRAIN</span>
                                 <span class="meta-icon" style="color: #FF6B6B;">▼</span>
                             </div>
                             <div class="meta-content">
                                 <div class="meta-inner">
                                     <div class="meta-section">
-                                        <h4 class="meta-heading" style="color: #FF6B6B;">Temporal Mastery</h4>
+                                        <h4 class="meta-heading" style="color: #FF6B6B;">Pruning Failure</h4>
                                         <p class="meta-text">
-                                            <strong>Level 1 - The Automaton:</strong> Life blurs by. "Where did the year go?" (Default state).
-                                        </p>
-                                        <p class="meta-text">
-                                            <strong>Level 2 - The Novelty Seeker:</strong> You actively seek newness to extend your life-feel. Travel, learning, chaos.
-                                        </p>
-                                        <p class="meta-text">
-                                            <strong>Level 3 - The Flow Artist:</strong> You can induce the "timeless" state of deep work or meditation at will.
-                                        </p>
-                                        <p class="meta-text">
-                                            <strong>Level 4 - The Observer:</strong> You can watch time pass without being trapped in it. The "Eternal Now" of the masters.
+                                            Babies are born synesthetes. Their brains haven't "pruned" the connections between visual and auditory cortexes yet. Growing up means segregating senses. Synesthesia is a "failure" to segregate—which is actually a creative superpower. You are reclaiming the infant's unified perception of reality.
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                `
-            };
-            
-            return content[nodeId] || `<h2 class="expanded-title">${getNodeTitle(nodeId)}</h2><div class="expanded-body"><p>Content for this practice is being developed.</p></div>`;
-        }
+                `,
+                'hypnagogia': `
+                    <h2 class="expanded-title" style="color: #FF6B6B;">Hypnagogic State</h2>
+                    <div class="expanded-body">
+                        <p>The borderland between wakefulness and sleep. You aren't awake, but you aren't asleep. Your rational ego (Prefrontal Cortex) goes offline, but your awareness is still online. This is where the subconscious mind bubbles up in free-associative images.</p>
+                        
+                        <p>Edison, Dali, and Einstein used this state to solve problems logic couldn't touch. It is the "Download State."</p>
+
+                        <h3>The Edison Key Trick</h3>
+                        <p><strong>The Setup:</strong> Sit in a comfortable chair. Hold a heavy set of keys (or a steel ball) in your hand, dangling over a metal plate on the floor. Close your eyes. Allow yourself to drift into sleep.</p>
+                        <p><strong>The Trigger:</strong> As you enter deep hypnagogia, muscle tone drops (atonia). Your hand relaxes. The keys fall. CLANG! The noise wakes you up immediately.</p>
+                        <p><strong>The Harvest:</strong> In that split second of waking, you will have access to the surreal, non-linear images of the hypnagogic state. Write them down immediately.</p>
+
+                        <div class="meta-knowledge" style="border-color: rgba(255, 107, 107, 0.3);">
+                            <div class="meta-toggle" style="background: rgba(255, 107, 107, 0.05);">
+                                <span class="meta-label" style="color: #FF6B6B;">⚡ THETA WAVES</span>
+                                <span class="meta-icon" style="color: #FF6B6B;">▼</span>
+                            </div>
+                            <div class="meta-content">
+                                <div class="meta-inner">
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading" style="color: #FF6B6B;">Brainwave Surfing</h4>
+                                        <p class="meta-text">
+                                            Normal waking is Beta (14-30Hz). Deep sleep is Delta (0.5-4Hz). Hypnagogia is Theta (4-8Hz). It is the dream state without the dream plot. It is pure, raw imagery without a narrator.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                'biofeedback': `
+                    <h2 class="expanded-title" style="color: #FF6B6B;">Biofeedback Loop</h2>
+                    <div class="expanded-body">
+                        <p>Your Autonomic Nervous System (heart beat, digestion, dilation) runs on autopilot. But "Autonomic" does not mean "Uncontrollable." It just means "Uncontrolled." With feedback, you can learn to drive the stick-shift of your own biology.</p>
+                        
+                        <p>Biofeedback is the process of looking at a biological signal (heart rate monitor) and using mental will/visualization to change it. Once you learn the internal "muscle" that slows your heart, you don't need the monitor anymore.</p>
+
+                        <h3>The Hand-Warming Protocol</h3>
+                        <p><strong>The Goal:</strong> Raise the temperature of your hands by 5 degrees using only your mind.</p>
+                        <p><strong>The Visualization:</strong> Imagine you are holding hot coals. Or your hands are dipped in warm magma. Or you are lying on a sun-baked rock. Feel the heat.</p>
+                        <p><strong>The Mechanism:</strong> Vasodilation. The parasympathetic nervous system relaxes the capillaries in your fingers, allowing more blood flow. More blood = more heat. If you can warm your hands, you have proven you can manually toggle the "Relax" switch of your nervous system.</p>
+                    </div>
+                `,
+                'flow-state': `
+                    <h2 class="expanded-title" style="color: #FF6B6B;">Flow State Engineering</h2>
+                    <div class="expanded-body">
+                        <p>Flow (The Zone) is a state of optimal performance where self-consciousness dissolves and time vanishes. Action and awareness merge. You aren't "doing" the task; the task is doing itself through you.</p>
+                        
+                        <p><strong>Transient Hypofrontality:</strong> The Prefrontal Cortex (the inner critic/CEO) shuts down. The Dorsolateral Prefrontal Cortex (doubt/hesitation) goes silent. The brain becomes more efficient, not more active. It stops second-guessing itself.</p>
+
+                        <h3>The Flow Triggers</h3>
+                        <p><strong>1. High Consequence:</strong> Risk drives focus. (Doesn't have to be physical risk; can be social/professional risk).</p>
+                        <p><strong>2. Rich Environment:</strong> Novelty, unpredictability, complexity. The brain must engage fully to navigate.</p>
+                        <p><strong>3. Deep Embodiment:</strong> Engaging multiple senses. (Writing with a fountain pen vs typing. Walking while thinking).</p>
+                        <p><strong>4. The Challenge/Skill Ratio:</strong> The task must be hard enough to stretch you (4% harder than your skill level), but not so hard it causes anxiety.</p>
+                    </div>
+                `,
+                'tummo': `
+                    <h2 class="expanded-title" style="color: #FFAD60;">Tummo / Inner Fire</h2>
+                    <div class="expanded-body">
+                        <p>The ancient Tibetan practice of generating immense body heat through visualization and breath retention. Popularized by Wim Hof. It allows monks to dry wet sheets on their naked bodies in the snow at 15,000 feet.</p>
+                        
+                        <p>This is the mastery of the Hypothalamus (the body's thermostat). By convincing the brain you are "fire," the body responds by ramping up metabolic activity.</p>
+
+                        <h3>The Mechanics</h3>
+                        <p><strong>Step 1: Hyper-Oxygenation.</strong> 30 deep breaths. Alkalize the blood. Signal the adrenal axis.</p>
+                        <p><strong>Step 2: The Retention.</strong> Exhale and hold. Drop oxygen levels. This triggers "survival mode" without the panic. The reptile brain wakes up.</p>
+                        <p><strong>Step 3: The Vase Breath.</strong> Inhale, push the air down into the belly (Dan Tien), and squeeze the pelvic floor. Visualize a hot blue flame in the gut. This pressure cooker effect creates physical heat.</p>
+                    </div>
+                `,
+                'polyphasic': `
+                    <h2 class="expanded-title" style="color: #FFAD60;">Polyphasic Sleep</h2>
+                    <div class="expanded-body">
+                        <p>The standard "Monophasic" sleep (8 hours at night) is a social construct, not a biological law. Many geniuses (Da Vinci, Tesla, Napoleon) used Polyphasic schedules to gain 20+ years of conscious life.</p>
+                        
+                        <p><strong>The Uberman:</strong> 20-minute nap every 4 hours. Total sleep: 2 hours/day. You gain 6 hours of life every single day.</p>
+
+                        <div class="meta-knowledge" style="border-color: rgba(255, 173, 96, 0.3);">
+                            <div class="meta-toggle" style="background: rgba(255, 173, 96, 0.05);">
+                                <span class="meta-label" style="color: #FFAD60;">⚠️ THE ADAPTATION HELL</span>
+                                <span class="meta-icon" style="color: #FFAD60;">▼</span>
+                            </div>
+                            <div class="meta-content">
+                                <div class="meta-inner">
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading" style="color: #FFAD60;">The Zombie Week</h4>
+                                        <p class="meta-text">
+                                            The first 10 days are torture. Your brain tries to force you to sleep. You will hallucinate. You will hate existence. But if you push through, the brain adapts. It learns to dive instantly into REM sleep (S.O.R.E.M.) the moment you close your eyes.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                'fasting': `
+                    <h2 class="expanded-title" style="color: #FFAD60;">Neuro-Fasting</h2>
+                    <div class="expanded-body">
+                        <p>Digestion is expensive. It takes 30% of your energy. When you stop eating, that energy goes to the brain. After 16 hours, Autophagy begins (cellular cleaning). After 48 hours, Ketosis peaks. The brain runs on Ketones (fat fuel) instead of Glucose (sugar fuel). Ketones burn cleaner.</p>
+                        
+                        <p>The feeling is "Hunter's Clarity." Ancient humans had to be at their sharpest when they hadn't eaten (to catch food). You are hacking this evolutionary survival mechanism.</p>
+                    </div>
+                `,
+                'isolation-tank': `
+                    <h2 class="expanded-title" style="color: #FFAD60;">Sensory Deprivation</h2>
+                    <div class="expanded-body">
+                        <p>90% of your brain's CPU is dedicated to processing gravity, light, and sound. In a float tank (skin-temperature saltwater, pitch black, silent), that 90% is freed up.</p>
+                        
+                        <p>The boundary between "body" and "water" dissolves. Then the boundary between "self" and "room" dissolves. You become a floating point of consciousness in an infinite void. It is the fastest way to reach deep meditative states without years of training.</p>
+                    </div>
+                `,
                 'mindfulness': `
                     <h2 class="expanded-title">Mindfulness Practice</h2>
                     <div class="expanded-body">
@@ -1553,266 +1794,6 @@
                         <p><strong>The Visual Anchor:</strong> Stare at a small dot on the wall or a candle flame. Don't blink more than necessary. Let the peripheral vision fade. Pour all attention into the visual point.</p>
                         
                         <p><strong>Mantra Looping:</strong> Repeat a meaningless sound (like "Om" or "Mu") internally. Let the rhythm take over. The sound occupies the verbal center of the brain, preventing discursive thought.</p>
-
-                        <div class="meta-knowledge">
-                            <div class="meta-toggle">
-                                <span class="meta-label">🎯 PROGRESSION SYSTEM</span>
-                                <span class="meta-icon">▼</span>
-                            </div>
-                            <div class="meta-content">
-                                <div class="meta-inner">
-                                    <div class="meta-section">
-                                        <h4 class="meta-heading">Levels of Stability</h4>
-                                        <p class="meta-text">
-                                            <strong>Level 1 - The Monkey:</strong> Mind stays on object for 2 seconds, wanders for 2 minutes.
-                                        </p>
-                                        <p class="meta-text">
-                                            <strong>Level 2 - The Tether:</strong> Mind wanders, but you catch it quickly. It feels like walking a puppy.
-                                        </p>
-                                        <p class="meta-text">
-                                            <strong>Level 3 - Continuous Contact:</strong> You can feel the full duration of the breath/object without a gap. Background thoughts exist but don't steal focus.
-                                        </p>
-                                        <p class="meta-text">
-                                            <strong>Level 4 - Absorption:</strong> The object swallows you. You forget you are sitting. Time disappears.
-                                        </p>
-                                    </div>
-                                    
-                                    <div class="meta-section">
-                                        <h4 class="meta-heading">Success Metrics</h4>
-                                        <p class="meta-text">
-                                            ✓ You can read a book for an hour without checking your phone<br>
-                                            ✓ "Flow state" becomes accessible on command<br>
-                                            ✓ Emotional reactivity drops (focus overrides reaction)<br>
-                                            ✓ Pleasure arises simply from sitting still
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `,
-                'ego-dissolution': `
-                    <h2 class="expanded-title">Ego Dissolution</h2>
-                    <div class="expanded-body">
-                        <p>The recognition that "you"—the continuous, solid sense of self you've carried your entire life—is not a fact but a construct. A very useful construct, but a construct nonetheless. This insight isn't intellectual. It's experiential, and it's deeply unsettling.</p>
-
-                        <p>People seek ego dissolution thinking it will be liberating. It is. But liberation feels like annihilation first. You don't gradually let go of self. The self is seen through suddenly, and what's left is the terrifying recognition that there was never anyone there to begin with.</p>
-
-                        <h3>What Actually Happens</h3>
-                        <p>The boundary between "self" and "other" temporarily collapses. The sense of being a separate experiencer dissolves. What remains is experience itself, without the illusion of someone experiencing it. This lasts seconds to hours, depending on practice depth and individual neurology.</p>
-
-                        <p>Afterward: confusion, grief, or profound relief. Sometimes all three simultaneously. Your previous identity feels like a costume you were wearing unconsciously. You can still put it on—you need to, to function in society—but you know it's a costume now.</p>
-
-                        <div class="meta-knowledge">
-                            <div class="meta-toggle">
-                                <span class="meta-label">💀 DEEPER TERRITORY</span>
-                                <span class="meta-icon">▼</span>
-                            </div>
-                            <div class="meta-content">
-                                <div class="meta-inner">
-                                    <div class="meta-section">
-                                        <h4 class="meta-heading">The Neuroscience of No-Self</h4>
-                                        <p class="meta-text">
-                                            The sense of self is generated primarily by the default mode network (DMN)—particularly the medial prefrontal cortex and posterior cingulate cortex. These regions construct the narrative of "me" by constantly referencing past experiences and projecting future scenarios.
-                                        </p>
-                                        <p class="meta-text">
-                                            During ego dissolution, DMN activity measurably decreases. In fMRI studies of experienced meditators and psychedelic subjects, the connectivity between these self-referential brain regions temporarily breaks down. The brain is still fully active—but the specific pattern that creates the "self" feeling is disrupted.
-                                        </p>
-                                        <p class="meta-text">
-                                            This isn't brain damage. It's the brain's self-construction system temporarily going offline, revealing that "you" were always a process, not a thing.
-                                        </p>
-                                    </div>
-                                    
-                                    <div class="meta-section">
-                                        <h4 class="meta-heading">The Three Waves of Dissolution</h4>
-                                        <p class="meta-text">
-                                            <strong>First Wave - Story Dissolution:</strong> The narrative of your life—your personal history, the meaning you've assigned to events—is seen as constructed rather than discovered. You remember the events, but the story you've told about them loses its grip. This is disorienting but manageable.
-                                        </p>
-                                        <p class="meta-text">
-                                            <strong>Second Wave - Personality Dissolution:</strong> The traits you thought were "you"—your preferences, tendencies, character—are recognized as conditioned patterns, not essential nature. They still operate, but the identification with them weakens. You become able to observe your personality the way you'd observe weather patterns.
-                                        </p>
-                                        <p class="meta-text">
-                                            <strong>Third Wave - Experiencer Dissolution:</strong> The deepest level. The sense that there is someone witnessing experience collapses. There's still experience—sensation, thought, emotion—but no experiencer separate from the experiencing. This is the terrifying one. Most people never go here voluntarily.
-                                        </p>
-                                    </div>
-                                    
-                                    <div class="meta-section">
-                                        <h4 class="meta-heading">Why This Can Break People</h4>
-                                        <div class="warning-inline">
-                                            <strong>⚠️ Serious Warning:</strong> Ego dissolution is not recreational philosophy. For people with fragile identity structures, severe trauma, or predisposition to dissociative or psychotic breaks, this territory can trigger psychiatric crisis. The self might not reconstruct properly. Depersonalization disorder is real and devastating.
-                                        </div>
-                                        <p class="meta-text">
-                                            Traditional systems spent years preparing practitioners—building stable attention, emotional regulation, and psychological integration—before approaching ego dissolution. Modern seekers often rush here with no preparation, usually via psychedelics or intensive meditation retreats, then can't integrate what they've seen.
-                                        </p>
-                                        <p class="meta-text">
-                                            <strong>Signs you're not ready:</strong> Active addiction, untreated mental illness, recent major trauma, inability to maintain relationships or employment, history of dissociation. If your life is unstable, deconstructing your sense of self will only amplify that instability.
-                                        </p>
-                                    </div>
-                                    
-                                    <div class="meta-section">
-                                        <h4 class="meta-heading">The Integration Challenge</h4>
-                                        <div class="meta-quote">
-                                            "Before enlightenment: chop wood, carry water. After enlightenment: chop wood, carry water. But now you know there's no one chopping and no one carrying."
-                                            <cite>— Zen koan pointing to integration</cite>
-                                        </div>
-                                        <p class="meta-text">
-                                            The insight is easy compared to living with it. You still need to function in a world that operates as if the self is real. Pay bills, maintain relationships, make decisions. The self-structure has to partially reconstruct for practical functioning.
-                                        </p>
-                                        <p class="meta-text">
-                                            <strong>Post-dissolution life:</strong> You operate "as if" you're a person, knowing it's a functional fiction. Like an actor who knows they're playing a role but commits to the performance anyway. This is different from the pre-dissolution state where you believed the role was real.
-                                        </p>
-                                        <p class="meta-text">
-                                            Some people describe this as freedom. Others as existential loneliness. Many experience both, depending on the day.
-                                        </p>
-                                    </div>
-                                    
-                                    <div class="meta-section">
-                                        <h4 class="meta-heading">Accidental Dissolution: When It Happens Uninvited</h4>
-                                        <p class="meta-text">
-                                            Ego dissolution doesn't only happen through meditation. Triggers: extreme stress, psychedelics, severe illness, near-death experiences, spontaneous mystical experiences, even certain types of deep therapy. When it happens without framework or preparation, it can be experienced as psychotic break rather than spiritual awakening.
-                                        </p>
-                                        <p class="meta-text">
-                                            The difference between spiritual emergency and psychiatric emergency is often just: do you have a framework to understand what's happening, and do you have support? Same experience, radically different outcomes based on context and preparation.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <h3>Quick Hacks & Entry Points</h3>
-                        <p><strong>The Label Technique:</strong> When you catch yourself thinking "I am angry" or "I am anxious," rephrase: "Anger is present" or "Anxiety is arising." Removes the "I" from the equation. Small shift, profound implications. Practice this 100 times and watch identity loosen.</p>
-                        
-                        <p><strong>Third-Person Observation:</strong> Describe your experience as if watching someone else: "The body is feeling tense. Thoughts about work are appearing." Removes identification automatically. Safe entry into no-self territory.</p>
-                        
-                        <p><strong>The Question Method:</strong> When strong emotion arises, ask: "Who is feeling this?" Don't answer. Let the question hang. Notice what happens when you try to locate the "I" that's experiencing.</p>
-
-                        <div class="meta-knowledge">
-                            <div class="meta-toggle">
-                                <span class="meta-label">🎯 PROGRESSION MAP</span>
-                                <span class="meta-icon">▼</span>
-                            </div>
-                            <div class="meta-content">
-                                <div class="meta-inner">
-                                    <div class="meta-section">
-                                        <h4 class="meta-heading">Unlock Requirements: Are You Ready?</h4>
-                                        <p class="meta-text">
-                                            <strong>Minimum Prerequisites (Non-negotiable):</strong><br>
-                                            ✓ 1000+ hours of basic meditation (3+ years of daily practice)<br>
-                                            ✓ Stable life circumstances (employment, housing, relationships functional)<br>
-                                            ✓ No active substance dependencies<br>
-                                            ✓ No untreated psychiatric conditions<br>
-                                            ✓ Shadow work completed (you've faced your psychological demons)<br>
-                                            ✓ Support system in place (therapist, teacher, or community)
-                                        </p>
-                                        <p class="meta-text">
-                                            <strong>Ready Check:</strong> If reading these requirements makes you want to skip them, you're not ready. The desire to rush this process is ego wanting enlightenment as another achievement. That's the opposite of ego dissolution.
-                                        </p>
-                                    </div>
-                                    
-                                    <div class="meta-section">
-                                        <h4 class="meta-heading">Phase Map: The Dissolution Journey</h4>
-                                        <p class="meta-text">
-                                            <strong>Phase 1 - Intellectual Understanding (Months 1-6):</strong><br>
-                                            You understand conceptually that self is constructed. Can discuss it intelligently. This is not the territory—this is reading the map. Most people stay here permanently, thinking understanding equals realization.
-                                        </p>
-                                        <p class="meta-text">
-                                            <strong>Phase 2 - Glimpses (Months 6-18):</strong><br>
-                                            Brief moments where self-boundary weakens. Lasts 3-30 seconds. Often triggered by nature, art, or deep practice. You recognize it afterward, not during. These glimpses are disorienting but not destabilizing.
-                                        </p>
-                                        <p class="meta-text">
-                                            <strong>Phase 3 - First Full Dissolution (Variable timing):</strong><br>
-                                            Self-sense completely drops for minutes to hours. Terror or profound peace, usually both in sequence. You cannot force this. It happens when conditions align. Afterward: confusion, grief for the self you thought you were.
-                                        </p>
-                                        <p class="meta-text">
-                                            <strong>Phase 4 - Integration Crisis (Weeks to months after):</strong><br>
-                                            Hardest phase. You've seen through the illusion but still need to function in a world that operates as if self is real. Depression, alienation, or existential vertigo common. This is where skilled support is critical.
-                                        </p>
-                                        <p class="meta-text">
-                                            <strong>Phase 5 - Stabilization (6-24 months):</strong><br>
-                                            Self-structure partially reconstructs but now recognized as functional fiction. You can operate "as if" you're a person while knowing the truth. This is the mature outcome, not permanent ego-less state.
-                                        </p>
-                                    </div>
-                                    
-                                    <div class="meta-section">
-                                        <h4 class="meta-heading">Difficulty Settings: Intensity Control</h4>
-                                        <p class="meta-text">
-                                            <strong>Gradual Approach (Recommended):</strong> Daily practice over years. Glimpses accumulate slowly. Self-structure loosens incrementally. Nervous system adapts gradually. Lowest destabilization risk. Timeline: 5-10 years.
-                                        </p>
-                                        <p class="meta-text">
-                                            <strong>Intensive Retreat:</strong> 10-30 day silent meditation retreat with experienced teachers. Controlled environment, expert supervision, peer support. Medium destabilization risk. Can trigger breakthrough or breakdown—preparation critical.
-                                        </p>
-                                        <p class="meta-text">
-                                            <strong>Psychedelic-Assisted (Highest Risk):</strong> Powerful psychedelics can induce temporary ego dissolution in hours. Fastest route, highest danger. Without proper set, setting, and integration support, this often creates trauma rather than awakening. Not recommended without expert facilitation.
-                                        </p>
-                                    </div>
-                                    
-                                    <div class="meta-section">
-                                        <h4 class="meta-heading">Emergency Protocols: If It Goes Wrong</h4>
-                                        <div class="warning-inline">
-                                            <strong>⚠️ If experiencing:</strong> Inability to function in daily life, persistent depersonalization (feeling like you're not real), suicidal thoughts, psychotic symptoms, inability to maintain employment/relationships for 3+ months post-experience.
-                                        </div>
-                                        <p class="meta-text">
-                                            <strong>Immediate Actions:</strong><br>
-                                            1. Stop all meditation and spiritual practice immediately<br>
-                                            2. Seek psychiatric evaluation (find someone familiar with meditation-related issues)<br>
-                                            3. Ground aggressively: physical work, exercise, social contact, routine<br>
-                                            4. Rebuild identity structure: Use your name, tell your story, reconnect with personality<br>
-                                            5. Contact a teacher experienced in integration crises
-                                        </p>
-                                        <p class="meta-text">
-                                            <strong>Recovery Timeline:</strong> 3-18 months with proper support. This is not failure—this is nervous system saying "not ready yet." Listen to it.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <h3>If You Insist On Proceeding</h3>
-                        <p><strong>Minimum Viable Support:</strong> Teacher with 15+ years experience in this territory. Therapist who understands contemplative practice. At least one friend who won't pathologize spiritual experiences.</p>
-                        <p><strong>Timeline Expectation:</strong> 5-10 years from starting meditation to first stable dissolution. Anyone promising faster is selling something. This cannot be rushed without breaking something.</p>
-                        <p><strong>Daily Practice Requirement:</strong> 60+ minutes formal practice. Multiple years of this, minimum. Plus shadow work. Plus therapy. Plus stable life. No shortcuts exist.</p>
-                    </div>
-                `,
-                'void-states': `
-                    <h2 class="expanded-title">Void State Practice</h2>
-                    <div class="expanded-body">
-                        <p>Beyond the noise of thought and the drama of emotion, there is a silent background. This practice is about tuning into that background until the foreground dissolves. It is the practice of "Nirodha" or cessation.</p>
-                        
-                        <p>Most meditation focuses on <em>something</em> (breath, mantra, sensation). This practice focuses on <em>nothing</em>. It is the art of noticing the space in which things happen, rather than the things themselves.</p>
-
-                        <h3>The Space Between</h3>
-                        <p>Look at a doorway. Do you see the frame, or the space it defines? Usually we see the frame (matter). Void practice is learning to see the space. When applied to the mind, you stop watching thoughts and start watching the silence between them.</p>
-
-                        <div class="meta-knowledge">
-                            <div class="meta-toggle">
-                                <span class="meta-label">🌌 DEEP SPACE MECHANICS</span>
-                                <span class="meta-icon">▼</span>
-                            </div>
-                            <div class="meta-content">
-                                <div class="meta-inner">
-                                    <div class="meta-section">
-                                        <h4 class="meta-heading">The Fear of Nothing</h4>
-                                        <p class="meta-text">
-                                            The ego is terrified of the void. It projects boredom, sleepiness, or panic to stop you from looking at it. Why? Because in the void, the ego has no job. It feels like death. Crossing this "boredom barrier" is the gate to deep peace.
-                                        </p>
-                                    </div>
-                                    
-                                    <div class="meta-section">
-                                        <h4 class="meta-heading">Warning: Dissociation</h4>
-                                        <p class="meta-text">
-                                            Void states can feel like checking out or numbing out. That is dissociation, not void. True void is vivid, awake, and clear—just empty of content. If you feel groggy or zombie-like, you're just zoning out.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <h3>Quick Hacks & Shortcuts</h3>
-                        <p><strong>Gap Hunting:</strong> Watch your thoughts like a cat watching a mouse hole. Wait for the next thought. Notice the pause before it comes. That pause is the void. Try to extend it.</p>
-                        
-                        <p><strong>Listen to Silence:</strong> In a quiet room, listen to the silence. Not the lack of sound, but the presence of silence. It has a "ringing" or static quality. Tune into that.</p>
-                        
-                        <p><strong>The Headless Way:</strong> Point at an object. Now point at your chest. Now point to where your head should be. Do you see a head? Or do you see the world? Rest in that headless seeing.</p>
 
                         <div class="meta-knowledge">
                             <div class="meta-toggle">

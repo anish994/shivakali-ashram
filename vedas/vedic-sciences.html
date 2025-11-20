@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>वेद विज्ञान | Vedic Sciences - Quantum Canvas</title>
+    <meta name="theme-color" content="#0a0821">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;600&family=Hind:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --mystic-black: #0A0821;
+            --deep-space: #1A1035;
+            --divine-gold: #FFD700;
+            --pure-white: #FFFFFF;
+            --gold-glow: rgba(255, 215, 0, 0.15);
+            
+            /* UI & Glassmorphism */
+            --card-bg: rgba(10, 8, 33, 0.75); /* Slightly less transparent for mobile */
+            --card-bg-desktop: rgba(10, 8, 33, 0.6);
+            --card-border-color: rgba(212, 175, 55, 0.2);
+            --card-border-hover: rgba(212, 175, 55, 0.6);
+            --quantum-blur: blur(12px);
+            
+            /* Typography */
+            --font-heading: 'DM Serif Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --font-sanskrit: 'Hind', sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--mystic-black);
+            color: rgba(255, 255, 255, 0.9);
+            font-family: var(--font-body);
+            line-height: 1.7;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .layer-title, .veda-title, .vedanga-title {
+            font-family: var(--font-heading);
+            letter-spacing: 0.03em;
+        }
+
+        .sanskrit-title, .veda-sanskrit, .vedanga-sanskrit, .sanskrit-quote, .wisdom-quote .sanskrit {
+            font-family: var(--font-sanskrit);
+        }
+
+        main {
+            /* Hint for browsers to optimize scrolling performance */
+            will-change: transform;
+        }
+
+        /* --- CANVAS BACKGROUND --- */
+        #cosmic-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        /* --- AMBIENT EFFECTS --- */
+        #cursor-glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            transition: transform 0.1s linear;
+            display: none; /* Hidden by default, shown for non-touch devices */
+        }
+
+        @media (pointer: fine) {
+            #cursor-glow {
+                display: block;
+            }
+        }
+        
+        .vignette-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            background: radial-gradient(ellipse at center, rgba(0,0,0,0) 60%, rgba(0,0,0,0.6) 100%);
+        }
+
+        /* --- LAYOUT & CONTAINERS --- */
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* --- HEADER & HERO SECTION --- */
+        .header {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-om {
+            font-size: 4.5rem;
+            color: var(--divine-gold);
+            text-shadow: 0 0 25px rgba(212,175,55,0.5), 0 0 50px rgba(212,175,55,0.25);
+            animation: omPulse 4s infinite ease-in-out;
+        }
+
+        @keyframes omPulse {
+            0%, 100% { transform: scale(1); filter: brightness(1); }
+            50% { transform: scale(1.05); filter: brightness(1.25); }
+        }
+        
+        .header-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            margin: 1rem 0;
+        }
+        
+        .sanskrit-title {
+            display: block;
+            color: var(--divine-gold);
+            text-shadow: 0 0 20px var(--gold-glow);
+        }
+
+        .english-title {
+            display: block;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 300;
+            margin-top: 0.5rem;
+        }
+        
+        .hero-manifesto {
+            max-width: 800px;
+            margin: 2.5rem auto;
+            font-size: clamp(1.1rem, 1.8vw, 1.2rem);
+            line-height: 1.8;
+            padding: 2rem;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border-color);
+            border-radius: 15px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .quantum-btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            color: var(--divine-gold);
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid var(--card-border-color);
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Active state for better touch feedback */
+        .quantum-btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        @media (pointer: fine) {
+            .quantum-btn:hover {
+                transform: translateY(-3px);
+                border-color: var(--divine-gold);
+                background: rgba(255, 215, 0, 0.1);
+                box-shadow: 0 6px 25px rgba(212, 175, 55, 0.2);
+            }
+        }
+
+
+        /* --- GENERAL SECTION STYLING --- */
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            color: var(--divine-gold);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 20px var(--gold-glow);
+            text-align: center;
+        }
+
+        .section-intro {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        /* --- QUANTUM CARD STYLES (GLASSMORPHISM) --- */
+        
+        @property --angle {
+          syntax: '<angle>';
+          initial-value: 0deg;
+          inherits: false;
+        }
+        
+        @keyframes rotate {
+          to { --angle: 360deg; }
+        }
+
+        .quantum-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border-color);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* MOBILE OPTIMIZATION: Disable expensive backdrop-filter on mobile */
+        @media (min-width: 769px) and (pointer: fine) {
+             .quantum-card, .hero-manifesto {
+                background: var(--card-bg-desktop);
+                backdrop-filter: var(--quantum-blur);
+                -webkit-backdrop-filter: var(--quantum-blur);
+            }
+        }
+
+
+        @media (pointer: fine) {
+            .quantum-card {
+                transition: transform 0.1s linear, border-color 0.4s ease, box-shadow 0.4s ease;
+            }
+            .quantum-card:hover {
+                border-color: var(--card-border-hover);
+                box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 40px rgba(212, 175, 55, 0.2);
+            }
+
+            .quantum-card::before {
+                content: '';
+                position: absolute;
+                top: 0; left: 0; right: 0; bottom: 0;
+                border-radius: 20px;
+                border: 1px solid transparent;
+                background: conic-gradient(from var(--angle), transparent 0%, var(--divine-gold) 10%, transparent 35%);
+                -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                -webkit-mask-composite: xor;
+                mask-composite: exclude;
+                animation: rotate 4s linear infinite paused; /* Paused by default */
+                opacity: 0;
+                transition: opacity 0.4s ease;
+                pointer-events: none;
+            }
+
+            .quantum-card:hover::before {
+                opacity: 0.8;
+                animation-play-state: running;
+            }
+        }
+
+        /* --- KNOWLEDGE LAYERS & VEDAS GRID --- */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            width: 100%;
+        }
+        
+        /* Layer Card Specifics */
+        .layer-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .layer-number {
+            font-size: 2rem;
+            color: var(--divine-gold);
+            opacity: 0.5;
+        }
+        .layer-title { margin: 0; font-size: 1.75rem; color: var(--divine-gold); line-height: 1.2; }
+        .layer-subtitle { font-size: 0.9rem; color: rgba(255, 255, 255, 0.7); margin-top: 0.25rem; }
+        .layer-desc { color: rgba(255, 255, 255, 0.9); font-size: 1rem; line-height: 1.7; }
+
+        /* Veda Card Specifics */
+        .veda-icon { font-size: 2.5rem; filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.35)); margin-bottom: 1rem; }
+        .veda-title { font-size: 1.75rem; color: var(--divine-gold); margin-bottom: 0.25rem; }
+        .veda-sanskrit { font-size: 1rem; color: rgba(255,255,255,0.85); margin-bottom: 1rem; }
+        .veda-desc { color: rgba(255,255,255,0.92); line-height: 1.7; }
+        
+        /* Vedanga Card Specifics */
+        .vedanga-header { display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1.5rem; }
+        .vedanga-icon { font-size: 2.2rem; color: var(--divine-gold); filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.4)); flex-shrink: 0; }
+        .vedanga-title-wrap { flex-grow: 1; }
+        .vedanga-title { margin: 0; font-size: 1.75rem; color: var(--divine-gold); line-height: 1.2; }
+        .vedanga-sanskrit { font-size: 1rem; color: rgba(255, 255, 255, 0.85); margin-top: 0.25rem; }
+        .vedanga-desc { color: rgba(255, 255, 255, 0.95); font-size: 1.05rem; }
+        
+        /* --- RESPONSIVENESS --- */
+        @media (max-width: 768px) {
+            .container { padding: 3rem 1rem; }
+            .grid-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+            .header { padding: 3rem 1rem; }
+            .hero-manifesto { padding: 1.5rem; }
+            .section-intro { font-size: 1.1rem; }
+            .quantum-btn { padding: 0.7rem 1.2rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <canvas id="cosmic-canvas"></canvas>
+    <div id="cursor-glow"></div>
+    <div class="vignette-overlay"></div>
+    
+    <header class="header">
+        <div class="hero-content">
+            <div class="hero-om">ॐ</div>
+            <h1 class="header-title">
+                <span class="sanskrit-title">वेद विज्ञान</span>
+                <span class="english-title">Ancient Wisdom for a Modern Age</span>
+            </h1>
+            <p class="hero-manifesto">
+                Explore the timeless principles of the Vedas — a sophisticated system of self-discovery, where
+                ancient methodologies meet modern understanding, revealing the scientific foundations of personal transformation.
+            </p>
+            <div class="hero-actions">
+                <a href="#layers" class="quantum-btn">Explore the Layers</a>
+                <a href="#vedas" class="quantum-btn">Discover the Vedas</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="layers" class="container">
+            <h2 class="section-title">The Four Layers of Knowledge</h2>
+            <p class="section-intro">
+                The Vedic corpus unfolds through four ascending layers of wisdom. Each layer refines the energy of the previous, transforming sound into insight, action into meaning, and meaning into realization.
+            </p>
+            <div class="grid-layout">
+                <div class="quantum-card">
+                    <div class="layer-header">
+                        <span class="layer-number">01</span>
+                        <div>
+                            <h3 class="layer-title">Samhita</h3>
+                            <div class="layer-subtitle">The Foundation</div>
+                        </div>
+                    </div>
+                    <p class="layer-desc">The core collection of mantras, hymns, and verses revealed to ancient seers, forming the vibrational foundation of Vedic knowledge.</p>
+                </div>
+                <div class="quantum-card">
+                     <div class="layer-header">
+                        <span class="layer-number">02</span>
+                        <div>
+                            <h3 class="layer-title">Brahmana</h3>
+                            <div class="layer-subtitle">The Application</div>
+                        </div>
+                    </div>
+                    <p class="layer-desc">Detailed explanations of rituals, ceremonies, and practices, teaching the practical application of Vedic mantras in life.</p>
+                </div>
+                <div class="quantum-card">
+                     <div class="layer-header">
+                        <span class="layer-number">03</span>
+                        <div>
+                            <h3 class="layer-title">Aranyaka</h3>
+                            <div class="layer-subtitle">The Mystical</div>
+                        </div>
+                    </div>
+                    <p class="layer-desc">Forest treatises containing deeper, mystical interpretations that bridge external practices with internal meditation and philosophy.</p>
+                </div>
+                <div class="quantum-card">
+                     <div class="layer-header">
+                        <span class="layer-number">04</span>
+                        <div>
+                            <h3 class="layer-title">Upanishad</h3>
+                            <div class="layer-subtitle">The Ultimate</div>
+                        </div>
+                    </div>
+                    <p class="layer-desc">The highest philosophical truths, revealing the nature of Consciousness, Reality, and Self-realization. The essence of Vedanta.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="vedas" class="container">
+            <h2 class="section-title">The Four Vedas</h2>
+            <p class="section-intro">
+                The Vedas are living streams of revelation—four luminous currents flowing from the infinite into human understanding, forming a complete architecture for spiritual evolution.
+            </p>
+            <div class="grid-layout">
+                <div class="quantum-card">
+                    <div class="veda-icon">🔥</div>
+                    <h3 class="veda-title">Rig Veda</h3>
+                    <div class="veda-sanskrit">ऋग्वेद</div>
+                    <p class="veda-desc">The original hymns of cosmic law and praise, encoding the structure of reality and honoring the deities (Devas) that personify natural and cosmic forces.</p>
+                </div>
+                <div class="quantum-card">
+                    <div class="veda-icon">🕯️</div>
+                    <h3 class="veda-title">Yajur Veda</h3>
+                    <div class="veda-sanskrit">यजुर्वेद</div>
+                    <p class="veda-desc">The sacred manual of action (Yajña), containing the prose mantras and procedures for performing rituals to align human will with universal law.</p>
+                </div>
+                <div class="quantum-card">
+                    <div class="veda-icon">🎶</div>
+                    <h3 class="veda-title">Sama Veda</h3>
+                    <div class="veda-sanskrit">सामवेद</div>
+                    <p class="veda-desc">The music of realization, where the hymns of the Rig Veda are set to melody. It is the Veda of sacred chants, devotion, and vibrational transformation.</p>
+                </div>
+                <div class="quantum-card">
+                    <div class="veda-icon">🌿</div>
+                    <h3 class="veda-title">Atharva Veda</h3>
+                    <div class="veda-sanskrit">अथर्ववेद</div>
+                    <p class="veda-desc">The wisdom of embodied life, containing knowledge for healing, protection, prosperity, and practical spells for navigating daily existence.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="vedangas" class="container">
+            <h2 class="section-title">The Six Vedangas</h2>
+            <p class="section-intro">
+               The Vedangas, or "limbs of the Veda," are the six auxiliary disciplines essential for the proper understanding, recitation, and application of the Vedic texts.
+            </p>
+            <div class="grid-layout">
+                <div class="quantum-card">
+                    <div class="vedanga-header">
+                        <span class="vedanga-icon">🗣️</span>
+                        <div class="vedanga-title-wrap">
+                            <h3 class="vedanga-title">Shiksha</h3>
+                            <div class="vedanga-sanskrit">शिक्षा</div>
+                        </div>
+                    </div>
+                    <p class="vedanga-desc">The science of phonetics and pronunciation, ensuring the precise vibrational efficacy of the mantras.</p>
+                </div>
+                 <div class="quantum-card">
+                    <div class="vedanga-header">
+                        <span class="vedanga-icon">📏</span>
+                        <div class="vedanga-title-wrap">
+                            <h3 class="vedanga-title">Chandas</h3>
+                            <div class="vedanga-sanskrit">छन्दस्</div>
+                        </div>
+                    </div>
+                    <p class="vedanga-desc">The study of poetic meters, a governing the rhythm and cadence of the Vedic hymns.</p>
+                </div>
+                 <div class="quantum-card">
+                    <div class="vedanga-header">
+                        <span class="vedanga-icon">📝</span>
+                        <div class="vedanga-title-wrap">
+                            <h3 class="vedanga-title">Vyakarana</h3>
+                            <div class="vedanga-sanskrit">व्याकरण</div>
+                        </div>
+                    </div>
+                    <p class="vedanga-desc">The rules of Sanskrit grammar, essential for accurately interpreting the sacred texts.</p>
+                </div>
+                 <div class="quantum-card">
+                    <div class="vedanga-header">
+                        <span class="vedanga-icon">🔍</span>
+                        <div class="vedanga-title-wrap">
+                            <h3 class="vedanga-title">Nirukta</h3>
+                            <div class="vedanga-sanskrit">निरुक्त</div>
+                        </div>
+                    </div>
+                    <p class="vedanga-desc">The science of etymology, explaining the origin and meaning of complex Vedic words.</p>
+                </div>
+                 <div class="quantum-card">
+                    <div class="vedanga-header">
+                        <span class="vedanga-icon">🕯️</span>
+                        <div class="vedanga-title-wrap">
+                            <h3 class="vedanga-title">Kalpa</h3>
+                            <div class="vedanga-sanskrit">कल्प</div>
+                        </div>
+                    </div>
+                    <p class="vedanga-desc">The procedural canons for conducting rituals, ceremonies, and duties (Dharma).</p>
+                </div>
+                 <div class="quantum-card">
+                    <div class="vedanga-header">
+                        <span class="vedanga-icon">🌠</span>
+                        <div class="vedanga-title-wrap">
+                            <h3 class="vedanga-title">Jyotisha</h3>
+                            <div class="vedanga-sanskrit">ज्योतिष</div>
+                        </div>
+                    </div>
+                    <p class="vedanga-desc">Vedic astrology and astronomy, used to determine the auspicious timing for rituals and life events.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+            // --- Cosmic Canvas Animation ---
+            const canvas = document.getElementById('cosmic-canvas');
+            const ctx = canvas.getContext('2d');
+            let width, height, stars = [], shootingStars = [];
+
+            const numStars = window.innerWidth < 768 ? 80 : 200;
+
+            function init() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+                stars = [];
+                shootingStars = [];
+                for (let i = 0; i < numStars; i++) {
+                    stars.push({
+                        x: Math.random() * width,
+                        y: Math.random() * height,
+                        radius: Math.random() * 1.5 + 0.5,
+                        alpha: Math.random(),
+                        alphaChange: (Math.random() - 0.5) * 0.01
+                    });
+                }
+            }
+
+            function drawStars() {
+                ctx.clearRect(0, 0, width, height);
+                ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--mystic-black').trim();
+                ctx.fillRect(0,0,width,height);
+
+                stars.forEach(star => {
+                    ctx.beginPath();
+                    ctx.arc(star.x, star.y, star.radius, 0, 2 * Math.PI);
+                    ctx.fillStyle = `rgba(255, 215, 0, ${star.alpha})`;
+                    ctx.fill();
+
+                    star.alpha += star.alphaChange;
+                    if (star.alpha <= 0 || star.alpha >= 1) {
+                        star.alphaChange *= -1;
+                    }
+                });
+            }
+
+            function drawShootingStars() {
+                // Reduced frequency for better performance
+                if (Math.random() < 0.01 && shootingStars.length < 2) {
+                     shootingStars.push({
+                        x: Math.random() * width,
+                        y: Math.random() * height / 2,
+                        len: Math.random() * 80 + 10,
+                        speed: Math.random() * 8 + 5,
+                        alpha: 1
+                    });
+                }
+                
+                shootingStars.forEach((star, index) => {
+                    ctx.beginPath();
+                    ctx.moveTo(star.x, star.y);
+                    ctx.lineTo(star.x + star.len, star.y + star.len);
+                    ctx.strokeStyle = `rgba(255, 215, 0, ${star.alpha})`;
+                    ctx.lineWidth = 2;
+                    ctx.stroke();
+
+                    star.x += star.speed;
+                    star.y += star.speed;
+                    star.alpha -= 0.02;
+
+                    if (star.alpha <= 0) {
+                        shootingStars.splice(index, 1);
+                    }
+                });
+            }
+
+            function animate() {
+                drawStars();
+                drawShootingStars();
+                requestAnimationFrame(animate);
+            }
+
+            window.addEventListener('resize', init);
+            init();
+            animate();
+
+            // --- Interactive Effects (Desktop only) ---
+            if (!isTouchDevice) {
+                const cursorGlow = document.getElementById('cursor-glow');
+                const cards = document.querySelectorAll('.quantum-card');
+
+                window.addEventListener('mousemove', (e) => {
+                    // Cursor glow
+                    cursorGlow.style.transform = `translate(${e.clientX - 300}px, ${e.clientY - 300}px)`;
+
+                    // Card tilt
+                    cards.forEach(card => {
+                        const rect = card.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        const centerX = rect.width / 2;
+                        const centerY = rect.height / 2;
+                        const rotateX = ((y - centerY) / centerY) * -4;
+                        const rotateY = ((x - centerX) / centerX) * 4;
+                        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                    });
+                });
+                
+                document.querySelector('main').addEventListener('mouseleave', () => {
+                     cards.forEach(card => {
+                         card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+                     });
+                 });
+            }
+        });
+    </script>
+</body>
+</html>
+

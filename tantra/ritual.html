@@ -1,0 +1,1761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ritual-pedia: The Digital Grimoire</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/lucide-react@0.372.0/dist/lucide-react.min.js"></script>
+
+    <!-- In a real app, you'd use a modern bundler, but for a single file, we'll keep it simple -->
+    <style>
+        :root {
+            --fire-orange: #ff8c00;
+            --fire-orange-dark: #ff4800;
+            --bg-dark: #0a0a0a;
+            --card-bg: rgba(18, 18, 18, 0.7);
+            --border-color: rgba(255, 120, 0, 0.2);
+            --border-hover-color: rgba(255, 120, 0, 0.6);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: #e0e0e0;
+        }
+        .font-cinzel {
+            font-family: 'Cinzel', serif;
+        }
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+            opacity: 0.2;
+        }
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(10, 10, 10, 0.5) 0%, rgba(10, 10, 10, 1) 80%);
+            z-index: -1;
+        }
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        .interactive-card {
+             cursor: pointer;
+        }
+        .card:hover {
+            border-color: var(--border-hover-color);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 100, 0, 0.15);
+        }
+        .btn-primary {
+            background: linear-gradient(45deg, var(--fire-orange-dark), var(--fire-orange));
+            border: none;
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 100, 0, 0.3);
+        }
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(255, 100, 0, 0.5);
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: var(--fire-orange);
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--fire-orange);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .glowing-circle {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid var(--fire-orange);
+            box-shadow: 0 0 10px var(--fire-orange), inset 0 0 10px var(--fire-orange);
+            animation: pulse 4s infinite ease-in-out;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(0.95); opacity: 0.5; }
+            50% { transform: scale(1.05); opacity: 1; }
+        }
+
+        .modal-bg {
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+            transition: opacity 0.3s ease-in-out;
+        }
+        .modal-content {
+             background: radial-gradient(circle, rgba(30, 20, 10, 0.98) 0%, rgba(10, 10, 10, 0.99) 90%);
+             border: 1px solid rgba(255, 120, 0, 0.4);
+             transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+             transform: scale(0.95);
+             opacity: 0;
+        }
+        .modal-bg.active {
+            opacity: 1;
+        }
+         .modal-bg.active .modal-content {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        /* Scrollbar styles */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--fire-orange);
+            border-radius: 10px;
+            border: 2px solid #1a1a1a;
+        }
+        .lucide {
+            width: 1em;
+            height: 1em;
+        }
+        
+        /* Custom styles for the builder */
+        .builder-select {
+            background-color: rgba(0,0,0,0.3);
+            border: 1px solid var(--border-color);
+            color: #e0e0e0;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Background Video and Overlay -->
+    <video autoplay muted loop playsinline class="video-bg">
+        <source src="https://static.videezy.com/system/resources/previews/000/018/797/original/4K_10.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="bg-overlay"></div>
+
+    <div id="app-container" class="relative z-10">
+        <!-- Header -->
+        <header class="sticky top-0 z-50 p-4 bg-black/30 backdrop-blur-md border-b border-orange-500/20">
+            <nav class="container mx-auto flex justify-between items-center">
+                <h1 class="text-3xl font-cinzel text-orange-400 font-bold">Ritual-pedia</h1>
+                <div class="hidden md:flex space-x-6 text-lg">
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#rituals" class="nav-link">Rituals</a>
+                    <a href="#theory" class="nav-link">Theory</a>
+                </div>
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-orange-400 hover:bg-orange-400/10">
+                     <i data-lucide="menu"></i>
+                </button>
+            </nav>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4">
+                <a href="#features" class="block py-2 px-4 text-sm hover:bg-orange-400/10 rounded">Features</a>
+                <a href="#rituals" class="block py-2 px-4 text-sm hover:bg-orange-400/10 rounded">Rituals</a>
+                <a href="#theory" class="block py-2 px-4 text-sm hover:bg-orange-400/10 rounded">Theory</a>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="container mx-auto p-4 md:p-8">
+            <!-- Hero Section -->
+            <section class="text-center my-16 relative">
+                <div class="glowing-circle" style="width: 200px; height: 200px; top: -50px; left: 10%;"></div>
+                <div class="glowing-circle" style="width: 100px; height: 100px; bottom: 0; right: 15%; animation-delay: -2s;"></div>
+                
+                <h2 class="text-5xl md:text-7xl font-cinzel font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-orange-600 mb-4">Unlock Ancient Technologies</h2>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto text-gray-300 mb-8">An interactive grimoire for the modern practitioner. Design, understand, and execute powerful rituals with precision and safety.</p>
+                <button id="open-generator-btn" class="btn-primary font-bold text-lg py-3 px-8 rounded-full">
+                    Construct a Protocol
+                </button>
+            </section>
+            
+            <!-- Key Features Section -->
+            <section id="features" class="my-20">
+                <h3 class="text-4xl font-cinzel text-center mb-12 text-orange-400">Core Technologies</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card p-6 text-center interactive-card" data-modal="protocolBuilder"><div class="text-orange-400 mb-4 mx-auto w-16 h-16 flex items-center justify-center text-5xl"><i data-lucide="scroll-text"></i></div><h4 class="text-2xl font-cinzel mb-2">Protocol Builder</h4><p class="text-gray-400">Step-by-step ritual creation with material guides, timing calculators, and safety checks.</p></div>
+                    <div class="card p-6 text-center interactive-card" data-modal="sacredTiming"><div class="text-orange-400 mb-4 mx-auto w-16 h-16 flex items-center justify-center text-5xl"><i data-lucide="moon-star"></i></div><h4 class="text-2xl font-cinzel mb-2">Sacred Timing</h4><p class="text-gray-400">Optimize rituals with astrological alignments, moon phases, and power hour calculations.</p></div>
+                    <div class="card p-6 text-center interactive-card" data-modal="materialDatabase"><div class="text-orange-400 mb-4 mx-auto w-16 h-16 flex items-center justify-center text-5xl"><i data-lucide="database"></i></div><h4 class="text-2xl font-cinzel mb-2">Material Database</h4><p class="text-gray-400">A comprehensive library of sacred herbs, tools, power objects, and offering materials.</p></div>
+                    <div class="card p-6 text-center interactive-card" data-modal="videoDemos"><div class="text-orange-400 mb-4 mx-auto w-16 h-16 flex items-center justify-center text-5xl"><i data-lucide="video"></i></div><h4 class="text-2xl font-cinzel mb-2">Video Demonstrations</h4><p class="text-gray-400">Master mudras, fire techniques, and sacred movements with clear, expert-led tutorials.</p></div>
+                    <div class="card p-6 text-center interactive-card" data-modal="safetyProtocols"><div class="text-orange-400 mb-4 mx-auto w-16 h-16 flex items-center justify-center text-5xl"><i data-lucide="shield-check"></i></div><h4 class="text-2xl font-cinzel mb-2">Safety Protocols</h4><p class="text-gray-400">Integrated warnings, prerequisite checks, power level indicators, and risk assessments.</p></div>
+                    <div class="card p-6 text-center interactive-card" data-modal="advancedTheory"><div class="text-orange-400 mb-4 mx-auto w-16 h-16 flex items-center justify-center text-5xl"><i data-lucide="brain-circuit"></i></div><h4 class="text-2xl font-cinzel mb-2">Advanced Theory</h4><p class="text-gray-400">Explore the mechanics of energy, consciousness, reality manipulation, and time alteration.</p></div>
+                </div>
+            </section>
+
+            <!-- Ritual Categories Section -->
+            <section id="rituals" class="my-20">
+                <h3 class="text-4xl font-cinzel text-center mb-12 text-orange-400">Ritual Categories</h3>
+                <div class="space-y-12">
+                    <!-- Foundation Protocols -->
+                    <div>
+                        <h4 class="text-3xl font-cinzel mb-6 border-l-4 border-orange-500 pl-4">🌅 Foundation Protocols</h4>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="card p-5 interactive-card" data-modal="dailyRituals">Daily Rituals (Nitya Karma)</div>
+                            <div class="card p-5 interactive-card" data-modal="sacredBath">Sacred Bath (Snanam)</div>
+                            <div class="card p-5 interactive-card" data-modal="purification">Purification (Shuddhi)</div>
+                            <div class="card p-5 interactive-card" data-modal="sacredFire">Sacred Fire (Agni)</div>
+                            <div class="card p-5 interactive-card" data-modal="sacredSpace">Sacred Space (Mandala)</div>
+                        </div>
+                    </div>
+                    <!-- Power Activation Rituals -->
+                     <div>
+                        <h4 class="text-3xl font-cinzel mb-6 border-l-4 border-orange-500 pl-4">⚡ Power Activation Rituals</h4>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="card p-5 interactive-card" data-modal="pranaPratishtha">Deity Installation</div>
+                            <div class="card p-5 interactive-card" data-modal="shaktiAwakening">Energy Awakening (Shakti)</div>
+                            <div class="card p-5 interactive-card" data-modal="chetanaExpansion">Consciousness Expansion</div>
+                            <div class="card p-5 interactive-card" data-modal="siddhiManipulation">Reality Manipulation (Siddhi)</div>
+                            <div class="card p-5 interactive-card" data-modal="kalaAlteration">Time Alteration (Kala)</div>
+                        </div>
+                    </div>
+                    <!-- Advanced Integration Systems -->
+                    <div>
+                        <h4 class="text-3xl font-cinzel mb-6 border-l-4 border-orange-500 pl-4">🌀 Advanced Integration Systems</h4>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="card p-5 interactive-card" data-modal="mindBodyIntegration">Mind-Body Integration</div>
+                            <div class="card p-5 interactive-card" data-modal="kundaliniActivation">Kundalini Activation</div>
+                            <div class="card p-5 interactive-card" data-modal="chakraOpening">Chakra Opening Sequences</div>
+                            <div class="card p-5 interactive-card" data-modal="astralProjection">Astral Projection Methods</div>
+                            <div class="card p-5 interactive-card" data-modal="dimensionalGateways">Dimensional Gateway Protocols</div>
+                        </div>
+                    </div>
+                    <!-- Sacred Tools & Instruments -->
+                    <div>
+                        <h4 class="text-3xl font-cinzel mb-6 border-l-4 border-orange-500 pl-4">🏺 Sacred Tools & Instruments</h4>
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 text-center">
+                            <div class="card p-5 interactive-card" data-modal="kalasha">🏺 Kalasha</div>
+                            <div class="card p-5 interactive-card" data-modal="khatvanga">⚔️ Khatvanga</div>
+                            <div class="card p-5 interactive-card" data-modal="yantra">💠 Yantra</div>
+                            <div class="card p-5 interactive-card" data-modal="ghanta">🔔 Ghanta</div>
+                            <div class="card p-5 interactive-card" data-modal="dravya">🌿 Dravya</div>
+                        </div>
+                    </div>
+                     <!-- Specialized Applications -->
+                    <div>
+                        <h4 class="text-3xl font-cinzel mb-6 border-l-4 border-orange-500 pl-4">📿 Specialized Applications</h4>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="card p-5 interactive-card" data-modal="protectionProtocols">Protection Protocols</div>
+                            <div class="card p-5 interactive-card" data-modal="healingTechnologies">Healing Technologies</div>
+                            <div class="card p-5 interactive-card" data-modal="prosperityEngineering">Prosperity Engineering</div>
+                            <div class="card p-5 interactive-card" data-modal="relationshipHarmonization">Relationship Harmonization</div>
+                            <div class="card p-5 interactive-card" data-modal="careerAlignment">Career/Purpose Alignment</div>
+                        </div>
+                    </div>
+                    <!-- Temple Technologies -->
+                    <div>
+                        <h4 class="text-3xl font-cinzel mb-6 border-l-4 border-orange-500 pl-4">🕯️ Temple Technologies</h4>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                             <div class="card p-5 interactive-card" data-modal="templeDeityInstallation">Deity Installation</div>
+                             <div class="card p-5 interactive-card" data-modal="spaceMaintenance">Sacred Space Maintenance</div>
+                             <div class="card p-5 interactive-card" data-modal="energyGrids">Energy Grid Systems</div>
+                             <div class="card p-5 interactive-card" data-modal="objectPlacement">Power Object Placement</div>
+                             <div class="card p-5 interactive-card" data-modal="offeringsScience">Offerings Science</div>
+                        </div>
+                    </div>
+                    <!-- Advanced Battle Protocols -->
+                    <div class="card p-8 border-2 border-red-500/50">
+                        <h4 class="text-3xl font-cinzel mb-6 text-red-400 flex items-center justify-center text-center gap-4">
+                            <i data-lucide="alert-triangle" class="w-8 h-8 flex-shrink-0"></i>
+                            Advanced Battle Protocols
+                        </h4>
+                        <p class="text-center text-red-300 max-w-3xl mx-auto mb-8">
+                            WARNING: These protocols are for advanced practitioners only. Misuse can lead to severe energetic and psychological consequences. Proceed with extreme caution and only when necessary.
+                        </p>
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 text-center">
+                            <div class="p-3 bg-red-900/30 rounded-lg text-sm interactive-card" data-modal="darkForces">Protection</div>
+                            <div class="p-3 bg-red-900/30 rounded-lg text-sm interactive-card" data-modal="shieldCreation">Shielding</div>
+                            <div class="p-3 bg-red-900/30 rounded-lg text-sm interactive-card" data-modal="energyDissolution">Dissolution</div>
+                            <div class="p-3 bg-red-900/30 rounded-lg text-sm interactive-card" data-modal="entityManagement">Entity Management</div>
+                            <div class="p-3 bg-red-900/30 rounded-lg text-sm interactive-card" data-modal="emergencyProtocols">Emergency</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="theory" class="my-20">
+                <h3 class="text-4xl font-cinzel text-center mb-12 text-orange-400">Advanced Theory Topics</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                   <div class="card p-5 interactive-card" data-modal="energyMechanics">Energy Mechanics</div>
+                   <div class="card p-5 interactive-card" data-modal="consciousnessTech">Consciousness Technology</div>
+                   <div class="card p-5 interactive-card" data-modal="realityManipulationTheory">Reality Manipulation</div>
+                   <div class="card p-5 interactive-card" data-modal="timeAlterationTheory">Time Alteration</div>
+                   <div class="card p-5 interactive-card" data-modal="dimensionalMechanics">Dimensional Mechanics</div>
+                </div>
+           </section>
+
+            <!-- Sacred Timing System -->
+            <section id="timing-system" class="my-20">
+                <h3 class="text-4xl font-cinzel text-center mb-12 text-orange-400">Sacred Timing System</h3>
+                <div class="card p-6 md:p-8 grid md:grid-cols-3 gap-8 items-center">
+                    <div id="moon-phase-display" class="text-center border-b-2 md:border-b-0 md:border-r-2 border-orange-500/20 pb-8 md:pb-0 md:pr-8">
+                        <div id="moon-emoji" class="text-8xl mb-2 mx-auto"></div>
+                        <h4 id="moon-phase-name" class="text-2xl font-cinzel"></h4>
+                        <p id="moon-illumination" class="text-gray-400"></p>
+                    </div>
+                    <div id="planetary-info" class="text-center border-b-2 md:border-b-0 md:border-r-2 border-orange-500/20 pb-8 md:pb-0 md:pr-8">
+                         <h4 class="text-lg text-gray-400">Current Planetary Day</h4>
+                         <p id="planetary-day" class="text-3xl font-cinzel text-orange-300 mb-4"></p>
+                         <h4 class="text-lg text-gray-400">Current Planetary Hour</h4>
+                         <p id="planetary-hour" class="text-3xl font-cinzel text-orange-300"></p>
+                    </div>
+                    <div id="auspicious-now" class="text-center">
+                        <h4 class="font-cinzel text-2xl mb-4 text-orange-300">Auspicious Energies</h4>
+                        <p id="auspicious-activity" class="text-lg"></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Practitioner's Journal -->
+            <section id="journal" class="my-20">
+                 <h3 class="text-4xl font-cinzel text-center mb-12 text-orange-400">Practitioner's Journal</h3>
+                 <div class="card p-6 md:p-8">
+                    <h4 class="text-2xl font-cinzel mb-4">Private Reflections</h4>
+                    <p class="text-gray-400 mb-4">Your notes are saved directly to this device's local storage and are never sent over the internet. This is your private, digital grimoire.</p>
+                    <textarea id="journal-textarea" rows="10" class="w-full p-3 rounded-md builder-select" placeholder="Record your ritual results, dreams, and insights here..."></textarea>
+                    <div class="text-right mt-4">
+                        <span id="journal-save-status" class="text-green-400 opacity-0 transition-opacity mr-4">Saved!</span>
+                        <button id="save-journal-btn" class="btn-primary font-bold py-2 px-6 rounded-full">
+                            Save Entry
+                        </button>
+                    </div>
+                 </div>
+            </section>
+
+            <!-- Ambient Soundscapes -->
+            <section id="soundscapes" class="my-20">
+                <h3 class="text-4xl font-cinzel text-center mb-12 text-orange-400">Ambient Soundscapes</h3>
+                <div class="card p-6 md:p-8">
+                    <p class="text-center text-gray-400 mb-6">Set the atmosphere for your practice. These sounds are generated within your browser and will loop indefinitely.</p>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 text-center">
+                        <button class="sound-btn card p-4" data-sound="fire">
+                            <i data-lucide="flame" class="mx-auto h-10 w-10 text-orange-400 mb-2"></i>
+                            <span class="font-cinzel">Crackling Fire</span>
+                        </button>
+                        <button class="sound-btn card p-4" data-sound="chant">
+                            <i data-lucide="waves" class="mx-auto h-10 w-10 text-orange-400 mb-2"></i>
+                            <span class="font-cinzel">Temple Drone</span>
+                        </button>
+                         <button class="sound-btn card p-4" data-sound="bowls">
+                            <i data-lucide="circle-dot" class="mx-auto h-10 w-10 text-orange-400 mb-2"></i>
+                            <span class="font-cinzel">Singing Bowls</span>
+                        </button>
+                         <button class="sound-btn card p-4" data-sound="storm">
+                            <i data-lucide="cloud-lightning" class="mx-auto h-10 w-10 text-orange-400 mb-2"></i>
+                            <span class="font-cinzel">Thunderstorm</span>
+                        </button>
+                         <button class="sound-btn card p-4" data-sound="wind">
+                            <i data-lucide="wind" class="mx-auto h-10 w-10 text-orange-400 mb-2"></i>
+                            <span class="font-cinzel">Wind Chimes</span>
+                        </button>
+                        <button class="sound-btn card p-4" data-sound="night">
+                            <i data-lucide="moon-star" class="mx-auto h-10 w-10 text-orange-400 mb-2"></i>
+                            <span class="font-cinzel">Night Crickets</span>
+                        </button>
+                        <button class="sound-btn card p-4" data-sound="pulsar">
+                            <i data-lucide="activity" class="mx-auto h-10 w-10 text-orange-400 mb-2"></i>
+                            <span class="font-cinzel">Pulsar</span>
+                        </button>
+                        <button class="sound-btn card p-4" data-sound="solar">
+                            <i data-lucide="sparkles" class="mx-auto h-10 w-10 text-orange-400 mb-2"></i>
+                            <span class="font-cinzel">Solar Wind</span>
+                        </button>
+                        <button class="sound-btn card p-4" data-sound="void">
+                            <i data-lucide="circle-slash" class="mx-auto h-10 w-10 text-orange-400 mb-2"></i>
+                            <span class="font-cinzel">Void Hum</span>
+                        </button>
+                        <button class="sound-btn card p-4" data-sound="starlight">
+                            <i data-lucide="star" class="mx-auto h-10 w-10 text-orange-400 mb-2"></i>
+                            <span class="font-cinzel">Starlight</span>
+                        </button>
+                        <button class="sound-btn card p-4" data-sound="nebula">
+                            <i data-lucide="milky-way" class="mx-auto h-10 w-10 text-orange-400 mb-2"></i>
+                            <span class="font-cinzel">Nebula Cloud</span>
+                        </button>
+                        <button class="sound-btn card p-4" data-sound="horizon">
+                            <i data-lucide="aperture" class="mx-auto h-10 w-10 text-orange-400 mb-2"></i>
+                            <span class="font-cinzel">Event Horizon</span>
+                        </button>
+                    </div>
+                    <div class="mt-4">
+                        <button id="stop-sound-btn" class="card p-4 w-full bg-red-900/30">
+                             <i data-lucide="volume-x" class="mx-auto h-10 w-10 text-red-400 mb-2"></i>
+                            <span class="font-cinzel">Stop All Sounds</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center p-8 border-t border-orange-500/20 mt-16">
+            <p>&copy; 2024 Ritual-pedia. All rights reserved. For educational and spiritual exploration only.</p>
+        </footer>
+    </div>
+    
+    <!-- Modals -->
+    <!-- New Protocol Builder Modal -->
+    <div id="protocol-builder-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 modal-bg hidden">
+        <div class="modal-content rounded-lg shadow-2xl w-full max-w-2xl max-h-[90vh] flex flex-col">
+            <div class="p-6 border-b border-orange-500/30 flex justify-between items-center sticky top-0 bg-black/50 backdrop-blur-sm z-10 flex-shrink-0">
+                <div class="flex items-center gap-4">
+                    <i data-lucide="sparkles" class="text-orange-400 text-3xl"></i>
+                    <h3 class="text-2xl font-cinzel text-orange-400">Interactive Ritual Builder</h3>
+                </div>
+                <button class="close-modal-btn text-gray-400 hover:text-white"><i data-lucide="x"></i></button>
+            </div>
+            <div id="protocol-builder-body" class="p-4 sm:p-8 overflow-y-auto">
+                <div id="builder-form">
+                    <div class="mb-6">
+                        <label for="intention-select" class="block mb-2 text-lg font-cinzel text-orange-300">1. Define Your Intention</label>
+                        <select id="intention-select" class="w-full p-3 rounded-md builder-select">
+                            <option value="protection">Protection & Shielding</option>
+                            <option value="prosperity">Prosperity & Abundance</option>
+                            <option value="clarity">Clarity & Insight</option>
+                            <option value="healing">Healing & Cleansing</option>
+                            <option value="empowerment">Empowerment & Strength</option>
+                        </select>
+                    </div>
+                    <div class="mb-6">
+                        <label for="complexity-select" class="block mb-2 text-lg font-cinzel text-orange-300">2. Choose Complexity</label>
+                        <select id="complexity-select" class="w-full p-3 rounded-md builder-select">
+                            <option value="novice">Novice (Simple & Direct)</option>
+                            <option value="adept">Adept (Multi-layered)</option>
+                            <option value="master">Master (Esoteric & Potent)</option>
+                        </select>
+                    </div>
+                    <div class="text-center">
+                         <button id="construct-ritual-btn" class="btn-primary font-bold text-lg py-3 px-8 rounded-full">
+                            Construct Ritual
+                        </button>
+                    </div>
+                </div>
+                <div id="builder-result" class="hidden">
+                    <!-- Generated protocol will be injected here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="details-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 modal-bg hidden">
+        <div class="modal-content rounded-lg shadow-2xl w-full max-w-4xl max-h-[90vh] flex flex-col">
+            <div class="p-6 border-b border-orange-500/30 flex justify-between items-center sticky top-0 bg-black/50 backdrop-blur-sm z-10 flex-shrink-0">
+                <div class="flex items-center gap-4">
+                    <div id="details-modal-icon" class="text-orange-400 text-3xl"></div>
+                    <h3 id="details-modal-title" class="text-2xl font-cinzel text-orange-400"></h3>
+                </div>
+                <button class="close-modal-btn text-gray-400 hover:text-white"><i data-lucide="x"></i></button>
+            </div>
+            <div id="details-modal-body" class="p-4 sm:p-8 overflow-y-auto"></div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+
+            // --- Mobile Menu ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+            });
+
+            // --- Modal Handling ---
+            const detailsModal = document.getElementById('details-modal');
+            const builderModal = document.getElementById('protocol-builder-modal');
+
+            const openModal = (modal) => {
+                if (!modal) return;
+                modal.classList.remove('hidden');
+                setTimeout(() => modal.classList.add('active'), 10);
+                document.body.style.overflow = 'hidden';
+            };
+            const closeModal = (modal) => {
+                if (!modal) return;
+                modal.classList.remove('active');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                    document.body.style.overflow = '';
+                }, 300);
+            };
+
+            document.querySelectorAll('.modal-bg').forEach(modalBg => {
+                modalBg.addEventListener('click', e => {
+                    if (e.target === modalBg) {
+                        closeModal(modalBg);
+                        // Reset builder if closing that modal
+                        if (modalBg.id === 'protocol-builder-modal') {
+                            document.getElementById('builder-form').classList.remove('hidden');
+                            document.getElementById('builder-result').classList.add('hidden');
+                        }
+                    }
+                });
+            });
+            document.querySelectorAll('.close-modal-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                     const modal = btn.closest('.modal-bg');
+                     closeModal(modal);
+                     // Reset builder if closing that modal
+                     if (modal && modal.id === 'protocol-builder-modal') {
+                         document.getElementById('builder-form').classList.remove('hidden');
+                         document.getElementById('builder-result').classList.add('hidden');
+                     }
+                });
+            });
+
+            // --- Interactive Protocol Builder ---
+            const openGeneratorBtn = document.getElementById('open-generator-btn');
+            openGeneratorBtn.addEventListener('click', () => openModal(builderModal));
+            
+            const constructRitualBtn = document.getElementById('construct-ritual-btn');
+            const builderForm = document.getElementById('builder-form');
+            const builderResult = document.getElementById('builder-result');
+            
+            // Database of ritual components
+            const ritualComponents = {
+                // ... (content remains the same, omitted for brevity)
+            };
+
+            const generateProtocol = (intention, complexity) => {
+                const protocols = {
+                    protection: {
+                        novice: {
+                            title: "Rite of Simple Warding",
+                            timing: "Best performed during a waning moon or on a Saturday.",
+                            materials: "A black candle, salt, a piece of obsidian or tourmaline.",
+                            steps: [
+                                "Create a circle of salt around your workspace.",
+                                "Light the black candle, stating 'I consecrate this flame to the act of protection.'",
+                                "Hold the stone in your hands, visualizing a shield of black light forming around you.",
+                                "Chant 'Terra et umbra, scutum meum' (Earth and shadow, be my shield) until you feel the energy solidify.",
+                                "Thank the elements and extinguish the flame. Keep the stone with you."
+                            ]
+                        },
+                        adept: {
+                            title: "The Mirror Shield Protocol",
+                            timing: "Perform at midnight when the veil is thin.",
+                            materials: "Four black candles, a small mirror, sandalwood incense.",
+                            steps: [
+                                "Place the four candles at the cardinal directions and light them, calling the guardians of each quarter.",
+                                "Light the incense to purify the space.",
+                                "Sit in the center and hold the mirror, gazing into your own eyes.",
+                                "Visualize a sphere of brilliant, mirror-like energy forming around you.",
+                                "Program the shield by stating: 'All that is sent to me is returned, amplified. My sovereignty is absolute.'",
+                                "Feel the shield become sentient and strong. Thank the guardians and extinguish the candles in reverse order."
+                            ]
+                        },
+                        master: {
+                            title: "Aegis of the Void Sentinel",
+                            timing: "During the dark moon, in complete sensory deprivation.",
+                            materials: "Obsidian scrying mirror, a drop of your own blood, pure silence.",
+                            steps: [
+                                "Enter a deep trance state, focusing on the concept of 'nothingness'.",
+                                "Anoint the center of the obsidian mirror with your blood.",
+                                "Gaze into the mirror, not at your reflection, but *through* it, into the void beyond.",
+                                "Call upon the 'un-energy' of the void to form a shield around you—not of light, but of absence.",
+                                "This shield does not reflect, it annihilates. Program it to deconstruct any hostile energy on contact.",
+                                "This is a permanent ward. Be warned: it requires a constant trickle of your own vital energy to maintain."
+                            ]
+                        }
+                    },
+                    prosperity: {
+                        novice: {
+                            title: "Rite of the Growing Coin",
+                            timing: "During a waxing moon on a Thursday or Sunday.",
+                            materials: "A green candle, a coin of the highest denomination you have, cinnamon oil.",
+                            steps: [
+                                "Anoint the candle with cinnamon oil, rubbing from the base to the wick.",
+                                "Light the candle and place the coin before it.",
+                                "Gaze at the coin, visualizing it glowing with a vibrant green and gold light.",
+                                "Chant 'Pecunia crescat, sicut luna' (Let money grow, like the moon) until you feel the energy peak.",
+                                "Allow the candle to burn down completely. Carry the charged coin in your wallet, but do not spend it."
+                            ]
+                        },
+                        adept: {
+                            title: "The Jupiterian Abundance Matrix",
+                            timing: "On a Thursday, during the hour of Jupiter.",
+                            materials: "A square of blue cloth, a sigil for abundance, cedarwood, pyrite.",
+                            steps: [
+                                "Draw or place your sigil on the blue cloth.",
+                                "Arrange four pieces of cedarwood in a square around it, with the pyrite in the center.",
+                                "Enter a meditative state and invoke the expansive, benevolent energy of Jupiter.",
+                                "Channel this energy through your hands into the pyrite, visualizing it as a powerful magnet for opportunity and wealth.",
+                                "Project the energy outwards along the cedar lines, creating a 'matrix of prosperity' in your space.",
+                                "Wrap the pyrite in the cloth and place it in your office or workspace."
+                            ]
+                        },
+                        master: {
+                            title: "Pact with the Egregore of Wealth",
+                            timing: "Requires precise astrological timing, often involving a Jupiter-Venus conjunction.",
+                            materials: "Gold dust, saffron, a consecrated chalice with sweet wine, a detailed written petition.",
+                            steps: [
+                                "Create a sacred space, using gold dust to mark the circle.",
+                                "Invoke the planetary intelligences of Jupiter and Venus.",
+                                "Read your petition aloud, stating your desired financial outcomes with clarity and authority.",
+                                "Burn the petition with saffron in a consecrated flame, offering the ashes to the chalice of wine.",
+                                "Drink the wine, internalizing the pact. You are now aligning your energy field with the collective consciousness-form (egregore) of wealth.",
+                                "Be prepared for sudden, drastic shifts in your career and opportunities. The pact demands action and ambition."
+                            ]
+                        }
+                    },
+                    clarity: {
+                        novice: {
+                            title: "Meditation of the Clear Mind",
+                            timing: "At dawn, facing east.",
+                            materials: "A clear quartz crystal, a white candle.",
+                            steps: [
+                                "Light the white candle.",
+                                "Hold the quartz to your third eye.",
+                                "Breathe deeply, and with each exhale, visualize mental fog and confusion leaving your mind and being absorbed by the crystal.",
+                                "With each inhale, draw in the pure, clear light of the flame.",
+                                "Continue until your mind feels still and silent.",
+                                "Cleanse the crystal in salt water after the rite."
+                            ]
+                        },
+                        adept: {
+                            title: "The Scrying Well of Truth",
+                            timing: "During the full moon, at night.",
+                            materials: "A black bowl filled with water, mugwort incense, a silver coin.",
+                            steps: [
+                                "Light the mugwort to enhance psychic vision.",
+                                "Gaze into the black bowl, letting your eyes relax and unfocus.",
+                                "Drop the silver coin into the water, stating the question or situation for which you need clarity.",
+                                "Observe the ripples and any images or symbols that form in your mind's eye.",
+                                "Do not force interpretation. Record what you see and meditate on its meaning later."
+                            ]
+                        },
+                         master: {
+                            title: "Dialogue with the Higher Self",
+                            timing: "Requires a state of deep trance (Samadhi).",
+                            materials: "A single, pure-toned bell (Ghanta), complete darkness.",
+                            steps: [
+                                "Enter a state of profound meditation, silencing the 'monkey mind'.",
+                                "Ring the bell once, focusing your entire awareness on the sound until it completely fades into silence.",
+                                "In the perfect silence that follows, ask your Higher Self (your true, unfiltered consciousness) for the guidance you seek.",
+                                "The answer will not come in words, but as a 'packet' of pure knowing, a sudden and complete understanding.",
+                                "This requires mastery of Pratyahara (sensory withdrawal) and Dharana (concentration)."
+                            ]
+                        }
+                    },
+                    healing: {
+                        novice: {
+                            title: "The Cord-Cutting Rite",
+                            timing: "During a waning moon.",
+                            materials: "Two white candles, a length of black thread.",
+                            steps: [
+                                "Designate one candle for yourself and the other for the person or situation you need to heal from.",
+                                "Tie the thread loosely between the two candles.",
+                                "Light both candles. State 'I now sever the ties that bind and drain me.'",
+                                "Use a consecrated blade or the flame from your own candle to burn the thread in the middle.",
+                                "Visualize the energetic cord dissolving as the thread breaks.",
+                                "Allow the candles to burn out."
+                            ]
+                        },
+                        adept: {
+                            title: "Auric Field Recalibration",
+                            timing: "Any time, but best after a sacred bath.",
+                            materials: "A selenite wand.",
+                            steps: [
+                                "Stand in a comfortable position.",
+                                "Holding the selenite wand, 'comb' your aura, starting from your head and moving down to your feet, about 3-6 inches away from your body.",
+                                "Visualize the selenite absorbing and neutralizing any grey or stagnant energy.",
+                                "Pay special attention to the chakra points.",
+                                "When finished, visualize your aura glowing, whole, and vibrant.",
+                                "Cleanse the wand after use."
+                            ]
+                        },
+                        master: {
+                            title: "Cellular Re-Patterning",
+                            timing: "Requires a deep trance and bio-energetic awareness.",
+                            materials: "Specific sonic frequencies (binaural beats or tuning forks), focused intention.",
+                            steps: [
+                                "Enter a deep meditative state, bringing your awareness inside your own body.",
+                                "Focus on the area that requires healing.",
+                                "Using the sonic tool, create a resonant frequency that corresponds to perfect health.",
+                                "Project a geometric pattern of perfect order (like the Flower of Life) onto the cells of the affected area.",
+                                "This is not visualization; it is an act of will, using your consciousness to remind the body of its original, perfect blueprint.",
+                                "This requires immense concentration and can be draining."
+                            ]
+                        }
+                    },
+                     empowerment: {
+                        novice: {
+                            title: "The Solar Plexus Charge",
+                            timing: "At noon, under the sun if possible.",
+                            materials: "A piece of citrine or tiger's eye.",
+                            steps: [
+                                "Sit or stand upright, holding the stone over your solar plexus (Manipura chakra).",
+                                "Breathe deeply, visualizing drawing golden, solar energy into this point.",
+                                "With each exhale, feel the energy expanding, creating a spinning sun of power within you.",
+                                "State a power affirmation, such as 'I am the master of my will. I am courageous and strong.'",
+                                "Feel the confidence and strength filling your entire being.",
+                                "Carry the stone with you."
+                            ]
+                        },
+                        adept: {
+                            title: "Invocation of the Inner Warrior",
+                            timing: "On a Tuesday, during the hour of Mars.",
+                            materials: "A red candle, dragon's blood incense, a piece of iron.",
+                            steps: [
+                                "Light the candle and incense.",
+                                "Hold the piece of iron and feel its strength and resilience.",
+                                "Call upon the archetypal warrior energy within you. This can be a god, an animal spirit, or a conceptual force.",
+                                "Feel its energy merge with yours, lending you its courage, discipline, and power.",
+                                "Perform a series of strong, decisive gestures (like punching the air or stomping your feet) to fully integrate the energy.",
+                                "State your goals with newfound authority and conviction."
+                            ]
+                        },
+                         master: {
+                            title: "God-Form Assumption",
+                            timing: "During a significant astrological alignment related to power (e.g., Sun conjunct Mars).",
+                            materials: "The Yantra and Mantra of a chosen martial deity (e.g., Mars, Ares, Sekhmet).",
+                            steps: [
+                                "Perform a full banishing ritual to ensure the space is pure.",
+                                "Meditate on the Yantra of the deity, while chanting their mantra.",
+                                "Do not just invoke the deity, *become* them. Feel their consciousness overlaying yours. See through their eyes, feel with their power.",
+                                "This is a state of temporary, controlled possession. In this state, your will is magnified a thousand-fold.",
+                                "You must perform a 'license to depart' when the ritual is complete, fully separating your consciousness from the god-form.",
+                                "Failure to do so can lead to ego-inflation, madness, and being 'burned out' by the divine energy."
+                            ]
+                        }
+                    }
+                };
+
+                const protocol = protocols[intention]?.[complexity];
+                if (!protocol) {
+                    return `<h3 class="font-cinzel text-xl text-red-400 mb-4">Error</h3><p>Could not generate a protocol for the selected options. The combination may be too esoteric or paradoxical.</p>`;
+                }
+
+                let stepsHtml = protocol.steps.map(step => `<li class="mb-2 text-gray-400">${step}</li>`).join('');
+
+                return `
+                    <h3 class="font-cinzel text-2xl text-orange-300 mb-2">${protocol.title}</h3>
+                    <div class="mb-4">
+                        <strong class="text-orange-400">Optimal Timing:</strong>
+                        <p class="text-gray-400">${protocol.timing}</p>
+                    </div>
+                    <div class="mb-4">
+                        <strong class="text-orange-400">Required Materials:</strong>
+                        <p class="text-gray-400">${protocol.materials}</p>
+                    </div>
+                    <div>
+                        <strong class="text-orange-400">Procedural Steps:</strong>
+                        <ol class="list-decimal list-inside mt-2">${stepsHtml}</ol>
+                    </div>
+                     <div class="text-center mt-8">
+                        <button id="reset-builder-btn" class="text-orange-400 hover:text-white transition">Create Another Ritual</button>
+                    </div>
+                `;
+            };
+
+            constructRitualBtn.addEventListener('click', () => {
+                const intention = document.getElementById('intention-select').value;
+                const complexity = document.getElementById('complexity-select').value;
+
+                const protocolHtml = generateProtocol(intention, complexity);
+                builderResult.innerHTML = protocolHtml;
+
+                builderForm.classList.add('hidden');
+                builderResult.classList.remove('hidden');
+
+                const resetBtn = document.getElementById('reset-builder-btn');
+                resetBtn.addEventListener('click', () => {
+                    builderForm.classList.remove('hidden');
+                    builderResult.classList.add('hidden');
+                });
+            });
+
+
+            // --- Sacred Timing System Logic ---
+            const moonPhaseDisplay = document.getElementById('moon-phase-display');
+            const moonEmoji = document.getElementById('moon-emoji');
+            const moonPhaseName = document.getElementById('moon-phase-name');
+            const moonIllumination = document.getElementById('moon-illumination');
+            const planetaryDayEl = document.getElementById('planetary-day');
+            const planetaryHourEl = document.getElementById('planetary-hour');
+            const auspiciousActivityEl = document.getElementById('auspicious-activity');
+
+            function getMoonPhase(date = new Date()) {
+                const JULIAN_CYCLE = 29.53058867;
+                const getJulianDate = (d) => (d.getTime() / 86400000) - (d.getTimezoneOffset() / 1440) + 2440587.5;
+                // Julian date of a known new moon (e.g., Jan 6, 2000)
+                const KNOWN_NEW_MOON = 2451549.5; 
+                const age = (getJulianDate(date) - KNOWN_NEW_MOON) % JULIAN_CYCLE;
+                const phase = age / JULIAN_CYCLE;
+                
+                const illumination = 0.5 * (1 - Math.cos(2 * Math.PI * phase));
+
+                const phases = [
+                    { name: 'New Moon', emoji: '🌑' }, { name: 'Waxing Crescent', emoji: '🌒' },
+                    { name: 'First Quarter', emoji: '🌓' }, { name: 'Waxing Gibbous', emoji: '🌔' },
+                    { name: 'Full Moon', emoji: '🌕' }, { name: 'Waning Gibbous', emoji: '🌖' },
+                    { name: 'Last Quarter', emoji: '🌗' }, { name: 'Waning Crescent', emoji: '🌘' }
+                ];
+                const phaseIndex = Math.floor(phase * 8 + 0.5) & 7;
+                return { ...phases[phaseIndex], illumination: (illumination * 100).toFixed(1) + '%' };
+            }
+            
+            function getPlanetaryInfo(date = new Date()) {
+                const days = ['Sun', 'Moon', 'Mars', 'Mercury', 'Jupiter', 'Venus', 'Saturn'];
+                const dayName = days[date.getDay()];
+                
+                // Simplified sunrise for example, a real app would use location.
+                const sunrise = new Date(date);
+                sunrise.setHours(6, 0, 0, 0); 
+                
+                const now = date.getTime();
+                const diff = (now - sunrise.getTime()) / (1000 * 60 * 60);
+                
+                const planets = ['Saturn', 'Jupiter', 'Mars', 'Sun', 'Venus', 'Mercury', 'Moon'];
+                const dayStartIndex = planets.indexOf(dayName);
+
+                let hourName = 'Unknown';
+                if (diff >= 0) { // After sunrise
+                    const hourIndex = (Math.floor(diff) + dayStartIndex) % 7;
+                    hourName = planets[hourIndex];
+                }
+                
+                const auspiciousMap = {
+                    Sun: 'Good for empowerment, success, and leadership.',
+                    Moon: 'Good for intuition, healing, and divination.',
+                    Mars: 'Good for courage, overcoming obstacles, and protection.',
+                    Mercury: 'Good for communication, learning, and business.',
+                    Jupiter: 'Good for prosperity, growth, and spiritual wisdom.',
+                    Venus: 'Good for relationships, harmony, and creative arts.',
+                    Saturn: 'Good for banishing, binding, and long-term projects.'
+                };
+
+                return { dayName, hourName, auspicious: auspiciousMap[hourName] || 'A time for rest and reflection.' };
+            }
+
+            function updateTimingSystem() {
+                const now = new Date();
+                const moon = getMoonPhase(now);
+                const planetary = getPlanetaryInfo(now);
+
+                moonEmoji.textContent = moon.emoji;
+                moonPhaseName.textContent = moon.name;
+                moonIllumination.textContent = `Illumination: ${moon.illumination}`;
+
+                planetaryDayEl.textContent = planetary.dayName;
+                planetaryHourEl.textContent = planetary.hourName;
+                auspiciousActivityEl.textContent = planetary.auspicious;
+            }
+            
+            updateTimingSystem();
+            setInterval(updateTimingSystem, 60000); // Update every minute
+
+            // --- Practitioner's Journal Logic ---
+            const journalTextarea = document.getElementById('journal-textarea');
+            const saveJournalBtn = document.getElementById('save-journal-btn');
+            const journalSaveStatus = document.getElementById('journal-save-status');
+
+            // Load saved entry
+            try {
+                const savedEntry = localStorage.getItem('practitionerJournal');
+                if (savedEntry) {
+                    journalTextarea.value = savedEntry;
+                }
+            } catch (e) {
+                console.warn("Could not access localStorage for journal:", e);
+                journalTextarea.placeholder = "Journal is unavailable in this environment (localStorage is blocked).";
+                journalTextarea.disabled = true;
+                saveJournalBtn.disabled = true;
+            }
+
+            saveJournalBtn.addEventListener('click', () => {
+                try {
+                    localStorage.setItem('practitionerJournal', journalTextarea.value);
+                    journalSaveStatus.textContent = 'Saved!';
+                    journalSaveStatus.classList.remove('text-red-400');
+                    journalSaveStatus.classList.add('text-green-400');
+                    journalSaveStatus.style.opacity = '1';
+                    setTimeout(() => {
+                        journalSaveStatus.style.opacity = '0';
+                    }, 2000);
+                } catch (e) {
+                    console.warn("Could not save to localStorage for journal:", e);
+                    journalSaveStatus.textContent = "Save failed.";
+                    journalSaveStatus.classList.remove('text-green-400');
+                    journalSaveStatus.classList.add('text-red-400');
+                    journalSaveStatus.style.opacity = '1';
+                }
+            });
+            
+             // --- Ambient Soundscapes Logic ---
+            let activeSound = null;
+            let activeLoop = null;
+
+            function stopAllSounds() {
+                if (activeSound) {
+                    if (activeSound.dispose) activeSound.dispose();
+                    if (activeSound.stop) activeSound.stop();
+                }
+                 if (activeLoop) {
+                    activeLoop.dispose();
+                    activeLoop = null;
+                }
+                Tone.Transport.stop();
+                Tone.Transport.cancel();
+                document.querySelectorAll('.sound-btn').forEach(b => b.classList.remove('border-orange-500', 'bg-orange-500/10'));
+            }
+
+            document.querySelectorAll('.sound-btn').forEach(button => {
+                button.addEventListener('click', async () => {
+                    await Tone.start();
+                    stopAllSounds();
+                    button.classList.add('border-orange-500', 'bg-orange-500/10');
+                    const soundType = button.dataset.sound;
+                    
+                    if (soundType === 'fire') {
+                        const fireNoise = new Tone.Noise("pink").toDestination();
+                        const filter = new Tone.AutoFilter({ frequency: "8m", baseFrequency: 200, octaves: 4 }).toDestination().start();
+                        fireNoise.connect(filter).start();
+                        activeSound = { dispose: () => { fireNoise.stop().dispose(); filter.dispose(); } };
+                    } else if (soundType === 'chant') {
+                        const drone = new Tone.AMSynth({ harmonicity: 1.5, oscillator: { type: "fatsawtooth", count: 3, spread: 20 }, envelope: { attack: 4, decay: 1, sustain: 1, release: 4 }, modulation: { type: "sine" }, modulationEnvelope: { attack: 2, decay: 0.5, sustain: 1, release: 2 } }).toDestination();
+                        drone.triggerAttack("D2");
+                        activeSound = drone;
+                    } else if (soundType === 'bowls') {
+                        const bowl = new Tone.MetalSynth({ frequency: 150, envelope: { attack: 0.8, decay: 1, release: 3 }, harmonicity: 3.1, modulationIndex: 32, resonance: 3000, octaves: 1.5 }).toDestination();
+                        bowl.volume.value = -12;
+                        activeLoop = new Tone.Loop(time => { bowl.triggerAttack(time); }, "4n").start(0);
+                        Tone.Transport.start();
+                        activeSound = { dispose: () => { bowl.dispose(); } };
+                    } else if (soundType === 'storm') {
+                        const lowPass = new Tone.Filter({ type: 'lowpass', frequency: 8000 }).toDestination();
+                        const thunderNoise = new Tone.Noise("brown").connect(lowPass);
+                        thunderNoise.start();
+                        const lfo = new Tone.LFO('0.2n', 200, 5000).connect(lowPass.frequency).start();
+                        activeSound = { dispose: () => { thunderNoise.stop().dispose(); lowPass.dispose(); lfo.dispose(); } };
+                    } else if (soundType === 'wind') {
+                        const synth = new Tone.PolySynth(Tone.MetalSynth, { frequency: 200, envelope: { attack: 0.001, decay: 1.4, release: 0.2 }, harmonicity: 5.1, modulationIndex: 32, resonance: 4000, octaves: 1.5 }).toDestination();
+                        synth.volume.value = -15;
+                        const notes = ["D5", "E5", "G5", "A5", "C6"];
+                        activeLoop = new Tone.Pattern(function(time, note){ synth.triggerAttackRelease(note, "8n", time); }, notes, "randomWalk").start(0);
+                        activeLoop.interval = '2n';
+                        Tone.Transport.start();
+                        activeSound = { dispose: () => { synth.dispose(); } };
+                    } else if (soundType === 'night') {
+                         const cricket = new Tone.AMSynth({ harmonicity: 1.1, oscillator: { type: "sine" }, envelope: { attack: 0.01, decay: 0.1, sustain: 0.1, release: 0.1 }, }).toDestination();
+                        cricket.volume.value = -20;
+                        activeLoop = new Tone.Loop(time => {
+                            cricket.triggerAttackRelease("C5", "32n", time);
+                            cricket.triggerAttackRelease("C5", "32n", time + 0.1);
+                            cricket.triggerAttackRelease("C5", "32n", time + 0.2);
+                        }, "2n").start(0);
+                        Tone.Transport.start();
+                        activeSound = { dispose: () => { cricket.dispose(); } };
+                    } else if (soundType === 'pulsar') {
+                        const pulsar = new Tone.PulseOscillator("E2", 0.4).toDestination();
+                        const lfo = new Tone.LFO('4n', 0.1, 0.9).connect(pulsar.width).start();
+                        const delay = new Tone.PingPongDelay("8n", 0.6).toDestination();
+                        pulsar.connect(delay).start();
+                        pulsar.volume.value = -10;
+                        activeSound = { dispose: () => { pulsar.dispose(); lfo.dispose(); delay.dispose(); } };
+                    } else if (soundType === 'solar') {
+                        const reverb = new Tone.Reverb({ decay: 4, wet: 0.5 }).toDestination();
+                        const phaser = new Tone.Phaser({ frequency: 0.5, octaves: 3, baseFrequency: 350 }).connect(reverb);
+                        const solarNoise = new Tone.Noise("white").connect(phaser);
+                        solarNoise.volume.value = -25;
+                        solarNoise.start();
+                        activeSound = { dispose: () => { solarNoise.stop().dispose(); phaser.dispose(); reverb.dispose(); } };
+                    } else if (soundType === 'void') {
+                        const voidHum = new Tone.FMSynth({ harmonicity: 0.5, modulationIndex: 10, oscillator: {type: 'sine'}, envelope: {attack: 4, decay: 0.1, sustain: 1, release: 4}, modulation: {type: 'square'}, modulationEnvelope: {attack: 4, decay: 0.1, sustain: 1, release: 4} }).toDestination();
+                        voidHum.triggerAttack("C1");
+                        voidHum.volume.value = -10;
+                        activeSound = voidHum;
+                    } else if (soundType === 'starlight') {
+                        const reverb = new Tone.Reverb({ decay: 5, wet: 0.7 }).toDestination();
+                        const synth = new Tone.PluckSynth().connect(reverb);
+                        synth.volume.value = -12;
+                        const notes = ["C6", "D6", "F6", "G6", "A6"];
+                        activeLoop = new Tone.Loop(time => {
+                            const note = notes[Math.floor(Math.random() * notes.length)];
+                            synth.triggerAttack(note, time);
+                        }, "16n").start(0);
+                        Tone.Transport.start();
+                        activeSound = { dispose: () => { synth.dispose(); reverb.dispose(); } };
+                    } else if (soundType === 'nebula') {
+                        const reverb = new Tone.Reverb({ decay: 8, wet: 0.6 }).toDestination();
+                        const synth = new Tone.PolySynth(Tone.FMSynth, { envelope: { attack: "4n", release: "2n" } }).connect(reverb);
+                        synth.set({ volume: -15, harmonicity: 1.2 });
+                        const chords = [ ["C4", "E4", "G4"], ["A3", "C4", "E4"], ["F3", "A3", "C4"], ["G3", "B3", "D4"] ];
+                        let chordIndex = 0;
+                        activeLoop = new Tone.Loop(time => {
+                            const chord = chords[chordIndex % chords.length];
+                            synth.triggerAttackRelease(chord, "1m", time);
+                            chordIndex++;
+                        }, "1m").start(0);
+                        Tone.Transport.bpm.value = 30;
+                        Tone.Transport.start();
+                        activeSound = { dispose: () => { synth.dispose(); reverb.dispose(); Tone.Transport.bpm.value = 120; } };
+                    } else if (soundType === 'horizon') {
+                        const filter = new Tone.AutoFilter("1m").toDestination().start();
+                        const synth1 = new Tone.AMSynth({ oscillator: { type: "fatsine" }, envelope: { attack: 5, release: 5 } }).connect(filter);
+                        const synth2 = new Tone.AMSynth({ oscillator: { type: "fatsine" }, envelope: { attack: 5, release: 5 } }).connect(filter);
+                        synth1.triggerAttack("C2");
+                        synth2.triggerAttack("G#2"); // Tense interval
+                        synth1.volume.value = -18;
+                        synth2.volume.value = -18;
+                        activeSound = { dispose: () => { synth1.dispose(); synth2.dispose(); filter.dispose(); } };
+                    }
+                });
+            });
+
+            document.getElementById('stop-sound-btn').addEventListener('click', stopAllSounds);
+
+
+            // --- Details Modal Content ---
+            const detailsModalTitle = document.getElementById('details-modal-title');
+            const detailsModalIcon = document.getElementById('details-modal-icon');
+            const detailsModalBody = document.getElementById('details-modal-body');
+            
+            const modalContents = {
+                // Core Technologies (content omitted for brevity)
+                protocolBuilder: { title: "Protocol Builder", icon: `<i data-lucide="scroll-text"></i>`, content: `<p>The Interactive Ritual Builder allows you to construct a personalized ritual. By selecting your core intention and desired complexity, the system draws from a deep well of esoteric knowledge to assemble a step-by-step protocol, complete with recommendations for timing and materials. This feature empowers you to create effective, focused magick tailored to your specific needs without needing years of research.</p>` },
+                sacredTiming: { title: "Sacred Timing", icon: `<i data-lucide="moon-star"></i>`, content: `<p>Detailed content for Sacred Timing...</p>` },
+                materialDatabase: { title: "Material Database", icon: `<i data-lucide="database"></i>`, content: `<p>Detailed content for Material Database...</p>` },
+                videoDemos: { title: "Video Demonstrations", icon: `<i data-lucide="video"></i>`, content: `<p>Detailed content for Video Demonstrations...</p>` },
+                safetyProtocols: { title: "Safety & Prerequisites", icon: `<i data-lucide="shield-check"></i>`, content: `<p>Detailed content for Safety Protocols...</p>` },
+                advancedTheory: { title: "Advanced Theory", icon: `<i data-lucide="brain-circuit"></i>`, content: `<p>Detailed content for Advanced Theory...</p>` },
+                
+                // Foundation Protocols
+                dailyRituals: {
+                    title: "Daily Rituals (Nitya Karma)",
+                    icon: `<i data-lucide="sunrise"></i>`,
+                    content: `
+                        <p class="mb-6 text-lg text-gray-300">Nitya Karma are the daily, essential practices that maintain energetic hygiene and spiritual alignment. Like brushing your teeth, these are foundational for long-term spiritual health, preventing the buildup of psychic debris and keeping your connection to Source clear.</p>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="p-4 rounded-lg bg-black/20 border border-orange-500/20">
+                                <h4 class="font-cinzel text-lg text-orange-300 mb-2 flex items-center gap-2"><i data-lucide="sun"></i> Morning Practice</h4>
+                                <p class="text-gray-400">Waking before sunrise (Brahma Muhurta) to meditate, chant, or perform sun salutations aligns you with the day's nascent, pure energy.</p>
+                            </div>
+                             <div class="p-4 rounded-lg bg-black/20 border border-orange-500/20">
+                                <h4 class="font-cinzel text-lg text-orange-300 mb-2 flex items-center gap-2"><i data-lucide="moon"></i> Evening Practice</h4>
+                                <p class="text-gray-400">Before sleep, review the day without judgment, release attachments to its events, and cleanse your energy field to ensure restful, high-vibrational sleep.</p>
+                            </div>
+                        </div>
+                    `
+                },
+                sacredBath: {
+                    title: "Sacred Bath (Snanam)",
+                    icon: `<i data-lucide="bath"></i>`,
+                    content: `
+                        <p class="mb-6 text-lg text-gray-300">Snanam is the art of transforming a physical bath into a potent act of purification. It's not just about cleaning the body, but about cleansing the aura and subtle energy bodies of negative influences, stress, and psychic residue from daily interactions.</p>
+                        <h4 class="font-cinzel text-xl text-orange-300 mb-4">Common Infusions:</h4>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-center">
+                            <div class="p-4 rounded-lg bg-black/20"><i data-lucide="gem" class="mx-auto text-orange-400 h-8 w-8 mb-2"></i><h5 class="font-bold">Salt Water</h5><p class="text-sm text-gray-400">Unprocessed sea salt or Epsom salt draws out energetic toxicity.</p></div>
+                            <div class="p-4 rounded-lg bg-black/20"><i data-lucide="flower-2" class="mx-auto text-orange-400 h-8 w-8 mb-2"></i><h5 class="font-bold">Herbal</h5><p class="text-sm text-gray-400">Lavender for calm, Rosemary for protection, Rose for heart-opening.</p></div>
+                            <div class="p-4 rounded-lg bg-black/20"><i data-lucide="audio-lines" class="mx-auto text-orange-400 h-8 w-8 mb-2"></i><h5 class="font-bold">Mantra</h5><p class="text-sm text-gray-400">Chant specific mantras over the water to infuse it with high vibrations.</p></div>
+                        </div>
+                    `
+                },
+                purification: {
+                    title: "Purification (Shuddhi)",
+                    icon: `<i data-lucide="sparkles"></i>`,
+                    content: `
+                        <p class="mb-6 text-lg text-gray-300">Shuddhi encompasses techniques for purifying oneself, a space, or an object. It is a prerequisite for any serious ritual, ensuring a clear and uncontaminated vessel for energy to flow. You cannot pour clean water into a dirty cup.</p>
+                        <div class="grid md:grid-cols-2 gap-6">
+                             <div class="p-4 rounded-lg bg-black/20">
+                                <h4 class="font-cinzel text-lg text-orange-300 mb-2">Bhuta Shuddhi (Element Purification)</h4>
+                                <p class="text-gray-400">An advanced internal practice of systematically dissolving the five elements (earth, water, fire, air, ether) within your own system back to their source, purifying them, and recreating them.</p>
+                            </div>
+                            <div class="p-4 rounded-lg bg-black/20">
+                                <h4 class="font-cinzel text-lg text-orange-300 mb-2">Space Clearing</h4>
+                                <p class="text-gray-400">Using tools like sage (smudging), sound (bells, bowls), or salt water to remove stagnant or negative energy from a room or ritual space, making it energetically pristine.</p>
+                            </div>
+                        </div>
+                    `
+                },
+                sacredFire: {
+                    title: "Sacred Fire (Agni)",
+                    icon: `<i data-lucide="flame"></i>`,
+                    content: `
+                        <p class="mb-6 text-lg text-gray-300">Agni, the sacred fire, is a powerful agent of transformation and a messenger to the divine. Fire rituals (Yagna, Homa) use the fire element to transmute energies, make offerings, and invoke potent divine forces, bridging the physical and spiritual worlds.</p>
+                        <div class="p-4 rounded-lg border border-orange-500/30 bg-black/20">
+                            <h4 class="font-cinzel text-xl text-orange-300 mb-2">Core Principles:</h4>
+                            <ul class="list-disc list-inside text-gray-400 space-y-2">
+                                <li><strong>Transmutation:</strong> Fire breaks down gross matter and energy (offerings, negative patterns) into a subtler form, releasing their essence.</li>
+                                <li><strong>Offering Carrier:</strong> Offerings imbued with mantras are carried by Agni to their intended divine recipient.</li>
+                                <li><strong>Inner Fire (Agni-Tattva):</strong> Corresponds to the fire element at the Manipura chakra, governing digestion, will, and personal power.</li>
+                            </ul>
+                        </div>
+                    `
+                },
+                 sacredSpace: {
+                    title: "Sacred Space (Mandala)",
+                    icon: `<i data-lucide="circle-dot"></i>`,
+                    content: `
+                        <p class="mb-6 text-lg text-gray-300">Creating sacred space involves defining and consecrating an area for ritual work. This turns an ordinary location into an energetic temple, a container that holds and amplifies the power of your ritual, safe from outside interference.</p>
+                        <div class="flex flex-col md:flex-row items-center justify-center gap-4 text-center my-6">
+                            <div class="p-3 rounded-lg bg-black/20">Physical Space</div>
+                            <i data-lucide="arrow-right" class="text-orange-400"></i>
+                            <div class="p-3 rounded-lg bg-black/20">Casting & Calling Quarters</div>
+                            <i data-lucide="arrow-right" class="text-orange-400"></i>
+                            <div class="p-4 rounded-lg bg-orange-500/20 border border-orange-500 font-bold">Energetic Temple</div>
+                         </div>
+                         <p class="text-gray-400">This is achieved by <strong>Casting a Circle</strong> (defining the boundary) and <strong>Calling the Quarters</strong> (invoking elemental guardians of the four directions) to watch over and empower the space.</p>
+                    `
+                },
+                
+                // --- Power Activation Rituals (NEW UI/LAYOUT) ---
+                pranaPratishtha: {
+                    title: "Deity Installation",
+                    icon: `<i data-lucide="gem"></i>`,
+                    content: `
+                        <p class="mb-8 text-lg text-center text-gray-300 max-w-2xl mx-auto">This is the forbidden art of theurgy: anchoring a non-physical consciousness or 'god-form' into a physical vessel. This is not blessing; it is soul-binding.</p>
+                        <div class="grid md:grid-cols-5 gap-8 items-center mb-8">
+                            <div class="md:col-span-2 text-center">
+                                <i data-lucide="atom" class="mx-auto h-24 w-24 text-orange-400 opacity-50"></i>
+                                <div class="font-cinzel text-xl mt-2">Quantum Entanglement</div>
+                                <p class="text-sm text-gray-400 mt-2">The ritual establishes a permanent sympathetic link between the vessel and the consciousness. The vessel becomes a true microcosm of the god-form's power.</p>
+                            </div>
+                            <div class="text-center text-orange-400">
+                                <i data-lucide="arrow-right-left" class="h-12 w-12 mx-auto"></i>
+                            </div>
+                            <div class="md:col-span-2 text-center">
+                                 <i data-lucide="key-round" class="mx-auto h-24 w-24 text-orange-400 opacity-50"></i>
+                                 <div class="font-cinzel text-xl mt-2">The Process</div>
+                                 <p class="text-sm text-gray-400 mt-2">Requires absolute purity, precise timing, and the vibrational keys (mantras) to unlock the entity's signature before igniting the vessel with prana.</p>
+                            </div>
+                        </div>
+
+                        <h4 class="font-cinzel text-xl text-orange-300 mb-6 text-center">Methodology Snapshot</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+                            <div class="p-4 bg-black/20 rounded-lg border border-orange-500/20"><div class="font-bold mb-2">1. Sanctify</div><p class="text-xs text-gray-400">Cleanse the vessel physically and energetically over three moon cycles.</p></div>
+                            <div class="p-4 bg-black/20 rounded-lg border border-orange-500/20"><div class="font-bold mb-2">2. Resonate</div><p class="text-xs text-gray-400">Inscribe the entity's yantra to create a geometric attracting field.</p></div>
+                            <div class="p-4 bg-black/20 rounded-lg border border-orange-500/20"><div class="font-bold mb-2">3. Invoke</div><p class="text-xs text-gray-400">Commence the ritual during the precise astrological power window.</p></div>
+                            <div class="p-4 bg-black/20 rounded-lg border border-orange-500/20"><div class="font-bold mb-2">4. Ignite</div><p class="text-xs text-gray-400">Project your prana into the vessel with the core mantra to give it 'birth'.</p></div>
+                        </div>
+
+                        <div class="p-4 rounded-lg bg-red-900/30 border-2 border-red-500/40 mt-8"><h5 class="font-bold text-red-300 flex items-center gap-3 text-xl"><i data-lucide="shield-alert" class="w-8 h-8"></i> Grave Warning</h5><p class="mt-2 text-red-400">Failure results in the vessel shattering or becoming a beacon for parasitic entities. An improperly bound god-form can become a devastating curse. Do not attempt without lineage-based transmission of the technique.</p></div>
+                    `
+                },
+                 shaktiAwakening: {
+                    title: "Energy Awakening (Shakti)",
+                    icon: `<i data-lucide="zap"></i>`,
+                    content: `
+                         <p class="mb-8 text-lg text-center text-gray-300 max-w-2xl mx-auto">The intentional activation of the 'Serpent Power' – the dormant, primal evolutionary force coiled at the base of the spine which, upon ascent, incinerates karma and activates god-consciousness.</p>
+                        <div class="p-4 rounded-lg border border-orange-500/30 bg-black/20 mb-8 text-center">
+                            <h4 class="font-cinzel text-xl text-orange-300 mb-2">The Double-Edged Sword of Power</h4>
+                            <p class="text-gray-400">A controlled awakening grants siddhis and bliss. An uncontrolled awakening is a psychic catastrophe leading to nervous system burnout and psychosis. The body must be purified to handle the voltage.</p>
+                        </div>
+                        <h4 class="font-cinzel text-xl text-orange-300 mb-6 text-center">Guideline for the Brave: The Ascent</h4>
+                        <div class="relative">
+                            <!-- Central Line -->
+                            <div class="absolute left-1/2 top-0 bottom-0 w-0.5 bg-orange-500/30"></div>
+                            <!-- Steps -->
+                            <div class="relative flex justify-center items-center mb-8"><div class="z-10 bg-orange-500 rounded-full h-4 w-4"></div><div class="w-2/5 text-right pr-8"><h5 class="font-bold">Purify System</h5><p class="text-xs text-gray-400">Sattvic diet & Nadi Shodhana to cleanse 72,000 energy channels.</p></div></div>
+                            <div class="relative flex justify-center items-center mb-8"><div class="w-2/5 text-left pl-8"><h5 class="font-bold">Build Inner Fire</h5><p class="text-xs text-gray-400">Use Bhastrika & Uddiyana Bandha to generate heat in the navel center.</p></div><div class="z-10 bg-orange-500 rounded-full h-4 w-4"></div></div>
+                            <div class="relative flex justify-center items-center mb-8"><div class="z-10 bg-orange-500 rounded-full h-4 w-4"></div><div class="w-2/5 text-right pr-8"><h5 class="font-bold">Master Root Lock</h5><p class="text-xs text-gray-400">Gain conscious control of Mula Bandha to direct energy upward.</p></div></div>
+                            <div class="relative flex justify-center items-center"><div class="w-2/5 text-left pl-8"><h5 class="font-bold">Controlled Release</h5><p class="text-xs text-gray-400">In a deep trance, engage all three locks and guide the awakened serpent.</p></div><div class="z-10 bg-orange-500 rounded-full h-4 w-4"></div></div>
+                        </div>
+                         <div class="p-4 rounded-lg bg-red-900/30 border-2 border-red-500/40 mt-8"><h5 class="font-bold text-red-300">High Risk Methods:</h5><p class="mt-2 text-red-400">Tantric Kriyas use intense, rapid techniques to bypass years of prep, but risk overwhelming the system. Shaktipat (direct transmission from a master) can feel like a divine gift but is akin to being struck by lightning; you cannot control the outcome.</p></div>
+                    `
+                },
+                chetanaExpansion: {
+                    title: "Consciousness Expansion",
+                    icon: `<i data-lucide="brain-circuit"></i>`,
+                    content: `
+                         <p class="mb-8 text-lg text-center text-gray-300 max-w-2xl mx-auto">Protocols for controlled psychic dissociation, designed to bypass the 'psychic censor' to access raw data from the superconscious (Akashic Field).</p>
+                         <div class="relative w-full max-w-sm mx-auto my-8 h-64 flex items-center justify-center">
+                            <div class="absolute border border-orange-500/20 rounded-full h-64 w-64 animate-pulse"></div>
+                            <div class="absolute border border-orange-500/30 rounded-full h-48 w-48 animate-pulse" style="animation-delay: 0.5s;"></div>
+                            <div class="absolute border border-orange-500/40 rounded-full h-32 w-32 animate-pulse" style="animation-delay: 1s;"></div>
+                            <div class="z-10 text-center">
+                                <i data-lucide="eye" class="h-10 w-10 text-orange-400 mx-auto"></i>
+                                <div class="font-cinzel mt-2 text-xl">Superconscious</div>
+                            </div>
+                         </div>
+                        <h4 class="font-cinzel text-xl text-orange-300 mb-6 text-center">Instructional Framework: The Inward Path</h4>
+                        <ol class="list-decimal list-inside space-y-3 text-gray-300 mb-6">
+                            <li><strong>Sensory Withdrawal (Pratyahara):</strong> Systematically withdraw awareness from the five senses until the external world fades.</li>
+                            <li><strong>Hemispheric Desynchronization:</strong> Use binaural beats or chanting to quiet the analytical left brain, opening a 'crack' in the psychic censor.</li>
+                            <li><strong>Symbolic Pathworking:</strong> Project awareness through a visualized gateway with a clear intention, observing what unfolds as a passive witness.</li>
+                            <li><strong>Anchoring the Data:</strong> Immediately upon return, record everything experienced before the psychic censor can re-engage and dismiss it.</li>
+                        </ol>
+                    `
+                },
+                 siddhiManipulation: {
+                    title: "Reality Manipulation (Siddhi)",
+                    icon: `<i data-lucide="wand"></i>`,
+                    content: `
+                        <p class="mb-8 text-lg text-center text-gray-300 max-w-2xl mx-auto">'Probability hacking.' The direct imposition of mind upon matter, operating on the premise that 'reality' is a fluid consensus that can be collapsed into a desired outcome.</p>
+                        <div class="p-6 rounded-lg bg-black/20 border border-orange-500/20 mb-8" style="background-image: radial-gradient(rgba(255,140,0,0.05) 1px, transparent 1px); background-size: 15px 15px;">
+                             <div class="text-center">
+                                <h4 class="font-cinzel text-xl text-orange-300">The Operator as a Quantum Computer</h4>
+                                <p class="text-gray-400 mt-2">The practitioner's entire being becomes a focusing lens. Belief, intention, emotion, and vital energy must cohere into a single, unwavering beam. Doubt causes the beam to diffuse and the effect to fail.</p>
+                             </div>
+                        </div>
+                        <h4 class="font-cinzel text-xl text-orange-300 mb-6 text-center">Operational Guide: Firing the Arrow of Will</h4>
+                        <div class="grid md:grid-cols-4 gap-4 text-center">
+                            <div class="p-4 bg-black/20 rounded-lg"><i data-lucide="crosshair" class="h-8 w-8 mx-auto text-orange-400 mb-2"></i><h5 class="font-bold">Intent</h5><p class="text-xs text-gray-400">Distill the goal into a single, present-tense statement (Sankalpa).</p></div>
+                             <div class="p-4 bg-black/20 rounded-lg"><i data-lucide="battery-charging" class="h-8 w-8 mx-auto text-orange-400 mb-2"></i><h5 class="font-bold">Charge</h5><p class="text-xs text-gray-400">Generate the raw emotion of already having the outcome (Bhavana).</p></div>
+                             <div class="p-4 bg-black/20 rounded-lg"><i data-lucide="aperture" class="h-8 w-8 mx-auto text-orange-400 mb-2"></i><h5 class="font-bold">Focus</h5><p class="text-xs text-gray-400">Hold the intent and emotion without a single distracting thought (Dharana).</p></div>
+                            <div class="p-4 bg-black/20 rounded-lg"><i data-lucide="send" class="h-8 w-8 mx-auto text-orange-400 mb-2"></i><h5 class="font-bold">Release</h5><p class="text-xs text-gray-400">Completely release the intent and sever attachment to the outcome.</p></div>
+                        </div>
+                        <div class="p-4 rounded-lg bg-yellow-900/30 border border-yellow-500/40 mt-8"><h5 class="font-bold text-yellow-300 flex items-center gap-2"><i data-lucide="alert-triangle"></i> The Siddhi Trap</h5><p class="mt-2 text-yellow-400">The most common reason advanced practitioners fail. The ego becomes attached to these powers, using them for personal gain. This creates immense karma and halts all genuine spiritual progress, turning a potential sage into a mere sorcerer.</p></div>
+                    `
+                },
+                 kalaAlteration: {
+                    title: "Time Alteration (Kala)",
+                    icon: `<i data-lucide="timer-reset"></i>`,
+                    content: `
+                        <p class="mb-8 text-lg text-center text-gray-300 max-w-2xl mx-auto">The most heretical practice: Non-Linear Causality. Based on the principle that time is a dimension of consciousness, a co-existing quantum field accessible to expanded awareness.</p>
+                        <div class="p-6 rounded-lg bg-black/20 mb-8 border border-orange-500/20" style="background-image: linear-gradient(rgba(255,140,0,0.05) 1px, transparent 1px), linear-gradient(to right, rgba(255,140,0,0.05) 1px, transparent 1px); background-size: 20px 20px;">
+                            <h4 class="font-cinzel text-xl text-orange-300 text-center">The Block Universe</h4>
+                            <p class="text-gray-400 mt-2 text-center">Past, present, and future are not a line, but a single, static, crystalline structure. 'Movement' is an illusion of consciousness dragging itself along one path. This protocol teaches you to shift your point of focus off that path.</p>
+                        </div>
+                        <h4 class="font-cinzel text-xl text-orange-300 mb-6 text-center">Protocol for Temporal Navigation</h4>
+                         <ol class="list-decimal list-inside space-y-3 text-gray-300 mb-6">
+                            <li><strong>Induce Yogic Sleep (Yoga Nidra):</strong> Disconnect consciousness from the body's linear time perception.</li>
+                            <li><strong>Identify the Target Event:</strong> Create a symbolic 'coordinate' for a specific moment in the past or future.</li>
+                            <li><strong>Project Awareness:</strong> Project your awareness 'sideways' through time to the target coordinate.</li>
+                            <li><strong>Perform the Operation:</strong> Observe and project emotion to alter a past event's charge, or plant a vivid image to seed a future probability.</li>
+                            <li><strong>Safe Return & Reintegration:</strong> Follow your awareness thread back to the present and fully reintegrate before opening your eyes.</li>
+                         </ol>
+                        <div class="p-4 rounded-lg bg-red-900/30 border-2 border-red-500/40"><h5 class="font-bold text-red-300 flex items-center gap-3 text-xl"><i data-lucide="shield-alert" class="w-8 h-8"></i> Paradox Warning</h5><p class="mt-2 text-red-400">Amateur attempts to alter significant past events can cause psychic fragmentation, creating timeline splits within one's own consciousness that can manifest as severe psychological disorders. This is the ultimate taboo for a reason.</p></div>
+                    `
+                },
+
+                // --- Advanced Integration Systems (with instructions) ---
+                mindBodyIntegration: {
+                    title: "Mind-Body Integration",
+                    icon: `<i data-lucide="heart-pulse"></i>`,
+                    content: `
+                        <p class="mb-6 text-lg text-gray-300">This is the alchemical process of forging the physical body into a 'Vajra Kaya' or Adamantine Vehicle. The goal is to refine the body's vibratory rate until it can withstand and channel immense cosmic energies without decay or destruction. It is the prerequisite for all higher-level work; pouring high-voltage energy into an unprepared biological vessel is catastrophic.</p>
+                        <h4 class="font-cinzel text-xl text-orange-300 mb-4 border-l-4 border-orange-500 pl-4">Vajra Kaya Forging Protocol</h4>
+                         <ol class="list-decimal list-inside space-y-3 text-gray-300 mb-6">
+                            <li><strong>Cellular Saturation:</strong> For 40 days, consume only high-prana, sattvic foods. This clears the biological static and prepares the cells to be reprogrammed.</li>
+                            <li><strong>Pranic Overload (The Forge):</strong> Utilize the Breath of Fire (a rapid, forceful pranayama) to intentionally overload the nervous system with prana, forcing it to adapt and increase its energetic capacity.</li>
+                            <li><strong>Neurological Forging (Kaya Sthairyam):</strong> In a rigid, unwavering posture, practice systematic static contraction of every muscle group, forging a new level of conscious control over the physical vehicle.</li>
+                            <li><strong>Vibrational Attunement:</strong> Chant a chosen mantra internally (ajapa japa) continuously throughout the day. This attunes the cellular matrix to a higher, more stable frequency.</li>
+                        </ol>
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div class="p-4 rounded-lg bg-black/20"><h4 class="font-cinzel text-lg text-orange-300 mb-2">Cellular Alchemy</h4><p class="text-gray-400">Utilizes specific breathing patterns and sonic vibrations to restructure the water within the cells, making them more crystalline and conductive to pranic energy.</p></div>
+                            <div class="p-4 rounded-lg bg-black/20"><h4 class="font-cinzel text-lg text-orange-300 mb-2">Nervous System Tempering</h4><p class="text-gray-400">Advanced yogic postures and energy locks are not for flexibility, but to systematically stress and strengthen the nervous system, increasing its capacity to handle high-frequency energy flow.</p></div>
+                        </div>
+                        <div class="p-4 rounded-lg bg-yellow-900/30 border border-yellow-500/40"><h5 class="font-bold text-yellow-300 flex items-center gap-2"><i data-lucide="alert-triangle"></i> Hidden Method: Five-Element Retro-Assimilation</h5><p class="mt-2 text-yellow-400">A dangerous and guarded technique involving the conscious absorption and integration of pure elemental energies (earth, water, fire, air, ether) directly into corresponding organ systems, overwriting the body's natural programming with a more resilient, divine template.</p></div>
+                    `
+                },
+                kundaliniActivation: {
+                    title: "Kundalini Activation System",
+                    icon: `<i data-lucide="flame-kindling"></i>`,
+                    content: `
+                        <p class="mb-6 text-lg text-gray-300">This is not merely awakening the Serpent Power, but the science of its controlled modulation and navigation. Once awakened, Kundalini is not a one-time event but a living intelligence that must be guided through the body's 72,000 subtle energy channels (nadis). This system is the roadmap for that journey.</p>
+                        <h4 class="font-cinzel text-xl text-orange-300 mb-4 border-l-4 border-orange-500 pl-4">Sushumna Navigation Framework</h4>
+                         <ol class="list-decimal list-inside space-y-3 text-gray-300 mb-6">
+                            <li><strong>Nadi Shuddhi Mastery:</strong> Practice alternate nostril breathing until the breath flows for equal duration in both nostrils. This indicates the balance of Ida and Pingala required to open Sushumna.</li>
+                            <li><strong>Agni Sara Kriya:</strong> Use this advanced kriya to stoke the digestive fire, creating the intense heat needed to awaken the coiled serpent from its slumber.</li>
+                            <li><strong>Vajroli Mudra (The Thunderbolt Seal):</strong> A guarded mudra that allows the practitioner to draw the awakened energy upward consciously, preventing premature energetic discharge or blockages.</li>
+                            <li><strong>Conscious Ascent & Descent:</strong> The true art is not just raising the energy, but being able to guide it up and down the spinal channel at will, using it to energize specific chakras or withdraw it to the base for safety.</li>
+                        </ol>
+                        <div class="p-4 rounded-lg border border-orange-500/30 bg-black/20 mb-6">
+                            <h4 class="font-cinzel text-xl text-orange-300 mb-2">The Three Great Channels (Nadis):</h4>
+                            <ul class="list-disc list-inside text-gray-400 space-y-1">
+                                <li><strong>Ida (Lunar Channel):</strong> Left side, feminine, cooling, mental energy. Must be clear for psychic perception.</li>
+                                <li><strong>Pingala (Solar Channel):</strong> Right side, masculine, heating, vital energy. Must be clear for physical power.</li>
+                                <li><strong>Sushumna (Central Channel):</strong> The spinal expressway. Kundalini's primary path. If Ida and Pingala are not perfectly balanced and purified, Sushumna remains sealed.</li>
+                            </ul>
+                        </div>
+                        <div class="p-4 rounded-lg bg-red-900/30 border-2 border-red-500/40"><h5 class="font-bold text-red-300 flex items-center gap-3 text-xl"><i data-lucide="shield-alert"></i> Unfound Instruction: The Granthi Locks</h5><p class="mt-2 text-red-400">Three psychic knots (Granthis) block the Sushumna. Brahma Granthi (base of spine), Vishnu Granthi (heart center), and Rudra Granthi (third eye). Each must be deliberately pierced using specific, unwritten mudras and internal visualizations. Forcing Kundalini through a locked Granthi can cause massive psychic and physiological damage.</p></div>
+                    `
+                },
+                chakraOpening: {
+                    title: "Chakra Opening Sequences",
+                    icon: `<i data-lucide="webhook"></i>`,
+                    content: `
+                        <p class="mb-6 text-lg text-gray-300">This goes beyond the simplistic seven-chakra model. It is the systematic unlocking of the body's primary and secondary psychic-energy vortexes in a specific, guarded sequence to activate latent human potentials. Opening them out of order is like connecting high-power electronics before the foundation's wiring is complete.</p>
+                        <h4 class="font-cinzel text-xl text-orange-300 mb-4 border-l-4 border-orange-500 pl-4">Standard Ascent Sequence</h4>
+                         <ol class="list-decimal list-inside space-y-3 text-gray-300 mb-6">
+                            <li><strong>Grounding The Root (Muladhara):</strong> Solidify your connection to the earth, ensuring stability before activating higher centers. Survival and safety must be mastered first.</li>
+                            <li><strong>Igniting The Forge (Manipura):</strong> Bypass the second chakra for now. Focus on the third to build personal power, will, and the energy needed for further ascent.</li>
+                            <li><strong>Unlocking The Heart (Anahata):</strong> Open the heart center, transmuting the raw power of Manipura into compassion. This is a critical safety valve.</li>
+                            <li><strong>Activating The Inner Eye (Ajna):</strong> Once the heart is open, the third eye can be safely activated, granting intuition and psychic sight without the distortions of ego.</li>
+                            <li><strong>Crowning Achievement (Sahasrara):</strong> The final gate, opening the practitioner to divine consciousness, can only be approached when all lower centers are balanced and purified.</li>
+                        </ol>
+                        <div class="p-4 rounded-lg bg-yellow-900/30 border border-yellow-500/40"><h5 class="font-bold text-yellow-300 flex items-center gap-2"><i data-lucide="key-round"></i> Hidden Method: The Seed Syllable Resonance</h5><p class="mt-2 text-yellow-400">Each chakra has a true 'seed syllable' (Bija Mantra) which must be vibrated at a specific internal frequency, not just spoken aloud. This 'inner chant' is the key that unlocks the vortex. Furthermore, esoteric traditions speak of 21 minor 'sub-chakras' in the hands, feet, and joints which must be activated first to safely ground the energy from the primary seven.</p></div>
+                    `
+                },
+                astralProjection: {
+                    title: "Astral Projection Methods",
+                    icon: `<i data-lucide="move-3d"></i>`,
+                    content: `
+                        <p class="mb-6 text-lg text-gray-300">This is the art of conscious, controlled soul-flight: the deliberate separation of the subtle body (the Linga Sharira or 'energy double') from the dense physical body. It is the ultimate tool for reconnaissance into other planes, past-life exploration, and direct interaction with non-physical entities. This is not dreaming; it is a state of hyper-awareness outside the physical form.</p>
+                        <h4 class="font-cinzel text-xl text-orange-300 mb-4 border-l-4 border-orange-500 pl-4">Preparatory Protocol</h4>
+                         <ol class="list-decimal list-inside space-y-3 text-gray-300 mb-6">
+                            <li><strong>Body of Sleep, Mind Awake:</strong> Practice Yoga Nidra until you can maintain unbroken awareness while the physical body enters a state of deep sleep. You must master this threshold state.</li>
+                            <li><strong>Vibrational Dis-identification:</strong> Learn to recognize the subtle, high-frequency vibrations that precede separation. Focus on these, amplifying them until they are more 'real' than your physical sensations.</li>
+                            <li><strong>Point of Awareness Projection:</strong> Practice shifting your point of awareness to different parts of the room with your eyes closed. Feel yourself looking at the back of your own head. This builds the 'muscle' of non-physical movement.</li>
+                            <li><strong>Stabilization & Navigation:</strong> Once separated, the first task is to remain calm. Panic will snap you back into the body. Learn to move via intention, not by 'willing' limbs to move. Think of a destination, and you are there.</li>
+                        </ol>
+                        <div class="grid md:grid-cols-2 gap-4 mb-6">
+                            <div class="p-3 rounded-lg bg-black/20"><h5 class="font-bold">The Resonance Method</h5><p class="text-sm text-gray-400">Focusing on a high-frequency internal sound (the 'Nada') until the subtle body's vibration desynchronizes from the physical, allowing for a smooth lift-out.</p></div>
+                            <div class="p-3 rounded-lg bg-black/20"><h5 class="font-bold">The Phosphene Gateway</h5><p class="text-sm text-gray-400">Using gentle pressure on the closed eyelids to induce phosphenes (light patterns), then using focused will to project one's point of awareness *through* the patterns until it emerges on the other side.</p></div>
+                        </div>
+                        <div class="p-4 rounded-lg bg-red-900/30 border-2 border-red-500/40"><h5 class="font-bold text-red-300 flex items-center gap-3 text-xl"><i data-lucide="shield-alert"></i> The Silver Cord Warning</h5><p class="mt-2 text-red-400">The subtle body remains connected to the physical by an energetic umbilical known as the 'Silver Cord'. While it cannot be broken by outside forces, astral entities can 'feed' from it, draining your vital energy. Always project from within a consecrated sacred space and never attempt to travel to the 'lower' astral realms until you have mastered energy shielding.</p></div>
+                    `
+                },
+                dimensionalGateways: {
+                    title: "Dimensional Gateway Protocols",
+                    icon: `<i data-lucide="network"></i>`,
+                    content: `
+                        <p class="mb-6 text-lg text-gray-300">This is the pinnacle of applied metaphysics: the use of the fully integrated consciousness as a key to access parallel realities, higher dimensions, or alternate timelines. It is not about building a physical machine, but about re-tuning the operator's own energetic signature to resonate with the frequency of another plane of existence.</p>
+                         <h4 class="font-cinzel text-xl text-orange-300 mb-4 border-l-4 border-orange-500 pl-4">Gateway Operational Guide</h4>
+                         <ol class="list-decimal list-inside space-y-3 text-gray-300 mb-6">
+                             <li><strong>Establish the Resonance Key:</strong> A sigil representing the target dimension is created not from desire, but from deep meditative insight. It is a mathematical formula, not a mere symbol.</li>
+                             <li><strong>Charge the Conductor:</strong> The sigil is used to charge a physical anchor (like a crystal) for many moon cycles, creating an energetic link between the object and the target reality's frequency.</li>
+                             <li><strong>Attune the Self:</strong> The operator meditates with the charged conductor daily, allowing their own bio-field to slowly and safely attune to the new frequency. Rushing this step leads to psychic fracturing.</li>
+                             <li><strong>The Conscious Shift:</strong> When attunement is complete, in a state of profound trance, the operator uses the conductor as a focal point to consciously shift their perception from their home reality to the target reality. It is a subtle 'tuning' of the mind, not a physical translocation.</li>
+                         </ol>
+                        <div class="p-4 rounded-lg bg-black/20 flex items-center gap-6 mb-6">
+                            <i data-lucide="radio-tower" class="text-orange-300 w-24 h-24 flex-shrink-0"></i>
+                            <div>
+                                <h4 class="font-cinzel text-xl text-orange-300">You Are The Gateway</h4>
+                                <p class="text-gray-400 mt-1">Reality is a spectrum of frequencies. By using advanced visualization and internal energy manipulation, the practitioner can shift their own base frequency. When your frequency matches that of another dimension, you begin to perceive it. Master operators can create a stable 'gate' for consciousness to pass through.</p>
+                            </div>
+                        </div>
+                        <div class="p-4 rounded-lg bg-red-900/30 border-2 border-red-500/40"><h5 class="font-bold text-red-300 flex items-center gap-3 text-xl"><i data-lucide="shield-alert"></i> The Law of Contagion Warning</h5><p class="mt-2 text-red-400">The charged conductor becomes permanently entangled with the target dimension. It acts as a two-way door. If not properly shielded, influences from that dimension can 'bleed' back through the anchor into your reality. Mis-tuning or opening a gate to an unstable reality can result in catastrophic psychic bleed-through and severe destabilization of one's own timeline.</p></div>
+                    `
+                },
+
+                // --- Sacred Tools & Instruments ---
+                kalasha: { 
+                    title: "Ritual Vessels (Kalasha)", 
+                    icon: `🏺`, 
+                    content: `
+                        <p class="mb-6 text-lg text-gray-300">The Kalasha is not a mere water pot; it is a microcosm of creation, a temporary housing for the cosmos itself. The pot represents the earth element, the water within it the primordial ocean of unmanifest potential, and the coconut on top the point of divine consciousness. It is a living battery, capable of storing immense pranic charge.</p>
+                        <h4 class="font-cinzel text-xl text-orange-300 mb-4 border-l-4 border-orange-500 pl-4">Consecration Protocol</h4>
+                         <ol class="list-decimal list-inside space-y-3 text-gray-300 mb-6">
+                            <li><strong>Elemental Infusion:</strong> Fill the vessel with pure spring water. Add a piece of silver or gold (sun/moon correspondence), a gem resonant with your purpose, and five specific leaves (e.g., mango) to represent the five elements.</li>
+                            <li><strong>Pranic Charging:</strong> Place both hands around the Kalasha without touching it. Inhale, drawing universal energy into your core. Exhale, projecting this prana into the water, visualizing it glowing with brilliant light.</li>
+                            <li><strong>Mantra Sealing:</strong> Chant the appropriate mantra 108 times over the water, 'sealing' the energy and programming it with your specific intention. The water is now 'alive' and consecrated (Tirtha).</li>
+                            <li><strong>Final Installation:</strong> Place the coconut atop the vessel, sealing the circuit. The consecrated water can now be used for purification, empowerment of other objects, or as a focal point for meditation.</li>
+                         </ol>
+                        <div class="p-4 rounded-lg bg-yellow-900/30 border border-yellow-500/40"><h5 class="font-bold text-yellow-300 flex items-center gap-2"><i data-lucide="lightbulb"></i> Hidden Knowledge</h5><p class="mt-2 text-yellow-400">A fully charged Kalasha creates a localized 'zone of reality' around it. Within this zone, the laws of probability are slightly altered to favor the intention with which it was charged. Multiple Kalashas arranged in a geometric pattern can create a powerful temple-grid.</p></div>
+                    `
+                },
+                khatvanga: { 
+                    title: "Sacred Wands (Khatvanga)", 
+                    icon: `⚔️`, 
+                    content: `
+                        <p class="mb-6 text-lg text-gray-300">The Khatvanga is not a wand, but a scepter of psychic dominion. Traditionally topped with a skull, it symbolizes the practitioner's mastery over the ego, death, and the phenomenal world. It does not merely direct energy; it commands the spirits of the three worlds (heaven, earth, underworld) and enforces the operator's will upon the fabric of reality.</p>
+                        <h4 class="font-cinzel text-xl text-orange-300 mb-4 border-l-4 border-orange-500 pl-4">Operational Principles</h4>
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div class="p-4 rounded-lg bg-black/20"><h4 class="font-cinzel text-lg text-orange-300 mb-2">Conduction & Projection</h4><p class="text-gray-400">Acts as a spiritual lightning rod, drawing down cosmic energies through the operator's crown and focusing them into an intense, directed beam through the scepter's point.</p></div>
+                            <div class="p-4 rounded-lg bg-black/20"><h4 class="font-cinzel text-lg text-orange-300 mb-2">Command & Binding</h4><p class="text-gray-400">Used in advanced goetia and theurgy to draw spiritual hierarchies, bind entities to a specific task, or banish hostile forces from a consecrated space with absolute authority.</p></div>
+                        </div>
+                        <div class="p-4 rounded-lg bg-red-900/30 border-2 border-red-500/40"><h5 class="font-bold text-red-300 flex items-center gap-3 text-xl"><i data-lucide="shield-alert"></i> The Ego-Shattering Risk</h5><p class="mt-2 text-red-400">Wielding a Khatvanga without having achieved ego-death is psychic suicide. The immense power it channels will inflate any latent egoic structures within the operator, leading to madness, megalomania, and a catastrophic shattering of the psyche. The skull on top is not a decoration; it is a constant reminder of the required prerequisite.</p></div>
+                    `
+                },
+                yantra: { 
+                    title: "Power Objects (Yantra)", 
+                    icon: `💠`, 
+                    content: `
+                        <p class="mb-6 text-lg text-gray-300">A Yantra is a geometric soul-engine, a visual representation of the universe's mathematical and energetic structure. It is a divine schematic. By focusing the mind upon its specific angles, shapes, and bindu (central point), the practitioner's consciousness is forced to resonate at the same frequency as the deity or cosmic principle the Yantra represents, creating a state of non-dual union.</p>
+                        <h4 class="font-cinzel text-xl text-orange-300 mb-4 border-l-4 border-orange-500 pl-4">Activation Method (Trataka & Mantra)</h4>
+                         <ol class="list-decimal list-inside space-y-3 text-gray-300 mb-6">
+                             <li><strong>Gaze Fixation (Trataka):</strong> Place the Yantra at eye level. Gaze at the bindu (central point) without blinking, allowing the peripheral shapes to dissolve and imprint upon your subconscious.</li>
+                             <li><strong>Mental Imprinting:</strong> Close the eyes and perfectly recreate the Yantra's image in your mind's eye (the Chidakasha). It should glow with inner light.</li>
+                             <li><strong>Vibrational Resonance:</strong> While holding the mental image, begin chanting the Yantra's associated mantra. This overlays the sonic frequency upon the geometric frequency, fully activating the 'engine'.</li>
+                             <li><strong>Conscious Union:</strong> The practitioner dissolves their sense of self into the vibrating, glowing mental form of the Yantra, becoming one with the cosmic principle it embodies.</li>
+                         </ol>
+                        <div class="p-4 rounded-lg bg-yellow-900/30 border border-yellow-500/40"><h5 class="font-bold text-yellow-300 flex items-center gap-2"><i data-lucide="lightbulb"></i> Hidden Knowledge</h5><p class="mt-2 text-yellow-400">A master can use a Yantra not just for union, but as a circuit diagram for reality-bending. By projecting prana into specific pathways of the Yantra, they can influence the corresponding forces in the macrocosm. Some forbidden Yantras are said to be schematics for creating dimensional rifts.</p></div>
+                    `
+                },
+                ghanta: { 
+                    title: "Sound Tools (Ghanta)", 
+                    icon: `🔔`, 
+                    content: `
+                        <p class="mb-6 text-lg text-gray-300">The ritual bell is an instrument for manipulating the Aether (Akasha). Its sound is not for hearing, but for vibrating. The frequency is designed to shatter dissonant or hostile astral structures, while the silence *between* the rings creates a momentary vacuum or portal in spacetime. The body of the bell represents the feminine principle (wisdom), and the clapper represents the masculine (method).</p>
+                        <h4 class="font-cinzel text-xl text-orange-300 mb-4 border-l-4 border-orange-500 pl-4">Aetheric Operations</h4>
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div class="p-4 rounded-lg bg-black/20"><h4 class="font-cinzel text-lg text-orange-300 mb-2">Banishing Rhythm</h4><p class="text-gray-400">A sharp, chaotic, and continuous ringing is used to break up stagnant energy and drive out unwanted astral entities. It creates a vibrational 'white noise' that lower entities cannot tolerate.</p></div>
+                            <div class="p-4 rounded-lg bg-black/20"><h4 class="font-cinzel text-lg text-orange-300 mb-2">Invoking Tone</h4><p class="text-gray-400">A single, clear, resonant ring that is allowed to fade completely into silence. This tone attunes the space to a higher frequency, inviting divine presences. The moment of complete silence is the true moment of invocation.</p></div>
+                        </div>
+                        <div class="p-4 rounded-lg bg-yellow-900/30 border border-yellow-500/40"><h5 class="font-bold text-yellow-300 flex items-center gap-2"><i data-lucide="key-round"></i> The Unfound Method: The Silent Portal</h5><p class="mt-2 text-yellow-400">By focusing one's full awareness into the perfect silence immediately following a powerful ring, a trained practitioner can use this 'aetheric vacuum' as a scrying gateway. For a brief moment, the veil between worlds thins, allowing for visions or communication with non-physical intelligences.</p></div>
+                    `
+                },
+                dravya: { 
+                    title: "Offering Materials (Dravya)", 
+                    icon: `🌿`, 
+                    content: `
+                        <p class="mb-6 text-lg text-gray-300">Dravya are not mere 'offerings'; they are packages of cosmic information, elemental fuel for the ritual engine. Each herb, grain, resin, or liquid carries a specific planetary and elemental signature. When offered to the sacred fire (Agni), the gross matter is destroyed, but its subtle essence—its informational and energetic signature—is released and transmitted to the intended recipient deity or force.</p>
+                        <h4 class="font-cinzel text-xl text-orange-300 mb-4 border-l-4 border-orange-500 pl-4">Energetic Charging Protocol</h4>
+                         <ol class="list-decimal list-inside space-y-3 text-gray-300 mb-6">
+                            <li><strong>Material Selection:</strong> Choose the Dravya based on its correspondence to your goal. (e.g., Sandalwood for spiritual purity, cloves for protection, rice for abundance).</li>
+                            <li><strong>Mantra Infusion:</strong> Hold the material in your right hand. Chant the relevant mantra, visualizing the sonic vibrations being absorbed into the substance until it hums with energy.</li>
+                            <li><strong>Intentional Imprinting:</strong> Clearly and powerfully visualize your desired outcome, projecting this mental image into the Dravya. The material is now a 'hard drive' containing your will.</li>
+                            <li><strong>The Offering:</strong> When offered to the fire with the final utterance of the mantra, the material is transmuted, and the imprinted information is broadcast across the planes.</li>
+                         </ol>
+                        <div class="p-4 rounded-lg bg-red-900/30 border-2 border-red-500/40"><h5 class="font-bold text-red-300 flex items-center gap-3 text-xl"><i data-lucide="alert-triangle"></i> The Sympathetic Warning</h5><p class="mt-2 text-red-400">Using materials with the wrong correspondence can have disastrous results. Offering a Saturn-ruled herb in a Venus ritual can create conflict and disharmony instead of love. The energies must be compatible. Left-hand path traditions use forbidden Dravya (blood, intoxicants) to power their rites, which creates a rapid but dangerously unstable karmic debt.</p></div>
+                    `
+                },
+
+                // --- Specialized Applications ---
+                protectionProtocols: { 
+                    title: "Protection Protocols", 
+                    icon: `<i data-lucide="shield"></i>`, 
+                    content: `
+                        <p class="mb-6 text-lg text-gray-300">This is the science of psychic self-defense. It involves creating sentient, programmable energy structures (shields and wards) to protect one's personal energetic field from psychic attack, ambient negative energy, and parasitic entities. It is the art of defining and securing your personal energetic sovereignty.</p>
+                        <h4 class="font-cinzel text-xl text-orange-300 mb-4 border-l-4 border-orange-500 pl-4">The Mirror Shield of the Psyche</h4>
+                         <ol class="list-decimal list-inside space-y-3 text-gray-300 mb-6">
+                            <li><strong>Gather Prana:</strong> Through deep, rhythmic breathing, draw universal life force into your solar plexus until you feel a distinct warmth and pressure.</li>
+                            <li><strong>Form The Sphere:</strong> Visualize this energy expanding from your core into a perfect, seamless sphere of brilliant white or blue light that completely envelops your aura.</li>
+                            <li><strong>Program The Surface:</strong> Will the outer surface of this sphere to become a perfect, flawless mirror. Program it with a single, simple command: "Reflect all that is not of my highest good."</li>
+                            <li><strong>Make It Sentient:</strong> Project a spark of your own consciousness into the sphere, giving it the intelligence to differentiate between harmful and beneficial energies. Feed it a small amount of prana daily to keep it strong.</li>
+                         </ol>
+                        <div class="p-4 rounded-lg bg-red-900/30 border-2 border-red-500/40"><h5 class="font-bold text-red-300 flex items-center gap-3 text-xl"><i data-lucide="shield-alert"></i> Forbidden Method: The Aegis of Devouring Darkness</h5><p class="mt-2 text-red-400">An advanced and dangerous shield created from pure Void energy. It does not reflect, but absorbs and annihilates any energy directed at it. While offering absolute protection, it constantly drains the user's life force and can, if improperly controlled, begin to devour parts of its creator's own psyche.</p></div>
+                    `
+                },
+                healingTechnologies: { 
+                    title: "Healing Technologies", 
+                    icon: `<i data-lucide="activity-square"></i>`, 
+                    content: `
+                        <p class="mb-6 text-lg text-gray-300">This is the art of energetic recalibration. Sickness, whether physical, emotional, or mental, is seen as a blockage or disharmony in the subtle energy body. These technologies use focused prana and specific frequencies to dissolve blockages, repair auric tears, and restore the subject's energetic blueprint to its original, perfect state.</p>
+                        <h4 class="font-cinzel text-xl text-orange-300 mb-4 border-l-4 border-orange-500 pl-4">Protocol for Energetic Recalibration</h4>
+                         <ol class="list-decimal list-inside space-y-3 text-gray-300 mb-6">
+                            <li><strong>Scan The Field:</strong> With hands held a few inches from the subject's body, 'scan' their energy field. You will feel areas of heat, cold, tingling, or density that correspond to imbalances.</li>
+                            <li><strong>Cleanse The Area:</strong> Use a sweeping motion with your hands to 'comb' out the congested or dissonant energy from the affected area. Visualize it being cast into a violet fire of transmutation.</li>
+                            <li><strong>Gather & Project:</strong> Draw clean, universal prana into your own system. Project a beam of this healing energy from your palm or third eye directly into the cleansed area, visualizing it filling with vibrant, healing light.</li>
+                            <li><strong>Seal The Aura:</strong> Once the area feels balanced, 'smooth' over the subject's entire aura with your hands, ensuring it is whole and sealed against further leakage or intrusion.</li>
+                         </ol>
+                        <div class="p-4 rounded-lg bg-yellow-900/30 border border-yellow-500/40"><h5 class="font-bold text-yellow-300 flex items-center gap-2"><i data-lucide="alert-triangle"></i> The Empathic Drain Warning</h5><p class="mt-2 text-yellow-400">An untrained healer will often unconsciously absorb the energetic sickness they are clearing from others. This is why rigorous self-purification and shielding are prerequisites. Without proper energetic hygiene, a healer can become a dumping ground for the maladies of others, leading to burnout and chronic illness.</p></div>
+                    `
+                },
+                prosperityEngineering: { 
+                    title: "Prosperity Engineering", 
+                    icon: `<i data-lucide="trending-up"></i>`, 
+                    content: `
+                        <p class="mb-6 text-lg text-gray-300">This is the science of aligning one's personal vibratory frequency with the universal current of abundance. It is not about 'attracting money,' but about removing the internal blockages of scarcity and lack, thereby becoming a natural conduit through which prosperity, opportunity, and resources can flow. You are re-engineering your reality to be a magnet for wealth in all its forms.</p>
+                        <h4 class="font-cinzel text-xl text-orange-300 mb-4 border-l-4 border-orange-500 pl-4">The Abundance Matrix Sigil</h4>
+                         <ol class="list-decimal list-inside space-y-3 text-gray-300 mb-6">
+                            <li><strong>Craft The Statement of Intent:</strong> Write a clear, concise statement of your financial reality in the present tense, e.g., "MY WILL IS ABUNDANT FLOW."</li>
+                            <li><strong>Remove The Vowels & Repeats:</strong> The statement becomes "MYWLSBDNTF".</li>
+                            <li><strong>Form The Sigil:</strong> Creatively combine these letters into a single, abstract glyph that is visually pleasing to you. This is your personal key to the abundance matrix.</li>
+                            <li><strong>Charge & Release:</strong> Gaze at the sigil until it flashes in your mind's eye, pouring the feeling of ecstatic gratitude into it. Then, burn or destroy the physical sigil, releasing its pattern into the Aether to begin its work of restructuring your reality field.</li>
+                         </ol>
+                        <div class="p-4 rounded-lg bg-red-900/30 border-2 border-red-500/40"><h5 class="font-bold text-red-300 flex items-center gap-3 text-xl"><i data-lucide="anchor"></i> The Poverty of Spirit</h5><p class="mt-2 text-red-400">Focusing solely on material gain while neglecting spiritual growth creates a dangerous imbalance. The universe may deliver the requested wealth, but it will come at the cost of peace, relationships, and health. True prosperity engineering cultivates abundance on all planes of existence simultaneously.</p></div>
+                    `
+                },
+                relationshipHarmonization: { 
+                    title: "Relationship Harmonization", 
+                    icon: `<i data-lucide="users"></i>`, 
+                    content: `
+                        <p class="mb-6 text-lg text-gray-300">This is the practice of energetic diplomacy. It operates on the principle that all relationships are governed by the subtle energetic cords that form between individuals. Disharmony, conflict, and obsession are symptoms of tangled, frayed, or parasitic cords. These protocols are designed to cleanse, repair, and balance these connections, fostering understanding and harmony without manipulating free will.</p>
+                        <h4 class="font-cinzel text-xl text-orange-300 mb-4 border-l-4 border-orange-500 pl-4">The Cord Cleansing Rite</h4>
+                         <ol class="list-decimal list-inside space-y-3 text-gray-300 mb-6">
+                            <li><strong>Visualize The Subject:</strong> In a meditative state, visualize the person with whom you seek harmony standing before you.</li>
+                            <li><strong>Perceive The Cords:</strong> Ask to be shown the energetic cords connecting your heart and solar plexus chakras. Observe their color, thickness, and condition without judgment.</li>
+                            <li><strong>Invoke Archangel Michael:</strong> Call upon the Archangel Michael (or a similar archetype of divine protection and power) and ask for his sword of blue flame.</li>
+                            <li><strong>The Loving Severance:</strong> Use the sword to cleanly sever any cords that feel dark, heavy, or draining. As you cut, say "I release what is not of love. I reclaim my energy. I send you peace." This is an act of healing, not aggression. Visualize the cut ends being sealed with golden light on both you and the other person.</li>
+                         </ol>
+                        <div class="p-4 rounded-lg bg-red-900/30 border-2 border-red-500/40"><h5 class="font-bold text-red-300 flex items-center gap-3 text-xl"><i data-lucide="link-2-off"></i> The Karmic Knot Warning</h5><p class="mt-2 text-red-400">Never use these techniques to try and force a relationship or bind someone to you. Attempting to create or manipulate energetic cords against another's free will creates a severe and immediate karmic backlash that can bind you to a cycle of suffering and obsession for lifetimes. The goal is harmony, not control.</p></div>
+                    `
+                },
+                careerAlignment: { 
+                    title: "Career/Purpose Alignment", 
+                    icon: `<i data-lucide="briefcase"></i>`, 
+                    content: `
+                        <p class="mb-6 text-lg text-gray-300">This technology is for the discovery and actualization of one's True Will or Dharma. It is a process of systematic divination and self-inquiry designed to bypass the noise of societal expectation and egoic desire to connect directly with the soul's unique purpose for this incarnation. It's about finding the work that is not a job, but a sacred calling.</p>
+                        <h4 class="font-cinzel text-xl text-orange-300 mb-4 border-l-4 border-orange-500 pl-4">The Dharma Compass Meditation</h4>
+                         <ol class="list-decimal list-inside space-y-3 text-gray-300 mb-6">
+                            <li><strong>Enter The Inner Temple:</strong> In a deep trance, visualize a sacred space within your heart center. This is your personal sanctum.</li>
+                            <li><strong>Summon The Guide:</strong> Ask for your Holy Guardian Angel or Higher Self to appear before you in a form you can understand. This is the pure, unfiltered aspect of your own consciousness.</li>
+                            <li><strong>Ask The Question:</strong> Ask your guide a single, direct question: "What is the next step on the path of my highest purpose?" Do not ask what your whole purpose is, as the answer would be incomprehensible. Ask for the next step.</li>
+                            <li><strong>Receive The Symbol:</strong> Your guide will answer not in words, but with a symbol, a feeling, or a single image. Do not analyze it. Simply receive it and give thanks.</li>
+                            <li><strong>Meditate on The Symbol:</strong> Upon returning, meditate upon this symbol daily. Its meaning and the direction it points to will unfold naturally in your conscious mind and manifest as opportunities in your outer world.</li>
+                         </ol>
+                        <div class="p-4 rounded-lg bg-yellow-900/30 border border-yellow-500/40"><h5 class="font-bold text-yellow-300 flex items-center gap-2"><i data-lucide="alert-triangle"></i> The Ego's Ambition Trap</h5><p class="mt-2 text-yellow-400">The ego often mistakes its own ambitions for wealth, fame, or power as True Will. The guidance from the Higher Self may often point towards humble, unexpected, or even difficult paths. True purpose is found in service and soul-growth, not necessarily in worldly success. Confusing the two leads to a life of profound dissatisfaction, even if external goals are met.</p></div>
+                    `
+                },
+                
+                // --- Temple Technologies ---
+                templeDeityInstallation: { 
+                    title: "Temple Deity Installation", 
+                    icon: `<i data-lucide="church"></i>`, 
+                    content: `
+                        <p class="mb-6 text-lg text-gray-300">This is Prana Pratishtha on a macrocosmic scale. It is the process of transforming a building from a mere structure into a living, breathing 'God-House'—a permanent anchor and nexus for a divine consciousness on the physical plane. The temple itself becomes the body of the deity, and the central idol its heart.</p>
+                        <h4 class="font-cinzel text-xl text-orange-300 mb-4 border-l-4 border-orange-500 pl-4">Architectural Theurgy Protocol</h4>
+                         <ol class="list-decimal list-inside space-y-3 text-gray-300 mb-6">
+                            <li><strong>Geomantic Siting:</strong> The temple must be built upon a site of significant telluric energy (a ley line intersection or 'power spot'). The foundation stone itself is the first object to be consecrated.</li>
+                            <li><strong>Astrological Foundation:</strong> The construction must begin under a precise and powerful astrological configuration that is in harmony with the chosen deity.</li>
+                            <li><strong>Yantra-Based Architecture:</strong> The temple's floor plan is designed as a massive, three-dimensional Yantra. Every pillar, doorway, and chamber is a component in a divine circuit.</li>
+                            <li><strong>The Heart Installation (Garbhagriha):</strong> The central idol is installed in the 'womb chamber' via a mass-scale Prana Pratishtha ritual, often involving a lineage of priests chanting for days to generate the required energy. This ignites the entire temple structure.</li>
+                         </ol>
+                        <div class="p-4 rounded-lg bg-red-900/30 border-2 border-red-500/40"><h5 class="font-bold text-red-300 flex items-center gap-3 text-xl"><i data-lucide="radio-tower"></i> The Psychic Beacon Warning</h5><p class="mt-2 text-red-400">A fully activated temple is an immensely powerful psychic beacon, attracting both positive and negative entities. If not properly warded and maintained, it can become a feeding ground for astral parasites or a target for psychic attack, affecting the entire surrounding community.</p></div>
+                    `
+                },
+                spaceMaintenance: { 
+                    title: "Sacred Space Maintenance", 
+                    icon: `<i data-lucide="scan"></i>`, 
+                    content: `
+                        <p class="mb-6 text-lg text-gray-300">A consecrated temple is a living entity that is constantly subject to 'energetic entropy.' This is the science of spiritual hygiene on a grand scale, ensuring the temple's energy remains pure, potent, and aligned with its original purpose over decades or centuries. It is the janitorial work of the gods.</p>
+                        <h4 class="font-cinzel text-xl text-orange-300 mb-4 border-l-4 border-orange-500 pl-4">Maintenance Schedule</h4>
+                        <div class="grid md:grid-cols-3 gap-4 text-center mb-6">
+                           <div class="p-3 bg-black/20 rounded-lg"><h5 class="font-bold">Daily</h5><p class="text-sm text-gray-400">Cleansing with sound/incense, refreshing water offerings, re-lighting lamps to feed the 'spirit of the place'.</p></div>
+                           <div class="p-3 bg-black/20 rounded-lg"><h5 class="font-bold">Weekly</h5><p class="text-sm text-gray-400">Recalibrating elemental wards at the four corners, washing the central idol with consecrated liquids (Abhishekam).</p></div>
+                           <div class="p-3 bg-black/20 rounded-lg"><h5 class="font-bold">Annually</h5><p class="text-sm text-gray-400">Major festival rituals to perform a full 'energetic reset' and purge any accumulated psychic debris from the previous year.</p></div>
+                        </div>
+                        <div class="p-4 rounded-lg bg-yellow-900/30 border border-yellow-500/40"><h5 class="font-bold text-yellow-300 flex items-center gap-2"><i data-lucide="bug"></i> Hidden Knowledge: Astral Squatters</h5><p class="mt-2 text-yellow-400">Over time, minor non-physical entities can take up residence in neglected corners of a temple, feeding on the ambient energy. Regular 'audits' using scrying or astral projection are required to identify and peacefully remove these squatters before they can disrupt the temple's core vibration.</p></div>
+                    `
+                },
+                energyGrids: { 
+                    title: "Energy Grid Systems", 
+                    icon: `<i data-lucide="grid-3x3"></i>`, 
+                    content: `
+                        <p class="mb-6 text-lg text-gray-300">This is advanced geomancy, the art of creating a localized, self-sustaining field of high-frequency energy. By identifying and amplifying the natural energy lines of the earth (ley lines), and connecting them with strategically placed conductors (crystals, metals), a practitioner can create a permanent 'free energy' grid for ritual or protective purposes.</p>
+                        <h4 class="font-cinzel text-xl text-orange-300 mb-4 border-l-4 border-orange-500 pl-4">Grid Construction Protocol</h4>
+                         <ol class="list-decimal list-inside space-y-3 text-gray-300 mb-6">
+                            <li><strong>Dowsing The Lines:</strong> Use dowsing rods or a pendulum to map the flow of telluric currents across the target area. Identify the primary 'nodes' where these lines intersect.</li>
+                            <li><strong>Placing The Amplifiers:</strong> Bury large, consecrated quartz crystals point-down at each identified node. This draws the earth energy upwards and amplifies it.</li>
+                            <li><strong>Creating The Circuit:</strong> Connect the buried crystals with channels of copper filings or by laying copper wire. This creates a physical circuit for the energy to flow through.</li>
+                            <li><strong>Activating The Grid:</strong> Perform a ritual at the central node of the grid, projecting a massive amount of prana into the system to 'jump-start' it. The grid will then become self-sustaining, powered by the earth's natural currents.</li>
+                         </ol>
+                        <div class="p-4 rounded-lg bg-red-900/30 border-2 border-red-500/40"><h5 class="font-bold text-red-300 flex items-center gap-3 text-xl"><i data-lucide="biohazard"></i> Ecological Disruption Warning</h5><p class="mt-2 text-red-400">Improperly constructed grids can disrupt the natural flow of telluric energy, causing 'energetic pollution' that can negatively affect the local ecosystem, including the health of plants, animals, and even humans living nearby. This is a profound responsibility and should not be undertaken lightly.</p></div>
+                    `
+                },
+                objectPlacement: { 
+                    title: "Power Object Placement", 
+                    icon: `<i data-lucide="locate-fixed"></i>`, 
+                    content: `
+                        <p class="mb-6 text-lg text-gray-300">This is the sacred art of energetic feng shui. A temple is a complex energetic machine, and the placement of every idol, altar, and ritual tool is analogous to placing components on a circuit board. The goal is to create a harmonious and powerful flow of prana that supports the temple's specific purpose, whether for healing, enlightenment, or prosperity.</p>
+                        <h4 class="font-cinzel text-xl text-orange-300 mb-4 border-l-4 border-orange-500 pl-4">Core Placement Principles</h4>
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div class="p-4 rounded-lg bg-black/20"><h4 class="font-cinzel text-lg text-orange-300 mb-2">Directional Alignment</h4><p class="text-gray-400">Protective deities face the entrance. Deities of wealth are placed in the southeast corner. Altars for knowledge are in the northeast. Each direction carries a specific elemental and planetary energy.</p></div>
+                            <div class="p-4 rounded-lg bg-black/20"><h4 class="font-cinzel text-lg text-orange-300 mb-2">Hierarchical Positioning</h4><p class="text-gray-400">The primary deity is always at the center or highest point. Subsidiary deities and tools are placed in positions of lesser prominence, creating a clear energetic flow towards the central point of power.</p></div>
+                        </div>
+                        <div class="p-4 rounded-lg bg-yellow-900/30 border border-yellow-500/40"><h5 class="font-bold text-yellow-300 flex items-center gap-2"><i data-lucide="key-round"></i> Unfound Method: The Reflective Circuit</h5><p class="mt-2 text-yellow-400">Guarded traditions use strategically placed mirrors (often consecrated and inscribed with hidden sigils) and polished metal plates to create complex, invisible pathways of energy. They can be used to bounce energy from one power object to another, creating powerful feedback loops or directing the temple's entire energy output towards a single point for specific magical operations.</p></div>
+                    `
+                },
+                offeringsScience: { 
+                    title: "Offerings Science", 
+                    icon: `<i data-lucide="sprout"></i>`, 
+                    content: `
+                        <p class="mb-6 text-lg text-gray-300">This goes beyond simple Dravya. A temple is a collective energetic entity, or 'Egregore,' that requires constant and varied sustenance to remain alive and potent. The science of offerings is the understanding of how to feed this entity with the correct balance of physical, emotional, and pranic 'nutrients' to ensure its health and power.</p>
+                         <h4 class="font-cinzel text-xl text-orange-300 mb-4 border-l-4 border-orange-500 pl-4">The Temple's Diet</h4>
+                        <div class="grid md:grid-cols-3 gap-4 text-center mb-6">
+                           <div class="p-3 bg-black/20 rounded-lg"><h5 class="font-bold">Physical Sustenance</h5><p class="text-sm text-gray-400">Incense, flowers, pure water, and blessed food. These provide the basic elemental energies the egregore needs to maintain its form.</p></div>
+                           <div class="p-3 bg-black/20 rounded-lg"><h5 class="font-bold">Emotional Sustenance</h5><p class="text-sm text-gray-400">The focused devotion, gratitude, and love from attendees. This is the 'richest' food for the entity and the source of its benevolence.</p></div>
+                           <div class="p-3 bg-black/20 rounded-lg"><h5 class="font-bold">Pranic Sustenance</h5><p class="text-sm text-gray-400">The raw energy generated from scheduled rituals, chanting, and fire ceremonies. This is the high-potency fuel that powers the temple's major operations.</p></div>
+                        </div>
+                        <div class="p-4 rounded-lg bg-red-900/30 border-2 border-red-500/40"><h5 class="font-bold text-red-300 flex items-center gap-3 text-xl"><i data-lucide="shield-alert"></i> The Starved Egregore Warning</h5><p class="mt-2 text-red-400">A temple that is neglected and not fed will not simply die. The egregore, in its hunger, can become parasitic. It will begin to actively drain the life force of any who enter, becoming a place of spiritual danger rather than a sanctuary. Many 'haunted' locations are merely temples with starved egregores.</p></div>
+                    `
+                },
+                
+                // --- Advanced Battle Protocols (RE-ENHANCED UI/LAYOUT) ---
+                darkForces: { 
+                    title: "Protection: The Tower of Silence", 
+                    icon: `<i data-lucide="shield-off" class="text-red-400"></i>`, 
+                    content: `
+                        <p class="mb-8 text-lg text-red-300 text-center">This is not defense. This is erasure. It is the art of creating a psychic 'black spot' by actively negating your own energetic signature, rendering you invisible to hostile forces.</p>
+                        
+                        <div class="p-4 bg-black/20 rounded-lg border-t-2 border-red-500/50 mb-8">
+                             <h4 class="font-cinzel text-xl text-red-300 mb-4 text-center">Signature Erasure Protocol</h4>
+                             <div class="flex flex-col md:flex-row items-center justify-center gap-6 text-center mb-4">
+                                <i data-lucide="user" class="h-16 w-16 text-orange-300 opacity-50"></i>
+                                <i data-lucide="arrow-right" class="h-12 w-12 text-red-500"></i>
+                                <div class="relative w-24 h-24 bg-black rounded-full flex items-center justify-center border-2 border-dashed border-red-500/50">
+                                   <i data-lucide="eye-off" class="h-12 w-12 text-red-400"></i>
+                                </div>
+                             </div>
+                             <ol class="list-decimal list-inside space-y-3 text-gray-300">
+                                <li><strong>Psychic Dissociation:</strong> In a state of deep trance, systematically withdraw your consciousness from your physical body, your emotions, and your thoughts until you are a point of pure, characterless awareness.</li>
+                                <li><strong>Construct The Void:</strong> Visualize a tower of perfect, featureless black obsidian rising around this point of awareness. There are no doors, no windows. Inside, there is no light, no sound, no sensation.</li>
+                                <li><strong>Project The Null-Field:</strong> From within this mental construct, project an aura of 'nothingness.' Not peace, not silence, but a profound and absolute void. To any scrying entity, you will appear as a hole in the fabric of the astral plane.</li>
+                                <li><strong>Maintain The Stillness:</strong> This is not a 'fire-and-forget' technique. The Tower of Silence requires constant, unwavering focus to maintain. Any flicker of ego, emotion, or thought can compromise its integrity.</li>
+                             </ol>
+                        </div>
+
+                        <div class="p-4 rounded-lg bg-black/40 border-2 border-red-500/40 mt-8"><h5 class="font-bold text-red-300 flex items-center gap-3 text-xl"><i data-lucide="skull"></i> Forbidden Alternative: The Scarecrow Servitor</h5><p class="mt-2 text-red-400">Instead of hiding, create a terrifying thought-form programmed to project the psychic signature of an ancient, predatory, and insane entity. Lesser predators will flee. The apocalyptic risk? The Scarecrow, fed by your fear, can achieve sentience and turn on its creator.</p></div>
+                    `
+                },
+                shieldCreation: { 
+                    title: "Shielding: The Kavacha Mandala", 
+                    icon: `<i data-lucide="shield-check" class="text-red-400"></i>`, 
+                    content: `
+                        <p class="mb-8 text-lg text-red-300 text-center">Military-grade psychic armament. A sentient, multi-layered defense system designed to counter specific forms of psychic assault.</p>
+                        <h4 class="font-cinzel text-xl text-red-300 mb-6 text-center">Multi-Layered Defense Construction</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-4 p-3 bg-black/20 rounded-lg border-l-4 border-red-500/50"><div class="w-8 h-8 mt-1 flex-shrink-0 flex items-center justify-center rounded-full bg-red-900/50 text-red-300 font-bold">1</div><div><h5 class="font-bold">Ablative Armor (Outer)</h5><p class="text-sm text-gray-400">A crackling, incandescent shell programmed to shatter on impact, absorbing the kinetic force of a direct attack and instantly reforming.</p></div></div>
+                            <div class="flex items-start gap-4 p-3 bg-black/20 rounded-lg border-l-4 border-red-500/50"><div class="w-8 h-8 mt-1 flex-shrink-0 flex items-center justify-center rounded-full bg-red-900/50 text-red-300 font-bold">2</div><div><h5 class="font-bold">The Hall of Mirrors</h5><p class="text-sm text-gray-400">A perfectly smooth, reflective layer designed to bounce curses, hexes, and directed ill-will back to their sender, often amplified.</p></div></div>
+                            <div class="flex items-start gap-4 p-3 bg-black/20 rounded-lg border-l-4 border-red-500/50"><div class="w-8 h-8 mt-1 flex-shrink-0 flex items-center justify-center rounded-full bg-red-900/50 text-red-300 font-bold">3</div><div><h5 class="font-bold">The Filter Matrix</h5><p class="text-sm text-gray-400">A semi-permeable membrane tuned to your unique energy signature. It allows beneficial energies in but filters out psychic suggestion, emotional manipulation, and mental viruses.</p></div></div>
+                            <div class="flex items-start gap-4 p-3 bg-black/20 rounded-lg border-l-4 border-red-500/50"><div class="w-8 h-8 mt-1 flex-shrink-0 flex items-center justify-center rounded-full bg-red-900/50 text-red-300 font-bold">4</div><div><h5 class="font-bold">The Retaliator (Core)</h5><p class="text-sm text-gray-400">The sentient core of the shield. If the outer layers are breached, it lashes out with a targeted burst of raw force, designed to stun and disorient the attacker, giving you time to counter.</p></div></div>
+                        </div>
+                        <div class="p-4 rounded-lg bg-black/40 border-2 border-red-500/40 mt-8"><h5 class="font-bold text-red-300 flex items-center gap-3 text-xl"><i data-lucide="portal"></i> The Hell-Gate Ward</h5><p class="mt-2 text-red-400">The most dangerous defensive technique. Upon detecting an attack, it rips a micro-portal to a chaotic dimension, shunting the attack—and a fragment of the attacker's soul—into the Outer Dark. The risk is absolute: if your will falters, the portal can destabilize and remain open.</p></div>
+                    `
+                },
+                energyDissolution: { 
+                    title: "Dissolution: The Black Sun Transmutation", 
+                    icon: `<i data-lucide="eraser" class="text-red-400"></i>`, 
+                    content: `
+                        <p class="mb-8 text-lg text-red-300 text-center">This is not cleansing. This is unmaking. For energies too deeply embedded to be banished, this protocol annihilates them, reducing them to a nullity from which they cannot reform.</p>
+                        <h4 class="font-cinzel text-xl text-red-300 mb-6 text-center">Annihilation Protocol</h4>
+                        <div class="flex flex-col md:flex-row items-stretch justify-center gap-4 text-center">
+                            <div class="p-4 bg-black/20 rounded-lg border border-red-500/20 flex-1 flex flex-col justify-center"><div class="font-bold mb-2">1. Isolate & Extract</div><p class="text-sm text-gray-400">Using your will as a psychic scalpel, isolate the hostile energy within your field, contain it in a sphere of force, and slowly extract it from your system.</p></div>
+                            <i data-lucide="arrow-right" class="text-red-500 rotate-90 md:rotate-0 self-center"></i>
+                            <div class="p-4 bg-black/20 rounded-lg border border-red-500/20 flex-1 flex flex-col justify-center"><div class="font-bold mb-2">2. Inhale The Void</div><p class="text-sm text-gray-400">Inhale deeply and draw the energy of the Black Sun—the conceptual opposite of life and creation—into your being. Your body will grow cold.</p></div>
+                             <i data-lucide="arrow-right" class="text-red-500 rotate-90 md:rotate-0 self-center"></i>
+                            <div class="p-4 bg-black/20 rounded-lg border border-red-500/20 flex-1 flex flex-col justify-center"><div class="font-bold mb-2">3. Collapse Waveform</div><p class="text-sm text-gray-400">On an explosive exhale, project the Black Sun energy into the sphere, visualizing it collapsing past the point of existence into nothingness.</p></div>
+                        </div>
+                        <div class="p-4 rounded-lg bg-black/40 border-2 border-red-500/40 mt-8"><h5 class="font-bold text-red-300 flex items-center gap-3 text-xl"><i data-lucide="recycle"></i> Heresy: Karmic Erasure</h5><p class="mt-2 text-red-400">An act of ultimate hubris. Using this protocol not on an energy-form, but on the *karmic thread* that created it. This retro-causal attack attempts to erase the initial hostile act from ever having happened. The paradox potential is catastrophic, and the karmic debt is said to be unpayable.</p></div>
+                    `
+                },
+                entityManagement: { 
+                    title: "Entity Management: The Vajra Cage", 
+                    icon: `<i data-lucide="ghost" class="text-red-400"></i>`, 
+                    content: `
+                        <p class="mb-8 text-lg text-red-300 text-center">When banishing fails, containment is the only option. This is not asking; it is absolute domination. The Vajra Cage is a psychic prison of pure will from which there is no escape.</p>
+                         <h4 class="font-cinzel text-xl text-red-300 mb-6 text-center">Containment & Binding Protocol</h4>
+                        <div class="p-6 bg-black/20 rounded-lg border-2 border-dashed border-red-500/30">
+                            <ol class="list-decimal list-inside space-y-4 text-gray-300">
+                                <li><strong>The Lure:</strong> Create an energetic 'bait'—an offering or emotional output that the target entity desires—and place it at the center of your ritual space.</li>
+                                <li><strong>The Grounding:</strong> As the entity approaches, slam down the first wall: a circle of consecrated iron filings or salt on the physical floor. This grounds it to a single location.</li>
+                                <li><strong>Construct The Cage:</strong> With the entity trapped, begin chanting a binding mantra. With each repetition, visualize a bar of incandescent blue light slamming into place around the entity, forming an inescapable cage of interlocking triangles and squares.</li>
+                                <li><strong>Impose The Sentence:</strong> Once contained, you have three choices: hold it in stasis, interrogate it for information, or perform the Black Sun Transmutation to deconstruct it entirely.</li>
+                            </ol>
+                        </div>
+                        <div class="p-4 rounded-lg bg-black/40 border-2 border-red-500/40 mt-8"><h5 class="font-bold text-red-300 flex items-center gap-3 text-xl"><i data-lucide="brain-cog"></i> The Final Taboo: Ego Deconstruction</h5><p class="mt-2 text-red-400">The most terrible of the dark arts. Instead of caging, project your consciousness *into* the entity. Systematically dismantle its core identity—memories, name, purpose—until it reverts to primordial, unformed energy. This is psychic murder. The risk of having your own consciousness shattered in the process is nearly 100%.</p></div>
+                    `
+                },
+                emergencyProtocols: { 
+                    title: "Emergency: The Circuit Breaker", 
+                    icon: `<i data-lucide="siren" class="text-red-400"></i>`, 
+                    content: `
+                        <p class="mb-8 text-lg text-red-300 text-center">When the ritual fails. When the wards break. When you are on the brink. These are not elegant techniques. They are a psychic panic button to save your soul at any cost.</p>
+                        <h4 class="font-cinzel text-xl text-red-300 mb-6 text-center">Immediate Action Sequence</h4>
+                         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+                            <div class="p-4 bg-red-900/30 rounded-lg"><div class="font-bold mb-2 flex items-center justify-center gap-2"><i data-lucide="zap-off"></i> SHATTER</div><p class="text-sm text-gray-400">Bellow a single, guttural, meaningless syllable with every ounce of your will to shatter all complex thought-forms.</p></div>
+                            <div class="p-4 bg-red-900/30 rounded-lg"><div class="font-bold mb-2 flex items-center justify-center gap-2"><i data-lucide="anchor"></i> ANCHOR</div><p class="text-sm text-gray-400">Immediately inflict sharp physical pain (bite tongue, slap thigh) to drag your consciousness back into the physical body.</p></div>
+                             <div class="p-4 bg-red-900/30 rounded-lg"><div class="font-bold mb-2 flex items-center justify-center gap-2"><i data-lucide="scissors"></i> SEVER</div><p class="text-sm text-gray-400">Cross your arms over your chest and visualize massive, obsidian scissors snipping every energetic connection to the ritual.</p></div>
+                             <div class="p-4 bg-red-900/30 rounded-lg"><div class="font-bold mb-2 flex items-center justify-center gap-2"><i data-lucide="arrow-down-to-line"></i> GROUND</div><p class="text-sm text-gray-400">Flee the ritual space. Immediately plunge your hands into a bowl of salt or press your palms and bare feet flat against the earth.</p></div>
+                        </div>
+                        <div class="p-4 rounded-lg bg-black/40 border-2 border-red-500/40 mt-8"><h5 class="font-bold text-red-300 flex items-center gap-3 text-xl"><i data-lucide="gem"></i> Last Resort: The Soul Anchor</h5><p class="mt-2 text-red-400">A pact made *before* a dangerous ritual. Splinter off a microscopic fragment of your soul and embed it in a consecrated object. If your psyche is shattered, this 'backup drive' provides a focal point from which your consciousness might, over centuries, rebuild itself. It is a desperate gamble against total annihilation.</p></div>
+                    `
+                },
+                
+                // --- Advanced Theory Topics ---
+                energyMechanics: {
+                    title: "Energy Mechanics",
+                    icon: `<i data-lucide="atom" class="text-red-400"></i>`,
+                    content: `
+                        <p class="mb-6 text-lg text-red-300">Forget 'prana.' That is the kindergarten term. The adept deals in a spectrum of energies, each with unique properties, densities, and applications. To master magick is to become a physicist of the unseen, understanding the terrifying thermodynamics of the soul.</p>
+                        <h4 class="font-cinzel text-xl text-red-300 mb-4 border-l-4 border-red-500 pl-4">The Four Primary Phlogistons</h4>
+                        <div class="grid md:grid-cols-2 gap-4 mb-6 text-left">
+                            <div class="p-3 bg-black/20 rounded-lg"><h5 class="font-bold text-orange-300">Telluric Current (Black Energy):</h5><p class="text-sm text-gray-400">The raw, chaotic, life-force of the planet. Used for grounding, endurance, and rites of physical manifestation. Unrefined, it is toxic and can cause biological mutation.</p></div>
+                            <div class="p-3 bg-black/20 rounded-lg"><h5 class="font-bold text-orange-300">Solar Current (Gold Energy):</h5><p class="text-sm text-gray-400">The energy of consciousness, order, and will. Used for illumination, command, and reality engineering. In excess, it incinerates the ego and causes megalomania.</p></div>
+                            <div class="p-3 bg-black/20 rounded-lg"><h5 class="font-bold text-orange-300">Stellar Current (Silver Energy):</h5><p class="text-sm text-gray-400">The energy of the fixed stars, the Akashic memory. Used for divination, time-alteration, and astral travel. Pure exposure without filtering causes psychic fracturing.</p></div>
+                            <div class="p-3 bg-black/20 rounded-lg"><h5 class="font-bold text-orange-300">Void Potential (Colorless Energy):</h5><p class="text-sm text-gray-400">The un-energy of pure potentiality; the nothingness from which creation springs. Used for erasure, invisibility, and the highest forms of reality-unmaking. It is the ultimate corrosive.</p></div>
+                        </div>
+                         <div class="p-4 rounded-lg bg-black/40 border-2 border-red-500/40"><h5 class="font-bold text-red-300 flex items-center gap-3 text-xl"><i data-lucide="battery-warning"></i> Forbidden Theory: Soul-Essence Conversion</h5><p class="mt-2 text-red-400">The ultimate heresy. It posits that a fragment of one's own or another's soul (Atman) can be deliberately annihilated in a psychic process akin to nuclear fission, releasing an astronomical amount of raw, undifferentiated power. This power can fuel the most godlike of magical feats but the cost is absolute: the permanent erasure of that fragment of consciousness from all past, present, and future existence. It is the one true unforgivable sin against the cosmos.</p></div>
+                    `
+                },
+                 consciousnessTech: {
+                    title: "Consciousness Technology",
+                    icon: `<i data-lucide="cpu" class="text-red-400"></i>`,
+                    content: `
+                        <p class="mb-6 text-lg text-red-300">The brain does not create consciousness. The brain is a receiver, an antenna tuned to a universal signal. Consciousness is the fundamental, non-local substrate of all reality. Your mind is not *in* your head; your head is *in* your mind. This technology is the science of hacking the receiver to gain access to the broadcast itself.</p>
+                        <h4 class="font-cinzel text-xl text-red-300 mb-4 border-l-4 border-red-500 pl-4">The Cosmic Operating System</h4>
+                        <ul class="list-disc list-inside space-y-3 text-gray-300 mb-6">
+                            <li><strong>The Kernel (Brahman):</strong> The base-level, un-manifest code from which all realities are compiled. Inaccessible from within any given reality.</li>
+                            <li><strong>The Shell (Maya):</strong> The perceived 'reality' itself. A user interface designed to render the Kernel's code into a comprehensible sensory experience. Magick is the act of using command-line prompts (mantras, sigils) to override the GUI.</li>
+                            <li><strong>The Malware (Samskaras):</strong> Intrusive thought-forms, karmic loops, and parasitic entities that run as background processes, consuming psychic RAM and corrupting the user's experience of the Shell.</li>
+                        </ul>
+                         <div class="p-4 rounded-lg bg-black/40 border-2 border-red-500/40"><h5 class="font-bold text-red-300 flex items-center gap-3 text-xl"><i data-lucide="terminal"></i> The Root Access Heresy</h5><p class="mt-2 text-red-400">The theoretical final siddhi. By achieving a state of absolute non-duality (Nirvikalpa Samadhi), it is believed a practitioner can achieve 'root access' to the Cosmic OS. This would grant the ability not just to manipulate the Shell, but to edit the source code of reality itself—to rewrite the laws of physics, to create life from nothing, to delete concepts from existence. It is the path to apotheosis, but the slightest error—a single stray thought—would result in a kernel panic that could un-compile the practitioner's entire timeline.</p></div>
+                    `
+                },
+                 realityManipulationTheory: {
+                    title: "Reality Manipulation Theory",
+                    icon: `<i data-lucide="server-cog" class="text-red-400"></i>`,
+                    content: `
+                        <p class="mb-6 text-lg text-red-300">Reality is not a solid, objective 'thing.' It is a collectively maintained psychic field, a 'Consensus Field' generated by the linked consciousness of all sentient beings. It is a dream we are all having together. Manipulation is possible by creating a 'reality bubble' of sufficient power and density that it locally overwrites the Consensus.</p>
+                        <h4 class="font-cinzel text-xl text-red-300 mb-4 border-l-4 border-red-500 pl-4">The Physics of Consensus</h4>
+                         <div class="grid md:grid-cols-2 gap-4 mb-6 text-left">
+                            <div class="p-3 bg-black/20 rounded-lg"><h5 class="font-bold text-orange-300">Reality Anchors:</h5><p class="text-sm text-gray-400">Major historical events, globally recognized symbols, and fundamental laws of science that have immense collective belief invested in them. These stabilize the Consensus Field and are incredibly difficult to alter.</p></div>
+                            <div class="p-3 bg-black/20 rounded-lg"><h5 class="font-bold text-orange-300">Probability Flux:</h5><p class="text-sm text-gray-400">Areas with low collective belief (e.g., your personal life, unobserved events) are fluid and highly susceptible to manipulation by a single, focused will.</p></div>
+                        </div>
+                         <div class="p-4 rounded-lg bg-black/40 border-2 border-red-500/40"><h5 class="font-bold text-red-300 flex items-center gap-3 text-xl"><i data-lucide="swords"></i> Forbidden Doctrine: Ego Summachia</h5><p class="mt-2 text-red-400">(The War of Wills). When two or more adepts attempt to impose contradictory realities upon the same space-time event, the Consensus Field can fracture. This creates a localized 'reality storm' where the laws of physics become unstable, causality breaks down, and paradoxes manifest physically. Ego Summachia is considered an act of cosmic terrorism, as a sufficiently powerful conflict could destabilize the Consensus for an entire city or nation, plunging it into a chaos from which it might never recover.</p></div>
+                    `
+                },
+                 timeAlterationTheory: {
+                    title: "Time Alteration Theory",
+                    icon: `<i data-lucide="gantt-chart-square" class="text-red-400"></i>`,
+                    content: `
+                        <p class="mb-6 text-lg text-red-300">Time is not a river. It does not 'flow.' Time is a static, four-dimensional crystal, a 'block universe' in which every moment that ever has been and ever will be exists simultaneously. 'Movement' through time is an illusion created by the focus of consciousness dragging itself along a single world-line within this crystal. Alteration is achieved by learning to shift your point of focus off your world-line.</p>
+                         <h4 class="font-cinzel text-xl text-red-300 mb-4 border-l-4 border-red-500 pl-4">The Crystalline Manifold</h4>
+                        <ul class="list-disc list-inside space-y-3 text-gray-300 mb-6">
+                            <li><strong>World-Lines:</strong> The path of a single particle or person's history through the block universe. You are currently on one such line.</li>
+                            <li><strong>Temporal Echoes:</strong> When a highly charged emotional event occurs, it can 'imprint' itself onto the crystalline structure, creating echoes that can be perceived by sensitives in the past or future. This is the mechanism behind hauntings.</li>
+                            <li><strong>Causality Loops:</strong> By projecting information (but not matter) into the past, it is possible to create a self-sustaining causality loop. These are the engines of fate and destiny.</li>
+                        </ul>
+                         <div class="p-4 rounded-lg bg-black/40 border-2 border-red-500/40"><h5 class="font-bold text-red-300 flex items-center gap-3 text-xl"><i data-lucide="virus"></i> The Akashic Virus Catastrophe</h5><p class="mt-2 text-red-400">The most feared theoretical paradox. It is hypothesized that an adept could create a self-replicating information virus and project it into a key moment in the distant past. This 'Akashic Virus' would not alter events, but would be designed to locate and erase a single, fundamental *concept* (like 'compassion' or 'mathematics') from the consciousness of every sentient being it encountered. It would spread through history, retroactively deleting the concept from the timeline and creating a new, horrifying present. This is the ultimate weapon of reality-unmaking.</p></div>
+                    `
+                },
+                 dimensionalMechanics: {
+                    title: "Dimensional Mechanics",
+                    icon: `<i data-lucide="layers-3" class="text-red-400"></i>`,
+                    content: `
+                        <p class="mb-6 text-lg text-red-300">The universe you perceive is but one 'brane' (membrane) vibrating at a specific frequency in a vast, multi-dimensional bulk. Other branes, other universes with alien laws of physics, exist parallel to our own, separated by less than a hair's breadth in a direction you cannot point. Travel is not about moving through space, but about changing your fundamental frequency.</p>
+                        <h4 class="font-cinzel text-xl text-red-300 mb-4 border-l-4 border-red-500 pl-4">The Physics of Trans-Planar Travel</h4>
+                        <div class="grid md:grid-cols-2 gap-4 mb-6 text-left">
+                           <div class="p-3 bg-black/20 rounded-lg"><h5 class="font-bold text-orange-300">The Inter-Planar Membrane:</h5><p class="text-sm text-gray-400">The energetic 'skin' that separates dimensions. It is not physical, but vibrational. It can be pierced, weakened, or opened. Natural weak spots occur at places of high telluric stress or during rare celestial alignments.</p></div>
+                           <div class="p-3 bg-black/20 rounded-lg"><h5 class="font-bold text-orange-300">Vibrational Keys:</h5><p class="text-sm text-gray-400">Specific mantras, geometric patterns, and mental states that, when combined, force the operator's personal energy field to resonate at the exact frequency of another brane, allowing consciousness to 'phase' through the Membrane.</p></div>
+                        </div>
+                        <div class="p-4 rounded-lg bg-black/40 border-2 border-red-500/40"><h5 class="font-bold text-red-300 flex items-center gap-3 text-xl"><i data-lucide="link-2"></i> Existential Terror: Dimensional Parasitism</h5><p class="mt-2 text-red-400">The most insane and guarded secret of cosmology. Certain high-entropy dimensions are believed to be sentient predators. They do not contain life; they *are* life. Such a dimension can form a parasitic attachment to a healthier, more ordered one like our own, siphoning off reality, possibility, and even hope itself. This process is known as 'ontological decay.' Some forbidden texts claim that our universe is already infected, and that the heat-death of the cosmos is not a natural process, but the final symptom of this cosmic feeding.</p></div>
+                    `
+                },
+            };
+            
+            document.querySelectorAll('.interactive-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const modalId = card.dataset.modal;
+                    const content = modalContents[modalId];
+                    if (content) {
+                        detailsModalTitle.textContent = content.title;
+                        detailsModalIcon.innerHTML = content.icon;
+                        detailsModalBody.innerHTML = content.content;
+                        if (typeof lucide !== 'undefined') {
+                            lucide.createIcons(); // Re-run for newly added icons
+                        }
+                        openModal(detailsModal);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+

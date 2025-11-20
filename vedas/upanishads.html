@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upanishad | The Ultimate Reality</title>
+    <meta name="theme-color" content="#0a0821">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;600&family=Hind:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --mystic-black: #0A0821;
+            --divine-gold: #FFD700;
+            --brilliant-gold: #ffec8a;
+            --sacred-red: #ff4444;
+            --pure-white: #FFFFFF;
+            --gold-glow: rgba(255, 215, 0, 0.15);
+            
+            /* UI & Glassmorphism */
+            --card-bg: rgba(10, 8, 33, 0.75);
+            --card-bg-desktop: rgba(10, 8, 33, 0.65);
+            --card-border-color: rgba(212, 175, 55, 0.2);
+            --quantum-blur: blur(12px);
+            
+            /* Typography */
+            --font-heading: 'DM Serif Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --font-sanskrit: 'Hind', sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--mystic-black);
+            color: rgba(255, 255, 255, 0.9);
+            font-family: var(--font-body);
+            line-height: 1.7;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            letter-spacing: 0.03em;
+            color: var(--brilliant-gold);
+            text-shadow: 0 0 25px var(--gold-glow);
+        }
+
+        h4 {
+            font-family: var(--font-heading);
+            letter-spacing: 0.03em;
+            color: var(--brilliant-gold);
+            opacity: 0.8;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .sanskrit-text {
+            font-family: var(--font-sanskrit);
+        }
+
+        main {
+            will-change: transform;
+        }
+
+        #cosmic-canvas, #cursor-glow, .vignette-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        #cursor-glow {
+            background: radial-gradient(circle, rgba(255, 236, 138, 0.1) 0%, transparent 50%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s linear;
+            display: none;
+        }
+
+        @media (pointer: fine) {
+            #cursor-glow {
+                display: block;
+            }
+        }
+        
+        .vignette-overlay {
+            background: radial-gradient(ellipse at center, rgba(0,0,0,0) 60%, rgba(0,0,0,0.7) 100%);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInDown 1s ease-out;
+        }
+        
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .page-header h1 {
+            font-size: clamp(3rem, 7vw, 5.5rem);
+        }
+
+        .page-header .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.75rem);
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+            font-family: var(--font-body);
+            margin-top: 0.5rem;
+            text-shadow: none;
+        }
+
+        .narrative-section {
+            margin-bottom: 6rem;
+            animation: fadeInUp 1.2s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .narrative-section:nth-of-type(1) { animation-delay: 0.2s; }
+        .narrative-section:nth-of-type(2) { animation-delay: 0.4s; }
+        .narrative-section:nth-of-type(3) { animation-delay: 0.6s; }
+        .narrative-section:nth-of-type(4) { animation-delay: 0.8s; }
+        .narrative-section:nth-of-type(5) { animation-delay: 1.0s; }
+        .narrative-section:nth-of-type(6) { animation-delay: 1.2s; }
+        .narrative-section:nth-of-type(7) { animation-delay: 1.4s; }
+        .narrative-section:nth-of-type(8) { animation-delay: 1.6s; }
+        .narrative-section:nth-of-type(9) { animation-delay: 1.8s; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .narrative-section h2 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .narrative-section p.intro-text {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+            text-align: center;
+            color: rgba(255,255,255,0.85);
+        }
+
+        /* Vedic Path Stepper UI */
+        .vedic-path {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: relative;
+            margin-bottom: 6rem;
+        }
+        .path-line {
+            position: absolute;
+            top: 20px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--divine-gold), var(--sacred-red));
+            opacity: 0.3;
+        }
+        .path-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 20%;
+            position: relative;
+            z-index: 1;
+        }
+        .step-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--card-border-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+            background: var(--mystic-black);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .step-label {
+            font-weight: 600;
+        }
+        .path-step.active .step-icon {
+            border-color: var(--sacred-red);
+            transform: scale(1.1);
+        }
+        .path-step.active .step-icon::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border: 2px solid var(--sacred-red);
+            border-radius: 50%;
+            animation: pulseGlow 2s infinite;
+        }
+        .path-step.active .step-label {
+            color: var(--sacred-red);
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(0.9); opacity: 0.7; }
+            100% { transform: scale(1.4); opacity: 0; }
+        }
+
+        /* Atman/Brahman UI */
+        .atman-brahman-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400px;
+            margin: 4rem 0;
+        }
+
+        .brahman-circle {
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 236, 138, 0.05), transparent 70%);
+            animation: slowSpin 20s linear infinite;
+        }
+
+        .brahman-circle::before, .brahman-circle::after {
+            content: '';
+            position: absolute;
+            inset: -10px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 236, 138, 0.2);
+            animation: slowPulse 8s infinite ease-in-out;
+        }
+        .brahman-circle::after {
+            inset: -20px;
+            animation-delay: -4s;
+        }
+
+        @keyframes slowSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes slowPulse { 50% { opacity: 0.5; transform: scale(0.98); } }
+        
+        .atman-point {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: var(--brilliant-gold);
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 0 15px var(--brilliant-gold), 0 0 30px var(--brilliant-gold), 0 0 60px var(--divine-gold);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .atman-brahman-text {
+            text-align: center;
+            max-width: 600px;
+            margin: -2rem auto 0;
+            position: relative;
+            z-index: 2;
+        }
+        .atman-brahman-text h3 { font-size: 2rem; }
+        .atman-brahman-text p { font-size: 1.1rem; }
+        
+        /* Maya Section */
+        .maya-card {
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border-color);
+            border-radius: 20px;
+        }
+        .maya-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 300%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,236,138,0.1), transparent);
+            animation: shimmer 8s infinite linear;
+        }
+        @keyframes shimmer { to { transform: translateX(100%); } }
+        .maya-card p { position: relative; z-index: 1;}
+
+        /* Two Paths Section */
+        .two-paths-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        @media(min-width: 768px) {
+            .two-paths-grid { grid-template-columns: 1fr 1fr; }
+        }
+        .path-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border-color);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+        }
+        .path-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .path-card.preya .path-icon { color: var(--sacred-red); }
+        .path-card.shreya .path-icon { color: var(--brilliant-gold); }
+        .path-card h3 { font-size: 1.75rem; margin-bottom: 1rem; }
+        .path-card p { font-size: 1.05rem; }
+
+        /* KOSHAS SECTION - NEW UI */
+        .koshas-interactive-section {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        @media (min-width: 992px) {
+            .koshas-interactive-section {
+                grid-template-columns: 1fr 1.2fr;
+                gap: 4rem;
+            }
+        }
+
+        .koshas-diagram {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            padding-top: 100%; /* Aspect ratio 1:1 */
+        }
+        .kosha-ring {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 50%;
+            border: 2px solid;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+        }
+        .kosha-label {
+            position: absolute;
+            top: 10px;
+            background-color: var(--mystic-black);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+        .kosha-ring:hover .kosha-label, .kosha-ring.active .kosha-label {
+            transform: translateY(-8px);
+        }
+
+        .kosha-ring.annamaya { top: 0%; left: 0%; right: 0%; bottom: 0%; border-color: rgba(255,68,68,0.7); }
+        .kosha-ring.pranamaya { top: 10%; left: 10%; right: 10%; bottom: 10%; border-color: rgba(255,165,0,0.7); }
+        .kosha-ring.manomaya { top: 20%; left: 20%; right: 20%; bottom: 20%; border-color: rgba(255,215,0,0.7); }
+        .kosha-ring.vijnanamaya { top: 30%; left: 30%; right: 30%; bottom: 30%; border-color: rgba(173,216,230,0.7); }
+        .kosha-ring.anandamaya { top: 40%; left: 40%; right: 40%; bottom: 40%; border-color: rgba(255,255,255,0.8); }
+        
+        .kosha-ring:hover {
+            border-width: 4px;
+        }
+
+        .kosha-ring.active {
+            border-width: 4px;
+            box-shadow: 0 0 20px currentColor;
+        }
+        
+        .atman-core {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 12%; /* Made smaller */
+            height: 12%; /* Made smaller */
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--pure-white); /* Changed to pure white for brightness */
+            font-weight: bold;
+            font-size: 0.9rem; /* Adjusted to fit new size */
+            transition: all 0.4s ease;
+            z-index: 10; /* Ensure it's on top */
+            text-shadow: 0 0 5px var(--mystic-black), 0 0 7px var(--mystic-black); /* Added for contrast */
+        }
+        .atman-core::before {
+            content: '';
+            position: absolute;
+            width: 100%; height: 100%;
+            border-radius: 50%;
+            background: var(--brilliant-gold);
+            box-shadow: 0 0 10px var(--brilliant-gold), 0 0 25px var(--brilliant-gold); /* Toned down glow */
+            animation: atmanPulse 3s infinite;
+        }
+        @keyframes atmanPulse { 50% { transform: scale(1.1); opacity: 0.8; } }
+        
+        .koshas-diagram.atman-active .kosha-ring {
+            border-width: 3px;
+            box-shadow: 0 0 15px var(--brilliant-gold);
+        }
+
+        .kosha-content-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border-color);
+            border-radius: 20px;
+            padding: 2.5rem;
+            min-height: 400px;
+            scroll-margin-top: 2rem; /* Adds space when scrolling into view */
+        }
+        .kosha-content {
+            display: none;
+            animation: contentFadeIn 0.6s ease;
+        }
+        .kosha-content.active {
+            display: block;
+        }
+        @keyframes contentFadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        #atman-content .kosha-content-header h3 {
+             color: var(--brilliant-gold);
+             text-shadow: 0 0 15px var(--brilliant-gold);
+        }
+
+
+        .kosha-content-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .kosha-icon {
+            width: 40px;
+            height: 40px;
+        }
+        .kosha-title {
+            font-size: 1.75rem;
+            margin: 0;
+        }
+        .kosha-subtitle {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.7);
+            margin-top: -5px;
+        }
+        .kosha-description {
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        /* Mahavakya Cards */
+        .mahavakya-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        @media (min-width: 1024px) {
+            .mahavakya-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .mahavakya-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border-color);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            border-top: 4px solid var(--sacred-red);
+        }
+        .mahavakya-sanskrit {
+            font-size: 2.5rem;
+            color: var(--brilliant-gold);
+            font-family: var(--font-sanskrit);
+            margin-bottom: 0.5rem;
+        }
+        .mahavakya-translation {
+            font-size: 1.5rem;
+            font-weight: 600;
+            font-family: var(--font-heading);
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 1.5rem;
+        }
+        .mahavakya-meaning {
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* Guru Section */
+        .guru-quote {
+            margin: 4rem auto;
+            padding: 3rem;
+            text-align: center;
+            border: 1px solid var(--card-border-color);
+            border-radius: 20px;
+        }
+        .guru-quote blockquote {
+            font-size: 1.4rem;
+            font-style: italic;
+            line-height: 1.8;
+            margin: 0;
+            color: rgba(255,255,255,0.95);
+        }
+        .guru-quote footer {
+            margin-top: 1.5rem;
+            font-size: 1rem;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .key-principle-card {
+            margin: 5rem auto;
+            padding: clamp(2rem, 5vw, 3rem);
+            border: 1px solid var(--sacred-red);
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(ellipse at center, rgba(255, 68, 68, 0.1), transparent 70%);
+        }
+        .key-principle-card h2 { margin-bottom: 1rem; font-size: clamp(2rem, 4vw, 2.5rem); color: var(--sacred-red); }
+        .key-principle-card p { max-width: 700px; margin: 0 auto; font-size: 1.2rem; color: rgba(255,255,255,0.95); }
+
+        @media (min-width: 769px) {
+            .mahavakya-card, .key-principle-card, .maya-card, .path-card, .guru-quote, .kosha-content-card {
+                background: var(--card-bg-desktop);
+                backdrop-filter: var(--quantum-blur);
+                -webkit-backdrop-filter: var(--quantum-blur);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .path-line { display: none; }
+            .vedic-path { flex-direction: column; gap: 2rem; align-items: center; }
+            .path-step { width: 100%; max-width: 300px; }
+        }
+
+        .back-link-container { text-align: center; margin-top: 4rem; }
+        .quantum-btn {
+            padding: 0.8rem 2rem; border-radius: 50px; color: var(--divine-gold); text-decoration: none; font-weight: 600;
+            border: 1px solid var(--card-border-color); background: rgba(255, 255, 255, 0.05); transition: all 0.3s ease;
+        }
+        .quantum-btn:hover {
+            border-color: var(--divine-gold); background: rgba(255, 215, 0, 0.1); box-shadow: 0 0 25px rgba(212, 175, 55, 0.2);
+        }
+
+    </style>
+</head>
+<body>
+    <canvas id="cosmic-canvas"></canvas>
+    <div id="cursor-glow"></div>
+    <div class="vignette-overlay"></div>
+    
+    <main class="container">
+        <header class="page-header">
+            <h1>Upanishad</h1>
+            <h2 class="subtitle">The Ultimate Reality</h2>
+        </header>
+
+        <section class="narrative-section">
+            <div class="vedic-path">
+                <div class="path-line"></div>
+                <div class="path-step">
+                    <div class="step-icon">📜</div>
+                    <div class="step-label">Samhita</div>
+                </div>
+                <div class="path-step">
+                    <div class="step-icon">🕯️</div>
+                    <div class="step-label">Brahmana</div>
+                </div>
+                <div class="path-step">
+                    <div class="step-icon">🌳</div>
+                    <div class="step-label">Aranyaka</div>
+                </div>
+                <div class="path-step active">
+                    <div class="step-icon">✨</div>
+                    <div class="step-label">Upanishad</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="narrative-section">
+            <h2>The Final Revelation</h2>
+            <p class="intro-text">
+                The Upanishads represent the pinnacle of Vedic thought, the very essence of its wisdom, known as Vedanta ("the end of the Vedas"). Here, all rituals and symbols dissolve into the most profound and direct inquiry of all: the nature of the Self (Ātman) and its relationship to the ultimate reality (Brahman).
+            </p>
+        </section>
+
+        <section class="narrative-section">
+            <div class="atman-brahman-container">
+                <div class="brahman-circle"></div>
+                <div class="atman-point"></div>
+            </div>
+            <div class="atman-brahman-text">
+                <h3>Ātman is Brahman</h3>
+                <p>This is the central, staggering realization of the Upanishads. The individual spark of consciousness within you (Ātman) is not separate from, but identical to, the universal, all-pervading consciousness of the cosmos (Brahman).</p>
+            </div>
+        </section>
+
+        <section class="narrative-section">
+            <h2>The Veil of Māyā: The Nature of Reality</h2>
+            <p class="intro-text">If Ātman is Brahman, why do we perceive ourselves as separate individuals in a world of objects? The Upanishads answer with the concept of Māyā (माया)—the cosmic power of illusion that makes the one, undivided reality appear as a multitude of different forms.</p>
+            <div class="maya-card">
+                <p>Māyā is not a statement that the world is "unreal," but that its appearance is not its ultimate reality. Like a mirage in the desert or a dream at night, it is a dependent reality, a projection upon the single, changeless screen of Brahman.</p>
+            </div>
+        </section>
+        
+        <section class="narrative-section">
+            <h2>The Two Paths: Preya & Shreya</h2>
+            <p class="intro-text">The Katha Upanishad presents a powerful metaphor for the human condition: the choice between two paths. This choice determines whether one remains bound in the world of Māyā or moves toward liberation.</p>
+            <div class="two-paths-grid">
+                <div class="path-card preya">
+                    <div class="path-icon">🔥</div>
+                    <h3>Preya (The Pleasant)</h3>
+                    <p>The path of sensory pleasure, material gain, and immediate gratification. It is alluring and easy, but ultimately leads to attachment, suffering, and rebirth.</p>
+                </div>
+                <div class="path-card shreya">
+                    <div class="path-icon">💎</div>
+                    <h3>Shreya (The Good)</h3>
+                    <p>The path of spiritual good, wisdom, and long-term well-being. It requires discipline and discernment, but it alone leads to self-realization and freedom (Moksha).</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="narrative-section">
+            <h2>The Mahāvākyas: The Great Sayings</h2>
+            <p class="intro-text">
+                The essence of Upanishadic teaching is distilled into several Mahāvākyas, or "Great Sayings." These are not mere philosophical statements; they are powerful tools for meditation, designed to trigger a direct, intuitive realization of the ultimate truth.
+            </p>
+            <div class="mahavakya-grid">
+                <div class="mahavakya-card">
+                    <h3 class="mahavakya-sanskrit sanskrit-text">प्रज्ञानं ब्रह्म</h3>
+                    <p class="mahavakya-translation">Prajñānam Brahma</p>
+                    <p class="mahavakya-meaning">"Consciousness is Brahman." This identifies the universal reality with the very consciousness that allows you to perceive, know, and experience anything at all.</p>
+                </div>
+                <div class="mahavakya-card">
+                    <h3 class="mahavakya-sanskrit sanskrit-text">अहं ब्रह्मास्मि</h3>
+                    <p class="mahavakya-translation">Aham Brahmāsmi</p>
+                    <p class="mahavakya-meaning">"I am Brahman." This is the great declaration of unity, the direct and personal realization that your true, innermost Self is the ultimate reality of the entire universe.</p>
+                </div>
+                <div class="mahavakya-card">
+                    <h3 class="mahavakya-sanskrit sanskrit-text">तत् त्वम् असि</h3>
+                    <p class="mahavakya-translation">Tat Tvam Asi</p>
+                    <p class="mahavakya-meaning">"Thou art That." This is the instruction from teacher to student, pointing out that the ultimate reality (That) is the same as the true nature of the listener (Thou).</p>
+                </div>
+                <div class="mahavakya-card">
+                    <h3 class="mahavakya-sanskrit sanskrit-text">अयम् आत्मा ब्रह्म</h3>
+                    <p class="mahavakya-translation">Ayam Ātmā Brahma</p>
+                    <p class="mahavakya-meaning">"This Self is Brahman." This statement brings the abstract concept into immediate experience, asserting that the very Self you are aware of right now, in this moment, is Brahman.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- KOSHAS SECTION - NEW INTERACTIVE UI -->
+        <section class="narrative-section">
+            <h2>The Five Sheaths (Koshas)</h2>
+            <p class="intro-text">To help the seeker uncover the Ātman hidden by Māyā, the Taittiriya Upanishad provides a map of the human being, describing five layers, or sheaths (*Koshas*), that veil the true Self. Click on each layer of the diagram below, from the outermost ring to the core, to explore its meaning.</p>
+            
+            <div class="koshas-interactive-section">
+                <div class="koshas-diagram">
+                    <div class="kosha-ring annamaya active" data-kosha="annamaya"><span class="kosha-label">Annamaya</span></div>
+                    <div class="kosha-ring pranamaya" data-kosha="pranamaya"><span class="kosha-label">Pranamaya</span></div>
+                    <div class="kosha-ring manomaya" data-kosha="manomaya"><span class="kosha-label">Manomaya</span></div>
+                    <div class="kosha-ring vijnanamaya" data-kosha="vijnanamaya"><span class="kosha-label">Vijnanamaya</span></div>
+                    <div class="kosha-ring anandamaya" data-kosha="anandamaya"><span class="kosha-label">Anandamaya</span></div>
+                    <div class="atman-core" data-kosha="atman">Ātman</div>
+                </div>
+
+                <div class="kosha-content-card">
+                    <!-- Annanamaya Content -->
+                    <div class="kosha-content active" id="annamaya-content">
+                        <div class="kosha-content-header">
+                            <svg class="kosha-icon" style="color: rgba(255,68,68,0.9);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                            <div>
+                                <h3 class="kosha-title" style="color: rgba(255,68,68,0.9);">Annamaya Kosha</h3>
+                                <p class="kosha-subtitle">The Physical Sheath</p>
+                            </div>
+                        </div>
+                        <p class="kosha-description">The most dense layer, the physical body, made of and sustained by 'anna' (food). It is our biological hardware, the vessel for our earthly experience. The journey inward begins by recognizing we are more than just this temporary physical form.</p>
+                        <h4>Scientific Parallel</h4>
+                        <p>This corresponds to our gross anatomy and physiology—bones, muscles, organs, and the entire biological system. Modern science explores this through biology, nutrition, and medicine, acknowledging how the gut-brain axis shows that what we consume directly impacts our physical and mental state.</p>
+                    </div>
+                     <!-- Pranamaya Content -->
+                    <div class="kosha-content" id="pranamaya-content">
+                        <div class="kosha-content-header">
+                            <svg class="kosha-icon" style="color: rgba(255,165,0,0.9);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h1.5a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1-1.5 1.5H3m18 0h-1.5a1.5 1.5 0 0 0-1.5-1.5v0a1.5 1.5 0 0 0 1.5-1.5H21m-9-6h.01m-6 6h.01m11.98 0h.01"></path></svg>
+                             <div>
+                                <h3 class="kosha-title" style="color: rgba(255,165,0,0.9);">Pranamaya Kosha</h3>
+                                <p class="kosha-subtitle">The Energy Sheath</p>
+                            </div>
+                        </div>
+                        <p class="kosha-description">The vital life force sheath, composed of *Prana*. It is the body's electrical and energetic field, animating the physical layer and governing all physiological processes like breathing, circulation, and metabolism. It is the bridge between the dense body and the subtle mind.</p>
+                         <h4>Scientific Parallel</h4>
+                        <p>This aligns with the autonomic nervous system, which regulates our involuntary functions. It's the body's bio-electrical grid, where metabolism (creation of ATP) provides cellular energy. Practices like breathwork (Pranayama) are scientifically shown to directly influence this system, calming or energizing the body.</p>
+                    </div>
+                     <!-- Manomaya Content -->
+                    <div class="kosha-content" id="manomaya-content">
+                        <div class="kosha-content-header">
+                            <svg class="kosha-icon" style="color: rgba(255,215,0,0.9);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                            <div>
+                                <h3 class="kosha-title" style="color: rgba(255,215,0,0.9);">Manomaya Kosha</h3>
+                                <p class="kosha-subtitle">The Mental Sheath</p>
+                            </div>
+                        </div>
+                        <p class="kosha-description">The mental and emotional sheath, comprising our thoughts, feelings, memories, and sensory inputs. It is the realm of the processing ego-mind (*manas*) which interprets the world and creates our personal reality. This layer is characterized by its constant activity and flux.</p>
+                        <h4>Scientific Parallel</h4>
+                        <p>This corresponds to cognitive and emotional processing in the brain. Neuroscientists might point to the Default Mode Network (DMN), a brain network active during mind-wandering and self-referential thought, as the seat of this sheath. The limbic system, responsible for emotions, is also a key component.</p>
+                    </div>
+                     <!-- Vijnanamaya Content -->
+                    <div class="kosha-content" id="vijnanamaya-content">
+                        <div class="kosha-content-header">
+                            <svg class="kosha-icon" style="color: rgba(173,216,230,0.9);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                             <div>
+                                <h3 class="kosha-title" style="color: rgba(173,216,230,0.9);">Vijnanamaya Kosha</h3>
+                                <p class="kosha-subtitle">The Wisdom Sheath</p>
+                            </div>
+                        </div>
+                        <p class="kosha-description">The sheath of intellect and wisdom (*vijnana*). This layer transcends the reactive mind. It is the faculty of higher discernment, intuition, and self-awareness. It observes the Manomaya Kosha and has the power to discriminate between temporary thoughts and eternal truths.</p>
+                        <h4>Scientific Parallel</h4>
+                        <p>This aligns with the functions of the prefrontal cortex, which governs executive functions like judgment, decision-making, and self-awareness. It's the seat of "meta-awareness"—our ability to think about our own thinking. Neuroplasticity, our ability to consciously rewire our brain's patterns, is an expression of this sheath's power.</p>
+                    </div>
+                     <!-- Anandamaya Content -->
+                    <div class="kosha-content" id="anandamaya-content">
+                        <div class="kosha-content-header">
+                           <svg class="kosha-icon" style="color: rgba(255,255,255,0.9);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L9.17 8.62 2 9.24l5.46 4.73L5.82 21 12 17.31 18.18 21l-1.64-7.03L22 9.24l-7.17-.62L12 2z"></path></svg>
+                             <div>
+                                <h3 class="kosha-title" style="color: rgba(255,255,255,0.9);">Anandamaya Kosha</h3>
+                                <p class="kosha-subtitle">The Bliss Sheath</p>
+                            </div>
+                        </div>
+                        <p class="kosha-description">The innermost sheath, the causal body, which is the closest layer to the Ātman. It is the sheath of pure bliss, love, and peace (*ananda*). This is our deepest nature, experienced in moments of profound meditation or deep, dreamless sleep when the other sheaths are still. Even this bliss is a final, subtle veil.</p>
+                        <h4>Scientific Parallel</h4>
+                        <p>This can be understood as the brain's state of profound rest and coherence, characterized by slow-wave delta brainwaves during deep sleep. It also correlates with the release of neurochemicals like endorphins, serotonin, and oxytocin associated with feelings of deep connection, contentment, and joy, often reported during "flow states" or mystical experiences.</p>
+                    </div>
+                    <!-- Atman Content -->
+                    <div class="kosha-content" id="atman-content">
+                        <div class="kosha-content-header">
+                           <svg class="kosha-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle></svg>
+                             <div>
+                                <h3 class="kosha-title">The Ātman</h3>
+                                <p class="kosha-subtitle">The True Self (The Witness)</p>
+                            </div>
+                        </div>
+                        <p class="kosha-description">The Ātman is not a sheath. It is the changeless, formless reality that lies beyond all five layers. It is pure, unbound Consciousness—the silent Witness that illuminates all the sheaths but is untouched by them. It is the screen upon which the movie of life plays. The goal of Vedanta is to realize that you are this Witness, not the movie itself.</p>
+                        <h4>Scientific Parallel</h4>
+                        <p>The Ātman is the philosophical equivalent of what science calls the "Hard Problem of Consciousness." It is the irreducible, subjective experience of "I am." While neuroscience can map the brain's functions (the Koshas), it cannot explain the fundamental existence of the observer that experiences them. The Ātman is this pure subject, the ultimate mystery that both spirituality and science seek to understand.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="narrative-section">
+            <h2>The Role of the Guru</h2>
+            <p class="intro-text">The Upanishads stress that this profound knowledge cannot be gained from books alone. It requires the guidance of a Guru—an enlightened teacher who has realized the truth of Brahman and can skillfully guide the student through the subtleties of the path.</p>
+            <div class="guru-quote">
+                <blockquote>"To know That, one must humbly approach a Guru who is learned in the scriptures and established in Brahman. To such a sincere seeker, the teacher imparts the wisdom through which one knows the imperishable reality."</blockquote>
+                <footer>— Mundaka Upanishad</footer>
+            </div>
+        </section>
+
+        <section class="narrative-section">
+            <div class="key-principle-card">
+                <h2>The End of Knowledge, The Beginning of Knowing</h2>
+                <p>
+                    The Upanishads are not about accumulating more intellectual knowledge. They are pointers to a truth that must be directly experienced. They mark the end of the search for answers outside of oneself and the beginning of the direct, intuitive knowing of the Self. The journey that began with a hymn to the cosmos ends with the realization that the cosmos is within.
+                </p>
+            </div>
+        </section>
+
+        <div class="back-link-container">
+            <a href="vedic-sciences-canvas.html" class="quantum-btn">Return to the Portal</a>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            const canvas = document.getElementById('cosmic-canvas');
+            const ctx = canvas.getContext('2d');
+            let width, height, stars = [];
+            const numStars = window.innerWidth < 768 ? 80 : 200;
+
+            function init() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+                stars = [];
+                for (let i = 0; i < numStars; i++) {
+                    stars.push({
+                        x: Math.random() * width,
+                        y: Math.random() * height,
+                        radius: Math.random() * 1.5 + 0.5,
+                        alpha: Math.random(),
+                        alphaChange: (Math.random() - 0.5) * 0.01
+                    });
+                }
+            }
+
+            function drawStars() {
+                ctx.clearRect(0, 0, width, height);
+                ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--mystic-black').trim();
+                ctx.fillRect(0, 0, width, height);
+
+                stars.forEach(star => {
+                    ctx.beginPath();
+                    ctx.arc(star.x, star.y, star.radius, 0, 2 * Math.PI);
+                    ctx.fillStyle = `rgba(255, 236, 138, ${star.alpha})`;
+                    ctx.fill();
+
+                    star.alpha += star.alphaChange;
+                    if (star.alpha <= 0 || star.alpha >= 1) {
+                        star.alphaChange *= -1;
+                    }
+                });
+            }
+
+            function animate() {
+                drawStars();
+                requestAnimationFrame(animate);
+            }
+
+            window.addEventListener('resize', init);
+            init();
+            animate();
+
+            if (!isTouchDevice) {
+                const cursorGlow = document.getElementById('cursor-glow');
+                window.addEventListener('mousemove', (e) => {
+                    cursorGlow.style.transform = `translate(${e.clientX - 300}px, ${e.clientY - 300}px)`;
+                });
+            }
+
+            // Koshas interactive logic
+            const koshaDiagram = document.querySelector('.koshas-diagram');
+            const koshaClickables = document.querySelectorAll('.kosha-ring, .atman-core');
+            const koshaContents = document.querySelectorAll('.kosha-content');
+            const koshaContentCard = document.querySelector('.kosha-content-card');
+
+            koshaClickables.forEach(item => {
+                item.addEventListener('click', () => {
+                    const targetKosha = item.dataset.kosha;
+
+                    // Handle Atman-specific UI changes
+                    if (targetKosha === 'atman') {
+                        koshaDiagram.classList.add('atman-active');
+                    } else {
+                        koshaDiagram.classList.remove('atman-active');
+                    }
+
+                    // Update active state on rings
+                    koshaClickables.forEach(r => r.classList.remove('active'));
+                    item.classList.add('active');
+
+                    // Update active state on content
+                    koshaContents.forEach(content => {
+                        content.classList.remove('active');
+                        if (content.id === `${targetKosha}-content`) {
+                            content.classList.add('active');
+                        }
+                    });
+                    
+                    if (koshaContentCard) {
+                        koshaContentCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+

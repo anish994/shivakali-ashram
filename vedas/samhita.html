@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samhita | The Cosmic Symphony</title>
+    <meta name="theme-color" content="#0a0821">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;600&family=Hind:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --mystic-black: #0A0821;
+            --deep-space: #1A1035;
+            --divine-gold: #FFD700;
+            --pure-white: #FFFFFF;
+            --gold-glow: rgba(255, 215, 0, 0.15);
+            
+            /* UI & Glassmorphism */
+            --card-bg: rgba(10, 8, 33, 0.75);
+            --card-bg-desktop: rgba(10, 8, 33, 0.6);
+            --card-border-color: rgba(212, 175, 55, 0.2);
+            --card-border-hover: rgba(212, 175, 55, 0.6);
+            --quantum-blur: blur(12px);
+            
+            /* Typography */
+            --font-heading: 'DM Serif Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --font-sanskrit: 'Hind', sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--mystic-black);
+            color: rgba(255, 255, 255, 0.9);
+            font-family: var(--font-body);
+            line-height: 1.7;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            letter-spacing: 0.03em;
+            color: var(--divine-gold);
+            text-shadow: 0 0 20px var(--gold-glow);
+        }
+
+        .sanskrit-text, .mantra-sanskrit {
+            font-family: var(--font-sanskrit);
+        }
+
+        main {
+            will-change: transform;
+        }
+
+        #cosmic-canvas, #cursor-glow, .vignette-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        #cursor-glow {
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s linear;
+            display: none;
+        }
+
+        @media (pointer: fine) {
+            #cursor-glow {
+                display: block;
+            }
+        }
+        
+        .vignette-overlay {
+            background: radial-gradient(ellipse at center, rgba(0,0,0,0) 60%, rgba(0,0,0,0.6) 100%);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 6rem;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .page-header h1 {
+            font-size: clamp(3rem, 7vw, 5.5rem);
+        }
+
+        .page-header .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.75rem);
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+            font-family: var(--font-body);
+            margin-top: 0.5rem;
+            text-shadow: none;
+        }
+
+        .narrative-section {
+            margin-bottom: 6rem;
+            animation: fadeInUp 1s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .narrative-section:nth-of-type(2) { animation-delay: 0.2s; }
+        .narrative-section:nth-of-type(3) { animation-delay: 0.4s; }
+        .narrative-section:nth-of-type(4) { animation-delay: 0.6s; }
+
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .narrative-section h2 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .narrative-section p.intro-text {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+            text-align: center;
+            color: rgba(255,255,255,0.85);
+        }
+
+        .two-column-layout {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .two-column-layout.reverse {
+            grid-template-columns: 2fr 1fr;
+        }
+        
+        .icon-col {
+            text-align: center;
+        }
+
+        .icon-col svg {
+            width: 100px;
+            height: 100px;
+            filter: drop-shadow(0 0 15px var(--gold-glow));
+        }
+
+        .text-col h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .text-col p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .quantum-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border-color);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            height: 100%; /* For equal height in grid */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .quantum-card h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+        .quantum-card p {
+            font-size: 1.05rem;
+        }
+
+        .science-fact-card {
+            margin-top: 4rem;
+            text-align: left;
+            padding: 3rem;
+        }
+
+        .science-fact-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 2rem;
+        }
+
+        .science-fact-card h3 svg {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+        }
+
+        .science-fact-card p {
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            max-width: none;
+        }
+        
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (min-width: 769px) {
+            .quantum-card, .mantra-finale {
+                background: var(--card-bg-desktop);
+                backdrop-filter: var(--quantum-blur);
+                -webkit-backdrop-filter: var(--quantum-blur);
+            }
+        }
+
+        .mantra-finale {
+            margin: 6rem auto;
+            padding: clamp(2rem, 5vw, 4rem);
+            border: 1px solid var(--card-border-color);
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mantra-finale::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(255,215,0,0.1), transparent 70%);
+            animation: pulse 4s infinite ease-in-out;
+            z-index: 0;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.5); opacity: 0.4; }
+        }
+
+        .mantra-finale > * {
+            position: relative;
+            z-index: 1;
+        }
+
+
+        .mantra-sanskrit {
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--divine-gold);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .mantra-transliteration {
+            font-family: monospace;
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .mantra-translation {
+            font-style: italic;
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .back-link-container {
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .quantum-btn {
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            color: var(--divine-gold);
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid var(--card-border-color);
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .quantum-btn:hover {
+            border-color: var(--divine-gold);
+            background: rgba(255, 215, 0, 0.1);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .two-column-layout, .two-column-layout.reverse {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .icon-col {
+                margin-bottom: 1rem;
+            }
+            .icon-col svg {
+                width: 80px;
+                height: 80px;
+            }
+            .text-col {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="cosmic-canvas"></canvas>
+    <div id="cursor-glow"></div>
+    <div class="vignette-overlay"></div>
+    
+    <main class="container">
+        <header class="page-header">
+            <h1>Samhita</h1>
+            <h2 class="subtitle">The Cosmic Symphony of Vibration</h2>
+        </header>
+
+        <!-- THE BEGINNING -->
+        <section class="narrative-section">
+            <h2>The Primordial Sound</h2>
+            <p class="intro-text">
+                Before light, there was sound. Science posits the Big Bang—a singular point of infinite energy. The ancient Rishis perceived this origin differently: not as an explosion, but as an eternal vibration, *Shabda Brahman*, the cosmic hum from which all creation manifested. This is the world of the Samhitas.
+            </p>
+
+            <div class="two-column-layout reverse">
+                <div class="text-col">
+                    <h3>The Echo of Creation</h3>
+                    <p>The universe is filled with the Cosmic Microwave Background, a faint radiation that scientists call the "afterglow" of the Big Bang. This is the oldest light in the universe. The Rishis would have perhaps called it the cooled echo of the first sound—the moment vibration began its journey into form. The Samhitas are an attempt to capture and codify that original, creative impulse.</p>
+                </div>
+                <div class="icon-col">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" style="stroke: var(--divine-gold);"></circle>
+                        <circle cx="12" cy="12" r="6" style="stroke: var(--divine-gold); opacity: 0.7;"></circle>
+                        <circle cx="12" cy="12" r="2" style="stroke: var(--divine-gold); opacity: 0.4;"></circle>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- THE MIDDLE -->
+        <section class="narrative-section">
+            <h2>The Architecture of Vibration</h2>
+            <p class="intro-text">The Samhitas are not merely poems. They are a precise, mathematically structured architecture of sound designed to mirror the geometry of the cosmos. Think of it as a divine library, organized from the simplest seed to the most complex, interconnected garden of wisdom.</p>
+
+            <div class="grid-layout">
+                <div class="quantum-card">
+                    <h3>Mantras: Vibrational Engineering</h3>
+                    <p>The atomic unit. A potent, focused seed of sound, engineered with specific *svara* (intonation) and *varna* (pronunciation) to function as a key, unlocking a specific state of energy or consciousness.</p>
+                </div>
+                <div class="quantum-card">
+                    <h3>Suktas: Coherent Narratives</h3>
+                    <p>The molecule. A hymn of several mantras forming a complete invocation. It's a structured composition designed to build a specific energetic field, much like a piece of music builds an emotional state.</p>
+                </div>
+                <div class="quantum-card">
+                    <h3>Mandalas: Fractals of Consciousness</h3>
+                    <p>The organism. A "book" or cycle of Suktas. The ten Mandalas of the Rigveda are a fractal library, where cosmic principles are explored with ever-increasing complexity, from the simplest hymn to the whole.</p>
+                </div>
+            </div>
+
+            <div class="quantum-card science-fact-card">
+                <h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M12 10.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"></path><path d="M12 10.5c-2.5 1-4.5 2.5-4.5 4.5"></path><path d="M12 10.5c2.5 1 4.5 2.5 4.5 4.5"></path></svg>
+                    <span>Science Fact: Cymatics & Sacred Geometry</span>
+                </h3>
+                <p>The ancient knowledge of sound shaping reality is mirrored in the science of Cymatics. When vibrations pass through a medium like sand, they organize matter into intricate geometric patterns.  Coherent frequencies create orderly, beautiful shapes, mirroring the sacred geometry found in Yantras and Mandalas. The Rishis intuited this truth: that structured sound could bring order to the chaos of the mind and body.</p>
+            </div>
+        </section>
+        
+        <!-- NEW SECTION: THE BRIDGE -->
+        <section class="narrative-section">
+            <h2>Resonance: The Bridge Within</h2>
+            <p class="intro-text">
+                How can ancient sounds affect us today? The answer lies in a fundamental principle of physics: resonance. An object's natural tendency to vibrate at a certain frequency can be activated by an external source vibrating at that same frequency.
+            </p>
+             <div class="two-column-layout">
+                <div class="icon-col">
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 8c-4.97 0-9 1.79-9 4s4.03 4 9 4 9-1.79 9-4-4.03-4-9-4z" style="stroke: var(--divine-gold);"></path>
+                        <path d="M12 12v1c0 2.21 4.03 4 9 4s9-1.79 9-4v-1" style="stroke: var(--divine-gold); opacity: 0.7;"></path>
+                        <path d="M3 12v1c0 2.21 4.03 4 9 4s9-1.79 9-4v-1" style="stroke: var(--divine-gold); opacity: 0.7;"></path>
+                        <path d="M3 12c0-2.21 4.03-4 9-4s9 1.79 9 4" style="stroke: var(--divine-gold);"></path>
+                    </svg>
+                </div>
+                <div class="text-col">
+                    <h3>The Cosmic Tuning Fork</h3>
+                    <p>Think of a mantra as a cosmic tuning fork. Our own nervous system, when stressed or distracted, vibrates incoherently. The stable, harmonic frequency of a mantra, when chanted or heard, offers a powerful, coherent signal. Through resonance, our internal state can begin to vibrate in sympathy with this higher harmony, bringing stillness, clarity, and order to our inner world.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- THE END -->
+        <section class="narrative-section">
+            <h2>The Technology of Consciousness</h2>
+            <p class="intro-text">The Samhitas are therefore more than a record of the past—they are a living toolkit for the present. They are a spiritual technology designed to elevate human consciousness, one vibration at a time.</p>
+
+            <div class="mantra-finale">
+                <h2>The Ultimate Application: Gāyatrī Mantra</h2>
+                <p class="mantra-sanskrit">ॐ भूर्भुवः स्वः<br>तत्सवितुर्वरेण्यं<br>भर्गो देवस्य धीमहि<br>धियो यो नः प्रचोदयात् ॥</p>
+                <p class="mantra-transliteration">oṃ bhūr bhuvaḥ svaḥ<br>tat savitur vareṇyaṃ<br>bhargo devasya dhīmahi<br>dhiyo yo naḥ pracodayāt</p>
+                <p class="mantra-translation">
+                    Found in the Rigveda Samhita, this is a prayer for the highest gift: the illumination of the mind. It is the ultimate tool of resonance, designed to tune our intelligence to the frequency of the universal, creative intelligence itself.
+                </p>
+            </div>
+        </section>
+
+         <!-- NEW CONCLUDING SECTION -->
+        <section class="narrative-section">
+            <h2>From Cosmic Echo to Inner Voice</h2>
+            <p class="intro-text">
+                The journey of the Samhitas begins with the faint echo of creation and ends with the clear, resonant voice of our own illuminated consciousness. They are a bridge between the vastness of the cosmos without and the universe within. By engaging with these sacred vibrations, we are not just studying history; we are participating in the ongoing act of creation itself.
+            </p>
+        </section>
+
+        <div class="back-link-container">
+            <a href="vedic-sciences-canvas.html" class="quantum-btn">Return to the Portal</a>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            const canvas = document.getElementById('cosmic-canvas');
+            const ctx = canvas.getContext('2d');
+            let width, height, stars = [];
+            const numStars = window.innerWidth < 768 ? 80 : 200;
+
+            function init() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+                stars = [];
+                for (let i = 0; i < numStars; i++) {
+                    stars.push({
+                        x: Math.random() * width,
+                        y: Math.random() * height,
+                        radius: Math.random() * 1.5 + 0.5,
+                        alpha: Math.random(),
+                        alphaChange: (Math.random() - 0.5) * 0.01
+                    });
+                }
+            }
+
+            function drawStars() {
+                ctx.clearRect(0, 0, width, height);
+                ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--mystic-black').trim();
+                ctx.fillRect(0, 0, width, height);
+
+                stars.forEach(star => {
+                    ctx.beginPath();
+                    ctx.arc(star.x, star.y, star.radius, 0, 2 * Math.PI);
+                    ctx.fillStyle = `rgba(255, 215, 0, ${star.alpha})`;
+                    ctx.fill();
+
+                    star.alpha += star.alphaChange;
+                    if (star.alpha <= 0 || star.alpha >= 1) {
+                        star.alphaChange *= -1;
+                    }
+                });
+            }
+
+            function animate() {
+                drawStars();
+                requestAnimationFrame(animate);
+            }
+
+            window.addEventListener('resize', init);
+            init();
+            animate();
+
+            if (!isTouchDevice) {
+                const cursorGlow = document.getElementById('cursor-glow');
+                window.addEventListener('mousemove', (e) => {
+                    cursorGlow.style.transform = `translate(${e.clientX - 300}px, ${e.clientY - 300}px)`;
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+

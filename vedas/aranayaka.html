@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aranyaka | The Bridge to Consciousness</title>
+    <meta name="theme-color" content="#0a0821">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;600&family=Hind:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --mystic-black: #0A0821;
+            --deep-space: #1A1035;
+            --divine-gold: #FFD700;
+            --mystic-purple: #9400D3;
+            --light-purple: #c86eff;
+            --pure-white: #FFFFFF;
+            --gold-glow: rgba(255, 215, 0, 0.15);
+            
+            /* UI & Glassmorphism */
+            --card-bg: rgba(10, 8, 33, 0.75);
+            --card-bg-desktop: rgba(10, 8, 33, 0.65);
+            --card-border-color: rgba(212, 175, 55, 0.2);
+            --quantum-blur: blur(12px);
+            
+            /* Typography */
+            --font-heading: 'DM Serif Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --font-sanskrit: 'Hind', sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--mystic-black);
+            color: rgba(255, 255, 255, 0.9);
+            font-family: var(--font-body);
+            line-height: 1.7;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            letter-spacing: 0.03em;
+            color: var(--divine-gold);
+            text-shadow: 0 0 20px var(--gold-glow);
+        }
+
+        .sanskrit-text {
+            font-family: var(--font-sanskrit);
+        }
+
+        main {
+            will-change: transform;
+        }
+
+        #cosmic-canvas, #cursor-glow, .vignette-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        #cursor-glow {
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s linear;
+            display: none;
+        }
+
+        @media (pointer: fine) {
+            #cursor-glow {
+                display: block;
+            }
+        }
+        
+        .vignette-overlay {
+            background: radial-gradient(ellipse at center, rgba(0,0,0,0) 60%, rgba(0,0,0,0.6) 100%);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInDown 1s ease-out;
+        }
+        
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .page-header h1 {
+            font-size: clamp(3rem, 7vw, 5.5rem);
+        }
+
+        .page-header .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.75rem);
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+            font-family: var(--font-body);
+            margin-top: 0.5rem;
+            text-shadow: none;
+        }
+
+        .narrative-section {
+            margin-bottom: 6rem;
+            animation: fadeInUp 1s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .narrative-section:nth-of-type(1) { animation-delay: 0.2s; }
+        .narrative-section:nth-of-type(2) { animation-delay: 0.4s; }
+        .narrative-section:nth-of-type(3) { animation-delay: 0.6s; }
+        .narrative-section:nth-of-type(4) { animation-delay: 0.8s; }
+        .narrative-section:nth-of-type(5) { animation-delay: 1.0s; }
+        .narrative-section:nth-of-type(6) { animation-delay: 1.2s; }
+        .narrative-section:nth-of-type(7) { animation-delay: 1.4s; }
+        .narrative-section:nth-of-type(8) { animation-delay: 1.6s; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .narrative-section h2 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .narrative-section p.intro-text {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+            text-align: center;
+            color: rgba(255,255,255,0.85);
+        }
+
+        .quantum-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border-color);
+            border-radius: 20px;
+            padding: 2.5rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .quantum-card h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .quantum-card p {
+            font-size: 1.05rem;
+            text-align: center;
+        }
+
+        /* Vedic Path Stepper UI */
+        .vedic-path {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: relative;
+            margin-bottom: 6rem;
+        }
+        .path-line {
+            position: absolute;
+            top: 20px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--divine-gold), var(--mystic-purple));
+            opacity: 0.2;
+        }
+        .path-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 20%;
+            position: relative;
+            z-index: 1;
+        }
+        .step-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--card-border-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+            background: var(--mystic-black);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .step-label {
+            font-weight: 600;
+        }
+        .path-step.active .step-icon {
+            border-color: var(--mystic-purple);
+            transform: scale(1.1);
+        }
+        .path-step.active .step-icon::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border: 2px solid var(--mystic-purple);
+            border-radius: 50%;
+            animation: pulseGlow 2s infinite;
+        }
+        .path-step.active .step-label {
+            color: var(--mystic-purple);
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(0.9); opacity: 0.7; }
+            100% { transform: scale(1.4); opacity: 0; }
+        }
+
+        /* Alchemy Section */
+        .alchemy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            align-items: stretch;
+        }
+
+        @media (min-width: 920px) {
+            .alchemy-grid {
+                display: flex;
+                align-items: stretch;
+                justify-content: center;
+                gap: 0;
+            }
+        }
+        .alchemy-card-wrapper {
+            flex: 1;
+            max-width: 320px;
+        }
+        @media (min-width: 920px) {
+            .alchemy-card-wrapper {
+                position: relative;
+            }
+            .alchemy-card-wrapper:not(:last-child)::after {
+                content: '→';
+                font-family: var(--font-body);
+                font-size: 3rem;
+                font-weight: 300;
+                color: var(--mystic-purple);
+                opacity: 0.5;
+                position: absolute;
+                top: 50%;
+                right: -2rem;
+                transform: translateY(-50%);
+                animation: pulseArrow 2.5s infinite ease-in-out;
+            }
+        }
+        @keyframes pulseArrow { 
+            0%, 100% { transform: translateY(-50%) scale(1); opacity: 0.5; }
+            50% { transform: translateY(-50%) scale(1.2); opacity: 0.8; }
+        }
+        
+        .alchemy-card {
+            align-items: center;
+        }
+        .alchemy-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1.5rem;
+            color: var(--mystic-purple);
+        }
+
+        /* Two-Column Layout */
+        .two-col-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+        @media (min-width: 768px) {
+            .two-col-layout {
+                grid-template-columns: 1fr 2fr;
+                gap: 3rem;
+            }
+        }
+        .two-col-icon {
+            text-align: center;
+        }
+        .two-col-text h3 {
+            text-align: left;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .two-col-text p {
+            font-size: 1.1rem;
+        }
+
+        /* Animated SVGs */
+        .pulsing-icon {
+            width: 120px; height: 120px; color: var(--mystic-purple);
+        }
+        .pulsing-icon .base-circle { fill: none; stroke: currentColor; stroke-width: 0.5; opacity: 0.3; }
+        .pulsing-icon .pulse-circle { fill: none; stroke: currentColor; stroke-width: 1; animation: pulse 4s infinite ease-in-out; transform-origin: center; }
+        @keyframes pulse {
+            0%, 100% { stroke-width: 0.5; transform: scale(0.8); opacity: 0; }
+            50% { stroke-width: 1; transform: scale(1); opacity: 0.7; }
+        }
+        
+        .lab-icon {
+            width: 120px; height: 120px; color: var(--mystic-purple);
+            filter: drop-shadow(0 0 10px var(--mystic-purple));
+        }
+        .lab-icon .head-outline { fill: none; stroke: currentColor; opacity: 0.5; stroke-width: 0.5;}
+        .lab-icon .neural-path { fill: none; stroke: currentColor; stroke-width: 0.7; stroke-dasharray: 20; animation: dash 3s linear infinite;}
+        @keyframes dash { to { stroke-dashoffset: -40; } }
+
+        /* Tapas Section */
+        .tapas-heading {
+            animation: flicker 5s infinite linear alternate;
+        }
+        @keyframes flicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                text-shadow: 0 0 4px var(--gold-glow), 0 0 11px var(--gold-glow), 0 0 19px var(--gold-glow), 0 0 40px var(--mystic-purple), 0 0 80px var(--mystic-purple), 0 0 90px var(--mystic-purple);
+            }
+            20%, 24%, 55% { text-shadow: none; }
+        }
+
+        /* Silence Section */
+        .silence-card {
+            position: relative;
+        }
+        .silence-card .ring {
+            position: absolute;
+            top: 50%; left: 50%;
+            border: 1px solid var(--mystic-purple);
+            border-radius: 50%;
+            opacity: 0;
+            animation: ripple 6s infinite ease-out;
+        }
+        .silence-card .ring:nth-child(1) { animation-delay: 0s; }
+        .silence-card .ring:nth-child(2) { animation-delay: 2s; }
+        .silence-card .ring:nth-child(3) { animation-delay: 4s; }
+        @keyframes ripple {
+            from { transform: translate(-50%, -50%) scale(0.9); opacity: 0.7; }
+            to { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+        }
+        
+        .quote-block {
+            margin: 4rem auto;
+            padding: 3rem;
+            border-left: 4px solid var(--mystic-purple);
+            background: linear-gradient(90deg, rgba(148, 0, 211, 0.1), transparent);
+        }
+        .quote-block blockquote { font-size: 1.4rem; font-style: italic; line-height: 1.8; margin: 0; color: rgba(255,255,255,0.95); }
+        .quote-block footer { text-align: right; margin-top: 1rem; font-size: 1rem; color: rgba(255,255,255,0.7); }
+        
+        .key-principle-card {
+            margin: 5rem auto;
+            padding: clamp(2rem, 5vw, 3rem);
+            border: 1px solid var(--mystic-purple);
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(ellipse at center, rgba(148, 0, 211, 0.1), transparent 70%);
+        }
+        .key-principle-card h2 { margin-bottom: 1rem; font-size: clamp(2rem, 4vw, 2.5rem); color: var(--mystic-purple); }
+        .key-principle-card p { max-width: 700px; margin: 0 auto; font-size: 1.2rem; color: rgba(255,255,255,0.95); }
+
+        @media (min-width: 769px) {
+            .quantum-card, .key-principle-card {
+                background: var(--card-bg-desktop);
+                backdrop-filter: var(--quantum-blur);
+                -webkit-backdrop-filter: var(--quantum-blur);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .path-line { display: none; }
+            .vedic-path { flex-direction: column; gap: 2rem; align-items: center; }
+            .path-step { width: 100%; max-width: 300px; }
+            .two-col-layout { text-align: center; }
+            .two-col-text h3 { text-align: center; }
+        }
+
+        .back-link-container { text-align: center; margin-top: 4rem; }
+        .quantum-btn {
+            padding: 0.8rem 2rem; border-radius: 50px; color: var(--divine-gold); text-decoration: none; font-weight: 600;
+            border: 1px solid var(--card-border-color); background: rgba(255, 255, 255, 0.05); transition: all 0.3s ease;
+        }
+        .quantum-btn:hover {
+            border-color: var(--divine-gold); background: rgba(255, 215, 0, 0.1); box-shadow: 0 0 25px rgba(212, 175, 55, 0.2);
+        }
+
+    </style>
+</head>
+<body>
+    <canvas id="cosmic-canvas"></canvas>
+    <div id="cursor-glow"></div>
+    <div class="vignette-overlay"></div>
+    
+    <main class="container">
+        <header class="page-header">
+            <h1>Aranyaka</h1>
+            <h2 class="subtitle">The Bridge Between Worlds</h2>
+        </header>
+
+        <section class="narrative-section">
+            <div class="vedic-path">
+                <div class="path-line"></div>
+                <div class="path-step">
+                    <div class="step-icon">📜</div>
+                    <div class="step-label">Samhita</div>
+                </div>
+                <div class="path-step">
+                    <div class="step-icon">🕯️</div>
+                    <div class="step-label">Brahmana</div>
+                </div>
+                <div class="path-step active">
+                    <div class="step-icon">🌳</div>
+                    <div class="step-label">Aranyaka</div>
+                </div>
+                <div class="path-step">
+                    <div class="step-icon">✨</div>
+                    <div class="step-label">Upanishad</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="narrative-section">
+            <h2>The Call of the Wilderness</h2>
+            <p class="intro-text">
+                The Aranyakas ("Forest Treatises") mark a profound evolution in Vedic thought. Sages retreated from organized society to the solitude of nature, not to escape the world, but to find its raw, unfiltered essence within themselves. The forest became both their laboratory and their temple, a place to explore the untamed wilderness of the inner mind.
+            </p>
+        </section>
+        
+        <section class="narrative-section">
+            <h2>Symbolic Alchemy: From Outer to Inner</h2>
+            <p class="intro-text">The core teaching of the Aranyakas is a form of spiritual alchemy. They taught that the powerful external elements of the Brahmanic rituals were potent metaphors for internal, psychological forces. The true ritual was no longer just an action, but a profound meditation on these symbols.</p>
+
+            <div class="alchemy-grid">
+                <div class="alchemy-card-wrapper">
+                    <div class="quantum-card alchemy-card">
+                        <svg class="alchemy-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                        <h3>The Altar becomes The Body</h3>
+                        <p>The physical altar (Vedi), the sacred ground of the cosmos, is recognized as the practitioner's own body—the vehicle for all experience and transformation.</p>
+                    </div>
+                </div>
+                <div class="alchemy-card-wrapper">
+                    <div class="quantum-card alchemy-card">
+                         <svg class="alchemy-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.71.71a5.4 5.4 0 0 0 0 7.65l.71.71a5.4 5.4 0 0 0 7.65 0l.71-.71a5.4 5.4 0 0 0 0-7.65z"></path><path d="M12.24 12.24 4.58 20a2 2 0 0 1-2.82-2.82l7.66-7.66"></path></svg>
+                        <h3>The Fire becomes Consciousness</h3>
+                        <p>The sacred fire (Agni), the divine messenger, is internalized as the fire of consciousness (Chit-Agni)—the illuminating flame of awareness that digests all experiences.</p>
+                    </div>
+                </div>
+                <div class="alchemy-card-wrapper">
+                    <div class="quantum-card alchemy-card">
+                         <svg class="alchemy-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M3 6h18M3 18h18"></path></svg>
+                        <h3>The Offering becomes The Breath</h3>
+                        <p>The physical offerings (Ahuti) are transformed into the most intimate offering of all: the breath (Prana), the constant, rhythmic sacrifice that sustains life itself.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="narrative-section">
+            <h2>Prana: The Cosmic Life Force</h2>
+            <p class="intro-text">
+                The internalization of sacrifice led to a profound focus on *Prana* (प्राण), the universal life force energy that animates all existence. The Aranyakas posit that the rhythm of one's own breath is a direct, tangible connection to the rhythm of the cosmos itself.
+            </p>
+            <div class="two-col-layout">
+                <div class="two-col-icon">
+                    <svg class="pulsing-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle class="pulse-circle" cx="50" cy="50" r="40" />
+                        <circle class="base-circle" cx="50" cy="50" r="40" />
+                    </svg>
+                </div>
+                <div class="two-col-text">
+                    <h3>The Ultimate Offering</h3>
+                    <p>To consciously observe the breath—the inhalation (prana) and exhalation (apana)—became the highest form of Yajña. It is a continuous, moment-to-moment offering of one's attention to the fundamental energy that sustains reality, requiring no external materials, only internal awareness.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="narrative-section">
+            <h2 class="tapas-heading">Tapas: The Inner Fire</h2>
+            <p class="intro-text">A central concept in the Aranyakas is *Tapas* (तपस्) — the spiritual heat or inner incandescence generated through disciplined practice, concentration, and austerity. This inner fire replaces the external ritual fire, serving to purify the mind, burn away impurities, and illuminate the path to higher knowledge.</p>
+            <div class="quote-block">
+                <blockquote>"The whole world is woven, warp and woof, on the breath. The breath is, verily, all this. He who knows the breath thus, knows all."</blockquote>
+                <footer>— Taittiriya Aranyaka</footer>
+            </div>
+        </section>
+        
+        <section class="narrative-section">
+            <h2>From Sound to Silence (Mauna)</h2>
+            <p class="intro-text">
+                While the Samhitas were built on sacred sound, the Aranyakas explore its culmination: sacred silence (*Mauna*, मौन). The practice evolved from chanting mantras aloud to whispering them, then to repeating them mentally, and finally, to listening for the silent source from which all sound emerges.
+            </p>
+            <div class="key-principle-card silence-card">
+                <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+                <h2>The Unstruck Sound</h2>
+                <p>
+                    The sages sought the *Anahata Nada*, the "unstruck sound"—the primordial vibration of the universe that is not heard with the ears but perceived in deep meditation. This silence is not an emptiness, but a plenum of pure potential, the womb of all creation.
+                </p>
+            </div>
+        </section>
+
+        <section class="narrative-section">
+            <h2>The Rishi as a Living Laboratory</h2>
+            <p class="intro-text">The Aranyakas portray the Rishi (sage) as the ultimate scientist of the subjective realm. The forest was their laboratory, and their own consciousness was the subject of every experiment.
+            </p>
+             <div class="two-col-layout">
+                <div class="two-col-icon">
+                    <svg class="lab-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path class="head-outline" d="M50,95 C25,95 10,75 10,50 C10,25 25,5 50,5 C75,5 90,25 90,50 C90,75 75,95 50,95 Z" />
+                        <path class="neural-path" d="M50,80 C 60,70 65,55 50,50 C 35,45 40,30 50,20" />
+                        <path class="neural-path" d="M40,70 C 50,65 55,55 50,50 C 45,45 45,35 40,30" style="animation-delay: -1s;"/>
+                        <path class="neural-path" d="M60,70 C 50,65 45,55 50,50 C 55,45 55,35 60,30" style="animation-delay: -2s;"/>
+                    </svg>
+                </div>
+                <div class="two-col-text">
+                    <h3>Empirical Mysticism</h3>
+                    <p>Their insights were not based on blind faith but on direct, repeatable experience (*Anubhava*). By turning ritual into a repeatable internal process, they could rigorously test the connections between states of mind, the flow of breath, and perceptions of reality, creating a true science of consciousness.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- THE END -->
+        <section class="narrative-section">
+            <h2>The Great Inquiry Begins</h2>
+            <p class="intro-text">
+                By turning the focus inward, the Aranyakas created the philosophical foundation for the Upanishads. The question shifted from "What is the correct action?" to "Who is the actor?" This introspective path paved the way for the ultimate exploration of Self, Consciousness, and Reality.
+            </p>
+            
+            <div class="key-principle-card">
+                <h2>The Universe as the Self</h2>
+                <p>
+                    The Aranyakas are the critical link that prepares the mind for non-duality. They gently dissolve the boundary between the observer and the observed, revealing that the entire cosmos, with all its laws and forces, is reflected within the landscape of one's own awareness.
+                </p>
+            </div>
+        </section>
+
+        <div class="back-link-container">
+            <a href="vedic-sciences-canvas.html" class="quantum-btn">Return to the Portal</a>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            const canvas = document.getElementById('cosmic-canvas');
+            const ctx = canvas.getContext('2d');
+            let width, height, stars = [];
+            const numStars = window.innerWidth < 768 ? 80 : 200;
+
+            function init() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+                stars = [];
+                for (let i = 0; i < numStars; i++) {
+                    stars.push({
+                        x: Math.random() * width,
+                        y: Math.random() * height,
+                        radius: Math.random() * 1.5 + 0.5,
+                        alpha: Math.random(),
+                        alphaChange: (Math.random() - 0.5) * 0.01
+                    });
+                }
+            }
+
+            function drawStars() {
+                ctx.clearRect(0, 0, width, height);
+                ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--mystic-black').trim();
+                ctx.fillRect(0, 0, width, height);
+
+                stars.forEach(star => {
+                    ctx.beginPath();
+                    ctx.arc(star.x, star.y, star.radius, 0, 2 * Math.PI);
+                    ctx.fillStyle = `rgba(255, 215, 0, ${star.alpha})`;
+                    ctx.fill();
+
+                    star.alpha += star.alphaChange;
+                    if (star.alpha <= 0 || star.alpha >= 1) {
+                        star.alphaChange *= -1;
+                    }
+                });
+            }
+
+            function animate() {
+                drawStars();
+                requestAnimationFrame(animate);
+            }
+
+            window.addEventListener('resize', init);
+            init();
+            animate();
+
+            if (!isTouchDevice) {
+                const cursorGlow = document.getElementById('cursor-glow');
+                window.addEventListener('mousemove', (e) => {
+                    cursorGlow.style.transform = `translate(${e.clientX - 300}px, ${e.clientY - 300}px)`;
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rig Veda | Hymns to the Cosmic Dawn</title>
+    <meta name="theme-color" content="#0a0821">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;600&family=Hind:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --mystic-black: #0A0821;
+            --divine-gold: #FFD700;
+            --brilliant-gold: #ffec8a;
+            --cosmic-fire: #ff8c00;
+            --pure-white: #FFFFFF;
+            --gold-glow: rgba(255, 215, 0, 0.15);
+            
+            /* UI & Glassmorphism */
+            --card-bg: rgba(10, 8, 33, 0.75);
+            --card-bg-desktop: rgba(20, 12, 40, 0.65);
+            --card-border-color: rgba(255, 140, 0, 0.2);
+            --quantum-blur: blur(12px);
+            
+            /* Typography */
+            --font-heading: 'DM Serif Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --font-sanskrit: 'Hind', sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--mystic-black);
+            color: rgba(255, 255, 255, 0.9);
+            font-family: var(--font-body);
+            line-height: 1.7;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            letter-spacing: 0.03em;
+            color: var(--brilliant-gold);
+            text-shadow: 0 0 25px var(--gold-glow);
+        }
+        
+        .sanskrit-text {
+            font-family: var(--font-sanskrit);
+        }
+
+        main {
+            will-change: transform;
+        }
+
+        #cosmic-canvas, #cursor-glow, .vignette-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        #cursor-glow {
+            background: radial-gradient(circle, rgba(255, 140, 0, 0.1) 0%, transparent 50%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s linear;
+            display: none;
+        }
+
+        @media (pointer: fine) {
+            #cursor-glow {
+                display: block;
+            }
+        }
+        
+        .vignette-overlay {
+            background: radial-gradient(ellipse at center, rgba(0,0,0,0) 60%, rgba(0,0,0,0.7) 100%);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 5rem;
+            animation: fadeInDown 1s ease-out;
+        }
+        
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .page-header h1 {
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            color: var(--cosmic-fire);
+            text-shadow: 0 0 20px var(--cosmic-fire);
+        }
+
+        .page-header .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.75rem);
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+            margin-top: 0.5rem;
+        }
+
+        .narrative-section {
+            margin-bottom: 6rem;
+            animation: fadeInUp 1.2s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .narrative-section:nth-of-type(1) { animation-delay: 0.2s; }
+        .narrative-section:nth-of-type(2) { animation-delay: 0.4s; }
+        .narrative-section:nth-of-type(3) { animation-delay: 0.6s; }
+        .narrative-section:nth-of-type(4) { animation-delay: 0.8s; }
+        .narrative-section:nth-of-type(5) { animation-delay: 1.0s; }
+        .narrative-section:nth-of-type(6) { animation-delay: 1.2s; }
+        .narrative-section:nth-of-type(7) { animation-delay: 1.4s; }
+        .narrative-section:nth-of-type(8) { animation-delay: 1.6s; }
+        .narrative-section:nth-of-type(9) { animation-delay: 1.8s; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .narrative-section h2 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .narrative-section p.intro-text {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+            text-align: center;
+            color: rgba(255,255,255,0.85);
+        }
+        
+        .quote-block {
+            margin: 4rem auto;
+            padding: 3rem;
+            border-left: 4px solid var(--cosmic-fire);
+            background: linear-gradient(90deg, rgba(255, 140, 0, 0.1), transparent);
+        }
+        .quote-block blockquote {
+            font-size: 1.5rem;
+            font-style: italic;
+            line-height: 1.8;
+            margin: 0;
+            color: rgba(255,255,255,0.95);
+        }
+        .quote-block footer {
+            text-align: right;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        /* Two Column Layout */
+        .two-col-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+        @media (min-width: 768px) {
+            .two-col-layout { grid-template-columns: 1fr 2fr; gap: 4rem; }
+        }
+        .two-col-icon { text-align: center; }
+        .two-col-text h3 { font-size: 2rem; margin-bottom: 1rem; text-align: left; }
+        .two-col-text p { font-size: 1.1rem; }
+        .two-col-text h4 { font-size: 1.2rem; color: var(--cosmic-fire); }
+
+        /* MANDALA CODEX UI */
+        .mandala-codex {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .mandala-tabs {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            -webkit-overflow-scrolling: touch; /* for smooth scrolling on iOS */
+            scrollbar-width: none; /* Firefox */
+        }
+        .mandala-tabs::-webkit-scrollbar {
+            display: none; /* Safari and Chrome */
+        }
+        .mandala-tab {
+            flex: 0 0 120px;
+            height: 120px;
+            margin: 0 1rem;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border-color);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.1, 0.8, 0.2, 1);
+            scroll-snap-align: center;
+            position: relative;
+        }
+        .mandala-tab .tab-number {
+            font-size: 2.5rem;
+            font-family: var(--font-heading);
+            color: var(--cosmic-fire);
+            opacity: 0.7;
+        }
+        .mandala-tab .tab-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            opacity: 0.7;
+        }
+        .mandala-tab.active {
+            transform: scale(1.2);
+            border-color: var(--cosmic-fire);
+            box-shadow: 0 0 30px rgba(255, 140, 0, 0.4);
+        }
+        .mandala-tab.active .tab-number,
+        .mandala-tab.active .tab-label {
+            opacity: 1;
+        }
+        .mandala-content-display {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border-color);
+            border-radius: 20px;
+            padding: 2.5rem;
+            min-height: 340px;
+            transition: opacity 0.4s ease;
+            scroll-margin-top: 2rem;
+        }
+        .mandala-content-display h3 { font-size: 1.75rem; color: var(--cosmic-fire); margin-bottom: 1.5rem;}
+        .mandala-content-display h4 {
+            font-size: 1.1rem;
+            color: var(--cosmic-fire);
+            opacity: 0.9;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            text-align: left;
+        }
+        .mandala-content-display p { font-size: 1.05rem; text-align: left; }
+
+        /* Deity Grid */
+        .deity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .deity-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border-color);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .deity-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 15px currentColor);
+        }
+        .deity-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .deity-card p {
+            font-size: 1.05rem;
+        }
+        .deity-card .deeper-meaning {
+            font-size: 0.95rem;
+            font-style: italic;
+            opacity: 0.8;
+            margin-top: 1rem;
+            border-top: 1px solid var(--card-border-color);
+            padding-top: 1rem;
+        }
+
+
+        #agni { color: #ff4500; }
+        #indra { color: #4169e1; }
+        #soma { color: #98fb98; }
+        #surya { color: #ffd700; }
+        #ushas { color: #ffb6c1; }
+        #varuna { color: #87ceeb; }
+        
+        /* Cymatics Animation */
+        .cymatics-container { text-align: center; }
+        .cymatics-animation {
+            width: 100%; max-width: 300px; margin: 1rem auto;
+        }
+        .cymatics-animation .sri-yantra {
+            stroke: var(--cosmic-fire);
+            stroke-width: 0.5;
+            stroke-dasharray: 2000;
+            stroke-dashoffset: 2000;
+            animation: draw 10s ease-in-out infinite;
+        }
+        @keyframes draw { 
+            50% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: -2000; }
+        }
+
+        /* Nasadiya Sukta Card */
+        .void-card {
+            background: radial-gradient(ellipse at center, rgba(10,8,33,0.9) 0%, rgba(0,0,0,0.95) 100%);
+            border: 1px solid var(--card-border-color);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+        }
+        .void-card p {
+            font-size: 1.4rem;
+            font-style: italic;
+            line-height: 2;
+            opacity: 0;
+            animation: fadeInVerse 15s infinite;
+        }
+        .void-card p:nth-child(1) { animation-delay: 0s; }
+        .void-card p:nth-child(2) { animation-delay: 5s; }
+        .void-card p:nth-child(3) { animation-delay: 10s; }
+        @keyframes fadeInVerse {
+            0% { opacity: 0; }
+            20% { opacity: 1; }
+            33.33% { opacity: 1; }
+            53.33% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+        
+        /* Rta Section */
+        .rta-animation {
+            width: 100%; max-width: 300px; margin: 0 auto;
+        }
+        .rta-animation .gear {
+            fill: none;
+            stroke: var(--cosmic-fire);
+            stroke-width: 0.5;
+            animation: spin 20s linear infinite;
+        }
+        .rta-animation .gear.g2 { animation-direction: reverse; animation-duration: 30s; }
+        .rta-animation .gear.g3 { animation-duration: 40s; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* Legacy Tree */
+        .legacy-tree {
+            position: relative;
+            padding-left: 40px;
+        }
+        .legacy-branch {
+            position: relative;
+            padding-left: 40px;
+            border-left: 2px solid rgba(255,140,0,0.2);
+            padding-bottom: 2rem;
+        }
+        .legacy-branch:last-child { border-left: 2px solid transparent; }
+        .legacy-node {
+            position: absolute;
+            left: -11px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--cosmic-fire);
+            box-shadow: 0 0 10px var(--cosmic-fire);
+        }
+        .legacy-branch h3 { font-size: 1.75rem; color: var(--cosmic-fire); }
+        .legacy-branch p { font-size: 1.1rem; }
+
+
+        .key-principle-card {
+            margin: 5rem auto;
+            padding: clamp(2rem, 5vw, 3rem);
+            border: 1px solid var(--cosmic-fire);
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(ellipse at center, rgba(255, 140, 0, 0.1), transparent 70%);
+        }
+        .key-principle-card h2 { margin-bottom: 1rem; font-size: clamp(2rem, 4vw, 2.5rem); color: var(--cosmic-fire); }
+        .key-principle-card p { max-width: 700px; margin: 0 auto; font-size: 1.2rem; color: rgba(255,255,255,0.95); }
+
+        @media (min-width: 769px) {
+            .deity-card, .key-principle-card, .quote-block, .void-card, .mandala-content-display {
+                background: var(--card-bg-desktop);
+                backdrop-filter: var(--quantum-blur);
+                -webkit-backdrop-filter: var(--quantum-blur);
+            }
+        }
+        
+        .back-link-container { text-align: center; margin-top: 4rem; }
+        .quantum-btn {
+            padding: 0.8rem 2rem; border-radius: 50px; color: var(--divine-gold); text-decoration: none; font-weight: 600;
+            border: 1px solid var(--card-border-color); background: rgba(255, 255, 255, 0.05); transition: all 0.3s ease;
+        }
+        .quantum-btn:hover {
+            border-color: var(--divine-gold); background: rgba(255, 215, 0, 0.1); box-shadow: 0 0 25px rgba(212, 175, 55, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <canvas id="cosmic-canvas"></canvas>
+    <div id="cursor-glow"></div>
+    <div class="vignette-overlay"></div>
+    
+    <main class="container">
+        <header class="page-header">
+            <h1>The Rig Veda</h1>
+            <h2 class="subtitle sanskrit-text">ऋग्वेद</h2>
+        </header>
+
+        <section class="narrative-section">
+            <h2>The Primordial Echo</h2>
+            <p class="intro-text">
+                The Rig Veda is the oldest, most sacred text of ancient India, a vast collection of over a thousand hymns revealed to the ancient Rishis (seers) in deep states of meditation. It is not a book in the modern sense, but a vibrational blueprint of the cosmos, an echo of the laws of creation captured in poetic meter.
+            </p>
+             <div class="quote-block">
+                <blockquote>"Truth is One, though the sages call it by many names."</blockquote>
+                <footer>— Rig Veda 1.164.46</footer>
+            </div>
+        </section>
+        
+        <section class="narrative-section">
+            <h2>The Rishis: Seers of Vibration</h2>
+             <div class="two-col-layout">
+                <div class="two-col-icon">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <style>
+                            .rishi-head { fill: none; stroke: var(--cosmic-fire); stroke-width: 1; opacity: 0.7; }
+                            .rishi-wave { fill: none; stroke: var(--cosmic-fire); stroke-width: 0.5; animation: wave 4s infinite ease-in-out; }
+                            @keyframes wave { 50% { stroke-width: 1; opacity: 1; } }
+                        </style>
+                        <path class="rishi-head" d="M50,70 C 40,85 25,85 20,70 C 10,50 25,30 50,30 C 75,30 90,50 80,70 C 75,85 60,85 50,70 Z" />
+                        <path class="rishi-wave" d="M10,50 C 20,40 30,60 40,50" style="animation-delay: 0s"/>
+                        <path class="rishi-wave" d="M60,50 C 70,40 80,60 90,50" style="animation-delay: -2s"/>
+                    </svg>
+                </div>
+                <div class="two-col-text">
+                    <h3>Drashtas, Not Authors</h3>
+                    <p>The hymns were not "composed." The Rishis were known as *drashtas*—"seers." They were cosmic scientists who, through disciplined meditation (*Tapas*), could attune their consciousness to perceive the timeless truths of existence directly as sound and light (*Shruti*, "that which is heard").</p>
+                    <h4>Scientific Parallel</h4>
+                    <p>This state of peak perception is mirrored in modern neuroscience's study of gamma brainwaves. Associated with high-level information processing and states of profound insight, these brain states suggest a biological basis for the heightened awareness the Rishis cultivated.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="narrative-section">
+            <h2>The Structure: Ten Mandalas</h2>
+            <p class="intro-text">The Rig Veda is organized into ten books, or "Mandalas." Each is a collection of hymns, often by a specific family of Rishis, forming a grand cosmic architecture. Click on the tabs below to explore.</p>
+            <div class="mandala-codex">
+                <div class="mandala-tabs">
+                    <!-- Tabs will be generated by JS -->
+                </div>
+                <div class="mandala-content-display">
+                    <!-- Content will be updated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <section class="narrative-section">
+            <h2>Hymns to the Cosmic Forces</h2>
+            <p class="intro-text">
+                The hymns are addressed to the Devas—not as mythological gods, but as luminous, intelligent forces of nature and consciousness. The hymns were a technology to attune human awareness to these fundamental powers of the universe.
+            </p>
+            <div class="deity-grid">
+                <div class="deity-card">
+                    <div class="deity-icon" id="agni">🔥</div>
+                    <h3>Agni (Fire)</h3>
+                    <p>The divine messenger and priest of the gods, carrying intentions from the human to the divine realm.</p>
+                    <p class="deeper-meaning">Deeper Meaning: The fire of aspiration, the will to evolve, and the spark of consciousness within all beings.</p>
+                </div>
+                <div class="deity-card">
+                    <div class="deity-icon" id="indra">⚡</div>
+                    <h3>Indra (Storm)</h3>
+                    <p>The king of the Devas, who wields the thunderbolt to shatter obstacles and bring the rains of wisdom.</p>
+                    <p class="deeper-meaning">Deeper Meaning: The divine willpower, courage, and the power of the mind to overcome internal demons of ignorance.</p>
+                </div>
+                <div class="deity-card">
+                    <div class="deity-icon" id="soma">🌿</div>
+                    <h3>Soma (Elixir)</h3>
+                    <p>A divine nectar of immortality and bliss, representing the moon and the flow of consciousness.</p>
+                    <p class="deeper-meaning">Deeper Meaning: The potential for transcendent, ecstatic states of spiritual realization inherent within consciousness itself.</p>
+                </div>
+                <div class="deity-card">
+                    <div class="deity-icon" id="surya">☀️</div>
+                    <h3>Sūrya (Sun)</h3>
+                    <p>The source of all light, life, and knowledge, representing the supreme Self and the eye of the cosmos.</p>
+                     <p class="deeper-meaning">Deeper Meaning: The ultimate source of illumination and truth, the Ātman, which dispels the darkness of ignorance.</p>
+                </div>
+                 <div class="deity-card">
+                    <div class="deity-icon" id="ushas">🌅</div>
+                    <h3>Uṣas (Dawn)</h3>
+                    <p>The beautiful goddess of the dawn, representing new beginnings and the path from darkness to light.</p>
+                    <p class="deeper-meaning">Deeper Meaning: The ever-present possibility of spiritual awakening and the dawning of new insight within the mind.</p>
+                </div>
+                 <div class="deity-card">
+                    <div class="deity-icon" id="varuna">⚖️</div>
+                    <h3>Varuṇa (Cosmic Law)</h3>
+                    <p>The guardian of Ṛta (Cosmic Order), the all-seeing sovereign who upholds universal law and moral order.</p>
+                    <p class="deeper-meaning">Deeper Meaning: The principle of universal conscience and the inherent moral structure of reality to which all actions are accountable.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="narrative-section">
+            <h2>The Science of the Mantra</h2>
+             <div class="two-col-layout">
+                <div class="two-col-icon cymatics-container">
+                     <svg class="cymatics-animation" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <g class="sri-yantra" fill="none">
+                            <path d="M50 2 L98 85 H2 Z"/>
+                            <path d="M50 98 L2 15 H98 Z"/>
+                            <path d="M26 67 L74 67 L50 25 Z"/>
+                            <path d="M26 33 L74 33 L50 75 Z"/>
+                            <circle cx="50" cy="50" r="10"/>
+                            <circle cx="50" cy="50" r="20"/>
+                            <circle cx="50" cy="50" r="30"/>
+                        </g>
+                     </svg>
+                </div>
+                <div class="two-col-text">
+                    <h3>Vibration into Form</h3>
+                    <p>The Rishis understood that sound has form. This principle, now studied in the science of Cymatics, shows how vibrations create geometric patterns. The mantras of the Rig Veda are precise sonic formulas designed to create specific resonant patterns in the consciousness of the chanter.</p>
+                    <h4>Scientific Parallel</h4>
+                    <p>This relates to Brainwave Entrainment, where the brain's electrical cycles synchronize with rhythmic external stimuli, like chanting. By repeatedly using a mantra, one can guide the brain toward more coherent, meditative states (like Alpha or Theta waves), creating the neurological conditions for insight.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="narrative-section">
+            <h2>Hymn of Creation: Nāsadīya Sūkta</h2>
+            <p class="intro-text">Perhaps the most profound hymn in the Rig Veda, the Nāsadīya Sūkta (10.129) gazes into the mystery of creation with breathtaking intellectual honesty, asking questions that resonate with modern cosmology.</p>
+            <div class="void-card">
+                <p>"Then, there was neither non-existence nor existence..."</p>
+                <p>"Who really knows? Who can here proclaim it? Whence, whence this creation sprang?"</p>
+                <p>"...Perhaps it formed itself, or perhaps it did not—the one who looks down on it from the highest heaven, only he knows—or perhaps even he does not know."</p>
+            </div>
+             <div class="two-col-layout" style="margin-top: 3rem;">
+                <div class="two-col-text">
+                    <h3>A Cosmic Inquiry</h3>
+                    <p>This hymn is remarkable for its non-dogmatic and radically honest inquiry. It doesn't provide easy answers but instead dives into the fundamental paradox of existence itself. Its speculation on a state before "being and non-being" mirrors modern physics' discussions about the nature of the singularity before the Big Bang.</p>
+                </div>
+                <div class="two-col-icon">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                </div>
+            </div>
+        </section>
+
+        <section class="narrative-section">
+            <h2>Ṛta: The Cosmic Order</h2>
+            <p class="intro-text">
+                A central concept of the Rig Veda is Ṛta (ऋत), the universal law of cosmic order and truth. It is the principle of natural harmony that governs everything, from the rising of the sun to the moral actions of human beings. The hymns are an attempt to live in harmony with this sacred order.
+            </p>
+            <div class="two-col-layout">
+                <div class="two-col-icon rta-animation">
+                     <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <g class="gear g1" transform-origin="50 50">
+                            <circle cx="50" cy="50" r="40" />
+                            <circle cx="50" cy="50" r="35" />
+                        </g>
+                        <g class="gear g2" transform-origin="25 25">
+                            <circle cx="25" cy="25" r="20" />
+                        </g>
+                         <g class="gear g3" transform-origin="75 75">
+                            <circle cx="75" cy="75" r="15" />
+                        </g>
+                    </svg>
+                </div>
+                <div class="two-col-text">
+                    <h3>The Universe as a Machine</h3>
+                    <p>Ṛta portrays the universe not as chaotic, but as an infinitely complex, self-regulating system. Every part is interconnected, from the macrocosm of the stars to the microcosm of human consciousness. Acting against Ṛta—through falsehood or unethical behavior—is to move against the fundamental grain of the universe, inevitably leading to discord.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="narrative-section">
+            <h2>The Legacy: The Mother of All Vedas</h2>
+            <p class="intro-text">The Rig Veda is the primordial seed from which the entire tree of Vedic knowledge grows. Its hymns, concepts, and philosophical inquiries form the foundation for all subsequent sacred texts.</p>
+            <div class="legacy-tree">
+                <div class="legacy-branch">
+                    <div class="legacy-node"></div>
+                    <h3>Rig Veda</h3>
+                    <p>The root of knowledge (Jñāna). It contains the pure, revealed hymns and foundational philosophical questions.</p>
+                </div>
+                <div class="legacy-branch">
+                    <div class="legacy-node"></div>
+                    <h3>Sama & Yajur Vedas</h3>
+                    <p>The hymns of the Rig Veda are extracted and repurposed: set to melody for devotional chanting (Sama) and arranged as prose formulas for ritual action (Yajur).</p>
+                </div>
+                 <div class="legacy-branch">
+                    <div class="legacy-node"></div>
+                    <h3>Brahmanas & Aranyakas</h3>
+                    <p>These texts elaborate on the meaning behind the Rig Vedic hymns, explaining their application in rituals and their deeper, mystical significance for meditation.</p>
+                </div>
+                <div class="legacy-branch">
+                    <div class="legacy-node"></div>
+                    <h3>Upanishads</h3>
+                    <p>The ultimate philosophical questions first posed in hymns like the Nāsadīya Sūkta blossom into the profound non-dual wisdom of Vedanta, forming the philosophical climax of the Vedas.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="back-link-container">
+            <a href="vedic-sciences-canvas.html" class="quantum-btn">Return to the Portal</a>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            const canvas = document.getElementById('cosmic-canvas');
+            const ctx = canvas.getContext('2d');
+            let width, height, stars = [];
+            const numStars = window.innerWidth < 768 ? 100 : 250;
+
+            function init() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+                stars = [];
+                for (let i = 0; i < numStars; i++) {
+                    stars.push({
+                        x: Math.random() * width,
+                        y: Math.random() * height,
+                        radius: Math.random() * 1.5 + 0.5,
+                        alpha: Math.random(),
+                        alphaChange: (Math.random() - 0.5) * 0.015
+                    });
+                }
+            }
+
+            function drawStars() {
+                ctx.clearRect(0, 0, width, height);
+                ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--mystic-black').trim();
+                ctx.fillRect(0, 0, width, height);
+
+                stars.forEach(star => {
+                    ctx.beginPath();
+                    ctx.arc(star.x, star.y, star.radius, 0, 2 * Math.PI);
+                    ctx.fillStyle = `rgba(255, 140, 0, ${star.alpha})`;
+                    ctx.fill();
+
+                    star.alpha += star.alphaChange;
+                    if (star.alpha <= 0 || star.alpha >= 1) {
+                        star.alphaChange *= -1;
+                    }
+                });
+            }
+
+            function animate() {
+                drawStars();
+                requestAnimationFrame(animate);
+            }
+
+            window.addEventListener('resize', init);
+            init();
+            animate();
+
+            if (!isTouchDevice) {
+                const cursorGlow = document.getElementById('cursor-glow');
+                window.addEventListener('mousemove', (e) => {
+                    cursorGlow.style.transform = `translate(${e.clientX - 300}px, ${e.clientY - 300}px)`;
+                });
+            }
+            
+            // Mandala Codex Logic
+            const tabsContainer = document.querySelector('.mandala-tabs');
+            const contentDisplay = document.querySelector('.mandala-content-display');
+            const numMandalas = 10;
+            const mandalaData = [
+                { title: "Mandala 1: The Inaugural Anthology", deities: "Agni, Indra, Vāyu, Ashvins", concept: "Serving as a grand overture, this Mandala is a diverse collection from various Rishi families. It doesn't follow a single lineage, but instead introduces all the major cosmic forces and establishes the foundational themes of praise, inquiry, and cosmic order that permeate the entire Rig Veda.", hymn: "Hymn to Agni (1.1): The Rig Veda begins with this invocation, establishing Agni not just as fire, but as the divine will, the priest of the cosmos, and the essential link between humanity and the divine." },
+                { title: "Mandala 2: The Ancient Core", deities: "Agni, Indra, Rudra", concept: "Attributed to the Gritsamada family, this is one of the oldest and most structurally cohesive 'Family Books.' It provides a blueprint for Vedic ritual and cosmology, focusing on the power of disciplined praise to maintain cosmic harmony and inner strength.", hymn: "Hymn to Rudra (2.33): A powerful and awe-filled hymn to the fierce and benevolent aspect of the divine, the 'Roarer' who is both a fearsome force of nature and a supreme healer. This is a clear precursor to the later conception of Shiva." },
+                { title: "Mandala 3: The Dawn of Illumination", deities: "Agni, Indra, Vishvamitra", concept: "This Mandala, from the lineage of the great sage Vishvamitra, is centered on the theme of divine light and the awakening of human consciousness. It is a testament to the power of spiritual discipline to attain universal vision.", hymn: "The Gāyatrī Mantra (3.62.10): The most revered and powerful mantra of the entire Veda. It is not just a hymn to the sun, but a universal prayer for the illumination of the intellect and the awakening of innate wisdom." },
+                { title: "Mandala 4: The Voice of the Divine", deities: "Indra, Agni, Vamadeva", concept: "Known for its profound mystical philosophy, this book contains hymns where the seer Vamadeva speaks not as a separate individual, but from a state of realized identity with the divine. It is a radical foreshadowing of the non-dual truths of the Upanishads.", hymn: "Indra's Monologue (4.26): A startling hymn where the seer declares 'I was Manu, and I was the Sun...' erasing the line between the human and the divine, and asserting the unity of all consciousness." },
+                { title: "Mandala 5: The Harmony of Duality", deities: "Agni, Indra, Ashvins, Maruts", concept: "This systematic collection from the Atri family is notable for its focus on the Ashvins, the divine twin horsemen. This highlights the Vedic appreciation for complementary forces—light and dark, dawn and dusk, healing and action—and their role in maintaining cosmic balance.", hymn: "Hymn to the Ashvins (5.78): Celebrates the divine twins as celestial physicians and rescuers, representing the power of swift, compassionate divine intervention in times of need." },
+                { title: "Mandala 6: The Path of Righteous Action", deities: "Agni, Indra, Pushan", concept: "Attributed to the Bharadvaja family, these hymns often focus on the practical application of Dharma in daily life. It emphasizes prosperity, protection, and the importance of selfless action as a means of aligning with Ṛta, the cosmic order.", hymn: "Hymn to Pushan (6.54): A beautiful prayer to the deity of paths, nourishment, and safe journeys. It is a hymn for guidance, not just for physical travel, but for the soul's journey through life." },
+                { title: "Mandala 7: The Apex of Devotion", deities: "Varuna, Indra, Mitra", concept: "Composed by the great sage Vasishtha, this Mandala is renowned for its profound devotion and deep ethical inquiries. Its hymns to Varuna, the guardian of cosmic law, are some of the most personal and morally introspective in the entire Veda.", hymn: "Hymn to Varuna (7.86): A deeply moving hymn expressing personal remorse and seeking forgiveness from the all-seeing guardian of Ṛta. It reveals a sophisticated understanding of conscience and moral accountability." },
+                { title: "Mandala 8: The Diverse Anthology", deities: "Indra, Ashvins, Kanva family", concept: "A heterogeneous collection primarily from the Kanva family, this book is unique for its metrical variations and its compilation of hymns from various seer lineages. It acts as a bridge, gathering and preserving diverse streams of Vedic thought.", hymn: "Vālakhilya Hymns (8.49–8.59): A supplementary set of eleven short, esoteric hymns known for their complex structure and considered by some traditions to be of later origin, yet holding deep mystical significance." },
+                { title: "Mandala 9: The River of Bliss", deities: "Soma Pavamana", concept: "This entire Mandala is uniquely and systematically dedicated to a single divine principle: Soma Pavamana, the purifying sacred elixir. The 114 hymns describe the process of clarifying Soma juice as a grand, intricate metaphor for the purification of consciousness itself, leading to states of bliss and divine insight.", hymn: "The Flow of Soma (9.1): The opening hymn sets the theme for the entire book, praising the 'clarifying flow' of the divine nectar. It establishes the central metaphor of spiritual refinement and the attainment of a blissful, illumined mind." },
+                { title: "Mandala 10: The Great Cosmic Inquiry", deities: "Prajapati, Purusha, Vāk", concept: "One of the latest and most philosophically adventurous Mandalas, this collection moves beyond praise to ask radical metaphysical questions about the origin of the universe, the nature of sacrifice, the power of language (Vāk), and the ultimate source of reality.", hymn: "Nāsadīya Sūkta (10.129): The 'Hymn of Creation,' a masterpiece of non-dogmatic inquiry that speculates on a state before existence and non-existence, rivaling modern cosmology in its conceptual depth." }
+            ];
+
+            // Generate Tabs
+            let tabsHTML = '';
+            for (let i = 1; i <= numMandalas; i++) {
+                tabsHTML += `
+                    <div class="mandala-tab ${i === 1 ? 'active' : ''}" data-mandala="${i}">
+                        <div class="tab-number">${i}</div>
+                        <div class="tab-label">Mandala</div>
+                    </div>
+                `;
+            }
+            tabsContainer.innerHTML = tabsHTML;
+            const allTabs = document.querySelectorAll('.mandala-tab');
+
+            // Function to update content
+            function updateMandalaContent(index) {
+                const data = mandalaData[index - 1];
+                contentDisplay.style.opacity = '0';
+                setTimeout(() => {
+                    contentDisplay.innerHTML = `
+                        <h3>${data.title}</h3>
+                        <div>
+                            <h4>Core Concept</h4>
+                            <p>${data.concept}</p>
+                        </div>
+                        <div>
+                            <h4>Key Deities</h4>
+                            <p>${data.deities}</p>
+                        </div>
+                        <div>
+                            <h4>Signature Hymn</h4>
+                            <p>${data.hymn}</p>
+                        </div>
+                    `;
+                    contentDisplay.style.opacity = '1';
+                }, 300);
+            }
+
+            // Initial content
+            updateMandalaContent(1);
+
+            // Add click listeners
+            allTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const mandalaIndex = tab.dataset.mandala;
+                    
+                    allTabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    
+                    tab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                    
+                    updateMandalaContent(mandalaIndex);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+
