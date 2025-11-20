@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somatic Release - ShivaKali Ashram</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Somatic Theme Locked */
+            --bio-primary: #ff6b6b; /* Flesh/Muscle Pink */
+            --bio-secondary: #8b4513; /* Bone/Clay */
+            --bio-bg: #1a0f0f; /* Deep Earth/Flesh */
+            --bio-glass: rgba(26, 15, 15, 0.85);
+            --bio-text: #ffe6e6;
+            --bio-accent: #ff4d4d;
+            --morph-speed: 0.8s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--bio-bg);
+            color: var(--bio-text);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Video Background */
+        #bg-video-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        #bg-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            filter: brightness(0.3) saturate(1.2) sepia(0.6) hue-rotate(-30deg); /* Reddish tint */
+            object-fit: cover;
+        }
+
+        /* Navigation */
+        .nav-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 2rem;
+            background: rgba(15, 5, 5, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 107, 107, 0.2);
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            color: var(--bio-primary);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-back {
+            font-family: 'Rajdhani', sans-serif;
+            color: var(--bio-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            border: 1px solid rgba(255, 107, 107, 0.2);
+            padding: 0.5rem 1.5rem;
+        }
+
+        .nav-back:hover {
+            color: var(--bio-primary);
+            border-color: var(--bio-primary);
+            background: rgba(255, 107, 107, 0.1);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 8rem auto 4rem;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            margin-bottom: 6rem;
+            border-bottom: 1px solid rgba(255, 107, 107, 0.2);
+            padding-bottom: 4rem;
+        }
+
+        .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            color: var(--bio-primary);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
+            line-height: 0.9;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--bio-secondary);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        /* Content Modules */
+        .module {
+            margin-bottom: 6rem;
+            background: var(--bio-glass);
+            border: 1px solid rgba(255, 107, 107, 0.1);
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .module-header {
+            background: rgba(255, 107, 107, 0.05);
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid rgba(255, 107, 107, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .module-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: var(--bio-primary);
+        }
+
+        .module-id {
+            font-family: monospace;
+            color: var(--bio-secondary);
+            font-size: 0.9rem;
+        }
+
+        .module-content {
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .text-block h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--bio-text);
+            font-weight: 300;
+        }
+
+        .text-block p {
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: rgba(255, 230, 230, 0.8);
+            font-size: 1.1rem;
+        }
+
+        .data-panel {
+            background: rgba(20, 5, 5, 0.3);
+            border-left: 2px solid var(--bio-secondary);
+            padding: 2rem;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .data-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 0.5rem;
+        }
+
+        .data-label {
+            color: var(--bio-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .data-value {
+            color: var(--bio-primary);
+            font-weight: 600;
+            text-align: right;
+        }
+
+        /* Somatic Specific Grid */
+        .tissue-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .tissue-card {
+            background: rgba(255, 107, 107, 0.05);
+            padding: 1rem;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 107, 107, 0.1);
+        }
+
+        .tissue-card h5 {
+            color: var(--bio-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .tissue-card p {
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .module-content {
+                grid-template-columns: 1fr;
+                padding: 1.5rem;
+            }
+
+            .tissue-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 1rem;
+                margin-top: 6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Video -->
+    <div id="bg-video-layer">
+        <video id="bg-video" autoplay muted loop playsinline>
+            <source src="../assets/video/consense.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-header">
+        <a href="theriputic homepage.html" class="nav-brand">
+            <span>⚠</span> Therapeutic Systems
+        </a>
+        <a href="theriputic homepage.html" class="nav-back">Return to Hub</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        
+        <header class="hero-section">
+            <h1 class="hero-title">Somatic Release</h1>
+            <div class="hero-subtitle">Structural Integrity & Trauma Unwinding</div>
+        </header>
+
+        <!-- Module 1: Trauma Release -->
+        <section class="module">
+            <div class="module-header">
+                <span class="module-title">01 // TRAUMA RELEASE</span>
+                <span class="module-id">SYS.SOM.001</span>
+            </div>
+            <div class="module-content">
+                <div class="text-block">
+                    <h3>The Body Keeps the Score</h3>
+                    <p>
+                        Trauma is not just a psychological event; it is a physiological capture. The nervous system freezes in a high-charge state, locking tension into the musculature.
+                    </p>
+                    <p>
+                        We utilize neurogenic tremors (TRE) to discharge this frozen energy. By fatiguing the psoas muscle, we induce a natural shake mechanism that resets the central nervous system.
+                    </p>
+                </div>
+                <div class="data-panel">
+                    <div class="data-row">
+                        <span class="data-label">Target</span>
+                        <span class="data-value">Psoas Muscle (Soul Muscle)</span>
+                    </div>
+                    <div class="data-row">
+                        <span class="data-label">Mechanism</span>
+                        <span class="data-value">Neurogenic Tremors</span>
+                    </div>
+                    <div class="data-row">
+                        <span class="data-label">Outcome</span>
+                        <span class="data-value">Vagal Tone Reset</span>
+                    </div>
+                    <div style="margin-top: 1.5rem; border: 1px solid var(--bio-primary); padding: 1rem; text-align: center; color: var(--bio-primary);">
+                        ⚠ INTENSITY WARNING: EMOTIONAL PURGE LIKELY
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Module 2: Myofascial Unwinding -->
+        <section class="module">
+            <div class="module-header">
+                <span class="module-title">02 // MYOFASCIAL UNWINDING</span>
+                <span class="module-id">SYS.SOM.002</span>
+            </div>
+            <div class="module-content">
+                <div class="data-panel">
+                    <h4 style="color:var(--bio-primary); margin-bottom: 1rem;">The Living Matrix</h4>
+                    <p style="font-size: 0.9rem; color: #ccc; margin-bottom: 1rem;">
+                        Fascia is the liquid-crystalline web that connects every cell. It holds emotional memory in its collagen fibers.
+                    </p>
+                    <div class="tissue-grid">
+                        <div class="tissue-card">
+                            <h5>Compression</h5>
+                            <p>Holding patterns from chronic stress.</p>
+                        </div>
+                        <div class="tissue-card">
+                            <h5>Dehydration</h5>
+                            <p>Stiffening of the matrix due to fear.</p>
+                        </div>
+                        <div class="tissue-card">
+                            <h5>Release</h5>
+                            <p>Hydration return via sustained pressure.</p>
+                        </div>
+                        <div class="tissue-card">
+                            <h5>Flow</h5>
+                            <p>Restoration of biotensegrity.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-block">
+                    <h3>Unlocking the Web</h3>
+                    <p>
+                        We do not force the tissue; we melt it. By applying sustained, gentle pressure to restriction points, the fascia undergoes a phase change from gel to sol (solid to liquid).
+                    </p>
+                    <p>
+                        This unwinding process often triggers spontaneous movement and memory recall, liberating the structural history of the body.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Module 3: Deep Grounding -->
+        <section class="module">
+            <div class="module-header">
+                <span class="module-title">03 // DEEP GROUNDING</span>
+                <span class="module-id">SYS.SOM.003</span>
+            </div>
+            <div class="module-content">
+                <div class="text-block">
+                    <h3>Earth Connection</h3>
+                    <p>
+                        In a digital age, we exist primarily in the head. Somatic grounding pulls consciousness down into the legs and pelvis.
+                    </p>
+                    <p>
+                        <strong>The Root Protocol:</strong> Stomping, low-stance squats, and barefoot earth contact to re-establish the electrical circuit with the planet.
+                    </p>
+                </div>
+                <div class="data-panel">
+                    <div class="data-row">
+                        <span class="data-label">Chakra</span>
+                        <span class="data-value">Muladhara (Root)</span>
+                    </div>
+                    <div class="data-row">
+                        <span class="data-label">Sensation</span>
+                        <span class="data-value">Heaviness / Warmth</span>
+                    </div>
+                    <div class="data-row">
+                        <span class="data-label">Benefit</span>
+                        <span class="data-value">Anxiety Elimination</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Module 4: Structural Alignment -->
+        <section class="module">
+            <div class="module-header">
+                <span class="module-title">04 // STRUCTURAL ALIGNMENT</span>
+                <span class="module-id">SYS.SOM.004</span>
+            </div>
+            <div class="module-content">
+                <div class="data-panel">
+                     <h4 style="color:var(--bio-primary); margin-bottom: 1rem;">Gravity as Therapy</h4>
+                     <div class="data-row">
+                        <span class="data-label">Axis</span>
+                        <span class="data-value">Vertical</span>
+                    </div>
+                    <div class="data-row">
+                        <span class="data-label">Load</span>
+                        <span class="data-value">Skeleton (Not Muscle)</span>
+                    </div>
+                    <div class="data-row">
+                        <span class="data-label">State</span>
+                        <span class="data-value">Effortless Upright</span>
+                    </div>
+                </div>
+                <div class="text-block">
+                    <h3>The Vertical Line</h3>
+                    <p>
+                        When the body fights gravity, it leaks energy. When it aligns with gravity, it gains energy.
+                    </p>
+                    <p>
+                        We align the major weight centers (Head, Thorax, Pelvis) so that the skeleton bears the load, allowing the muscles to relax into "action-readiness" rather than "holding-tension."
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>

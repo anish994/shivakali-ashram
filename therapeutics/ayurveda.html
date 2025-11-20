@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayurvedic Alchemy - ShivaKali Ashram</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Ayurveda Theme Locked */
+            --bio-primary: #ffd700; /* Gold */
+            --bio-secondary: #556b2f; /* Dark Olive */
+            --bio-bg: #1a1a00; /* Deep Organic */
+            --bio-glass: rgba(26, 26, 0, 0.85);
+            --bio-text: #fff8e1;
+            --bio-accent: #ffa500; /* Orange */
+            --morph-speed: 0.8s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--bio-bg);
+            color: var(--bio-text);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Video Background */
+        #bg-video-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        #bg-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            filter: brightness(0.3) saturate(1.2) sepia(0.4);
+            object-fit: cover;
+        }
+
+        /* Navigation */
+        .nav-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 2rem;
+            background: rgba(10, 10, 0, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            color: var(--bio-primary);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-back {
+            font-family: 'Rajdhani', sans-serif;
+            color: var(--bio-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            padding: 0.5rem 1.5rem;
+        }
+
+        .nav-back:hover {
+            color: var(--bio-primary);
+            border-color: var(--bio-primary);
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 8rem auto 4rem;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            margin-bottom: 6rem;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            padding-bottom: 4rem;
+        }
+
+        .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            color: var(--bio-primary);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            line-height: 0.9;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--bio-secondary);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        /* Content Modules */
+        .module {
+            margin-bottom: 6rem;
+            background: var(--bio-glass);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .module-header {
+            background: rgba(255, 215, 0, 0.05);
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .module-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: var(--bio-primary);
+        }
+
+        .module-id {
+            font-family: monospace;
+            color: var(--bio-secondary);
+            font-size: 0.9rem;
+        }
+
+        .module-content {
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .text-block h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--bio-text);
+            font-weight: 300;
+        }
+
+        .text-block p {
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: rgba(255, 248, 225, 0.8);
+            font-size: 1.1rem;
+        }
+
+        .data-panel {
+            background: rgba(0, 0, 0, 0.3);
+            border-left: 2px solid var(--bio-secondary);
+            padding: 2rem;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .data-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 0.5rem;
+        }
+
+        .data-label {
+            color: var(--bio-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .data-value {
+            color: var(--bio-primary);
+            font-weight: 600;
+            text-align: right;
+        }
+
+        /* Dosha Grid Specifics */
+        .dosha-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .dosha-card {
+            background: rgba(255, 215, 0, 0.05);
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .dosha-card:hover {
+            border-color: var(--bio-primary);
+            transform: translateY(-5px);
+        }
+
+        .dosha-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--bio-primary);
+        }
+
+        /* Herbology Tags */
+        .herb-tag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem 0.5rem 0;
+            border: 1px solid var(--bio-secondary);
+            color: var(--bio-secondary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .herb-tag:hover {
+            background: var(--bio-secondary);
+            color: #000;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .module-content {
+                grid-template-columns: 1fr;
+                padding: 1.5rem;
+            }
+
+            .dosha-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 1rem;
+                margin-top: 6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Video -->
+    <div id="bg-video-layer">
+        <video id="bg-video" autoplay muted loop playsinline>
+            <source src="../assets/video/consense.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-header">
+        <a href="theriputic homepage.html" class="nav-brand">
+            <span>☤</span> Therapeutic Systems
+        </a>
+        <a href="theriputic homepage.html" class="nav-back">Return to Hub</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        
+        <header class="hero-section">
+            <h1 class="hero-title">Ayurvedic Alchemy</h1>
+            <div class="hero-subtitle">Biological Optimization Protocol</div>
+        </header>
+
+        <!-- Module 1: Dosha Diagnosis -->
+        <section class="module">
+            <div class="module-header">
+                <span class="module-title">01 // DOSHA DIAGNOSIS</span>
+                <span class="module-id">SYS.AYU.001</span>
+            </div>
+            <div class="module-content">
+                <div class="text-block">
+                    <h3>The Three Biological Humors</h3>
+                    <p>
+                        Ayurveda views the body not as solid matter, but as a dynamic interplay of three elemental forces (Doshas): 
+                        Vata (Air/Ether), Pitta (Fire/Water), and Kapha (Earth/Water).
+                    </p>
+                    <p>
+                        Disease is simply a deviation from your unique elemental signature (Prakriti). 
+                        By identifying your dominant forces, we can reverse-engineer your optimal biological state.
+                    </p>
+                </div>
+                <div class="data-panel">
+                    <div class="dosha-grid">
+                        <div class="dosha-card">
+                            <div class="dosha-icon">💨</div>
+                            <h4>VATA</h4>
+                            <p style="font-size: 0.8rem; color: #ccc; margin-top: 0.5rem;">Kinetic Energy</p>
+                            <div style="font-size: 0.7rem; margin-top: 0.5rem; color: var(--bio-primary);">MOVEMENT</div>
+                        </div>
+                        <div class="dosha-card">
+                            <div class="dosha-icon">🔥</div>
+                            <h4>PITTA</h4>
+                            <p style="font-size: 0.8rem; color: #ccc; margin-top: 0.5rem;">Metabolic Heat</p>
+                            <div style="font-size: 0.7rem; margin-top: 0.5rem; color: var(--bio-primary);">TRANSFORMATION</div>
+                        </div>
+                        <div class="dosha-card">
+                            <div class="dosha-icon">🏔️</div>
+                            <h4>KAPHA</h4>
+                            <p style="font-size: 0.8rem; color: #ccc; margin-top: 0.5rem;">Structural Mass</p>
+                            <div style="font-size: 0.7rem; margin-top: 0.5rem; color: var(--bio-primary);">STABILITY</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Module 2: Sacred Herbology -->
+        <section class="module">
+            <div class="module-header">
+                <span class="module-title">02 // SACRED HERBOLOGY</span>
+                <span class="module-id">SYS.AYU.002</span>
+            </div>
+            <div class="module-content">
+                <div class="data-panel">
+                    <div class="data-row">
+                        <span class="data-label">Active Agent</span>
+                        <span class="data-value">Ashwagandha</span>
+                    </div>
+                    <div class="data-row">
+                        <span class="data-label">Function</span>
+                        <span class="data-value">Adaptogenic Shield</span>
+                    </div>
+                    <div class="data-row">
+                        <span class="data-label">Target</span>
+                        <span class="data-value">Cortisol Reduction</span>
+                    </div>
+                    <div style="margin-top: 2rem;">
+                        <span class="herb-tag">BRAHMI</span>
+                        <span class="herb-tag">SHILAJIT</span>
+                        <span class="herb-tag">TULSI</span>
+                        <span class="herb-tag">TRIPHALA</span>
+                        <span class="herb-tag">GUDUCHI</span>
+                    </div>
+                </div>
+                <div class="text-block">
+                    <h3>Plant Intelligence Download</h3>
+                    <p>
+                        We utilize herbs not just as chemical compounds, but as carriers of specific biological intelligence. 
+                        Ashwagandha acts as a root-access stabilizer for the nervous system.
+                    </p>
+                    <p>
+                        Shilajit, the "Destroyer of Weakness," serves as a fulvic acid mineral delivery system, 
+                        enhancing mitochondrial efficiency at the cellular level.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Module 3: Rasayana Protocol -->
+        <section class="module">
+            <div class="module-header">
+                <span class="module-title">03 // RASAYANA PROTOCOL</span>
+                <span class="module-id">SYS.AYU.003</span>
+            </div>
+            <div class="module-content">
+                <div class="text-block">
+                    <h3>The Science of Rejuvenation</h3>
+                    <p>
+                        Rasayana is the branch of Ayurveda focused on arresting degeneration and extending health-span.
+                        It operates by building 'Ojas' - the subtle essence of immunity and vitality.
+                    </p>
+                    <p>
+                        <strong>Key Protocol:</strong> The Golden Milk Transmission. Turmeric, black pepper, and fats combine to create 
+                        a potent anti-inflammatory matrix that repairs tissue while you sleep.
+                    </p>
+                </div>
+                <div class="data-panel">
+                    <div class="data-row">
+                        <span class="data-label">Objective</span>
+                        <span class="data-value">Cellular Repair</span>
+                    </div>
+                    <div class="data-row">
+                        <span class="data-label">Mechanism</span>
+                        <span class="data-value">Ojas Accumulation</span>
+                    </div>
+                    <div class="data-row">
+                        <span class="data-label">Cycle</span>
+                        <span class="data-value">48 Days (Mandala)</span>
+                    </div>
+                    <div style="margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem;">
+                        <div style="color: var(--bio-secondary); font-size: 0.8rem; margin-bottom: 0.5rem;">STATUS CHECK</div>
+                        <div style="color: var(--bio-primary); font-size: 1.2rem;">READY FOR DEPLOYMENT</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Module 4: Pranic Dietetics -->
+        <section class="module">
+            <div class="module-header">
+                <span class="module-title">04 // PRANIC DIETETICS</span>
+                <span class="module-id">SYS.AYU.004</span>
+            </div>
+            <div class="module-content">
+                <div class="data-panel">
+                     <h4 style="color:var(--bio-primary); margin-bottom: 1rem;">Food as Software</h4>
+                     <p style="font-size: 0.9rem; color: #ccc;">
+                         Every substance you ingest contains a unique post-digestive effect (Vipaka). 
+                         We program the diet to output specific energy states.
+                     </p>
+                     <ul style="list-style: none; margin-top: 1rem; font-size: 0.9rem; color: var(--bio-secondary);">
+                         <li style="margin-bottom: 0.5rem;">➤ <strong>Sattvic:</strong> Clarity, Lightness (Fruits, Grains)</li>
+                         <li style="margin-bottom: 0.5rem;">➤ <strong>Rajasic:</strong> Action, Passion (Spices, Stimulants)</li>
+                         <li>➤ <strong>Tamasic:</strong> Inertia, Heaviness (Processed, Old)</li>
+                     </ul>
+                </div>
+                <div class="text-block">
+                    <h3>Metabolic Fire (Agni)</h3>
+                    <p>
+                        You are not what you eat; you are what you digest. If Agni (digestive fire) is weak, 
+                        even nectar turns to poison (Ama).
+                    </p>
+                    <p>
+                        Our nutritional protocols prioritize the ignition of Agni before fuel intake. 
+                        This ensures complete combustion of nutrients and zero toxic residue.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
