@@ -327,11 +327,11 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(10, 14, 39, 0.98);
+            background: rgba(10, 14, 39, 0.75); /* More transparent to show video */
             z-index: 200;
             display: none;
             overflow-y: auto;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(8px); /* Reduced blur for clearer background */
         }
 
         .node-expanded.active {
@@ -1075,11 +1075,19 @@
         function openNode(nodeId) {
             const expanded = document.getElementById('nodeExpanded');
             const content = document.getElementById('expandedContent');
+            const mainContent = document.querySelector('.content-layer');
             
             content.innerHTML = getNodeContent(nodeId);
             
-            expanded.classList.add('active');
-            document.body.style.overflow = 'hidden';
+            // Fade out main content
+            mainContent.style.opacity = '0';
+            mainContent.style.transition = 'opacity 0.3s ease';
+            
+            setTimeout(() => {
+                mainContent.style.display = 'none';
+                expanded.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }, 300);
             
             // Setup meta-knowledge toggles
             setTimeout(() => {
@@ -1094,8 +1102,17 @@
 
         function closeNode() {
             const expanded = document.getElementById('nodeExpanded');
+            const mainContent = document.querySelector('.content-layer');
+            
             expanded.classList.remove('active');
             document.body.style.overflow = 'auto';
+            
+            // Restore main content
+            mainContent.style.display = 'block';
+            // Small delay to allow display:block to apply before opacity transition
+            setTimeout(() => {
+                mainContent.style.opacity = '1';
+            }, 10);
         }
 
         function getNodeTitle(nodeId) {
