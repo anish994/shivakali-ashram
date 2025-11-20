@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consciousness Studies - ShivaKali Ashram</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --consciousness-primary: #4ECDC4;
+            --consciousness-secondary: #44A08D;
+            --consciousness-dark: #0A0E27;
+            --consciousness-light: rgba(78, 205, 196, 0.1);
+            --text-primary: #E8F4F3;
+            --text-secondary: rgba(232, 244, 243, 0.7);
+            --node-beginner: rgba(78, 205, 196, 0.3);
+            --node-intermediate: rgba(68, 160, 141, 0.5);
+            --node-advanced: rgba(42, 100, 88, 0.7);
+            --node-master: rgba(20, 50, 44, 0.9);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0A0E27 0%, #1a2332 50%, #0f1419 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(78, 205, 196, 0.2);
+            background: rgba(10, 14, 39, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: var(--consciousness-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .header-subtitle {
+            font-size: 0.95rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+        }
+
+        .nav-back {
+            position: absolute;
+            left: 2rem;
+            top: 2rem;
+            padding: 0.6rem 1.2rem;
+            background: rgba(78, 205, 196, 0.1);
+            border: 1px solid rgba(78, 205, 196, 0.3);
+            color: var(--consciousness-primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .nav-back:hover {
+            background: rgba(78, 205, 196, 0.2);
+            border-color: var(--consciousness-primary);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Introduction */
+        .intro-section {
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .intro-text {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        /* Node Map Container */
+        .node-map {
+            position: relative;
+            min-height: 800px;
+            margin: 3rem 0;
+        }
+
+        /* Depth Legend */
+        .depth-legend {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid rgba(78, 205, 196, 0.5);
+        }
+
+        .legend-dot.level-1 { background: var(--node-beginner); }
+        .legend-dot.level-2 { background: var(--node-intermediate); }
+        .legend-dot.level-3 { background: var(--node-advanced); }
+        .legend-dot.level-4 { background: var(--node-master); }
+
+        /* Node Clusters */
+        .node-cluster {
+            margin-bottom: 4rem;
+        }
+
+        .cluster-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: var(--consciousness-primary);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .nodes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Individual Node */
+        .consciousness-node {
+            background: rgba(10, 14, 39, 0.6);
+            border: 1px solid rgba(78, 205, 196, 0.2);
+            border-radius: 8px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .consciousness-node::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--consciousness-primary), var(--consciousness-secondary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .consciousness-node:hover {
+            border-color: var(--consciousness-primary);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(78, 205, 196, 0.2);
+        }
+
+        .consciousness-node:hover::before {
+            opacity: 1;
+        }
+
+        .node-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .node-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--consciousness-primary);
+            letter-spacing: 1px;
+        }
+
+        .node-depth {
+            font-size: 0.75rem;
+            padding: 0.3rem 0.7rem;
+            background: rgba(78, 205, 196, 0.1);
+            border: 1px solid rgba(78, 205, 196, 0.3);
+            border-radius: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .node-depth.level-1 { border-color: rgba(78, 205, 196, 0.5); color: rgba(78, 205, 196, 0.9); }
+        .node-depth.level-2 { border-color: rgba(68, 160, 141, 0.5); color: rgba(68, 160, 141, 0.9); }
+        .node-depth.level-3 { border-color: rgba(42, 100, 88, 0.7); color: rgba(42, 100, 88, 1); }
+        .node-depth.level-4 { border-color: rgba(20, 50, 44, 0.9); color: rgba(20, 50, 44, 1); background: rgba(20, 50, 44, 0.3); }
+
+        .node-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .node-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: rgba(232, 244, 243, 0.5);
+        }
+
+        .node-prerequisites {
+            font-style: italic;
+        }
+
+        .node-intensity {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .intensity-bar {
+            flex: 1;
+            height: 3px;
+            background: rgba(78, 205, 196, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .intensity-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--consciousness-primary), var(--consciousness-secondary));
+            transition: width 0.3s ease;
+        }
+
+        /* Expanded Node View */
+        .node-expanded {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 14, 39, 0.98);
+            z-index: 200;
+            display: none;
+            overflow-y: auto;
+            backdrop-filter: blur(10px);
+        }
+
+        .node-expanded.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .node-expanded-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .node-close {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(78, 205, 196, 0.3);
+            background: rgba(78, 205, 196, 0.1);
+            color: var(--consciousness-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .node-close:hover {
+            background: rgba(78, 205, 196, 0.2);
+            border-color: var(--consciousness-primary);
+        }
+
+        .expanded-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: var(--consciousness-primary);
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+        }
+
+        .expanded-body {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--text-secondary);
+        }
+
+        .expanded-body h3 {
+            font-size: 1.5rem;
+            color: var(--consciousness-primary);
+            margin: 2rem 0 1rem;
+            font-weight: 400;
+        }
+
+        .expanded-body p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Meta-Knowledge Sections */
+        .meta-knowledge {
+            margin: 2rem 0;
+            border: 1px solid rgba(78, 205, 196, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .meta-toggle {
+            padding: 1rem 1.5rem;
+            background: rgba(78, 205, 196, 0.05);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .meta-toggle:hover {
+            background: rgba(78, 205, 196, 0.1);
+        }
+
+        .meta-toggle.active {
+            background: rgba(78, 205, 196, 0.15);
+        }
+
+        .meta-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--consciousness-primary);
+        }
+
+        .meta-icon {
+            font-size: 1.2rem;
+            color: var(--consciousness-primary);
+            transition: transform 0.3s ease;
+        }
+
+        .meta-toggle.active .meta-icon {
+            transform: rotate(180deg);
+        }
+
+        .meta-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .meta-content.active {
+            max-height: 10000px;
+        }
+
+        .meta-inner {
+            padding: 2rem 1.5rem;
+            background: rgba(10, 14, 39, 0.5);
+        }
+
+        .meta-section {
+            margin-bottom: 2rem;
+        }
+
+        .meta-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .meta-heading {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.3rem;
+            color: var(--consciousness-primary);
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .meta-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .meta-quote {
+            border-left: 3px solid var(--consciousness-primary);
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: rgba(232, 244, 243, 0.8);
+        }
+
+        .meta-quote cite {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: rgba(232, 244, 243, 0.6);
+        }
+
+        .warning-inline {
+            background: rgba(255, 107, 107, 0.1);
+            border-left: 3px solid rgba(255, 107, 107, 0.5);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .warning-inline strong {
+            color: rgba(255, 107, 107, 0.9);
+        }
+
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 1.8rem;
+            }
+
+            .nav-back {
+                position: static;
+                display: inline-block;
+                margin-bottom: 1rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .nodes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .depth-legend {
+                gap: 1rem;
+            }
+
+            .legend-item {
+                font-size: 0.75rem;
+            }
+
+            .node-expanded-content {
+                padding: 3rem 1.5rem;
+            }
+
+            .expanded-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="../index.html" class="nav-back">← Return to Ashram</a>
+        <h1 class="header-title">Consciousness Studies</h1>
+        <p class="header-subtitle">Neuro-Quantum State Mastery</p>
+    </header>
+
+    <div class="container">
+        <section class="intro-section">
+            <p class="intro-text">
+                A systematic exploration of consciousness—from foundational awareness practices to the dissolution of self. 
+                Each node represents a territory of practice, depth of insight, or state of being. 
+                Navigate according to your capacity, not your curiosity.
+            </p>
+        </section>
+
+        <!-- Depth Legend -->
+        <div class="depth-legend">
+            <div class="legend-item">
+                <div class="legend-dot level-1"></div>
+                <span>Foundation</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-dot level-2"></div>
+                <span>Intermediate</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-dot level-3"></div>
+                <span>Advanced</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-dot level-4"></div>
+                <span>Master</span>
+            </div>
+        </div>
+
+        <!-- Foundation Cluster -->
+        <div class="node-cluster">
+            <h2 class="cluster-title">Foundation Territory</h2>
+            <div class="nodes-grid">
+                <div class="consciousness-node" data-node="basic-meditation">
+                    <div class="node-header">
+                        <h3 class="node-title">Basic Meditation</h3>
+                        <span class="node-depth level-1">Level 1</span>
+                    </div>
+                    <p class="node-description">
+                        Seated breath observation. The foundation.
+                    </p>
+                    <div class="node-intensity">
+                        <div class="intensity-bar"><div class="intensity-fill" style="width: 20%"></div></div>
+                    </div>
+                </div>
+
+                <div class="consciousness-node" data-node="mindfulness">
+                    <div class="node-header">
+                        <h3 class="node-title">Mindfulness Practice</h3>
+                        <span class="node-depth level-1">Level 1</span>
+                    </div>
+                    <p class="node-description">
+                        Present-moment awareness without judgment.
+                    </p>
+                    <div class="node-intensity">
+                        <div class="intensity-bar"><div class="intensity-fill" style="width: 25%"></div></div>
+                    </div>
+                </div>
+
+                <div class="consciousness-node" data-node="breath-work">
+                    <div class="node-header">
+                        <h3 class="node-title">Conscious Breathwork</h3>
+                        <span class="node-depth level-1">Level 1</span>
+                    </div>
+                    <p class="node-description">
+                        Controlled breathing for nervous system regulation.
+                    </p>
+                    <div class="node-intensity">
+                        <div class="intensity-bar"><div class="intensity-fill" style="width: 30%"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Intermediate Cluster -->
+        <div class="node-cluster">
+            <h2 class="cluster-title">Intermediate Territory</h2>
+            <div class="nodes-grid">
+                <div class="consciousness-node" data-node="ego-observation">
+                    <div class="node-header">
+                        <h3 class="node-title">Ego Observation</h3>
+                        <span class="node-depth level-2">Level 2</span>
+                    </div>
+                    <p class="node-description">
+                        Watching the self-construct in action.
+                    </p>
+                    <div class="node-intensity">
+                        <div class="intensity-bar"><div class="intensity-fill" style="width: 50%"></div></div>
+                    </div>
+                </div>
+
+                <div class="consciousness-node" data-node="shadow-integration">
+                    <div class="node-header">
+                        <h3 class="node-title">Shadow Integration</h3>
+                        <span class="node-depth level-2">Level 2</span>
+                    </div>
+                    <p class="node-description">
+                        Confronting disowned aspects of psyche.
+                    </p>
+                    <div class="node-intensity">
+                        <div class="intensity-bar"><div class="intensity-fill" style="width: 60%"></div></div>
+                    </div>
+                </div>
+
+                <div class="consciousness-node" data-node="concentration">
+                    <div class="node-header">
+                        <h3 class="node-title">Single-Pointed Concentration</h3>
+                        <span class="node-depth level-2">Level 2</span>
+                    </div>
+                    <p class="node-description">
+                        Sustained attention. Mental muscle building.
+                    </p>
+                    <div class="node-intensity">
+                        <div class="intensity-bar"><div class="intensity-fill" style="width: 55%"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Advanced Cluster -->
+        <div class="node-cluster">
+            <h2 class="cluster-title">Advanced Territory</h2>
+            <div class="nodes-grid">
+                <div class="consciousness-node" data-node="ego-dissolution">
+                    <div class="node-header">
+                        <h3 class="node-title">Ego Dissolution</h3>
+                        <span class="node-depth level-3">Level 3</span>
+                    </div>
+                    <p class="node-description">
+                        Loss of self-boundary. Terrifying liberation.
+                    </p>
+                    <div class="node-intensity">
+                        <div class="intensity-bar"><div class="intensity-fill" style="width: 75%"></div></div>
+                    </div>
+                </div>
+
+                <div class="consciousness-node" data-node="void-states">
+                    <div class="node-header">
+                        <h3 class="node-title">Void State Practice</h3>
+                        <span class="node-depth level-3">Level 3</span>
+                    </div>
+                    <p class="node-description">
+                        Resting in emptiness. Thought becomes optional.
+                    </p>
+                    <div class="node-intensity">
+                        <div class="intensity-bar"><div class="intensity-fill" style="width: 70%"></div></div>
+                    </div>
+                </div>
+
+                <div class="consciousness-node" data-node="non-dual">
+                    <div class="node-header">
+                        <h3 class="node-title">Non-Dual Awareness</h3>
+                        <span class="node-depth level-3">Level 3</span>
+                    </div>
+                    <p class="node-description">
+                        Subject-object collapse. Unity recognized.
+                    </p>
+                    <div class="node-intensity">
+                        <div class="intensity-bar"><div class="intensity-fill" style="width: 80%"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Master Cluster -->
+        <div class="node-cluster">
+            <h2 class="cluster-title">Master Territory</h2>
+            <div class="nodes-grid">
+                <div class="consciousness-node" data-node="death-meditation">
+                    <div class="node-header">
+                        <h3 class="node-title">Death Meditation</h3>
+                        <span class="node-depth level-4">Level 4</span>
+                    </div>
+                    <p class="node-description">
+                        Confronting absolute mortality. No escape.
+                    </p>
+                    <div class="node-intensity">
+                        <div class="intensity-bar"><div class="intensity-fill" style="width: 90%"></div></div>
+                    </div>
+                </div>
+
+                <div class="consciousness-node" data-node="witness">
+                    <div class="node-header">
+                        <h3 class="node-title">Pure Witnessing</h3>
+                        <span class="node-depth level-4">Level 4</span>
+                    </div>
+                    <p class="node-description">
+                        Stable awareness. The end of seeking.
+                    </p>
+                    <div class="node-intensity">
+                        <div class="intensity-bar"><div class="intensity-fill" style="width: 85%"></div></div>
+                    </div>
+                </div>
+
+                <div class="consciousness-node" data-node="integration">
+                    <div class="node-header">
+                        <h3 class="node-title">Seamless Integration</h3>
+                        <span class="node-depth level-4">Level 4</span>
+                    </div>
+                    <p class="node-description">
+                        Awakened awareness in ordinary life.
+                    </p>
+                    <div class="node-intensity">
+                        <div class="intensity-bar"><div class="intensity-fill" style="width: 95%"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Expanded Node View -->
+    <div class="node-expanded" id="nodeExpanded">
+        <div class="node-close" onclick="closeNode()">×</div>
+        <div class="node-expanded-content" id="expandedContent">
+            <!-- Content populated by JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        // Node click handlers
+        document.querySelectorAll('.consciousness-node').forEach(node => {
+            node.addEventListener('click', function() {
+                const nodeId = this.getAttribute('data-node');
+                openNode(nodeId);
+            });
+        });
+
+        function openNode(nodeId) {
+            const expanded = document.getElementById('nodeExpanded');
+            const content = document.getElementById('expandedContent');
+            
+            content.innerHTML = getNodeContent(nodeId);
+            
+            expanded.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Setup meta-knowledge toggles
+            setTimeout(() => {
+                document.querySelectorAll('.meta-toggle').forEach(toggle => {
+                    toggle.addEventListener('click', function() {
+                        this.classList.toggle('active');
+                        this.nextElementSibling.classList.toggle('active');
+                    });
+                });
+            }, 100);
+        }
+
+        function closeNode() {
+            const expanded = document.getElementById('nodeExpanded');
+            expanded.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function getNodeTitle(nodeId) {
+            const titles = {
+                'basic-meditation': 'Basic Meditation',
+                'mindfulness': 'Mindfulness Practice',
+                'breath-work': 'Conscious Breathwork',
+                'ego-observation': 'Ego Observation',
+                'shadow-integration': 'Shadow Integration',
+                'concentration': 'Single-Pointed Concentration',
+                'ego-dissolution': 'Ego Dissolution',
+                'void-states': 'Void State Practice',
+                'non-dual': 'Non-Dual Awareness',
+                'death-meditation': 'Death Meditation',
+                'witness': 'Pure Witnessing',
+                'integration': 'Seamless Integration'
+            };
+            return titles[nodeId] || 'Practice Node';
+        }
+
+        function getNodeContent(nodeId) {
+            const content = {
+                'basic-meditation': `
+                    <h2 class="expanded-title">Basic Meditation</h2>
+                    <div class="expanded-body">
+                        <p>Sit. Breathe. Notice when attention wanders. Return to breath. This is the entire practice. Everything else is commentary.</p>
+                        
+                        <p>Most people never master this because they think it's too simple. They're wrong. The simplicity is the difficulty. Your mind will produce a thousand reasons why you need something more complex, more advanced, more "spiritual." These are all distractions from the only work that matters: learning to stay present with what is.</p>
+
+                        <h3>The Actual Practice</h3>
+                        <p><strong>Posture:</strong> Sit with spine erect but not rigid. Cross-legged on floor, kneeling on cushion, or chair with feet flat—doesn't matter. What matters: you can hold this position for 20+ minutes without significant pain. Comfort breeds distraction. Mild discomfort builds resilience. Acute pain is just pain.</p>
+
+                        <p><strong>Breath:</strong> Don't control it. Observe it. Natural rhythm, natural depth. Your breath knows what it's doing. Your job is to watch, not manage. Notice the sensation at nostrils, chest, or belly—pick one anchor point and stay there.</p>
+
+                        <p><strong>When Mind Wanders:</strong> It will. Constantly. This is not failure. The practice IS noticing the wandering and returning. You'll return to the breath ten thousand times. Each return is the practice. Not the staying—the returning.</p>
+
+                        <div class="meta-knowledge">
+                            <div class="meta-toggle">
+                                <span class="meta-label">🧠 DEEPER MECHANICS</span>
+                                <span class="meta-icon">▼</span>
+                            </div>
+                            <div class="meta-content">
+                                <div class="meta-inner">
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading">What Actually Happens Neurologically</h4>
+                                        <p class="meta-text">
+                                            Every time attention wanders and you notice it, you're engaging the anterior cingulate cortex and dorsolateral prefrontal cortex. These regions strengthen with repeated activation—literally building neural pathways for attention regulation. You're not "bad" at meditation when mind wanders. You're successfully triggering the exact neural process that builds capacity.
+                                        </p>
+                                        <p class="meta-text">
+                                            The amygdala (fear/reaction center) shows measurably decreased activation in meditators with 8+ weeks of practice. The default mode network—responsible for mind-wandering and self-referential thinking—becomes less dominant. You're not imagining the calm. You're restructuring brain architecture.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading">Why Most People Quit in Week 2</h4>
+                                        <p class="meta-text">
+                                            <strong>The Expectation Trap:</strong> You sit expecting peace, calm, insight. Instead you get: mental chaos, itching everywhere, overwhelming boredom, cascading thoughts about all your unfinished tasks. This feels like failure. It's not. It's seeing your mind's actual baseline state for the first time. Most people live in constant distraction that masks this chaos. Meditation removes the mask.
+                                        </p>
+                                        <p class="meta-text">
+                                            <strong>The Timeline:</strong> Days 1-7: Novelty makes it interesting. Days 8-21: The reality of mental chaos becomes apparent, motivation crashes. Days 22-40: If you persist, glimpses of actual calm appear. Day 41+: Practice becomes self-reinforcing.
+                                        </p>
+                                        <p class="meta-text">
+                                            Most quit during the Day 8-21 window. They think the chaos means they're doing it wrong. They're doing it exactly right. They're just not willing to sit with what they find.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading">The Three Stages of Beginner Practice</h4>
+                                        <div class="meta-quote">
+                                            "First you can't sit still. Then you can sit still but can't stay present. Then you can stay present but only by forcing it. Finally, presence becomes the default and effort isn't required."
+                                            <cite>— Traditional Zen teaching</cite>
+                                        </div>
+                                        <p class="meta-text">
+                                            <strong>Stage 1 (Weeks 1-4):</strong> Physical discomfort dominates. Mind hasn't settled into practice. Every session feels like wrestling with yourself. This is normal. The body is learning that sitting still is safe, despite every instinct saying "move, do something, anything."
+                                        </p>
+                                        <p class="meta-text">
+                                            <strong>Stage 2 (Weeks 5-12):</strong> Physical stabilization. Mental instability amplifies. You notice thoughts more clearly, which initially makes it feel like thinking has gotten worse. It hasn't—you're just seeing it clearly for the first time. This stage is where people either commit or quit.
+                                        </p>
+                                        <p class="meta-text">
+                                            <strong>Stage 3 (Months 3-6):</strong> Gaps between thoughts appear naturally. Brief moments where attention rests on breath without effort. These moments are the first taste of why this practice exists.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading">Common Traps and Real Solutions</h4>
+                                        <p class="meta-text">
+                                            <strong>Trap: Seeking Special Experiences</strong><br>
+                                            The moment you sit hoping for bliss, insight, or peace, you've created a goal. Goals create tension. Tension prevents the calm you're seeking. Solution: Notice the goal-seeking. Return to breath. Repeat until goal-seeking weakens.
+                                        </p>
+                                        <p class="meta-text">
+                                            <strong>Trap: Judging the Quality of Sessions</strong><br>
+                                            "Good session" = calm, focused. "Bad session" = scattered, distracted. Both judgments miss the point. Every session where you showed up is successful. The content of the experience is irrelevant. The consistency of practice is everything.
+                                        </p>
+                                        <p class="meta-text">
+                                            <strong>Trap: Waiting to Feel "Ready"</strong><br>
+                                            You'll never feel ready to sit with boredom, discomfort, and mental chaos. This is why the instruction is simple: Sit. Daily. Same time. No negotiation with yourself about whether you feel like it.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading">When Meditation Becomes Dangerous</h4>
+                                        <div class="warning-inline">
+                                            <strong>⚠️ Real Warning:</strong> For people with unprocessed trauma, dissociative disorders, or active psychosis, silent meditation can destabilize rather than calm. If sitting with eyes closed triggers panic, flashbacks, or depersonalization—stop. This isn't weakness. This is your nervous system correctly telling you it's not ready for this practice yet.
+                                        </div>
+                                        <p class="meta-text">
+                                            Alternative approaches for trauma survivors: Eyes-open meditation, movement-based practices (walking meditation), or body-focused techniques with skilled guidance. The breath can be triggering if breathing was restricted during trauma. Listen to your system.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3>Integration: Making It Stick</h3>
+                        <p><strong>Start Small:</strong> 5 minutes daily beats 30 minutes weekly. Consistency builds the habit. Duration builds capacity. Get the habit first.</p>
+                        <p><strong>Same Time, Same Place:</strong> Environmental cues train your nervous system. Your body will start calming before you even sit down.</p>
+                        <p><strong>No Heroics:</strong> Don't start with hour-long sessions. You'll hate it, quit, and tell yourself meditation doesn't work. Start with what's sustainable, then gradually increase.</p>
+                    </div>
+                `,
+                'ego-dissolution': `
+                    <h2 class="expanded-title">Ego Dissolution</h2>
+                    <div class="expanded-body">
+                        <p>The recognition that "you"—the continuous, solid sense of self you've carried your entire life—is not a fact but a construct. A very useful construct, but a construct nonetheless. This insight isn't intellectual. It's experiential, and it's deeply unsettling.</p>
+
+                        <p>People seek ego dissolution thinking it will be liberating. It is. But liberation feels like annihilation first. You don't gradually let go of self. The self is seen through suddenly, and what's left is the terrifying recognition that there was never anyone there to begin with.</p>
+
+                        <h3>What Actually Happens</h3>
+                        <p>The boundary between "self" and "other" temporarily collapses. The sense of being a separate experiencer dissolves. What remains is experience itself, without the illusion of someone experiencing it. This lasts seconds to hours, depending on practice depth and individual neurology.</p>
+
+                        <p>Afterward: confusion, grief, or profound relief. Sometimes all three simultaneously. Your previous identity feels like a costume you were wearing unconsciously. You can still put it on—you need to, to function in society—but you know it's a costume now.</p>
+
+                        <div class="meta-knowledge">
+                            <div class="meta-toggle">
+                                <span class="meta-label">💀 DEEPER TERRITORY</span>
+                                <span class="meta-icon">▼</span>
+                            </div>
+                            <div class="meta-content">
+                                <div class="meta-inner">
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading">The Neuroscience of No-Self</h4>
+                                        <p class="meta-text">
+                                            The sense of self is generated primarily by the default mode network (DMN)—particularly the medial prefrontal cortex and posterior cingulate cortex. These regions construct the narrative of "me" by constantly referencing past experiences and projecting future scenarios.
+                                        </p>
+                                        <p class="meta-text">
+                                            During ego dissolution, DMN activity measurably decreases. In fMRI studies of experienced meditators and psychedelic subjects, the connectivity between these self-referential brain regions temporarily breaks down. The brain is still fully active—but the specific pattern that creates the "self" feeling is disrupted.
+                                        </p>
+                                        <p class="meta-text">
+                                            This isn't brain damage. It's the brain's self-construction system temporarily going offline, revealing that "you" were always a process, not a thing.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading">The Three Waves of Dissolution</h4>
+                                        <p class="meta-text">
+                                            <strong>First Wave - Story Dissolution:</strong> The narrative of your life—your personal history, the meaning you've assigned to events—is seen as constructed rather than discovered. You remember the events, but the story you've told about them loses its grip. This is disorienting but manageable.
+                                        </p>
+                                        <p class="meta-text">
+                                            <strong>Second Wave - Personality Dissolution:</strong> The traits you thought were "you"—your preferences, tendencies, character—are recognized as conditioned patterns, not essential nature. They still operate, but the identification with them weakens. You become able to observe your personality the way you'd observe weather patterns.
+                                        </p>
+                                        <p class="meta-text">
+                                            <strong>Third Wave - Experiencer Dissolution:</strong> The deepest level. The sense that there is someone witnessing experience collapses. There's still experience—sensation, thought, emotion—but no experiencer separate from the experiencing. This is the terrifying one. Most people never go here voluntarily.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading">Why This Can Break People</h4>
+                                        <div class="warning-inline">
+                                            <strong>⚠️ Serious Warning:</strong> Ego dissolution is not recreational philosophy. For people with fragile identity structures, severe trauma, or predisposition to dissociative or psychotic breaks, this territory can trigger psychiatric crisis. The self might not reconstruct properly. Depersonalization disorder is real and devastating.
+                                        </div>
+                                        <p class="meta-text">
+                                            Traditional systems spent years preparing practitioners—building stable attention, emotional regulation, and psychological integration—before approaching ego dissolution. Modern seekers often rush here with no preparation, usually via psychedelics or intensive meditation retreats, then can't integrate what they've seen.
+                                        </p>
+                                        <p class="meta-text">
+                                            <strong>Signs you're not ready:</strong> Active addiction, untreated mental illness, recent major trauma, inability to maintain relationships or employment, history of dissociation. If your life is unstable, deconstructing your sense of self will only amplify that instability.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading">The Integration Challenge</h4>
+                                        <div class="meta-quote">
+                                            "Before enlightenment: chop wood, carry water. After enlightenment: chop wood, carry water. But now you know there's no one chopping and no one carrying."
+                                            <cite>— Zen koan pointing to integration</cite>
+                                        </div>
+                                        <p class="meta-text">
+                                            The insight is easy compared to living with it. You still need to function in a world that operates as if the self is real. Pay bills, maintain relationships, make decisions. The self-structure has to partially reconstruct for practical functioning.
+                                        </p>
+                                        <p class="meta-text">
+                                            <strong>Post-dissolution life:</strong> You operate "as if" you're a person, knowing it's a functional fiction. Like an actor who knows they're playing a role but commits to the performance anyway. This is different from the pre-dissolution state where you believed the role was real.
+                                        </p>
+                                        <p class="meta-text">
+                                            Some people describe this as freedom. Others as existential loneliness. Many experience both, depending on the day.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading">Accidental Dissolution: When It Happens Uninvited</h4>
+                                        <p class="meta-text">
+                                            Ego dissolution doesn't only happen through meditation. Triggers: extreme stress, psychedelics, severe illness, near-death experiences, spontaneous mystical experiences, even certain types of deep therapy. When it happens without framework or preparation, it can be experienced as psychotic break rather than spiritual awakening.
+                                        </p>
+                                        <p class="meta-text">
+                                            The difference between spiritual emergency and psychiatric emergency is often just: do you have a framework to understand what's happening, and do you have support? Same experience, radically different outcomes based on context and preparation.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3>If You Insist On Proceeding</h3>
+                        <p><strong>Prerequisites:</strong> Years of basic meditation establishing stable attention. Shadow integration work completing major psychological debris. Life circumstances stable enough to handle temporary destabilization.</p>
+                        <p><strong>Support:</strong> Teacher with experience in this territory. Community who won't pathologize your experience. Therapist who understands contemplative practice.</p>
+                        <p><strong>Timeline:</strong> This isn't achieved in a weekend retreat. It emerges naturally from sustained practice when the ground is prepared. Forcing it is like trying to ripen fruit by cutting it open.</p>
+                    </div>
+                `,
+                'death-meditation': `
+                    <h2 class="expanded-title">Death Meditation</h2>
+                    <div class="expanded-body">
+                        <p>Systematic contemplation of your own mortality. Not as morbid thought experiment, but as direct confrontation with the absolute certainty that you will cease to exist. Everything you are, everyone you know, all accumulated experience—gone. Permanently. Totally.</p>
+
+                        <p>This is the practice that strips away spiritual bypassing. You cannot contemplate death honestly and maintain illusions about consciousness continuing, reincarnation saving you, or any comforting story that softens the edge. Death is the end. Sitting with that fact rewires everything.</p>
+
+                        <h3>Why This Practice Exists</h3>
+                        <p>Because humans spend enormous energy avoiding the reality of death. This avoidance drives anxiety, meaningless accumulation, postponement of what matters, and the illusion that we have infinite time. Death awareness doesn't make life darker—it makes it real. When you know viscerally that this ends, you stop wasting it.</p>
+
+                        <div class="meta-knowledge">
+                            <div class="meta-toggle">
+                                <span class="meta-label">💀 THE DEPTH</span>
+                                <span class="meta-icon">▼</span>
+                            </div>
+                            <div class="meta-content">
+                                <div class="meta-inner">
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading">The Five Remembrances (Buddhist Death Contemplation)</h4>
+                                        <div class="meta-quote">
+                                            I am of the nature to grow old. There is no way to escape growing old.<br>
+                                            I am of the nature to have ill health. There is no way to escape ill health.<br>
+                                            I am of the nature to die. There is no way to escape death.<br>
+                                            All that is dear to me and everyone I love are of the nature to change. There is no way to escape being separated from them.<br>
+                                            My actions are my only true belongings. I cannot escape the consequences of my actions.
+                                            <cite>— Traditional Buddhist contemplation</cite>
+                                        </div>
+                                        <p class="meta-text">
+                                            These aren't meant to be read once and understood. They're meant to be contemplated daily until the reality sinks from intellectual knowledge into bone-deep knowing. Most people never let these truths fully penetrate. The mind keeps them at a safe conceptual distance.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading">The Charnel Ground Tradition</h4>
+                                        <p class="meta-text">
+                                            Historical context: In India and Tibet, serious practitioners would spend time in cremation grounds or charnel fields—places where bodies decompose openly. They would meditate surrounded by corpses in various stages of decay. The practice: recognize that this is your body's future. The boundary between "that corpse" and "me" is only time.
+                                        </p>
+                                        <p class="meta-text">
+                                            <strong>The nine stages of decomposition contemplation:</strong><br>
+                                            1. Fresh corpse - blue and bloated<br>
+                                            2. Putrefaction - discoloration and swelling<br>
+                                            3. Eaten by worms and maggots<br>
+                                            4. Bloody mass of flesh<br>
+                                            5. Disintegrating flesh<br>
+                                            6. Bones held together by tendons<br>
+                                            7. Disconnected bones<br>
+                                            8. Bones bleached by sun<br>
+                                            9. Bones crumbled to dust
+                                        </p>
+                                        <p class="meta-text">
+                                            This wasn't meant to be morbid—it was meant to be honest. Your body will go through these stages. Contemplating this directly confronts the fundamental denial that drives most human suffering: the implicit belief that you are somehow exempt from death.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading">What Death Awareness Actually Changes</h4>
+                                        <p class="meta-text">
+                                            <strong>Before death awareness:</strong> Accumulation feels important. Status games feel meaningful. Petty conflicts feel worth energy. Future planning feels like life itself.
+                                        </p>
+                                        <p class="meta-text">
+                                            <strong>After death awareness:</strong> Accumulation feels absurd—you can't take it with you and "you" won't exist to care. Status games feel like children playing pretend. Most conflicts reveal themselves as meaningless noise. Planning is practical but not confused with purpose.
+                                        </p>
+                                        <p class="meta-text">
+                                            What increases: Present-moment engagement. Authentic connection with others. Doing what actually matters to you rather than what you think should matter. Saying the things that need to be said. Taking the risks worth taking.
+                                        </p>
+                                        <p class="meta-text">
+                                            This isn't nihilism. It's the opposite—it's the recognition that because nothing lasts, what you do with the time you have is the only thing that ever mattered.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading">The Terror Zone: When Death Becomes Real</h4>
+                                        <div class="warning-inline">
+                                            <strong>⚠️ Psychological Warning:</strong> Death meditation can trigger existential crisis, panic attacks, or depressive episodes. If you have history of suicidal ideation, severe anxiety, or death-related trauma, this practice can destabilize rather than clarify. Proceed with extreme caution and professional support.
+                                        </div>
+                                        <p class="meta-text">
+                                            There's a phase in death contemplation—usually weeks or months in—where the reality of mortality fully penetrates. This often manifests as intense anxiety, inability to sleep, obsessive thoughts about death, or feeling like the ground has disappeared beneath you. This is not pathology. This is the natural response when the mind finally accepts what the intellect has always known.
+                                        </p>
+                                        <p class="meta-text">
+                                            <strong>Duration:</strong> This terror phase typically lasts 2-6 weeks. It passes. On the other side is not indifference to death, but a strange peace with it—the peace that comes from accepting what cannot be changed.
+                                        </p>
+                                        <p class="meta-text">
+                                            <strong>If it doesn't pass:</strong> Stop the practice. Seek professional help. Some nervous systems need stabilization before they can handle this level of existential truth. There's no shame in that—it's wisdom to know your current capacity.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="meta-section">
+                                        <h4 class="meta-heading">Living With Death Awareness</h4>
+                                        <div class="meta-quote">
+                                            "Death is not an event in life: we do not live to experience death. If we take eternity to mean not infinite temporal duration but timelessness, then eternal life belongs to those who live in the present."
+                                            <cite>— Ludwig Wittgenstein</cite>
+                                        </div>
+                                        <p class="meta-text">
+                                            The paradox: thinking about death constantly makes people anxious. Deeply accepting death once makes people free. The difference is between intellectual contemplation that remains abstract versus experiential knowing that integrates into the body.
+                                        </p>
+                                        <p class="meta-text">
+                                            Practitioners report: decreased fear of aging, more honest relationships, less tolerance for bullshit (their own and others'), increased present-moment awareness, and a strange kind of lightness—the lightness that comes from no longer pretending there's infinite time to fix everything later.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3>The Practice Protocol</h3>
+                        <p><strong>Frequency:</strong> Weekly at most. This is not daily practice material unless you're in monastery or have teacher guidance. Too much too fast destabilizes.</p>
+                        <p><strong>Method:</strong> Sit. Close eyes. Imagine the moment of death—not the process, the moment. Everything stops. All experience ends. Sit with that reality. Stay with the fear, grief, or void that emerges. Don't philosophize or story-tell your way out of it.</p>
+                        <p><strong>Integration:</strong> Afterward, engage fully with life. The point isn't to become morbid—it's to recognize that this is it. The only life you get. Stop saving yourself for later.</p>
+                    </div>
+                `
+            };
+            
+            return content[nodeId] || `<h2 class="expanded-title">${getNodeTitle(nodeId)}</h2><div class="expanded-body"><p>Content for this practice is being developed.</p></div>`;
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeNode();
+            }
+        });
+    </script>
+</body>
+</html>
