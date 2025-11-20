@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Therapeutic Systems - Bio-Sanctuary</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Base Theme: Neutral/Waiting */
+            --bio-primary: #64ffda;
+            --bio-secondary: #48bcae;
+            --bio-bg: #0a192f;
+            --bio-glass: rgba(10, 25, 47, 0.7);
+            --bio-text: #e6f1ff;
+            --bio-accent: #64ffda;
+            
+            /* Transition Speed */
+            --morph-speed: 0.6s;
+        }
+
+        /* Ayurveda Theme */
+        [data-theme="ayurveda"] {
+            --bio-primary: #ffd700; /* Gold */
+            --bio-secondary: #556b2f; /* Dark Olive */
+            --bio-bg: #1a1a00; /* Deep Organic */
+            --bio-glass: rgba(26, 26, 0, 0.7);
+            --bio-text: #fff8e1;
+            --bio-accent: #ffa500; /* Orange */
+        }
+
+        /* Somatic Theme */
+        [data-theme="somatic"] {
+            --bio-primary: #ff6b6b; /* Flesh/Muscle Pink */
+            --bio-secondary: #8b4513; /* Bone/Clay */
+            --bio-bg: #1a0f0f; /* Deep Earth/Flesh */
+            --bio-glass: rgba(26, 15, 15, 0.7);
+            --bio-text: #ffe6e6;
+            --bio-accent: #ff4d4d;
+        }
+
+        /* Vibrational Theme */
+        [data-theme="vibration"] {
+            --bio-primary: #7b2cbf; /* Indigo */
+            --bio-secondary: #b5179e; /* Violet */
+            --bio-bg: #0f0518; /* Deep Void */
+            --bio-glass: rgba(15, 5, 24, 0.7);
+            --bio-text: #f3e5f5;
+            --bio-accent: #4361ee; /* Electric Blue */
+        }
+
+        /* Energy Theme */
+        [data-theme="energy"] {
+            --bio-primary: #00ffff; /* Cyan */
+            --bio-secondary: #e0ffff; /* Light Cyan */
+            --bio-bg: #00111a; /* Deep Aether */
+            --bio-glass: rgba(0, 17, 26, 0.7);
+            --bio-text: #f0ffff;
+            --bio-accent: #fffacd; /* Lemon Chiffon */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--bio-bg);
+            color: var(--bio-text);
+            overflow: hidden;
+            transition: background-color var(--morph-speed) ease;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        /* Background Canvas */
+        #bio-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        /* Main HUD Layout */
+        .hud-container {
+            display: grid;
+            grid-template-columns: 300px 1fr 350px;
+            height: 100vh;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Left Panel: Bio-Metrics & Status */
+        .hud-left {
+            padding: 2rem;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            background: linear-gradient(90deg, var(--bio-glass) 0%, rgba(0,0,0,0) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all var(--morph-speed) ease;
+        }
+
+        .system-status {
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 2rem;
+        }
+
+        .status-header {
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            color: var(--bio-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .status-value {
+            font-size: 1.5rem;
+            color: var(--bio-primary);
+            text-shadow: 0 0 10px var(--bio-primary);
+        }
+
+        .data-stream {
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: var(--bio-secondary);
+            opacity: 0.7;
+            line-height: 1.6;
+        }
+
+        /* Center Panel: The Body Map */
+        .hud-center {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .body-silhouette {
+            height: 80vh;
+            width: auto;
+            filter: drop-shadow(0 0 20px var(--bio-primary));
+            transition: all var(--morph-speed) ease;
+            position: relative;
+        }
+
+        /* SVG Styles for Body Map */
+        .body-svg {
+            height: 100%;
+            width: auto;
+            fill: none;
+            stroke: var(--bio-primary);
+            stroke-width: 1.5;
+            transition: stroke var(--morph-speed) ease;
+        }
+
+        .body-zone {
+            fill: transparent;
+            stroke: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .body-zone:hover {
+            fill: var(--bio-primary);
+            fill-opacity: 0.2;
+            stroke: var(--bio-accent);
+            stroke-width: 2;
+        }
+
+        /* Hotspots */
+        .hotspot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--bio-primary);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .hotspot::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 6px;
+            height: 6px;
+            background: var(--bio-primary);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px var(--bio-primary);
+        }
+
+        .hotspot:hover {
+            width: 30px;
+            height: 30px;
+            box-shadow: 0 0 20px var(--bio-primary);
+        }
+
+        /* Right Panel: Context Content */
+        .hud-right {
+            padding: 2rem;
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            background: linear-gradient(-90deg, var(--bio-glass) 0%, rgba(0,0,0,0) 100%);
+            transform: translateX(100%);
+            opacity: 0;
+            transition: all 0.5s ease;
+            overflow-y: auto;
+        }
+
+        .hud-right.active {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .module-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            color: var(--bio-primary);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--bio-secondary);
+            padding-bottom: 0.5rem;
+        }
+
+        .module-description {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .module-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .module-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--bio-secondary);
+            padding: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .module-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--bio-primary);
+            box-shadow: 0 0 15px var(--bio-primary);
+        }
+
+        .back-nav {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            text-decoration: none;
+            color: var(--bio-primary);
+            border: 1px solid var(--bio-primary);
+            padding: 0.5rem 1rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .back-nav:hover {
+            background: var(--bio-primary);
+            color: #000;
+            box-shadow: 0 0 20px var(--bio-primary);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hud-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto 1fr auto;
+            }
+            
+            .hud-left {
+                height: auto;
+                padding: 1rem;
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .hud-right {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 50;
+                background: var(--bio-bg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="../index.html" class="back-nav">Return to Base</a>
+
+    <canvas id="bio-canvas"></canvas>
+
+    <div class="hud-container">
+        <!-- Left: Metrics -->
+        <div class="hud-left">
+            <div class="system-status">
+                <div class="status-header">BIO-SYSTEM STATUS</div>
+                <div class="status-value" id="status-readout">STANDBY</div>
+            </div>
+            
+            <div class="data-stream">
+                <p>> Initializing Bio-Scan...</p>
+                <p>> Calibrating Sensors...</p>
+                <p>> Awaiting User Input...</p>
+                <p id="active-stream">...</p>
+            </div>
+
+            <div class="system-status" style="margin-top: auto;">
+                <div class="status-header">ACTIVE FREQUENCY</div>
+                <div class="status-value" id="freq-readout">0 Hz</div>
+            </div>
+        </div>
+
+        <!-- Center: Body Map -->
+        <div class="hud-center">
+            <div class="body-silhouette">
+                <!-- Simplified SVG Body Outline -->
+                <svg class="body-svg" viewBox="0 0 300 600" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Head -->
+                    <path d="M150,50 C130,50 120,70 120,90 C120,110 130,120 150,120 C170,120 180,110 180,90 C180,70 170,50 150,50" class="body-outline"/>
+                    <!-- Torso -->
+                    <path d="M120,120 L100,140 L100,300 L120,350 L180,350 L200,300 L200,140 L180,120 Z" class="body-outline"/>
+                    <!-- Arms -->
+                    <path d="M100,140 L70,160 L60,280 L80,290 L100,180" class="body-outline"/>
+                    <path d="M200,140 L230,160 L240,280 L220,290 L200,180" class="body-outline"/>
+                    <!-- Legs -->
+                    <path d="M120,350 L110,550 L140,560 L145,400" class="body-outline"/>
+                    <path d="M180,350 L190,550 L160,560 L155,400" class="body-outline"/>
+                    
+                    <!-- Zones (Invisible Interaction Layers) -->
+                    <circle cx="150" cy="85" r="35" class="body-zone" data-target="vibration" /> <!-- Head -->
+                    <rect x="110" y="130" width="80" height="100" class="body-zone" data-target="energy" /> <!-- Chest/Heart -->
+                    <rect x="110" y="230" width="80" height="80" class="body-zone" data-target="ayurveda" /> <!-- Gut -->
+                    <rect x="60" y="160" width="40" height="300" class="body-zone" data-target="somatic" /> <!-- Limbs (Left) -->
+                    <rect x="200" y="160" width="40" height="300" class="body-zone" data-target="somatic" /> <!-- Limbs (Right) -->
+                </svg>
+
+                <!-- Hotspot Overlays -->
+                <div class="hotspot" style="top: 15%; left: 50%;" data-target="vibration"></div> <!-- Head -->
+                <div class="hotspot" style="top: 30%; left: 50%;" data-target="energy"></div> <!-- Heart -->
+                <div class="hotspot" style="top: 45%; left: 50%;" data-target="ayurveda"></div> <!-- Gut -->
+                <div class="hotspot" style="top: 60%; left: 20%;" data-target="somatic"></div> <!-- Limb -->
+            </div>
+        </div>
+
+        <!-- Right: Content Panel -->
+        <div class="hud-right" id="content-panel">
+            <h2 class="module-title" id="panel-title">Select System</h2>
+            <p class="module-description" id="panel-desc">Hover over the bio-frame to scan energetic systems.</p>
+            
+            <div class="module-grid" id="panel-grid">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const body = document.body;
+        const statusReadout = document.getElementById('status-readout');
+        const freqReadout = document.getElementById('freq-readout');
+        const activeStream = document.getElementById('active-stream');
+        const contentPanel = document.getElementById('content-panel');
+        const panelTitle = document.getElementById('panel-title');
+        const panelDesc = document.getElementById('panel-desc');
+        const panelGrid = document.getElementById('panel-grid');
+
+        // System Data
+        const systems = {
+            'ayurveda': {
+                theme: 'ayurveda',
+                status: 'ELEMENTAL BALANCE',
+                freq: 'EARTH / 7.83Hz',
+                title: 'Ayurvedic Alchemy',
+                desc: 'Harmonizing the biological humors (Doshas) through elemental science. Restore balance to Vata, Pitta, and Kapha.',
+                modules: [
+                    'Dosha Diagnosis', 'Sacred Herbology', 'Rasayana (Rejuvenation)', 'Pranic Dietetics'
+                ]
+            },
+            'somatic': {
+                theme: 'somatic',
+                status: 'STRUCTURAL INTEGRITY',
+                freq: 'PHYSICAL / 128Hz',
+                title: 'Somatic Release',
+                desc: 'Unlocking trauma stored in the fascial network. Re-aligning the geometry of the physical vessel.',
+                modules: [
+                    'Trauma Release', 'Myofascial Unwinding', 'Deep Grounding', 'Structural Alignment'
+                ]
+            },
+            'vibration': {
+                theme: 'vibration',
+                status: 'SONIC RESONANCE',
+                freq: 'AETHER / 432Hz',
+                title: 'Vibrational Medicine',
+                desc: 'Restructuring matter through sound codes. Nada Yoga and frequency modulation.',
+                modules: [
+                    'Binaural Entrainment', 'Mantra Therapy', 'Voice Activation', 'Rife Frequencies'
+                ]
+            },
+            'energy': {
+                theme: 'energy',
+                status: 'AURA COHERENCE',
+                freq: 'PRANA / 963Hz',
+                title: 'Energy Healing',
+                desc: 'Scanning and cleansing the subtle electric body. Pranic flow optimization.',
+                modules: [
+                    'Pranic Scanning', 'Reiki Protocols', 'Marma Points', 'Crystal Grids'
+                ]
+            }
+        };
+
+        // Interaction Logic
+        document.querySelectorAll('[data-target]').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                const target = el.getAttribute('data-target');
+                activateSystem(target);
+            });
+        });
+
+        function activateSystem(key) {
+            const sys = systems[key];
+            if (!sys) return;
+
+            // Theme Shift
+            body.setAttribute('data-theme', sys.theme);
+
+            // Metrics Update
+            statusReadout.innerText = sys.status;
+            freqReadout.innerText = sys.freq;
+            activeStream.innerText = `> ${sys.title} Protocols Loading...`;
+
+            // Content Panel Update
+            panelTitle.innerText = sys.title;
+            panelDesc.innerText = sys.desc;
+            contentPanel.classList.add('active');
+
+            // Populate Modules
+            panelGrid.innerHTML = sys.modules.map(mod => `
+                <div class="module-card">
+                    <h3>${mod}</h3>
+                    <p style="font-size: 0.8rem; opacity: 0.7;">Access Protocol ></p>
+                </div>
+            `).join('');
+        }
+
+        // Background Particle Animation (Simple Placeholder)
+        const canvas = document.getElementById('bio-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2;
+                this.speedX = Math.random() * 1 - 0.5;
+                this.speedY = Math.random() * 1 - 0.5;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+            draw() {
+                ctx.fillStyle = getComputedStyle(document.body).getPropertyValue('--bio-primary');
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            for (let i = 0; i < 50; i++) {
+                particles.push(new Particle());
+            }
+        }
+        initParticles();
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+    </script>
+</body>
+</html>
