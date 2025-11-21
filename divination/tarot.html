@@ -517,7 +517,10 @@
             <!-- Sidebar Navigation -->
             <aside class="suit-sidebar">
                 <h3>ARCANA INDEX</h3>
-                <div class="suit-nav-item active" onclick="showSuit('major')">
+                <div class="suit-nav-item active" onclick="showSuit('intro')">
+                    <span class="suit-nav-icon">📖</span> INTRODUCTION
+                </div>
+                <div class="suit-nav-item" onclick="showSuit('major')">
                     <span class="suit-nav-icon">✨</span> MAJOR ARCANA
                 </div>
                 <div class="suit-nav-item" onclick="showSuit('wands')">
@@ -538,7 +541,7 @@
             <div class="suit-content">
                 
                 <!-- MASTER INTRODUCTION TO TAROT -->
-                <div id="suit-intro" class="suit-section active" style="display: none;">
+                <div id="suit-intro" class="suit-section active">
                     <div class="suit-intro" style="background: linear-gradient(135deg, rgba(157,78,221,0.2), rgba(90,24,154,0.1)); border: 2px solid var(--primary);">
                         <h2 style="color: var(--accent); font-size: 3.5rem; text-align: center; margin-bottom: 2rem;">🎴 WHAT IS TAROT? 🎴</h2>
                         
@@ -585,7 +588,7 @@
                 </div>
 
                 <!-- Major Arcana -->
-                <div id="suit-major" class="suit-section active">
+                <div id="suit-major" class="suit-section">
                     <div class="suit-intro">
                         <h2 style="background: linear-gradient(135deg, var(--accent), var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">THE MAJOR ARCANA</h2>
                         
