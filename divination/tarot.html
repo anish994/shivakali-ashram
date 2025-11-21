@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAROT ARCANA | ShivaKali Ashram</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #9d4edd;
+            --primary-dim: #5a189a;
+            --accent: #ffd700;
+            --accent-dim: #b8860b;
+            --bg-dark: #0a0510;
+            --text-main: #e0e0e0;
+            --text-dim: #a0a0a0;
+            --success: #00ff88;
+            --danger: #ff3333;
+            --shadow: 0 0 20px rgba(157, 78, 221, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Share Tech Mono', monospace;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Background Video */
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+            opacity: 0.4;
+            filter: hue-rotate(260deg) contrast(1.2) brightness(0.8);
+        }
+
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(rgba(10, 5, 16, 0.85), rgba(10, 5, 16, 0.95)),
+                repeating-linear-gradient(0deg, transparent 0, transparent 1px, rgba(157, 78, 221, 0.05) 1px, rgba(157, 78, 221, 0.05) 2px);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Header */
+        header {
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(157, 78, 221, 0.3);
+            background: rgba(10, 5, 16, 0.8);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            color: var(--accent);
+            text-shadow: 0 0 15px var(--accent-dim);
+            margin-bottom: 0.5rem;
+            letter-spacing: 4px;
+        }
+
+        .subtitle {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--primary);
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Navigation */
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            flex-wrap: wrap;
+            background: rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(157, 78, 221, 0.2);
+        }
+
+        .nav-btn {
+            background: transparent;
+            border: 1px solid var(--primary-dim);
+            color: var(--text-dim);
+            padding: 0.8rem 1.5rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: rgba(157, 78, 221, 0.2);
+            border-color: var(--primary);
+            color: var(--accent);
+            box-shadow: 0 0 15px rgba(157, 78, 221, 0.3);
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            text-decoration: none;
+            color: var(--text-dim);
+            border: 1px solid var(--text-dim);
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .back-btn:hover {
+            color: var(--primary);
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(157, 78, 221, 0.3);
+        }
+
+        /* Content Sections */
+        .section {
+            display: none;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Library Accordion */
+        .library-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .card-entry {
+            background: rgba(10, 5, 16, 0.6);
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .card-header {
+            padding: 1.5rem;
+            background: linear-gradient(90deg, rgba(20, 10, 30, 0.9), rgba(10, 5, 16, 0.9));
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid transparent;
+        }
+
+        .card-entry.active .card-header {
+            border-bottom-color: var(--primary);
+            background: rgba(90, 24, 154, 0.2);
+        }
+
+        .card-title {
+            font-family: 'Cinzel', serif;
+            color: var(--text-main);
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .card-number {
+            color: var(--accent);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            border: 1px solid var(--accent-dim);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .card-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .card-entry.active .card-content {
+            max-height: 2000px; /* Large enough to fit content */
+        }
+
+        .content-inner {
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .content-inner { grid-template-columns: 1fr; }
+            h1 { font-size: 2rem; }
+            .nav-tabs { padding: 1rem 0.5rem; gap: 0.5rem; }
+            .nav-btn { font-size: 0.7rem; padding: 0.6rem 1rem; }
+        }
+
+        /* Content Styling */
+        .archetype-box {
+            grid-column: 1 / -1;
+            background: rgba(157, 78, 221, 0.1);
+            border-left: 3px solid var(--primary);
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .meaning-col h3 {
+            color: var(--accent);
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dim);
+        }
+
+        .tag.element { color: #ffaa00; border: 1px solid #ffaa00; }
+        .tag.planet { color: #00aaff; border: 1px solid #00aaff; }
+        .tag.zodiac { color: #aa00ff; border: 1px solid #aa00ff; }
+
+        .shadow-warning {
+            color: var(--danger);
+            border: 1px solid var(--danger);
+            padding: 1rem;
+            background: rgba(255, 0, 0, 0.05);
+            margin-top: 1rem;
+        }
+
+        /* Placeholder for future phases */
+        .coming-soon {
+            text-align: center;
+            padding: 4rem;
+            border: 1px dashed var(--primary-dim);
+            color: var(--text-dim);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Background -->
+    <video class="video-bg" autoplay loop muted playsinline>
+        <source src="../pictures/devination.mp4" type="video/mp4">
+    </video>
+    <div class="grid-overlay"></div>
+
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="back-btn">← HUB</a>
+        <h1>TAROT ARCANA</h1>
+        <div class="subtitle">78 Keys to Unlock Reality</div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav-tabs">
+        <button class="nav-btn active" onclick="switchTab('library')">Card Library</button>
+        <button class="nav-btn" onclick="switchTab('spreads')">Interactive Spreads</button>
+        <button class="nav-btn" onclick="switchTab('wisdom')">Deep Wisdom</button>
+    </nav>
+
+    <!-- LIBRARY SECTION -->
+    <div id="library" class="section active">
+        
+        <!-- Major Arcana -->
+        <h2 style="color: var(--accent); font-family: 'Cinzel'; margin: 2rem 0 1rem; text-align: center; border-bottom: 1px solid var(--accent-dim); padding-bottom: 1rem;">THE MAJOR ARCANA</h2>
+        <div class="library-grid" id="major-arcana">
+            <!-- Cards 0-21 injected here -->
+        </div>
+
+        <!-- Suits Placeholders -->
+        <h2 style="color: #ff5500; font-family: 'Cinzel'; margin: 3rem 0 1rem; text-align: center; opacity: 0.7;">THE SUIT OF WANDS</h2>
+        <div class="coming-soon">Phase 9-10 Loading... Fire Element Architecture In Progress</div>
+
+        <h2 style="color: #00aaff; font-family: 'Cinzel'; margin: 3rem 0 1rem; text-align: center; opacity: 0.7;">THE SUIT OF CUPS</h2>
+        <div class="coming-soon">Phase 11-12 Loading... Water Element Architecture In Progress</div>
+
+        <h2 style="color: #e0e0e0; font-family: 'Cinzel'; margin: 3rem 0 1rem; text-align: center; opacity: 0.7;">THE SUIT OF SWORDS</h2>
+        <div class="coming-soon">Phase 13-14 Loading... Air Element Architecture In Progress</div>
+
+        <h2 style="color: #00ff00; font-family: 'Cinzel'; margin: 3rem 0 1rem; text-align: center; opacity: 0.7;">THE SUIT OF PENTACLES</h2>
+        <div class="coming-soon">Phase 15-16 Loading... Earth Element Architecture In Progress</div>
+
+    </div>
+
+    <!-- SPREADS SECTION -->
+    <div id="spreads" class="section">
+        <div class="coming-soon">
+            <h2 style="color: var(--primary); font-family: 'Orbitron'; margin-bottom: 1rem;">INTERACTIVE SPREAD SYSTEM</h2>
+            <p>Phase 5-8 Initiating...</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem;">Visual Deck • 3D Animations • Celtic Cross • Daily Draw</p>
+        </div>
+    </div>
+
+    <!-- WISDOM SECTION -->
+    <div id="wisdom" class="section">
+        <div class="coming-soon">
+            <h2 style="color: var(--accent); font-family: 'Orbitron'; margin-bottom: 1rem;">OCCULT KNOWLEDGE BASE</h2>
+            <p>Phase 17-19 Initiating...</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem;">Numerology • Elemental Matrix • Shadow Work • Archetypes</p>
+        </div>
+    </div>
+
+    <script>
+        // Tab Logic
+        function switchTab(tabId) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Accordion Logic
+        function toggleCard(element) {
+            const entry = element.parentElement;
+            entry.classList.toggle('active');
+        }
+
+        // MAJOR ARCANA DATA (Phases 1-4)
+        const majorArcana = [
+            {
+                number: "0",
+                name: "THE FOOL",
+                archetype: "Infinite Potential & The Leap of Faith",
+                element: "Air",
+                planet: "Uranus",
+                upright: "New beginnings, innocence, spontaneity, a free spirit. The Fool represents the alpha state—before logic kicks in. It is the urge to jump off the cliff into the unknown, trusting the universe will catch you. Pure potential energy without form.",
+                reversed: "Recklessness, risk-taking without calculation, naivety. Being taken advantage of because you refuse to see reality. Stupidity disguised as bravery.",
+                shadow: "Are you refusing to grow up? The Fool in shadow is the eternal child who refuses responsibility. Or, are you paralyzed by fear of looking foolish, thus never starting?"
+            },
+            {
+                number: "I",
+                name: "THE MAGICIAN",
+                archetype: "Manifestation & Conscious Will",
+                element: "Air/Mercury",
+                planet: "Mercury",
+                upright: "As above, so below. You have all the tools (Wand, Cup, Sword, Pentacle) on the table. This is active creation. Not wishing, but DOING. Turning raw energy into reality through focused will. Mastery of the physical plane.",
+                reversed: "Manipulation, trickery, wasted talent. Using power for selfish, harmful ends. The con artist. Knowing what to do but refusing to do it. Latent potential rotting.",
+                shadow: "Do you use your words to create or destroy? The Magician's shadow is the manipulator who bends reality to gaslight others. Check your intent."
+            },
+            {
+                number: "II",
+                name: "THE HIGH PRIESTESS",
+                archetype: "Intuition & Hidden Knowledge",
+                element: "Water",
+                planet: "Moon",
+                upright: "Silence. The veil between worlds. Knowing without knowing how you know. Trusting the gut over the brain. Secrets, mystery, the subconscious mind. She is the guardian of the Akashic records.",
+                reversed: "Repressed intuition. Ignoring your gut feeling and paying the price. Secrets revealed. Superficiality. Being disconnected from your feminine/receptive side.",
+                shadow: "Are you hiding behind 'mystery' to avoid vulnerability? Or are you ignoring the red flags your intuition is screaming at you?"
+            },
+            {
+                number: "III",
+                name: "THE EMPRESS",
+                archetype: "Fertility & Abundance",
+                element: "Earth",
+                planet: "Venus",
+                upright: "Creation, nature, luxury, beauty. The mother archetype. Birthing new ideas or actual life. Sensuality and pleasure. Abundance is your natural state. Flow with nature, don't fight it.",
+                reversed: "Creative block. Smothering love. Dependence on others for luxury. Neglecting your body. Poverty consciousness. Infertility of the mind or spirit.",
+                shadow: "Are you using care-taking as a form of control? The shadow Empress consumes her children (projects) to keep them dependent."
+            },
+            {
+                number: "IV",
+                name: "THE EMPEROR",
+                archetype: "Authority & Structure",
+                element: "Fire",
+                planet: "Mars",
+                upright: "Father archetype. Structure, rules, stability. Building an empire. Logic over emotion. Protection through boundaries. Taking charge of the situation with absolute authority.",
+                reversed: "Tyranny, domination, rigidity. The 'My way or the highway' mentality. Weak leadership. Chaos due to lack of discipline. Daddy issues manifesting as rebellion.",
+                shadow: "Is your need for control crushing the life out of your relationships? Structure should support life, not imprison it."
+            },
+            {
+                number: "V",
+                name: "THE HIEROPHANT",
+                archetype: "Tradition & Spiritual Systems",
+                element: "Earth",
+                planet: "Taurus",
+                upright: "Institutions, education, spiritual guidance. Playing by the rules. Finding God through established paths. Marriage, contracts, conformity. The teacher/mentor dynamic.",
+                reversed: "Rebellion. Breaking the rules. Creating your own spiritual path. Rejecting dogma. Hypocrisy in leadership. The cult leader exposed.",
+                shadow: "Are you following rules just to feel safe, even when they violate your conscience? Blind obedience is the shadow here."
+            },
+            {
+                number: "VI",
+                name: "THE LOVERS",
+                archetype: "Choice & Duality",
+                element: "Air",
+                planet: "Gemini",
+                upright: "Union, harmony, relationships. But deeper: THE CHOICE. Aligning your internal values. Integration of anima/animus. Sexual alchemy. Determining what you truly stand for.",
+                reversed: "Disharmony, imbalance, bad choices. Alignment with the wrong values. Relationship failure. Codependency. Split personality/indecision.",
+                shadow: "Are you projecting your own missing pieces onto a partner? True love is union, not completion of a void."
+            },
+            {
+                number: "VII",
+                name: "THE CHARIOT",
+                archetype: "Willpower & Victory",
+                element: "Water",
+                planet: "Cancer",
+                upright: "Forward movement through sheer will. Controlling opposing forces (black and white sphinx). Victory is assured if you maintain focus. overcoming obstacles. The ego in service of the mission.",
+                reversed: "Loss of control. Aggression. Careening off the path. Being driven by ego rather than purpose. forceful behavior leading to a crash.",
+                shadow: "Are you running over people to get what you want? Victory at any cost is often a defeat for the soul."
+            },
+            {
+                number: "VIII",
+                name: "STRENGTH",
+                archetype: "Courage & Compassion",
+                element: "Fire",
+                planet: "Leo",
+                upright: "Inner strength. Taming the beast within through love, not force. Patience, control, compassion. Soft power. Enduring challenges with grace.",
+                reversed: "Weakness, self-doubt, raw emotion taking over. The beast controls you. Cowardice. Force without direction.",
+                shadow: "Are you suppressing your anger instead of transmuting it? Taming the lion doesn't mean killing it; it means riding it."
+            },
+            {
+                number: "IX",
+                name: "THE HERMIT",
+                archetype: "Introspection & Solitude",
+                element: "Earth",
+                planet: "Virgo",
+                upright: "Going within. Seeking answers internally. Solitude, not loneliness. The lamp of wisdom. Withdrawing from the noise to hear the signal.",
+                reversed: "Isolation, loneliness, withdrawal from reality. Paranoia. Being a recluse. Refusing help when needed.",
+                shadow: "Are you hiding from the world because you feel superior, or because you are afraid? Wisdom must eventually be shared."
+            },
+            {
+                number: "X",
+                name: "WHEEL OF FORTUNE",
+                archetype: "Cycles & Destiny",
+                element: "Fire",
+                planet: "Jupiter",
+                upright: "Karma. What goes up must come down. Good luck, bad luck - it's all temporary. Adapting to change. The turning point. Destiny at work.",
+                reversed: "Bad luck, resistance to change. Breaking the cycle. Feeling like a victim of fate. Recurrence of old patterns.",
+                shadow: "Do you blame 'fate' for the consequences of your own actions? The wheel turns, but you are the one steering."
+            },
+            {
+                number: "XI",
+                name: "JUSTICE",
+                archetype: "Truth & Law",
+                element: "Air",
+                planet: "Libra",
+                upright: "Fairness, truth, cause and effect. Legal matters resolved fairly. Cutting through lies. Balance. You get exactly what you deserve.",
+                reversed: "Injustice, dishonesty, legal unfairness. Biased judgment. Unaccountability. Refusing to accept consequences.",
+                shadow: "Are you judging others to avoid judging yourself? Justice is blind, but the ego loves to peek."
+            },
+            {
+                number: "XII",
+                name: "THE HANGED MAN",
+                archetype: "Surrender & New Perspective",
+                element: "Water",
+                planet: "Neptune",
+                upright: "Pause. Surrender. Letting go of control to gain enlightenment. Sacrifice for a higher cause. Seeing things from a reversed angle. Waiting.",
+                reversed: "Stalling, resistance, martyrdom. Playing the victim. Useless sacrifice. Indecision causing pain.",
+                shadow: "Are you playing the martyr to make others feel guilty? Sacrifice without purpose is just masochism."
+            },
+            {
+                number: "XIII",
+                name: "DEATH",
+                archetype: "Transformation & Endings",
+                element: "Water",
+                planet: "Scorpio",
+                upright: "End of a cycle. Radical change. Transition. Elimination of the old to make space for the new. It is rarely physical death; it is the death of the ego/identity.",
+                reversed: "Resistance to change. Stagnation. Decay. Holding onto a corpse (relationship/job) because you fear the unknown.",
+                shadow: "What are you keeping alive that needs to die? Rot spreads if you don't cut it out."
+            },
+            {
+                number: "XIV",
+                name: "TEMPERANCE",
+                archetype: "Alchemy & Balance",
+                element: "Fire",
+                planet: "Sagittarius",
+                upright: "Balance, moderation, patience. Blending opposites to create something new (Alchemy). Healing. Divine timing. The middle path.",
+                reversed: "Imbalance, excess, impatience. Clash of forces. Disruptive energy. Lack of long-term vision.",
+                shadow: "Are you diluting your truth to keep the peace? True temperance is a dynamic mix, not a watery compromise."
+            },
+            {
+                number: "XV",
+                name: "THE DEVIL",
+                archetype: "Bondage & Materialism",
+                element: "Earth",
+                planet: "Capricorn",
+                upright: "Addiction, obsession, sexuality, materialism. Being chained by your own desires. The shadow self taking the wheel. Illusion of bondage—the chains are loose.",
+                reversed: "Breaking free. Releasing addiction. Facing the shadow. Detachment. Reclaiming power.",
+                shadow: "What controls you? Money? Sex? Status? The Devil asks: 'Are you the master or the slave of your desires?'"
+            },
+            {
+                number: "XVI",
+                name: "THE TOWER",
+                archetype: "Sudden Upheaval & Revelation",
+                element: "Fire",
+                planet: "Mars",
+                upright: "Disaster, sudden change, destruction of false structures. The lightning strike of truth. Ego death. Liberation through destruction. It hurts, but it frees you.",
+                reversed: "Averting disaster but delaying the inevitable. Fear of change. rebuilding on shaky foundations.",
+                shadow: "What lie are you protecting? The Tower will burn it down anyway. Better to light the match yourself."
+            },
+            {
+                number: "XVII",
+                name: "THE STAR",
+                archetype: "Hope & Inspiration",
+                element: "Air",
+                planet: "Aquarius",
+                upright: "Hope, renewal, spirituality. Healing after the Tower. Connection to the divine. Flow. Naked truth and vulnerability. The light at the end of the tunnel.",
+                reversed: "Despair, lack of faith. Disconnection. unanswered prayers. Feeling lost.",
+                shadow: "Is your 'hope' actually passivity? Wishing on a star doesn't work if you don't walk toward it."
+            },
+            {
+                number: "XVIII",
+                name: "THE MOON",
+                archetype: "Illusion & The Subconscious",
+                element: "Water",
+                planet: "Pisces",
+                upright: "Illusion, fear, anxiety. Things are not what they seem. The shadow world. Dreams and nightmares. Trust your intuition, not your eyes. Madness/Genius.",
+                reversed: "Releasing fear. Unveiling the truth. Clarity returning. Confusion subsiding.",
+                shadow: "Are you gaslighting yourself? The Moon reveals the monsters in the basement are often just piles of clothes."
+            },
+            {
+                number: "XIX",
+                name: "THE SUN",
+                archetype: "Success & Vitality",
+                element: "Fire",
+                planet: "Sun",
+                upright: "Joy, success, celebration. Clarity. warmth. The inner child running free. Everything is illuminated. Pure positive energy.",
+                reversed: "Temporary sadness. Unrealistic expectations. Burnout. Blocking your own happiness.",
+                shadow: "Are you addicted to the light? Refusing to look at the dark spots creates a blinding glare, not true vision."
+            },
+            {
+                number: "XX",
+                name: "JUDGEMENT",
+                archetype: "Rebirth & Calling",
+                element: "Fire",
+                planet: "Pluto",
+                upright: "Awakening. The trumpet call. Answering your higher calling. Absolution. Rise up and become who you were meant to be. Final decision.",
+                reversed: "Self-doubt. Refusing the call. Ignoring the signs. Lack of self-awareness. Judgmental attitude.",
+                shadow: "Are you judging others to avoid your own calling? The trumpet is for YOU, not them."
+            },
+            {
+                number: "XXI",
+                name: "THE WORLD",
+                archetype: "Completion & Integration",
+                element: "Earth",
+                planet: "Saturn",
+                upright: "Completion of a cycle. Wholeness. Achievement. Travel. Integration of all parts. Success. The dance of life. You have arrived.",
+                reversed: "Incompletion. Lack of closure. Shortcuts. Feeling stuck near the finish line.",
+                shadow: "Are you afraid to finish because then you have to start over? The World is the end, but also the beginning of the Fool."
+            }
+        ];
+
+        // Render Function
+        function renderMajorArcana() {
+            const container = document.getElementById('major-arcana');
+            let html = '';
+
+            majorArcana.forEach(card => {
+                html += `
+                    <div class="card-entry">
+                        <div class="card-header" onclick="toggleCard(this)">
+                            <div class="card-title">
+                                <span class="card-number">${card.number}</span>
+                                ${card.name}
+                            </div>
+                            <div style="color: var(--text-dim);">▼</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="content-inner">
+                                <div class="archetype-box">
+                                    <strong>ARCHETYPE:</strong> ${card.archetype}
+                                </div>
+                                <div class="meaning-col">
+                                    <h3>⬆️ UPRIGHT</h3>
+                                    <div style="margin-bottom: 1rem;">
+                                        <span class="tag element">${card.element}</span>
+                                        <span class="tag planet">${card.planet}</span>
+                                    </div>
+                                    <p>${card.upright}</p>
+                                </div>
+                                <div class="meaning-col">
+                                    <h3>⬇️ REVERSED</h3>
+                                    <div class="shadow-warning">
+                                        <strong>SHADOW WORK:</strong><br>
+                                        ${card.shadow}
+                                    </div>
+                                    <p style="margin-top: 1rem; opacity: 0.8;">${card.reversed}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        // Initialize
+        renderMajorArcana();
+
+    </script>
+</body>
+</html>
