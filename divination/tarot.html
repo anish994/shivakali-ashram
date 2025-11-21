@@ -6,97 +6,347 @@
     <title>TAROT ARCANA | ShivaKali Ashram</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* MYSTICAL ATMOSPHERE UPGRADE */
         :root {
-            --primary: #b388ff; /* Brighter purple */
-            --primary-dim: #7c4dff;
-            --primary-dark: #320b86;
-            --accent: #ffd700; /* Gold */
-            --accent-glow: #ffea00;
-            --bg-void: #050208;
-            --bg-panel: rgba(15, 10, 25, 0.85);
-            --text-main: #f0f0f0;
-            --card-border: 1px solid rgba(179, 136, 255, 0.3);
+            --primary: #9d4edd;
+            --primary-dim: #5a189a;
+            --accent: #ffd700;
+            --accent-dim: #b8860b;
+            --bg-dark: #0a0510;
+            --text-main: #e0e0e0;
+            --text-dim: #a0a0a0;
+            --success: #00ff88;
+            --danger: #ff3333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            background-color: var(--bg-void);
-            background-image: 
-                radial-gradient(circle at 50% 50%, rgba(50, 11, 134, 0.1) 0%, transparent 60%),
-                linear-gradient(0deg, rgba(0,0,0,0.2) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,0,0,0.2) 1px, transparent 1px);
-            background-size: 100% 100%, 40px 40px, 40px 40px;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Share Tech Mono', monospace;
+            overflow-x: hidden;
+            min-height: 100vh;
         }
 
-        /* HEADER UPGRADE */
+        /* Background Video */
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+            opacity: 0.4;
+            filter: hue-rotate(260deg) contrast(1.2) brightness(0.8);
+        }
+
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(rgba(10, 5, 16, 0.85), rgba(10, 5, 16, 0.95)),
+                repeating-linear-gradient(0deg, transparent 0, transparent 1px, rgba(157, 78, 221, 0.05) 1px, rgba(157, 78, 221, 0.05) 2px);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Header */
         header {
-            background: linear-gradient(180deg, rgba(5,2,8,0.95) 0%, rgba(20,10,40,0.8) 100%);
-            border-bottom: 1px solid var(--primary-dim);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            padding: 3rem 1rem;
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(157, 78, 221, 0.3);
+            background: rgba(10, 5, 16, 0.8);
+            backdrop-filter: blur(10px);
+            position: relative;
         }
 
         h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            letter-spacing: 8px;
-            background: linear-gradient(135deg, #ffd700 0%, #fff59d 50%, #b8860b 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.4));
-            animation: pulseGold 4s infinite ease-in-out;
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            color: var(--accent);
+            text-shadow: 0 0 15px var(--accent-dim);
+            margin-bottom: 0.5rem;
+            letter-spacing: 4px;
         }
 
-        @keyframes pulseGold {
-            0%, 100% { filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.4)); }
-            50% { filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.7)); }
+        .subtitle {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--primary);
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
-        /* TABLET CARD STYLING */
-        .card-entry {
-            background: var(--bg-panel);
-            border: 1px solid rgba(179, 136, 255, 0.15);
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card-entry::before {
-            content: '';
+        .back-btn {
             position: absolute;
-            top: 0; left: 0; width: 2px; height: 100%;
-            background: linear-gradient(180deg, var(--primary), transparent);
-            opacity: 0.5;
+            top: 1rem;
+            left: 1rem;
+            text-decoration: none;
+            color: var(--text-dim);
+            border: 1px solid var(--text-dim);
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+            background: rgba(0,0,0,0.5);
         }
 
-        .card-entry:hover {
-            transform: translateY(-2px) scale(1.01);
-            box-shadow: 0 10px 25px rgba(124, 77, 255, 0.2);
+        .back-btn:hover {
+            color: var(--primary);
             border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(157, 78, 221, 0.3);
         }
 
-        .card-entry.active {
-            background: linear-gradient(135deg, rgba(25, 15, 40, 0.95), rgba(10, 5, 20, 0.98));
-            border: 1px solid var(--primary);
-            box-shadow: 0 0 30px rgba(124, 77, 255, 0.15);
+        /* Navigation */
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            flex-wrap: wrap;
+            background: rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(157, 78, 221, 0.2);
+        }
+
+        .nav-btn {
+            background: transparent;
+            border: 1px solid var(--primary-dim);
+            color: var(--text-dim);
+            padding: 0.8rem 1.5rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: rgba(157, 78, 221, 0.2);
+            border-color: var(--primary);
+            color: var(--accent);
+            box-shadow: 0 0 15px rgba(157, 78, 221, 0.3);
+        }
+
+        /* Content Sections */
+        .section {
+            display: none;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Library with Sidebar Layout */
+        .library-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        /* Sidebar Navigation */
+        .suit-sidebar {
+            position: sticky;
+            top: 120px;
+            background: linear-gradient(135deg, rgba(20, 10, 30, 0.95), rgba(10, 5, 20, 0.98));
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            border-radius: 8px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .suit-sidebar h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        .suit-nav-item {
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .suit-nav-item:hover {
+            background: rgba(157, 78, 221, 0.2);
+            border-color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .suit-nav-item.active {
+            background: var(--primary);
+            border-color: var(--accent);
+            color: #000;
+            font-weight: bold;
+            box-shadow: 0 0 15px rgba(157, 78, 221, 0.5);
+        }
+
+        .suit-nav-icon {
+            display: inline-block;
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        /* Suit Intro Panels */
+        .suit-intro {
+            background: linear-gradient(135deg, rgba(20, 10, 30, 0.9), rgba(10, 5, 20, 0.95));
+            border: 2px solid rgba(157, 78, 221, 0.4);
+            border-radius: 12px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+        }
+
+        .suit-intro h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            letter-spacing: 4px;
+            text-align: center;
+        }
+
+        .suit-intro .lore {
+            color: var(--text-main);
+            line-height: 1.8;
+            margin: 1.5rem 0;
+            font-size: 1.05rem;
+        }
+
+        .suit-intro .lore strong {
+            color: var(--accent);
+        }
+
+        .suit-intro .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(157, 78, 221, 0.3);
+        }
+
+        .suit-intro .meta-item {
+            text-align: center;
+        }
+
+        .suit-intro .meta-label {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--text-dim);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .suit-intro .meta-value {
+            font-family: 'Cinzel', serif;
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        .placeholder {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-dim);
+            font-size: 1.2rem;
+        }
+
+        /* Suit Section Visibility */
+        .suit-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .suit-section.active {
+            display: block;
+        }
+
+        @media (max-width: 968px) {
+            .library-layout {
+                grid-template-columns: 1fr;
+            }
+            .suit-sidebar {
+                position: relative;
+                top: 0;
+            }
+        }
+
+        /* Card Library Accordion */
+        .library-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .card-entry {
+            background: rgba(10, 5, 16, 0.6);
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: all 0.3s ease;
         }
 
         .card-header {
-            padding: 1.5rem 2rem;
-            background: transparent;
+            padding: 1.5rem;
+            background: linear-gradient(90deg, rgba(20, 10, 30, 0.9), rgba(10, 5, 16, 0.9));
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid transparent;
+        }
+
+        .card-entry.active .card-header {
+            border-bottom-color: var(--primary);
+            background: rgba(90, 24, 154, 0.2);
+        }
+
+        .card-title {
+            font-family: 'Cinzel', serif;
+            color: var(--text-main);
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
         .card-number {
-            background: rgba(0,0,0,0.3);
-            border: 1px solid var(--primary-dim);
-            color: var(--primary);
-            font-family: 'Orbitron';
-            padding: 4px 10px;
+            color: var(--accent);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            border: 1px solid var(--accent-dim);
+            padding: 2px 8px;
             border-radius: 4px;
-            box-shadow: 0 0 10px rgba(124, 77, 255, 0.1);
         }
 
         .card-entry.active .card-number {
@@ -105,188 +355,1162 @@
             box-shadow: 0 0 15px var(--primary);
         }
 
-        /* ALTAR SPREAD AREA */
-        .reading-area {
-            background: radial-gradient(circle at center, #1a1025 0%, #0a0510 100%);
-            border: 1px solid var(--primary-dim);
-            box-shadow: inset 0 0 100px rgba(0,0,0,0.8);
-            border-radius: 12px;
-            padding: 3rem;
-            position: relative;
+        .card-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            background: rgba(0, 0, 0, 0.4);
         }
 
-        .reading-area::after {
-            content: '';
-            position: absolute;
-            top: 10px; left: 10px; right: 10px; bottom: 10px;
-            border: 1px dashed rgba(179, 136, 255, 0.2);
+        .card-entry.active .card-content {
+            max-height: 2000px;
+        }
+
+        .content-inner {
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .archetype-box {
+            grid-column: 1 / -1;
+            background: rgba(157, 78, 221, 0.1);
+            border-left: 3px solid var(--primary);
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .meaning-col h3 {
+            color: var(--accent);
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dim);
+        }
+
+        .tag.element { color: #ffaa00; border: 1px solid #ffaa00; }
+        .tag.planet { color: #00aaff; border: 1px solid #00aaff; }
+
+        .shadow-warning {
+            color: var(--danger);
+            border: 1px solid var(--danger);
+            padding: 1rem;
+            background: rgba(255, 0, 0, 0.05);
+            margin-top: 1rem;
+        }
+
+        /* Category Headers */
+        .category-header {
+            margin: 3rem 0 2rem;
+            text-align: center;
+            position: relative;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(20, 10, 30, 0.8), rgba(10, 5, 20, 0.9));
             border-radius: 8px;
-            pointer-events: none;
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            box-shadow: 0 4px 20px rgba(157, 78, 221, 0.2);
         }
 
-        /* MYSTICAL DECK */
-        .deck-stack {
-            width: 140px;
-            height: 220px;
-            border-radius: 10px;
-            background: linear-gradient(135deg, #2a1a4a, #120820);
-            border: 2px solid var(--accent);
-            box-shadow: 
-                0 0 0 1px #000,
-                0 5px 15px rgba(0,0,0,0.5),
-                0 0 20px rgba(157, 78, 221, 0.4);
-            position: relative;
-            transform-style: preserve-3d;
-            transition: all 0.5s ease;
+        .category-header h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            margin: 0 0 0.5rem;
+            letter-spacing: 3px;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: none;
         }
 
-        .deck-stack:hover {
-            transform: translateY(-5px) rotateX(10deg);
-            box-shadow: 
-                0 0 0 1px #000,
-                0 15px 30px rgba(0,0,0,0.6),
-                0 0 40px rgba(157, 78, 221, 0.6);
-        }
-
-        /* CARD BACK PATTERN (CSS ONLY) */
-        .card-back {
-            background-color: #150a25;
-            background-image: 
-                radial-gradient(var(--accent) 1px, transparent 1px),
-                radial-gradient(var(--primary) 1px, transparent 1px);
-            background-size: 20px 20px;
-            background-position: 0 0, 10px 10px;
-            border: 2px solid var(--accent-dim);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .card-back::after {
-            content: '👁️';
-            font-size: 2rem;
-            opacity: 0.5;
-            filter: drop-shadow(0 0 5px var(--primary));
-        }
-
-        .spread-btn {
-            background: rgba(0,0,0,0.6);
-            border: 1px solid var(--primary-dim);
-            color: var(--text-main);
+        .category-subtitle {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--text-dim);
+            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            backdrop-filter: blur(5px);
+            margin-top: 0.5rem;
         }
 
-        .spread-btn.active {
-            background: var(--primary);
-            color: #000;
-            font-weight: bold;
-            box-shadow: 0 0 20px var(--primary-dim);
+        .category-divider {
+            width: 60%;
+            height: 1px;
+            margin: 1.5rem auto 0;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
         }
-        <h2 style="color: #e0e0e0; font-family: 'Cinzel'; margin: 3rem 0 1rem; text-align: center; border-bottom: 1px solid rgba(224, 224, 224, 0.3); padding-bottom: 1rem;">THE SUIT OF SWORDS (AIR)</h2>
-        <div class="library-grid" id="swords-suit">
-            <!-- Swords injected here -->
-        </div>
 
-        <!-- Suit of Pentacles -->
-        <h2 style="color: #00ff00; font-family: 'Cinzel'; margin: 3rem 0 1rem; text-align: center; border-bottom: 1px solid rgba(0, 255, 0, 0.3); padding-bottom: 1rem;">THE SUIT OF PENTACLES (EARTH)</h2>
-        <div class="library-grid" id="pentacles-suit">
-            <!-- Pentacles injected here -->
-        </div>
+        /* Suit-specific colors */
+        .category-header.wands { border-color: rgba(255, 85, 0, 0.4); }
+        .category-header.wands h2 { 
+            background: linear-gradient(135deg, #ff5500, #ffaa00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
+        .category-header.cups { border-color: rgba(0, 170, 255, 0.4); }
+        .category-header.cups h2 { 
+            background: linear-gradient(135deg, #00aaff, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .category-header.swords { border-color: rgba(224, 224, 224, 0.4); }
+        .category-header.swords h2 { 
+            background: linear-gradient(135deg, #e0e0e0, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .category-header.pentacles { border-color: rgba(0, 255, 0, 0.4); }
+        .category-header.pentacles h2 { 
+            background: linear-gradient(135deg, #00ff00, #88ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .nav-tabs { padding: 1rem 0.5rem; gap: 0.5rem; }
+            .nav-btn { font-size: 0.7rem; padding: 0.6rem 1rem; }
+            .content-inner { grid-template-columns: 1fr; }
+            .category-header h2 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background -->
+    <video class="video-bg" autoplay loop muted playsinline>
+        <source src="../pictures/devination.mp4" type="video/mp4">
+    </video>
+    <div class="grid-overlay"></div>
+
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="back-btn">← HUB</a>
+        <h1>TAROT ARCANA</h1>
+        <div class="subtitle">78 Keys to Unlock Reality</div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav-tabs">
+        <button class="nav-btn active" onclick="switchTab('library')">Card Library</button>
+        <button class="nav-btn" onclick="switchTab('spreads')">Interactive Spreads</button>
+        <button class="nav-btn" onclick="switchTab('wisdom')">Deep Wisdom</button>
+    </nav>
+
+    <!-- LIBRARY SECTION -->
+    <div id="library" class="section active">
+        
+        <div class="library-layout">
+            <!-- Sidebar Navigation -->
+            <aside class="suit-sidebar">
+                <h3>ARCANA INDEX</h3>
+                <div class="suit-nav-item active" onclick="showSuit('major')">
+                    <span class="suit-nav-icon">✨</span> MAJOR ARCANA
+                </div>
+                <div class="suit-nav-item" onclick="showSuit('wands')">
+                    <span class="suit-nav-icon">🔥</span> WANDS
+                </div>
+                <div class="suit-nav-item" onclick="showSuit('cups')">
+                    <span class="suit-nav-icon">💧</span> CUPS
+                </div>
+                <div class="suit-nav-item" onclick="showSuit('swords')">
+                    <span class="suit-nav-icon">⚔️</span> SWORDS
+                </div>
+                <div class="suit-nav-item" onclick="showSuit('pentacles')">
+                    <span class="suit-nav-icon">🌍</span> PENTACLES
+                </div>
+            </aside>
+
+            <!-- Main Content Area -->
+            <div class="suit-content">
+                
+                <!-- Major Arcana -->
+                <div id="suit-major" class="suit-section active">
+                    <div class="suit-intro">
+                        <h2 style="background: linear-gradient(135deg, var(--accent), var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">THE MAJOR ARCANA</h2>
+                        
+                        <div class="lore">
+                            <p>The Major Arcana represents the <strong>22 archetypal forces</strong> that govern human consciousness and cosmic law. These are not mere fortune-telling symbols—they are <strong>keys to the universal mind</strong>, distilled from millennia of hermetic philosophy, Kabbalistic mysticism, and Jungian depth psychology.</p>
+                            
+                            <p>Each card corresponds to a <strong>path on the Tree of Life</strong>, connecting the ten Sephiroth (emanations of divine energy). The Fool's Journey from 0 to XXI mirrors the soul's descent into matter and ascent back to source—what the alchemists called the <strong>Great Work</strong> (Magnum Opus).</p>
+                            
+                            <p>Scientifically, these archetypes can be understood as <strong>psychic structures</strong>—recurring patterns in the collective unconscious that shape human behavior, mythology, and dreams. Carl Jung demonstrated that these symbols appear spontaneously in the psyches of individuals across cultures, suggesting they tap into something deeper than mere cultural conditioning.</p>
+                        </div>
+
+                        <div class="meta-grid">
+                            <div class="meta-item">
+                                <div class="meta-label">Count</div>
+                                <div class="meta-value">22 Cards</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-label">System</div>
+                                <div class="meta-value">Kabbalah</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-label">Principle</div>
+                                <div class="meta-value">Macrocosm</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-label">Function</div>
+                                <div class="meta-value">Soul Evolution</div>
+                            </div>
+                        </div>
+                    </div>
+        
+        <div class="library-grid" id="major-arcana">
+            <!-- The Fool -->
+            <div class="card-entry">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-title">
+                        <span class="card-number">0</span>
+                        THE FOOL
+                    </div>
+                    <div style="color: var(--text-dim);">▼</div>
+                </div>
+                <div class="card-content">
+                    <div class="content-inner">
+                        <div class="archetype-box">
+                            <strong>ARCHETYPE:</strong> Infinite Potential & The Leap of Faith
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬆️ UPRIGHT</h3>
+                            <div style="margin-bottom: 1rem;">
+                                <span class="tag element">Air</span>
+                                <span class="tag planet">Uranus</span>
+                            </div>
+                            <p>New beginnings, innocence, spontaneity, a free spirit. The Fool represents the alpha state—before logic kicks in. It is the urge to jump off the cliff into the unknown, trusting the universe will catch you. Pure potential energy without form.</p>
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬇️ REVERSED</h3>
+                            <div class="shadow-warning">
+                                <strong>SHADOW WORK:</strong><br>
+                                Are you refusing to grow up? The Fool in shadow is the eternal child who refuses responsibility. Or, are you paralyzed by fear of looking foolish, thus never starting?
+                            </div>
+                            <p style="margin-top: 1rem; opacity: 0.8;">Recklessness, risk-taking without calculation, naivety. Being taken advantage of because you refuse to see reality. Stupidity disguised as bravery.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Magician -->
+            <div class="card-entry">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-title">
+                        <span class="card-number">I</span>
+                        THE MAGICIAN
+                    </div>
+                    <div style="color: var(--text-dim);">▼</div>
+                </div>
+                <div class="card-content">
+                    <div class="content-inner">
+                        <div class="archetype-box">
+                            <strong>ARCHETYPE:</strong> Manifestation & Conscious Will
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬆️ UPRIGHT</h3>
+                            <div style="margin-bottom: 1rem;">
+                                <span class="tag element">Air/Mercury</span>
+                                <span class="tag planet">Mercury</span>
+                            </div>
+                            <p>As above, so below. You have all the tools (Wand, Cup, Sword, Pentacle) on the table. This is active creation. Not wishing, but DOING. Turning raw energy into reality through focused will. Mastery of the physical plane.</p>
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬇️ REVERSED</h3>
+                            <div class="shadow-warning">
+                                <strong>SHADOW WORK:</strong><br>
+                                Do you use your words to create or destroy? The Magician's shadow is the manipulator who bends reality to gaslight others. Check your intent.
+                            </div>
+                            <p style="margin-top: 1rem; opacity: 0.8;">Manipulation, trickery, wasted talent. Using power for selfish, harmful ends. The con artist. Knowing what to do but refusing to do it. Latent potential rotting.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The High Priestess -->
+            <div class="card-entry">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-title">
+                        <span class="card-number">II</span>
+                        THE HIGH PRIESTESS
+                    </div>
+                    <div style="color: var(--text-dim);">▼</div>
+                </div>
+                <div class="card-content">
+                    <div class="content-inner">
+                        <div class="archetype-box">
+                            <strong>ARCHETYPE:</strong> Intuition & Hidden Knowledge
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬆️ UPRIGHT</h3>
+                            <div style="margin-bottom: 1rem;">
+                                <span class="tag element">Water</span>
+                                <span class="tag planet">Moon</span>
+                            </div>
+                            <p>Silence. The veil between worlds. Knowing without knowing how you know. Trusting the gut over the brain. Secrets, mystery, the subconscious mind. She is the guardian of the Akashic records.</p>
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬇️ REVERSED</h3>
+                            <div class="shadow-warning">
+                                <strong>SHADOW WORK:</strong><br>
+                                Are you hiding behind 'mystery' to avoid vulnerability? Or are you ignoring the red flags your intuition is screaming at you?
+                            </div>
+                            <p style="margin-top: 1rem; opacity: 0.8;">Repressed intuition. Ignoring your gut feeling and paying the price. Secrets revealed. Superficiality. Being disconnected from your feminine/receptive side.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Empress -->
+            <div class="card-entry">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-title">
+                        <span class="card-number">III</span>
+                        THE EMPRESS
+                    </div>
+                    <div style="color: var(--text-dim);">▼</div>
+                </div>
+                <div class="card-content">
+                    <div class="content-inner">
+                        <div class="archetype-box">
+                            <strong>ARCHETYPE:</strong> Fertility & Abundance
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬆️ UPRIGHT</h3>
+                            <div style="margin-bottom: 1rem;">
+                                <span class="tag element">Earth</span>
+                                <span class="tag planet">Venus</span>
+                            </div>
+                            <p>Creation, nature, luxury, beauty. The mother archetype. Birthing new ideas or actual life. Sensuality and pleasure. Abundance is your natural state. Flow with nature, don't fight it.</p>
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬇️ REVERSED</h3>
+                            <div class="shadow-warning">
+                                <strong>SHADOW WORK:</strong><br>
+                                Are you using care-taking as a form of control? The shadow Empress consumes her children (projects) to keep them dependent.
+                            </div>
+                            <p style="margin-top: 1rem; opacity: 0.8;">Creative block. Smothering love. Dependence on others for luxury. Neglecting your body. Poverty consciousness. Infertility of the mind or spirit.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Emperor -->
+            <div class="card-entry">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-title">
+                        <span class="card-number">IV</span>
+                        THE EMPEROR
+                    </div>
+                    <div style="color: var(--text-dim);">▼</div>
+                </div>
+                <div class="card-content">
+                    <div class="content-inner">
+                        <div class="archetype-box">
+                            <strong>ARCHETYPE:</strong> Authority & Structure
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬆️ UPRIGHT</h3>
+                            <div style="margin-bottom: 1rem;">
+                                <span class="tag element">Fire</span>
+                                <span class="tag planet">Mars</span>
+                            </div>
+                            <p>Father archetype. Structure, rules, stability. Building an empire. Logic over emotion. Protection through boundaries. Taking charge of the situation with absolute authority.</p>
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬇️ REVERSED</h3>
+                            <div class="shadow-warning">
+                                <strong>SHADOW WORK:</strong><br>
+                                Is your need for control crushing the life out of your relationships? Structure should support life, not imprison it.
+                            </div>
+                            <p style="margin-top: 1rem; opacity: 0.8;">Tyranny, domination, rigidity. The 'My way or the highway' mentality. Weak leadership. Chaos due to lack of discipline. Daddy issues manifesting as rebellion.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Hierophant -->
+            <div class="card-entry">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-title">
+                        <span class="card-number">V</span>
+                        THE HIEROPHANT
+                    </div>
+                    <div style="color: var(--text-dim);">▼</div>
+                </div>
+                <div class="card-content">
+                    <div class="content-inner">
+                        <div class="archetype-box">
+                            <strong>ARCHETYPE:</strong> Tradition & Spiritual Systems
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬆️ UPRIGHT</h3>
+                            <div style="margin-bottom: 1rem;">
+                                <span class="tag element">Earth</span>
+                                <span class="tag planet">Taurus</span>
+                            </div>
+                            <p>Institutions, education, spiritual guidance. Playing by the rules. Finding God through established paths. Marriage, contracts, conformity. The teacher/mentor dynamic.</p>
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬇️ REVERSED</h3>
+                            <div class="shadow-warning">
+                                <strong>SHADOW WORK:</strong><br>
+                                Are you following rules just to feel safe, even when they violate your conscience? Blind obedience is the shadow here.
+                            </div>
+                            <p style="margin-top: 1rem; opacity: 0.8;">Rebellion. Breaking the rules. Creating your own spiritual path. Rejecting dogma. Hypocrisy in leadership. The cult leader exposed.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Lovers -->
+            <div class="card-entry">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-title">
+                        <span class="card-number">VI</span>
+                        THE LOVERS
+                    </div>
+                    <div style="color: var(--text-dim);">▼</div>
+                </div>
+                <div class="card-content">
+                    <div class="content-inner">
+                        <div class="archetype-box">
+                            <strong>ARCHETYPE:</strong> Choice & Duality
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬆️ UPRIGHT</h3>
+                            <div style="margin-bottom: 1rem;">
+                                <span class="tag element">Air</span>
+                                <span class="tag planet">Gemini</span>
+                            </div>
+                            <p>Union, harmony, relationships. But deeper: THE CHOICE. Aligning your internal values. Integration of anima/animus. Sexual alchemy. Determining what you truly stand for.</p>
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬇️ REVERSED</h3>
+                            <div class="shadow-warning">
+                                <strong>SHADOW WORK:</strong><br>
+                                Are you projecting your own missing pieces onto a partner? True love is union, not completion of a void.
+                            </div>
+                            <p style="margin-top: 1rem; opacity: 0.8;">Disharmony, imbalance, bad choices. Alignment with the wrong values. Relationship failure. Codependency. Split personality/indecision.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Chariot -->
+            <div class="card-entry">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-title">
+                        <span class="card-number">VII</span>
+                        THE CHARIOT
+                    </div>
+                    <div style="color: var(--text-dim);">▼</div>
+                </div>
+                <div class="card-content">
+                    <div class="content-inner">
+                        <div class="archetype-box">
+                            <strong>ARCHETYPE:</strong> Willpower & Victory
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬆️ UPRIGHT</h3>
+                            <div style="margin-bottom: 1rem;">
+                                <span class="tag element">Water</span>
+                                <span class="tag planet">Cancer</span>
+                            </div>
+                            <p>Forward movement through sheer will. Controlling opposing forces (black and white sphinx). Victory is assured if you maintain focus. Overcoming obstacles. The ego in service of the mission.</p>
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬇️ REVERSED</h3>
+                            <div class="shadow-warning">
+                                <strong>SHADOW WORK:</strong><br>
+                                Are you running over people to get what you want? Victory at any cost is often a defeat for the soul.
+                            </div>
+                            <p style="margin-top: 1rem; opacity: 0.8;">Loss of control. Aggression. Careening off the path. Being driven by ego rather than purpose. Forceful behavior leading to a crash.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Strength -->
+            <div class="card-entry">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-title">
+                        <span class="card-number">VIII</span>
+                        STRENGTH
+                    </div>
+                    <div style="color: var(--text-dim);">▼</div>
+                </div>
+                <div class="card-content">
+                    <div class="content-inner">
+                        <div class="archetype-box">
+                            <strong>ARCHETYPE:</strong> Courage & Compassion
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬆️ UPRIGHT</h3>
+                            <div style="margin-bottom: 1rem;">
+                                <span class="tag element">Fire</span>
+                                <span class="tag planet">Leo</span>
+                            </div>
+                            <p>Inner strength. Taming the beast within through love, not force. Patience, control, compassion. Soft power. Enduring challenges with grace.</p>
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬇️ REVERSED</h3>
+                            <div class="shadow-warning">
+                                <strong>SHADOW WORK:</strong><br>
+                                Are you suppressing your anger instead of transmuting it? Taming the lion doesn't mean killing it; it means riding it.
+                            </div>
+                            <p style="margin-top: 1rem; opacity: 0.8;">Weakness, self-doubt, raw emotion taking over. The beast controls you. Cowardice. Force without direction.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Hermit -->
+            <div class="card-entry">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-title">
+                        <span class="card-number">IX</span>
+                        THE HERMIT
+                    </div>
+                    <div style="color: var(--text-dim);">▼</div>
+                </div>
+                <div class="card-content">
+                    <div class="content-inner">
+                        <div class="archetype-box">
+                            <strong>ARCHETYPE:</strong> Introspection & Solitude
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬆️ UPRIGHT</h3>
+                            <div style="margin-bottom: 1rem;">
+                                <span class="tag element">Earth</span>
+                                <span class="tag planet">Virgo</span>
+                            </div>
+                            <p>Going within. Seeking answers internally. Solitude, not loneliness. The lamp of wisdom. Withdrawing from the noise to hear the signal.</p>
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬇️ REVERSED</h3>
+                            <div class="shadow-warning">
+                                <strong>SHADOW WORK:</strong><br>
+                                Are you hiding from the world because you feel superior, or because you are afraid? Wisdom must eventually be shared.
+                            </div>
+                            <p style="margin-top: 1rem; opacity: 0.8;">Isolation, loneliness, withdrawal from reality. Paranoia. Being a recluse. Refusing help when needed.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wheel of Fortune -->
+            <div class="card-entry">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-title">
+                        <span class="card-number">X</span>
+                        WHEEL OF FORTUNE
+                    </div>
+                    <div style="color: var(--text-dim);">▼</div>
+                </div>
+                <div class="card-content">
+                    <div class="content-inner">
+                        <div class="archetype-box">
+                            <strong>ARCHETYPE:</strong> Cycles & Destiny
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬆️ UPRIGHT</h3>
+                            <div style="margin-bottom: 1rem;">
+                                <span class="tag element">Fire</span>
+                                <span class="tag planet">Jupiter</span>
+                            </div>
+                            <p>Karma. What goes up must come down. Good luck, bad luck - it's all temporary. Adapting to change. The turning point. Destiny at work.</p>
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬇️ REVERSED</h3>
+                            <div class="shadow-warning">
+                                <strong>SHADOW WORK:</strong><br>
+                                Do you blame 'fate' for the consequences of your own actions? The wheel turns, but you are the one steering.
+                            </div>
+                            <p style="margin-top: 1rem; opacity: 0.8;">Bad luck, resistance to change. Breaking the cycle. Feeling like a victim of fate. Recurrence of old patterns.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Justice -->
+            <div class="card-entry">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-title">
+                        <span class="card-number">XI</span>
+                        JUSTICE
+                    </div>
+                    <div style="color: var(--text-dim);">▼</div>
+                </div>
+                <div class="card-content">
+                    <div class="content-inner">
+                        <div class="archetype-box">
+                            <strong>ARCHETYPE:</strong> Truth & Law
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬆️ UPRIGHT</h3>
+                            <div style="margin-bottom: 1rem;">
+                                <span class="tag element">Air</span>
+                                <span class="tag planet">Libra</span>
+                            </div>
+                            <p>Fairness, truth, cause and effect. Legal matters resolved fairly. Cutting through lies. Balance. You get exactly what you deserve.</p>
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬇️ REVERSED</h3>
+                            <div class="shadow-warning">
+                                <strong>SHADOW WORK:</strong><br>
+                                Are you judging others to avoid judging yourself? Justice is blind, but the ego loves to peek.
+                            </div>
+                            <p style="margin-top: 1rem; opacity: 0.8;">Injustice, dishonesty, legal unfairness. Biased judgment. Unaccountability. Refusing to accept consequences.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Hanged Man -->
+            <div class="card-entry">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-title">
+                        <span class="card-number">XII</span>
+                        THE HANGED MAN
+                    </div>
+                    <div style="color: var(--text-dim);">▼</div>
+                </div>
+                <div class="card-content">
+                    <div class="content-inner">
+                        <div class="archetype-box">
+                            <strong>ARCHETYPE:</strong> Surrender & New Perspective
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬆️ UPRIGHT</h3>
+                            <div style="margin-bottom: 1rem;">
+                                <span class="tag element">Water</span>
+                                <span class="tag planet">Neptune</span>
+                            </div>
+                            <p>Pause. Surrender. Letting go of control to gain enlightenment. Sacrifice for a higher cause. Seeing things from a reversed angle. Waiting.</p>
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬇️ REVERSED</h3>
+                            <div class="shadow-warning">
+                                <strong>SHADOW WORK:</strong><br>
+                                Are you playing the martyr to make others feel guilty? Sacrifice without purpose is just masochism.
+                            </div>
+                            <p style="margin-top: 1rem; opacity: 0.8;">Stalling, resistance, martyrdom. Playing the victim. Useless sacrifice. Indecision causing pain.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Death -->
+            <div class="card-entry">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-title">
+                        <span class="card-number">XIII</span>
+                        DEATH
+                    </div>
+                    <div style="color: var(--text-dim);">▼</div>
+                </div>
+                <div class="card-content">
+                    <div class="content-inner">
+                        <div class="archetype-box">
+                            <strong>ARCHETYPE:</strong> Transformation & Endings
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬆️ UPRIGHT</h3>
+                            <div style="margin-bottom: 1rem;">
+                                <span class="tag element">Water</span>
+                                <span class="tag planet">Scorpio</span>
+                            </div>
+                            <p>End of a cycle. Radical change. Transition. Elimination of the old to make space for the new. It is rarely physical death; it is the death of the ego/identity.</p>
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬇️ REVERSED</h3>
+                            <div class="shadow-warning">
+                                <strong>SHADOW WORK:</strong><br>
+                                What are you keeping alive that needs to die? Rot spreads if you don't cut it out.
+                            </div>
+                            <p style="margin-top: 1rem; opacity: 0.8;">Resistance to change. Stagnation. Decay. Holding onto a corpse (relationship/job) because you fear the unknown.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Temperance -->
+            <div class="card-entry">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-title">
+                        <span class="card-number">XIV</span>
+                        TEMPERANCE
+                    </div>
+                    <div style="color: var(--text-dim);">▼</div>
+                </div>
+                <div class="card-content">
+                    <div class="content-inner">
+                        <div class="archetype-box">
+                            <strong>ARCHETYPE:</strong> Alchemy & Balance
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬆️ UPRIGHT</h3>
+                            <div style="margin-bottom: 1rem;">
+                                <span class="tag element">Fire</span>
+                                <span class="tag planet">Sagittarius</span>
+                            </div>
+                            <p>Balance, moderation, patience. Blending opposites to create something new (Alchemy). Healing. Divine timing. The middle path.</p>
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬇️ REVERSED</h3>
+                            <div class="shadow-warning">
+                                <strong>SHADOW WORK:</strong><br>
+                                Are you diluting your truth to keep the peace? True temperance is a dynamic mix, not a watery compromise.
+                            </div>
+                            <p style="margin-top: 1rem; opacity: 0.8;">Imbalance, excess, impatience. Clash of forces. Disruptive energy. Lack of long-term vision.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Devil -->
+            <div class="card-entry">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-title">
+                        <span class="card-number">XV</span>
+                        THE DEVIL
+                    </div>
+                    <div style="color: var(--text-dim);">▼</div>
+                </div>
+                <div class="card-content">
+                    <div class="content-inner">
+                        <div class="archetype-box">
+                            <strong>ARCHETYPE:</strong> Bondage & Materialism
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬆️ UPRIGHT</h3>
+                            <div style="margin-bottom: 1rem;">
+                                <span class="tag element">Earth</span>
+                                <span class="tag planet">Capricorn</span>
+                            </div>
+                            <p>Addiction, obsession, sexuality, materialism. Being chained by your own desires. The shadow self taking the wheel. Illusion of bondage—the chains are loose.</p>
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬇️ REVERSED</h3>
+                            <div class="shadow-warning">
+                                <strong>SHADOW WORK:</strong><br>
+                                What controls you? Money? Sex? Status? The Devil asks: 'Are you the master or the slave of your desires?'
+                            </div>
+                            <p style="margin-top: 1rem; opacity: 0.8;">Breaking free. Releasing addiction. Facing the shadow. Detachment. Reclaiming power.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Tower -->
+            <div class="card-entry">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-title">
+                        <span class="card-number">XVI</span>
+                        THE TOWER
+                    </div>
+                    <div style="color: var(--text-dim);">▼</div>
+                </div>
+                <div class="card-content">
+                    <div class="content-inner">
+                        <div class="archetype-box">
+                            <strong>ARCHETYPE:</strong> Sudden Upheaval & Revelation
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬆️ UPRIGHT</h3>
+                            <div style="margin-bottom: 1rem;">
+                                <span class="tag element">Fire</span>
+                                <span class="tag planet">Mars</span>
+                            </div>
+                            <p>Disaster, sudden change, destruction of false structures. The lightning strike of truth. Ego death. Liberation through destruction. It hurts, but it frees you.</p>
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬇️ REVERSED</h3>
+                            <div class="shadow-warning">
+                                <strong>SHADOW WORK:</strong><br>
+                                What lie are you protecting? The Tower will burn it down anyway. Better to light the match yourself.
+                            </div>
+                            <p style="margin-top: 1rem; opacity: 0.8;">Averting disaster but delaying the inevitable. Fear of change. Rebuilding on shaky foundations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Star -->
+            <div class="card-entry">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-title">
+                        <span class="card-number">XVII</span>
+                        THE STAR
+                    </div>
+                    <div style="color: var(--text-dim);">▼</div>
+                </div>
+                <div class="card-content">
+                    <div class="content-inner">
+                        <div class="archetype-box">
+                            <strong>ARCHETYPE:</strong> Hope & Inspiration
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬆️ UPRIGHT</h3>
+                            <div style="margin-bottom: 1rem;">
+                                <span class="tag element">Air</span>
+                                <span class="tag planet">Aquarius</span>
+                            </div>
+                            <p>Hope, renewal, spirituality. Healing after the Tower. Connection to the divine. Flow. Naked truth and vulnerability. The light at the end of the tunnel.</p>
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬇️ REVERSED</h3>
+                            <div class="shadow-warning">
+                                <strong>SHADOW WORK:</strong><br>
+                                Is your 'hope' actually passivity? Wishing on a star doesn't work if you don't walk toward it.
+                            </div>
+                            <p style="margin-top: 1rem; opacity: 0.8;">Despair, lack of faith. Disconnection. Unanswered prayers. Feeling lost.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Moon -->
+            <div class="card-entry">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-title">
+                        <span class="card-number">XVIII</span>
+                        THE MOON
+                    </div>
+                    <div style="color: var(--text-dim);">▼</div>
+                </div>
+                <div class="card-content">
+                    <div class="content-inner">
+                        <div class="archetype-box">
+                            <strong>ARCHETYPE:</strong> Illusion & The Subconscious
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬆️ UPRIGHT</h3>
+                            <div style="margin-bottom: 1rem;">
+                                <span class="tag element">Water</span>
+                                <span class="tag planet">Pisces</span>
+                            </div>
+                            <p>Illusion, fear, anxiety. Things are not what they seem. The shadow world. Dreams and nightmares. Trust your intuition, not your eyes. Madness/Genius.</p>
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬇️ REVERSED</h3>
+                            <div class="shadow-warning">
+                                <strong>SHADOW WORK:</strong><br>
+                                Are you gaslighting yourself? The Moon reveals the monsters in the basement are often just piles of clothes.
+                            </div>
+                            <p style="margin-top: 1rem; opacity: 0.8;">Releasing fear. Unveiling the truth. Clarity returning. Confusion subsiding.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Sun -->
+            <div class="card-entry">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-title">
+                        <span class="card-number">XIX</span>
+                        THE SUN
+                    </div>
+                    <div style="color: var(--text-dim);">▼</div>
+                </div>
+                <div class="card-content">
+                    <div class="content-inner">
+                        <div class="archetype-box">
+                            <strong>ARCHETYPE:</strong> Success & Vitality
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬆️ UPRIGHT</h3>
+                            <div style="margin-bottom: 1rem;">
+                                <span class="tag element">Fire</span>
+                                <span class="tag planet">Sun</span>
+                            </div>
+                            <p>Joy, success, celebration. Clarity. Warmth. The inner child running free. Everything is illuminated. Pure positive energy.</p>
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬇️ REVERSED</h3>
+                            <div class="shadow-warning">
+                                <strong>SHADOW WORK:</strong><br>
+                                Are you addicted to the light? Refusing to look at the dark spots creates a blinding glare, not true vision.
+                            </div>
+                            <p style="margin-top: 1rem; opacity: 0.8;">Temporary sadness. Unrealistic expectations. Burnout. Blocking your own happiness.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Judgement -->
+            <div class="card-entry">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-title">
+                        <span class="card-number">XX</span>
+                        JUDGEMENT
+                    </div>
+                    <div style="color: var(--text-dim);">▼</div>
+                </div>
+                <div class="card-content">
+                    <div class="content-inner">
+                        <div class="archetype-box">
+                            <strong>ARCHETYPE:</strong> Rebirth & Calling
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬆️ UPRIGHT</h3>
+                            <div style="margin-bottom: 1rem;">
+                                <span class="tag element">Fire</span>
+                                <span class="tag planet">Pluto</span>
+                            </div>
+                            <p>Awakening. The trumpet call. Answering your higher calling. Absolution. Rise up and become who you were meant to be. Final decision.</p>
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬇️ REVERSED</h3>
+                            <div class="shadow-warning">
+                                <strong>SHADOW WORK:</strong><br>
+                                Are you judging others to avoid your own calling? The trumpet is for YOU, not them.
+                            </div>
+                            <p style="margin-top: 1rem; opacity: 0.8;">Self-doubt. Refusing the call. Ignoring the signs. Lack of self-awareness. Judgmental attitude.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The World -->
+            <div class="card-entry">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-title">
+                        <span class="card-number">XXI</span>
+                        THE WORLD
+                    </div>
+                    <div style="color: var(--text-dim);">▼</div>
+                </div>
+                <div class="card-content">
+                    <div class="content-inner">
+                        <div class="archetype-box">
+                            <strong>ARCHETYPE:</strong> Completion & Integration
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬆️ UPRIGHT</h3>
+                            <div style="margin-bottom: 1rem;">
+                                <span class="tag element">Earth</span>
+                                <span class="tag planet">Saturn</span>
+                            </div>
+                            <p>Completion of a cycle. Wholeness. Achievement. Travel. Integration of all parts. Success. The dance of life. You have arrived.</p>
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬇️ REVERSED</h3>
+                            <div class="shadow-warning">
+                                <strong>SHADOW WORK:</strong><br>
+                                Are you afraid to finish because then you have to start over? The World is the end, but also the beginning of the Fool.
+                            </div>
+                            <p style="margin-top: 1rem; opacity: 0.8;">Incompletion. Lack of closure. Shortcuts. Feeling stuck near the finish line.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                </div>
+                <!-- End Major Arcana -->
+
+                <!-- Suit of Wands -->
+                <div id="suit-wands" class="suit-section" style="display: none;">
+                    <div class="suit-intro">
+                        <h2 style="background: linear-gradient(135deg, #ff5500, #ffaa00); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">🔥 THE SUIT OF WANDS</h2>
+                        
+                        <div class="lore">
+                            <p>Wands embody the <strong>element of Fire</strong>—the primal force of creation, will, and spiritual energy. In hermetic tradition, Fire represents the <strong>Yod</strong> (the divine spark), the first letter of the Tetragrammaton (YHVH), symbolizing the ignition of consciousness into manifestation.</p>
+                            
+                            <p>Biologically, Wands correspond to the <strong>sympathetic nervous system</strong> and adrenal response. This is the "fight or flight" energy—the raw drive that propels action. In yoga, this is <strong>Prana Shakti</strong>, the vital life force (chi/qi) that animates the physical body.</p>
+                            
+                            <p>Alchemically, Fire is <strong>Sulfur</strong>—the active, masculine principle that desires, creates, and transforms. The Wand is a literal <strong>lightning rod for divine inspiration</strong>. Shamans worldwide use wands (staffs, bones, branches) as conduits for directing spiritual power. In neuroscience, this suit mirrors <strong>dopaminergic drive</strong>—the motivational fuel that initiates all goal-directed behavior.</p>
+                        </div>
+
+                        <div class="meta-grid">
+                            <div class="meta-item">
+                                <div class="meta-label">Element</div>
+                                <div class="meta-value">Fire 🔥</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-label">Direction</div>
+                                <div class="meta-value">South</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-label">Season</div>
+                                <div class="meta-value">Summer</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-label">Quality</div>
+                                <div class="meta-value">Hot & Dry</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-label">Chakra</div>
+                                <div class="meta-value">Solar Plexus</div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-label">System</div>
+                                <div class="meta-value">Nervous</div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="library-grid">
+            <!-- Ace of Wands -->
+            <div class="card-entry">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-title">
+                        <span class="card-number" style="border-color: #ff5500; color: #ff5500;">ACE</span>
+                        ACE OF WANDS
+                    </div>
+                    <div style="color: var(--text-dim);">▼</div>
+                </div>
+                <div class="card-content">
+                    <div class="content-inner">
+                        <div class="archetype-box" style="border-left-color: #ff5500; background: rgba(255, 85, 0, 0.1);">
+                            <strong>ARCHETYPE:</strong> Spark of Inspiration
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬆️ UPRIGHT</h3>
+                            <div style="margin-bottom: 1rem;">
+                                <span class="tag element">Fire</span>
+                                <span class="tag planet">Mars/Sun</span>
+                            </div>
+                            <p>A new creative beginning. The spark of an idea. Pure potential energy. Sexual desire. A phallic symbol of creation. The 'Aha!' moment. Grab the torch and run.</p>
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬇️ REVERSED</h3>
+                            <div class="shadow-warning">
+                                <strong>SHADOW WORK:</strong><br>
+                                Are you addicted to starting things but afraid to finish them? The spark is useless without the wood to burn.
+                            </div>
+                            <p style="margin-top: 1rem; opacity: 0.8;">Creative block. Lack of energy. A false start. Impotence (literal or metaphorical). Missed opportunity due to hesitation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Two of Wands -->
+            <div class="card-entry">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-title">
+                        <span class="card-number" style="border-color: #ff5500; color: #ff5500;">II</span>
+                        TWO OF WANDS
+                    </div>
+                    <div style="color: var(--text-dim);">▼</div>
+                </div>
+                <div class="card-content">
+                    <div class="content-inner">
+                        <div class="archetype-box" style="border-left-color: #ff5500; background: rgba(255, 85, 0, 0.1);">
+                            <strong>ARCHETYPE:</strong> Planning & Future Vision
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬆️ UPRIGHT</h3>
+                            <div style="margin-bottom: 1rem;">
+                                <span class="tag element">Fire</span>
+                                <span class="tag planet">Mars in Aries</span>
+                            </div>
+                            <p>Holding the world in your hands. Planning the next move. Stepping out of your comfort zone. Decisions about the future. Visualization. Personal power.</p>
+                        </div>
+                        <div class="meaning-col">
+                            <h3>⬇️ REVERSED</h3>
+                            <div class="shadow-warning">
+                                <strong>SHADOW WORK:</strong><br>
+                                Are you planning forever to avoid doing? Analysis paralysis is the death of fire.
+                            </div>
+                            <p style="margin-top: 1rem; opacity: 0.8;">Fear of the unknown. Playing it safe. Bad planning. Staying in the comfort zone. Lack of ambition.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                        <!-- Three of Wands -->
+                        <div class="card-entry">
+                            <div class="card-header" onclick="toggleCard(this)">
+                                <div class="card-title">
+                                    <span class="card-number" style="border-color: #ff5500; color: #ff5500;">III</span>
+                                    THREE OF WANDS
+                                </div>
+                                <div style="color: var(--text-dim);">▼</div>
+                            </div>
+                            <div class="card-content">
+                                <div class="content-inner">
+                                    <div class="archetype-box" style="border-left-color: #ff5500; background: rgba(255, 85, 0, 0.1);">
+                                        <strong>ARCHETYPE:</strong> Expansion & Foresight
+                                    </div>
+                                    <div class="meaning-col">
+                                        <h3>⬆️ UPRIGHT</h3>
+                                        <div style="margin-bottom: 1rem;">
+                                            <span class="tag element">Fire</span>
+                                            <span class="tag planet">Sun in Aries</span>
+                                        </div>
+                                        <p>Expansion. Ships coming in. Your plans are bearing fruit. Looking beyond the horizon. Travel. International business. Moving to the next level.</p>
+                                    </div>
+                                    <div class="meaning-col">
+                                        <h3>⬇️ REVERSED</h3>
+                                        <div class="shadow-warning">
+                                            <strong>SHADOW WORK:</strong><br>
+                                            Are you waiting for your ship to come in without having sent one out? Expectation without effort is entitlement.
+                                        </div>
+                                        <p style="margin-top: 1rem; opacity: 0.8;">Delays. Obstacles. Disappointment in results. Holding onto the past. Fear of expansion.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Four through King of Wands (10 more cards) -->
+                        <div class="card-entry"><div class="card-header" onclick="toggleCard(this)"><div class="card-title"><span class="card-number" style="border-color: #ff5500; color: #ff5500;">IV</span>FOUR OF WANDS</div><div style="color: var(--text-dim);">▼</div></div><div class="card-content"><div class="content-inner"><div class="archetype-box" style="border-left-color: #ff5500; background: rgba(255, 85, 0, 0.1);"><strong>ARCHETYPE:</strong> Celebration & Home</div><div class="meaning-col"><h3>⬆️ UPRIGHT</h3><div style="margin-bottom: 1rem;"><span class="tag element">Fire</span><span class="tag planet">Venus in Aries</span></div><p>Joy, celebration, homecoming. A milestone reached. Marriage or union. Stability in chaos. A safe haven. Community.</p></div><div class="meaning-col"><h3>⬇️ REVERSED</h3><div class="shadow-warning"><strong>SHADOW WORK:</strong><br>Are you celebrating too early? Resting on your laurels before the war is won can be dangerous.</div><p style="margin-top: 1rem; opacity: 0.8;">Instability at home. Family conflict. Cancelled celebration. Feeling unwelcome. Transition period.</p></div></div></div></div>
+
+                        <div class="card-entry"><div class="card-header" onclick="toggleCard(this)"><div class="card-title"><span class="card-number" style="border-color: #ff5500; color: #ff5500;">V</span>FIVE OF WANDS</div><div style="color: var(--text-dim);">▼</div></div><div class="card-content"><div class="content-inner"><div class="archetype-box" style="border-left-color: #ff5500; background: rgba(255, 85, 0, 0.1);"><strong>ARCHETYPE:</strong> Conflict & Competition</div><div class="meaning-col"><h3>⬆️ UPRIGHT</h3><div style="margin-bottom: 1rem;"><span class="tag element">Fire</span><span class="tag planet">Saturn in Leo</span></div><p>Competition, rivalry, conflict. Hassles. Ego battles. Brainstorming session where everyone talks at once. Struggle for dominance. Healthy competition.</p></div><div class="meaning-col"><h3>⬇️ REVERSED</h3><div class="shadow-warning"><strong>SHADOW WORK:</strong><br>Are you fighting just to fight? Check if your ego is driving the bus.</div><p style="margin-top: 1rem; opacity: 0.8;">Avoiding conflict. Agreeing to disagree. Resolution. Internal conflict. Fear of competition.</p></div></div></div></div>
+
+                        <div class="card-entry"><div class="card-header" onclick="toggleCard(this)"><div class="card-title"><span class="card-number" style="border-color: #ff5500; color: #ff5500;">VI</span>SIX OF WANDS</div><div style="color: var(--text-dim);">▼</div></div><div class="card-content"><div class="content-inner"><div class="archetype-box" style="border-left-color: #ff5500; background: rgba(255, 85, 0, 0.1);"><strong>ARCHETYPE:</strong> Victory & Recognition</div><div class="meaning-col"><h3>⬆️ UPRIGHT</h3><div style="margin-bottom: 1rem;"><span class="tag element">Fire</span><span class="tag planet">Jupiter in Leo</span></div><p>Victory, public recognition, fame. Being on a high horse. Success. Validation. Leadership. The crowd cheers for you.</p></div><div class="meaning-col"><h3>⬇️ REVERSED</h3><div class="shadow-warning"><strong>SHADOW WORK:</strong><br>Does your self-worth depend entirely on applause? The crowd that cheers today will boo tomorrow.</div><p style="margin-top: 1rem; opacity: 0.8;">Fall from grace. Egotism. No recognition. Treachery. The tall poppy syndrome. Failure.</p></div></div></div></div>
+
+                        <div class="card-entry"><div class="card-header" onclick="toggleCard(this)"><div class="card-title"><span class="card-number" style="border-color: #ff5500; color: #ff5500;">VII</span>SEVEN OF WANDS</div><div style="color: var(--text-dim);">▼</div></div><div class="card-content"><div class="content-inner"><div class="archetype-box" style="border-left-color: #ff5500; background: rgba(255, 85, 0, 0.1);"><strong>ARCHETYPE:</strong> Defense & Perseverance</div><div class="meaning-col"><h3>⬆️ UPRIGHT</h3><div style="margin-bottom: 1rem;"><span class="tag element">Fire</span><span class="tag planet">Mars in Leo</span></div><p>Defending your position. Standing your ground against many. Perseverance. Courage under fire. You have the high ground.</p></div><div class="meaning-col"><h3>⬇️ REVERSED</h3><div class="shadow-warning"><strong>SHADOW WORK:</strong><br>Are you defensive because you are right, or because you are insecure? Paranoia vs. Preparedness.</div><p style="margin-top: 1rem; opacity: 0.8;">Giving up. Overwhelmed. Losing the battle. Compromising your values. Being outnumbered.</p></div></div></div></div>
+
+                        <div class="card-entry"><div class="card-header" onclick="toggleCard(this)"><div class="card-title"><span class="card-number" style="border-color: #ff5500; color: #ff5500;">VIII</span>EIGHT OF WANDS</div><div style="color: var(--text-dim);">▼</div></div><div class="card-content"><div class="content-inner"><div class="archetype-box" style="border-left-color: #ff5500; background: rgba(255, 85, 0, 0.1);"><strong>ARCHETYPE:</strong> Speed & Movement</div><div class="meaning-col"><h3>⬆️ UPRIGHT</h3><div style="margin-bottom: 1rem;"><span class="tag element">Fire</span><span class="tag planet">Mercury in Sagittarius</span></div><p>Speed. Fast communication. Travel. Things moving quickly. Arrows of love. Sudden action. 'Strike while the iron is hot.'</p></div><div class="meaning-col"><h3>⬇️ REVERSED</h3><div class="shadow-warning"><strong>SHADOW WORK:</strong><br>Are you moving fast to avoid feeling? Speed can be a drug to numb the pain of stillness.</div><p style="margin-top: 1rem; opacity: 0.8;">Delays. Frustration. Slowing down. Miscommunication. Haste makes waste. Panic.</p></div></div></div></div>
+
+                        <div class="card-entry"><div class="card-header" onclick="toggleCard(this)"><div class="card-title"><span class="card-number" style="border-color: #ff5500; color: #ff5500;">IX</span>NINE OF WANDS</div><div style="color: var(--text-dim);">▼</div></div><div class="card-content"><div class="content-inner"><div class="archetype-box" style="border-left-color: #ff5500; background: rgba(255, 85, 0, 0.1);"><strong>ARCHETYPE:</strong> Resilience & Last Stand</div><div class="meaning-col"><h3>⬆️ UPRIGHT</h3><div style="margin-bottom: 1rem;"><span class="tag element">Fire</span><span class="tag planet">Moon in Sagittarius</span></div><p>Resilience. Wounded but standing. The last line of defense. Persistence. Grit. You are almost there, don't give up now.</p></div><div class="meaning-col"><h3>⬇️ REVERSED</h3><div class="shadow-warning"><strong>SHADOW WORK:</strong><br>Are you seeing enemies where there are none? The war is over, put down the shield.</div><p style="margin-top: 1rem; opacity: 0.8;">Exhaustion. Giving up. Paranoia. Defensive posture. Burnout.</p></div></div></div></div>
+
+                        <div class="card-entry"><div class="card-header" onclick="toggleCard(this)"><div class="card-title"><span class="card-number" style="border-color: #ff5500; color: #ff5500;">X</span>TEN OF WANDS</div><div style="color: var(--text-dim);">▼</div></div><div class="card-content"><div class="content-inner"><div class="archetype-box" style="border-left-color: #ff5500; background: rgba(255, 85, 0, 0.1);"><strong>ARCHETYPE:</strong> Burden & Responsibility</div><div class="meaning-col"><h3>⬆️ UPRIGHT</h3><div style="margin-bottom: 1rem;"><span class="tag element">Fire</span><span class="tag planet">Saturn in Sagittarius</span></div><p>Burden, heavy load, responsibility. Stress. Taking on too much. Carrying the weight of the world. Success that feels like a trap.</p></div><div class="meaning-col"><h3>⬇️ REVERSED</h3><div class="shadow-warning"><strong>SHADOW WORK:</strong><br>Are you carrying the cross to look like a martyr? Drop the unnecessary baggage.</div><p style="margin-top: 1rem; opacity: 0.8;">Collapsing under the weight. Delegating. Letting go. Burnout. Refusing responsibility.</p></div></div></div></div>
+
+                        <div class="card-entry"><div class="card-header" onclick="toggleCard(this)"><div class="card-title"><span class="card-number" style="border-color: #ff5500; color: #ff5500;">PAGE</span>PAGE OF WANDS</div><div style="color: var(--text-dim);">▼</div></div><div class="card-content"><div class="content-inner"><div class="archetype-box" style="border-left-color: #ff5500; background: rgba(255, 85, 0, 0.1);"><strong>ARCHETYPE:</strong> Messenger of Fire</div><div class="meaning-col"><h3>⬆️ UPRIGHT</h3><div style="margin-bottom: 1rem;"><span class="tag element">Earth of Fire</span><span class="tag planet">Season of Spring</span></div><p>Discovery, enthusiasm, new ideas. A message of passion. The explorer. Free spirit. Childlike wonder.</p></div><div class="meaning-col"><h3>⬇️ REVERSED</h3><div class="shadow-warning"><strong>SHADOW WORK:</strong><br>Are you all talk and no walk? The Page loves to start fires but hates to tend them.</div><p style="margin-top: 1rem; opacity: 0.8;">Setbacks to new ideas. Lack of direction. Pessimism. Tantrums. Bad news.</p></div></div></div></div>
+
+                        <div class="card-entry"><div class="card-header" onclick="toggleCard(this)"><div class="card-title"><span class="card-number" style="border-color: #ff5500; color: #ff5500;">KNIGHT</span>KNIGHT OF WANDS</div><div style="color: var(--text-dim);">▼</div></div><div class="card-content"><div class="content-inner"><div class="archetype-box" style="border-left-color: #ff5500; background: rgba(255, 85, 0, 0.1);"><strong>ARCHETYPE:</strong> Action & Adventure</div><div class="meaning-col"><h3>⬆️ UPRIGHT</h3><div style="margin-bottom: 1rem;"><span class="tag element">Fire of Fire</span><span class="tag planet">Leo</span></div><p>Action, adventure, fearlessness. Rushing in. Charisma. Lust. The hero (or the player). Travel and movement.</p></div><div class="meaning-col"><h3>⬇️ REVERSED</h3><div class="shadow-warning"><strong>SHADOW WORK:</strong><br>Are you running away from yourself? The Knight rides fast to avoid the silence.</div><p style="margin-top: 1rem; opacity: 0.8;">Recklessness. Impulsiveness. Anger. Arrogance. A scattered mind. Burnout.</p></div></div></div></div>
+
+                        <div class="card-entry"><div class="card-header" onclick="toggleCard(this)"><div class="card-title"><span class="card-number" style="border-color: #ff5500; color: #ff5500;">QUEEN</span>QUEEN OF WANDS</div><div style="color: var(--text-dim);">▼</div></div><div class="card-content"><div class="content-inner"><div class="archetype-box" style="border-left-color: #ff5500; background: rgba(255, 85, 0, 0.1);"><strong>ARCHETYPE:</strong> Passion & Independence</div><div class="meaning-col"><h3>⬆️ UPRIGHT</h3><div style="margin-bottom: 1rem;"><span class="tag element">Water of Fire</span><span class="tag planet">Aries</span></div><p>Confidence, independence, social butterfly. The witch/sorceress. Charismatic leader. Warmth. Sexual power.</p></div><div class="meaning-col"><h3>⬇️ REVERSED</h3><div class="shadow-warning"><strong>SHADOW WORK:</strong><br>Do you need to be the center of attention to feel alive? Validation must come from within.</div><p style="margin-top: 1rem; opacity: 0.8;">Jealousy. Insecurity. Demanding nature. Manipulative. The 'Ice Queen' or the 'Drama Queen'.</p></div></div></div></div>
+
+                        <div class="card-entry"><div class="card-header" onclick="toggleCard(this)"><div class="card-title"><span class="card-number" style="border-color: #ff5500; color: #ff5500;">KING</span>KING OF WANDS</div><div style="color: var(--text-dim);">▼</div></div><div class="card-content"><div class="content-inner"><div class="archetype-box" style="border-left-color: #ff5500; background: rgba(255, 85, 0, 0.1);"><strong>ARCHETYPE:</strong> Visionary Leadership</div><div class="meaning-col"><h3>⬆️ UPRIGHT</h3><div style="margin-bottom: 1rem;"><span class="tag element">Air of Fire</span><span class="tag planet">Sagittarius</span></div><p>Big picture vision. Entrepreneurship. Born leader. Honor. Inspiration. Making things happen. Master of fire.</p></div><div class="meaning-col"><h3>⬇️ REVERSED</h3><div class="shadow-warning"><strong>SHADOW WORK:</strong><br>Are you burning your subjects to fuel your own glory? True kings serve the realm.</div><p style="margin-top: 1rem; opacity: 0.8;">Ruthlessness. Tyranny. Impulsiveness. Setting bad examples. High expectations but low support.</p></div></div></div></div>
+
+                    </div>
+                </div>
+                <!-- End Wands -->
+
+            </div>
+            <!-- End suit-content -->
+        </div>
+        <!-- End library-layout -->
+        
     </div>
+    <!-- End library section -->
 
     <!-- SPREADS SECTION -->
     <div id="spreads" class="section">
-        <div style="text-align: center; margin-bottom: 2rem;">
-            <h2 style="color: var(--accent); font-family: 'Cinzel';">INTERACTIVE READINGS</h2>
-            <p style="color: var(--text-dim); margin-top: 0.5rem;">Focus on your question, then select a spread.</p>
-        </div>
-
-        <div class="spread-controls">
-            <button class="spread-btn" onclick="initSpread('single')">ONE CARD<br><span style="font-size:0.7em; opacity:0.7">Daily Guidance</span></button>
-            <button class="spread-btn" onclick="initSpread('three')">THREE CARD<br><span style="font-size:0.7em; opacity:0.7">Past / Present / Future</span></button>
-            <button class="spread-btn" onclick="initSpread('celtic')">CELTIC CROSS<br><span style="font-size:0.7em; opacity:0.7">Deep Analysis (10 Cards)</span></button>
-        </div>
-
-        <div class="reading-area" id="reading-area">
-            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 300px; text-align: center;">
-                <div class="deck-stack" id="deck-trigger" onclick="shuffleAndDraw()"></div>
-                <p style="margin-top: 1rem; color: var(--text-dim);" id="deck-instruction">Select a spread above to begin.</p>
-            </div>
-            <div class="active-spread" id="spread-display"></div>
-            <div class="reading-output" id="reading-output"></div>
+        <div class="placeholder">
+            🔮 Interactive Spreads - Coming Soon
         </div>
     </div>
 
     <!-- WISDOM SECTION -->
     <div id="wisdom" class="section">
-        <div style="text-align: center; margin-bottom: 3rem;">
-            <h2 style="color: var(--accent); font-family: 'Cinzel';">OCCULT KNOWLEDGE BASE</h2>
-            <p style="color: var(--text-dim);">The architecture of the Tarot system.</p>
-        </div>
-
-        <div class="content-inner" style="grid-template-columns: 1fr; gap: 3rem;">
-            
-            <!-- Numerology -->
-            <div style="background: rgba(10, 5, 16, 0.8); padding: 2rem; border: 1px solid var(--primary-dim);">
-                <h3 style="color: var(--primary); font-family: 'Orbitron'; border-bottom: 1px solid var(--primary); padding-bottom: 0.5rem; margin-bottom: 1.5rem;">NUMEROLOGY OF TAROT</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
-                    <div><strong style="color:var(--accent)">1 (Aces):</strong> New beginnings, potential, raw energy.</div>
-                    <div><strong style="color:var(--accent)">2:</strong> Duality, choice, balance, partnership.</div>
-                    <div><strong style="color:var(--accent)">3:</strong> Creation, expansion, groups, growth.</div>
-                    <div><strong style="color:var(--accent)">4:</strong> Structure, stability, stagnation, rest.</div>
-                    <div><strong style="color:var(--accent)">5:</strong> Conflict, change, loss, instability.</div>
-                    <div><strong style="color:var(--accent)">6:</strong> Harmony, restoration, alignment, help.</div>
-                    <div><strong style="color:var(--accent)">7:</strong> Reflection, assessment, strategy, deception.</div>
-                    <div><strong style="color:var(--accent)">8:</strong> Power, movement, mastery, restriction.</div>
-                    <div><strong style="color:var(--accent)">9:</strong> Fulfillment, climax, near-completion, solitude.</div>
-                    <div><strong style="color:var(--accent)">10:</strong> Completion, end of cycle, excess, ruin/legacy.</div>
-                </div>
-            </div>
-
-            <!-- Elements -->
-            <div style="background: rgba(10, 5, 16, 0.8); padding: 2rem; border: 1px solid var(--primary-dim);">
-                <h3 style="color: var(--primary); font-family: 'Orbitron'; border-bottom: 1px solid var(--primary); padding-bottom: 0.5rem; margin-bottom: 1.5rem;">ELEMENTAL MATRIX</h3>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-                    <div>
-                        <h4 style="color: #ff5500; margin-bottom: 0.5rem;">🔥 FIRE (Wands)</h4>
-                        <p>Action, Will, Passion, Spirit. Fast, hot, active energy. Deals with career, creativity, and ambition.</p>
-                    </div>
-                    <div>
-                        <h4 style="color: #00aaff; margin-bottom: 0.5rem;">💧 WATER (Cups)</h4>
-                        <p>Emotion, Intuition, Love, Subconscious. Fluid, deep, passive energy. Deals with relationships and feelings.</p>
-                    </div>
-                    <div>
-                        <h4 style="color: #e0e0e0; margin-bottom: 0.5rem;">🌬️ AIR (Swords)</h4>
-                        <p>Intellect, Logic, Conflict, Truth. Fast, sharp, cutting energy. Deals with thoughts, communication, and strife.</p>
-                    </div>
-                    <div>
-                        <h4 style="color: #00ff00; margin-bottom: 0.5rem;">🌍 EARTH (Pentacles)</h4>
-                        <p>Matter, Body, Money, Nature. Slow, stable, grounded energy. Deals with health, wealth, and resources.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Court Cards -->
-            <div style="background: rgba(10, 5, 16, 0.8); padding: 2rem; border: 1px solid var(--primary-dim);">
-                <h3 style="color: var(--primary); font-family: 'Orbitron'; border-bottom: 1px solid var(--primary); padding-bottom: 0.5rem; margin-bottom: 1.5rem;">THE COURT ARCHETYPES</h3>
-                <ul style="list-style: none; display: grid; gap: 1rem;">
-                    <li><strong style="color:var(--accent)">PAGE:</strong> The Messenger. Childlike, learning, new news. Earthy part of the suit.</li>
-                    <li><strong style="color:var(--accent)">KNIGHT:</strong> The Actor. Teenager/Young Adult. Action, movement, quest. Fiery part of the suit.</li>
-                    <li><strong style="color:var(--accent)">QUEEN:</strong> The Mother. Internal mastery. Nurturing, deep, magnetic. Watery part of the suit.</li>
-                    <li><strong style="color:var(--accent)">KING:</strong> The Father. External mastery. Authority, control, stability. Airy part of the suit.</li>
-                </ul>
-            </div>
-
-            <!-- Shadow Work -->
-            <div style="background: rgba(20, 0, 0, 0.6); padding: 2rem; border: 1px solid var(--danger);">
-                <h3 style="color: var(--danger); font-family: 'Orbitron'; border-bottom: 1px solid var(--danger); padding-bottom: 0.5rem; margin-bottom: 1.5rem;">SHADOW INTEGRATION</h3>
-                <p style="margin-bottom: 1rem;">Tarot is not just for prediction; it is a mirror for the unconscious. When a card appears Reversed, or triggers fear, it is pointing to a Shadow Aspect.</p>
-                <p><strong>The Shadow Rule:</strong> What you reject in the card is what you are rejecting in yourself.</p>
-            </div>
-
+        <div class="placeholder">
+            ✨ Deep Wisdom - Coming Soon
         </div>
     </div>
 
@@ -306,1242 +1530,22 @@
             entry.classList.toggle('active');
         }
 
-        // MAJOR ARCANA DATA (Phases 1-4)
-        const majorArcana = [
-            {
-                number: "0",
-                name: "THE FOOL",
-                archetype: "Infinite Potential & The Leap of Faith",
-                element: "Air",
-                planet: "Uranus",
-                upright: "New beginnings, innocence, spontaneity, a free spirit. The Fool represents the alpha state—before logic kicks in. It is the urge to jump off the cliff into the unknown, trusting the universe will catch you. Pure potential energy without form.",
-                reversed: "Recklessness, risk-taking without calculation, naivety. Being taken advantage of because you refuse to see reality. Stupidity disguised as bravery.",
-                shadow: "Are you refusing to grow up? The Fool in shadow is the eternal child who refuses responsibility. Or, are you paralyzed by fear of looking foolish, thus never starting?"
-            },
-            {
-                number: "I",
-                name: "THE MAGICIAN",
-                archetype: "Manifestation & Conscious Will",
-                element: "Air/Mercury",
-                planet: "Mercury",
-                upright: "As above, so below. You have all the tools (Wand, Cup, Sword, Pentacle) on the table. This is active creation. Not wishing, but DOING. Turning raw energy into reality through focused will. Mastery of the physical plane.",
-                reversed: "Manipulation, trickery, wasted talent. Using power for selfish, harmful ends. The con artist. Knowing what to do but refusing to do it. Latent potential rotting.",
-                shadow: "Do you use your words to create or destroy? The Magician's shadow is the manipulator who bends reality to gaslight others. Check your intent."
-            },
-            {
-                number: "II",
-                name: "THE HIGH PRIESTESS",
-                archetype: "Intuition & Hidden Knowledge",
-                element: "Water",
-                planet: "Moon",
-                upright: "Silence. The veil between worlds. Knowing without knowing how you know. Trusting the gut over the brain. Secrets, mystery, the subconscious mind. She is the guardian of the Akashic records.",
-                reversed: "Repressed intuition. Ignoring your gut feeling and paying the price. Secrets revealed. Superficiality. Being disconnected from your feminine/receptive side.",
-                shadow: "Are you hiding behind 'mystery' to avoid vulnerability? Or are you ignoring the red flags your intuition is screaming at you?"
-            },
-            {
-                number: "III",
-                name: "THE EMPRESS",
-                archetype: "Fertility & Abundance",
-                element: "Earth",
-                planet: "Venus",
-                upright: "Creation, nature, luxury, beauty. The mother archetype. Birthing new ideas or actual life. Sensuality and pleasure. Abundance is your natural state. Flow with nature, don't fight it.",
-                reversed: "Creative block. Smothering love. Dependence on others for luxury. Neglecting your body. Poverty consciousness. Infertility of the mind or spirit.",
-                shadow: "Are you using care-taking as a form of control? The shadow Empress consumes her children (projects) to keep them dependent."
-            },
-            {
-                number: "IV",
-                name: "THE EMPEROR",
-                archetype: "Authority & Structure",
-                element: "Fire",
-                planet: "Mars",
-                upright: "Father archetype. Structure, rules, stability. Building an empire. Logic over emotion. Protection through boundaries. Taking charge of the situation with absolute authority.",
-                reversed: "Tyranny, domination, rigidity. The 'My way or the highway' mentality. Weak leadership. Chaos due to lack of discipline. Daddy issues manifesting as rebellion.",
-                shadow: "Is your need for control crushing the life out of your relationships? Structure should support life, not imprison it."
-            },
-            {
-                number: "V",
-                name: "THE HIEROPHANT",
-                archetype: "Tradition & Spiritual Systems",
-                element: "Earth",
-                planet: "Taurus",
-                upright: "Institutions, education, spiritual guidance. Playing by the rules. Finding God through established paths. Marriage, contracts, conformity. The teacher/mentor dynamic.",
-                reversed: "Rebellion. Breaking the rules. Creating your own spiritual path. Rejecting dogma. Hypocrisy in leadership. The cult leader exposed.",
-                shadow: "Are you following rules just to feel safe, even when they violate your conscience? Blind obedience is the shadow here."
-            },
-            {
-                number: "VI",
-                name: "THE LOVERS",
-                archetype: "Choice & Duality",
-                element: "Air",
-                planet: "Gemini",
-                upright: "Union, harmony, relationships. But deeper: THE CHOICE. Aligning your internal values. Integration of anima/animus. Sexual alchemy. Determining what you truly stand for.",
-                reversed: "Disharmony, imbalance, bad choices. Alignment with the wrong values. Relationship failure. Codependency. Split personality/indecision.",
-                shadow: "Are you projecting your own missing pieces onto a partner? True love is union, not completion of a void."
-            },
-            {
-                number: "VII",
-                name: "THE CHARIOT",
-                archetype: "Willpower & Victory",
-                element: "Water",
-                planet: "Cancer",
-                upright: "Forward movement through sheer will. Controlling opposing forces (black and white sphinx). Victory is assured if you maintain focus. overcoming obstacles. The ego in service of the mission.",
-                reversed: "Loss of control. Aggression. Careening off the path. Being driven by ego rather than purpose. forceful behavior leading to a crash.",
-                shadow: "Are you running over people to get what you want? Victory at any cost is often a defeat for the soul."
-            },
-            {
-                number: "VIII",
-                name: "STRENGTH",
-                archetype: "Courage & Compassion",
-                element: "Fire",
-                planet: "Leo",
-                upright: "Inner strength. Taming the beast within through love, not force. Patience, control, compassion. Soft power. Enduring challenges with grace.",
-                reversed: "Weakness, self-doubt, raw emotion taking over. The beast controls you. Cowardice. Force without direction.",
-                shadow: "Are you suppressing your anger instead of transmuting it? Taming the lion doesn't mean killing it; it means riding it."
-            },
-            {
-                number: "IX",
-                name: "THE HERMIT",
-                archetype: "Introspection & Solitude",
-                element: "Earth",
-                planet: "Virgo",
-                upright: "Going within. Seeking answers internally. Solitude, not loneliness. The lamp of wisdom. Withdrawing from the noise to hear the signal.",
-                reversed: "Isolation, loneliness, withdrawal from reality. Paranoia. Being a recluse. Refusing help when needed.",
-                shadow: "Are you hiding from the world because you feel superior, or because you are afraid? Wisdom must eventually be shared."
-            },
-            {
-                number: "X",
-                name: "WHEEL OF FORTUNE",
-                archetype: "Cycles & Destiny",
-                element: "Fire",
-                planet: "Jupiter",
-                upright: "Karma. What goes up must come down. Good luck, bad luck - it's all temporary. Adapting to change. The turning point. Destiny at work.",
-                reversed: "Bad luck, resistance to change. Breaking the cycle. Feeling like a victim of fate. Recurrence of old patterns.",
-                shadow: "Do you blame 'fate' for the consequences of your own actions? The wheel turns, but you are the one steering."
-            },
-            {
-                number: "XI",
-                name: "JUSTICE",
-                archetype: "Truth & Law",
-                element: "Air",
-                planet: "Libra",
-                upright: "Fairness, truth, cause and effect. Legal matters resolved fairly. Cutting through lies. Balance. You get exactly what you deserve.",
-                reversed: "Injustice, dishonesty, legal unfairness. Biased judgment. Unaccountability. Refusing to accept consequences.",
-                shadow: "Are you judging others to avoid judging yourself? Justice is blind, but the ego loves to peek."
-            },
-            {
-                number: "XII",
-                name: "THE HANGED MAN",
-                archetype: "Surrender & New Perspective",
-                element: "Water",
-                planet: "Neptune",
-                upright: "Pause. Surrender. Letting go of control to gain enlightenment. Sacrifice for a higher cause. Seeing things from a reversed angle. Waiting.",
-                reversed: "Stalling, resistance, martyrdom. Playing the victim. Useless sacrifice. Indecision causing pain.",
-                shadow: "Are you playing the martyr to make others feel guilty? Sacrifice without purpose is just masochism."
-            },
-            {
-                number: "XIII",
-                name: "DEATH",
-                archetype: "Transformation & Endings",
-                element: "Water",
-                planet: "Scorpio",
-                upright: "End of a cycle. Radical change. Transition. Elimination of the old to make space for the new. It is rarely physical death; it is the death of the ego/identity.",
-                reversed: "Resistance to change. Stagnation. Decay. Holding onto a corpse (relationship/job) because you fear the unknown.",
-                shadow: "What are you keeping alive that needs to die? Rot spreads if you don't cut it out."
-            },
-            {
-                number: "XIV",
-                name: "TEMPERANCE",
-                archetype: "Alchemy & Balance",
-                element: "Fire",
-                planet: "Sagittarius",
-                upright: "Balance, moderation, patience. Blending opposites to create something new (Alchemy). Healing. Divine timing. The middle path.",
-                reversed: "Imbalance, excess, impatience. Clash of forces. Disruptive energy. Lack of long-term vision.",
-                shadow: "Are you diluting your truth to keep the peace? True temperance is a dynamic mix, not a watery compromise."
-            },
-            {
-                number: "XV",
-                name: "THE DEVIL",
-                archetype: "Bondage & Materialism",
-                element: "Earth",
-                planet: "Capricorn",
-                upright: "Addiction, obsession, sexuality, materialism. Being chained by your own desires. The shadow self taking the wheel. Illusion of bondage—the chains are loose.",
-                reversed: "Breaking free. Releasing addiction. Facing the shadow. Detachment. Reclaiming power.",
-                shadow: "What controls you? Money? Sex? Status? The Devil asks: 'Are you the master or the slave of your desires?'"
-            },
-            {
-                number: "XVI",
-                name: "THE TOWER",
-                archetype: "Sudden Upheaval & Revelation",
-                element: "Fire",
-                planet: "Mars",
-                upright: "Disaster, sudden change, destruction of false structures. The lightning strike of truth. Ego death. Liberation through destruction. It hurts, but it frees you.",
-                reversed: "Averting disaster but delaying the inevitable. Fear of change. rebuilding on shaky foundations.",
-                shadow: "What lie are you protecting? The Tower will burn it down anyway. Better to light the match yourself."
-            },
-            {
-                number: "XVII",
-                name: "THE STAR",
-                archetype: "Hope & Inspiration",
-                element: "Air",
-                planet: "Aquarius",
-                upright: "Hope, renewal, spirituality. Healing after the Tower. Connection to the divine. Flow. Naked truth and vulnerability. The light at the end of the tunnel.",
-                reversed: "Despair, lack of faith. Disconnection. unanswered prayers. Feeling lost.",
-                shadow: "Is your 'hope' actually passivity? Wishing on a star doesn't work if you don't walk toward it."
-            },
-            {
-                number: "XVIII",
-                name: "THE MOON",
-                archetype: "Illusion & The Subconscious",
-                element: "Water",
-                planet: "Pisces",
-                upright: "Illusion, fear, anxiety. Things are not what they seem. The shadow world. Dreams and nightmares. Trust your intuition, not your eyes. Madness/Genius.",
-                reversed: "Releasing fear. Unveiling the truth. Clarity returning. Confusion subsiding.",
-                shadow: "Are you gaslighting yourself? The Moon reveals the monsters in the basement are often just piles of clothes."
-            },
-            {
-                number: "XIX",
-                name: "THE SUN",
-                archetype: "Success & Vitality",
-                element: "Fire",
-                planet: "Sun",
-                upright: "Joy, success, celebration. Clarity. warmth. The inner child running free. Everything is illuminated. Pure positive energy.",
-                reversed: "Temporary sadness. Unrealistic expectations. Burnout. Blocking your own happiness.",
-                shadow: "Are you addicted to the light? Refusing to look at the dark spots creates a blinding glare, not true vision."
-            },
-            {
-                number: "XX",
-                name: "JUDGEMENT",
-                archetype: "Rebirth & Calling",
-                element: "Fire",
-                planet: "Pluto",
-                upright: "Awakening. The trumpet call. Answering your higher calling. Absolution. Rise up and become who you were meant to be. Final decision.",
-                reversed: "Self-doubt. Refusing the call. Ignoring the signs. Lack of self-awareness. Judgmental attitude.",
-                shadow: "Are you judging others to avoid your own calling? The trumpet is for YOU, not them."
-            },
-            {
-                number: "XXI",
-                name: "THE WORLD",
-                archetype: "Completion & Integration",
-                element: "Earth",
-                planet: "Saturn",
-                upright: "Completion of a cycle. Wholeness. Achievement. Travel. Integration of all parts. Success. The dance of life. You have arrived.",
-                reversed: "Incompletion. Lack of closure. Shortcuts. Feeling stuck near the finish line.",
-                shadow: "Are you afraid to finish because then you have to start over? The World is the end, but also the beginning of the Fool."
-            }
-        ];
-
-        // Render Function
-        function renderMajorArcana() {
-            const container = document.getElementById('major-arcana');
-            let html = '';
-
-            majorArcana.forEach(card => {
-                html += `
-                    <div class="card-entry">
-                        <div class="card-header" onclick="toggleCard(this)">
-                            <div class="card-title">
-                                <span class="card-number">${card.number}</span>
-                                ${card.name}
-                            </div>
-                            <div style="color: var(--text-dim);">▼</div>
-                        </div>
-                        <div class="card-content">
-                            <div class="content-inner">
-                                <div class="archetype-box">
-                                    <strong>ARCHETYPE:</strong> ${card.archetype}
-                                </div>
-                                <div class="meaning-col">
-                                    <h3>⬆️ UPRIGHT</h3>
-                                    <div style="margin-bottom: 1rem;">
-                                        <span class="tag element">${card.element}</span>
-                                        <span class="tag planet">${card.planet}</span>
-                                    </div>
-                                    <p>${card.upright}</p>
-                                </div>
-                                <div class="meaning-col">
-                                    <h3>⬇️ REVERSED</h3>
-                                    <div class="shadow-warning">
-                                        <strong>SHADOW WORK:</strong><br>
-                                        ${card.shadow}
-                                    </div>
-                                    <p style="margin-top: 1rem; opacity: 0.8;">${card.reversed}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            });
-
-            container.innerHTML = html;
-        }
-
-        // SPREAD SYSTEM LOGIC (Phase 5-8)
-        let currentSpreadType = null;
-        let isShuffling = false;
-
-        const spreads = {
-            'single': { name: "Daily Draw", positions: ["Current Energy"] },
-            'three': { name: "Time Flow", positions: ["Past", "Present", "Future"] },
-            'celtic': { name: "Celtic Cross", positions: [
-                "The Situation", "The Challenge", "The Foundation", "Recent Past", 
-                "Best Outcome", "Immediate Future", "Self/Attitude", "External Influences", 
-                "Hopes & Fears", "Final Outcome"
-            ]}
-        };
-
-        function initSpread(type) {
-            currentSpreadType = type;
-            const deck = document.getElementById('deck-trigger');
-            const instruction = document.getElementById('deck-instruction');
-            const display = document.getElementById('spread-display');
-            const output = document.getElementById('reading-output');
+        // Suit Navigation
+        function showSuit(suitName) {
+            // Hide all suit sections
+            document.querySelectorAll('.suit-section').forEach(s => s.classList.remove('active'));
             
-            // Reset
-            display.innerHTML = '';
-            output.style.display = 'none';
-            output.innerHTML = '';
+            // Show selected suit section
+            document.getElementById('suit-' + suitName).classList.add('active');
             
-            // Update Controls
-            document.querySelectorAll('.spread-btn').forEach(b => b.classList.remove('active'));
+            // Update sidebar active state
+            document.querySelectorAll('.suit-nav-item').forEach(item => item.classList.remove('active'));
             event.currentTarget.classList.add('active');
-
-            instruction.textContent = `Focus on your question. Click the deck to shuffle and draw ${spreads[type].positions.length} cards.`;
-            deck.style.display = 'block';
-            deck.classList.add('pulse');
-        }
-
-        function shuffleAndDraw() {
-            if (!currentSpreadType || isShuffling) return;
             
-            const deck = document.getElementById('deck-trigger');
-            const display = document.getElementById('spread-display');
-            const instruction = document.getElementById('deck-instruction');
-            
-            isShuffling = true;
-            instruction.textContent = "Shuffling the cosmic energies...";
-            
-            // Visual Shuffle Effect
-            deck.style.animation = "shake 0.5s infinite";
-            
-            setTimeout(() => {
-                deck.style.animation = "";
-                deck.style.display = "none"; // Hide deck
-                instruction.textContent = "Reading Complete";
-                dealCards();
-            }, 1500);
+            // Scroll to top of content
+            document.querySelector('.suit-content').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
+    </script>
 
-        function dealCards() {
-            const display = document.getElementById('spread-display');
-            const output = document.getElementById('reading-output');
-            const spread = spreads[currentSpreadType];
-            const positions = spread.positions;
-            let drawnCards = [];
-
-            // Draw random cards (unique)
-            while (drawnCards.length < positions.length) {
-                const randIndex = Math.floor(Math.random() * majorArcana.length);
-                if (!drawnCards.includes(randIndex)) drawnCards.push(randIndex);
-            }
-
-            // Generate HTML
-            let cardsHTML = '';
-            let readingHTML = `<h3 style="color: var(--accent); font-family: 'Cinzel'; text-align: center; margin-bottom: 2rem;">${spread.name} Interpretation</h3>`;
-
-            drawnCards.forEach((cardIndex, i) => {
-                const card = majorArcana[cardIndex];
-                const isReversed = Math.random() > 0.8; // 20% chance of reversal
-                const positionName = positions[i];
-                
-                // Card HTML
-                cardsHTML += `
-                    <div class="tarot-card" onclick="this.classList.toggle('flipped')" style="animation-delay: ${i * 0.2}s">
-                        <div class="card-inner">
-                            <div class="card-back"></div>
-                            <div class="card-front" style="${isReversed ? 'transform: rotateY(180deg) rotate(180deg);' : ''}">
-                                <div style="font-size: 2rem; color: var(--accent);">${card.number}</div>
-                                <div class="card-name">${card.name}</div>
-                                <div style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-dim);">${isReversed ? 'REVERSED' : 'UPRIGHT'}</div>
-                            </div>
-                        </div>
-                        <div class="card-position">${positionName}</div>
-                    </div>
-                `;
-
-                // Interpretation HTML
-                readingHTML += `
-                    <div class="reading-block">
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">${i+1}. ${positionName}: ${card.name} (${isReversed ? 'Reversed' : 'Upright'})</h4>
-                        <p style="margin-bottom: 0.5rem;"><strong>Archetype:</strong> ${card.archetype}</p>
-                        <p>${isReversed ? card.reversed : card.upright}</p>
-                        <p style="color: var(--text-dim); font-size: 0.9rem; margin-top: 0.5rem;"><em>Context: ${positionName}</em></p>
-                    </div>
-                `;
-            });
-
-            display.innerHTML = cardsHTML;
-            output.innerHTML = readingHTML;
-            output.style.display = 'block';
-            isShuffling = false;
-        }
-
-        /* CSS for Shake Animation */
-        const style = document.createElement('style');
-        style.innerHTML = `
-            @keyframes shake {
-                0% { transform: translate(1px, 1px) rotate(0deg); }
-                10% { transform: translate(-1px, -2px) rotate(-1deg); }
-                20% { transform: translate(-3px, 0px) rotate(1deg); }
-                30% { transform: translate(3px, 2px) rotate(0deg); }
-                40% { transform: translate(1px, -1px) rotate(1deg); }
-                50% { transform: translate(-1px, 2px) rotate(-1deg); }
-                60% { transform: translate(-3px, 1px) rotate(0deg); }
-                70% { transform: translate(3px, 1px) rotate(-1deg); }
-                80% { transform: translate(-1px, -1px) rotate(1deg); }
-                90% { transform: translate(1px, 2px) rotate(0deg); }
-                100% { transform: translate(1px, -2px) rotate(-1deg); }
-            }
-        `;
-        document.head.appendChild(style);
-
-        // WANDS SUIT DATA (Phase 9-10)
-        const wandsArcana = [
-            {
-                number: "ACE",
-                name: "ACE OF WANDS",
-                archetype: "Spark of Inspiration",
-                element: "Fire",
-                planet: "Mars/Sun",
-                upright: "A new creative beginning. The spark of an idea. Pure potential energy. Sexual desire. A phallic symbol of creation. The 'Aha!' moment. Grab the torch and run.",
-                reversed: "Creative block. Lack of energy. A false start. Impotence (literal or metaphorical). Missed opportunity due to hesitation.",
-                shadow: "Are you addicted to starting things but afraid to finish them? The spark is useless without the wood to burn."
-            },
-            {
-                number: "II",
-                name: "TWO OF WANDS",
-                archetype: "Planning & Future Vision",
-                element: "Fire",
-                planet: "Mars in Aries",
-                upright: "Holding the world in your hands. Planning the next move. Stepping out of your comfort zone. Decisions about the future. Visualization. Personal power.",
-                reversed: "Fear of the unknown. Playing it safe. Bad planning. Staying in the comfort zone. Lack of ambition.",
-                shadow: "Are you planning forever to avoid doing? Analysis paralysis is the death of fire."
-            },
-            {
-                number: "III",
-                name: "THREE OF WANDS",
-                archetype: "Expansion & Foresight",
-                element: "Fire",
-                planet: "Sun in Aries",
-                upright: "Expansion. Ships coming in. Your plans are bearing fruit. Looking beyond the horizon. Travel. International business. Moving to the next level.",
-                reversed: "Delays. Obstacles. Disappointment in results. Holding onto the past. Fear of expansion.",
-                shadow: "Are you waiting for your ship to come in without having sent one out? Expectation without effort is entitlement."
-            },
-            {
-                number: "IV",
-                name: "FOUR OF WANDS",
-                archetype: "Celebration & Home",
-                element: "Fire",
-                planet: "Venus in Aries",
-                upright: "Joy, celebration, homecoming. A milestone reached. Marriage or union. Stability in chaos. A safe haven. Community.",
-                reversed: "Instability at home. Family conflict. Cancelled celebration. Feeling unwelcome. Transition period.",
-                shadow: "Are you celebrating too early? Resting on your laurels before the war is won can be dangerous."
-            },
-            {
-                number: "V",
-                name: "FIVE OF WANDS",
-                archetype: "Conflict & Competition",
-                element: "Fire",
-                planet: "Saturn in Leo",
-                upright: "Competition, rivalry, conflict. Hassles. Ego battles. Brainstorming session where everyone talks at once. Struggle for dominance. Healthy competition.",
-                reversed: "Avoiding conflict. Agreeing to disagree. Resolution. Internal conflict. Fear of competition.",
-                shadow: "Are you fighting just to fight? Check if your ego is driving the bus."
-            },
-            {
-                number: "VI",
-                name: "SIX OF WANDS",
-                archetype: "Victory & Recognition",
-                element: "Fire",
-                planet: "Jupiter in Leo",
-                upright: "Victory, public recognition, fame. Being on a high horse. Success. Validation. Leadership. The crowd cheers for you.",
-                reversed: "Fall from grace. Egotism. No recognition. Treachery. The tall poppy syndrome. Failure.",
-                shadow: "Does your self-worth depend entirely on applause? The crowd that cheers today will boo tomorrow."
-            },
-            {
-                number: "VII",
-                name: "SEVEN OF WANDS",
-                archetype: "Defense & Perseverance",
-                element: "Fire",
-                planet: "Mars in Leo",
-                upright: "Defending your position. Standing your ground against many. Perseverance. Courage under fire. You have the high ground.",
-                reversed: "Giving up. Overwhelmed. Losing the battle. Compromising your values. Being outnumbered.",
-                shadow: "Are you defensive because you are right, or because you are insecure? Paranoia vs. Preparedness."
-            },
-            {
-                number: "VIII",
-                name: "EIGHT OF WANDS",
-                archetype: "Speed & Movement",
-                element: "Fire",
-                planet: "Mercury in Sagittarius",
-                upright: "Speed. Fast communication. Travel. Things moving quickly. Arrows of love. Sudden action. 'Strike while the iron is hot.'",
-                reversed: "Delays. Frustration. Slowing down. Miscommunication. Haste makes waste. Panic.",
-                shadow: "Are you moving fast to avoid feeling? Speed can be a drug to numb the pain of stillness."
-            },
-            {
-                number: "IX",
-                name: "NINE OF WANDS",
-                archetype: "Resilience & Last Stand",
-                element: "Fire",
-                planet: "Moon in Sagittarius",
-                upright: "Resilience. Wounded but standing. The last line of defense. Persistence. Grit. You are almost there, don't give up now.",
-                reversed: "Exhaustion. Giving up. Paranoia. Defensive posture. Burnout.",
-                shadow: "Are you seeing enemies where there are none? The war is over, put down the shield."
-            },
-            {
-                number: "X",
-                name: "TEN OF WANDS",
-                archetype: "Burden & Responsibility",
-                element: "Fire",
-                planet: "Saturn in Sagittarius",
-                upright: "Burden, heavy load, responsibility. Stress. Taking on too much. Carrying the weight of the world. Success that feels like a trap.",
-                reversed: "Collapsing under the weight. Delegating. Letting go. Burnout. Refusing responsibility.",
-                shadow: "Are you carrying the cross to look like a martyr? Drop the unnecessary baggage."
-            },
-            {
-                number: "PAGE",
-                name: "PAGE OF WANDS",
-                archetype: "Messenger of Fire",
-                element: "Earth of Fire",
-                planet: "Season of Spring",
-                upright: "Discovery, enthusiasm, new ideas. A message of passion. The explorer. Free spirit. Childlike wonder.",
-                reversed: "Setbacks to new ideas. Lack of direction. Pessimism. Tantrums. Bad news.",
-                shadow: "Are you all talk and no walk? The Page loves to start fires but hates to tend them."
-            },
-            {
-                number: "KNIGHT",
-                name: "KNIGHT OF WANDS",
-                archetype: "Action & Adventure",
-                element: "Fire of Fire",
-                planet: "Leo",
-                upright: "Action, adventure, fearlessness. Rushing in. Charisma. Lust. The hero (or the player). Travel and movement.",
-                reversed: "Recklessness. Impulsiveness. Anger. Arrogance. A scattered mind. Burnout.",
-                shadow: "Are you running away from yourself? The Knight rides fast to avoid the silence."
-            },
-            {
-                number: "QUEEN",
-                name: "QUEEN OF WANDS",
-                archetype: "Passion & Independence",
-                element: "Water of Fire",
-                planet: "Aries",
-                upright: "Confidence, independence, social butterfly. The witch/sorceress. Charismatic leader. Warmth. Sexual power.",
-                reversed: "Jealousy. Insecurity. Demanding nature. Manipulative. The 'Ice Queen' or the 'Drama Queen'.",
-                shadow: "Do you need to be the center of attention to feel alive? Validation must come from within."
-            },
-            {
-                number: "KING",
-                name: "KING OF WANDS",
-                archetype: "Visionary Leadership",
-                element: "Air of Fire",
-                planet: "Sagittarius",
-                upright: "Big picture vision. Entrepreneurship. Born leader. Honor. Inspiration. Making things happen. Master of fire.",
-                reversed: "Ruthlessness. Tyranny. Impulsiveness. Setting bad examples. High expectations but low support.",
-                shadow: "Are you burning your subjects to fuel your own glory? True kings serve the realm."
-            }
-        ];
-
-        function renderWands() {
-            const container = document.getElementById('wands-suit');
-            let html = '';
-            wandsArcana.forEach(card => {
-                html += `
-                    <div class="card-entry">
-                        <div class="card-header" onclick="toggleCard(this)">
-                            <div class="card-title">
-                                <span class="card-number" style="border-color: #ff5500; color: #ff5500;">${card.number}</span>
-                                ${card.name}
-                            </div>
-                            <div style="color: var(--text-dim);">▼</div>
-                        </div>
-                        <div class="card-content">
-                            <div class="content-inner">
-                                <div class="archetype-box" style="border-left-color: #ff5500; background: rgba(255, 85, 0, 0.1);">
-                                    <strong>ARCHETYPE:</strong> ${card.archetype}
-                                </div>
-                                <div class="meaning-col">
-                                    <h3>⬆️ UPRIGHT</h3>
-                                    <div style="margin-bottom: 1rem;">
-                                        <span class="tag element">${card.element}</span>
-                                        <span class="tag planet">${card.planet}</span>
-                                    </div>
-                                    <p>${card.upright}</p>
-                                </div>
-                                <div class="meaning-col">
-                                    <h3>⬇️ REVERSED</h3>
-                                    <div class="shadow-warning">
-                                        <strong>SHADOW WORK:</strong><br>
-                                        ${card.shadow}
-                                    </div>
-                                    <p style="margin-top: 1rem; opacity: 0.8;">${card.reversed}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            });
-            container.innerHTML = html;
-        }
-
-        // CUPS SUIT DATA (Phase 11-12)
-        const cupsArcana = [
-            {
-                number: "ACE",
-                name: "ACE OF CUPS",
-                archetype: "Pure Emotion",
-                element: "Water",
-                planet: "Moon/Neptune",
-                upright: "New love. Overflowing emotion. Spiritual awakening. The Holy Grail. Intimacy. Conception. A heart opening. Unconditional love.",
-                reversed: "Blocked emotion. Empty cup. Self-love issues. Repressed feelings. Infertility. Emotional drain.",
-                shadow: "Are you pouring from an empty cup? Martyrdom is not love."
-            },
-            {
-                number: "II",
-                name: "TWO OF CUPS",
-                archetype: "Union & Connection",
-                element: "Water",
-                planet: "Venus in Cancer",
-                upright: "Partnership. Soulmates. Mutual attraction. Equality in relationship. A pact or treaty. Harmony.",
-                reversed: "Breakup. Imbalance. Miscommunication. Codependency. Unrequited love.",
-                shadow: "Are you losing yourself in the other? Union requires two whole individuals."
-            },
-            {
-                number: "III",
-                name: "THREE OF CUPS",
-                archetype: "Celebration & Friendship",
-                element: "Water",
-                planet: "Mercury in Cancer",
-                upright: "Celebration. Friendship. Community. Girls' night out. Harvest festival. Joy shared is joy doubled. Socializing.",
-                reversed: "Gossip. Exclusion. Overindulgence. Isolation. Fake friends. The party is over.",
-                shadow: "Is your social life a distraction from your inner emptiness?"
-            },
-            {
-                number: "IV",
-                name: "FOUR OF CUPS",
-                archetype: "Apathy & Contemplation",
-                element: "Water",
-                planet: "Moon in Cancer",
-                upright: "Apathy. Boredom. Missing opportunities. Meditation. Withdrawal. Refusing a gift. Discontent.",
-                reversed: "Waking up. Seizing the moment. New motivation. Acceptance. Breaking the funk.",
-                shadow: "Are you ignoring the magic right in front of you because it doesn't look like what you expected?"
-            },
-            {
-                number: "V",
-                name: "FIVE OF CUPS",
-                archetype: "Grief & Loss",
-                element: "Water",
-                planet: "Mars in Scorpio",
-                upright: "Grief. Loss. Regret. Crying over spilled milk. Focusing on the negative. Disappointment. Emotional hangover.",
-                reversed: "Acceptance. Moving on. Seeing the remaining cups. Healing. Forgiveness.",
-                shadow: "Are you addicted to your own sadness? Pain is inevitable; suffering is optional."
-            },
-            {
-                number: "VI",
-                name: "SIX OF CUPS",
-                archetype: "Nostalgia & Innocence",
-                element: "Water",
-                planet: "Sun in Scorpio",
-                upright: "Nostalgia. Childhood memories. Innocence. Reunion. Soul connections. Simple joys. The past revisiting.",
-                reversed: "Living in the past. Trauma resurfacing. Growing up. Leaving home. Unrealistic idealization.",
-                shadow: "Are you glorifying the past to avoid the present? Memory is a painting, not a photograph."
-            },
-            {
-                number: "VII",
-                name: "SEVEN OF CUPS",
-                archetype: "Illusion & Choice",
-                element: "Water",
-                planet: "Venus in Scorpio",
-                upright: "Options. Illusion. Daydreaming. Wishful thinking. Confusion. Building castles in the air. Virtual reality.",
-                reversed: "Clarity. Making a choice. Reality check. Sobriety. Focus.",
-                shadow: "Are you paralyzed by too many choices? You can have anything, but you can't have everything."
-            },
-            {
-                number: "VIII",
-                name: "EIGHT OF CUPS",
-                archetype: "Abandonment & Quest",
-                element: "Water",
-                planet: "Saturn in Pisces",
-                upright: "Walking away. Leaving something behind. Seeking deeper meaning. Spiritual quest. Disappointment in material success.",
-                reversed: "Fear of leaving. Staying in a bad situation. Drifting. Avoidance.",
-                shadow: "Are you running away, or walking towards something better? There is a difference."
-            },
-            {
-                number: "IX",
-                name: "NINE OF CUPS",
-                archetype: "Satisfaction & Wishes",
-                element: "Water",
-                planet: "Jupiter in Pisces",
-                upright: "The Wish Card. Satisfaction. Emotional fulfillment. Luxury. Pride. Getting what you want. Smugness.",
-                reversed: "Greed. Dissatisfaction. Be careful what you wish for. Gluttony. Superficial happiness.",
-                shadow: "Is your happiness dependent on external validation? The cat who ate the canary eventually gets hungry again."
-            },
-            {
-                number: "X",
-                name: "TEN OF CUPS",
-                archetype: "Harmony & Family",
-                element: "Water",
-                planet: "Mars in Pisces",
-                upright: "Happily ever after. Family harmony. Emotional fulfillment. Divine love. Alignment. Peace.",
-                reversed: "Broken home. Disharmony. Illusion of perfection. Family conflict. Disconnection.",
-                shadow: "Are you chasing a fairytale that doesn't exist? Perfection is the enemy of the good."
-            },
-            {
-                number: "PAGE",
-                name: "PAGE OF CUPS",
-                archetype: "Messenger of Water",
-                element: "Earth of Water",
-                planet: "Season of Summer",
-                upright: "Creative message. Intuitive flash. New feelings. The dreamer. Psychic ability. Inner child.",
-                reversed: "Emotional immaturity. Creative block. Bad news. Naivety. Escapism.",
-                shadow: "Are you being a drama queen? Sensitivity is a gift, not an excuse for tantrums."
-            },
-            {
-                number: "KNIGHT",
-                name: "KNIGHT OF CUPS",
-                archetype: "Romance & Quest",
-                element: "Fire of Water",
-                planet: "Scorpio",
-                upright: "Romance. The lover. Idealism. Following the heart. Artistic proposal. Charm. Seduction.",
-                reversed: "Unrealistic expectations. Manipulation. Moody. Cheating. The player.",
-                shadow: "Are you in love with love, or with the person? The Knight often loves the chase more than the catch."
-            },
-            {
-                number: "QUEEN",
-                name: "QUEEN OF CUPS",
-                archetype: "Empathy & Intuition",
-                element: "Water of Water",
-                planet: "Cancer",
-                upright: "Empath. Healer. Psychic. Compassionate. Emotional depth. The mother. Flow.",
-                reversed: "Emotional instability. Codependency. Martyrdom. Energy vampire. Smothering.",
-                shadow: "Are you absorbing everyone else's emotions to avoid your own? Boundaries are necessary for the healer."
-            },
-            {
-                number: "KING",
-                name: "KING OF CUPS",
-                archetype: "Emotional Mastery",
-                element: "Air of Water",
-                planet: "Pisces",
-                upright: "Emotional balance. Diplomat. Wise counselor. Control over feelings. Compassion with boundaries.",
-                reversed: "Manipulation. Emotional tyrant. Volatility. Addiction. Coldness.",
-                shadow: "Are you repressing your emotions to maintain control? The dam will eventually break."
-            }
-        ];
-
-        function renderCups() {
-            const container = document.getElementById('cups-suit');
-            let html = '';
-            cupsArcana.forEach(card => {
-                html += `
-                    <div class="card-entry">
-                        <div class="card-header" onclick="toggleCard(this)">
-                            <div class="card-title">
-                                <span class="card-number" style="border-color: #00aaff; color: #00aaff;">${card.number}</span>
-                                ${card.name}
-                            </div>
-                            <div style="color: var(--text-dim);">▼</div>
-                        </div>
-                        <div class="card-content">
-                            <div class="content-inner">
-                                <div class="archetype-box" style="border-left-color: #00aaff; background: rgba(0, 170, 255, 0.1);">
-                                    <strong>ARCHETYPE:</strong> ${card.archetype}
-                                </div>
-                                <div class="meaning-col">
-                                    <h3>⬆️ UPRIGHT</h3>
-                                    <div style="margin-bottom: 1rem;">
-                                        <span class="tag element" style="color:#00aaff; border-color:#00aaff;">${card.element}</span>
-                                        <span class="tag planet">${card.planet}</span>
-                                    </div>
-                                    <p>${card.upright}</p>
-                                </div>
-                                <div class="meaning-col">
-                                    <h3>⬇️ REVERSED</h3>
-                                    <div class="shadow-warning" style="border-color: #00aaff; color: #00aaff; background: rgba(0, 170, 255, 0.05);">
-                                        <strong>SHADOW WORK:</strong><br>
-                                        ${card.shadow}
-                                    </div>
-                                    <p style="margin-top: 1rem; opacity: 0.8;">${card.reversed}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            });
-            container.innerHTML = html;
-        }
-
-        // SWORDS SUIT DATA (Phase 13-14)
-        const swordsArcana = [
-            {
-                number: "ACE",
-                name: "ACE OF SWORDS",
-                archetype: "Mental Clarity",
-                element: "Air",
-                planet: "Mercury/Uranus",
-                upright: "Breakthrough. Clarity. Truth. A new idea. Cutting through the noise. Surgery. The power of the mind. Victory through logic.",
-                reversed: "Confusion. Chaos. Brutal truth. Mental block. Clouded judgment. Miscommunication.",
-                shadow: "Are you using the truth as a weapon to hurt others? Honesty without compassion is brutality."
-            },
-            {
-                number: "II",
-                name: "TWO OF SWORDS",
-                archetype: "Indecision & Stalemate",
-                element: "Air",
-                planet: "Moon in Libra",
-                upright: "Indecision. Stalemate. Blocking emotions. Truce. Avoiding a difficult choice. Blindfolded. Equilibrium.",
-                reversed: "Decision made. Information overload. Confusion cleared. Emotional release. Facing the truth.",
-                shadow: "Are you pretending not to know what to do because the answer is painful? Ignorance is a choice."
-            },
-            {
-                number: "III",
-                name: "THREE OF SWORDS",
-                archetype: "Heartbreak & Sorrow",
-                element: "Air",
-                planet: "Saturn in Libra",
-                upright: "Heartbreak. Betrayal. Grief. Separation. Painful truth. Emotional pain. Rejection. The dark night of the soul.",
-                reversed: "Healing. Forgiveness. Releasing pain. Moving on. Optimism returning.",
-                shadow: "Are you picking at the scab to keep the wound fresh? Pain demands to be felt, but suffering is a story you tell yourself."
-            },
-            {
-                number: "IV",
-                name: "FOUR OF SWORDS",
-                archetype: "Rest & Recovery",
-                element: "Air",
-                planet: "Jupiter in Libra",
-                upright: "Rest. Meditation. Retreat. Recovery after battle. Solitude. Contemplation. Taking a break.",
-                reversed: "Burnout. Awakening. Returning to the world. Restlessness. Insomnia.",
-                shadow: "Are you resting, or are you hiding? Even the warrior must sleep, but eventually, he must wake up."
-            },
-            {
-                number: "V",
-                name: "FIVE OF SWORDS",
-                archetype: "Conflict & Defeat",
-                element: "Air",
-                planet: "Venus in Aquarius",
-                upright: "Conflict. Defeat. Win at all costs. Betrayal. Hostility. Empty victory. Burning bridges. Bullying.",
-                reversed: "Resolution. Moving past conflict. Forgiveness. Making amends. Resentment lingering.",
-                shadow: "Did you win the argument but lose the relationship? Pyrrhic victories are defeats in disguise."
-            },
-            {
-                number: "VI",
-                name: "SIX OF SWORDS",
-                archetype: "Transition & Moving On",
-                element: "Air",
-                planet: "Mercury in Aquarius",
-                upright: "Transition. Moving on. Leaving pain behind. Travel. Mental shift. Relief. Guidance.",
-                reversed: "Stuck in the past. Baggage. Resistance to change. Unfinished business. Returning to trouble.",
-                shadow: "Are you taking your problems with you? Geographic cures don't work if the demons are in your head."
-            },
-            {
-                number: "VII",
-                name: "SEVEN OF SWORDS",
-                archetype: "Deception & Strategy",
-                element: "Air",
-                planet: "Moon in Aquarius",
-                upright: "Deception. Strategy. Stealth. Taking what isn't yours. Getting away with it. Lone wolf. Tactics.",
-                reversed: "Confession. Getting caught. Coming clean. Rethinking strategy. Imposter syndrome.",
-                shadow: "Are you lying to others, or to yourself? The trickster eventually tricks himself."
-            },
-            {
-                number: "VIII",
-                name: "EIGHT OF SWORDS",
-                archetype: "Self-Imposed Restriction",
-                element: "Air",
-                planet: "Jupiter in Gemini",
-                upright: "Restriction. Feeling trapped. Victim mentality. Paralysis. Self-imposed prison. Limiting beliefs.",
-                reversed: "Freedom. Release. Taking control. New perspective. Escape.",
-                shadow: "Who tied the knots? Look closely at the ropes; they are loose. You can leave whenever you choose."
-            },
-            {
-                number: "IX",
-                name: "NINE OF SWORDS",
-                archetype: "Anxiety & Nightmare",
-                element: "Air",
-                planet: "Mars in Gemini",
-                upright: "Anxiety. Nightmares. Worry. Insomnia. Guilt. Mental anguish. The dark night of the mind.",
-                reversed: "Hope. Release from worry. Dawn. Seeking help. Realizing it wasn't that bad.",
-                shadow: "Are you suffering from things that haven't happened yet? Worry is a prayer for what you don't want."
-            },
-            {
-                number: "X",
-                name: "TEN OF SWORDS",
-                archetype: "Ruins & Endings",
-                element: "Air",
-                planet: "Sun in Gemini",
-                upright: "Rock bottom. Betrayal. Ruin. The end. Backstabbing. Drama. It can't get any worse.",
-                reversed: "Recovery. Survival. Rising from the dead. New beginning. Healing.",
-                shadow: "Are you playing the victim for sympathy? The swords are in your back, but you are still alive. Stand up."
-            },
-            {
-                number: "PAGE",
-                name: "PAGE OF SWORDS",
-                archetype: "Messenger of Air",
-                element: "Earth of Air",
-                planet: "Season of Winter",
-                upright: "Curiosity. New ideas. Gossip. Spying. Truth-seeking. Vigilance. Mental agility.",
-                reversed: "Deception. Paranoia. All talk. Manipulation. Cynicism.",
-                shadow: "Are you observing life instead of living it? The spy knows everything but experiences nothing."
-            },
-            {
-                number: "KNIGHT",
-                name: "KNIGHT OF SWORDS",
-                archetype: "Action & Intellect",
-                element: "Fire of Air",
-                planet: "Gemini",
-                upright: "Fast action. Ambition. Assertiveness. Direct communication. Rushing in. Intellectual power.",
-                reversed: "Aggression. Rudeness. Bullying. Burnout. Impulsiveness.",
-                shadow: "Are you cutting people with your words? Truth without love is just a knife."
-            },
-            {
-                number: "QUEEN",
-                name: "QUEEN OF SWORDS",
-                archetype: "Truth & Independence",
-                element: "Water of Air",
-                planet: "Libra",
-                upright: "Independence. Clear boundaries. Truth-teller. Perceptive. Unbiased. Widow/Divorcee archetype.",
-                reversed: "Coldness. Bitterness. Cruelty. Judgmental. Isolation.",
-                shadow: "Have you built walls so high that no one can climb them? Independence is not the same as isolation."
-            },
-            {
-                number: "KING",
-                name: "KING OF SWORDS",
-                archetype: "Authority & Logic",
-                element: "Air of Air",
-                planet: "Aquarius",
-                upright: "Intellectual power. Authority. Truth. Justice. Logic. Strategy. The judge.",
-                reversed: "Tyranny. Manipulation. Cruelty. Mental abuse. Cold calculation.",
-                shadow: "Has your heart frozen over? Logic is a tool, not a master."
-            }
-        ];
-
-        function renderSwords() {
-            const container = document.getElementById('swords-suit');
-            let html = '';
-            swordsArcana.forEach(card => {
-                html += `
-                    <div class="card-entry">
-                        <div class="card-header" onclick="toggleCard(this)">
-                            <div class="card-title">
-                                <span class="card-number" style="border-color: #e0e0e0; color: #e0e0e0;">${card.number}</span>
-                                ${card.name}
-                            </div>
-                            <div style="color: var(--text-dim);">▼</div>
-                        </div>
-                        <div class="card-content">
-                            <div class="content-inner">
-                                <div class="archetype-box" style="border-left-color: #e0e0e0; background: rgba(224, 224, 224, 0.1);">
-                                    <strong>ARCHETYPE:</strong> ${card.archetype}
-                                </div>
-                                <div class="meaning-col">
-                                    <h3>⬆️ UPRIGHT</h3>
-                                    <div style="margin-bottom: 1rem;">
-                                        <span class="tag element" style="color:#e0e0e0; border-color:#e0e0e0;">${card.element}</span>
-                                        <span class="tag planet">${card.planet}</span>
-                                    </div>
-                                    <p>${card.upright}</p>
-                                </div>
-                                <div class="meaning-col">
-                                    <h3>⬇️ REVERSED</h3>
-                                    <div class="shadow-warning" style="border-color: #e0e0e0; color: #e0e0e0; background: rgba(224, 224, 224, 0.05);">
-                                        <strong>SHADOW WORK:</strong><br>
-                                        ${card.shadow}
-                                    </div>
-                                    <p style="margin-top: 1rem; opacity: 0.8;">${card.reversed}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            });
-            container.innerHTML = html;
-        }
-
-        // PENTACLES SUIT DATA (Phase 15-16)
-        const pentaclesArcana = [
-            {
-                number: "ACE",
-                name: "ACE OF PENTACLES",
-                archetype: "Material Opportunity",
-                element: "Earth",
-                planet: "Earth",
-                upright: "A new financial opportunity. Manifestation. Abundance. Job offer. Investment. Seed money. Health improvement. Solid foundation.",
-                reversed: "Missed opportunity. Greed. Bad investment. Lack of planning. Instability.",
-                shadow: "Are you obsessed with money to the point of losing your soul? Wealth is a resource, not a god."
-            },
-            {
-                number: "II",
-                name: "TWO OF PENTACLES",
-                archetype: "Balance & Adaptability",
-                element: "Earth",
-                planet: "Jupiter in Capricorn",
-                upright: "Juggling priorities. Balance. Multitasking. Flux. Handling money. Ups and downs. Adaptability.",
-                reversed: "Overwhelmed. Dropping the ball. Financial mess. Inability to cope. Imbalance.",
-                shadow: "Are you busy or productive? Motion is not always progress."
-            },
-            {
-                number: "III",
-                name: "THREE OF PENTACLES",
-                archetype: "Mastery & Teamwork",
-                element: "Earth",
-                planet: "Mars in Capricorn",
-                upright: "Teamwork. Collaboration. Mastery. Skill. Recognition for quality work. Building something lasting. Apprenticeship.",
-                reversed: "Lack of teamwork. Sloppy work. Conflict with colleagues. Ego clashes. Mediocrity.",
-                shadow: "Are you trying to do it all yourself? Even the master needs a team to build a cathedral."
-            },
-            {
-                number: "IV",
-                name: "FOUR OF PENTACLES",
-                archetype: "Conservation & Security",
-                element: "Earth",
-                planet: "Sun in Capricorn",
-                upright: "Saving money. Security. Conservatism. Holding on tight. Control. Stability. Accumulation.",
-                reversed: "Greed. Hoarding. Letting go. Generosity. Spending money. Insecurity.",
-                shadow: "Are you possessing your things, or are they possessing you? Open hands can receive; closed fists cannot."
-            },
-            {
-                number: "V",
-                name: "FIVE OF PENTACLES",
-                archetype: "Poverty & Isolation",
-                element: "Earth",
-                planet: "Mercury in Taurus",
-                upright: "Poverty. Hardship. Isolation. Illness. Feeling left out in the cold. Financial loss. Spiritual poverty.",
-                reversed: "Recovery. Charity. Improvement. Finding help. Hope returning.",
-                shadow: "Are you playing the victim? Help is often available if you are willing to ask."
-            },
-            {
-                number: "VI",
-                name: "SIX OF PENTACLES",
-                archetype: "Generosity & Charity",
-                element: "Earth",
-                planet: "Moon in Taurus",
-                upright: "Generosity. Charity. Giving and receiving. Fairness. Patronage. Sharing wealth. Balance of power.",
-                reversed: "Debt. Strings attached. Selfishness. Inequality. Power plays. Bad loans.",
-                shadow: "Do you give to help others, or to control them? True charity has no strings."
-            },
-            {
-                number: "VII",
-                name: "SEVEN OF PENTACLES",
-                archetype: "Patience & Investment",
-                element: "Earth",
-                planet: "Saturn in Taurus",
-                upright: "Patience. Waiting for harvest. Investment. Hard work paying off. Assessment. Long-term view.",
-                reversed: "Impatience. Bad investment. Wasted effort. Giving up too soon. Laziness.",
-                shadow: "Are you watching the pot boil? Trust the process. Plants grow in the dark."
-            },
-            {
-                number: "VIII",
-                name: "EIGHT OF PENTACLES",
-                archetype: "Diligence & Skill",
-                element: "Earth",
-                planet: "Sun in Virgo",
-                upright: "Apprenticeship. Mastery. Detail work. Craftsmanship. Diligence. Focus. Education. Skill building.",
-                reversed: "Perfectionism. Shortcuts. Lack of ambition. Dead-end job. Obsessive focus on details.",
-                shadow: "Are you working hard or working smart? Being a cog in the machine is not mastery."
-            },
-            {
-                number: "IX",
-                name: "NINE OF PENTACLES",
-                archetype: "Abundance & Independence",
-                element: "Earth",
-                planet: "Venus in Virgo",
-                upright: "Luxury. Independence. Financial freedom. Self-sufficiency. Enjoying the fruits of labor. Sophistication.",
-                reversed: "Living beyond means. Dependence. Financial setbacks. Superficiality. Isolation.",
-                shadow: "Is your independence actually loneliness? A golden cage is still a cage."
-            },
-            {
-                number: "X",
-                name: "TEN OF PENTACLES",
-                archetype: "Wealth & Legacy",
-                element: "Earth",
-                planet: "Mercury in Virgo",
-                upright: "Wealth. Legacy. Inheritance. Family establishment. Long-term success. Tradition. The establishment.",
-                reversed: "Financial failure. Family dispute. Loss of inheritance. Breaking tradition. Nouveau riche.",
-                shadow: "Are you living your ancestors' life instead of your own? Tradition can be a foundation or a tomb."
-            },
-            {
-                number: "PAGE",
-                name: "PAGE OF PENTACLES",
-                archetype: "Messenger of Earth",
-                element: "Earth of Earth",
-                planet: "Season of Autumn",
-                upright: "New job. Student. Study. Financial opportunity. Practical news. Manifestation skills.",
-                reversed: "Laziness. Procrastination. Bad financial news. Greed. Lack of progress.",
-                shadow: "Are you planning to start, or actually starting? The map is not the territory."
-            },
-            {
-                number: "KNIGHT",
-                name: "KNIGHT OF PENTACLES",
-                archetype: "Efficiency & Routine",
-                element: "Fire of Earth",
-                planet: "Virgo",
-                upright: "Hard work. Efficiency. Routine. Reliability. Conservatism. The builder. Patience. Methodical approach.",
-                reversed: "Boredom. Stagnation. Obsessive. Lazy. Stuck in a rut. Workaholic.",
-                shadow: "Are you working yourself to death? Life is for living, not just for producing."
-            },
-            {
-                number: "QUEEN",
-                name: "QUEEN OF PENTACLES",
-                archetype: "Nurturing & Abundance",
-                element: "Water of Earth",
-                planet: "Capricorn",
-                upright: "Nurturing. Provider. Practicality. Down to earth. Mother figure. Businesswoman. Security.",
-                reversed: "Materialistic. Smothering. Work-life imbalance. Selfish. Neglectful.",
-                shadow: "Are you buying love with money? Security is an inside job."
-            },
-            {
-                number: "KING",
-                name: "KING OF PENTACLES",
-                archetype: "Wealth & Enterprise",
-                element: "Air of Earth",
-                planet: "Taurus",
-                upright: "Wealth. Business success. Security. Reliability. Provider. Midas touch. Discipline.",
-                reversed: "Greed. Corruption. Materialism. Stubbornness. Tyrant of industry.",
-                shadow: "Do you own your possessions, or do they own you? King Midas starved to death."
-            }
-        ];
-
-        function renderPentacles() {
-            const container = document.getElementById('pentacles-suit');
-            let html = '';
-            pentaclesArcana.forEach(card => {
-                html += `
-                    <div class="card-entry">
-                        <div class="card-header" onclick="toggleCard(this)">
-                            <div class="card-title">
-                                <span class="card-number" style="border-color: #00ff00; color: #00ff00;">${card.number}</span>
-                                ${card.name}
-                            </div>
-                            <div style="color: var(--text-dim);">▼</div>
-                        </div>
-                        <div class="card-content">
-                            <div class="content-inner">
-                                <div class="archetype-box" style="border-left-color: #00ff00; background: rgba(0, 255, 0, 0.1);">
-                                    <strong>ARCHETYPE:</strong> ${card.archetype}
-                                </div>
-                                <div class="meaning-col">
-                                    <h3>⬆️ UPRIGHT</h3>
-                                    <div style="margin-bottom: 1rem;">
-                                        <span class="tag element" style="color:#00ff00; border-color:#00ff00;">${card.element}</span>
-                                        <span class="tag planet">${card.planet}</span>
-                                    </div>
-                                    <p>${card.upright}</p>
-                                </div>
-                                <div class="meaning-col">
-                                    <h3>⬇️ REVERSED</h3>
-                                    <div class="shadow-warning" style="border-color: #00ff00; color: #00ff00; background: rgba(0, 255, 0, 0.05);">
-                                        <strong>SHADOW WORK:</strong><br>
-                                        ${card.shadow}
-                                    </div>
-                                    <p style="margin-top: 1rem; opacity: 0.8;">${card.reversed}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            });
-            container.innerHTML = html;
-        }
-
-        // Initialize Suits
-        renderPentacles();
-
-        // Combine all cards for the full deck
-        const allCards = [...majorArcana, ...wandsArcana, ...cupsArcana, ...swordsArcana, ...pentaclesArcana];
-
-        // SEARCH FUNCTION
-        function filterCards(query) {
-            const term = query.toLowerCase();
-            const cards = document.querySelectorAll('.card-entry');
-            cards.forEach(card => {
-                const text = card.innerText.toLowerCase();
-                card.style.display = text.includes(term) ? 'block' : 'none';
-            });
-        }
-
-        // READING HISTORY LOGIC
-        function saveReading(spreadName, historyData) {
-            const history = JSON.parse(localStorage.getItem('tarotHistory') || '[]');
-            const reading = {
-                date: new Date().toLocaleString(),
-                spread: spreadName,
-                cards: historyData.map(c => `${c.card.name} (${c.isReversed ? 'Rx' : 'Up'})`)
-            };
-            history.unshift(reading);
-            if (history.length > 5) history.pop(); // Keep last 5
-            localStorage.setItem('tarotHistory', JSON.stringify(history));
-            loadHistory();
-        }
-
-        function loadHistory() {
-            const history = JSON.parse(localStorage.getItem('tarotHistory') || '[]');
-            const list = document.getElementById('history-list');
-            if (history.length === 0) return;
-            
-            list.innerHTML = history.map(h => `
-                <div class="history-item">
-                    <div style="color: var(--accent); font-size: 0.9rem;">${h.date}</div>
-                    <div style="color: var(--primary); font-weight: bold;">${h.spread}</div>
-                    <div style="color: var(--text-dim); font-size: 0.8rem; margin-top: 0.5rem;">${h.cards.join(', ')}</div>
-                </div>
-            `).join('');
-        }
-
-        // Load History on Init
-        loadHistory();
-
-        // PARTICLE SYSTEM
-        const canvas = document.getElementById('particle-canvas');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2;
-                this.speedX = Math.random() * 0.5 - 0.25;
-                this.speedY = Math.random() * 0.5 - 0.25;
-                this.opacity = Math.random() * 0.5 + 0.1;
-            }
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-                if (this.x > canvas.width) this.x = 0;
-                if (this.x < 0) this.x = canvas.width;
-                if (this.y > canvas.height) this.y = 0;
-                if (this.y < 0) this.y = canvas.height;
-            }
-            draw() {
-                ctx.fillStyle = `rgba(157, 78, 221, ${this.opacity})`;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-
-        function initParticles() {
-            for (let i = 0; i < 50; i++) particles.push(new Particle());
-        }
-        function animateParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => {
-                p.update();
-                p.draw();
-            });
-            requestAnimationFrame(animateParticles);
-        }
-        initParticles();
-        animateParticles();
+</body>
+</html>
