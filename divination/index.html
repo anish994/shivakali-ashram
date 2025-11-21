@@ -576,10 +576,7 @@
                 window.location.href = 'nimitta.html';
                 return;
             }
-            if (key === 'tarot') {
-                window.location.href = 'tarot.html';
-                return;
-            }
+            // Tarot removed from immediate redirect to allow Stage interaction first
 
             const data = moduleData[key];
             const ui = uiConfig[key];
