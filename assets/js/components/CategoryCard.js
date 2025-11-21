@@ -20,6 +20,14 @@ class CategoryCard {
             return new InteractiveToolsCategoryCard(this.data).createElement();
         } else if (this.data.id === 'therapeutic') {
             return new TherapeuticSystemsCategoryCard(this.data).createElement();
+        } else if (this.data.id === 'divination') {
+            return new DivinationCategoryCard(this.data).createElement();
+        } else if (this.data.id === 'foundational') {
+            return new FoundationalCategoryCard(this.data).createElement();
+        } else if (this.data.id === 'advanced') {
+            return new AdvancedCategoryCard(this.data).createElement();
+        } else if (this.data.id === 'lifestyle') {
+            return new LifestyleCategoryCard(this.data).createElement();
         }
 
         const card = document.createElement('div');

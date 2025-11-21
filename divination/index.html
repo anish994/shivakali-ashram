@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divination Sciences - Oracle Wisdom</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --divine-primary: #ffd700; /* Oracle Gold */
+            --divine-secondary: #9d4edd; /* Mystic Purple */
+            --divine-dark: #10002b;
+            --divine-glass: rgba(16, 0, 43, 0.85);
+            --divine-border: rgba(255, 215, 0, 0.3);
+            --text-main: #ffffff;
+            --text-dim: rgba(255, 255, 255, 0.7);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--divine-dark);
+            color: var(--text-main);
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #bg-video-layer {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -3;
+        }
+
+        #bg-video {
+            position: absolute; top: 50%; left: 50%;
+            min-width: 100%; min-height: 100%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            filter: brightness(0.2) contrast(1.3) hue-rotate(260deg) saturate(1.2);
+        }
+
+        .grid-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 215, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 215, 0, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        .interface-wrapper {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 10;
+            padding: 2rem;
+            gap: 2rem;
+        }
+
+        /* NAV RAIL */
+        .nav-rail {
+            width: 350px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            height: 100%;
+            overflow-y: auto;
+            padding-right: 1rem;
+            scrollbar-width: none;
+        }
+        .nav-rail::-webkit-scrollbar { display: none; }
+
+        .nav-header {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--divine-border);
+            padding-bottom: 1rem;
+        }
+        
+        .nav-header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--divine-primary);
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+        
+        .nav-header .sub {
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--divine-secondary);
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .module-card {
+            background: linear-gradient(90deg, rgba(255,215,0,0.05), transparent);
+            border-left: 2px solid var(--divine-border);
+            padding: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .module-card:hover {
+            border-left-color: var(--divine-primary);
+            padding-left: 1.5rem;
+            background: linear-gradient(90deg, rgba(255,215,0,0.1), transparent);
+        }
+
+        .module-card.active {
+            background: linear-gradient(90deg, rgba(255,215,0,0.2), transparent);
+            border-left: 3px solid var(--divine-primary);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+        }
+
+        .card-icon { font-size: 1.5rem; }
+        .card-info h3 { font-family: 'Orbitron', sans-serif; font-size: 1rem; letter-spacing: 1px; color: #fff; }
+        .card-info p { font-family: 'Share Tech Mono', monospace; font-size: 0.7rem; color: var(--text-dim); }
+
+        /* STAGE AREA */
+        .stage-area {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background: var(--divine-glass);
+            border: 1px solid var(--divine-border);
+            backdrop-filter: blur(10px);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .stage-content {
+            text-align: center;
+            max-width: 600px;
+            padding: 3rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .stage-content.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .big-icon {
+            font-size: 6rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            filter: drop-shadow(0 0 30px var(--divine-primary));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .stage-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--divine-primary);
+        }
+
+        .stage-desc {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: var(--text-dim);
+            margin-bottom: 2.5rem;
+            border-top: 1px solid var(--divine-border);
+            border-bottom: 1px solid var(--divine-border);
+            padding: 1.5rem 0;
+        }
+
+        .action-btn {
+            padding: 1rem 3rem;
+            background: transparent;
+            border: 1px solid var(--divine-primary);
+            color: var(--divine-primary);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+        .action-btn:hover {
+            background: var(--divine-primary);
+            color: #000;
+            box-shadow: 0 0 30px var(--divine-primary);
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 2rem; right: 2rem;
+            color: var(--text-dim);
+            text-decoration: none;
+            font-family: 'Share Tech Mono', monospace;
+            border: 1px solid var(--divine-border);
+            padding: 0.5rem 1rem;
+            transition: all 0.3s;
+            z-index: 50;
+        }
+        .back-btn:hover { border-color: var(--divine-primary); color: var(--divine-primary); }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @media (max-width: 768px) {
+            .interface-wrapper { flex-direction: column-reverse; padding: 0; gap: 0; }
+            .nav-rail { width: 100%; max-height: 40%; border-top: 1px solid var(--divine-border); background: rgba(16, 0, 43, 0.95); }
+            .nav-header { display: none; }
+            .stage-area { flex: 1; border: none; border-radius: 0; background: transparent; align-items: flex-end; }
+            .stage-content { padding: 2rem; width: 100%; background: linear-gradient(0deg, rgba(0,0,0,0.9), transparent); }
+            .stage-title { font-size: 2rem; }
+            .big-icon { font-size: 4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="bg-video-layer">
+        <video id="bg-video" autoplay muted loop playsinline>
+            <source src="../assets/video/character.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="grid-overlay"></div>
+
+    <div class="interface-wrapper">
+        
+        <!-- Navigation Rail -->
+        <div class="nav-rail">
+            <div class="nav-header">
+                <h1>Oracle Wisdom</h1>
+                <div class="sub">SELECT DIVINATION PROTOCOL</div>
+            </div>
+
+            <div class="module-card active" onclick="loadModule('prashna')">
+                <div class="card-icon">🔮</div>
+                <div class="card-info">
+                    <h3>Prashna</h3>
+                    <p>Instant Cosmic Answers</p>
+                </div>
+            </div>
+
+            <div class="module-card" onclick="loadModule('nimitta')">
+                <div class="card-icon">🦅</div>
+                <div class="card-info">
+                    <h3>Nimitta</h3>
+                    <p>Reading Omens & Signs</p>
+                </div>
+            </div>
+
+            <div class="module-card" onclick="loadModule('swara')">
+                <div class="card-icon">🌬️</div>
+                <div class="card-info">
+                    <h3>Swara Yoga</h3>
+                    <p>Breath Divination</p>
+                </div>
+            </div>
+
+            <div class="module-card" onclick="loadModule('sankhya')">
+                <div class="card-icon">🔢</div>
+                <div class="card-info">
+                    <h3>Vedic Numerology</h3>
+                    <p>Sankhya Shastra Codes</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Stage -->
+        <div class="stage-area">
+            <a href="../index.html" class="back-btn">EXIT SYSTEM</a>
+            
+            <div class="stage-content active" id="main-stage">
+                <div class="big-icon">🔮</div>
+                <h2 class="stage-title">Prashna</h2>
+                <p class="stage-desc">
+                    The ancient science of Horary Astrology. You don't need a birth chart. The moment a question arises, the universe has already calculated the answer. Cast a chart for "Now."
+                </p>
+                <a href="#" class="action-btn">CAST QUERY</a>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const moduleData = {
+            prashna: {
+                title: "Prashna",
+                icon: "🔮",
+                desc: "The ancient science of Horary Astrology. You don't need a birth chart. The moment a question arises, the universe has already calculated the answer. Cast a chart for 'Now.'",
+                link: "#",
+                btn: "CAST QUERY"
+            },
+            nimitta: {
+                title: "Nimitta",
+                icon: "🦅",
+                desc: "The language of nature. Every bird, every sound, every glitch is a message. Learn to decode the syntax of reality itself.",
+                link: "#",
+                btn: "SCAN ENVIRONMENT"
+            },
+            swara: {
+                title: "Swara Yoga",
+                icon: "🌬️",
+                desc: "Your breath predicts the future. By checking which nostril is active (Solar/Lunar), you can foresee the outcome of any action before you take it.",
+                link: "#",
+                btn: "CHECK BREATH"
+            },
+            sankhya: {
+                title: "Vedic Numerology",
+                icon: "🔢",
+                desc: "Numbers are the skeleton of the universe. Decode the vibrational frequency of your name and birthdate to reveal hidden timelines.",
+                link: "#",
+                btn: "CALCULATE"
+            }
+        };
+
+        function loadModule(key) {
+                const data = moduleData[key];
+            const stage = document.getElementById('main-stage');
+            const cards = document.querySelectorAll('.module-card');
+
+            // Update Active Card
+            cards.forEach(card => card.classList.remove('active'));
+            if (event) event.currentTarget.classList.add('active');
+
+            // Animate Stage Out
+            stage.classList.remove('active');
+            stage.style.transform = "translateY(20px)";
+            stage.style.opacity = "0";
+
+            setTimeout(() => {
+                // Update Content
+                let btnAction = `href="${data.link}"`;
+                if (key === 'prashna') btnAction = `onclick="runPrashnaSimulation()" href="javascript:void(0)"`;
+                
+                stage.innerHTML = `
+                    <div class="big-icon">${data.icon}</div>
+                    <h2 class="stage-title">${data.title}</h2>
+                    <p class="stage-desc">${data.desc}</p>
+                    <a ${btnAction} class="action-btn">${data.btn}</a>
+                    <div id="simulation-output" style="margin-top: 2rem; display: none; font-family: 'Share Tech Mono'; color: var(--divine-primary);"></div>
+                `;
+                
+                // Animate Stage In
+                stage.classList.add('active');
+                stage.style.transform = "translateY(0)";
+                stage.style.opacity = "1";
+            }, 300);
+        }
+
+        function runPrashnaSimulation() {
+            const output = document.getElementById('simulation-output');
+            output.style.display = 'block';
+            output.innerHTML = "CONNECTING TO COSMIC SERVER...";
+            
+            setTimeout(() => { output.innerHTML = "CALCULATING PLANETARY POSITIONS..."; }, 1000);
+            setTimeout(() => { output.innerHTML = "DECODING OMENS..."; }, 2000);
+            setTimeout(() => { 
+                const outcomes = ["SUCCESS - Proceed with confidence", "DELAY - Saturn indicates patience", "OBSTACLE - Mars suggests conflict, wait", "TRANSFORMATION - Outcome will surprise you"];
+                const randomOutcome = outcomes[Math.floor(Math.random() * outcomes.length)];
+                output.innerHTML = `<div style="border: 1px solid var(--divine-primary); padding: 1rem; margin-top: 1rem;">
+                    <h3 style="color: #fff;">ORACLE RESULT</h3>
+                    <p style="font-size: 1.2rem; margin-top: 0.5rem;">${randomOutcome}</p>
+                    <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 0.5rem;">Time Stamp: ${new Date().toLocaleTimeString()}</p>
+                </div>`;
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
