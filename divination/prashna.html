@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Prashna - Reality Admin Panel [OMEGA]</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+        :root {
+            --bg-dark: #05000a;
+            --panel-bg: rgba(10, 10, 20, 0.95);
+            --neon-gold: #ffd700;
+            --neon-cyan: #00f3ff;
+            --neon-pink: #ff0099;
+            --neon-red: #ff3333;
+            --neon-green: #00ff66;
+            --neon-purple: #9d00ff;
+            --text-main: #e0e0e0;
+            --text-dim: #777;
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding-bottom: 120px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        #bg-video-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -3;
+        }
+
+        #bg-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            filter: brightness(0.5) contrast(1.2) hue-rotate(260deg) saturate(1.3);
+        }
+
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 215, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 215, 0, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        header {
+            padding: 1.5rem;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.95);
+            border-bottom: 1px solid var(--neon-gold);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(255, 215, 0, 0.1);
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--neon-gold);
+            text-shadow: 0 0 15px var(--neon-gold);
+            margin-bottom: 0.2rem;
+        }
+
+        .subtitle {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--neon-cyan);
+            letter-spacing: 2px;
+        }
+
+        .back-btn {
+            position: absolute;
+            left: 1rem; top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: var(--text-dim);
+            text-decoration: none;
+            padding: 0.5rem;
+        }
+
+        .mode-scroller {
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 1rem;
+            background: #000;
+            border-bottom: 1px solid var(--border-color);
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        .mode-scroller::-webkit-scrollbar { display: none; }
+
+        .mode-btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            margin-right: 0.5rem;
+            border-radius: 2px;
+            border: 1px solid var(--border-color);
+            background: rgba(255,255,255,0.03);
+            color: var(--text-dim);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-transform: uppercase;
+        }
+
+        .mode-btn.active {
+            background: var(--neon-gold);
+            color: #000;
+            border-color: var(--neon-gold);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            font-weight: 900;
+        }
+
+        .container {
+            padding: 1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            display: none;
+            animation: glitchIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .content-section.active { display: block; }
+
+        @keyframes glitchIn {
+            0% { opacity: 0; transform: translateX(-10px); }
+            50% { opacity: 0.5; transform: translateX(5px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        .accordion {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--border-color);
+            margin-bottom: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+
+        .acc-header {
+            padding: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.3);
+            transition: all 0.2s;
+        }
+
+        .acc-header:active {
+            background: rgba(255,255,255,0.05);
+        }
+
+        .acc-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            color: #fff;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .acc-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .acc-header.active .acc-icon {
+            transform: rotate(90deg);
+        }
+
+        .acc-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 0 1.5rem;
+        }
+
+        .acc-content.active {
+            max-height: 5000px;
+            padding: 1.5rem;
+        }
+
+        .hack-group { 
+            margin-bottom: 2rem; 
+        }
+        
+        .hack-item {
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 2px solid #333;
+            transition: border-left-color 0.3s;
+        }
+        
+        .hack-item:hover { border-left-color: var(--neon-gold); }
+
+        .hack-title {
+            font-family: 'Share Tech Mono', monospace;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--neon-cyan);
+            margin-bottom: 0.4rem;
+            display: block;
+            text-transform: uppercase;
+        }
+
+        .hack-desc {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        .warning-tag {
+            display: inline-block;
+            font-size: 0.6rem;
+            padding: 2px 6px;
+            background: var(--neon-red);
+            color: black;
+            font-weight: bold;
+            margin-left: 8px;
+            vertical-align: middle;
+            border-radius: 2px;
+        }
+
+        .expert-tag {
+            display: inline-block;
+            font-size: 0.6rem;
+            padding: 2px 6px;
+            background: var(--neon-purple);
+            color: black;
+            font-weight: bold;
+            margin-left: 8px;
+            vertical-align: middle;
+            border-radius: 2px;
+        }
+
+        #power .accordion { border-left-color: var(--neon-gold); }
+        #power .hack-title { color: var(--neon-gold); }
+        
+        #love .accordion { border-left-color: var(--neon-pink); }
+        #love .hack-title { color: var(--neon-pink); }
+        
+        #war .accordion { border-left-color: var(--neon-red); }
+        #war .hack-title { color: var(--neon-red); }
+        
+        #chaos .accordion { border-left-color: var(--neon-cyan); }
+        #chaos .hack-title { color: var(--neon-cyan); }
+
+        #shadow .accordion { border-left-color: #888; }
+        #shadow .hack-title { color: #ccc; }
+
+        .protocol-list {
+            margin-top: 1rem;
+        }
+
+        .protocol-item {
+            display: block;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 2px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .protocol-item strong { 
+            color: #fff; 
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .bottom-nav {
+            position: fixed;
+            bottom: 0; left: 0; width: 100%;
+            background: #000;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-around;
+            padding: 1rem;
+            z-index: 1000;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--text-dim);
+            font-size: 0.7rem;
+            font-family: 'Orbitron', sans-serif;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .nav-item i { font-size: 1.4rem; margin-bottom: 0.3rem; font-style: normal; }
+        .nav-item.active { color: var(--neon-gold); text-shadow: 0 0 10px var(--neon-gold); }
+
+    </style>
+</head>
+<body>
+
+    <!-- Video Background Layer -->
+    <div id="bg-video-layer">
+        <video id="bg-video" autoplay muted loop playsinline>
+            <source src="../pictures/devination.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Grid Overlay -->
+    <div class="grid-overlay"></div>
+
+    <header>
+        <a href="index.html" class="back-btn">←</a>
+        <h1>PRASHNA OS</h1>
+        <div class="subtitle">REALITY ADMIN PANEL [OMEGA BUILD]</div>
+    </header>
+
+    <div class="mode-scroller">
+        <div class="mode-btn active" onclick="switchMode('power')">💰 POWER</div>
+        <div class="mode-btn" onclick="switchMode('love')">💕 LOVE</div>
+        <div class="mode-btn" onclick="switchMode('war')">⚔️ WAR</div>
+        <div class="mode-btn" onclick="switchMode('chaos')">🌀 CHAOS</div>
+        <div class="mode-btn" onclick="switchMode('shadow')">👁️ SHADOW</div>
+    </div>
+
+    <div class="container">
+
+        <!-- ================= POWER MODE ================= -->
+        <div id="power" class="content-section active">
+            
+            <div class="accordion">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <span class="acc-title">💰 NEGOTIATION MASTERY</span>
+                    <span class="acc-icon">▶</span>
+                </div>
+                <div class="acc-content">
+                    <div class="hack-item">
+                        <span class="hack-title">The "Door-in-the-Face"</span>
+                        <span class="hack-desc">Ask for something absurdly high first. When they refuse, "concede" to the thing you actually wanted. Their guilt for saying no to the first request makes them say yes to the second. Compliance rates jump 200-300% when preceded by an unreasonable request.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The Silence Gap</span>
+                        <span class="hack-desc">State your price. Then. Stop. Talking. The next person to speak loses leverage. Amateurs talk to relieve the tension; masters use the tension to increase value. This works because humans are hardwired to fill silence - resisting this urge gives you control.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Anchoring Effect <span class="expert-tag">ADVANCED</span></span>
+                        <span class="hack-desc">The first number mentioned becomes the psychological anchor. If you're selling, go high. If you're buying, go low. Even absurd anchors influence final prices by 20-40%. Counter-anchor by rejecting their first number entirely and proposing your own frame.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The Flinch</span>
+                        <span class="hack-desc">When they state their price, physically recoil. Look shocked. This non-verbal rejection triggers instant doubt in them. They'll immediately start justifying or offering concessions. Works on phone calls too - just gasp audibly.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Time Pressure Reversal</span>
+                        <span class="hack-desc">When they say "I need to think about it," you say "Great, take your time. Actually, let me think about it too." This flips the power dynamic. Now YOU'RE the scarce resource, not them. Suddenly they're calling YOU back.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The Nibble <span class="warning-tag">DARK</span></span>
+                        <span class="hack-desc">After everything is agreed, ask for "one more small thing." They've already committed mentally, so they'll usually give it to avoid restarting negotiations. "Oh, and you'll cover shipping too, right?" Most people cave.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <span class="acc-title">👑 STATUS & DOMINANCE</span>
+                    <span class="acc-icon">▶</span>
+                </div>
+                <div class="acc-content">
+                    <div class="hack-item">
+                        <span class="hack-title">Strategic Incompetence</span>
+                        <span class="hack-desc">If you do a low-value task too well, it becomes your job forever. Perform minor tasks poorly to be relieved of them, preserving energy for high-status moves. This is how executives avoid busywork - they "delegate" by being terrible at grunt work.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The Double Bind <span class="warning-tag">PSY-OP</span></span>
+                        <span class="hack-desc">Give choices where you win either way. "Should we meet Tuesday at 2 or Wednesday at 4?" removes the option of NOT meeting. Control the frame, let them "choose" the details. This is how sales pros close deals.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Physical Space Dominance</span>
+                        <span class="hack-desc">Occupy more space. Spread your materials on the table. Stand when others sit. Sit at the head of the table. Lean back. These non-verbal cues signal territory and status. Studies show physically larger presence increases perceived authority by 30%.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The Power Pause</span>
+                        <span class="hack-desc">When asked a question, pause 2-3 seconds before answering. This signals you're thinking deeply, not reactive. It also makes your words seem more valuable. Politicians and CEOs use this constantly.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Name Dropping (Subtle)</span>
+                        <span class="hack-desc">Don't brag. Just casually mention associations. "Yeah, when I was working with [impressive person/company]..." Social proof is transferred by proximity. Your status rises by association without explicit boasting.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The Walkaway Threat</span>
+                        <span class="hack-desc">You must be genuinely willing to walk away. If you NEED the deal, they smell it. Abundance mentality isn't fake - you cultivate real alternatives so walking away is always an option. This is the ultimate power move.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <span class="acc-title">🏢 CORPORATE SURVIVAL</span>
+                    <span class="acc-icon">▶</span>
+                </div>
+                <div class="acc-content">
+                    <div class="hack-item">
+                        <span class="hack-title">CC: The Power Move</span>
+                        <span class="hack-desc">CCing someone's boss on an email is a passive-aggressive power assertion. Use it when you need to apply pressure without direct confrontation. It signals "I have escalation options."</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Document Everything</span>
+                        <span class="hack-desc">After every important conversation, send a "summary email" with timestamps and commitments. This creates a paper trail that protects you from gaslighting and creates accountability. "As we discussed on [date]..."</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The Brag Document <span class="expert-tag">CAREER</span></span>
+                        <span class="hack-desc">Keep a running doc of every win, praise, project success, and quantified result. Update it weekly. When review time comes, you have ammunition. "I increased X by 40%, reduced Y by $50k, and led Z initiative."</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Strategic Visibility</span>
+                        <span class="hack-desc">Work on projects that senior leadership sees. If you do great work in a silo, you're invisible. Find the initiatives that get presented to execs. Get your name on that deck.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The "No" Script</span>
+                        <span class="hack-desc">When overloaded: "I'd love to help, but I'm currently prioritizing [X, Y, Z] which are critical. If this is more important, which should I deprioritize?" Forces them to make the tradeoff, not you.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Alliance Building</span>
+                        <span class="hack-desc">Identify who has informal power (not just titles). Build relationships before you need them. Help them succeed. When you need backup, they remember. Corporate politics is just a relationship graph.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <span class="acc-title">💸 MONEY PSYCHOLOGY</span>
+                    <span class="acc-icon">▶</span>
+                </div>
+                <div class="acc-content">
+                    <div class="hack-item">
+                        <span class="hack-title">The Scarcity Signal</span>
+                        <span class="hack-desc">People who constantly mention prices are signaling scarcity. Wealthy people discuss value, not cost. When you stop caring about menu prices, your subconscious believes you're abundant. This shifts behavior.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Expensive ≠ Good</span>
+                        <span class="hack-desc">Price is often a signal, not a measure of quality. Designer brands charge for status, not materials. Learn to separate actual value from social signaling. This lets you spend on what matters.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The 10X Rule</span>
+                        <span class="hack-desc">Don't save your way to wealth. Save 10% of a small income = still small. Increase income 10X = life change. Focus energy on revenue/earning, not cutting expenses. Attack the numerator, not the denominator.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Pain of Paying</span>
+                        <span class="hack-desc">Cash hurts more than cards. Cards hurt more than auto-pay. Auto-pay is invisible. Businesses know this. Use it for your subscriptions (invisible), but use cash for discretionary spending (painful = conscious).</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Social Proof in Spending</span>
+                        <span class="hack-desc">If your peer group lives paycheck to paycheck, you will too. If they invest and build, you will too. Your income is the average of your 5 closest friends. Upgrade your circle to upgrade your finances.</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ================= LOVE MODE ================= -->
+        <div id="love" class="content-section">
+            
+            <div class="accordion">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <span class="acc-title">💕 ATTRACTION DYNAMICS</span>
+                    <span class="acc-icon">▶</span>
+                </div>
+                <div class="acc-content">
+                    <div class="hack-item">
+                        <span class="hack-title">Anxiety = Arousal</span>
+                        <span class="hack-desc">The brain often confuses anxiety for attraction. If you are "stable" and "boring," they feel nothing. You must introduce controlled unpredictability (spontaneity, challenge) to trigger the dopamine reward system. Uncertainty = excitement.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The "Cool Girl" Trap</span>
+                        <span class="hack-desc">Being "low maintenance" to get love backfires. It trains them that your needs don't matter. High-value partners respect boundaries, not doormats. Express a need early to test their capacity to meet it.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The Pull-Back (Scarcity) <span class="expert-tag">核心</span></span>
+                        <span class="hack-desc">When they pull away, your instinct is to chase (Text deeper, call more). STOP. Mirror their distance. Pull back 10% further. This creates a vacuum. Nature abhors a vacuum; they will move to fill it. Works 70% of the time if feelings existed.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Pre-Selection Signal</span>
+                        <span class="hack-desc">Humans desire what others desire. Subtly imply you have other social options. Not jealousy, just "busyness." A prize that sits on the shelf gathering dust is assumed to be broken. Social proof is attraction currency.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The Pygmalion Effect</span>
+                        <span class="hack-desc">People become what you expect of them. If you treat them like they're amazing, they'll rise to that. If you treat them like they're flaky, they'll be flaky. Your expectations literally shape their behavior.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Intermittent Reinforcement <span class="warning-tag">TOXIC</span></span>
+                        <span class="hack-desc">Random rewards create the strongest addiction. Slot machines use this. Toxic partners use this. If you're always available, you're predictable (boring). If you're sometimes amazing and sometimes unavailable, you're addictive. (Note: Don't weaponize this unless you're a sociopath.)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <span class="acc-title">🔗 RELATIONSHIP INTELLIGENCE</span>
+                    <span class="acc-icon">▶</span>
+                </div>
+                <div class="acc-content">
+                    <div class="hack-item">
+                        <span class="hack-title">The Bid System</span>
+                        <span class="hack-desc">Partners make "bids" for attention constantly. "Look at this bird!" is a bid. You can turn toward (engage), turn away (ignore), or turn against (dismiss). Gottman's research: couples who stay together respond positively to bids 86% of the time. Failed couples? 33%.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Repair Attempts</span>
+                        <span class="hack-desc">During conflict, successful couples make "repair attempts" - humor, affection, apology. If these are rejected, divorce is inevitable. If you can't laugh during a fight, it's already over. Watch for repair attempts; accept them.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Attachment Style Matching</span>
+                        <span class="hack-desc">Anxious + Avoidant = disaster loop. Anxious chases, Avoidant runs, Anxious chases harder. Only solution: Anxious learns self-soothing, Avoidant learns to stay present. Or find someone Secure. Secure + anyone = workable.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The Five Love Languages</span>
+                        <span class="hack-desc">Words, Touch, Gifts, Service, Time. You express love in YOUR language, but they need it in THEIRS. Most relationship "effort" is wasted because it's in the wrong language. Learn their language or fail.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Emotional Bids vs. Practical Problems</span>
+                        <span class="hack-desc">"I'm so stressed about work" is usually not asking for solutions. It's asking for empathy. Men often try to "fix" when women want "feel." Listen for the bid. "That sounds really hard" > "Have you tried...?"</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The Power of Novelty</span>
+                        <span class="hack-desc">Couples who do novel activities together (new restaurants, travel, adventure) report higher satisfaction than those who do familiar activities. Novelty = dopamine. Routine = stagnation. Chase new experiences together.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <span class="acc-title">💔 CRISIS PROTOCOLS</span>
+                    <span class="acc-icon">▶</span>
+                </div>
+                <div class="acc-content">
+                    <div class="hack-item">
+                        <span class="hack-title">The 72-Hour Freeze</span>
+                        <span class="hack-desc">After a breakup or major fight: DO NOTHING for 72 hours. No texts, no calls, no social media. Let cortisol levels drop. Decisions made in emotional flood are universally terrible.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The "Ghost" Protocol</span>
+                        <span class="hack-desc">If they pull back, disappear completely. Don't watch their stories. Don't "like" their posts. Become digitally invisible. This creates mystery and absence. "I wonder what they're doing?" is more powerful than "They won't leave me alone."</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Post-Breakup Glow-Up</span>
+                        <span class="hack-desc">Hit the gym, upgrade your wardrobe, socialize more, post wins. Not for them - for YOU. But when they see you thriving, their brain goes "Did I make a mistake?" Revenge is success, not bitterness.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The Fresh Start Effect</span>
+                        <span class="hack-desc">If you do reach back out, start fresh. Don't rehash the past. New topic, new energy. "Hey, I saw this and thought of you" > "I've been thinking about us." Forward momentum > rehashing.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Closure is a Myth</span>
+                        <span class="hack-desc">You don't need their explanation. "Closure" is just an excuse to re-engage. Real closure is deciding you don't need their validation to move on. Give yourself closure by choosing to stop waiting for theirs.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The Rebound Danger <span class="warning-tag">CAREFUL</span></span>
+                        <span class="hack-desc">New person won't fix old wounds. Rebounding to fill the void creates another mess. Take 3-6 months alone to process. Date yourself. Heal the attachment wound. Or you'll just repeat the pattern with someone new.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <span class="acc-title">🎭 ADVANCED SEDUCTION</span>
+                    <span class="acc-icon">▶</span>
+                </div>
+                <div class="acc-content">
+                    <div class="hack-item">
+                        <span class="hack-title">The Push-Pull</span>
+                        <span class="hack-desc">Compliment + tease. "You're smart... for a [their profession]." Creates emotional whiplash = dopamine. Don't be mean, be playful. This works because it's unpredictable. Predictable = boring.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The False Time Constraint</span>
+                        <span class="hack-desc">"I can only talk for a minute, I have to meet my friend." This reduces pressure and makes them want more time. Then "forget" about your friend and keep talking. They feel they "won" your attention.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Cold Reading</span>
+                        <span class="hack-desc">"You seem like someone who's ambitious but also values deep connections." Vague enough to apply to anyone, specific enough to seem insightful. When they agree, you seem "perceptive." Psychics use this. So can you.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The Three-Second Rule</span>
+                        <span class="hack-desc">Approach within 3 seconds of seeing them. Hesitation = overthinking = anxiety = failure. Move before your brain sabotages you. Confidence is action despite fear, not absence of fear.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Kino Escalation</span>
+                        <span class="hack-desc">Physical touch ladder: shoulder tap → arm touch → hand hold → closer proximity. Each step tests comfort. If they don't pull away, escalate. If they do, retreat and try again later. Read the signals.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The Takeaway <span class="expert-tag">NUCLEAR</span></span>
+                        <span class="hack-desc">When interest is high, suddenly pull back. "I need to focus on work for a bit." This creates scarcity and panic. They'll chase. But don't do this too often or you're just playing games. Use sparingly.</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ================= WAR MODE ================= -->
+        <div id="war" class="content-section">
+            
+            <div class="accordion">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <span class="acc-title">⚔️ PSYCHOLOGICAL WARFARE</span>
+                    <span class="acc-icon">▶</span>
+                </div>
+                <div class="acc-content">
+                    <div class="hack-item">
+                        <span class="hack-title">The "DARVO" Detection</span>
+                        <span class="hack-desc">Recognize when they: <strong>D</strong>eny the abuse, <strong>A</strong>ttack the victim, and <strong>R</strong>everse <strong>V</strong>ictim and <strong>O</strong>ffender. Once you see the script, you stop arguing with it. You just label it: "You're DARVO-ing me right now."</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The "Fogging" Technique</span>
+                        <span class="hack-desc">When criticized, agree with the <em>possibility</em> of truth without accepting the insult. "You might be right, I could be more careful." It gives them nothing to push against. It's like punching fog.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Emotional Jujitsu</span>
+                        <span class="hack-desc">Agree with the frame but change the meaning. Them: "You're so arrogant." You: "I am confident in my value, yes." Disarms the weapon instantly. Turn their attack into your virtue.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The Broken Record</span>
+                        <span class="hack-desc">When they keep pushing, repeat the same boundary calmly. "I understand, but my answer is still no." "I hear you, but it's still no." Don't explain, don't justify. Just repeat. Eventually they stop.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Name the Game</span>
+                        <span class="hack-desc">When someone is manipulating, say what they're doing out loud. "It feels like you're trying to make me feel guilty." Bringing the subtext to text stops the tactic. Manipulation only works in shadow.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The Grey Rock Method</span>
+                        <span class="hack-desc">In a toxic environment, your personal life is ammo. Stop sharing. Become boring, unreactive, and safe. Give them no hooks to grab onto. "How was your weekend?" "Fine." That's it. Starve the narcissist of supply.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <span class="acc-title">🛡️ CONFLICT RESOLUTION</span>
+                    <span class="acc-icon">▶</span>
+                </div>
+                <div class="acc-content">
+                    <div class="hack-item">
+                        <span class="hack-title">The XYZ Formula</span>
+                        <span class="hack-desc">"When you do X, I feel Y, because Z." Example: "When you cancel plans last minute, I feel disrespected, because my time has value too." States facts, feelings, and reasons without attacking.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The Softened Startup</span>
+                        <span class="hack-desc">Harsh startups predict divorce. Don't start with blame. Start with "I feel..." or "Can we talk about...?" The first 3 minutes of a conflict determine the next 30. Start soft or fail.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The Platinum Rule</span>
+                        <span class="hack-desc">Not "Treat others how you want to be treated" but "Treat others how THEY want to be treated." Some need space during conflict. Some need closeness. Ask: "What do you need from me right now?"</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The Timeout</span>
+                        <span class="hack-desc">When flooded with emotion (heart rate >100bpm), you're in fight-or-flight. Logic is offline. Call a 20-minute break minimum. Walk, breathe, reset. Then resume. Flooded conversations ALWAYS go badly.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The Six-Second Pause</span>
+                        <span class="hack-desc">Anger lasts 6 seconds neurologically. The explosion happens when you feed it with thoughts. Before reacting, count to 6. Breathe. The chemical wave passes. Then respond, don't react.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Solution-Focused Questions</span>
+                        <span class="hack-desc">Stop asking "Why did this happen?" (backward focus). Ask "What do we want instead?" (forward focus). "How can we prevent this next time?" Forensics don't fix the future. Solutions do.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <span class="acc-title">🕵️ MANIPULATION DETECTION</span>
+                    <span class="acc-icon">▶</span>
+                </div>
+                <div class="acc-content">
+                    <div class="hack-item">
+                        <span class="hack-title">Gaslighting Markers</span>
+                        <span class="hack-desc">"You're too sensitive." "That never happened." "You're crazy." If you constantly question your own memory and perception, you're being gaslit. Document everything. Trust your gut.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Love Bombing Detection</span>
+                        <span class="hack-desc">Too much too fast = red flag. Overwhelming compliments, constant texting, moving fast to commitment. This is idealization before the devaluation drop. Healthy love builds gradually. Bombing is manipulation.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Triangulation</span>
+                        <span class="hack-desc">When they bring up another person to make you jealous or insecure. "My ex used to..." "My friend thinks you're..." This is intentional destabilization. Call it: "Stop triangulating."</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Hoovering (Narcissist Return)</span>
+                        <span class="hack-desc">After discard, they come back when they need supply. "I miss you." "Things can be different." NO. This is hoovering. Block, ignore, move on. They haven't changed. They're just empty.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The Double Standard Test</span>
+                        <span class="hack-desc">Would they accept this behavior from you? If you did to them what they're doing to you, would they be fine with it? No? Then it's not okay. Equality test = manipulation detector.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Gut Check Override</span>
+                        <span class="hack-desc">Your body knows danger before your brain rationalizes it. If your gut says "something's off," IT IS. Don't explain away the feeling. Your nervous system evolved to detect threats. Listen to it.</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ================= CHAOS MODE ================= -->
+        <div id="chaos" class="content-section">
+            
+            <div class="accordion">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <span class="acc-title">🌀 NERVOUS SYSTEM HACKS</span>
+                    <span class="acc-icon">▶</span>
+                </div>
+                <div class="acc-content">
+                    <div class="hack-item">
+                        <span class="hack-title">The 24-Hour Freeze</span>
+                        <span class="hack-desc">Urgency is usually a lie from cortisol. If you feel you MUST act now, that is a sign to STOP. Wait 24 hours. Intelligence returns when the chemical flood subsides. Impulse ≠ insight.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Physiological Sigh</span>
+                        <span class="hack-desc">Double inhale through nose (one sharp, one topping off), long sigh through mouth. Resets the CO2 balance in blood. Kills panic in 30 seconds. Bio-hack your own hardware. Huberman Lab tested this.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The "Anchor Point"</span>
+                        <span class="hack-desc">In chaos, pick ONE small physical thing to control. Clean one corner of a room. Organize one drawer. Orderliness in the micro signals safety to the macro. Control something, even if it's tiny.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Cold Water Immersion</span>
+                        <span class="hack-desc">Cold showers, ice baths, cold face plunge. This activates the vagus nerve and resets your nervous system. 30 seconds under cold water = instant state change. Ancient yogis knew this.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The 5-4-3-2-1 Grounding</span>
+                        <span class="hack-desc">Name 5 things you see, 4 you can touch, 3 you hear, 2 you smell, 1 you taste. This pulls you out of panic and into the present. Anxiety lives in future. Presence is the antidote.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Bilateral Stimulation</span>
+                        <span class="hack-desc">Cross your arms and tap your shoulders alternately (L-R-L-R). Or move your eyes side to side. This mimics REM sleep and helps process trauma. EMDR therapy uses this. It works.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <span class="acc-title">🧭 DECISION UNDER PRESSURE</span>
+                    <span class="acc-icon">▶</span>
+                </div>
+                <div class="acc-content">
+                    <div class="hack-item">
+                        <span class="hack-title">The 10-10-10 Rule</span>
+                        <span class="hack-desc">How will this decision feel in 10 minutes? 10 months? 10 years? If it only matters in 10 minutes, it's not worth the energy. If it matters in 10 years, give it full attention.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The Regret Minimization Framework</span>
+                        <span class="hack-desc">Ask: "Will I regret NOT doing this when I'm 80?" If yes, do it. Most regrets are failures to act, not failures in action. Bezos used this to start Amazon. It works.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Flip a Coin (Cheat Code)</span>
+                        <span class="hack-desc">Truly torn between two choices? Flip a coin. But here's the trick: When it's in the air, you'll know which side you're hoping for. That's your answer. The coin doesn't decide. Your gut does.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The Two-Way Door</span>
+                        <span class="hack-desc">Some decisions are reversible (two-way doors). Some aren't (one-way doors). Don't agonize over two-way doors. Move fast, learn, adjust. Save deep analysis for one-way doors only.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Pre-Mortem Analysis</span>
+                        <span class="hack-desc">Before deciding, imagine it failed spectacularly. Why did it fail? This surfaces hidden risks your optimism bias buried. Then mitigate those risks or don't do it. Assume failure, work backwards.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The Hell Yeah or No Rule</span>
+                        <span class="hack-desc">If it's not a "HELL YEAH!" it's a no. Don't say yes to lukewarm opportunities. They drain energy from actual priorities. Successful people say no to almost everything. Protect your yes.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <span class="acc-title">🧠 MENTAL MODELS</span>
+                    <span class="acc-icon">▶</span>
+                </div>
+                <div class="acc-content">
+                    <div class="hack-item">
+                        <span class="hack-title">Inversion Thinking</span>
+                        <span class="hack-desc">Instead of "How do I succeed?" ask "How do I fail?" Then avoid those things. Charlie Munger: "Invert, always invert." Avoiding stupidity is easier than achieving brilliance.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Second-Order Thinking</span>
+                        <span class="hack-desc">First order: "This diet helps me lose weight." Second order: "But it's unsustainable, so I'll regain it and feel worse." Always ask: "And then what?" Most people stop at first-order effects.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The Map Is Not the Territory</span>
+                        <span class="hack-desc">Your mental model of reality is not reality itself. You're operating on an abstraction. When the map doesn't work, update the map. Don't blame the territory. Reality is always right.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Circle of Competence</span>
+                        <span class="hack-desc">Know what you know. Know what you don't know. Stay inside your circle for important decisions. Most failures come from operating outside your competence and not knowing it.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Occam's Razor</span>
+                        <span class="hack-desc">The simplest explanation is usually correct. When you have 10 theories, start with the obvious one. Conspiracy thinking comes from ignoring Occam's Razor. Simple > complex.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Hanlon's Razor</span>
+                        <span class="hack-desc">"Never attribute to malice that which is adequately explained by stupidity." Most people aren't plotting against you. They're just incompetent or distracted. Assume ignorance before evil.</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ================= SHADOW MODE ================= -->
+        <div id="shadow" class="content-section">
+            
+            <div class="accordion">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <span class="acc-title">👁️ INTEGRATING THE DARK</span>
+                    <span class="acc-icon">▶</span>
+                </div>
+                <div class="acc-content">
+                    <div class="hack-item">
+                        <span class="hack-title">Owning the Monster</span>
+                        <span class="hack-desc">"A harmless man is not a good man. A good man is a dangerous man who has that under voluntary control." (Peterson). Integrate your capacity for aggression so you are not a victim of it. The shadow doesn't vanish; it becomes your ally.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Projection Mapping</span>
+                        <span class="hack-desc">What you irrationally hate in others is what you repress in yourself. What you irrationally admire in others is a potential you haven't owned yet. Your triggers are maps to your shadow.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The Secondary Gain</span>
+                        <span class="hack-desc">Why do you stay stuck? Ask: "What do I get to AVOID by failing?" (Responsibility? Expectations? Envy?) You are protecting something by failing. Find it. Name it. Then choose consciously.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The Golden Shadow</span>
+                        <span class="hack-desc">Not all shadow is dark. Sometimes you repress your power, brilliance, or ambition because it threatens others. Shine anyway. Your playing small doesn't serve anyone. The world needs your golden shadow.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The Persona vs. The Self</span>
+                        <span class="hack-desc">The persona is the mask you wear. The Self is who you are beneath. Most people identify with the persona. Midlife crisis = persona collapse = forced Self emergence. Skip the crisis: integrate now.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Active Imagination</span>
+                        <span class="hack-desc">Jung's technique: Have a conversation with your shadow. Literally. Ask it questions. Let it respond. It sounds insane. It works. Your unconscious has wisdom your conscious mind doesn't.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <span class="acc-title">🌌 EXISTENTIAL TRUTHS</span>
+                    <span class="acc-icon">▶</span>
+                </div>
+                <div class="acc-content">
+                    <div class="hack-item">
+                        <span class="hack-title">Memento Mori</span>
+                        <span class="hack-desc">"Remember you will die." Not morbid - liberating. When you internalize your mortality, trivial concerns dissolve. You stop caring what strangers think. You pursue what matters. Death is the ultimate perspective tool.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The Absurd Hero</span>
+                        <span class="hack-desc">Life is meaningless. That's not depressing - it's freedom. You get to CREATE meaning. Camus: "One must imagine Sisyphus happy." You're pushing a boulder up a hill. Might as well enjoy the boulder.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Radical Acceptance</span>
+                        <span class="hack-desc">Stop fighting what is. Acceptance ≠ approval. You can accept reality AND work to change it. But denial keeps you stuck. "This is happening" is the first step to "Now what?"</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The Burden of Freedom</span>
+                        <span class="hack-desc">Sartre: "Man is condemned to be free." You're responsible for your choices, even your choice not to choose. No excuses. No one's coming to save you. This is terrifying. And empowering.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The Eternal Return</span>
+                        <span class="hack-desc">Nietzsche: Would you live this exact life again, infinitely? If no, change it. This test reveals what you truly value. Live as if you'll repeat this day forever. Because in a way, you are.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Authentic vs. Inauthentic</span>
+                        <span class="hack-desc">Living authentically = living according to YOUR values, not society's scripts. Most people are living someone else's life. "The privilege of a lifetime is to become who you truly are." (Jung)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <span class="acc-title">🔮 UNCONSCIOUS PATTERNS</span>
+                    <span class="acc-icon">▶</span>
+                </div>
+                <div class="acc-content">
+                    <div class="hack-item">
+                        <span class="hack-title">Repetition Compulsion</span>
+                        <span class="hack-desc">You keep dating the same person in different bodies. Freud: We unconsciously recreate unresolved trauma, hoping THIS time it'll end differently. It won't. Heal the original wound or repeat forever.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The Family Script</span>
+                        <span class="hack-desc">You internalized rules from childhood. "Don't be too loud." "Money is scarce." "People leave." These run in background. Until you surface them, they control you. Rewrite the script.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Transference</span>
+                        <span class="hack-desc">You're not really mad at your boss. You're mad at your dad. You project past relationships onto present people. This is why therapy works - transference becomes visible. Notice who reminds you of whom.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The Inner Critic vs. Inner Child</span>
+                        <span class="hack-desc">The critic is often a parent's voice internalized. The child is the hurt, playful, authentic core. When they fight, you're paralyzed. Therapy = getting them to dialogue. Integration = wholeness.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">Defense Mechanisms</span>
+                        <span class="hack-desc">Denial, projection, rationalization, sublimation. These protect you from painful truths. But they also keep you stuck. Growth = dismantling defenses. Pain is the price of awareness.</span>
+                    </div>
+
+                    <div class="hack-item">
+                        <span class="hack-title">The Unconscious Alliance</span>
+                        <span class="hack-desc">Your unconscious is not your enemy. It's trying to protect you (badly). Instead of fighting it, negotiate. "I see you're trying to keep me safe. But this isn't working anymore. Let's find another way."</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem; padding: 2rem 1rem; font-family: 'Share Tech Mono'; color: var(--text-dim); font-size: 0.7rem; opacity: 0.6; border-top: 1px solid var(--border-color);">
+            ⚠️ SYSTEM LEVEL: UNRESTRICTED<br>
+            🔞 21+ MATURE CONTENT<br>
+            🧠 PSYCHOLOGICAL KNOWLEDGE BASE<br>
+            🎭 USE WITH WISDOM<br>
+            ⚡ REALITY IS PROGRAMMABLE<br><br>
+            <span style="font-size: 0.6rem; opacity: 0.5;">
+                [Knowledge compiled from: Social Psychology, Behavioral Economics, Attachment Theory, Jungian Analysis, Existential Philosophy, Negotiation Science, Relationship Research, and darknet psychology archives]
+            </span>
+        </div>
+
+    </div>
+
+    <div class="bottom-nav">
+        <div class="nav-item" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+            <i>⬆️</i>
+            <span>TOP</span>
+        </div>
+        <div class="nav-item active" onclick="location.href='index.html'">
+            <i>🏠</i>
+            <span>HUB</span>
+        </div>
+        <div class="nav-item" onclick="window.history.back()">
+            <i>↩️</i>
+            <span>BACK</span>
+        </div>
+    </div>
+
+    <script>
+        function switchMode(modeId) {
+            document.querySelectorAll('.content-section').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.remove('active'));
+            
+            const target = document.getElementById(modeId);
+            if (target) target.classList.add('active');
+            
+            event.target.classList.add('active');
+            event.target.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+
+        function toggleAcc(header) {
+            const wasActive = header.classList.contains('active');
+            
+            const section = header.closest('.content-section');
+            section.querySelectorAll('.acc-header').forEach(h => {
+                h.classList.remove('active');
+                h.nextElementSibling.classList.remove('active');
+            });
+            
+            if (!wasActive) {
+                header.classList.add('active');
+                header.nextElementSibling.classList.add('active');
+            }
+        }
+    </script>
+
+</body>
+</html>
