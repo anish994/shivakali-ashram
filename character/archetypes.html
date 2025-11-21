@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archetype Scanner - Character Analysis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --psyche-primary: #9d4edd;
+            --psyche-secondary: #e0aaff;
+            --psyche-alert: #ff6b6b;
+            --psyche-warn: #feca57;
+            --psyche-safe: #00d2d3;
+            --psyche-dark: #10002b;
+            --psyche-glass: rgba(16, 0, 43, 0.95);
+            --text-main: #ffffff;
+            --grid-color: rgba(157, 78, 221, 0.05);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--psyche-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        #bg-video-layer {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -3;
+        }
+        #bg-video {
+            position: absolute; top: 50%; left: 50%;
+            min-width: 100%; min-height: 100%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            filter: brightness(0.3) contrast(1.1) saturate(1.2) hue-rotate(20deg);
+        }
+        .grid-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: -2;
+            pointer-events: none;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            position: relative;
+            z-index: 10;
+            padding-bottom: 6rem;
+        }
+
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4rem;
+            border-bottom: 1px solid rgba(157, 78, 221, 0.3);
+            padding-bottom: 1rem;
+            backdrop-filter: blur(5px);
+        }
+        .back-link {
+            color: var(--psyche-secondary);
+            text-decoration: none;
+            font-family: 'Share Tech Mono', monospace;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        .back-link:hover { 
+            color: #fff; 
+            text-shadow: 0 0 10px var(--psyche-primary);
+            transform: translateX(-5px);
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 5rem;
+            position: relative;
+        }
+        .page-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(157, 78, 221, 0.6);
+            margin-bottom: 0.5rem;
+        }
+        .page-subtitle {
+            font-family: 'Share Tech Mono'; 
+            color: var(--psyche-secondary);
+            letter-spacing: 2px;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            display: block;
+        }
+        .concept-brief {
+            max-width: 800px; 
+            margin: 0 auto; 
+            font-size: 1.1rem; 
+            opacity: 0.9;
+            background: linear-gradient(180deg, rgba(0,0,0,0), rgba(157, 78, 221, 0.1), rgba(0,0,0,0));
+            padding: 2rem;
+            border-left: 2px solid var(--psyche-primary);
+            border-right: 2px solid var(--psyche-primary);
+        }
+
+        .archetype-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .archetype-card {
+            background: var(--psyche-glass);
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+        .archetype-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            border-color: var(--psyche-secondary);
+            z-index: 5;
+        }
+
+        .card-header {
+            padding: 1.5rem;
+            background: linear-gradient(180deg, rgba(255,255,255,0.05), transparent);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .arch-icon { font-size: 2.5rem; filter: drop-shadow(0 0 10px rgba(255,255,255,0.3)); }
+        .arch-role { font-family: 'Share Tech Mono'; color: rgba(255,255,255,0.4); font-size: 0.8rem; letter-spacing: 1px; writing-mode: vertical-rl; text-orientation: mixed; transform: rotate(180deg); }
+
+        .card-body { padding: 1.5rem; flex-grow: 1; }
+        
+        .arch-name { font-family: 'Orbitron'; font-size: 1.4rem; color: #fff; margin-bottom: 0.2rem; }
+        .arch-eng { font-size: 0.85rem; color: var(--psyche-secondary); font-family: 'Share Tech Mono'; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem; display: block; }
+        
+        .arch-desc { font-size: 0.95rem; line-height: 1.6; color: rgba(255,255,255,0.85); margin-bottom: 1.5rem; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+            border-top: 1px dashed rgba(255,255,255,0.1);
+            padding-top: 1rem;
+        }
+        .stat-box {
+            background: rgba(0,0,0,0.2);
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+        .stat-label { display: block; font-family: 'Share Tech Mono'; font-size: 0.7rem; color: rgba(255,255,255,0.5); margin-bottom: 0.2rem; }
+        .stat-val { font-size: 0.9rem; font-weight: bold; color: #fff; }
+
+        .evo-block {
+            background: rgba(0,0,0,0.3);
+            padding: 1rem;
+            margin-top: 1rem;
+            border-left: 2px solid var(--psyche-safe);
+        }
+        .evo-title { font-family: 'Orbitron'; font-size: 0.8rem; color: var(--psyche-safe); margin-bottom: 0.5rem; }
+        .evo-list { list-style: none; padding: 0; margin: 0; font-size: 0.8rem; color: rgba(255,255,255,0.7); }
+        .evo-list li { margin-bottom: 0.3rem; }
+        .evo-list li span { color: #fff; font-weight: bold; }
+
+        .shadow-block {
+            background: rgba(255, 107, 107, 0.05);
+            padding: 1rem;
+            margin-top: 1rem;
+            border-left: 2px solid var(--psyche-alert);
+        }
+        .shadow-title { font-family: 'Orbitron'; font-size: 0.8rem; color: var(--psyche-alert); margin-bottom: 0.5rem; }
+        .shadow-desc { font-size: 0.8rem; color: rgba(255, 150, 150, 0.8); line-height: 1.4; }
+
+        .scan-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjMDAwIiBmaWxsLW9wYWNpdHk9IjAuMSIvPgo8L3N2Zz4=');
+            opacity: 0.3; pointer-events: none;
+        }
+
+        .action-area {
+            grid-column: 1 / -1;
+            margin-top: 4rem;
+            text-align: center;
+            position: relative;
+        }
+        .scan-btn {
+            background: transparent;
+            color: var(--psyche-primary);
+            border: 2px solid var(--psyche-primary);
+            padding: 1.5rem 4rem;
+            font-family: 'Orbitron';
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .scan-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: var(--psyche-primary);
+            transition: all 0.3s;
+            z-index: -1;
+        }
+        .scan-btn:hover { color: #000; box-shadow: 0 0 30px var(--psyche-primary); }
+        .scan-btn:hover::before { left: 0; }
+
+        @media (max-width: 768px) {
+            .page-title { font-size: 2rem; }
+            .archetype-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div id="bg-video-layer">
+        <video id="bg-video" autoplay muted loop playsinline>
+            <source src="../assets/video/character.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="grid-overlay"></div>
+
+    <div class="container">
+        <nav class="nav-header">
+            <a href="index.html" class="back-link">
+                <span>❮</span> SYSTEM MATRIX
+            </a>
+            <div style="font-family: 'Share Tech Mono'; color: var(--psyche-primary); font-size: 0.8rem;">
+                MODULE: 02 // AVATAR_CLASS_SELECTION
+            </div>
+        </nav>
+
+        <header class="page-header">
+            <div style="font-size: 5rem; margin-bottom: 1rem; text-shadow: 0 0 30px var(--psyche-secondary);">🎭</div>
+            <h1 class="page-title">Archetype Scanner</h1>
+            <span class="page-subtitle">IDENTITY MASK IDENTIFICATION SYSTEM</span>
+            
+            <div class="concept-brief">
+                <p><strong>You are playing a character. Do you know which one?</strong></p>
+                <p style="margin-top: 1rem; font-size: 1rem; color: rgba(255,255,255,0.8);">
+                    Jung identified 12 universal "Software Packages" installed in the collective unconscious. 
+                    These scripts determine your desires, fears, and destiny. 
+                    Knowing your Archetype allows you to <strong>Hack the Script</strong> instead of being an NPC in your own life.
+                </p>
+            </div>
+        </header>
+
+        <div class="archetype-grid">
+            
+            <!-- RULER -->
+            <div class="archetype-card" style="border-top: 3px solid #ffd700;">
+                <div class="scan-overlay"></div>
+                <div class="card-header">
+                    <div class="arch-icon">👑</div>
+                    <div class="arch-role">ORDER_CLASS</div>
+                </div>
+                <div class="card-body">
+                    <div class="arch-name">The Sovereign</div>
+                    <span class="arch-eng">THE RULER / KING</span>
+                    <p class="arch-desc">
+                        <strong>Order from Chaos.</strong> You are the architect of civilization. You take responsibility for the realm when others flee.
+                        Your Shakti is <strong>Sthithi</strong> (Preservation).
+                    </p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <span class="stat-label">SUPERPOWER</span>
+                            <span class="stat-val" style="color: #ffd700;">LEGACY</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-label">FATAL FLAW</span>
+                            <span class="stat-val" style="color: #ff6b6b;">CONTROL</span>
+                        </div>
+                    </div>
+
+                    <div class="evo-block">
+                        <div class="evo-title">⚡ EVOLUTION LADDER</div>
+                        <ul class="evo-list">
+                            <li><span>LVL 1:</span> The Tyrant (Fear-based control)</li>
+                            <li><span>LVL 2:</span> The Manager (Functional competence)</li>
+                            <li><span>LVL 3:</span> Dharma Raja (Selfless Service)</li>
+                        </ul>
+                    </div>
+
+                    <div class="shadow-block">
+                        <div class="shadow-title">💀 SHADOW: THE CANNIBAL KING</div>
+                        <div class="shadow-desc">Devouring your own children (creations/team) to stay on top. Paranoia that power will be stolen.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MAGICIAN -->
+            <div class="archetype-card" style="border-top: 3px solid #9d4edd;">
+                <div class="scan-overlay"></div>
+                <div class="card-header">
+                    <div class="arch-icon">🧙‍♂️</div>
+                    <div class="arch-role">CHANGE_CLASS</div>
+                </div>
+                <div class="card-body">
+                    <div class="arch-name">The Alchemist</div>
+                    <span class="arch-eng">THE MAGICIAN / WIZARD</span>
+                    <p class="arch-desc">
+                        <strong>Thought into Matter.</strong> You understand the hidden source code of reality. You bridge the visible and invisible worlds.
+                        Your Shakti is <strong>Iccha</strong> (Will).
+                    </p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <span class="stat-label">SUPERPOWER</span>
+                            <span class="stat-val" style="color: #9d4edd;">MANIFESTATION</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-label">FATAL FLAW</span>
+                            <span class="stat-val" style="color: #ff6b6b;">DECEPTION</span>
+                        </div>
+                    </div>
+
+                    <div class="evo-block">
+                        <div class="evo-title">⚡ EVOLUTION LADDER</div>
+                        <ul class="evo-list">
+                            <li><span>LVL 1:</span> The Trickster (Petty illusions)</li>
+                            <li><span>LVL 2:</span> The Scientist (System manipulation)</li>
+                            <li><span>LVL 3:</span> The Siddha (Reality warping)</li>
+                        </ul>
+                    </div>
+
+                    <div class="shadow-block">
+                        <div class="shadow-title">💀 SHADOW: THE BLACK MAGICIAN</div>
+                        <div class="shadow-desc">Using higher knowledge for lower desires. Manipulation. Disconnection from human empathy.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SAGE -->
+            <div class="archetype-card" style="border-top: 3px solid #4ecdc4;">
+                <div class="scan-overlay"></div>
+                <div class="card-header">
+                    <div class="arch-icon">🦉</div>
+                    <div class="arch-role">WISDOM_CLASS</div>
+                </div>
+                <div class="card-body">
+                    <div class="arch-name">The Rishi</div>
+                    <span class="arch-eng">THE SAGE / SEER</span>
+                    <p class="arch-desc">
+                        <strong>The Witness.</strong> You seek the Truth that exists before language. You detach from the drama to see the pattern.
+                        Your Shakti is <strong>Jnana</strong> (Knowledge).
+                    </p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <span class="stat-label">SUPERPOWER</span>
+                            <span class="stat-val" style="color: #4ecdc4;">CLARITY</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-label">FATAL FLAW</span>
+                            <span class="stat-val" style="color: #ff6b6b;">ISOLATION</span>
+                        </div>
+                    </div>
+
+                    <div class="evo-block">
+                        <div class="evo-title">⚡ EVOLUTION LADDER</div>
+                        <ul class="evo-list">
+                            <li><span>LVL 1:</span> The Critic (Intellectual arrogance)</li>
+                            <li><span>LVL 2:</span> The Scholar (Objective study)</li>
+                            <li><span>LVL 3:</span> The Jnanin (Knowing as Being)</li>
+                        </ul>
+                    </div>
+
+                    <div class="shadow-block">
+                        <div class="shadow-title">💀 SHADOW: THE IVORY TOWER</div>
+                        <div class="shadow-desc">Cold judgment. Analysis paralysis. Using words to distance yourself from life.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HERO -->
+            <div class="archetype-card" style="border-top: 3px solid #ff6b6b;">
+                <div class="scan-overlay"></div>
+                <div class="card-header">
+                    <div class="arch-icon">⚔️</div>
+                    <div class="arch-role">ACTION_CLASS</div>
+                </div>
+                <div class="card-body">
+                    <div class="arch-name">The Vira</div>
+                    <span class="arch-eng">THE HERO / WARRIOR</span>
+                    <p class="arch-desc">
+                        <strong>The Will to Act.</strong> You prove your existence through overcoming resistance. You fight for the Light.
+                        Your Shakti is <strong>Kriya</strong> (Action).
+                    </p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <span class="stat-label">SUPERPOWER</span>
+                            <span class="stat-val" style="color: #ff6b6b;">COURAGE</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-label">FATAL FLAW</span>
+                            <span class="stat-val" style="color: #ff6b6b;">CONFLICT</span>
+                        </div>
+                    </div>
+
+                    <div class="evo-block">
+                        <div class="evo-title">⚡ EVOLUTION LADDER</div>
+                        <ul class="evo-list">
+                            <li><span>LVL 1:</span> The Bully (Creating fights)</li>
+                            <li><span>LVL 2:</span> The Soldier (Disciplined skill)</li>
+                            <li><span>LVL 3:</span> Spiritual Warrior (Internal conquest)</li>
+                        </ul>
+                    </div>
+
+                    <div class="shadow-block">
+                        <div class="shadow-title">💀 SHADOW: THE MERCENARY</div>
+                        <div class="shadow-desc">Winning at any cost. Cruelty disguised as strength. Seeing enemies where there are none.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CREATOR -->
+            <div class="archetype-card" style="border-top: 3px solid #ff9f43;">
+                <div class="scan-overlay"></div>
+                <div class="card-header">
+                    <div class="arch-icon">🎨</div>
+                    <div class="arch-role">BUILDER_CLASS</div>
+                </div>
+                <div class="card-body">
+                    <div class="arch-name">The Vishwakarma</div>
+                    <span class="arch-eng">THE CREATOR / ARTIST</span>
+                    <p class="arch-desc">
+                        <strong>Dreaming the World.</strong> You give form to the formless. If it can be imagined, you must build it.
+                        Your Shakti is <strong>Srishti</strong> (Creation).
+                    </p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <span class="stat-label">SUPERPOWER</span>
+                            <span class="stat-val" style="color: #ff9f43;">VISION</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-label">FATAL FLAW</span>
+                            <span class="stat-val" style="color: #ff6b6b;">INSTABILITY</span>
+                        </div>
+                    </div>
+
+                    <div class="evo-block">
+                        <div class="evo-title">⚡ EVOLUTION LADDER</div>
+                        <ul class="evo-list">
+                            <li><span>LVL 1:</span> The Imitator (Safe copying)</li>
+                            <li><span>LVL 2:</span> The Innovator (Original craft)</li>
+                            <li><span>LVL 3:</span> The Visionary (God-mode creation)</li>
+                        </ul>
+                    </div>
+
+                    <div class="shadow-block">
+                        <div class="shadow-title">💀 SHADOW: THE DRAMA QUEEN</div>
+                        <div class="shadow-desc">Creating chaos just to feel alive. Narcissism. "Look at me."</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SEEKER -->
+            <div class="archetype-card" style="border-top: 3px solid #54a0ff;">
+                <div class="scan-overlay"></div>
+                <div class="card-header">
+                    <div class="arch-icon">🔍</div>
+                    <div class="arch-role">QUEST_CLASS</div>
+                </div>
+                <div class="card-body">
+                    <div class="arch-name">The Parivrajaka</div>
+                    <span class="arch-eng">THE SEEKER / EXPLORER</span>
+                    <p class="arch-desc">
+                        <strong>The Return Home.</strong> You know this world is not your home. You seek the Grail, the Self, the Source.
+                        Your Shakti is <strong>Moksha</strong> (Liberation).
+                    </p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <span class="stat-label">SUPERPOWER</span>
+                            <span class="stat-val" style="color: #54a0ff;">AUTONOMY</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-label">FATAL FLAW</span>
+                            <span class="stat-val" style="color: #ff6b6b;">RESTLESSNESS</span>
+                        </div>
+                    </div>
+
+                    <div class="evo-block">
+                        <div class="evo-title">⚡ EVOLUTION LADDER</div>
+                        <ul class="evo-list">
+                            <li><span>LVL 1:</span> The Drifter (Flaking/Running)</li>
+                            <li><span>LVL 2:</span> The Explorer (Seeking growth)</li>
+                            <li><span>LVL 3:</span> The Mystic (Finding it inside)</li>
+                        </ul>
+                    </div>
+
+                    <div class="shadow-block">
+                        <div class="shadow-title">💀 SHADOW: THE ETERNAL ORPHAN</div>
+                        <div class="shadow-desc">Never belonging anywhere. Spiritual homelessness. Inability to commit to a path.</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="action-area">
+            <button class="scan-btn" onclick="alert('SCANNING PSYCHE SIGNATURE...\\n\\nDETECTING DOMINANT ARCHETYPE...\\n\\nRESULT: MULTI-CLASS HYBRID DETECTED.')">
+                INITIATE DEEP PSYCHE SCAN
+            </button>
+            <p style="font-family: 'Share Tech Mono'; color: rgba(255,255,255,0.5); margin-top: 1rem; font-size: 0.8rem;">
+                SYSTEM READY // WAITING FOR INPUT
+            </p>
+        </div>
+
+        <div style="margin-top: 4rem; border-top: 1px solid rgba(157, 78, 221, 0.3); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center;">
+            <a href="gunas.html" class="back-link">❮ PREV: GUNA MATRIX</a>
+            <a href="shadow.html" class="back-link">NEXT: SHADOW BIOMETRICS ❯</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guna Matrix - Character Analysis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --psyche-primary: #9d4edd;
+            --psyche-secondary: #e0aaff;
+            --psyche-dark: #10002b;
+            --psyche-glass: rgba(16, 0, 43, 0.8);
+            --text-main: #ffffff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--psyche-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        #bg-video-layer {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -3;
+        }
+        #bg-video {
+            position: absolute; top: 50%; left: 50%;
+            min-width: 100%; min-height: 100%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            filter: brightness(0.3) contrast(1.1) saturate(1.2) hue-rotate(20deg);
+        }
+        .grid-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(157, 78, 221, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(157, 78, 221, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -2;
+            pointer-events: none;
+        }
+        
+        /* Content Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid rgba(157, 78, 221, 0.3);
+            padding-bottom: 1rem;
+        }
+        .back-link {
+            color: var(--psyche-secondary);
+            text-decoration: none;
+            font-family: 'Share Tech Mono', monospace;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+        }
+        .back-link:hover { color: #fff; }
+        
+        .page-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(157, 78, 221, 0.6);
+        }
+        .page-subtitle {
+            font-family: 'Share Tech Mono'; 
+            color: var(--psyche-secondary);
+            letter-spacing: 2px;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+        @media (min-width: 900px) {
+            .content-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        .glass-card {
+            background: var(--psyche-glass);
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .card-title {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--psyche-secondary);
+            margin-bottom: 0.5rem;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .tag { 
+            display: inline-block; 
+            padding: 0.3rem 0.8rem; 
+            background: rgba(0,0,0,0.4); 
+            border-radius: 4px; 
+            font-size: 0.75rem; 
+            margin-bottom: 1.5rem; 
+            font-family: 'Share Tech Mono'; 
+            letter-spacing: 1px; 
+            border: 1px solid rgba(255,255,255,0.1); 
+            color: rgba(255,255,255,0.6);
+        }
+
+        p { line-height: 1.6; color: rgba(255,255,255,0.8); margin-bottom: 1rem; font-size: 1rem; }
+
+        .guna-meter {
+            margin-top: 2rem;
+            background: rgba(0,0,0,0.3);
+            padding: 1rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .meter-label { display: flex; justify-content: space-between; font-family: 'Share Tech Mono'; font-size: 0.8rem; margin-bottom: 0.5rem; color: rgba(255,255,255,0.7); }
+        .meter-bar { height: 4px; background: rgba(255,255,255,0.1); position: relative; overflow: hidden; }
+        .meter-fill { height: 100%; background: var(--psyche-primary); width: 0%; transition: width 1s ease; position: relative; }
+        .meter-fill::after { content: ''; position: absolute; top: 0; right: 0; width: 5px; height: 100%; background: #fff; box-shadow: 0 0 10px #fff; }
+
+        .section-block { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px dashed rgba(255,255,255,0.1); }
+        .section-block h4 { font-size: 0.9rem; color: #fff; margin-bottom: 0.8rem; font-family: 'Orbitron'; letter-spacing: 1px; opacity: 0.9; }
+        .section-block ul { list-style: none; padding-left: 0; }
+        .section-block li { font-size: 0.9rem; margin-bottom: 0.5rem; color: rgba(255,255,255,0.8); line-height: 1.5; position: relative; padding-left: 1rem; }
+        .section-block li::before { content: '>'; position: absolute; left: 0; color: var(--psyche-secondary); font-family: 'Share Tech Mono'; font-size: 0.8rem; }
+        
+        .section-block.dark-mode { background: rgba(255, 107, 107, 0.05); padding: 1.2rem; border: 1px solid rgba(255, 107, 107, 0.2); margin-top: 2rem; }
+        .section-block.dark-mode h4 { color: #ff6b6b; }
+
+        .console-log {
+            font-family: 'Share Tech Mono';
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 0.5rem;
+        }
+
+        .full-width { 
+            grid-column: 1 / -1; 
+            background: linear-gradient(135deg, rgba(16, 0, 43, 0.95), rgba(0,0,0,0.95)); 
+            border: 1px solid var(--psyche-primary); 
+            padding: 3rem 2rem;
+            position: relative;
+        }
+        
+        .protocol-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .proto-step { background: rgba(255,255,255,0.02); padding: 1.5rem; border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s; position: relative; }
+        .proto-step:hover { background: rgba(255,255,255,0.05); transform: translateY(-5px); border-color: var(--psyche-secondary); }
+        
+        .proto-num { position: absolute; top: -15px; left: 1rem; font-family: 'Orbitron'; font-size: 3rem; opacity: 0.1; font-weight: 900; }
+        .proto-icon { font-size: 2rem; margin-bottom: 1rem; filter: drop-shadow(0 0 10px rgba(255,255,255,0.3)); }
+        .proto-step h5 { color: var(--psyche-secondary); font-family: 'Orbitron'; margin-bottom: 0.5rem; font-size: 1.1rem; letter-spacing: 1px; }
+        .proto-step p { font-size: 0.9rem; line-height: 1.6; color: rgba(255,255,255,0.7); margin: 0; }
+
+        .init-btn {
+            width: 100%; max-width: 400px; margin: 3rem auto 0; display: block;
+            padding: 1.2rem;
+            background: transparent;
+            color: var(--psyche-primary);
+            border: 1px solid var(--psyche-primary);
+            font-family: 'Orbitron'; font-size: 1rem; letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            position: relative; overflow: hidden;
+        }
+        .init-btn:hover {
+            background: var(--psyche-primary);
+            color: #fff;
+            box-shadow: 0 0 20px var(--psyche-primary);
+        }
+
+        @media (max-width: 768px) {
+            .content-grid { grid-template-columns: 1fr; }
+            .page-title { font-size: 2rem; }
+        }
+</head>
+<body>
+    <div id="bg-video-layer">
+        <video id="bg-video" autoplay muted loop playsinline>
+            <source src="../assets/video/character.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="grid-overlay"></div>
+
+    <div class="container">
+        <nav class="nav-header">
+            <a href="index.html" class="back-link">← SYSTEM MATRIX</a>
+            <div style="font-family: 'Share Tech Mono'; color: var(--psyche-primary);">MODULE: 01</div>
+        </nav>
+
+        <header style="text-align: center; margin-bottom: 3rem;">
+            <div style="font-size: 5rem; margin-bottom: 1rem; text-shadow: 0 0 30px var(--psyche-primary);">⚖️</div>
+            <h1 class="page-title">Guna Matrix</h1>
+            <span class="page-subtitle">QUANTUM VIBRATION ANALYSIS</span>
+            <p style="max-width: 700px; margin: 1rem auto; font-size: 1rem; opacity: 0.8;">
+                <strong>Matter is not solid. It is Music.</strong><br>
+                The universe is woven from three fundamental strings: 
+                <strong>Illumination</strong> (Sattva), <strong>Motion</strong> (Rajas), and <strong>Inertia</strong> (Tamas).
+                Your personality is just the interference pattern of these three frequencies.
+            </p>
+        </header>
+
+        <div class="content-grid">
+            <!-- Sattva -->
+            <div class="glass-card" style="border-top: 3px solid #ffe66d; border-left: none;">
+                <div class="console-log">> DETECTING_CARRIER_WAVE: 963Hz</div>
+                <h3 class="card-title" style="color: #ffe66d;">✨ Sattva (Illumination)</h3>
+                <div class="tag">MODE: TRANSPARENCY // NEURO: SEROTONIN</div>
+                <p>
+                    <strong>The State of "Being".</strong> Sattva is the frequency of clarity. 
+                    When the mind becomes Sattvic, it ceases to be a projector of fantasy and becomes a mirror of Reality.
+                    It is balance, harmony, and light without heat.
+                </p>
+                
+                <div class="section-block">
+                    <h4>👁️ THE SIDDHI (Superpower)</h4>
+                    <ul>
+                        <li><strong>Prajna (Direct Knowing):</strong> Knowledge downloads without study. Intuition becomes absolute.</li>
+                        <li><strong>Tejas (Luminosity):</strong> Your bio-magnetic field expands, calming others instantly.</li>
+                    </ul>
+                </div>
+
+                <div class="section-block dark-mode">
+                    <h4>🌑 THE TRAP: GOLDEN CAGE</h4>
+                    <p>"Spiritual Bypassing." Becoming addicted to the bliss state (Ananda) and refusing to engage with the messy world. The ego hides inside the light.</p>
+                </div>
+
+                <div class="guna-meter">
+                    <div class="meter-label"><span>CURRENT_RESONANCE</span> <span>TARGET: 70%</span></div>
+                    <div class="meter-bar"><div class="meter-fill" style="width: 33%; background: #ffe66d;"></div></div>
+                </div>
+            </div>
+
+            <!-- Rajas -->
+            <div class="glass-card" style="border-top: 3px solid #ff6b6b; border-left: none;">
+                <div class="console-log">> DETECTING_CARRIER_WAVE: 432Hz (OSCILLATING)</div>
+                <h3 class="card-title" style="color: #ff6b6b;">🔥 Rajas (Distortion)</h3>
+                <div class="tag">MODE: PROJECTION // NEURO: DOPAMINE</div>
+                <p>
+                    <strong>The State of "Doing".</strong> Rajas is the force of Kinetic Energy. 
+                    It bends the straight line of Truth into the curve of "My Story." It creates Time (Past/Future) to escape the terror of the Now.
+                </p>
+
+                <div class="section-block">
+                    <h4>🚀 THE SIDDHI (Superpower)</h4>
+                    <ul>
+                        <li><strong>Iccha Shakti (Will Power):</strong> The ability to bend reality to one's will. Manifestation.</li>
+                        <li><strong>Kriya Shakti (Action Power):</strong> Tireless, explosive capacity for creation and destruction.</li>
+                    </ul>
+                </div>
+
+                <div class="section-block dark-mode">
+                    <h4>🌑 THE TRAP: HUNGRY GHOST</h4>
+                    <p>"Hustle Culture." Insatiable Thirst (Trishna). The belief that "fulfillment is in the next moment." You consume the world, but remain empty.</p>
+                </div>
+
+                <div class="guna-meter">
+                    <div class="meter-label"><span>CURRENT_RESONANCE</span> <span>LIMIT: 20%</span></div>
+                    <div class="meter-bar"><div class="meter-fill" style="width: 50%; background: #ff6b6b;"></div></div>
+                </div>
+            </div>
+
+            <!-- Tamas -->
+            <div class="glass-card" style="border-top: 3px solid #4ecdc4; border-left: none;">
+                <div class="console-log">> DETECTING_CARRIER_WAVE: 0Hz (STATIC)</div>
+                <h3 class="card-title" style="color: #4ecdc4;">🪨 Tamas (Inertia)</h3>
+                <div class="tag">MODE: CONCEALMENT // NEURO: OPIATES</div>
+                <p>
+                    <strong>The State of "Stopping".</strong> Tamas is the force of Gravity. 
+                    It wraps consciousness in matter so it forgets itself. It is the womb of creation and the tomb of consciousness.
+                </p>
+
+                <div class="section-block">
+                    <h4>🛡️ THE SIDDHI (Superpower)</h4>
+                    <ul>
+                        <li><strong>Stambhana (Stopping):</strong> The power to freeze, immobilize, or preserve. Absolute endurance.</li>
+                        <li><strong>Samadhi (Absorption):</strong> The ability to merge completely into an object or state (womb-like peace).</li>
+                    </ul>
+                </div>
+
+                <div class="section-block dark-mode">
+                    <h4>🌑 THE TRAP: BLACK HOLE</h4>
+                    <p>"Delusion" (Moh). Consciousness falls asleep within the waking state. You become a biological robot, running entirely on subconscious scripts.</p>
+                </div>
+
+                <div class="guna-meter">
+                    <div class="meter-label"><span>CURRENT_RESONANCE</span> <span>LIMIT: 10%</span></div>
+                    <div class="meter-bar"><div class="meter-fill" style="width: 60%; background: #4ecdc4;"></div></div>
+                </div>
+            </div>
+
+            <!-- Integration Protocol -->
+            <div class="glass-card full-width">
+                <div class="console-log">> SYSTEM_STATUS: IMBALANCED... INITIATING_HARMONIZATION_PROTOCOL</div>
+                <h3 class="card-title" style="color: #fff; margin-bottom: 2rem; text-align: center;">🧪 TRIGUNA TITA (The Transcendence Protocol)</h3>
+                
+                <div class="protocol-grid">
+                    <div class="proto-step">
+                        <div class="proto-num">01</div>
+                        <div class="proto-icon">🔥</div>
+                        <h5>IGNITION (Rajas)</h5>
+                        <p>Use Will to crush Inertia. Wake up the system with intense movement, breath of fire, or cold exposure. Break the sleep.</p>
+                    </div>
+                    <div class="proto-step">
+                        <div class="proto-num">02</div>
+                        <div class="proto-icon">✨</div>
+                        <h5>HARMONY (Sattva)</h5>
+                        <p>Use Wisdom to calm Will. Balance the channels (Nadi Shodhana) until the mind is still, transparent, and reflective.</p>
+                    </div>
+                    <div class="proto-step">
+                        <div class="proto-num">03</div>
+                        <div class="proto-icon">👁️</div>
+                        <h5>THE WITNESS (Nirguna)</h5>
+                        <p>Step back. Observe Sattva itself. Who is aware of the peace? That "Who" is the Self, untouched by the Gunas.</p>
+                    </div>
+                </div>
+
+                <button class="init-btn" onclick="alert('PROTOCOL INITIATED.\n\n1. BREAK TAMAS WITH MOVEMENT.\n2. CALM RAJAS WITH BREATH.\n3. WITNESS THE SILENCE.')">
+                    INITIATE BALANCING SEQUENCE
+                </button>
+            </div>
+        </div>
+
+        <div style="margin-top: 4rem; border-top: 1px solid rgba(157, 78, 221, 0.3); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center;">
+            <a href="index.html" class="back-link">❮ RETURN TO MATRIX</a>
+            <a href="archetypes.html" class="back-link">NEXT: ARCHETYPE SCANNER ❯</a>
+        </div>
+    </div>
+
+    <style>
+        .tag { display: inline-block; padding: 0.3rem 0.8rem; background: rgba(255,255,255,0.1); border-radius: 4px; font-size: 0.75rem; margin-bottom: 1rem; font-family: 'Share Tech Mono'; letter-spacing: 1px; border: 1px solid rgba(255,255,255,0.2); }
+        .section-block { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        .section-block h4 { font-size: 1rem; color: #fff; margin-bottom: 0.8rem; font-family: 'Orbitron'; }
+        .section-block ul { list-style: none; padding-left: 0.5rem; }
+        .section-block li { font-size: 0.9rem; margin-bottom: 0.5rem; color: rgba(255,255,255,0.8); line-height: 1.5; }
+        .section-block.dark-mode { background: rgba(0,0,0,0.3); padding: 1.2rem; border-radius: 4px; border: 1px solid rgba(255, 107, 107, 0.3); }
+        .full-width { grid-column: 1 / -1; background: linear-gradient(135deg, rgba(16, 0, 43, 0.9), rgba(157, 78, 221, 0.15)); border: 1px solid var(--psyche-primary); }
+        
+        .protocol-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .proto-step { background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s; }
+        .proto-step:hover { background: rgba(255,255,255,0.08); transform: translateY(-5px); border-color: var(--psyche-secondary); }
+        .proto-icon { font-size: 1.5rem; margin-bottom: 1rem; }
+        .proto-step h5 { color: var(--psyche-secondary); font-family: 'Orbitron'; margin-bottom: 0.5rem; }
+        .proto-step p { font-size: 0.85rem; line-height: 1.6; color: rgba(255,255,255,0.7); margin: 0; }
+    </style>
+</body>
+</html>

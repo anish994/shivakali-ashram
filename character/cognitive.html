@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cognitive Architecture - Character Analysis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --psyche-primary: #9d4edd;
+            --psyche-secondary: #e0aaff;
+            --psyche-alert: #ff6b6b;
+            --psyche-safe: #00d2d3;
+            --psyche-warn: #feca57;
+            --psyche-dark: #10002b;
+            --psyche-glass: rgba(16, 0, 43, 0.95);
+            --text-main: #ffffff;
+            --grid-color: rgba(157, 78, 221, 0.05);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--psyche-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        #bg-video-layer {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -3;
+        }
+        #bg-video {
+            position: absolute; top: 50%; left: 50%;
+            min-width: 100%; min-height: 100%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            filter: brightness(0.3) contrast(1.1) saturate(1.2) hue-rotate(20deg);
+        }
+        .grid-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: -2;
+            pointer-events: none;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            position: relative;
+            z-index: 10;
+            padding-bottom: 6rem;
+        }
+
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4rem;
+            border-bottom: 1px solid rgba(157, 78, 221, 0.3);
+            padding-bottom: 1rem;
+            backdrop-filter: blur(5px);
+        }
+        .back-link {
+            color: var(--psyche-secondary);
+            text-decoration: none;
+            font-family: 'Share Tech Mono', monospace;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        .back-link:hover { 
+            color: #fff; 
+            text-shadow: 0 0 10px var(--psyche-primary);
+            transform: translateX(-5px);
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 5rem;
+            position: relative;
+        }
+        .page-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(157, 78, 221, 0.6);
+            margin-bottom: 0.5rem;
+        }
+        .page-subtitle {
+            font-family: 'Share Tech Mono'; 
+            color: var(--psyche-secondary);
+            letter-spacing: 2px;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            display: block;
+        }
+        .concept-brief {
+            max-width: 800px; 
+            margin: 0 auto; 
+            font-size: 1.1rem; 
+            opacity: 0.9;
+            background: linear-gradient(180deg, rgba(0,0,0,0), rgba(157, 78, 221, 0.1), rgba(0,0,0,0));
+            padding: 2rem;
+            border-left: 2px solid var(--psyche-primary);
+            border-right: 2px solid var(--psyche-primary);
+        }
+
+        .mind-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .mind-card {
+            background: var(--psyche-glass);
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+        .mind-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+            border-color: var(--psyche-secondary);
+        }
+        
+        .card-top {
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(0,0,0,0.2);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .comp-icon { font-size: 2rem; }
+        .comp-title { font-family: 'Orbitron'; font-size: 1.3rem; color: #fff; }
+        .comp-sub { font-family: 'Share Tech Mono'; color: var(--psyche-secondary); font-size: 0.8rem; letter-spacing: 1px; }
+
+        .card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+        .desc { font-size: 0.95rem; line-height: 1.6; color: rgba(255,255,255,0.85); margin-bottom: 1.5rem; }
+
+        .status-bar {
+            background: rgba(255,255,255,0.05);
+            height: 4px;
+            width: 100%;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+        .status-fill { height: 100%; background: var(--psyche-primary); width: 50%; }
+        .status-text { font-family: 'Share Tech Mono'; font-size: 0.7rem; color: rgba(255,255,255,0.5); display: flex; justify-content: space-between; }
+
+        .debug-box {
+            background: rgba(0,0,0,0.4);
+            padding: 1rem 1.5rem;
+            font-family: 'Share Tech Mono';
+            font-size: 0.8rem;
+            border-top: 1px dashed rgba(255,255,255,0.1);
+        }
+        .log-entry { margin-bottom: 0.5rem; display: block; }
+        .log-time { color: rgba(255,255,255,0.3); margin-right: 0.5rem; }
+        .log-msg { color: var(--psyche-safe); }
+        .log-err { color: var(--psyche-alert); }
+
+        .patch-box {
+            background: var(--psyche-dark);
+            padding: 1rem 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .patch-title { font-family: 'Orbitron'; font-size: 0.8rem; color: var(--psyche-secondary); margin-bottom: 0.3rem; }
+        .patch-desc { font-size: 0.85rem; color: rgba(255,255,255,0.7); }
+
+        /* DIAGNOSTIC ZONE */
+        .diagnostic-zone {
+            grid-column: 1 / -1;
+            margin-top: 4rem;
+            background: linear-gradient(180deg, rgba(16, 0, 43, 0.95), rgba(0,0,0,0.95));
+            border: 1px solid var(--psyche-primary);
+            padding: 3rem 2rem;
+            font-family: 'Share Tech Mono';
+            position: relative;
+        }
+        .diagnostic-zone::before {
+            content: 'SYSTEM_ROOT_ACCESS';
+            position: absolute; top: 1rem; left: 1rem;
+            color: rgba(255,255,255,0.1); font-size: 3rem; font-weight: bold; pointer-events: none;
+        }
+
+        .terminal-window {
+            background: #000;
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 1rem;
+            margin-top: 2rem;
+            height: 200px;
+            overflow-y: auto;
+            font-size: 0.85rem;
+            color: #0f0;
+            text-shadow: 0 0 5px #0f0;
+        }
+        .cursor { animation: blink 1s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        .purge-btn {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 2rem auto 0;
+            padding: 1rem;
+            background: var(--psyche-alert);
+            color: #000;
+            border: none;
+            font-family: 'Orbitron';
+            font-weight: bold;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+            clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+        }
+        .purge-btn:hover { background: #fff; transform: scale(1.05); box-shadow: 0 0 20px var(--psyche-alert); }
+
+        @media (max-width: 768px) {
+            .page-title { font-size: 2rem; }
+            .mind-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div id="bg-video-layer">
+        <video id="bg-video" autoplay muted loop playsinline>
+            <source src="../assets/video/character.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="grid-overlay"></div>
+
+    <div class="container">
+        <nav class="nav-header">
+            <a href="index.html" class="back-link">
+                <span>❮</span> SYSTEM MATRIX
+            </a>
+            <div style="font-family: 'Share Tech Mono'; color: var(--psyche-primary); font-size: 0.8rem;">
+                MODULE: 06 // ANTAHKARANA_OS
+            </div>
+        </nav>
+
+        <header class="page-header">
+            <div style="font-size: 5rem; margin-bottom: 1rem; text-shadow: 0 0 30px var(--psyche-safe);">🧠</div>
+            <h1 class="page-title">Cognitive Architecture</h1>
+            <span class="page-subtitle">ANTAHKARANA (The Internal Instrument)</span>
+            
+            <div class="concept-brief">
+                <p><strong>The Mind is a Tool, not the User.</strong></p>
+                <p style="margin-top: 1rem; font-size: 1rem; color: rgba(255,255,255,0.8);">
+                    Yogic science breaks the mind down into four distinct hardware components. 
+                    Most people have "Root Access" locked out, running automated scripts triggered by sensory input. 
+                    <strong>Yoga is the process of hacking your own OS to regain Admin privileges.</strong>
+                </p>
+            </div>
+        </header>
+
+        <div class="mind-grid">
+            
+            <!-- MANAS (RAM) -->
+            <div class="mind-card" style="border-top: 3px solid #54a0ff;">
+                <div class="card-top">
+                    <div class="comp-icon">👀</div>
+                    <div>
+                        <div class="comp-title">Manas</div>
+                        <div class="comp-sub">COMPONENT: RAM / SENSORY INPUT</div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p class="desc">
+                        The sensory coordinator. It processes sight, sound, and touch in real-time. 
+                        It creates the "Screen of the Mind." It oscillates endlessly between <em>Sankalpa</em> (Selection) and <em>Vikalpa</em> (Rejection). 
+                        It cannot decide; it only doubts.
+                    </p>
+                    <div class="status-bar">
+                        <div class="status-fill" style="width: 85%; background: #54a0ff;"></div>
+                    </div>
+                    <div class="status-text">
+                        <span>LOAD: 85%</span>
+                        <span>STATUS: HIGH_TRAFFIC</span>
+                    </div>
+                </div>
+                <div class="debug-box">
+                    <span class="log-entry"><span class="log-time">[00:01]</span> <span class="log-msg">INPUT: Visual Data Stream</span></span>
+                    <span class="log-entry"><span class="log-time">[00:02]</span> <span class="log-err">ERROR: ATTENTION_SPAN_OVERFLOW</span></span>
+                </div>
+                <div class="patch-box">
+                    <div class="patch-title">PATCH: PRATYAHARA (Sensory Withdrawal)</div>
+                    <div class="patch-desc">Close the ports. Withdraw attention like a turtle pulling in limbs.</div>
+                </div>
+            </div>
+
+            <!-- BUDDHI (CPU) -->
+            <div class="mind-card" style="border-top: 3px solid #feca57;">
+                <div class="card-top">
+                    <div class="comp-icon">💡</div>
+                    <div>
+                        <div class="comp-title">Buddhi</div>
+                        <div class="comp-sub">COMPONENT: CPU / INTELLECT</div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p class="desc">
+                        The Sword of Discrimination (Viveka). It judges true vs. false, right vs. wrong, permanent vs. temporary. 
+                        It is the only component capable of waking up. Usually dormant, drowned out by the noise of Manas.
+                    </p>
+                    <div class="status-bar">
+                        <div class="status-fill" style="width: 15%; background: #feca57;"></div>
+                    </div>
+                    <div class="status-text">
+                        <span>LOAD: 15%</span>
+                        <span>STATUS: IDLE / SLEEP_MODE</span>
+                    </div>
+                </div>
+                <div class="debug-box">
+                    <span class="log-entry"><span class="log-time">[00:01]</span> <span class="log-msg">PROCESS: Decision_Logic.exe</span></span>
+                    <span class="log-entry"><span class="log-time">[00:02]</span> <span class="log-err">WARN: SIGNAL_TOO_WEAK</span></span>
+                </div>
+                <div class="patch-box">
+                    <div class="patch-title">PATCH: SVADHYAYA (Self-Study)</div>
+                    <div class="patch-desc">Sharpen the blade with sacred texts and deep inquiry.</div>
+                </div>
+            </div>
+
+            <!-- CHITTA (SSD) -->
+            <div class="mind-card" style="border-top: 3px solid #5f27cd;">
+                <div class="card-top">
+                    <div class="comp-icon">💾</div>
+                    <div>
+                        <div class="comp-title">Chitta</div>
+                        <div class="comp-sub">COMPONENT: SSD / STORAGE</div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p class="desc">
+                        The Cloud Storage of the Soul. Contains every impression (Samskara) from every lifetime. 
+                        It colors your perception of reality with memory. You don't see "what is"—you see "what was."
+                    </p>
+                    <div class="status-bar">
+                        <div class="status-fill" style="width: 98%; background: #5f27cd;"></div>
+                    </div>
+                    <div class="status-text">
+                        <span>LOAD: 98%</span>
+                        <span>STATUS: FRAGMENTED</span>
+                    </div>
+                </div>
+                <div class="debug-box">
+                    <span class="log-entry"><span class="log-time">[00:01]</span> <span class="log-msg">ACCESS: Trauma_File_1998.dat</span></span>
+                    <span class="log-entry"><span class="log-time">[00:02]</span> <span class="log-err">ALERT: PROJECTION_DETECTED</span></span>
+                </div>
+                <div class="patch-box">
+                    <div class="patch-title">PATCH: DHYANA (Meditation)</div>
+                    <div class="patch-desc">Defrag the drive. Still the waves so the bottom can be seen.</div>
+                </div>
+            </div>
+
+            <!-- AHANKARA (ADMIN) -->
+            <div class="mind-card" style="border-top: 3px solid #ff6b6b;">
+                <div class="card-top">
+                    <div class="comp-icon">🛡️</div>
+                    <div>
+                        <div class="comp-title">Ahankara</div>
+                        <div class="comp-sub">COMPONENT: USER / EGO</div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p class="desc">
+                        The "I-Maker." The function that claims ownership of data. "MY pain," "MY idea," "MY success." 
+                        It is the firewall that separates the individual node from the universal network.
+                    </p>
+                    <div class="status-bar">
+                        <div class="status-fill" style="width: 100%; background: #ff6b6b;"></div>
+                    </div>
+                    <div class="status-text">
+                        <span>LOAD: 100%</span>
+                        <span>STATUS: LOCKED / SECURE</span>
+                    </div>
+                </div>
+                <div class="debug-box">
+                    <span class="log-entry"><span class="log-time">[00:01]</span> <span class="log-msg">CLAIM: This_Body_Is_Me</span></span>
+                    <span class="log-entry"><span class="log-time">[00:02]</span> <span class="log-err">ERROR: FALSE_IDENTITY_FATAL</span></span>
+                </div>
+                <div class="patch-box">
+                    <div class="patch-title">PATCH: NETI NETI (Not This)</div>
+                    <div class="patch-desc">Systematic revocation of Admin privileges. "I am not this."</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- DIAGNOSTIC ZONE -->
+        <div class="diagnostic-zone">
+            <h2 style="font-family: 'Orbitron'; color: #fff; text-align: center; margin-bottom: 1rem;">PROTOCOL: SYSTEM PURGE</h2>
+            <p style="text-align: center; color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto;">
+                Execute the <strong>NETI NETI</strong> (Not This, Not That) diagnostic to isolate the Observer from the Observed.
+            </p>
+
+            <div class="terminal-window" id="terminal">
+                <div>> INITIALIZING_BOOT_SEQUENCE...</div>
+                <div>> CHECKING_HARDWARE... OK</div>
+                <div>> CHECKING_IDENTITY... <span style="color: #f00">ERROR: IDENTITY_NOT_FOUND</span></div>
+                <div>> RUNNING_QUERY: "WHO_AM_I?"</div>
+                <div>> SCANNING...</div>
+                <div class="cursor">_</div>
+            </div>
+
+            <button class="purge-btn" onclick="runDiagnostic()">
+                RUN DIAGNOSTIC
+            </button>
+        </div>
+        
+        <script>
+            function runDiagnostic() {
+                const term = document.getElementById('terminal');
+                const lines = [
+                    "> QUERY: AM I THE BODY? ... NEGATIVE.",
+                    "> QUERY: AM I THE MIND? ... NEGATIVE.",
+                    "> QUERY: AM I THE THOUGHTS? ... NEGATIVE.",
+                    "> QUERY: AM I THE EGO? ... NEGATIVE.",
+                    "> ISOLATING CORE KERNEL...",
+                    "> STATUS: I AM THE OBSERVER (SAKSHI).",
+                    "> SYSTEM PURGE COMPLETE. FREEDOM DETECTED."
+                ];
+                let i = 0;
+                term.innerHTML = '<div>> INITIALIZING...</div>';
+                const interval = setInterval(() => {
+                    if (i >= lines.length) {
+                        clearInterval(interval);
+                        return;
+                    }
+                    term.innerHTML += `<div>${lines[i]}</div>`;
+                    term.scrollTop = term.scrollHeight;
+                    i++;
+                }, 800);
+            }
+        </script>
+
+        <div style="margin-top: 4rem; border-top: 1px solid rgba(157, 78, 221, 0.3); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center;">
+            <a href="karma.html" class="back-link">❮ PREV: KARMIC PATTERNS</a>
+            <a href="index.html" class="back-link">RETURN TO MAIN SYSTEM ❯</a>
+        </div>
+    </div>
+</body>
+</html>

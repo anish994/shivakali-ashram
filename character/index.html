@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Analysis - Personality Mastery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --psyche-primary: #9d4edd; /* Vivid Violet */
+            --psyche-secondary: #e0aaff; /* Soft Lavender */
+            --psyche-dark: #10002b; /* Deepest Void */
+            --psyche-glass: rgba(16, 0, 43, 0.7);
+            --psyche-glass-border: rgba(157, 78, 221, 0.2);
+            --psyche-glow: 0 0 20px rgba(157, 78, 221, 0.4);
+            --text-main: #ffffff;
+            --text-dim: rgba(255, 255, 255, 0.7);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--psyche-dark);
+            color: var(--text-main);
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- Background Layers --- */
+        #bg-video-layer {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -3;
+        }
+
+        #bg-video {
+            position: absolute; top: 50%; left: 50%;
+            min-width: 100%; min-height: 100%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            filter: brightness(0.3) contrast(1.1) saturate(1.2) hue-rotate(20deg);
+        }
+
+        .grid-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(157, 78, 221, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(157, 78, 221, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        /* --- Layout Interface --- */
+        .interface-wrapper {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 10;
+            padding: 2rem;
+            gap: 2rem;
+        }
+
+        /* --- Left: Navigation Rail (The New "Nodes") --- */
+        .nav-rail {
+            width: 350px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            height: 100%;
+            overflow-y: auto;
+            padding-right: 1rem;
+            scrollbar-width: none; /* Firefox */
+        }
+        .nav-rail::-webkit-scrollbar { display: none; }
+
+        .nav-header {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--psyche-glass-border);
+            padding-bottom: 1rem;
+        }
+        
+        .nav-header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, #fff, var(--psyche-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-header .sub {
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--psyche-primary);
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .module-card {
+            background: linear-gradient(90deg, rgba(255,255,255,0.03), transparent);
+            border-left: 2px solid var(--psyche-glass-border);
+            padding: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module-card::before {
+            content: '';
+            position: absolute; top: 0; left: 0; width: 0%; height: 100%;
+            background: linear-gradient(90deg, rgba(157, 78, 221, 0.2), transparent);
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+
+        .module-card:hover {
+            border-left-color: var(--psyche-secondary);
+            padding-left: 1.5rem;
+        }
+        .module-card:hover::before { width: 100%; }
+
+        .module-card.active {
+            background: linear-gradient(90deg, rgba(157, 78, 221, 0.3), transparent);
+            border-left: 3px solid var(--psyche-primary);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+        }
+
+        .card-icon { font-size: 1.5rem; filter: drop-shadow(0 0 5px var(--psyche-primary)); }
+        .card-info h3 { font-family: 'Orbitron', sans-serif; font-size: 1rem; letter-spacing: 1px; }
+        .card-info p { font-family: 'Share Tech Mono', monospace; font-size: 0.7rem; color: var(--text-dim); }
+
+        /* --- Right: The Stage (Content Visualizer) --- */
+        .stage-area {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background: var(--psyche-glass);
+            border: 1px solid var(--psyche-glass-border);
+            backdrop-filter: blur(10px);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .stage-content {
+            text-align: center;
+            max-width: 600px;
+            padding: 3rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .stage-content.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .big-icon {
+            font-size: 6rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            filter: drop-shadow(0 0 30px var(--psyche-primary));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .stage-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            background: linear-gradient(180deg, #fff, var(--psyche-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stage-desc {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: var(--text-dim);
+            margin-bottom: 2.5rem;
+            border-top: 1px solid var(--psyche-glass-border);
+            border-bottom: 1px solid var(--psyche-glass-border);
+            padding: 1.5rem 0;
+        }
+
+        .action-btn {
+            padding: 1rem 3rem;
+            background: transparent;
+            border: 1px solid var(--psyche-primary);
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+        .action-btn:hover {
+            background: var(--psyche-primary);
+            box-shadow: 0 0 30px var(--psyche-primary);
+            transform: scale(1.05);
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 2rem; right: 2rem;
+            color: var(--text-dim);
+            text-decoration: none;
+            font-family: 'Share Tech Mono', monospace;
+            border: 1px solid var(--psyche-glass-border);
+            padding: 0.5rem 1rem;
+            transition: all 0.3s;
+            z-index: 50;
+        }
+        .back-btn:hover { border-color: #fff; color: #fff; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* --- Boot Screen --- */
+        #boot-screen {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #050010;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--psyche-primary);
+        }
+        .loader-bar { width: 200px; height: 2px; background: #222; margin-top: 1rem; position: relative; }
+        .progress { position: absolute; left: 0; top: 0; height: 100%; background: var(--psyche-primary); width: 0%; transition: width 0.2s; }
+
+        /* --- Mobile Optimization --- */
+        @media (max-width: 768px) {
+            .interface-wrapper {
+                flex-direction: column-reverse; /* Nav at bottom, Stage at top */
+                padding: 0;
+                gap: 0;
+            }
+
+            .nav-rail {
+                width: 100%;
+                height: auto;
+                max-height: 40%; /* Takes up bottom 40% */
+                overflow-y: auto;
+                background: rgba(10, 0, 20, 0.95);
+                padding: 1rem;
+                border-top: 1px solid var(--psyche-glass-border);
+                z-index: 20;
+            }
+
+            .nav-header { display: none; } /* Hide header on mobile to save space */
+
+            .module-card {
+                padding: 1rem;
+                border-left: none;
+                border-bottom: 1px solid rgba(255,255,255,0.05);
+                background: transparent;
+            }
+            .module-card.active {
+                border-left: 3px solid var(--psyche-primary);
+                border-bottom: none;
+                background: rgba(157, 78, 221, 0.1);
+            }
+
+            .stage-area {
+                flex: 1; /* Takes remaining space (top 60%) */
+                border: none;
+                border-radius: 0;
+                background: transparent;
+                align-items: flex-end; /* Align content towards bottom of stage area */
+            }
+
+            .stage-content {
+                padding: 2rem;
+                width: 100%;
+                background: linear-gradient(0deg, rgba(0,0,0,0.8), transparent);
+            }
+            
+            .stage-title { font-size: 2rem; }
+            .stage-desc { font-size: 0.9rem; margin-bottom: 1.5rem; padding: 1rem 0; }
+            .big-icon { font-size: 4rem; margin-bottom: 0.5rem; }
+            .action-btn { padding: 0.8rem 2rem; font-size: 0.9rem; width: 100%; }
+
+            .back-btn { top: 1rem; right: 1rem; font-size: 0.8rem; padding: 0.3rem 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Boot Screen -->
+    <div id="boot-screen">
+        <div id="boot-text">INITIALIZING PERSONALITY CORE...</div>
+        <div class="loader-bar"><div class="progress" id="loader"></div></div>
+    </div>
+
+    <!-- Background -->
+    <div id="bg-video-layer">
+        <video id="bg-video" autoplay muted loop playsinline>
+            <source src="../assets/video/character.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="grid-overlay"></div>
+
+    <div class="interface-wrapper">
+        
+        <!-- Navigation Rail (List) -->
+        <div class="nav-rail">
+            <div class="nav-header">
+                <h1>System Modules</h1>
+                <div class="sub">SELECT DATA STREAM</div>
+            </div>
+
+            <div class="module-card active" onclick="loadModule('guna')">
+                <div class="card-icon">⚖️</div>
+                <div class="card-info">
+                    <h3>Guna Matrix</h3>
+                    <p>Mental Physics Analysis</p>
+                </div>
+            </div>
+
+            <div class="module-card" onclick="loadModule('archetype')">
+                <div class="card-icon">🎭</div>
+                <div class="card-info">
+                    <h3>Archetype Scanner</h3>
+                    <p>Mythic Role ID</p>
+                </div>
+            </div>
+
+            <div class="module-card" onclick="loadModule('shadow')">
+                <div class="card-icon">🌑</div>
+                <div class="card-info">
+                    <h3>Shadow Biometrics</h3>
+                    <p>Unconscious Drive Mapping</p>
+                </div>
+            </div>
+
+            <div class="module-card" onclick="loadModule('emotional')">
+                <div class="card-icon">❤️</div>
+                <div class="card-info">
+                    <h3>Emotional Spectrum</h3>
+                    <p>Rasa Vidya Diagnostics</p>
+                </div>
+            </div>
+
+            <div class="module-card" onclick="loadModule('karmic')">
+                <div class="card-icon">♾️</div>
+                <div class="card-info">
+                    <h3>Karmic Patterns</h3>
+                    <p>Loop Recognition System</p>
+                </div>
+            </div>
+
+            <div class="module-card" onclick="loadModule('cognitive')">
+                <div class="card-icon">🧠</div>
+                <div class="card-info">
+                    <h3>Cognitive Arch.</h3>
+                    <p>Intellect Hardware Scan</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Stage -->
+        <div class="stage-area">
+            <a href="../index.html" class="back-btn">EXIT SYSTEM</a>
+            
+            <div class="stage-content active" id="main-stage">
+                <div class="big-icon">⚖️</div>
+                <h2 class="stage-title">Guna Matrix</h2>
+                <p class="stage-desc">
+                    Analyze the three fundamental forces of your psyche: Sattva (Clarity), Rajas (Action), and Tamas (Inertia). Determine your primary operating mode and balance your mental physics.
+                </p>
+                <a href="gunas.html" class="action-btn">INITIATE SCAN</a>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const moduleData = {
+            guna: {
+                title: "Guna Matrix",
+                icon: "⚖️",
+                desc: "Analyze the three fundamental forces of your psyche: Sattva (Clarity), Rajas (Action), and Tamas (Inertia). Determine your primary operating mode and balance your mental physics.",
+                link: "gunas.html",
+                btn: "INITIATE SCAN"
+            },
+            archetype: {
+                title: "Archetype Scanner",
+                icon: "🎭",
+                desc: "Identify the mythic role you are unconsciously playing. Decode the universal character structures that shape your narrative destiny.",
+                link: "archetypes.html",
+                btn: "IDENTIFY ROLE"
+            },
+            shadow: {
+                title: "Shadow Biometrics",
+                icon: "🌑",
+                desc: "Locate suppressed traits and unconscious drives hidden in the dark. Integrate the 'Gold in the Shadow' to unlock limitless creative energy.",
+                link: "shadow.html",
+                btn: "ENTER THE DARK"
+            },
+            emotional: {
+                title: "Emotional Spectrum",
+                icon: "❤️",
+                desc: "Master the 9 Rasas (Flavors of Experience). Move from reactive emotional states to aesthetic witness consciousness.",
+                link: "emotional.html",
+                btn: "ANALYZE RANGE"
+            },
+            karmic: {
+                title: "Karmic Patterns",
+                icon: "♾️",
+                desc: "Map the repetitive loops (Vasanas) etched into your psyche. Locate the exit points from your historical behavioral loops.",
+                link: "karma.html",
+                btn: "TRACE LOOPS"
+            },
+            cognitive: {
+                title: "Cognitive Architecture",
+                icon: "🧠",
+                desc: "System diagnostic of the 4 Minds: Manas (Sensory), Buddhi (Intellect), Chitta (Memory), and Ahankara (Ego). Optimize your processing hardware.",
+                link: "cognitive.html",
+                btn: "SYSTEM DIAGNOSTIC"
+            }
+        };
+
+        function loadModule(key) {
+            const data = moduleData[key];
+            const stage = document.getElementById('main-stage');
+            const cards = document.querySelectorAll('.module-card');
+
+            // Update Active Card
+            cards.forEach(card => card.classList.remove('active'));
+            // Find the card that was clicked (this logic assumes click originates from the card element)
+            // But since we pass key, we can just loop based on index or just let the click handler handle 'this' if passed, 
+            // but simple way:
+            event.currentTarget.classList.add('active');
+
+            // Animate Stage Out
+            stage.classList.remove('active');
+            stage.style.transform = "translateY(20px)";
+            stage.style.opacity = "0";
+
+            setTimeout(() => {
+                // Update Content
+                stage.innerHTML = `
+                    <div class="big-icon">${data.icon}</div>
+                    <h2 class="stage-title">${data.title}</h2>
+                    <p class="stage-desc">${data.desc}</p>
+                    <a href="${data.link}" class="action-btn">${data.btn}</a>
+                `;
+                
+                // Animate Stage In
+                stage.classList.add('active');
+                stage.style.transform = "translateY(0)";
+                stage.style.opacity = "1";
+            }, 300);
+        }
+
+        // Boot Animation
+        window.onload = () => {
+            const loader = document.getElementById('loader');
+            const screen = document.getElementById('boot-screen');
+            
+            // Instant Load - No artificial delay
+            loader.style.width = '100%';
+            
+            setTimeout(() => {
+                screen.style.opacity = 0;
+                setTimeout(()=> screen.style.display='none', 300);
+            }, 200);
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadow Biometrics - Character Analysis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --psyche-primary: #9d4edd;
+            --psyche-secondary: #e0aaff;
+            --psyche-dark: #10002b;
+            --psyche-glass: rgba(16, 0, 43, 0.8);
+            --text-main: #ffffff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--psyche-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        #bg-video-layer {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -3;
+        }
+        #bg-video {
+            position: absolute; top: 50%; left: 50%;
+            min-width: 100%; min-height: 100%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            filter: brightness(0.2) contrast(1.2) saturate(1) hue-rotate(20deg);
+        }
+        .grid-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(157, 78, 221, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(157, 78, 221, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -2;
+            pointer-events: none;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid rgba(157, 78, 221, 0.3);
+            padding-bottom: 1rem;
+        }
+        .back-link {
+            color: var(--psyche-secondary);
+            text-decoration: none;
+            font-family: 'Share Tech Mono', monospace;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+        }
+        .back-link:hover { color: #fff; }
+        
+        .page-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #fff;
+        }
+
+        .shadow-section {
+            margin-bottom: 3rem;
+        }
+
+        .glass-panel {
+            background: var(--psyche-glass);
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-panel::before {
+            content: '';
+            position: absolute; top: 0; left: 0; width: 4px; height: 100%;
+            background: var(--psyche-primary);
+        }
+
+        .panel-title {
+            font-family: 'Orbitron';
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .panel-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .quote {
+            font-style: italic;
+            color: var(--psyche-secondary);
+            border-left: 2px solid var(--psyche-secondary);
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            font-size: 1.2rem;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="bg-video-layer">
+        <video id="bg-video" autoplay muted loop playsinline>
+            <source src="../assets/video/character.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="grid-overlay"></div>
+
+    <div class="container">
+        <nav class="nav-header">
+            <a href="index.html" class="back-link">← SYSTEM MATRIX</a>
+            <div style="font-family: 'Share Tech Mono'; color: var(--psyche-primary);">MODULE: 03</div>
+        </nav>
+
+        <header style="text-align: center; margin-bottom: 3rem;">
+            <div style="font-size: 4rem; margin-bottom: 1rem;">🌑</div>
+            <h1 class="page-title">Shadow Biometrics</h1>
+            <p style="font-family: 'Share Tech Mono'; color: var(--psyche-secondary);">SUB-SURFACE PSYCHOLOGY</p>
+            <p style="max-width: 700px; margin: 1rem auto; font-size: 0.9rem; opacity: 0.8;">
+                The Shadow is everything you are, but refuse to admit. It contains your darkest impulses AND your brightest gold.
+                <br><span style="color: #e0aaff; font-size: 0.8rem;">WARNING: INTEGRATION REQUIRED FOR WHOLE-SYSTEM STABILITY.</span>
+            </p>
+        </header>
+
+        <div class="shadow-section">
+            <!-- The Dark Shadow -->
+            <div class="glass-panel">
+                <div class="panel-header">
+                    <div class="icon-box">👹</div>
+                    <div>
+                        <h2 class="panel-title">The Dark Shadow (The Beast)</h2>
+                        <div class="sub">REPRESSED SHAKTI // TRAPPED ENERGY // TABOO</div>
+                    </div>
+                </div>
+                <p class="panel-text">
+                    <strong>"The Monster Under the Bed."</strong> This is not "evil"—it is simply <strong>Trapped Shakti (Energy)</strong>. 
+                    Your rage is just fierce protection that has no outlet. Your greed is just ambition that has forgotten its mission.
+                    When you suppress it, it becomes a "Rakshasa" (Demon). When you liberate it, it becomes a "Devata" (Deity).
+                </p>
+                
+                <div class="mechanic-box">
+                    <h4>⚠️ DETECTION MECHANISM: "THE MIRROR" (PROJECTION)</h4>
+                    <p>
+                        <strong>The Universal Law:</strong> "If you spot it, you've got it."<br>
+                        The external world is a mirror of your internal state. The person who irritates you the most is your greatest Guru.
+                        They are showing you the exact part of yourself that you have disowned.
+                    </p>
+                </div>
+
+                <div class="protocol-steps">
+                    <h4>🌑 3-STEP TANTRIC TRANSMUTATION</h4>
+                    <ol>
+                        <li><strong>FACE (Darshan):</strong> Stop running. Look the "monster" in the eye. Do not judge it. See it as energy.</li>
+                        <li><strong>ACCEPT (Sweekar):</strong> "I am this, too." Withdraw the projection. Realize the demon lives in your own heart, not out there.</li>
+                        <li><strong>FEED (Naivedya):</strong> Give the energy a job. Feed the "Rage" with a mission of Justice. Feed the "Lust" with a mission of Devotion.</li>
+                    </ol>
+                </div>
+
+                <div class="quote">"One does not become enlightened by imagining figures of light, but by making the darkness conscious." — C.G. Jung</div>
+            </div>
+
+            <!-- The Golden Shadow -->
+            <div class="glass-panel" style="border-color: #ffd700; box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);">
+                <div class="panel-header">
+                    <div class="icon-box" style="border-color: #ffd700; color: #ffd700;">👑</div>
+                    <div>
+                        <h2 class="panel-title" style="color: #ffd700;">The Golden Shadow (The King)</h2>
+                        <div class="sub" style="color: rgba(255,215,0,0.7);">REPRESSED GENIUS // AVATARA POTENTIAL</div>
+                    </div>
+                </div>
+                <p class="panel-text">
+                    <strong>"The Light You Fear."</strong> You repress your greatness more than your darkness. 
+                    You hide your genius because you fear being alienated, attacked, or "too much."
+                    This contains your <strong>Svadharma</strong> (Unique Purpose) waiting to be unlocked.
+                </p>
+                
+                <div class="mechanic-box" style="border-left-color: #ffd700;">
+                    <h4 style="color: #ffd700;">💎 RECLAMATION PROTOCOL: "IDOL WORSHIP"</h4>
+                    <p>
+                        Identify who you admire or envy. That person represents your own Golden Shadow.
+                        You are not "seeing" them; you are seeing a reflection of your own latent potential.
+                        You cannot see in another what does not exist in you. <strong>Reclaim your crown.</strong>
+                    </p>
+                </div>
+
+                <button style="margin-top: 1.5rem; width: 100%; background: rgba(255,215,0,0.1); border: 1px solid #ffd700; color: #ffd700; padding: 1rem; font-family: 'Orbitron'; cursor: pointer; text-transform: uppercase; transition: all 0.3s; letter-spacing: 2px;" onmouseover="this.style.background='#ffd700'; this.style.color='#000'" onmouseout="this.style.background='rgba(255,215,0,0.1)'; this.style.color='#ffd700'">
+                    UNLOCK GOLDEN VAULT
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .panel-header { display: flex; gap: 1.5rem; align-items: center; margin-bottom: 1.5rem; }
+        .icon-box { width: 60px; height: 60px; border: 2px solid var(--psyche-primary); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 2rem; background: rgba(0,0,0,0.3); }
+        .sub { font-family: 'Share Tech Mono'; font-size: 0.8rem; color: var(--psyche-primary); letter-spacing: 1px; margin-top: 0.3rem; }
+        .mechanic-box { background: rgba(0,0,0,0.3); padding: 1.5rem; border-left: 3px solid #ff6b6b; margin: 1.5rem 0; border-radius: 4px; }
+        .mechanic-box h4 { font-family: 'Orbitron'; color: #ff6b6b; margin-bottom: 0.5rem; font-size: 0.9rem; }
+        .protocol-steps { margin-top: 1.5rem; background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 4px; }
+        .protocol-steps h4 { font-family: 'Orbitron'; color: var(--psyche-secondary); margin-bottom: 1rem; font-size: 0.9rem; }
+        .protocol-steps ol { padding-left: 1.2rem; margin: 0; }
+        .protocol-steps li { margin-bottom: 0.5rem; font-size: 0.9rem; color: rgba(255,255,255,0.8); line-height: 1.5; }
+        .quote { font-style: italic; opacity: 0.7; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem; margin-top: 1rem; font-size: 0.9rem; text-align: center; }
+    </style>
+</body>
+</html>

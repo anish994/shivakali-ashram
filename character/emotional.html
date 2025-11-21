@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotional Spectrum - Character Analysis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --psyche-primary: #9d4edd;
+            --psyche-secondary: #e0aaff;
+            --psyche-alert: #ff6b6b;
+            --psyche-safe: #00d2d3;
+            --psyche-warn: #feca57;
+            --psyche-dark: #10002b;
+            --psyche-glass: rgba(16, 0, 43, 0.95);
+            --text-main: #ffffff;
+            --grid-color: rgba(157, 78, 221, 0.05);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--psyche-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        #bg-video-layer {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -3;
+        }
+        #bg-video {
+            position: absolute; top: 50%; left: 50%;
+            min-width: 100%; min-height: 100%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            filter: brightness(0.3) contrast(1.1) saturate(1.2) hue-rotate(20deg);
+        }
+        .grid-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: -2;
+            pointer-events: none;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            position: relative;
+            z-index: 10;
+            padding-bottom: 6rem;
+        }
+
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4rem;
+            border-bottom: 1px solid rgba(157, 78, 221, 0.3);
+            padding-bottom: 1rem;
+            backdrop-filter: blur(5px);
+        }
+        .back-link {
+            color: var(--psyche-secondary);
+            text-decoration: none;
+            font-family: 'Share Tech Mono', monospace;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        .back-link:hover { 
+            color: #fff; 
+            text-shadow: 0 0 10px var(--psyche-primary);
+            transform: translateX(-5px);
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 5rem;
+            position: relative;
+        }
+        .page-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(157, 78, 221, 0.6);
+            margin-bottom: 0.5rem;
+        }
+        .page-subtitle {
+            font-family: 'Share Tech Mono'; 
+            color: var(--psyche-secondary);
+            letter-spacing: 2px;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            display: block;
+        }
+        .concept-brief {
+            max-width: 800px; 
+            margin: 0 auto; 
+            font-size: 1.1rem; 
+            opacity: 0.9;
+            background: linear-gradient(180deg, rgba(0,0,0,0), rgba(157, 78, 221, 0.1), rgba(0,0,0,0));
+            padding: 2rem;
+            border-left: 2px solid var(--psyche-primary);
+            border-right: 2px solid var(--psyche-primary);
+        }
+
+        .rasa-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .rasa-card {
+            background: var(--psyche-glass);
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+        .rasa-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            border-color: var(--psyche-secondary);
+            z-index: 5;
+        }
+
+        .card-top {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            background: linear-gradient(180deg, rgba(255,255,255,0.05), transparent);
+        }
+        
+        .rasa-icon { font-size: 2.5rem; filter: drop-shadow(0 0 10px rgba(255,255,255,0.3)); }
+        .rasa-id { font-family: 'Share Tech Mono'; color: rgba(255,255,255,0.3); font-size: 3rem; line-height: 1; font-weight: bold; }
+
+        .card-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+        .rasa-name { font-family: 'Orbitron'; font-size: 1.4rem; color: #fff; margin-bottom: 0.2rem; }
+        .rasa-eng { font-size: 0.85rem; color: var(--psyche-secondary); font-family: 'Share Tech Mono'; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; display: block; }
+        
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            border-bottom: 1px dashed rgba(255,255,255,0.1);
+            padding-bottom: 0.3rem;
+        }
+        .stat-label { color: rgba(255,255,255,0.6); }
+        .stat-val { color: #fff; font-weight: 600; }
+
+        .alchemy-box {
+            background: rgba(0,0,0,0.3);
+            padding: 1rem 1.5rem;
+            font-family: 'Share Tech Mono';
+            font-size: 0.85rem;
+            color: var(--psyche-safe);
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .alchemy-arrow { color: rgba(255,255,255,0.4); margin: 0 0.5rem; }
+        .alchemy-result { color: #fff; text-shadow: 0 0 5px var(--psyche-safe); }
+
+        /* HACKER CONSOLE STYLES */
+        .console-overlay {
+            position: absolute;
+            bottom: 0; left: 0; width: 100%;
+            background: rgba(0,0,0,0.8);
+            padding: 0.5rem;
+            font-family: 'Share Tech Mono';
+            font-size: 0.7rem;
+            color: var(--psyche-warn);
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        .rasa-card:hover .console-overlay { transform: translateY(0); }
+
+        /* Full Width Intervention */
+        .intervention-zone {
+            grid-column: 1 / -1;
+            margin-top: 4rem;
+            border: 1px solid var(--psyche-primary);
+            background: linear-gradient(135deg, rgba(16, 0, 43, 0.95), rgba(0,0,0,0.9));
+            padding: 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .intervention-zone::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--psyche-primary), transparent);
+            animation: scan 2s infinite linear;
+        }
+        @keyframes scan { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+
+        .protocol-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .protocol-step {
+            border-left: 3px solid var(--psyche-secondary);
+            padding-left: 1.5rem;
+        }
+        .step-num { font-family: 'Orbitron'; font-size: 2rem; color: rgba(255,255,255,0.1); line-height: 1; margin-bottom: 0.5rem; }
+        .step-head { font-family: 'Orbitron'; font-size: 1.2rem; color: var(--psyche-secondary); margin-bottom: 0.5rem; }
+        
+        .hack-btn {
+            width: 100%; max-width: 400px; margin: 3rem auto 0; display: block;
+            padding: 1.2rem;
+            background: transparent;
+            color: var(--psyche-safe);
+            border: 1px solid var(--psyche-safe);
+            font-family: 'Orbitron'; font-size: 1rem; letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            position: relative; overflow: hidden;
+        }
+        .hack-btn:hover {
+            background: var(--psyche-safe);
+            color: #000;
+            box-shadow: 0 0 20px var(--psyche-safe);
+        }
+
+        @media (max-width: 768px) {
+            .page-title { font-size: 2rem; }
+            .rasa-grid { grid-template-columns: 1fr; }
+            .stat-row { font-size: 0.85rem; }
+        }
+    </style>
+</head>
+<body>
+    <div id="bg-video-layer">
+        <video id="bg-video" autoplay muted loop playsinline>
+            <source src="../assets/video/character.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="grid-overlay"></div>
+
+    <div class="container">
+        <nav class="nav-header">
+            <a href="index.html" class="back-link">
+                <span>❮</span> SYSTEM MATRIX
+            </a>
+            <div style="font-family: 'Share Tech Mono'; color: var(--psyche-primary); font-size: 0.8rem;">
+                MODULE: 04 // BIO-CHEMICAL_ALCHEMY
+            </div>
+        </nav>
+
+        <header class="page-header">
+            <div style="font-size: 5rem; margin-bottom: 1rem; text-shadow: 0 0 30px var(--psyche-alert);">❤️</div>
+            <h1 class="page-title">Rasa Vidya</h1>
+            <span class="page-subtitle">THE ALCHEMY OF EMOTION</span>
+            
+            <div class="concept-brief">
+                <p><strong>Emotion is not feeling. It is Frequency.</strong></p>
+                <p style="margin-top: 1rem; font-size: 1rem; color: rgba(255,255,255,0.8);">
+                    The ancient Tantrics identified 9 fundamental frequencies (Rasas) that govern human consciousness. 
+                    Most users "Vent" (waste energy) or "Suppress" (store toxicity). 
+                    The Adept <strong>Transmutes</strong>. This is the science of turning poison into nectar.
+                </p>
+            </div>
+        </header>
+
+        <div class="rasa-grid">
+            
+            <!-- CARD 1: SHRINGARA -->
+            <div class="rasa-card" style="border-top: 3px solid #ff9ff3;">
+                <div class="card-top">
+                    <div class="rasa-icon">🌸</div>
+                    <div class="rasa-id">01</div>
+                </div>
+                <div class="card-body">
+                    <div class="rasa-name">Shringara</div>
+                    <span class="rasa-eng">THE EROTIC / ATTRACTION</span>
+                    
+                    <div class="stat-row">
+                        <span class="stat-label">Input:</span>
+                        <span class="stat-val">Lust / Desire</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Somatic:</span>
+                        <span class="stat-val">Heat, Melting, Pull</span>
+                    </div>
+                </div>
+                <div class="alchemy-box">
+                    RAW DATA <span class="alchemy-arrow">>>></span> <span class="alchemy-result">DEVOTION (Bhakti)</span>
+                </div>
+                <div class="console-overlay">> DETECTING_PHEROMONES... REDIRECTING_TO_HEART_CENTER</div>
+            </div>
+
+            <!-- CARD 2: HASYA -->
+            <div class="rasa-card" style="border-top: 3px solid #feca57;">
+                <div class="card-top">
+                    <div class="rasa-icon">😂</div>
+                    <div class="rasa-id">02</div>
+                </div>
+                <div class="card-body">
+                    <div class="rasa-name">Hasya</div>
+                    <span class="rasa-eng">THE COMIC / MIRTH</span>
+                    
+                    <div class="stat-row">
+                        <span class="stat-label">Input:</span>
+                        <span class="stat-val">Mockery / Humor</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Somatic:</span>
+                        <span class="stat-val">Bubbling, Release</span>
+                    </div>
+                </div>
+                <div class="alchemy-box">
+                    RAW DATA <span class="alchemy-arrow">>>></span> <span class="alchemy-result">PLAYFULNESS (Lila)</span>
+                </div>
+                <div class="console-overlay">> REALITY_CHECK: FAILED... INITIATING_COSMIC_LAUGH.exe</div>
+            </div>
+
+            <!-- CARD 3: RAUDRA -->
+            <div class="rasa-card" style="border-top: 3px solid #ff6b6b;">
+                <div class="card-top">
+                    <div class="rasa-icon">😡</div>
+                    <div class="rasa-id">03</div>
+                </div>
+                <div class="card-body">
+                    <div class="rasa-name">Raudra</div>
+                    <span class="rasa-eng">THE FURIOUS / ANGER</span>
+                    
+                    <div class="stat-row">
+                        <span class="stat-label">Input:</span>
+                        <span class="stat-val">Rage / Irritation</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Somatic:</span>
+                        <span class="stat-val">Fire, Clenched Jaw</span>
+                    </div>
+                </div>
+                <div class="alchemy-box">
+                    RAW DATA <span class="alchemy-arrow">>>></span> <span class="alchemy-result">JUSTICE (Dharma)</span>
+                </div>
+                <div class="console-overlay">> ADRENALINE_SPIKE... CHANNELING_TO_WILLPOWER_ENGINE</div>
+            </div>
+
+            <!-- CARD 4: KARUNA -->
+            <div class="rasa-card" style="border-top: 3px solid #c8d6e5;">
+                <div class="card-top">
+                    <div class="rasa-icon">😢</div>
+                    <div class="rasa-id">04</div>
+                </div>
+                <div class="card-body">
+                    <div class="rasa-name">Karuna</div>
+                    <span class="rasa-eng">THE TRAGIC / GRIEF</span>
+                    
+                    <div class="stat-row">
+                        <span class="stat-label">Input:</span>
+                        <span class="stat-val">Loss / Sadness</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Somatic:</span>
+                        <span class="stat-val">Heaviness, Tears</span>
+                    </div>
+                </div>
+                <div class="alchemy-box">
+                    RAW DATA <span class="alchemy-arrow">>>></span> <span class="alchemy-result">COMPASSION (Maitri)</span>
+                </div>
+                <div class="console-overlay">> HEART_WALL_BREACHED... CONNECTING_TO_COLLECTIVE_GRID</div>
+            </div>
+
+            <!-- CARD 5: VIRA -->
+            <div class="rasa-card" style="border-top: 3px solid #ff9f43;">
+                <div class="card-top">
+                    <div class="rasa-icon">⚔️</div>
+                    <div class="rasa-id">05</div>
+                </div>
+                <div class="card-body">
+                    <div class="rasa-name">Vira</div>
+                    <span class="rasa-eng">THE HEROIC / COURAGE</span>
+                    
+                    <div class="stat-row">
+                        <span class="stat-label">Input:</span>
+                        <span class="stat-val">Pride / Ambition</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Somatic:</span>
+                        <span class="stat-val">Expansion, Heat</span>
+                    </div>
+                </div>
+                <div class="alchemy-box">
+                    RAW DATA <span class="alchemy-arrow">>>></span> <span class="alchemy-result">SERVICE (Seva)</span>
+                </div>
+                <div class="console-overlay">> EGO_EXPANSION_DETECTED... RECONFIGURING_FOR_MISSION</div>
+            </div>
+
+            <!-- CARD 6: BHAYANAKA -->
+            <div class="rasa-card" style="border-top: 3px solid #576574;">
+                <div class="card-top">
+                    <div class="rasa-icon">😨</div>
+                    <div class="rasa-id">06</div>
+                </div>
+                <div class="card-body">
+                    <div class="rasa-name">Bhayanaka</div>
+                    <span class="rasa-eng">THE TERRIFYING / FEAR</span>
+                    
+                    <div class="stat-row">
+                        <span class="stat-label">Input:</span>
+                        <span class="stat-val">Anxiety / Panic</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Somatic:</span>
+                        <span class="stat-val">Trembling, Cold</span>
+                    </div>
+                </div>
+                <div class="alchemy-box">
+                    RAW DATA <span class="alchemy-arrow">>>></span> <span class="alchemy-result">AWARENESS (Jagrata)</span>
+                </div>
+                <div class="console-overlay">> CORTISOL_OVERLOAD... SYSTEM_ALERT... HYPER_FOCUS_ENGAGED</div>
+            </div>
+            
+            <!-- CARD 7: BIBHATSA -->
+            <div class="rasa-card" style="border-top: 3px solid #00d2d3;">
+                <div class="card-top">
+                    <div class="rasa-icon">🤢</div>
+                    <div class="rasa-id">07</div>
+                </div>
+                <div class="card-body">
+                    <div class="rasa-name">Bibhatsa</div>
+                    <span class="rasa-eng">THE ODIOUS / DISGUST</span>
+                    
+                    <div class="stat-row">
+                        <span class="stat-label">Input:</span>
+                        <span class="stat-val">Revulsion</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Somatic:</span>
+                        <span class="stat-val">Nausea, Contraction</span>
+                    </div>
+                </div>
+                <div class="alchemy-box">
+                    RAW DATA <span class="alchemy-arrow">>>></span> <span class="alchemy-result">DETACHMENT (Vairagya)</span>
+                </div>
+                <div class="console-overlay">> TOXICITY_DETECTED... INITIATING_BOUNDARY_PROTOCOLS</div>
+            </div>
+
+            <!-- CARD 8: ADBHUTA -->
+            <div class="rasa-card" style="border-top: 3px solid #f368e0;">
+                <div class="card-top">
+                    <div class="rasa-icon">😮</div>
+                    <div class="rasa-id">08</div>
+                </div>
+                <div class="card-body">
+                    <div class="rasa-name">Adbhuta</div>
+                    <span class="rasa-eng">THE WONDROUS / AWE</span>
+                    
+                    <div class="stat-row">
+                        <span class="stat-label">Input:</span>
+                        <span class="stat-val">Confusion / Shock</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Somatic:</span>
+                        <span class="stat-val">Suspended Breath</span>
+                    </div>
+                </div>
+                <div class="alchemy-box">
+                    RAW DATA <span class="alchemy-arrow">>>></span> <span class="alchemy-result">EPIPHANY (Vismaya)</span>
+                </div>
+                <div class="console-overlay">> UNKNOWN_DATA_FORMAT... EXPANDING_CONTEXT_WINDOW</div>
+            </div>
+
+            <!-- CARD 9: SHANTA -->
+            <div class="rasa-card" style="border-top: 3px solid #ffffff; background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent); grid-column: 1 / -1;">
+                <div class="card-top">
+                    <div class="rasa-icon">🧘</div>
+                    <div class="rasa-id" style="color: rgba(255,255,255,0.8);">09</div>
+                </div>
+                <div class="card-body" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                    <div>
+                        <div class="rasa-name">Shanta</div>
+                        <span class="rasa-eng">THE PEACEFUL / SILENCE</span>
+                        <p style="font-size: 0.9rem; opacity: 0.8; max-width: 500px; margin-top: 0.5rem;">
+                            This is not an emotion. It is the <strong>Base Frequency</strong>. It is the screen on which the movie plays. All other Rasas arise from Shanta and dissolve back into Shanta.
+                        </p>
+                    </div>
+                    <div style="font-size: 3rem; opacity: 0.3; font-family: 'Share Tech Mono';">0 Hz</div>
+                </div>
+                <div class="console-overlay" style="color: #fff;">> SYSTEM_STATUS: ZERO_POINT_FIELD_ACCESSED</div>
+            </div>
+
+        </div>
+
+        <!-- INTERVENTION ZONE -->
+        <div class="intervention-zone">
+            <h2 style="font-family: 'Orbitron'; text-align: center; margin-bottom: 0.5rem;">PROTOCOL: BHAVA SPANDANA</h2>
+            <p style="text-align: center; font-family: 'Share Tech Mono'; color: var(--psyche-secondary); margin-bottom: 3rem;">VIBRATION TRANSMUTATION SEQUENCE</p>
+
+            <div class="protocol-grid">
+                <div class="protocol-step">
+                    <div class="step-num">01</div>
+                    <div class="step-head">FEEL / SPANDANA</div>
+                    <p style="font-size: 0.9rem; color: rgba(255,255,255,0.8);">
+                        Stop the narrative. "I am angry" is a story. <strong>Locate the vibration.</strong> Is it heat in the chest? Pressure in the gut? Observe it as raw bio-electricity.
+                    </p>
+                </div>
+
+                <div class="protocol-step">
+                    <div class="step-num">02</div>
+                    <div class="step-head">TASTE / RASANA</div>
+                    <p style="font-size: 0.9rem; color: rgba(255,255,255,0.8);">
+                        Don't spit it out. <strong>Drink it.</strong> Let the energy wash over you. Surrender to the intensity without acting on it. Be the pipe, not the water.
+                    </p>
+                </div>
+
+                <div class="protocol-step">
+                    <div class="step-num">03</div>
+                    <div class="step-head">SHIFT / PARINAMA</div>
+                    <p style="font-size: 0.9rem; color: rgba(255,255,255,0.8);">
+                        Direct the charge upwards. Visualise the heat moving from the solar plexus to the heart or third eye. Watch Anger become Will. Watch Grief become Love.
+                    </p>
+                </div>
+            </div>
+
+            <button class="hack-btn" onclick="alert('TRANSMUTATION PROTOCOL STARTED.\n\n1. LOCATE SENSATION.\n2. DROP THE STORY.\n3. BREATHE INTO THE CHARGE.\n\nALCHEMY IN PROGRESS...')">
+                INITIATE ENERGY SHIFT
+            </button>
+        </div>
+
+        <div style="margin-top: 4rem; border-top: 1px solid rgba(157, 78, 221, 0.3); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center;">
+            <a href="shadow.html" class="back-link">❮ PREV: SHADOW BIOMETRICS</a>
+            <a href="karma.html" class="back-link">NEXT: KARMIC PATTERNS ❯</a>
+        </div>
+    </div>
+</body>
+</html>

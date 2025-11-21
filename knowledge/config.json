@@ -92,7 +92,8 @@
       "priority": 5,
       "cardStyle": "purple-mystery",
       "subCategoryCount": 6,
-      "estimatedContent": "40+ rich cards"
+      "estimatedContent": "40+ rich cards",
+      "directUrl": "character/index.html"
     },
     {
       "id": "divination",

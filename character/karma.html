@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karmic Patterns - Character Analysis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --psyche-primary: #9d4edd;
+            --psyche-secondary: #e0aaff;
+            --psyche-alert: #ff6b6b;
+            --psyche-warn: #feca57;
+            --psyche-safe: #00d2d3;
+            --psyche-dark: #10002b;
+            --psyche-glass: rgba(16, 0, 43, 0.95);
+            --text-main: #ffffff;
+            --grid-color: rgba(157, 78, 221, 0.05);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--psyche-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        #bg-video-layer {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -3;
+        }
+        #bg-video {
+            position: absolute; top: 50%; left: 50%;
+            min-width: 100%; min-height: 100%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            filter: brightness(0.3) contrast(1.1) saturate(1.2) hue-rotate(20deg);
+        }
+        .grid-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: -2;
+            pointer-events: none;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            position: relative;
+            z-index: 10;
+            padding-bottom: 6rem;
+        }
+
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4rem;
+            border-bottom: 1px solid rgba(157, 78, 221, 0.3);
+            padding-bottom: 1rem;
+            backdrop-filter: blur(5px);
+        }
+        .back-link {
+            color: var(--psyche-secondary);
+            text-decoration: none;
+            font-family: 'Share Tech Mono', monospace;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        .back-link:hover { 
+            color: #fff; 
+            text-shadow: 0 0 10px var(--psyche-primary);
+            transform: translateX(-5px);
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 5rem;
+            position: relative;
+        }
+        .page-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(157, 78, 221, 0.6);
+            margin-bottom: 0.5rem;
+        }
+        .page-subtitle {
+            font-family: 'Share Tech Mono'; 
+            color: var(--psyche-secondary);
+            letter-spacing: 2px;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            display: block;
+        }
+        .concept-brief {
+            max-width: 750px; 
+            margin: 0 auto; 
+            font-size: 1.1rem; 
+            opacity: 0.9;
+            background: linear-gradient(180deg, rgba(0,0,0,0), rgba(157, 78, 221, 0.1), rgba(0,0,0,0));
+            padding: 2rem;
+            border-left: 2px solid var(--psyche-primary);
+            border-right: 2px solid var(--psyche-primary);
+        }
+
+        .loop-container {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            position: relative;
+        }
+        /* The central timeline line */
+        .loop-container::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: linear-gradient(180deg, 
+                var(--psyche-alert) 0%, 
+                var(--psyche-warn) 40%, 
+                var(--psyche-safe) 80%,
+                var(--psyche-primary) 100%);
+            opacity: 0.5;
+            z-index: -1;
+        }
+        @media (min-width: 768px) {
+            .loop-container::before { left: 50%; transform: translateX(-50%); }
+            .loop-step { width: 45%; }
+            .loop-step:nth-child(odd) { margin-left: auto; text-align: left; border-left: 4px solid; border-right: none; }
+            .loop-step:nth-child(even) { margin-right: auto; text-align: right; border-right: 4px solid; border-left: none; }
+            
+            /* Alternate markers */
+            .loop-step:nth-child(odd) .step-marker { left: -3.5rem; right: auto; }
+            .loop-step:nth-child(even) .step-marker { right: -3.5rem; left: auto; }
+            
+            /* Connectors */
+            .loop-step:nth-child(odd)::after { left: -2rem; right: auto; }
+            .loop-step:nth-child(even)::after { right: -2rem; left: auto; }
+        }
+
+        .loop-step {
+            background: var(--psyche-glass);
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            padding: 2rem;
+            position: relative;
+            margin-left: 3rem; /* Mobile default */
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+        .loop-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(157, 78, 221, 0.2);
+            border-color: var(--psyche-secondary);
+        }
+
+        .step-marker {
+            position: absolute;
+            width: 50px; height: 50px;
+            background: var(--psyche-dark);
+            border: 2px solid var(--psyche-primary);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Orbitron'; font-weight: 900; font-size: 1.2rem;
+            z-index: 2;
+            box-shadow: 0 0 15px var(--psyche-primary);
+            
+            /* Mobile positioning */
+            left: -3.8rem; top: 1.5rem;
+        }
+
+        .step-title { 
+            font-family: 'Orbitron'; 
+            font-size: 1.5rem;
+            margin-bottom: 1rem; 
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .sanskrit-term {
+            font-family: 'Rajdhani';
+            font-size: 0.9rem;
+            color: var(--psyche-secondary);
+            opacity: 0.7;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .step-content {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .data-panel {
+            background: rgba(0,0,0,0.6);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .hacker-console {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--psyche-safe);
+            margin-bottom: 1rem;
+        }
+        .console-line { margin-bottom: 0.3rem; display: block; }
+        .console-line::before { content: '>'; margin-right: 0.5rem; opacity: 0.7; }
+        .warning { color: var(--psyche-alert); }
+        .process { color: var(--psyche-warn); }
+
+        .hack-box {
+            background: linear-gradient(45deg, rgba(157, 78, 221, 0.1), transparent);
+            border-left: 3px solid var(--psyche-safe);
+            padding: 1rem;
+            margin-top: 1.5rem;
+        }
+        .hack-title {
+            font-family: 'Orbitron';
+            color: var(--psyche-safe);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Special styling for the Intervention Zone */
+        .intervention-zone {
+            grid-column: 1 / -1;
+            width: 100% !important;
+            margin: 4rem 0 !important;
+            border: 2px solid var(--psyche-alert);
+            background: linear-gradient(135deg, #1a0b2e 0%, #000000 100%);
+            text-align: center !important;
+        }
+        .intervention-zone .step-marker {
+            left: 50% !important;
+            top: -25px !important;
+            transform: translateX(-50%);
+            width: 60px; height: 60px;
+            border-color: var(--psyche-alert);
+            color: var(--psyche-alert);
+            background: #000;
+        }
+        
+        .protocol-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+            text-align: left;
+        }
+        .protocol-card {
+            background: rgba(255, 107, 107, 0.05);
+            border: 1px solid rgba(255, 107, 107, 0.2);
+            padding: 1.5rem;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+        .protocol-card:hover {
+            background: rgba(255, 107, 107, 0.1);
+            border-color: var(--psyche-alert);
+        }
+        .protocol-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: var(--psyche-alert);
+            font-family: 'Orbitron';
+        }
+        .burn-btn {
+            background: var(--psyche-alert);
+            color: #000;
+            border: none;
+            padding: 1rem 3rem;
+            font-family: 'Orbitron';
+            font-weight: 900;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            margin-top: 2rem;
+            cursor: pointer;
+            clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+        .burn-btn:hover {
+            background: #fff;
+            box-shadow: 0 0 30px var(--psyche-alert);
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .page-title { font-size: 2.5rem; }
+            .loop-container::before { left: 20px; }
+            .loop-step { width: auto; margin-left: 3.5rem !important; margin-right: 0 !important; text-align: left !important; border-left: 4px solid !important; border-right: 1px solid rgba(157, 78, 221, 0.3) !important; }
+            .step-marker { left: -3.8rem !important; right: auto !important; top: 1.5rem !important; }
+        }
+    </style>
+</head>
+<body>
+    <div id="bg-video-layer">
+        <video id="bg-video" autoplay muted loop playsinline>
+            <source src="../assets/video/character.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="grid-overlay"></div>
+
+    <div class="container">
+        <nav class="nav-header">
+            <a href="index.html" class="back-link">
+                <span>❮</span> SYSTEM MATRIX
+            </a>
+            <div style="font-family: 'Share Tech Mono'; color: var(--psyche-primary); font-size: 0.8rem;">
+                MODULE: 05 // AKASHIC_RECORDS
+            </div>
+        </nav>
+
+        <header class="page-header">
+            <div style="font-size: 5rem; margin-bottom: 1rem; text-shadow: 0 0 30px var(--psyche-primary);">♾️</div>
+            <h1 class="page-title">Karmic Patterns</h1>
+            <span class="page-subtitle">AKASHIC TIMELINE ENGINEERING</span>
+            
+            <div class="concept-brief">
+                <p><strong>Karma is not punishment. It is Physics.</strong></p>
+                <p style="margin-top: 1rem; font-size: 1rem; color: rgba(255,255,255,0.8);">
+                    You are living in a loop of your own design. A stored memory triggers a thought, which generates momentum, leading to an action that thickens the prison walls of your reality. This is not "destiny"—it is a <strong>software loop</strong> running on biological hardware.
+                </p>
+                <p style="margin-top: 1rem; color: var(--psyche-alert); font-family: 'Share Tech Mono'; font-size: 0.9rem;">
+                    ⚠ WARNING: Breaking the loop creates a timeline fracture. Your old reality will collapse.
+                </p>
+            </div>
+        </header>
+
+        <div class="loop-container">
+            
+            <!-- STAGE 1 -->
+            <div class="loop-step" style="border-color: var(--psyche-safe);">
+                <div class="step-marker" style="border-color: var(--psyche-safe); color: var(--psyche-safe);">01</div>
+                <div class="data-panel" style="margin-bottom: 1.5rem; margin-top: 0; background: transparent; border: none; padding: 0;">
+                    <div class="hacker-console">
+                        <span class="console-line">> SCANNING_SUBCONSCIOUS...</span>
+                        <span class="console-line process">> DETECTED: ANCIENT_FILE_ACCESS (Vasana)</span>
+                        <span class="console-line">> SIGNAL_STRENGTH: 15% (Rising)</span>
+                    </div>
+                </div>
+                
+                <h3 class="step-title">
+                    The Whirlpool <span class="sanskrit-term">/ VRITI</span>
+                </h3>
+                <div class="step-content">
+                    <p>It starts as a glitch. A subtle ripple in your awareness. A micro-contraction in the solar plexus. This is not "you thinking"—this is an automated script loading from your hard drive (Chitta). It is a ghost from the past trying to possess your present vehicle.</p>
+                    <p style="margin-top: 1rem;">Most users fail to detect this phase. They believe the rising thought is "theirs." It is not. It is a foreign object.</p>
+                </div>
+
+                <div class="hack-box">
+                    <div class="hack-title">⚡ PHASE 1 HACK: SOMATIC INTERCEPT</div>
+                    <p style="font-size: 0.9rem; opacity: 0.8;">
+                        Do not listen to the thought. <strong>Feel the body.</strong> Where is the tension? The moment you observe the physical sensation without attaching a story to it, you strip the script of its admin privileges.
+                    </p>
+                </div>
+            </div>
+
+            <!-- STAGE 2 -->
+            <div class="loop-step" style="border-color: var(--psyche-warn);">
+                <div class="step-marker" style="border-color: var(--psyche-warn); color: var(--psyche-warn);">02</div>
+                <div class="data-panel" style="margin-bottom: 1.5rem; margin-top: 0; background: transparent; border: none; padding: 0;">
+                    <div class="hacker-console">
+                        <span class="console-line warning">> ALERT: AMYGDALA_HIJACK_INITIATED</span>
+                        <span class="console-line">> DOPAMINE_DUMP: PENDING</span>
+                        <span class="console-line">> PREFRONTAL_CORTEX: OFFLINE</span>
+                    </div>
+                </div>
+
+                <h3 class="step-title" style="justify-content: flex-end;">
+                    The Momentum <span class="sanskrit-term">/ VEGA</span>
+                </h3>
+                <div class="step-content">
+                    <p>The ripple becomes a tsunami. The "Velocities" take over. Your brain floods with neurochemistry—dopamine demanding reward, or cortisol demanding escape. You are no longer the pilot; you are a passenger in a crashing plane.</p>
+                    <p style="margin-top: 1rem;">The illusion of "Free Will" dissolves here. You feel compelled to act. You say "I can't help it." That is the voice of the biological robot.</p>
+                </div>
+
+                <div class="hack-box" style="border-color: var(--psyche-warn); color: var(--psyche-warn);">
+                    <div class="hack-title" style="color: var(--psyche-warn);">⚡ PHASE 2 HACK: THE 3-SECOND GAP</div>
+                    <p style="font-size: 0.9rem; opacity: 0.8;">
+                        Insert a wedge. Count to 3. Not to stop the action, but to <strong>witness the urge</strong>. Just 3 seconds of conscious breathing breaks the automated firing sequence.
+                    </p>
+                </div>
+            </div>
+
+            <!-- STAGE 3 -->
+            <div class="loop-step" style="border-color: var(--psyche-alert);">
+                <div class="step-marker" style="border-color: var(--psyche-alert); color: var(--psyche-alert);">03</div>
+                <div class="data-panel" style="margin-bottom: 1.5rem; margin-top: 0; background: transparent; border: none; padding: 0;">
+                    <div class="hacker-console">
+                        <span class="console-line warning">> ACTION_COMMITTED</span>
+                        <span class="console-line process">> WRITING_TO_HARD_DRIVE...</span>
+                        <span class="console-line">> SAMSKARA_DEPTH: +10%</span>
+                        <span class="console-line">> LOOP_PROBABILITY: 85%</span>
+                    </div>
+                </div>
+
+                <h3 class="step-title">
+                    The Scar <span class="sanskrit-term">/ SAMSKARA</span>
+                </h3>
+                <div class="step-content">
+                    <p>The action is done. The energy is discharged. But the cost is structural. Every time you run the loop, the neural pathway is myelinated—insulated for faster transmission next time.</p>
+                    <p style="margin-top: 1rem;">You haven't just made a mistake; you have upgraded the highway to your own suffering. The groove deepens. The probability of this happening again shifts mathematically from "Possible" to "Inevitble."</p>
+                </div>
+
+                <div class="hack-box" style="border-color: var(--psyche-alert); color: var(--psyche-alert);">
+                    <div class="hack-title" style="color: var(--psyche-alert);">⚡ PHASE 3 HACK: POST-MORTEM REWRITE</div>
+                    <p style="font-size: 0.9rem; opacity: 0.8;">
+                        Failed the loop? Don't guilt-trip (that's another loop). immediately visualize the scenario again, but this time <strong>visualize yourself winning</strong>. You are hacking the memory consolidation phase before the concrete sets.
+                    </p>
+                </div>
+            </div>
+
+            <!-- THE INTERVENTION -->
+            <div class="loop-step intervention-zone">
+                <div class="step-marker">⚡</div>
+                <h2 style="font-family: 'Orbitron'; color: #fff; font-size: 2rem; letter-spacing: 3px; margin-bottom: 0.5rem;">PROTOCOL: DAGDHA BIJA</h2>
+                <p style="font-family: 'Share Tech Mono'; color: var(--psyche-alert); letter-spacing: 2px;">TRANSLATION: "THE FRIED SEED"</p>
+                
+                <p style="max-width: 700px; margin: 2rem auto; font-size: 1.1rem; line-height: 1.8;">
+                    A raw seed triggers a forest. A <strong>roasted seed</strong> can never sprout again.<br>
+                    To kill a karmic loop, you must burn the seed in the fire of your own awareness. This is not meditation. This is Timeline Surgery.
+                </p>
+
+                <div class="protocol-grid">
+                    <!-- STEP 1 -->
+                    <div class="protocol-card">
+                        <div class="protocol-header">
+                            <span>01</span>
+                            <span>STAMBHANA</span>
+                        </div>
+                        <h4 style="color: #fff; margin-bottom: 0.5rem;">THE FREEZE</h4>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">
+                            When the urge (Vega) hits its peak, you <strong>FREEZE</strong>. Do not move a muscle. Become a statue. You are creating a container for the chaotic energy.
+                        </p>
+                    </div>
+
+                    <!-- STEP 2 -->
+                    <div class="protocol-card">
+                        <div class="protocol-header">
+                            <span>02</span>
+                            <span>SAKSHI</span>
+                        </div>
+                        <h4 style="color: #fff; margin-bottom: 0.5rem;">THE WITNESS</h4>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">
+                            Watch the energy scream. It wants to be fed. <strong>Do not feed it.</strong> Starve the script. Watch it thrash against the walls of your stillness. It is not you.
+                        </p>
+                    </div>
+
+                    <!-- STEP 3 -->
+                    <div class="protocol-card">
+                        <div class="protocol-header">
+                            <span>03</span>
+                            <span>AGNI</span>
+                        </div>
+                        <h4 style="color: #fff; margin-bottom: 0.5rem;">THE FIRE</h4>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">
+                            The friction of wanting to act but refusing to act generates heat (Tapas). This heat <strong>burns the neural pathway</strong>. Feel the burn. It is the sensation of your future changing.
+                        </p>
+                    </div>
+                </div>
+
+                <button class="burn-btn" onclick="alert('PROTOCOL INITIATED. \n\n1. FREEZE THE BODY.\n2. WATCH THE URGE.\n3. LET IT BURN.\n\nTIMELINE SHIFTING...')">
+                    INITIATE SEED BURN
+                </button>
+                
+                <div style="margin-top: 2rem; font-family: 'Share Tech Mono'; font-size: 0.8rem; color: rgba(255,255,255,0.5);">
+                    STATUS: READY FOR EXECUTION
+                </div>
+            </div>
+
+        </div>
+
+        <div style="margin-top: 4rem; border-top: 1px solid rgba(157, 78, 221, 0.3); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center;">
+            <a href="emotional.html" class="back-link">❮ PREV: EMOTIONAL SPECTRUM</a>
+            <a href="cognitive.html" class="back-link">NEXT: COGNITIVE ARCHITECTURE ❯</a>
+        </div>
+    </div>
+</body>
+</html>
