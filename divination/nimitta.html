@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Nimitta - Omen Reading System [SHAMANIC]</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+        :root {
+            --bg-dark: #001a0a;
+            --panel-bg: rgba(0, 20, 10, 0.95);
+            --neon-green: #00ff88;
+            --neon-yellow: #ffff00;
+            --neon-orange: #ff6600;
+            --neon-red: #ff0033;
+            --neon-cyan: #00ffff;
+            --text-main: #e0ffe0;
+            --text-dim: #557755;
+            --border-color: rgba(0, 255, 136, 0.2);
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding-bottom: 120px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        #bg-video-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -3;
+        }
+
+        #bg-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            transform: translate(-50%, -50());
+            object-fit: cover;
+            filter: brightness(0.4) contrast(1.3) hue-rotate(90deg) saturate(1.5);
+        }
+
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 136, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 136, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        header {
+            padding: 1.5rem;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.95);
+            border-bottom: 1px solid var(--neon-green);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0, 255, 136, 0.2);
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--neon-green);
+            text-shadow: 0 0 15px var(--neon-green);
+            margin-bottom: 0.2rem;
+        }
+
+        .subtitle {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--neon-yellow);
+            letter-spacing: 2px;
+        }
+
+        .back-btn {
+            position: absolute;
+            left: 1rem; top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: var(--text-dim);
+            text-decoration: none;
+            padding: 0.5rem;
+        }
+
+        .mode-scroller {
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 1rem;
+            background: #000;
+            border-bottom: 1px solid var(--border-color);
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        .mode-scroller::-webkit-scrollbar { display: none; }
+
+        .mode-btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            margin-right: 0.5rem;
+            border-radius: 2px;
+            border: 1px solid var(--border-color);
+            background: rgba(0, 255, 136, 0.05);
+            color: var(--text-dim);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-transform: uppercase;
+        }
+
+        .mode-btn.active {
+            background: var(--neon-green);
+            color: #000;
+            border-color: var(--neon-green);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+            font-weight: 900;
+        }
+
+        .container {
+            padding: 1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            display: none;
+            animation: glitchIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .content-section.active { display: block; }
+
+        @keyframes glitchIn {
+            0% { opacity: 0; transform: translateX(-10px); }
+            50% { opacity: 0.5; transform: translateX(5px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        .accordion {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--border-color);
+            margin-bottom: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+
+        .acc-header {
+            padding: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.3);
+            transition: all 0.2s;
+        }
+
+        .acc-header:active {
+            background: rgba(0, 255, 136, 0.1);
+        }
+
+        .acc-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            color: #fff;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .acc-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .acc-header.active .acc-icon {
+            transform: rotate(90deg);
+        }
+
+        .acc-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 0 1.5rem;
+        }
+
+        .acc-content.active {
+            max-height: 5000px;
+            padding: 1.5rem;
+        }
+
+        .omen-item {
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 2px solid #333;
+            transition: border-left-color 0.3s;
+        }
+        
+        .omen-item:hover { border-left-color: var(--neon-green); }
+
+        .omen-title {
+            font-family: 'Share Tech Mono', monospace;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--neon-green);
+            margin-bottom: 0.4rem;
+            display: block;
+            text-transform: uppercase;
+        }
+
+        .omen-desc {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        .result-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            margin-left: 8px;
+            font-weight: bold;
+            vertical-align: middle;
+            border-radius: 2px;
+        }
+
+        .good { background: var(--neon-green); color: #000; }
+        .bad { background: var(--neon-red); color: #fff; }
+        .neutral { background: var(--neon-yellow); color: #000; }
+        .warning { background: var(--neon-orange); color: #000; }
+        .power { background: var(--neon-cyan); color: #000; }
+
+        #animals .accordion { border-left-color: var(--neon-green); }
+        #animals .omen-title { color: var(--neon-green); }
+        
+        #direction .accordion { border-left-color: var(--neon-yellow); }
+        #direction .omen-title { color: var(--neon-yellow); }
+        
+        #body .accordion { border-left-color: var(--neon-orange); }
+        #body .omen-title { color: var(--neon-orange); }
+        
+        #encounters .accordion { border-left-color: var(--neon-cyan); }
+        #encounters .omen-title { color: var(--neon-cyan); }
+
+        #urban .accordion { border-left-color: #888; }
+        #urban .omen-title { color: #aaa; }
+
+        .direction-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid var(--border-color);
+        }
+
+        .dir-cell {
+            padding: 0.8rem;
+            text-align: center;
+            background: rgba(0, 255, 136, 0.05);
+            border: 1px solid var(--border-color);
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+
+        .dir-cell:hover {
+            background: rgba(0, 255, 136, 0.15);
+            transform: scale(1.05);
+        }
+
+        .dir-cell strong {
+            display: block;
+            color: var(--neon-green);
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .bottom-nav {
+            position: fixed;
+            bottom: 0; left: 0; width: 100%;
+            background: #000;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-around;
+            padding: 1rem;
+            z-index: 1000;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--text-dim);
+            font-size: 0.7rem;
+            font-family: 'Orbitron', sans-serif;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .nav-item i { font-size: 1.4rem; margin-bottom: 0.3rem; font-style: normal; }
+        .nav-item.active { color: var(--neon-green); text-shadow: 0 0 10px var(--neon-green); }
+
+    </style>
+</head>
+<body>
+
+    <!-- Video Background Layer -->
+    <div id="bg-video-layer">
+        <video id="bg-video" autoplay muted loop playsinline>
+            <source src="../pictures/devination.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Grid Overlay -->
+    <div class="grid-overlay"></div>
+
+    <header>
+        <a href="index.html" class="back-btn">←</a>
+        <h1>NIMITTA OS</h1>
+        <div class="subtitle">OMEN READING SYSTEM [SHAMANIC ACCESS]</div>
+    </header>
+
+    <div class="mode-scroller">
+        <div class="mode-btn active" onclick="switchMode('animals')">🦅 ANIMALS</div>
+        <div class="mode-btn" onclick="switchMode('direction')">🧭 DIRECTION</div>
+        <div class="mode-btn" onclick="switchMode('body')">⚡ BODY</div>
+        <div class="mode-btn" onclick="switchMode('encounters')">👤 ENCOUNTERS</div>
+        <div class="mode-btn" onclick="switchMode('urban')">🏙️ URBAN</div>
+    </div>
+
+    <div class="container">
+
+        <!-- ================= ANIMAL OMENS ================= -->
+        <div id="animals" class="content-section active">
+            
+            <div class="accordion">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <span class="acc-title">🦅 BIRDS & FLIGHT</span>
+                    <span class="acc-icon">▶</span>
+                </div>
+                <div class="acc-content">
+                    <div class="omen-item">
+                        <span class="omen-title">Crow on Left <span class="result-tag bad">INAUSPICIOUS</span></span>
+                        <span class="omen-desc">A crow cawing on your left side while you're about to start something important = abort mission. The left is the unconscious, shadow side. Crow is a trickster messenger. Together = hidden obstacles you haven't seen. Delay the action by at least 24 hours. Re-plan.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Crow on Right <span class="result-tag good">AUSPICIOUS</span></span>
+                        <span class="omen-desc">Right side = conscious, solar, active. Crow on right = "I see the danger, but you can navigate it." Proceed with caution, but proceed. The message is: "You have allies you don't know about yet."</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Two Crows Crossing <span class="result-tag power">SHIFT</span></span>
+                        <span class="omen-desc">When two crows cross your path in an X pattern = reality is rearranging. What you thought was stable isn't. Don't resist the change. The universe is moving chess pieces. You're one of them. Flow or get crushed.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Eagle/Hawk Circling <span class="result-tag good">VICTORY</span></span>
+                        <span class="omen-desc">Predator birds circling = you're being watched by higher forces (not paranoia, synchronicity). They're checking if you're ready for the next level. If you see this before a big decision, it means "Yes, you can handle what's coming." Trust yourself.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Bird Hitting Window <span class="result-tag warning">WARNING</span></span>
+                        <span class="omen-desc">Birds don't "accidentally" hit windows. They're messengers showing you: "You're about to hit an invisible barrier." Could be a relationship, business deal, or belief. Something you can't see is blocking you. Stop, reflect, pivot.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Dead Bird on Path</span>
+                        <span class="omen-desc">Not a "bad" omen. It's a death-rebirth marker. Something in your life is dying (a phase, identity, relationship). Don't mourn it. Clear the path. The new you can't emerge while you're clinging to the corpse of the old you.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Owl at Night <span class="result-tag power">MYSTIC</span></span>
+                        <span class="omen-desc">Owl = death goddess messenger. Not literal death. Ego death. If you hear an owl when you're alone at night, your subconscious is trying to speak. The veil is thin. Pay attention to dreams that night. Write them down immediately upon waking.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <span class="acc-title">🐍 REPTILES & SERPENTS</span>
+                    <span class="acc-icon">▶</span>
+                </div>
+                <div class="acc-content">
+                    <div class="omen-item">
+                        <span class="omen-title">Snake Crossing Path <span class="result-tag power">TRANSFORMATION</span></span>
+                        <span class="omen-desc">Snake doesn't cross your path by accident. It's Kundalini energy manifesting externally. You're about to shed a skin. Something you've outgrown is being stripped away. Let it go. The new skin is already forming underneath.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Lizard Falling on You</span>
+                        <span class="omen-desc">Traditional Indian omen science (Gowli Shastra) maps 65 body parts where a lizard can fall, each with specific meanings. Head = honor incoming. Chest = emotional upheaval. Right shoulder = gain. Left shoulder = loss. Ancient cultures weren't superstitious. They were pattern-literate.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Snake in Dream</span>
+                        <span class="omen-desc">If you dream of snakes after seeing one, it's not just a dream. It's confirmation. Your primal brain (reptilian complex) is communicating. Snake dreams = sexual energy, creative power, or hidden enemies. Context matters. Attacking snake = internal conflict. Peaceful snake = power integration.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <span class="acc-title">🐕 DOMESTIC ANIMALS</span>
+                    <span class="acc-icon">▶</span>
+                </div>
+                <div class="acc-content">
+                    <div class="omen-item">
+                        <span class="omen-title">Dog Following You <span class="result-tag good">PROTECTION</span></span>
+                        <span class="omen-desc">If a stray dog follows you unprompted = you're being guarded. Dogs see spirits and energy humans can't. They're shamanic guardians. If a dog follows you during a dangerous time in your life, let it. It's there for a reason.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Cat Crossing (Black)</span>
+                        <span class="omen-desc">The "black cat curse" is Western nonsense. In Egypt, cats were sacred. Black cat crossing = you're moving between worlds. The liminal space is opening. Good for magic, divination, shadow work. Bad for mundane tasks. Choose accordingly.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Dog Howling at Night <span class="result-tag warning">DEATH</span></span>
+                        <span class="omen-desc">Dogs howl when they sense death. Not always human death. Could be the death of a phase, relationship, or era. If your dog starts howling for no reason, something's ending. Prepare emotionally. Let go consciously.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Cat Staring at Empty Space</span>
+                        <span class="omen-desc">Cats see frequencies we don't. If your cat fixates on "nothing," it's tracking energy. Could be a spirit, emotional residue, or dimensional bleed. Don't dismiss it. Ask yourself: "What am I not seeing in this space?"</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <span class="acc-title">🦋 INSECTS & SMALL LIFE</span>
+                    <span class="acc-icon">▶</span>
+                </div>
+                <div class="acc-content">
+                    <div class="omen-item">
+                        <span class="omen-title">Butterfly Landing on You <span class="result-tag good">TRANSFORMATION</span></span>
+                        <span class="omen-desc">Butterfly = soul symbol across cultures. If one lands on you, it's a deceased loved one or your higher self saying "I'm here." It's validation. The transformation you're going through is divinely supported.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Spider in Morning</span>
+                        <span class="omen-desc">"If you wish to live and thrive, let the spider run alive." Morning spider = weaver of fate. Your web (network, plans) is being built. Don't kill it. Honor the architect. Evening spider = wealth coming.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Ant Trail in Home <span class="result-tag neutral">WORK</span></span>
+                        <span class="omen-desc">Ants = industriousness but also invasion. If ants suddenly appear in your home, it means: "Stop procrastinating." The universe is showing you the consequences of scattered energy. Focus. Build. One grain at a time.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Bee/Wasp Aggression <span class="result-tag warning">BOUNDARY</span></span>
+                        <span class="omen-desc">If bees or wasps aggressively approach you, it's not random. You're crossing an invisible boundary. Could be literal (near a hive) or metaphorical (violating someone's space). Back off. Reassess your approach.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Firefly at Night <span class="result-tag power">MAGIC</span></span>
+                        <span class="omen-desc">Fireflies = bioluminescent alchemy. They're showing you: "Light exists in darkness." If you're in a dark night of the soul and see fireflies, it's a message: your inner light is still there. You just need to pulse it.</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ================= DIRECTION (DIK) ================= -->
+        <div id="direction" class="content-section">
+            
+            <div class="accordion">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <span class="acc-title">🧭 DIK SHASTRA (DIRECTIONAL SCIENCE)</span>
+                    <span class="acc-icon">▶</span>
+                </div>
+                <div class="acc-content">
+                    <div class="omen-item">
+                        <span class="omen-title">The Sacred Grid</span>
+                        <span class="omen-desc">Ancient Vedic science mapped reality as a directional grid. Each direction is ruled by a deity, element, and energy. When something appears from a specific direction, it carries that direction's signature. This isn't superstition. It's pattern recognition codified.</span>
+                    </div>
+
+                    <div class="direction-grid">
+                        <div class="dir-cell"><strong>NW</strong>Vayu (Wind)<br>Movement, Change</div>
+                        <div class="dir-cell"><strong>N</strong>Kubera (Wealth)<br>Abundance, Gain</div>
+                        <div class="dir-cell"><strong>NE</strong>Ishana (Spirit)<br>Enlightenment</div>
+                        <div class="dir-cell"><strong>W</strong>Varuna (Water)<br>Emotion, Flow</div>
+                        <div class="dir-cell"><strong>CENTER</strong>Brahma (Creation)<br>Source, Self</div>
+                        <div class="dir-cell"><strong>E</strong>Indra (Power)<br>Success, Victory</div>
+                        <div class="dir-cell"><strong>SW</strong>Nairrutya (Demon)<br>Obstacles, Test</div>
+                        <div class="dir-cell"><strong>S</strong>Yama (Death)<br>Endings, Karma</div>
+                        <div class="dir-cell"><strong>SE</strong>Agni (Fire)<br>Passion, Purge</div>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Applying Direction</span>
+                        <span class="omen-desc">If a crow caws from the North = message about wealth/resources. From South = message about endings/karma. If you meet someone important and they approach from the East = they bring power/opportunity. From Southwest = they're a test/challenge. Direction adds context to every omen.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <span class="acc-title">🌅 TIMING & DIRECTION</span>
+                    <span class="acc-icon">▶</span>
+                </div>
+                <div class="acc-content">
+                    <div class="omen-item">
+                        <span class="omen-title">Sunrise Encounters <span class="result-tag good">BEGINNING</span></span>
+                        <span class="omen-desc">Anything you encounter during sunrise (East) carries "new beginning" energy. A job offer at dawn = take it. A fight at dawn = it's clearing old patterns. East = initiation. Trust morning omens more than evening ones.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Sunset Encounters <span class="result-tag neutral">ENDING</span></span>
+                        <span class="omen-desc">West (sunset) = closure, reflection, release. If something ends at sunset, it was meant to. If something begins at sunset, it's karmic (you're replaying a pattern). Evening decisions tend to be emotional, not strategic. Sleep on it.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Noon (Zenith) Events <span class="result-tag power">PEAK</span></span>
+                        <span class="omen-desc">Noon = maximum solar power. If something significant happens at noon (12 PM), it's a peak moment. High visibility. High consequence. Noon omens are loud. You can't ignore them. Act decisively or you'll regret it.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Midnight (Nadir) Events <span class="result-tag power">SHADOW</span></span>
+                        <span class="omen-desc">Midnight = underworld hour. If you have a profound realization, dream, or encounter at midnight, it's from your shadow/unconscious. Don't dismiss it as "just late-night thoughts." The veil is thinnest. Truth emerges.</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ================= BODY OMENS ================= -->
+        <div id="body" class="content-section">
+            
+            <div class="accordion">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <span class="acc-title">⚡ INVOLUNTARY BODY SIGNALS</span>
+                    <span class="acc-icon">▶</span>
+                </div>
+                <div class="acc-content">
+                    <div class="omen-item">
+                        <span class="omen-title">Right Eye Twitch <span class="result-tag good">GAIN</span></span>
+                        <span class="omen-desc">Right eye twitch (men) = good news coming. Money, opportunity, recognition. Right = solar, active, masculine. For women, it's reversed (left eye = good). Your body knows before your mind. If your eye twitches before a meeting, expect a win.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Left Eye Twitch <span class="result-tag bad">LOSS</span></span>
+                        <span class="omen-desc">Left eye twitch (men) = loss, bad news, confrontation. Left = lunar, receptive, feminine. For women, reversed. If this happens before making a decision, delay. Your nervous system is warning you.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Right Palm Itch <span class="result-tag good">MONEY IN</span></span>
+                        <span class="omen-desc">Itchy right palm = money coming to you. Don't scratch it aggressively (you'll "scratch away" the money). Let it itch. This is your energetic field sensing incoming wealth. Usually manifests within 72 hours.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Left Palm Itch <span class="result-tag bad">MONEY OUT</span></span>
+                        <span class="omen-desc">Itchy left palm = money leaving. Unexpected expense, loss, debt. Don't make big purchases when your left palm itches. Your body is saying "tighten up." Listen to it.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Sudden Chills/Goosebumps <span class="result-tag power">TRUTH</span></span>
+                        <span class="omen-desc">Random chills when you're not cold = your body detected truth. This happens when someone says something true, you have a profound realization, or you're near a sacred/powerful space. Your nervous system recognizes resonance. Trust it.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Ringing in Ears</span>
+                        <span class="omen-desc">Right ear ringing = someone speaking well of you. Left ear ringing = someone speaking ill of you. High-pitched sudden ringing = dimensional frequency shift. You're briefly tuning into a higher bandwidth. Note what you were thinking about when it happened.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Hiccups</span>
+                        <span class="omen-desc">Sudden hiccups = someone is thinking about you intensely. Not scientifically proven, but shamanic cultures worldwide agree. If you get hiccups out of nowhere, say the names of people in your life. When you say the right name, hiccups stop. Try it.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Stumbling on Threshold <span class="result-tag warning">BOUNDARY</span></span>
+                        <span class="omen-desc">If you trip or stumble crossing a threshold (doorway, gate), you're crossing an energetic boundary unprepared. Pause. Ground yourself. Don't rush into the new space. Thresholds are liminal. Respect them.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <span class="acc-title">💭 PSYCHOSOMATIC OMENS</span>
+                    <span class="acc-icon">▶</span>
+                </div>
+                <div class="acc-content">
+                    <div class="omen-item">
+                        <span class="omen-title">Sudden Anxiety/Dread</span>
+                        <span class="omen-desc">If you feel sudden, sourceless anxiety before doing something, your subconscious detected danger your conscious mind hasn't. This isn't "just anxiety." It's pattern recognition from your survival brain. Listen. Postpone. Investigate.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Gut Feeling (Literal)</span>
+                        <span class="omen-desc">Your gut has more neurons than your spinal cord. When you "feel it in your gut," you literally do. Tightness = no. Expansion = yes. Nausea = danger. Warmth = trust. Your enteric nervous system is an oracle. Stop overriding it with logic.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Random Pain (No Cause)</span>
+                        <span class="omen-desc">Sudden pain in a body part with no physical cause = energy blockage or incoming trauma to that area. Left side pain = feminine/emotional issue. Right side = masculine/external issue. Ancient medicine treated the energy before the symptom appeared.</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ================= ENCOUNTER OMENS ================= -->
+        <div id="encounters" class="content-section">
+            
+            <div class="accordion">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <span class="acc-title">👤 HUMAN ENCOUNTERS</span>
+                    <span class="acc-icon">▶</span>
+                </div>
+                <div class="acc-content">
+                    <div class="omen-item">
+                        <span class="omen-title">First Person You See <span class="result-tag power">MIRROR</span></span>
+                        <span class="omen-desc">The first person you see when leaving home sets the tone for the day. Happy person = good day. Arguing couple = conflict ahead. Beggar = test of generosity. Elderly person = wisdom opportunity. Your subconscious is priming you. Notice and adapt.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Funeral Procession <span class="result-tag neutral">DEATH</span></span>
+                        <span class="omen-desc">Crossing a funeral procession isn't "bad luck." It's a death-awareness trigger. Something in your life is dying. Instead of fearing it, honor it. Death clears space for new life. Bow internally. Release what's ready to go.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Wedding Procession <span class="result-tag good">UNION</span></span>
+                        <span class="omen-desc">Encountering a wedding = union energy. Not necessarily romantic. Could be a business partnership, internal integration, or reconciliation. Something that was separate is merging. If you're ambivalent about a decision, this is a "yes" sign.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Pregnant Woman</span>
+                        <span class="omen-desc">Seeing a pregnant woman = creation in progress. If you encounter one before starting a project, it's auspicious. Your "baby" (idea, business, art) is protected. The universe is mirroring your creative potential back to you.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Crying Child <span class="result-tag warning">WOUND</span></span>
+                        <span class="omen-desc">Hearing a crying child = your inner child is crying. Some unhealed childhood wound is activated. Don't dismiss it. Ask: "What part of me feels abandoned/hurt right now?" The child is a messenger from your psyche.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Stranger Eye Contact</span>
+                        <span class="omen-desc">If a stranger locks eyes with you intensely and holds it, you've just had a soul recognition moment. Could be a past life connection, parallel timeline self, or energetic mirror. Don't look away. Acknowledge it. These moments are rare.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <span class="acc-title">🎭 ARCHETYPAL ENCOUNTERS</span>
+                    <span class="acc-icon">▶</span>
+                </div>
+                <div class="acc-content">
+                    <div class="omen-item">
+                        <span class="omen-title">The Beggar</span>
+                        <span class="omen-desc">Encountering a beggar before something important = test of abundance mentality. If you give, you pass. You're saying "I have enough to share." If you withhold from scarcity, you're signaling lack. The universe mirrors your vibration back.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">The Elder</span>
+                        <span class="omen-desc">Old person = wisdom keeper. If an elderly person speaks to you unsolicited, listen. They're delivering a message from the ancestral realm. Even if it seems random. Extract the metaphor. Elders are living oracles.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">The Madman</span>
+                        <span class="omen-desc">"Crazy" people often speak truth society has conditioned you to ignore. If a homeless or mentally ill person says something that strikes you, it's not random. The trickster archetype uses broken vessels. Truth leaks through cracks.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">The Authority Figure</span>
+                        <span class="omen-desc">Police, security, officials appearing = you're being asked to examine your relationship with authority. Are you rebelling unnecessarily? Or submitting when you shouldn't? The encounter is a mirror. Examine your inner authority.</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ================= URBAN OMENS ================= -->
+        <div id="urban" class="content-section">
+            
+            <div class="accordion">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <span class="acc-title">🏙️ MODERN URBAN SIGNS</span>
+                    <span class="acc-icon">▶</span>
+                </div>
+                <div class="acc-content">
+                    <div class="omen-item">
+                        <span class="omen-title">Repeated Numbers (Angel Numbers)</span>
+                        <span class="omen-desc">111, 222, 333, etc. aren't just New Age nonsense. Your reticular activating system (RAS) filters reality. When you see repeating numbers, your subconscious is screaming "PAY ATTENTION." Each number has meaning: 111 = alignment, 444 = foundation, 777 = luck, 666 = balance physical/spiritual.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Random Song Lyrics</span>
+                        <span class="omen-desc">When you're thinking about something and a song comes on with eerily relevant lyrics = synchronicity. Your question is being answered through the collective unconscious. Don't dismiss it. The song chose you, not the algorithm.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Technology Glitches</span>
+                        <span class="omen-desc">Phone dying at crucial moments, apps crashing, messages not sending = the universe is saying "STOP." Technology is an extension of consciousness. When it malfunctions, it's mirroring your energetic state or blocking you from a mistake. Pause. Reflect.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Traffic Lights (All Green)</span>
+                        <span class="omen-desc">If you hit every green light = flow state. The universe is saying "Go. Don't stop. This is your moment." Conversely, all red lights = "Slow down. You're forcing something." Traffic is a metaphor for life pacing.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Lost Then Found Objects</span>
+                        <span class="omen-desc">When you lose something and find it in an impossible place = reality glitch. The object disappeared from one timeline and reappeared in another. You're experiencing quantum uncertainty. Your consciousness is shifting between parallel realities. It happens more than you think.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Billboard/Sign Messages</span>
+                        <span class="omen-desc">When you're obsessing about a question and a billboard/street sign seems to answer it = external synchronicity. The universe uses advertising as oracle cards. "Just Do It" when you're hesitating. "Have a Break" when you're burning out. Reality is responsive.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Stranger's Overheard Conversation</span>
+                        <span class="omen-desc">When you overhear a conversation that directly addresses what you're dealing with = clairaudience. You "happened" to be there to receive the message. Your higher self orchestrated the timing. This isn't coincidence. It's precision.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <span class="acc-title">📱 DIGITAL OMENS</span>
+                    <span class="acc-icon">▶</span>
+                </div>
+                <div class="acc-content">
+                    <div class="omen-item">
+                        <span class="omen-title">Ex Texting Out of Nowhere</span>
+                        <span class="omen-desc">Not random. Energetic cords are real. When you think about someone intensely, you send a psychic ping. They feel it. If your ex texts after you've been thinking about them, you summoned them energetically. Be conscious of what you're broadcasting.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Social Media Synchronicity</span>
+                        <span class="omen-desc">When you see the exact post/meme/video addressing your current struggle = algorithmic divination. Yes, it's the algorithm. But the algorithm is trained on collective consciousness. It knows you better than you know yourself. Let it guide you.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Dream Then See It Online</span>
+                        <span class="omen-desc">Dream about something specific, then see it online the next day = precognitive download. Your consciousness accessed the probability field during sleep. You're tapping into futures before they solidify. Track these. You're developing foresight.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Unsent Message Glitch</span>
+                        <span class="omen-desc">When you type a message, almost send it, then delete it... and it sends anyway = your higher self overriding your fear. The message needed to be sent. Technology is your subconscious co-conspirator. Trust the glitch.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <span class="acc-title">🌐 PATTERN RECOGNITION</span>
+                    <span class="acc-icon">▶</span>
+                </div>
+                <div class="acc-content">
+                    <div class="omen-item">
+                        <span class="omen-title">The Rule of Three</span>
+                        <span class="omen-desc">If something happens three times, it's not coincidence. Three = the universe screaming at you. First time = notice. Second time = pattern. Third time = YOU BETTER FUCKING LISTEN. After three, you don't get a fourth warning. You get consequences.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Name Synchronicity</span>
+                        <span class="omen-desc">When you keep encountering the same name (different people, places, books) = that name is a key. Could be someone you need to meet, a past life, or a future identity. Research the name's meaning. It's a breadcrumb trail.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">Recurring Themes in Media</span>
+                        <span class="omen-desc">If every show/movie/book you consume randomly has the same theme (betrayal, rebirth, sacrifice) = your psyche is processing that theme. The universe is giving you multiple angles to understand your current initiation. Pay attention to the pattern, not the individual stories.</span>
+                    </div>
+
+                    <div class="omen-item">
+                        <span class="omen-title">The "Thought Then See It" Loop</span>
+                        <span class="omen-desc">Think of something obscure, then see it minutes later = you're in high-vibration flow. Your thoughts are manifesting rapidly. This is a sign you're aligned. Whatever you're doing, keep doing it. You're in the zone.</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem; padding: 2rem 1rem; font-family: 'Share Tech Mono'; color: var(--text-dim); font-size: 0.7rem; opacity: 0.6; border-top: 1px solid var(--border-color);">
+            ⚠️ SYSTEM LEVEL: SHAMANIC ACCESS<br>
+            🔞 21+ MATURE INTERPRETATION<br>
+            🌿 ANCIENT PATTERN RECOGNITION<br>
+            🦅 REALITY IS ALWAYS SPEAKING<br>
+            👁️ YOU JUST FORGOT HOW TO LISTEN<br><br>
+            <span style="font-size: 0.6rem; opacity: 0.5;">
+                [Knowledge compiled from: Vedic Nimitta Shastra, Shamanic traditions, Jungian synchronicity, Pattern psychology, Indigenous wisdom, and direct gnosis]
+            </span>
+        </div>
+
+    </div>
+
+    <div class="bottom-nav">
+        <div class="nav-item" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+            <i>⬆️</i>
+            <span>TOP</span>
+        </div>
+        <div class="nav-item active" onclick="location.href='index.html'">
+            <i>🏠</i>
+            <span>HUB</span>
+        </div>
+        <div class="nav-item" onclick="window.history.back()">
+            <i>↩️</i>
+            <span>BACK</span>
+        </div>
+    </div>
+
+    <script>
+        function switchMode(modeId) {
+            document.querySelectorAll('.content-section').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.remove('active'));
+            
+            const target = document.getElementById(modeId);
+            if (target) target.classList.add('active');
+            
+            event.target.classList.add('active');
+            event.target.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+
+        function toggleAcc(header) {
+            const wasActive = header.classList.contains('active');
+            
+            const section = header.closest('.content-section');
+            section.querySelectorAll('.acc-header').forEach(h => {
+                h.classList.remove('active');
+                h.nextElementSibling.classList.remove('active');
+            });
+            
+            if (!wasActive) {
+                header.classList.add('active');
+                header.nextElementSibling.classList.add('active');
+            }
+        }
+    </script>
+
+</body>
+</html>
