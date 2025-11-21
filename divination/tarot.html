@@ -274,12 +274,173 @@
             margin-top: 1rem;
         }
 
-        /* Placeholder for future phases */
-        .coming-soon {
+        /* Spreads Styling */
+        .spread-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .spread-btn {
+            background: rgba(20, 10, 30, 0.8);
+            border: 1px solid var(--primary);
+            color: var(--text-main);
+            padding: 1rem 2rem;
+            font-family: 'Orbitron', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 4px;
+        }
+
+        .spread-btn:hover, .spread-btn.active {
+            background: var(--primary-dim);
+            border-color: var(--accent);
+            box-shadow: 0 0 15px rgba(157, 78, 221, 0.4);
+        }
+
+        .reading-area {
+            min-height: 500px;
+            position: relative;
+            background: rgba(0,0,0,0.3);
+            border-radius: 8px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .deck-stack {
+            width: 120px;
+            height: 200px;
+            background: linear-gradient(135deg, #1a1a1a, #2d1b3d);
+            border: 2px solid var(--accent-dim);
+            border-radius: 8px;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            transition: transform 0.3s;
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 0l2.5 7.5L20 10l-7.5 2.5L10 20l-2.5-7.5L0 10l7.5-2.5z' fill='%239d4edd' fill-opacity='0.1'/%3E%3C/svg%3E");
+        }
+
+        .deck-stack:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(157, 78, 221, 0.3);
+        }
+
+        .deck-stack::before, .deck-stack::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            border: inherit;
+            border-radius: inherit;
+            top: -2px;
+            left: -2px;
+            z-index: -1;
+        }
+
+        .deck-stack::after {
+            top: -4px;
+            left: -4px;
+            z-index: -2;
+        }
+
+        /* Card Display */
+        .active-spread {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 2rem;
+            width: 100%;
+        }
+
+        .tarot-card {
+            width: 180px;
+            perspective: 1000px;
+            cursor: pointer;
+            opacity: 0;
+            animation: dealCard 0.5s forwards;
+        }
+
+        @keyframes dealCard {
+            from { opacity: 0; transform: translateY(-50px) scale(0.5); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 280px;
             text-align: center;
-            padding: 4rem;
-            border: 1px dashed var(--primary-dim);
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .tarot-card.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 8px;
+            border: 1px solid var(--accent-dim);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .card-back {
+            background: linear-gradient(135deg, #1a0b2e, #3d1b5d);
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0l5 15h15l-12.5 10 5 15L20 30l-12.5 10 5-15L0 15h15z' fill='%23ffd700' fill-opacity='0.05'/%3E%3C/svg%3E");
+        }
+
+        .card-front {
+            background: #0f0a18;
+            transform: rotateY(180deg);
+            border-color: var(--primary);
+        }
+
+        .card-name {
+            font-family: 'Cinzel';
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-top: 1rem;
+        }
+
+        .card-position {
             color: var(--text-dim);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        /* Interpretation Box */
+        .reading-output {
+            margin-top: 3rem;
+            background: rgba(10, 5, 16, 0.8);
+            padding: 2rem;
+            border: 1px solid var(--primary-dim);
+            width: 100%;
+            display: none;
+            animation: fadeIn 1s;
+        }
+
+        .reading-block {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 1rem;
         }
 
     </style>
@@ -332,10 +493,24 @@
 
     <!-- SPREADS SECTION -->
     <div id="spreads" class="section">
-        <div class="coming-soon">
-            <h2 style="color: var(--primary); font-family: 'Orbitron'; margin-bottom: 1rem;">INTERACTIVE SPREAD SYSTEM</h2>
-            <p>Phase 5-8 Initiating...</p>
-            <p style="margin-top: 1rem; font-size: 0.9rem;">Visual Deck • 3D Animations • Celtic Cross • Daily Draw</p>
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <h2 style="color: var(--accent); font-family: 'Cinzel';">INTERACTIVE READINGS</h2>
+            <p style="color: var(--text-dim); margin-top: 0.5rem;">Focus on your question, then select a spread.</p>
+        </div>
+
+        <div class="spread-controls">
+            <button class="spread-btn" onclick="initSpread('single')">ONE CARD<br><span style="font-size:0.7em; opacity:0.7">Daily Guidance</span></button>
+            <button class="spread-btn" onclick="initSpread('three')">THREE CARD<br><span style="font-size:0.7em; opacity:0.7">Past / Present / Future</span></button>
+            <button class="spread-btn" onclick="initSpread('celtic')">CELTIC CROSS<br><span style="font-size:0.7em; opacity:0.7">Deep Analysis (10 Cards)</span></button>
+        </div>
+
+        <div class="reading-area" id="reading-area">
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 300px; text-align: center;">
+                <div class="deck-stack" id="deck-trigger" onclick="shuffleAndDraw()"></div>
+                <p style="margin-top: 1rem; color: var(--text-dim);" id="deck-instruction">Select a spread above to begin.</p>
+            </div>
+            <div class="active-spread" id="spread-display"></div>
+            <div class="reading-output" id="reading-output"></div>
         </div>
     </div>
 
@@ -632,6 +807,135 @@
 
             container.innerHTML = html;
         }
+
+        // SPREAD SYSTEM LOGIC (Phase 5-8)
+        let currentSpreadType = null;
+        let isShuffling = false;
+
+        const spreads = {
+            'single': { name: "Daily Draw", positions: ["Current Energy"] },
+            'three': { name: "Time Flow", positions: ["Past", "Present", "Future"] },
+            'celtic': { name: "Celtic Cross", positions: [
+                "The Situation", "The Challenge", "The Foundation", "Recent Past", 
+                "Best Outcome", "Immediate Future", "Self/Attitude", "External Influences", 
+                "Hopes & Fears", "Final Outcome"
+            ]}
+        };
+
+        function initSpread(type) {
+            currentSpreadType = type;
+            const deck = document.getElementById('deck-trigger');
+            const instruction = document.getElementById('deck-instruction');
+            const display = document.getElementById('spread-display');
+            const output = document.getElementById('reading-output');
+            
+            // Reset
+            display.innerHTML = '';
+            output.style.display = 'none';
+            output.innerHTML = '';
+            
+            // Update Controls
+            document.querySelectorAll('.spread-btn').forEach(b => b.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+
+            instruction.textContent = `Focus on your question. Click the deck to shuffle and draw ${spreads[type].positions.length} cards.`;
+            deck.style.display = 'block';
+            deck.classList.add('pulse');
+        }
+
+        function shuffleAndDraw() {
+            if (!currentSpreadType || isShuffling) return;
+            
+            const deck = document.getElementById('deck-trigger');
+            const display = document.getElementById('spread-display');
+            const instruction = document.getElementById('deck-instruction');
+            
+            isShuffling = true;
+            instruction.textContent = "Shuffling the cosmic energies...";
+            
+            // Visual Shuffle Effect
+            deck.style.animation = "shake 0.5s infinite";
+            
+            setTimeout(() => {
+                deck.style.animation = "";
+                deck.style.display = "none"; // Hide deck
+                instruction.textContent = "Reading Complete";
+                dealCards();
+            }, 1500);
+        }
+
+        function dealCards() {
+            const display = document.getElementById('spread-display');
+            const output = document.getElementById('reading-output');
+            const spread = spreads[currentSpreadType];
+            const positions = spread.positions;
+            let drawnCards = [];
+
+            // Draw random cards (unique)
+            while (drawnCards.length < positions.length) {
+                const randIndex = Math.floor(Math.random() * majorArcana.length);
+                if (!drawnCards.includes(randIndex)) drawnCards.push(randIndex);
+            }
+
+            // Generate HTML
+            let cardsHTML = '';
+            let readingHTML = `<h3 style="color: var(--accent); font-family: 'Cinzel'; text-align: center; margin-bottom: 2rem;">${spread.name} Interpretation</h3>`;
+
+            drawnCards.forEach((cardIndex, i) => {
+                const card = majorArcana[cardIndex];
+                const isReversed = Math.random() > 0.8; // 20% chance of reversal
+                const positionName = positions[i];
+                
+                // Card HTML
+                cardsHTML += `
+                    <div class="tarot-card" onclick="this.classList.toggle('flipped')" style="animation-delay: ${i * 0.2}s">
+                        <div class="card-inner">
+                            <div class="card-back"></div>
+                            <div class="card-front" style="${isReversed ? 'transform: rotateY(180deg) rotate(180deg);' : ''}">
+                                <div style="font-size: 2rem; color: var(--accent);">${card.number}</div>
+                                <div class="card-name">${card.name}</div>
+                                <div style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-dim);">${isReversed ? 'REVERSED' : 'UPRIGHT'}</div>
+                            </div>
+                        </div>
+                        <div class="card-position">${positionName}</div>
+                    </div>
+                `;
+
+                // Interpretation HTML
+                readingHTML += `
+                    <div class="reading-block">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">${i+1}. ${positionName}: ${card.name} (${isReversed ? 'Reversed' : 'Upright'})</h4>
+                        <p style="margin-bottom: 0.5rem;"><strong>Archetype:</strong> ${card.archetype}</p>
+                        <p>${isReversed ? card.reversed : card.upright}</p>
+                        <p style="color: var(--text-dim); font-size: 0.9rem; margin-top: 0.5rem;"><em>Context: ${positionName}</em></p>
+                    </div>
+                `;
+            });
+
+            display.innerHTML = cardsHTML;
+            output.innerHTML = readingHTML;
+            output.style.display = 'block';
+            isShuffling = false;
+        }
+
+        /* CSS for Shake Animation */
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes shake {
+                0% { transform: translate(1px, 1px) rotate(0deg); }
+                10% { transform: translate(-1px, -2px) rotate(-1deg); }
+                20% { transform: translate(-3px, 0px) rotate(1deg); }
+                30% { transform: translate(3px, 2px) rotate(0deg); }
+                40% { transform: translate(1px, -1px) rotate(1deg); }
+                50% { transform: translate(-1px, 2px) rotate(-1deg); }
+                60% { transform: translate(-3px, 1px) rotate(0deg); }
+                70% { transform: translate(3px, 1px) rotate(-1deg); }
+                80% { transform: translate(-1px, -1px) rotate(1deg); }
+                90% { transform: translate(1px, 2px) rotate(0deg); }
+                100% { transform: translate(1px, -2px) rotate(-1deg); }
+            }
+        `;
+        document.head.appendChild(style);
 
         // Initialize
         renderMajorArcana();
