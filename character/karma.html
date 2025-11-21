@@ -311,6 +311,47 @@
             .loop-step { width: auto; margin-left: 3.5rem !important; margin-right: 0 !important; text-align: left !important; border-left: 4px solid !important; border-right: 1px solid rgba(157, 78, 221, 0.3) !important; }
             .step-marker { left: -3.8rem !important; right: auto !important; top: 1.5rem !important; }
         }
+
+        /* SEED BURN VISUALIZER */
+        .seed-container {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .karmic-seed {
+            font-size: 4rem;
+            transition: all 0.5s;
+            filter: drop-shadow(0 0 10px var(--psyche-warn));
+            animation: pulse-seed 1s infinite alternate;
+            user-select: none;
+        }
+        @keyframes pulse-seed { 0% { transform: scale(1); } 100% { transform: scale(1.1); } }
+        @keyframes shake { 0% { transform: translate(1px, 1px) rotate(0deg); } 10% { transform: translate(-1px, -2px) rotate(-1deg); } 20% { transform: translate(-3px, 0px) rotate(1deg); } 30% { transform: translate(3px, 2px) rotate(0deg); } 40% { transform: translate(1px, -1px) rotate(1deg); } 50% { transform: translate(-1px, 2px) rotate(-1deg); } 60% { transform: translate(-3px, 1px) rotate(0deg); } 70% { transform: translate(3px, 1px) rotate(-1deg); } 80% { transform: translate(-1px, -1px) rotate(1deg); } 90% { transform: translate(1px, 2px) rotate(0deg); } 100% { transform: translate(1px, -2px) rotate(-1deg); } }
+        
+        .burn-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle, rgba(255,107,107,0.8) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 1s;
+            pointer-events: none;
+            border-radius: 50%;
+        }
+        
+        .phase-indicator {
+            font-family: 'Orbitron';
+            font-size: 1.5rem;
+            color: #fff;
+            height: 2rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px currentColor;
+            transition: color 0.3s;
+        }
     </style>
 </head>
 <body>
@@ -480,9 +521,16 @@
                     </div>
                 </div>
 
-                <button class="burn-btn" onclick="alert('PROTOCOL INITIATED. \n\n1. FREEZE THE BODY.\n2. WATCH THE URGE.\n3. LET IT BURN.\n\nTIMELINE SHIFTING...')">
-                    INITIATE SEED BURN
-                </button>
+                <div class="seed-stage" id="seed-stage" style="text-align: center; margin-top: 3rem;">
+                    <div class="phase-indicator" id="phase-text">WAITING_FOR_TRIGGER</div>
+                    <div class="seed-container" onclick="startBurnSequence()">
+                        <div class="karmic-seed" id="seed-icon">🌰</div>
+                        <div class="burn-overlay" id="burn-fx"></div>
+                    </div>
+                    <p style="font-family: 'Share Tech Mono'; color: rgba(255,255,255,0.5); font-size: 0.8rem;">
+                        CLICK SEED TO INITIATE PROTOCOL
+                    </p>
+                </div>
                 
                 <div style="margin-top: 2rem; font-family: 'Share Tech Mono'; font-size: 0.8rem; color: rgba(255,255,255,0.5);">
                     STATUS: READY FOR EXECUTION
@@ -496,5 +544,63 @@
             <a href="cognitive.html" class="back-link">NEXT: COGNITIVE ARCHITECTURE ❯</a>
         </div>
     </div>
+    
+    <script>
+        function startBurnSequence() {
+            const seed = document.getElementById('seed-icon');
+            const text = document.getElementById('phase-text');
+            const burn = document.getElementById('burn-fx');
+            
+            if(seed.classList.contains('burning')) return;
+            seed.classList.add('burning');
+            
+            // PHASE 1: FREEZE
+            text.innerText = "PHASE 1: FREEZE (STAMBHANA)";
+            text.style.color = "#00d2d3";
+            seed.style.animation = "none";
+            seed.style.filter = "grayscale(100%) brightness(1.5) drop-shadow(0 0 20px #00d2d3)";
+            seed.innerText = "🧊";
+            
+            setTimeout(() => {
+                // PHASE 2: WITNESS
+                text.innerText = "PHASE 2: WITNESS (SAKSHI)";
+                text.style.color = "#feca57";
+                seed.style.transform = "scale(1.5)";
+                seed.style.filter = "drop-shadow(0 0 30px #feca57)";
+                seed.innerText = "👁️";
+                
+                setTimeout(() => {
+                    // PHASE 3: BURN
+                    text.innerText = "PHASE 3: BURN (AGNI)";
+                    text.style.color = "#ff6b6b";
+                    seed.innerText = "🔥";
+                    burn.style.opacity = "1";
+                    seed.style.animation = "shake 0.1s infinite";
+                    
+                    setTimeout(() => {
+                        // DONE
+                        text.innerText = "TIMELINE SHIFTED";
+                        text.style.color = "#fff";
+                        seed.style.animation = "none";
+                        seed.innerText = "✨";
+                        burn.style.opacity = "0";
+                        seed.style.filter = "drop-shadow(0 0 20px white)";
+                        
+                        // Reset after delay
+                        setTimeout(() => {
+                            seed.classList.remove('burning');
+                            text.innerText = "READY_FOR_NEXT_LOOP";
+                            text.style.color = "rgba(255,255,255,0.5)";
+                            seed.innerText = "🌰";
+                            seed.style.animation = "pulse-seed 1s infinite alternate";
+                            seed.style.filter = "drop-shadow(0 0 10px var(--psyche-warn))";
+                            seed.style.transform = "scale(1)";
+                        }, 3000);
+                        
+                    }, 2000);
+                }, 2000);
+            }, 2000);
+        }
+    </script>
 </body>
 </html>

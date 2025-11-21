@@ -233,6 +233,34 @@
         .scan-btn:hover { color: #000; box-shadow: 0 0 30px var(--psyche-primary); }
         .scan-btn:hover::before { left: 0; }
 
+        /* Radar Scanner */
+        .radar-screen {
+            width: 200px; height: 200px;
+            border: 2px solid var(--psyche-primary);
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            position: relative;
+            background: radial-gradient(circle, rgba(157, 78, 221, 0.1) 0%, transparent 70%);
+            overflow: hidden;
+        }
+        .radar-line {
+            position: absolute; top: 50%; left: 50%;
+            width: 50%; height: 2px;
+            background: var(--psyche-safe);
+            transform-origin: 0 0;
+            animation: scan-rot 2s infinite linear;
+            box-shadow: 0 0 10px var(--psyche-safe);
+        }
+        @keyframes scan-rot { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        
+        .target-dot {
+            position: absolute;
+            width: 10px; height: 10px; background: #fff;
+            border-radius: 50%;
+            display: none;
+            box-shadow: 0 0 10px #fff;
+        }
+
         @media (max-width: 768px) {
             .page-title { font-size: 2rem; }
             .archetype-grid { grid-template-columns: 1fr; }
@@ -529,13 +557,71 @@
         </div>
 
         <div class="action-area">
-            <button class="scan-btn" onclick="alert('SCANNING PSYCHE SIGNATURE...\\n\\nDETECTING DOMINANT ARCHETYPE...\\n\\nRESULT: MULTI-CLASS HYBRID DETECTED.')">
+            <div class="radar-screen" id="radar" style="display:none;">
+                <div class="radar-line"></div>
+                <div class="target-dot" style="top: 20%; left: 30%;"></div>
+                <div class="target-dot" style="top: 60%; left: 70%;"></div>
+            </div>
+            
+            <div class="console-log" id="scan-log" style="max-width: 400px; margin: 0 auto 1rem; display:none;">> SYSTEM READY</div>
+
+            <button class="scan-btn" onclick="startScan()">
                 INITIATE DEEP PSYCHE SCAN
             </button>
             <p style="font-family: 'Share Tech Mono'; color: rgba(255,255,255,0.5); margin-top: 1rem; font-size: 0.8rem;">
                 SYSTEM READY // WAITING FOR INPUT
             </p>
         </div>
+
+        <script>
+            function startScan() {
+                const btn = document.querySelector('.scan-btn');
+                const radar = document.getElementById('radar');
+                const log = document.getElementById('scan-log');
+                const dots = document.querySelectorAll('.target-dot');
+                
+                btn.style.display = 'none';
+                radar.style.display = 'block';
+                log.style.display = 'block';
+                
+                let steps = [
+                    "> INITIALIZING_SENSOR_ARRAY...",
+                    "> SCANNING_COLLECTIVE_UNCONSCIOUS...",
+                    "> DETECTING_ARCHETYPAL_SIGNATURES...",
+                    "> PATTERN_MATCH: 85% MATCH [MAGICIAN]",
+                    "> PATTERN_MATCH: 92% MATCH [RULER]",
+                    "> CALCULATING_DOMINANT_TRAIT...",
+                    "> SCAN_COMPLETE: HYBRID_CLASS_DETECTED"
+                ];
+                
+                let i = 0;
+                let interval = setInterval(() => {
+                    if(i >= steps.length) {
+                        clearInterval(interval);
+                        dots.forEach(d => d.style.display = 'block');
+                        radar.querySelector('.radar-line').style.animation = 'none';
+                        radar.querySelector('.radar-line').style.display = 'none';
+                        
+                         setTimeout(() => {
+                            btn.style.display = 'inline-block';
+                            btn.innerText = "RE-SCAN PSYCHE";
+                            radar.style.display = 'none';
+                            log.style.display = 'none';
+                        }, 3000);
+                        return;
+                    }
+                    log.innerText = steps[i];
+                    
+                    // Random blips
+                    if(Math.random() > 0.5) {
+                        dots[0].style.display = 'block';
+                        setTimeout(() => dots[0].style.display = 'none', 200);
+                    }
+                    
+                    i++;
+                }, 1000);
+            }
+        </script>
 
         <div style="margin-top: 4rem; border-top: 1px solid rgba(157, 78, 221, 0.3); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center;">
             <a href="gunas.html" class="back-link">❮ PREV: GUNA MATRIX</a>

@@ -205,16 +205,23 @@
 
         .terminal-window {
             background: #000;
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid var(--psyche-primary);
             padding: 1rem;
-            margin-top: 2rem;
-            height: 200px;
+            font-family: 'Share Tech Mono';
+            height: 300px;
             overflow-y: auto;
-            font-size: 0.85rem;
-            color: #0f0;
-            text-shadow: 0 0 5px #0f0;
+            position: relative;
+            box-shadow: inset 0 0 20px rgba(0,255,0,0.1);
+            font-size: 0.9rem;
         }
-        .cursor { animation: blink 1s infinite; }
+        .terminal-window::after {
+            content: '';
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+            background-size: 100% 4px;
+            pointer-events: none;
+        }
+        .cursor { animation: blink 1s infinite; display: inline-block; width: 10px; height: 15px; background: var(--psyche-safe); vertical-align: middle; margin-left: 5px; }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
         .purge-btn {
@@ -420,11 +427,10 @@
                 <div>> INITIALIZING_BOOT_SEQUENCE...</div>
                 <div>> CHECKING_HARDWARE... OK</div>
                 <div>> CHECKING_IDENTITY... <span style="color: #f00">ERROR: IDENTITY_NOT_FOUND</span></div>
-                <div>> RUNNING_QUERY: "WHO_AM_I?"</div>
-                <div>> SCANNING...</div>
-                <div class="cursor">_</div>
+                <div>> WAITING_FOR_ADMIN_OVERRIDE...</div>
+                <div>> _<span class="cursor"></span></div>
             </div>
-
+            
             <button class="purge-btn" onclick="runDiagnostic()">
                 RUN DIAGNOSTIC
             </button>
@@ -433,26 +439,36 @@
         <script>
             function runDiagnostic() {
                 const term = document.getElementById('terminal');
-                const lines = [
-                    "> QUERY: AM I THE BODY? ... NEGATIVE.",
-                    "> QUERY: AM I THE MIND? ... NEGATIVE.",
-                    "> QUERY: AM I THE THOUGHTS? ... NEGATIVE.",
-                    "> QUERY: AM I THE EGO? ... NEGATIVE.",
-                    "> ISOLATING CORE KERNEL...",
-                    "> STATUS: I AM THE OBSERVER (SAKSHI).",
-                    "> SYSTEM PURGE COMPLETE. FREEDOM DETECTED."
+                const btn = document.querySelector('.purge-btn');
+                btn.style.display = 'none';
+                
+                const sequence = [
+                    { t: 500, msg: "> MOUNTING_ROOT_FILESYSTEM..." },
+                    { t: 1000, msg: "> SCANNING_IDENTITY_MATRIX... [FOUND 1000+ ATTACHMENTS]" },
+                    { t: 1800, msg: "> ERROR: EGO_CORRUPTION_DETECTED (Sector 7)" },
+                    { t: 2500, msg: "> INITIATING_NETI_NETI_PROTOCOL..." },
+                    { t: 3500, msg: "> QUERY: 'AM I THIS BODY?' -> [FALSE]" },
+                    { t: 4500, msg: "> QUERY: 'AM I THIS MIND?' -> [FALSE]" },
+                    { t: 5500, msg: "> QUERY: 'AM I THESE EMOTIONS?' -> [FALSE]" },
+                    { t: 6500, msg: "> CRITICAL: IDENTITY_DISSOLUTION_IMMINENT" },
+                    { t: 7500, msg: "> PURGING_FALSE_SELF.exe..." },
+                    { t: 9000, msg: "> REBOOTING_AS_WITNESS..." },
+                    { t: 10500, msg: "<span style='color:#fff; text-shadow:0 0 10px #fff'>SYSTEM_STATUS: PURE_AWARENESS_ONLINE</span>" }
                 ];
-                let i = 0;
-                term.innerHTML = '<div>> INITIALIZING...</div>';
-                const interval = setInterval(() => {
-                    if (i >= lines.length) {
-                        clearInterval(interval);
-                        return;
-                    }
-                    term.innerHTML += `<div>${lines[i]}</div>`;
-                    term.scrollTop = term.scrollHeight;
-                    i++;
-                }, 800);
+                
+                term.innerHTML = "> INITIALIZING...";
+                
+                sequence.forEach(s => {
+                     setTimeout(() => {
+                         term.innerHTML += `<div style='margin-bottom:5px; border-bottom: 1px solid #111;'>${s.msg}</div>`;
+                         term.scrollTop = term.scrollHeight;
+                     }, s.t);
+                });
+                
+                 setTimeout(() => {
+                     btn.style.display = 'block'; 
+                     btn.innerText = "RE-RUN DIAGNOSTIC";
+                 }, 12000);
             }
         </script>
 

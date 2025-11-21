@@ -344,9 +344,77 @@
                     </div>
                 </div>
 
-                <button class="init-btn" onclick="alert('PROTOCOL INITIATED.\n\n1. BREAK TAMAS WITH MOVEMENT.\n2. CALM RAJAS WITH BREATH.\n3. WITNESS THE SILENCE.')">
+                <div class="balancer-ui" id="balancer-ui" style="display:none;">
+                    <div class="three-channels">
+                        <div class="channel" id="c-tamas">
+                            <div class="channel-fill" style="height: 80%; background: #4ecdc4;"></div>
+                            <div class="channel-label">TAMAS</div>
+                        </div>
+                        <div class="channel" id="c-rajas">
+                            <div class="channel-fill" style="height: 90%; background: #ff6b6b;"></div>
+                            <div class="channel-label">RAJAS</div>
+                        </div>
+                        <div class="channel" id="c-sattva">
+                            <div class="channel-fill" style="height: 20%; background: #ffe66d;"></div>
+                            <div class="channel-label">SATTVA</div>
+                        </div>
+                    </div>
+                    <div class="console-log" id="balance-log">> STATUS: IMBALANCE_DETECTED</div>
+                </div>
+
+                <button class="init-btn" onclick="startBalance()">
                     INITIATE BALANCING SEQUENCE
                 </button>
+                
+                <script>
+                    function startBalance() {
+                        const btn = document.querySelector('.init-btn');
+                        const ui = document.getElementById('balancer-ui');
+                        const log = document.getElementById('balance-log');
+                        const t = document.querySelector('#c-tamas .channel-fill');
+                        const r = document.querySelector('#c-rajas .channel-fill');
+                        const s = document.querySelector('#c-sattva .channel-fill');
+                        
+                        btn.style.display = 'none';
+                        ui.style.display = 'block';
+                        
+                        setTimeout(() => {
+                            log.innerText = "> STEP 1: BREAKING INERTIA (FIRE)...";
+                            t.style.height = "20%";
+                            r.style.height = "100%"; // Spike energy
+                            
+                            setTimeout(() => {
+                                log.innerText = "> STEP 2: CALMING CHAOS (BREATH)...";
+                                r.style.height = "40%";
+                                s.style.height = "60%";
+                                
+                                setTimeout(() => {
+                                    log.innerText = "> STEP 3: EQUILIBRIUM (SATTVA)...";
+                                    t.style.height = "33%"; t.style.background = "#fff";
+                                    r.style.height = "33%"; r.style.background = "#fff";
+                                    s.style.height = "33%"; s.style.background = "#fff";
+                                    
+                                    setTimeout(() => {
+                                        log.innerText = "> STATUS: TRIGUNA TITA (TRANSCENDED)";
+                                        log.style.color = "#fff";
+                                        log.style.textShadow = "0 0 10px #fff";
+                                        
+                                        setTimeout(() => {
+                                            btn.style.display = 'block';
+                                            btn.innerText = "RE-ALIGN SYSTEM";
+                                            ui.style.display = 'none';
+                                            // Reset colors
+                                            t.style.background = "#4ecdc4";
+                                            r.style.background = "#ff6b6b";
+                                            s.style.background = "#ffe66d";
+                                        }, 3000);
+                                        
+                                    }, 2000);
+                                }, 2000);
+                            }, 2000);
+                        }, 1000);
+                    }
+                </script>
             </div>
         </div>
 
@@ -369,8 +437,43 @@
         .proto-step { background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s; }
         .proto-step:hover { background: rgba(255,255,255,0.08); transform: translateY(-5px); border-color: var(--psyche-secondary); }
         .proto-icon { font-size: 1.5rem; margin-bottom: 1rem; }
-        .proto-step h5 { color: var(--psyche-secondary); font-family: 'Orbitron'; margin-bottom: 0.5rem; }
-        .proto-step p { font-size: 0.85rem; line-height: 1.6; color: rgba(255,255,255,0.7); margin: 0; }
+        /* Guna Balancer */
+        .balancer-ui {
+            background: rgba(0,0,0,0.5);
+            border: 1px solid var(--psyche-primary);
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+        .three-channels {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            height: 150px;
+            margin-bottom: 2rem;
+            align-items: flex-end;
+        }
+        .channel {
+            width: 40px;
+            background: #333;
+            position: relative;
+            transition: all 0.5s ease;
+        }
+        .channel-fill {
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            transition: height 0.5s ease, background 0.5s;
+        }
+        .channel-label {
+            position: absolute;
+            bottom: -25px;
+            width: 100%;
+            text-align: center;
+            font-family: 'Share Tech Mono';
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.5);
+        }
     </style>
 </body>
 </html>
