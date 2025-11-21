@@ -6,489 +6,184 @@
     <title>TAROT ARCANA | ShivaKali Ashram</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* MYSTICAL ATMOSPHERE UPGRADE */
         :root {
-            --primary: #9d4edd;
-            --primary-dim: #5a189a;
-            --accent: #ffd700;
-            --accent-dim: #b8860b;
-            --bg-dark: #0a0510;
-            --text-main: #e0e0e0;
-            --text-dim: #a0a0a0;
-            --success: #00ff88;
-            --danger: #ff3333;
-            --shadow: 0 0 20px rgba(157, 78, 221, 0.3);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            --primary: #b388ff; /* Brighter purple */
+            --primary-dim: #7c4dff;
+            --primary-dark: #320b86;
+            --accent: #ffd700; /* Gold */
+            --accent-glow: #ffea00;
+            --bg-void: #050208;
+            --bg-panel: rgba(15, 10, 25, 0.85);
+            --text-main: #f0f0f0;
+            --card-border: 1px solid rgba(179, 136, 255, 0.3);
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            font-family: 'Share Tech Mono', monospace;
-            overflow-x: hidden;
-            min-height: 100vh;
+            background-color: var(--bg-void);
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(50, 11, 134, 0.1) 0%, transparent 60%),
+                linear-gradient(0deg, rgba(0,0,0,0.2) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,0,0,0.2) 1px, transparent 1px);
+            background-size: 100% 100%, 40px 40px, 40px 40px;
         }
 
-        /* Background Video */
-        .video-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -2;
-            opacity: 0.4;
-            filter: hue-rotate(260deg) contrast(1.2) brightness(0.8);
-        }
-
-        .grid-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                linear-gradient(rgba(10, 5, 16, 0.85), rgba(10, 5, 16, 0.95)),
-                repeating-linear-gradient(0deg, transparent 0, transparent 1px, rgba(157, 78, 221, 0.05) 1px, rgba(157, 78, 221, 0.05) 2px);
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        /* Header */
+        /* HEADER UPGRADE */
         header {
-            padding: 2rem;
-            text-align: center;
-            border-bottom: 1px solid rgba(157, 78, 221, 0.3);
-            background: rgba(10, 5, 16, 0.8);
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
+            background: linear-gradient(180deg, rgba(5,2,8,0.95) 0%, rgba(20,10,40,0.8) 100%);
+            border-bottom: 1px solid var(--primary-dim);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            padding: 3rem 1rem;
         }
 
         h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 3rem;
-            color: var(--accent);
-            text-shadow: 0 0 15px var(--accent-dim);
-            margin-bottom: 0.5rem;
-            letter-spacing: 4px;
+            font-size: 4rem;
+            font-weight: 700;
+            letter-spacing: 8px;
+            background: linear-gradient(135deg, #ffd700 0%, #fff59d 50%, #b8860b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.4));
+            animation: pulseGold 4s infinite ease-in-out;
         }
 
-        .subtitle {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--primary);
-            font-size: 1.2rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+        @keyframes pulseGold {
+            0%, 100% { filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.4)); }
+            50% { filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.7)); }
         }
 
-        /* Navigation */
-        .nav-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            padding: 1.5rem;
-            flex-wrap: wrap;
-            background: rgba(0,0,0,0.5);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(157, 78, 221, 0.2);
-        }
-
-        .nav-btn {
-            background: transparent;
-            border: 1px solid var(--primary-dim);
-            color: var(--text-dim);
-            padding: 0.8rem 1.5rem;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .nav-btn:hover, .nav-btn.active {
-            background: rgba(157, 78, 221, 0.2);
-            border-color: var(--primary);
-            color: var(--accent);
-            box-shadow: 0 0 15px rgba(157, 78, 221, 0.3);
-        }
-
-        .back-btn {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            text-decoration: none;
-            color: var(--text-dim);
-            border: 1px solid var(--text-dim);
-            padding: 0.5rem 1rem;
-            font-size: 0.8rem;
-            transition: all 0.3s;
-            background: rgba(0,0,0,0.5);
-        }
-
-        .back-btn:hover {
-            color: var(--primary);
-            border-color: var(--primary);
-            box-shadow: 0 0 10px rgba(157, 78, 221, 0.3);
-        }
-
-        /* Content Sections */
-        .section {
-            display: none;
-            padding: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .section.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Library Accordion */
-        .library-grid {
-            display: grid;
-            gap: 1rem;
-        }
-
+        /* TABLET CARD STYLING */
         .card-entry {
-            background: rgba(10, 5, 16, 0.6);
-            border: 1px solid rgba(157, 78, 221, 0.3);
-            border-radius: 4px;
+            background: var(--bg-panel);
+            border: 1px solid rgba(179, 136, 255, 0.15);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
             overflow: hidden;
-            transition: all 0.3s ease;
+        }
+
+        .card-entry::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 2px; height: 100%;
+            background: linear-gradient(180deg, var(--primary), transparent);
+            opacity: 0.5;
+        }
+
+        .card-entry:hover {
+            transform: translateY(-2px) scale(1.01);
+            box-shadow: 0 10px 25px rgba(124, 77, 255, 0.2);
+            border-color: var(--primary);
+        }
+
+        .card-entry.active {
+            background: linear-gradient(135deg, rgba(25, 15, 40, 0.95), rgba(10, 5, 20, 0.98));
+            border: 1px solid var(--primary);
+            box-shadow: 0 0 30px rgba(124, 77, 255, 0.15);
         }
 
         .card-header {
-            padding: 1.5rem;
-            background: linear-gradient(90deg, rgba(20, 10, 30, 0.9), rgba(10, 5, 16, 0.9));
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid transparent;
-        }
-
-        .card-entry.active .card-header {
-            border-bottom-color: var(--primary);
-            background: rgba(90, 24, 154, 0.2);
-        }
-
-        .card-title {
-            font-family: 'Cinzel', serif;
-            color: var(--text-main);
-            font-size: 1.3rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
+            padding: 1.5rem 2rem;
+            background: transparent;
         }
 
         .card-number {
-            color: var(--accent);
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
-            border: 1px solid var(--accent-dim);
-            padding: 2px 8px;
-            border-radius: 4px;
-        }
-
-        .card-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-out;
-            background: rgba(0, 0, 0, 0.4);
-        }
-
-        .card-entry.active .card-content {
-            max-height: 2000px; /* Large enough to fit content */
-        }
-
-        .content-inner {
-            padding: 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-
-        @media (max-width: 768px) {
-            .content-inner { grid-template-columns: 1fr; }
-            h1 { font-size: 2rem; }
-            .nav-tabs { padding: 1rem 0.5rem; gap: 0.5rem; }
-            .nav-btn { font-size: 0.7rem; padding: 0.6rem 1rem; }
-        }
-
-        /* Content Styling */
-        .archetype-box {
-            grid-column: 1 / -1;
-            background: rgba(157, 78, 221, 0.1);
-            border-left: 3px solid var(--primary);
-            padding: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .meaning-col h3 {
-            color: var(--accent);
-            font-family: 'Orbitron', sans-serif;
-            margin-bottom: 1rem;
-            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
-            padding-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .tag {
-            display: inline-block;
-            padding: 2px 8px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 4px;
-            font-size: 0.8rem;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-dim);
-        }
-
-        .tag.element { color: #ffaa00; border: 1px solid #ffaa00; }
-        .tag.planet { color: #00aaff; border: 1px solid #00aaff; }
-        .tag.zodiac { color: #aa00ff; border: 1px solid #aa00ff; }
-
-        .shadow-warning {
-            color: var(--danger);
-            border: 1px solid var(--danger);
-            padding: 1rem;
-            background: rgba(255, 0, 0, 0.05);
-            margin-top: 1rem;
-        }
-
-        /* Spreads Styling */
-        .spread-controls {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .spread-btn {
-            background: rgba(20, 10, 30, 0.8);
-            border: 1px solid var(--primary);
-            color: var(--text-main);
-            padding: 1rem 2rem;
-            font-family: 'Orbitron', sans-serif;
-            cursor: pointer;
-            transition: all 0.3s;
-            border-radius: 4px;
-        }
-
-        .spread-btn:hover, .spread-btn.active {
-            background: var(--primary-dim);
-            border-color: var(--accent);
-            box-shadow: 0 0 15px rgba(157, 78, 221, 0.4);
-        }
-
-        .reading-area {
-            min-height: 500px;
-            position: relative;
             background: rgba(0,0,0,0.3);
-            border-radius: 8px;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            border: 1px solid var(--primary-dim);
+            color: var(--primary);
+            font-family: 'Orbitron';
+            padding: 4px 10px;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(124, 77, 255, 0.1);
         }
 
-        .deck-stack {
-            width: 120px;
-            height: 200px;
-            background: linear-gradient(135deg, #1a1a1a, #2d1b3d);
-            border: 2px solid var(--accent-dim);
-            border-radius: 8px;
+        .card-entry.active .card-number {
+            background: var(--primary);
+            color: #000;
+            box-shadow: 0 0 15px var(--primary);
+        }
+
+        /* ALTAR SPREAD AREA */
+        .reading-area {
+            background: radial-gradient(circle at center, #1a1025 0%, #0a0510 100%);
+            border: 1px solid var(--primary-dim);
+            box-shadow: inset 0 0 100px rgba(0,0,0,0.8);
+            border-radius: 12px;
+            padding: 3rem;
             position: relative;
-            cursor: pointer;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
-            transition: transform 0.3s;
-            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 0l2.5 7.5L20 10l-7.5 2.5L10 20l-2.5-7.5L0 10l7.5-2.5z' fill='%239d4edd' fill-opacity='0.1'/%3E%3C/svg%3E");
+        }
+
+        .reading-area::after {
+            content: '';
+            position: absolute;
+            top: 10px; left: 10px; right: 10px; bottom: 10px;
+            border: 1px dashed rgba(179, 136, 255, 0.2);
+            border-radius: 8px;
+            pointer-events: none;
+        }
+
+        /* MYSTICAL DECK */
+        .deck-stack {
+            width: 140px;
+            height: 220px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #2a1a4a, #120820);
+            border: 2px solid var(--accent);
+            box-shadow: 
+                0 0 0 1px #000,
+                0 5px 15px rgba(0,0,0,0.5),
+                0 0 20px rgba(157, 78, 221, 0.4);
+            position: relative;
+            transform-style: preserve-3d;
+            transition: all 0.5s ease;
         }
 
         .deck-stack:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(157, 78, 221, 0.3);
+            transform: translateY(-5px) rotateX(10deg);
+            box-shadow: 
+                0 0 0 1px #000,
+                0 15px 30px rgba(0,0,0,0.6),
+                0 0 40px rgba(157, 78, 221, 0.6);
         }
 
-        .deck-stack::before, .deck-stack::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: inherit;
-            border: inherit;
-            border-radius: inherit;
-            top: -2px;
-            left: -2px;
-            z-index: -1;
-        }
-
-        .deck-stack::after {
-            top: -4px;
-            left: -4px;
-            z-index: -2;
-        }
-
-        /* Card Display */
-        .active-spread {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 2rem;
-            width: 100%;
-        }
-
-        .tarot-card {
-            width: 180px;
-            perspective: 1000px;
-            cursor: pointer;
-            opacity: 0;
-            animation: dealCard 0.5s forwards;
-        }
-
-        @keyframes dealCard {
-            from { opacity: 0; transform: translateY(-50px) scale(0.5); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
-        }
-
-        .card-inner {
-            position: relative;
-            width: 100%;
-            height: 280px;
-            text-align: center;
-            transition: transform 0.6s;
-            transform-style: preserve-3d;
-        }
-
-        .tarot-card.flipped .card-inner {
-            transform: rotateY(180deg);
-        }
-
-        .card-front, .card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-            border-radius: 8px;
-            border: 1px solid var(--accent-dim);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 1rem;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-        }
-
+        /* CARD BACK PATTERN (CSS ONLY) */
         .card-back {
-            background: linear-gradient(135deg, #1a0b2e, #3d1b5d);
-            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0l5 15h15l-12.5 10 5 15L20 30l-12.5 10 5-15L0 15h15z' fill='%23ffd700' fill-opacity='0.05'/%3E%3C/svg%3E");
+            background-color: #150a25;
+            background-image: 
+                radial-gradient(var(--accent) 1px, transparent 1px),
+                radial-gradient(var(--primary) 1px, transparent 1px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            border: 2px solid var(--accent-dim);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .card-front {
-            background: #0f0a18;
-            transform: rotateY(180deg);
-            border-color: var(--primary);
+        .card-back::after {
+            content: '👁️';
+            font-size: 2rem;
+            opacity: 0.5;
+            filter: drop-shadow(0 0 5px var(--primary));
         }
 
-        .card-name {
-            font-family: 'Cinzel';
-            color: var(--accent);
-            font-size: 1.1rem;
-            margin-top: 1rem;
-        }
-
-        .card-position {
-            color: var(--text-dim);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-            letter-spacing: 1px;
-        }
-
-        /* Interpretation Box */
-        .reading-output {
-            margin-top: 3rem;
-            background: rgba(10, 5, 16, 0.8);
-            padding: 2rem;
+        .spread-btn {
+            background: rgba(0,0,0,0.6);
             border: 1px solid var(--primary-dim);
-            width: 100%;
-            display: none;
-            animation: fadeIn 1s;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            backdrop-filter: blur(5px);
         }
 
-        .reading-block {
-            margin-bottom: 2rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 1rem;
+        .spread-btn.active {
+            background: var(--primary);
+            color: #000;
+            font-weight: bold;
+            box-shadow: 0 0 20px var(--primary-dim);
         }
-
-    </style>
-</head>
-<body>
-
-    <!-- Background -->
-    <video class="video-bg" autoplay loop muted playsinline>
-        <source src="../pictures/devination.mp4" type="video/mp4">
-    </video>
-    <div class="grid-overlay"></div>
-
-    <!-- Header -->
-    <header>
-        <a href="index.html" class="back-btn">← HUB</a>
-        <h1>TAROT ARCANA</h1>
-        <div class="subtitle">78 Keys to Unlock Reality</div>
-    </header>
-
-    <!-- Navigation -->
-    <nav class="nav-tabs">
-        <button class="nav-btn active" onclick="switchTab('library')">Card Library</button>
-        <button class="nav-btn" onclick="switchTab('spreads')">Interactive Spreads</button>
-        <button class="nav-btn" onclick="switchTab('wisdom')">Deep Wisdom</button>
-    </nav>
-
-    <!-- LIBRARY SECTION -->
-    <div id="library" class="section active">
-        
-        <!-- Major Arcana -->
-        <h2 style="color: var(--accent); font-family: 'Cinzel'; margin: 2rem 0 1rem; text-align: center; border-bottom: 1px solid var(--accent-dim); padding-bottom: 1rem;">THE MAJOR ARCANA</h2>
-        <div class="library-grid" id="major-arcana">
-            <!-- Cards 0-21 injected here -->
-        </div>
-
-        <!-- Suit of Wands -->
-        <h2 style="color: #ff5500; font-family: 'Cinzel'; margin: 3rem 0 1rem; text-align: center; border-bottom: 1px solid rgba(255, 85, 0, 0.3); padding-bottom: 1rem;">THE SUIT OF WANDS (FIRE)</h2>
-        <div class="library-grid" id="wands-suit">
-            <!-- Wands injected here -->
-        </div>
-
-        <!-- Suit of Cups -->
-        <h2 style="color: #00aaff; font-family: 'Cinzel'; margin: 3rem 0 1rem; text-align: center; border-bottom: 1px solid rgba(0, 170, 255, 0.3); padding-bottom: 1rem;">THE SUIT OF CUPS (WATER)</h2>
-        <div class="library-grid" id="cups-suit">
-            <!-- Cups injected here -->
-        </div>
-
-        <!-- Suit of Swords -->
         <h2 style="color: #e0e0e0; font-family: 'Cinzel'; margin: 3rem 0 1rem; text-align: center; border-bottom: 1px solid rgba(224, 224, 224, 0.3); padding-bottom: 1rem;">THE SUIT OF SWORDS (AIR)</h2>
         <div class="library-grid" id="swords-suit">
             <!-- Swords injected here -->
