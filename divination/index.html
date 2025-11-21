@@ -567,6 +567,20 @@
         };
 
         window.loadModule = function(key) {
+            // IMMEDIATE REDIRECTS (No animation wait)
+            if (key === 'prashna') {
+                window.location.href = 'prashna.html';
+                return;
+            }
+            if (key === 'nimitta') {
+                window.location.href = 'nimitta.html';
+                return;
+            }
+            if (key === 'tarot') {
+                window.location.href = 'tarot.html';
+                return;
+            }
+
             const data = moduleData[key];
             const ui = uiConfig[key];
             const stage = document.getElementById('main-stage');
@@ -602,7 +616,7 @@
                     'tarot': "window.location.href='tarot.html'",
                     'swara': 'showComingSoon()',
                     'sankhya': 'showComingSoon()',
-                    'tarot': 'showComingSoon()',
+                    // 'tarot': 'showComingSoon()', // Removed duplicate
                     'palmistry': 'showComingSoon()',
                     'physiognomy': 'showComingSoon()',
                     'graphology': 'showComingSoon()',
