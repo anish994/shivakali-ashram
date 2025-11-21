@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <style>
         :root {
+            /* Default Cosmic Theme */
             --divine-primary: #ffd700; /* Oracle Gold */
             --divine-secondary: #9d4edd; /* Mystic Purple */
             --divine-dark: #10002b;
@@ -14,6 +15,45 @@
             --divine-border: rgba(255, 215, 0, 0.3);
             --text-main: #ffffff;
             --text-dim: rgba(255, 255, 255, 0.7);
+            --scan-line-color: rgba(255, 215, 0, 0.1);
+        }
+
+        /* --- THEME VARIANTS --- */
+        
+        /* Dark/Shadow Theme (Dark Psych, Graphology) */
+        [data-theme="shadow"] {
+            --divine-primary: #ff0000; /* Blood Red */
+            --divine-secondary: #500000; /* Deep Crimson */
+            --divine-dark: #0a0000; /* Void Black */
+            --divine-glass: rgba(10, 0, 0, 0.9);
+            --divine-border: rgba(255, 0, 0, 0.4);
+            --text-main: #ffcccc;
+            --text-dim: rgba(255, 0, 0, 0.5);
+            --scan-line-color: rgba(255, 0, 0, 0.1);
+        }
+
+        /* Nature/Organic Theme (Nimitta, Palmistry, Physiognomy) */
+        [data-theme="nature"] {
+            --divine-primary: #00ff88; /* Neon Flora */
+            --divine-secondary: #006400; /* Deep Forest */
+            --divine-dark: #001a0a;
+            --divine-glass: rgba(0, 20, 10, 0.9);
+            --divine-border: rgba(0, 255, 136, 0.3);
+            --text-main: #e0ffe0;
+            --text-dim: rgba(0, 255, 136, 0.5);
+            --scan-line-color: rgba(0, 255, 136, 0.1);
+        }
+
+        /* Mystic/Lunar Theme (Tarot, Swara, Moon) */
+        [data-theme="mystic"] {
+            --divine-primary: #00d2ff; /* Cyan */
+            --divine-secondary: #7b2cbf; /* Deep Violet */
+            --divine-dark: #050a18;
+            --divine-glass: rgba(5, 10, 24, 0.9);
+            --divine-border: rgba(0, 210, 255, 0.3);
+            --text-main: #e0f7ff;
+            --text-dim: rgba(0, 210, 255, 0.5);
+            --scan-line-color: rgba(0, 210, 255, 0.1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -22,11 +62,13 @@
             font-family: 'Rajdhani', sans-serif;
             background-color: var(--divine-dark);
             color: var(--text-main);
-            height: 100vh;
-            width: 100vw;
-            overflow: hidden;
+            min-height: 100vh;
+            width: 100%;
+            overflow-x: hidden;
+            overflow-y: auto;
             display: flex;
             flex-direction: column;
+            transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1), color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         #bg-video-layer {
@@ -39,27 +81,58 @@
             min-width: 100%; min-height: 100%;
             transform: translate(-50%, -50%);
             object-fit: cover;
-            filter: brightness(0.2) contrast(1.3) hue-rotate(260deg) saturate(1.2);
+            filter: brightness(0.5) contrast(1.2) hue-rotate(260deg) saturate(1.3);
+            transition: filter 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .grid-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background-image: 
-                linear-gradient(rgba(255, 215, 0, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 215, 0, 0.05) 1px, transparent 1px);
+                linear-gradient(var(--scan-line-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--scan-line-color) 1px, transparent 1px);
             background-size: 50px 50px;
             z-index: -2;
             pointer-events: none;
+            transition: background-image 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* --- SCANNER EFFECT --- */
+        .scanner-line {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 5px;
+            background: var(--divine-primary);
+            box-shadow: 0 0 15px var(--divine-primary);
+            opacity: 0;
+            pointer-events: none;
+            z-index: 20;
+        }
+        
+        body.scanning .scanner-line {
+            animation: scan-down 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes scan-down {
+            0% { top: 0%; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
         }
 
         .interface-wrapper {
             display: flex;
             width: 100%;
-            height: 100%;
+            min-height: 100vh;
             position: relative;
-            z-index: 10;
+            z-index: 1;
             padding: 2rem;
             gap: 2rem;
+            pointer-events: none;
+        }
+        
+        .interface-wrapper > * {
+            pointer-events: auto;
         }
 
         /* NAV RAIL */
@@ -68,10 +141,14 @@
             display: flex;
             flex-direction: column;
             gap: 1rem;
-            height: 100%;
-            overflow-y: auto;
             padding-right: 1rem;
             scrollbar-width: none;
+            border-right: 1px solid var(--divine-border);
+            background: var(--divine-glass);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 2;
         }
         .nav-rail::-webkit-scrollbar { display: none; }
 
@@ -87,7 +164,8 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             color: var(--divine-primary);
-            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+            text-shadow: 0 0 15px var(--divine-primary);
+            transition: color 0.8s cubic-bezier(0.4, 0, 0.2, 1), text-shadow 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .nav-header .sub {
@@ -95,33 +173,58 @@
             color: var(--divine-secondary);
             font-size: 0.8rem;
             letter-spacing: 1px;
+            transition: color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .module-card {
-            background: linear-gradient(90deg, rgba(255,215,0,0.05), transparent);
+            background: linear-gradient(90deg, rgba(255,255,255,0.02), transparent);
             border-left: 2px solid var(--divine-border);
             padding: 1.2rem;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
             display: flex;
             align-items: center;
             gap: 1rem;
+            border-radius: 0 10px 10px 0;
+            position: relative;
+            overflow: hidden;
+            z-index: 3;
         }
 
         .module-card:hover {
             border-left-color: var(--divine-primary);
-            padding-left: 1.5rem;
-            background: linear-gradient(90deg, rgba(255,215,0,0.1), transparent);
+            padding-left: 1.8rem;
+            background: linear-gradient(90deg, rgba(255,255,255,0.08), transparent);
+            transform: translateX(8px);
+            box-shadow: 0 0 20px var(--scan-line-color);
         }
 
         .module-card.active {
-            background: linear-gradient(90deg, rgba(255,215,0,0.2), transparent);
-            border-left: 3px solid var(--divine-primary);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+            background: linear-gradient(90deg, var(--scan-line-color), transparent);
+            border-left: 4px solid var(--divine-primary);
+            box-shadow: 0 0 20px var(--scan-line-color);
+        }
+        
+        .module-card.active .card-icon {
+            transform: scale(1.2) rotate(5deg);
+            filter: drop-shadow(0 0 10px var(--divine-primary));
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { filter: drop-shadow(0 0 10px var(--divine-primary)); }
+            50% { filter: drop-shadow(0 0 20px var(--divine-primary)); }
         }
 
-        .card-icon { font-size: 1.5rem; }
-        .card-info h3 { font-family: 'Orbitron', sans-serif; font-size: 1rem; letter-spacing: 1px; color: #fff; }
+        .card-icon { 
+            font-size: 1.5rem; 
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+        
+        .module-card:hover .card-icon {
+            transform: scale(1.15) rotate(-5deg);
+        }
+        .card-info h3 { font-family: 'Orbitron', sans-serif; font-size: 1rem; letter-spacing: 1px; color: var(--text-main); }
         .card-info p { font-family: 'Share Tech Mono', monospace; font-size: 0.7rem; color: var(--text-dim); }
 
         /* STAGE AREA */
@@ -131,25 +234,44 @@
             justify-content: center;
             align-items: center;
             position: relative;
-            background: var(--divine-glass);
-            border: 1px solid var(--divine-border);
-            backdrop-filter: blur(10px);
-            border-radius: 4px;
+            /* Removed bg/border to let video show through more, maybe add vignette */
+            background: radial-gradient(circle at center, rgba(0,0,0,0) 0%, var(--divine-dark) 90%);
             overflow: hidden;
+            z-index: 2;
+            transition: background 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .stage-content {
             text-align: center;
-            max-width: 600px;
-            padding: 3rem;
+            max-width: 700px;
+            padding: 4rem;
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s ease;
+            transform: translateY(30px) scale(0.95);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            background: var(--divine-glass);
+            border: 1px solid var(--divine-border);
+            border-radius: 2px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 2;
         }
+        
+        /* Decorative Corners for Stage */
+        .stage-content::before, .stage-content::after {
+            content: ''; position: absolute; width: 20px; height: 20px;
+            border: 2px solid var(--divine-primary); 
+            transition: border-color 0.8s cubic-bezier(0.4, 0, 0.2, 1), width 0.4s ease, height 0.4s ease;
+        }
+        
+        .stage-content:hover::before, .stage-content:hover::after {
+            width: 25px; height: 25px;
+        }
+        .stage-content::before { top: -2px; left: -2px; border-right: 0; border-bottom: 0; }
+        .stage-content::after { bottom: -2px; right: -2px; border-left: 0; border-top: 0; }
 
         .stage-content.active {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
         }
 
         .big-icon {
@@ -158,59 +280,112 @@
             display: inline-block;
             filter: drop-shadow(0 0 30px var(--divine-primary));
             animation: float 6s ease-in-out infinite;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .stage-content:hover .big-icon {
+            transform: scale(1.1) rotate(5deg);
         }
 
         .stage-title {
             font-family: 'Orbitron', sans-serif;
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
             text-transform: uppercase;
             letter-spacing: 4px;
             color: var(--divine-primary);
+            text-shadow: 0 0 20px var(--divine-primary);
+            transition: color 0.8s cubic-bezier(0.4, 0, 0.2, 1), text-shadow 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .stage-desc {
             font-size: 1.2rem;
-            line-height: 1.6;
+            line-height: 1.8;
             color: var(--text-dim);
             margin-bottom: 2.5rem;
             border-top: 1px solid var(--divine-border);
             border-bottom: 1px solid var(--divine-border);
-            padding: 1.5rem 0;
+            padding: 2rem 0;
+            font-family: 'Rajdhani', sans-serif;
         }
 
         .action-btn {
-            padding: 1rem 3rem;
-            background: transparent;
+            padding: 1rem 4rem;
+            background: rgba(0,0,0,0.3);
             border: 1px solid var(--divine-primary);
             color: var(--divine-primary);
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.1rem;
-            letter-spacing: 2px;
+            font-size: 1.2rem;
+            letter-spacing: 3px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none;
             display: inline-block;
             text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+            z-index: 5;
         }
+        
+        .action-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, var(--divine-primary), transparent);
+            transition: left 0.5s ease;
+            opacity: 0.3;
+        }
+        
+        .action-btn:hover::before {
+            left: 100%;
+        }
+
         .action-btn:hover {
             background: var(--divine-primary);
             color: #000;
-            box-shadow: 0 0 30px var(--divine-primary);
+            box-shadow: 0 0 40px var(--divine-primary);
+            transform: translateY(-3px) scale(1.05);
+        }
+        
+        .action-btn:active {
+            transform: translateY(0) scale(1);
+            transition: all 0.1s ease;
         }
 
         .back-btn {
             position: absolute;
             top: 2rem; right: 2rem;
-            color: var(--text-dim);
+            color: var(--divine-secondary);
             text-decoration: none;
             font-family: 'Share Tech Mono', monospace;
             border: 1px solid var(--divine-border);
-            padding: 0.5rem 1rem;
-            transition: all 0.3s;
+            padding: 0.5rem 1.5rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 50;
+            background: var(--divine-glass);
+            backdrop-filter: blur(5px);
+            border-radius: 5px;
         }
-        .back-btn:hover { border-color: var(--divine-primary); color: var(--divine-primary); }
+        .back-btn:hover { 
+            border-color: var(--divine-primary); 
+            color: var(--divine-primary);
+            box-shadow: 0 0 25px var(--divine-border);
+            transform: translateY(-2px);
+        }
+        
+        /* Simulation Output Container */
+        #simulation-output {
+            margin-top: 2rem; 
+            display: none; 
+            width: 100%;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(20px) scale(0.95); } 
+            to { opacity: 1; transform: translateY(0) scale(1); } 
+        }
 
         @keyframes float {
             0%, 100% { transform: translateY(0); }
@@ -219,7 +394,7 @@
 
         @media (max-width: 768px) {
             .interface-wrapper { flex-direction: column-reverse; padding: 0; gap: 0; }
-            .nav-rail { width: 100%; max-height: 40%; border-top: 1px solid var(--divine-border); background: rgba(16, 0, 43, 0.95); }
+            .nav-rail { width: 100%; border-top: 1px solid var(--divine-border); background: rgba(16, 0, 43, 0.95); }
             .nav-header { display: none; }
             .stage-area { flex: 1; border: none; border-radius: 0; background: transparent; align-items: flex-end; }
             .stage-content { padding: 2rem; width: 100%; background: linear-gradient(0deg, rgba(0,0,0,0.9), transparent); }
@@ -230,9 +405,10 @@
 </head>
 <body>
 
+    <div class="scanner-line"></div>
     <div id="bg-video-layer">
         <video id="bg-video" autoplay muted loop playsinline>
-            <source src="../assets/video/character.mp4" type="video/mp4">
+            <source src="../pictures/devination.mp4" type="video/mp4">
         </video>
     </div>
     <div class="grid-overlay"></div>
@@ -277,6 +453,46 @@
                     <p>Sankhya Shastra Codes</p>
                 </div>
             </div>
+
+            <div class="module-card" onclick="loadModule('tarot')">
+                <div class="card-icon">🎴</div>
+                <div class="card-info">
+                    <h3>Tarot (Arcana)</h3>
+                    <p>Mirror of the Soul</p>
+                </div>
+            </div>
+
+            <div class="module-card" onclick="loadModule('palmistry')">
+                <div class="card-icon">✋</div>
+                <div class="card-info">
+                    <h3>Palmistry</h3>
+                    <p>Map of Destiny</p>
+                </div>
+            </div>
+
+            <div class="module-card" onclick="loadModule('physiognomy')">
+                <div class="card-icon">👤</div>
+                <div class="card-info">
+                    <h3>Face Reading</h3>
+                    <p>Geometry of Character</p>
+                </div>
+            </div>
+
+            <div class="module-card" onclick="loadModule('graphology')">
+                <div class="card-icon">✍️</div>
+                <div class="card-info">
+                    <h3>Graphology</h3>
+                    <p>Subconscious Script</p>
+                </div>
+            </div>
+
+            <div class="module-card" onclick="loadModule('dark_psych')">
+                <div class="card-icon">👁️</div>
+                <div class="card-info">
+                    <h3>Shadow Reading</h3>
+                    <p>Occult Human Analysis</p>
+                </div>
+            </div>
         </div>
 
         <!-- Main Stage -->
@@ -289,52 +505,56 @@
                 <p class="stage-desc">
                     The ancient science of Horary Astrology. You don't need a birth chart. The moment a question arises, the universe has already calculated the answer. Cast a chart for "Now."
                 </p>
-                <a href="#" class="action-btn">CAST QUERY</a>
+                <a href="prashna.html" class="action-btn">CAST QUERY</a>
             </div>
         </div>
 
     </div>
 
-    <script>
-        const moduleData = {
-            prashna: {
-                title: "Prashna",
-                icon: "🔮",
-                desc: "The ancient science of Horary Astrology. You don't need a birth chart. The moment a question arises, the universe has already calculated the answer. Cast a chart for 'Now.'",
-                link: "#",
-                btn: "CAST QUERY"
-            },
-            nimitta: {
-                title: "Nimitta",
-                icon: "🦅",
-                desc: "The language of nature. Every bird, every sound, every glitch is a message. Learn to decode the syntax of reality itself.",
-                link: "#",
-                btn: "SCAN ENVIRONMENT"
-            },
-            swara: {
-                title: "Swara Yoga",
-                icon: "🌬️",
-                desc: "Your breath predicts the future. By checking which nostril is active (Solar/Lunar), you can foresee the outcome of any action before you take it.",
-                link: "#",
-                btn: "CHECK BREATH"
-            },
-            sankhya: {
-                title: "Vedic Numerology",
-                icon: "🔢",
-                desc: "Numbers are the skeleton of the universe. Decode the vibrational frequency of your name and birthdate to reveal hidden timelines.",
-                link: "#",
-                btn: "CALCULATE"
-            }
+    <script type="module">
+        import { DIVINATION_DATA } from '../assets/js/data/divination-data.js';
+
+        // Map internal keys to data keys if necessary, or just use consistent keys
+        const dataMap = {
+            'prashna': DIVINATION_DATA.prashna,
+            'nimitta': DIVINATION_DATA.nimitta,
+            'swara': DIVINATION_DATA.swara,
+            'sankhya': DIVINATION_DATA.sankhya,
+            'tarot': DIVINATION_DATA.tarot,
+            'palmistry': DIVINATION_DATA.palmistry,
+            'physiognomy': DIVINATION_DATA.physiognomy,
+            'graphology': DIVINATION_DATA.graphology,
+            'dark_psych': DIVINATION_DATA.dark_psych
         };
 
-        function loadModule(key) {
-                const data = moduleData[key];
+        // Module UI Configuration (Icon mapping, etc. that might not be in the data file)
+        // Added 'theme' property for dynamic styling
+        const uiConfig = {
+            prashna: { icon: "🔮", btn: "CAST QUERY", theme: "default" },
+            nimitta: { icon: "🦅", btn: "READ OMENS", theme: "nature" },
+            swara: { icon: "🌬️", btn: "CHECK BREATH", theme: "mystic" },
+            sankhya: { icon: "🔢", btn: "CALCULATE", theme: "default" },
+            tarot: { icon: "🎴", btn: "DRAW CARDS", theme: "mystic" },
+            palmistry: { icon: "✋", btn: "SCAN PALM", theme: "nature" },
+            physiognomy: { icon: "👤", btn: "ANALYZE FACE", theme: "nature" },
+            graphology: { icon: "✍️", btn: "DECODE SCRIPT", theme: "shadow" },
+            dark_psych: { icon: "👁️", btn: "SCAN SHADOW", theme: "shadow" }
+        };
+
+        window.loadModule = function(key) {
+            const data = dataMap[key];
+            const ui = uiConfig[key];
             const stage = document.getElementById('main-stage');
             const cards = document.querySelectorAll('.module-card');
+            
+            // Update Page Theme
+            document.body.setAttribute('data-theme', ui.theme || 'default');
 
             // Update Active Card
             cards.forEach(card => card.classList.remove('active'));
-            if (event) event.currentTarget.classList.add('active');
+            // Find the card that was clicked or passed
+            const activeCard = document.querySelector(`.module-card[onclick*="'${key}'"]`);
+            if (activeCard) activeCard.classList.add('active');
 
             // Animate Stage Out
             stage.classList.remove('active');
@@ -343,15 +563,31 @@
 
             setTimeout(() => {
                 // Update Content
-                let btnAction = `href="${data.link}"`;
-                if (key === 'prashna') btnAction = `onclick="runPrashnaSimulation()" href="javascript:void(0)"`;
+                let btnAction = `href="#"`; // Default
+                
+                // Define actions based on module
+                const actionMap = {
+                    'prashna': "window.location.href='prashna.html'",
+                    'nimitta': "window.location.href='nimitta.html'",
+                    'swara': 'runSwaraSimulation()',
+                    'sankhya': 'runSankhyaSimulation()',
+                    'tarot': 'runTarotSimulation()',
+                    'palmistry': 'runPalmistrySimulation()',
+                    'physiognomy': 'runPhysiognomySimulation()',
+                    'graphology': 'runGraphologySimulation()',
+                    'dark_psych': 'runDarkPsychSimulation()'
+                };
+                
+                if (actionMap[key]) {
+                    btnAction = `onclick="${actionMap[key]}"`;
+                }
                 
                 stage.innerHTML = `
-                    <div class="big-icon">${data.icon}</div>
+                    <div class="big-icon">${ui.icon}</div>
                     <h2 class="stage-title">${data.title}</h2>
-                    <p class="stage-desc">${data.desc}</p>
-                    <a ${btnAction} class="action-btn">${data.btn}</a>
-                    <div id="simulation-output" style="margin-top: 2rem; display: none; font-family: 'Share Tech Mono'; color: var(--divine-primary);"></div>
+                    <p class="stage-desc">${data.description}</p>
+                    <a href="javascript:void(0)" ${btnAction} class="action-btn">${ui.btn}</a>
+                    <div id="simulation-output"></div>
                 `;
                 
                 // Animate Stage In
@@ -359,25 +595,178 @@
                 stage.style.transform = "translateY(0)";
                 stage.style.opacity = "1";
             }, 300);
-        }
-
-        function runPrashnaSimulation() {
+        };
+        
+        // Helper to start scanning effect
+        function startScan() {
+            document.body.classList.add('scanning');
             const output = document.getElementById('simulation-output');
             output.style.display = 'block';
-            output.innerHTML = "CONNECTING TO COSMIC SERVER...";
-            
-            setTimeout(() => { output.innerHTML = "CALCULATING PLANETARY POSITIONS..."; }, 1000);
-            setTimeout(() => { output.innerHTML = "DECODING OMENS..."; }, 2000);
-            setTimeout(() => { 
-                const outcomes = ["SUCCESS - Proceed with confidence", "DELAY - Saturn indicates patience", "OBSTACLE - Mars suggests conflict, wait", "TRANSFORMATION - Outcome will surprise you"];
-                const randomOutcome = outcomes[Math.floor(Math.random() * outcomes.length)];
-                output.innerHTML = `<div style="border: 1px solid var(--divine-primary); padding: 1rem; margin-top: 1rem;">
-                    <h3 style="color: #fff;">ORACLE RESULT</h3>
-                    <p style="font-size: 1.2rem; margin-top: 0.5rem;">${randomOutcome}</p>
-                    <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 0.5rem;">Time Stamp: ${new Date().toLocaleTimeString()}</p>
-                </div>`;
-            }, 3000);
+            output.innerHTML = `<div style="font-family: 'Share Tech Mono'; color: var(--divine-primary); text-align: center; padding: 2rem;">
+                <div style="margin-bottom: 1rem;">INITIATING SCAN PROTOCOL...</div>
+                <div style="width: 100%; height: 2px; background: rgba(255,255,255,0.1); position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: 0; left: 0; height: 100%; width: 50%; background: var(--divine-primary); animation: scan-bar 1s infinite linear;"></div>
+                </div>
+                <style>@keyframes scan-bar { 0% { left: -50%; } 100% { left: 100%; } }</style>
+            </div>`;
+            return output;
         }
+        
+        // Helper to stop scanning and show result
+        function showResult(html) {
+            document.body.classList.remove('scanning');
+            const output = document.getElementById('simulation-output');
+            output.innerHTML = html;
+        }
+
+        // Expose simulation functions to window since module scope is not global
+        window.runPrashnaSimulation = function() {
+            startScan();
+            const data = DIVINATION_DATA.prashna;
+            
+            setTimeout(() => { 
+                const outcomes = data.outcomes;
+                const randomOutcome = outcomes[Math.floor(Math.random() * outcomes.length)];
+                showResult(`<div style="border: 1px solid var(--divine-primary); padding: 1.5rem; margin-top: 1rem; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px);">
+                    <h3 style="color: #fff; font-family: 'Orbitron'; margin-bottom: 0.5rem; border-bottom: 1px solid var(--divine-border); padding-bottom: 0.5rem;">ORACLE RESULT</h3>
+                    <div style="font-size: 1.8rem; color: ${randomOutcome.color}; margin: 1rem 0; font-weight: bold; letter-spacing: 2px;">${randomOutcome.id.toUpperCase()}</div>
+                    <p style="font-size: 1.1rem; line-height: 1.4; color: var(--text-main);">${randomOutcome.text}</p>
+                    <p style="font-size: 0.8rem; color: var(--divine-secondary); margin-top: 1rem; padding-top: 0.5rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                        Time Stamp: ${new Date().toLocaleTimeString()} | Mode: Cosmic Scan
+                    </p>
+                </div>`);
+            }, 3000);
+        };
+
+        window.runNimittaSimulation = function() {
+            startScan();
+            const data = DIVINATION_DATA.nimitta;
+            
+            setTimeout(() => { 
+                const categories = data.categories;
+                const randomCat = categories[Math.floor(Math.random() * categories.length)];
+                showResult(`<div style="border: 1px solid var(--divine-primary); padding: 1.5rem; margin-top: 1rem; background: rgba(0,20,10,0.8); backdrop-filter: blur(5px);">
+                    <h3 style="color: #fff; font-family: 'Orbitron'; margin-bottom: 0.5rem;">OMEN DETECTED</h3>
+                    <p style="font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--divine-primary);">Signal: <strong>${randomCat}</strong></p>
+                    <p style="font-size: 0.9rem; color: var(--text-dim);">The environment is speaking. Pay attention to the direction (Dik) and frequency of this signal.</p>
+                </div>`);
+            }, 2500);
+        };
+
+        window.runSwaraSimulation = function() {
+            startScan();
+            const data = DIVINATION_DATA.swara;
+            
+            setTimeout(() => { 
+                const channels = ['ida', 'pingala', 'sushumna'];
+                const randomChannelKey = channels[Math.floor(Math.random() * channels.length)];
+                const channel = data.channels[randomChannelKey];
+                
+                showResult(`<div style="border: 1px solid var(--divine-primary); padding: 1.5rem; margin-top: 1rem; background: rgba(5,10,24,0.8); backdrop-filter: blur(5px);">
+                    <h3 style="color: #fff; font-family: 'Orbitron'; margin-bottom: 0.5rem;">ACTIVE CHANNEL</h3>
+                    <div style="font-size: 1.6rem; color: var(--divine-primary); margin-bottom: 0.5rem; text-transform: uppercase;">${channel.name}</div>
+                    <p style="font-size: 1rem; margin-bottom: 0.5rem; color: var(--text-main);"><strong>Quality:</strong> ${channel.quality}</p>
+                    <p style="font-size: 0.9rem; color: var(--divine-secondary);"><strong>Best For:</strong> ${channel.best_for.join(", ")}</p>
+                </div>`);
+            }, 2000);
+        };
+
+        window.runSankhyaSimulation = function() {
+            startScan();
+            const data = DIVINATION_DATA.sankhya;
+            
+            setTimeout(() => { 
+                const num = Math.floor(Math.random() * 9) + 1;
+                const meaning = data.numbers[num];
+                
+                showResult(`<div style="border: 1px solid var(--divine-primary); padding: 1.5rem; margin-top: 1rem; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px);">
+                    <h3 style="color: #fff; font-family: 'Orbitron'; margin-bottom: 0.5rem;">NUMEROLOGICAL FREQUENCY</h3>
+                    <div style="font-size: 4rem; color: var(--divine-primary); margin: 0.5rem 0; font-weight: 700; text-shadow: 0 0 20px var(--divine-primary);">${num}</div>
+                    <p style="font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--text-main);">${meaning}</p>
+                    <p style="font-size: 0.9rem; color: var(--text-dim);">This number governs the current vibrational timeline.</p>
+                </div>`);
+            }, 2000);
+        };
+
+        window.runTarotSimulation = function() {
+            startScan();
+            const data = DIVINATION_DATA.tarot;
+            
+            setTimeout(() => { 
+                const cards = data.archetypes;
+                const randomCard = cards[Math.floor(Math.random() * cards.length)];
+                
+                showResult(`<div style="border: 1px solid var(--divine-secondary); padding: 1.5rem; margin-top: 1rem; background: rgba(20,0,40,0.8); backdrop-filter: blur(5px);">
+                    <h3 style="color: #fff; font-family: 'Orbitron'; margin-bottom: 0.5rem;">ARCANA REVEALED</h3>
+                    <div style="font-size: 1.5rem; color: var(--divine-primary); margin-bottom: 1rem; border: 1px solid var(--divine-border); padding: 1rem; display: inline-block;">${randomCard}</div>
+                    <p style="font-size: 0.9rem; color: var(--text-dim);">The archetype currently active in your field.</p>
+                </div>`);
+            }, 2000);
+        };
+
+        window.runPalmistrySimulation = function() {
+            startScan();
+            const data = DIVINATION_DATA.palmistry;
+            
+            setTimeout(() => { 
+                const zones = data.zones;
+                const randomZone = zones[Math.floor(Math.random() * zones.length)];
+                
+                showResult(`<div style="border: 1px solid var(--divine-primary); padding: 1.5rem; margin-top: 1rem; background: rgba(0,20,0,0.8); backdrop-filter: blur(5px);">
+                    <h3 style="color: #fff; font-family: 'Orbitron'; margin-bottom: 0.5rem;">ACTIVE PALM ZONE</h3>
+                    <div style="font-size: 1.5rem; color: var(--divine-primary); margin-bottom: 0.5rem;">${randomZone}</div>
+                    <p style="font-size: 0.9rem; color: var(--text-dim);">High energy detected in this sector. Indicates current life focus.</p>
+                </div>`);
+            }, 2500);
+        };
+
+        window.runPhysiognomySimulation = function() {
+            startScan();
+            const data = DIVINATION_DATA.physiognomy;
+            
+            setTimeout(() => { 
+                const features = data.features;
+                const randomFeature = features[Math.floor(Math.random() * features.length)];
+                
+                showResult(`<div style="border: 1px solid var(--divine-primary); padding: 1.5rem; margin-top: 1rem; background: rgba(0,20,0,0.8); backdrop-filter: blur(5px);">
+                    <h3 style="color: #fff; font-family: 'Orbitron'; margin-bottom: 0.5rem;">FACE TYPE DETECTED</h3>
+                    <div style="font-size: 1.5rem; color: var(--divine-primary); margin-bottom: 0.5rem;">${randomFeature}</div>
+                    <p style="font-size: 0.9rem; color: var(--text-dim);">Elemental structure suggests this core personality type.</p>
+                </div>`);
+            }, 2000);
+        };
+
+        window.runGraphologySimulation = function() {
+            startScan();
+            const data = DIVINATION_DATA.graphology;
+            
+            setTimeout(() => { 
+                const metrics = data.metrics;
+                const randomMetric = metrics[Math.floor(Math.random() * metrics.length)];
+                
+                showResult(`<div style="border: 1px solid var(--divine-primary); padding: 1.5rem; margin-top: 1rem; background: rgba(20,0,0,0.8); backdrop-filter: blur(5px);">
+                    <h3 style="color: #fff; font-family: 'Orbitron'; margin-bottom: 0.5rem;">SCRIPT ANALYSIS</h3>
+                    <div style="font-size: 1.5rem; color: var(--divine-primary); margin-bottom: 0.5rem;">${randomMetric}</div>
+                    <p style="font-size: 0.9rem; color: var(--text-dim);">This handwriting trait reveals your current psychological state.</p>
+                </div>`);
+            }, 2000);
+        };
+
+        window.runDarkPsychSimulation = function() {
+            startScan();
+            const data = DIVINATION_DATA.dark_psych;
+            
+            setTimeout(() => { 
+                const patterns = data.patterns;
+                const randomPattern = patterns[Math.floor(Math.random() * patterns.length)];
+                
+                showResult(`<div style="border: 1px solid red; padding: 1.5rem; margin-top: 1rem; background: rgba(10,0,0,0.9); backdrop-filter: blur(5px); box-shadow: 0 0 30px rgba(255,0,0,0.2);">
+                    <h3 style="color: red; font-family: 'Orbitron'; margin-bottom: 0.5rem;">SHADOW ALERT</h3>
+                    <div style="font-size: 1.5rem; color: #ff4d4d; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 2px;">${randomPattern}</div>
+                    <p style="font-size: 0.9rem; color: #ff9999;">Hidden intent detected. Proceed with caution. The unseen is now seen.</p>
+                </div>`);
+            }, 3000);
+        };
     </script>
 </body>
 </html>
