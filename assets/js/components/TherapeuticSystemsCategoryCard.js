@@ -104,7 +104,7 @@ class TherapeuticSystemsCategoryCard {
 
         // Navigate after brief animation
         setTimeout(() => {
-            window.location.href = 'therapeutics/theriputic homepage.html';
+            window.location.href = 'therapeutics/index.html';
         }, 300);
     }
 
