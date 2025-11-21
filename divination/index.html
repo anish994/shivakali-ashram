@@ -511,20 +511,45 @@
 
     </div>
 
-    <script type="module">
-        import { DIVINATION_DATA } from '../assets/js/data/divination-data.js';
-
-        // Map internal keys to data keys if necessary, or just use consistent keys
-        const dataMap = {
-            'prashna': DIVINATION_DATA.prashna,
-            'nimitta': DIVINATION_DATA.nimitta,
-            'swara': DIVINATION_DATA.swara,
-            'sankhya': DIVINATION_DATA.sankhya,
-            'tarot': DIVINATION_DATA.tarot,
-            'palmistry': DIVINATION_DATA.palmistry,
-            'physiognomy': DIVINATION_DATA.physiognomy,
-            'graphology': DIVINATION_DATA.graphology,
-            'dark_psych': DIVINATION_DATA.dark_psych
+    <script>
+        // Module data embedded directly
+        const moduleData = {
+            'prashna': {
+                title: 'Prashna',
+                description: 'The ancient science of Horary Astrology. You don\'t need a birth chart. The moment a question arises, the universe has already calculated the answer. Cast a chart for "Now."'
+            },
+            'nimitta': {
+                title: 'Nimitta',
+                description: 'Reading Omens & Signs from nature, animals, body signals, and synchronicities. The universe speaks through patterns - learn to decode them.'
+            },
+            'swara': {
+                title: 'Swara Yoga',
+                description: 'Breath Divination - The science of knowing through the breath. Your nostrils reveal the future. Coming soon.'
+            },
+            'sankhya': {
+                title: 'Vedic Numerology',
+                description: 'Sankhya Shastra - The cosmic mathematics behind your destiny. Numbers are consciousness speaking. Coming soon.'
+            },
+            'tarot': {
+                title: 'Tarot (Arcana)',
+                description: 'Mirror of the Soul - 78 archetypal keys to unlock your unconscious. The cards never lie. Coming soon.'
+            },
+            'palmistry': {
+                title: 'Palmistry',
+                description: 'Your hands are maps written before birth. Every line is a prediction. Every mount is power. Coming soon.'
+            },
+            'physiognomy': {
+                title: 'Face Reading',
+                description: 'The geometry of character - Your face reveals your fate. Bone structure = destiny structure. Coming soon.'
+            },
+            'graphology': {
+                title: 'Graphology',
+                description: 'Subconscious Script - Your handwriting bypasses your conscious lies. The pen reveals the psyche. Coming soon.'
+            },
+            'dark_psych': {
+                title: 'Shadow Reading',
+                description: 'Occult Human Analysis - Reading the darkness in people. What they hide is what you need to see. Coming soon.'
+            }
         };
 
         // Module UI Configuration (Icon mapping, etc. that might not be in the data file)
@@ -542,10 +567,15 @@
         };
 
         window.loadModule = function(key) {
-            const data = dataMap[key];
+            const data = moduleData[key];
             const ui = uiConfig[key];
             const stage = document.getElementById('main-stage');
             const cards = document.querySelectorAll('.module-card');
+            
+            if (!data) {
+                console.error('Module data not found for:', key);
+                return;
+            }
             
             // Update Page Theme
             document.body.setAttribute('data-theme', ui.theme || 'default');
@@ -569,13 +599,13 @@
                 const actionMap = {
                     'prashna': "window.location.href='prashna.html'",
                     'nimitta': "window.location.href='nimitta.html'",
-                    'swara': 'runSwaraSimulation()',
-                    'sankhya': 'runSankhyaSimulation()',
-                    'tarot': 'runTarotSimulation()',
-                    'palmistry': 'runPalmistrySimulation()',
-                    'physiognomy': 'runPhysiognomySimulation()',
-                    'graphology': 'runGraphologySimulation()',
-                    'dark_psych': 'runDarkPsychSimulation()'
+                    'swara': 'showComingSoon()',
+                    'sankhya': 'showComingSoon()',
+                    'tarot': 'showComingSoon()',
+                    'palmistry': 'showComingSoon()',
+                    'physiognomy': 'showComingSoon()',
+                    'graphology': 'showComingSoon()',
+                    'dark_psych': 'showComingSoon()'
                 };
                 
                 if (actionMap[key]) {
@@ -595,6 +625,25 @@
                 stage.style.transform = "translateY(0)";
                 stage.style.opacity = "1";
             }, 300);
+        };
+        
+        // Show coming soon message for modules under construction
+        window.showComingSoon = function() {
+            const output = document.getElementById('simulation-output');
+            output.style.display = 'block';
+            output.innerHTML = `
+                <div style="border: 1px solid var(--divine-primary); padding: 2rem; margin-top: 1.5rem; background: rgba(0,0,0,0.7); backdrop-filter: blur(10px); text-align: center; border-radius: 8px;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🔮</div>
+                    <h3 style="color: var(--divine-primary); font-family: 'Orbitron'; margin-bottom: 1rem; font-size: 1.5rem;">COMING SOON</h3>
+                    <p style="font-size: 1.1rem; color: var(--text-main); line-height: 1.6; margin-bottom: 1.5rem;">
+                        This module is being crafted with the same depth and intensity as Prashna and Nimitta.<br>
+                        Ancient wisdom meets modern interface - worth the wait.
+                    </p>
+                    <p style="font-size: 0.9rem; color: var(--divine-secondary);">
+                        🔥 Check back soon for the full experience
+                    </p>
+                </div>
+            `;
         };
         
         // Helper to start scanning effect
