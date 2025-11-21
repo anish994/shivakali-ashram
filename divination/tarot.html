@@ -1756,6 +1756,97 @@
         // Initialize Suits
         renderPentacles();
 
-    </script>
-</body>
-</html>
+        // Combine all cards for the full deck
+        const allCards = [...majorArcana, ...wandsArcana, ...cupsArcana, ...swordsArcana, ...pentaclesArcana];
+
+        // SEARCH FUNCTION
+        function filterCards(query) {
+            const term = query.toLowerCase();
+            const cards = document.querySelectorAll('.card-entry');
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                card.style.display = text.includes(term) ? 'block' : 'none';
+            });
+        }
+
+        // READING HISTORY LOGIC
+        function saveReading(spreadName, historyData) {
+            const history = JSON.parse(localStorage.getItem('tarotHistory') || '[]');
+            const reading = {
+                date: new Date().toLocaleString(),
+                spread: spreadName,
+                cards: historyData.map(c => `${c.card.name} (${c.isReversed ? 'Rx' : 'Up'})`)
+            };
+            history.unshift(reading);
+            if (history.length > 5) history.pop(); // Keep last 5
+            localStorage.setItem('tarotHistory', JSON.stringify(history));
+            loadHistory();
+        }
+
+        function loadHistory() {
+            const history = JSON.parse(localStorage.getItem('tarotHistory') || '[]');
+            const list = document.getElementById('history-list');
+            if (history.length === 0) return;
+            
+            list.innerHTML = history.map(h => `
+                <div class="history-item">
+                    <div style="color: var(--accent); font-size: 0.9rem;">${h.date}</div>
+                    <div style="color: var(--primary); font-weight: bold;">${h.spread}</div>
+                    <div style="color: var(--text-dim); font-size: 0.8rem; margin-top: 0.5rem;">${h.cards.join(', ')}</div>
+                </div>
+            `).join('');
+        }
+
+        // Load History on Init
+        loadHistory();
+
+        // PARTICLE SYSTEM
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+                this.opacity = Math.random() * 0.5 + 0.1;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+            draw() {
+                ctx.fillStyle = `rgba(157, 78, 221, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            for (let i = 0; i < 50; i++) particles.push(new Particle());
+        }
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+        initParticles();
+        animateParticles();
