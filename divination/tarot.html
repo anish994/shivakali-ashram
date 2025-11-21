@@ -476,9 +476,11 @@
             <!-- Cards 0-21 injected here -->
         </div>
 
-        <!-- Suits Placeholders -->
-        <h2 style="color: #ff5500; font-family: 'Cinzel'; margin: 3rem 0 1rem; text-align: center; opacity: 0.7;">THE SUIT OF WANDS</h2>
-        <div class="coming-soon">Phase 9-10 Loading... Fire Element Architecture In Progress</div>
+        <!-- Suit of Wands -->
+        <h2 style="color: #ff5500; font-family: 'Cinzel'; margin: 3rem 0 1rem; text-align: center; border-bottom: 1px solid rgba(255, 85, 0, 0.3); padding-bottom: 1rem;">THE SUIT OF WANDS (FIRE)</h2>
+        <div class="library-grid" id="wands-suit">
+            <!-- Wands injected here -->
+        </div>
 
         <h2 style="color: #00aaff; font-family: 'Cinzel'; margin: 3rem 0 1rem; text-align: center; opacity: 0.7;">THE SUIT OF CUPS</h2>
         <div class="coming-soon">Phase 11-12 Loading... Water Element Architecture In Progress</div>
@@ -937,8 +939,194 @@
         `;
         document.head.appendChild(style);
 
-        // Initialize
-        renderMajorArcana();
+        // WANDS SUIT DATA (Phase 9-10)
+        const wandsArcana = [
+            {
+                number: "ACE",
+                name: "ACE OF WANDS",
+                archetype: "Spark of Inspiration",
+                element: "Fire",
+                planet: "Mars/Sun",
+                upright: "A new creative beginning. The spark of an idea. Pure potential energy. Sexual desire. A phallic symbol of creation. The 'Aha!' moment. Grab the torch and run.",
+                reversed: "Creative block. Lack of energy. A false start. Impotence (literal or metaphorical). Missed opportunity due to hesitation.",
+                shadow: "Are you addicted to starting things but afraid to finish them? The spark is useless without the wood to burn."
+            },
+            {
+                number: "II",
+                name: "TWO OF WANDS",
+                archetype: "Planning & Future Vision",
+                element: "Fire",
+                planet: "Mars in Aries",
+                upright: "Holding the world in your hands. Planning the next move. Stepping out of your comfort zone. Decisions about the future. Visualization. Personal power.",
+                reversed: "Fear of the unknown. Playing it safe. Bad planning. Staying in the comfort zone. Lack of ambition.",
+                shadow: "Are you planning forever to avoid doing? Analysis paralysis is the death of fire."
+            },
+            {
+                number: "III",
+                name: "THREE OF WANDS",
+                archetype: "Expansion & Foresight",
+                element: "Fire",
+                planet: "Sun in Aries",
+                upright: "Expansion. Ships coming in. Your plans are bearing fruit. Looking beyond the horizon. Travel. International business. Moving to the next level.",
+                reversed: "Delays. Obstacles. Disappointment in results. Holding onto the past. Fear of expansion.",
+                shadow: "Are you waiting for your ship to come in without having sent one out? Expectation without effort is entitlement."
+            },
+            {
+                number: "IV",
+                name: "FOUR OF WANDS",
+                archetype: "Celebration & Home",
+                element: "Fire",
+                planet: "Venus in Aries",
+                upright: "Joy, celebration, homecoming. A milestone reached. Marriage or union. Stability in chaos. A safe haven. Community.",
+                reversed: "Instability at home. Family conflict. Cancelled celebration. Feeling unwelcome. Transition period.",
+                shadow: "Are you celebrating too early? Resting on your laurels before the war is won can be dangerous."
+            },
+            {
+                number: "V",
+                name: "FIVE OF WANDS",
+                archetype: "Conflict & Competition",
+                element: "Fire",
+                planet: "Saturn in Leo",
+                upright: "Competition, rivalry, conflict. Hassles. Ego battles. Brainstorming session where everyone talks at once. Struggle for dominance. Healthy competition.",
+                reversed: "Avoiding conflict. Agreeing to disagree. Resolution. Internal conflict. Fear of competition.",
+                shadow: "Are you fighting just to fight? Check if your ego is driving the bus."
+            },
+            {
+                number: "VI",
+                name: "SIX OF WANDS",
+                archetype: "Victory & Recognition",
+                element: "Fire",
+                planet: "Jupiter in Leo",
+                upright: "Victory, public recognition, fame. Being on a high horse. Success. Validation. Leadership. The crowd cheers for you.",
+                reversed: "Fall from grace. Egotism. No recognition. Treachery. The tall poppy syndrome. Failure.",
+                shadow: "Does your self-worth depend entirely on applause? The crowd that cheers today will boo tomorrow."
+            },
+            {
+                number: "VII",
+                name: "SEVEN OF WANDS",
+                archetype: "Defense & Perseverance",
+                element: "Fire",
+                planet: "Mars in Leo",
+                upright: "Defending your position. Standing your ground against many. Perseverance. Courage under fire. You have the high ground.",
+                reversed: "Giving up. Overwhelmed. Losing the battle. Compromising your values. Being outnumbered.",
+                shadow: "Are you defensive because you are right, or because you are insecure? Paranoia vs. Preparedness."
+            },
+            {
+                number: "VIII",
+                name: "EIGHT OF WANDS",
+                archetype: "Speed & Movement",
+                element: "Fire",
+                planet: "Mercury in Sagittarius",
+                upright: "Speed. Fast communication. Travel. Things moving quickly. Arrows of love. Sudden action. 'Strike while the iron is hot.'",
+                reversed: "Delays. Frustration. Slowing down. Miscommunication. Haste makes waste. Panic.",
+                shadow: "Are you moving fast to avoid feeling? Speed can be a drug to numb the pain of stillness."
+            },
+            {
+                number: "IX",
+                name: "NINE OF WANDS",
+                archetype: "Resilience & Last Stand",
+                element: "Fire",
+                planet: "Moon in Sagittarius",
+                upright: "Resilience. Wounded but standing. The last line of defense. Persistence. Grit. You are almost there, don't give up now.",
+                reversed: "Exhaustion. Giving up. Paranoia. Defensive posture. Burnout.",
+                shadow: "Are you seeing enemies where there are none? The war is over, put down the shield."
+            },
+            {
+                number: "X",
+                name: "TEN OF WANDS",
+                archetype: "Burden & Responsibility",
+                element: "Fire",
+                planet: "Saturn in Sagittarius",
+                upright: "Burden, heavy load, responsibility. Stress. Taking on too much. Carrying the weight of the world. Success that feels like a trap.",
+                reversed: "Collapsing under the weight. Delegating. Letting go. Burnout. Refusing responsibility.",
+                shadow: "Are you carrying the cross to look like a martyr? Drop the unnecessary baggage."
+            },
+            {
+                number: "PAGE",
+                name: "PAGE OF WANDS",
+                archetype: "Messenger of Fire",
+                element: "Earth of Fire",
+                planet: "Season of Spring",
+                upright: "Discovery, enthusiasm, new ideas. A message of passion. The explorer. Free spirit. Childlike wonder.",
+                reversed: "Setbacks to new ideas. Lack of direction. Pessimism. Tantrums. Bad news.",
+                shadow: "Are you all talk and no walk? The Page loves to start fires but hates to tend them."
+            },
+            {
+                number: "KNIGHT",
+                name: "KNIGHT OF WANDS",
+                archetype: "Action & Adventure",
+                element: "Fire of Fire",
+                planet: "Leo",
+                upright: "Action, adventure, fearlessness. Rushing in. Charisma. Lust. The hero (or the player). Travel and movement.",
+                reversed: "Recklessness. Impulsiveness. Anger. Arrogance. A scattered mind. Burnout.",
+                shadow: "Are you running away from yourself? The Knight rides fast to avoid the silence."
+            },
+            {
+                number: "QUEEN",
+                name: "QUEEN OF WANDS",
+                archetype: "Passion & Independence",
+                element: "Water of Fire",
+                planet: "Aries",
+                upright: "Confidence, independence, social butterfly. The witch/sorceress. Charismatic leader. Warmth. Sexual power.",
+                reversed: "Jealousy. Insecurity. Demanding nature. Manipulative. The 'Ice Queen' or the 'Drama Queen'.",
+                shadow: "Do you need to be the center of attention to feel alive? Validation must come from within."
+            },
+            {
+                number: "KING",
+                name: "KING OF WANDS",
+                archetype: "Visionary Leadership",
+                element: "Air of Fire",
+                planet: "Sagittarius",
+                upright: "Big picture vision. Entrepreneurship. Born leader. Honor. Inspiration. Making things happen. Master of fire.",
+                reversed: "Ruthlessness. Tyranny. Impulsiveness. Setting bad examples. High expectations but low support.",
+                shadow: "Are you burning your subjects to fuel your own glory? True kings serve the realm."
+            }
+        ];
+
+        function renderWands() {
+            const container = document.getElementById('wands-suit');
+            let html = '';
+            wandsArcana.forEach(card => {
+                html += `
+                    <div class="card-entry">
+                        <div class="card-header" onclick="toggleCard(this)">
+                            <div class="card-title">
+                                <span class="card-number" style="border-color: #ff5500; color: #ff5500;">${card.number}</span>
+                                ${card.name}
+                            </div>
+                            <div style="color: var(--text-dim);">▼</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="content-inner">
+                                <div class="archetype-box" style="border-left-color: #ff5500; background: rgba(255, 85, 0, 0.1);">
+                                    <strong>ARCHETYPE:</strong> ${card.archetype}
+                                </div>
+                                <div class="meaning-col">
+                                    <h3>⬆️ UPRIGHT</h3>
+                                    <div style="margin-bottom: 1rem;">
+                                        <span class="tag element">${card.element}</span>
+                                        <span class="tag planet">${card.planet}</span>
+                                    </div>
+                                    <p>${card.upright}</p>
+                                </div>
+                                <div class="meaning-col">
+                                    <h3>⬇️ REVERSED</h3>
+                                    <div class="shadow-warning">
+                                        <strong>SHADOW WORK:</strong><br>
+                                        ${card.shadow}
+                                    </div>
+                                    <p style="margin-top: 1rem; opacity: 0.8;">${card.reversed}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        // Initialize Wands
+        renderWands();
 
     </script>
 </body>
